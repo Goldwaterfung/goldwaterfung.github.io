@@ -183,48 +183,57 @@ document.addEventListener('DOMContentLoaded', () => {
     const audioAfter = document.getElementById('audio-after');
     
     // Check if real files are loaded
-    function checkAudioSources() {
-        let loadedCount = 0;
-        
-        function checkDone() {
-            loadedCount++;
-            if (loadedCount === 2) {
-                isFallback = false;
-                duration = Math.max(audioBefore.duration, audioAfter.duration) || 24;
-                timeTotal.textContent = formatTime(duration);
-                sourceIndicator.textContent = 'REAL AUDIO FILES ACTIVE';
-                sourceIndicator.style.color = '#1c1c1e';
-                sourceIndicator.style.backgroundColor = 'rgba(0,0,0,0.05)';
-                sourceIndicator.style.borderColor = 'rgba(0,0,0,0.1)';
-            }
+    function handleAudioLoaded() {
+        if (audioBefore.readyState >= 1 && audioAfter.readyState >= 1) {
+            isFallback = false;
+            duration = Math.max(audioBefore.duration, audioAfter.duration) || 24;
+            timeTotal.textContent = formatTime(duration);
+            sourceIndicator.textContent = 'REAL AUDIO FILES ACTIVE';
+            sourceIndicator.style.color = '#1c1c1e';
+            sourceIndicator.style.backgroundColor = 'rgba(0,0,0,0.05)';
+            sourceIndicator.style.borderColor = 'rgba(0,0,0,0.1)';
         }
-        
-        // Remove existing listener to prevent stacking on reload
-        audioBefore.removeEventListener('loadedmetadata', checkDone);
-        audioAfter.removeEventListener('loadedmetadata', checkDone);
-        audioBefore.addEventListener('loadedmetadata', checkDone);
-        audioAfter.addEventListener('loadedmetadata', checkDone);
-        
-        // Timeout to check if files actually loaded
-        setTimeout(() => {
-            if (audioBefore.readyState >= 1 && audioAfter.readyState >= 1) {
-                isFallback = false;
-                duration = Math.max(audioBefore.duration, audioAfter.duration) || 24;
-                timeTotal.textContent = formatTime(duration);
-                sourceIndicator.textContent = 'REAL AUDIO FILES ACTIVE';
-                sourceIndicator.style.color = '#1c1c1e';
-                sourceIndicator.style.backgroundColor = 'rgba(0,0,0,0.05)';
-                sourceIndicator.style.borderColor = 'rgba(0,0,0,0.1)';
-            } else {
-                isFallback = true;
-                duration = 24; // Mock duration
-                timeTotal.textContent = formatTime(duration);
-                sourceIndicator.textContent = 'SYNTH FALLBACK ACTIVE';
-                sourceIndicator.style.color = 'var(--accent-amber)';
-                sourceIndicator.style.backgroundColor = 'rgba(230, 92, 0, 0.08)';
-                sourceIndicator.style.borderColor = 'var(--accent-amber-dim)';
-            }
-        }, 800);
+    }
+
+    function handleAudioError() {
+        isFallback = true;
+        duration = 24; // Mock duration
+        timeTotal.textContent = formatTime(duration);
+        sourceIndicator.textContent = 'SYNTH FALLBACK ACTIVE';
+        sourceIndicator.style.color = 'var(--accent-amber)';
+        sourceIndicator.style.backgroundColor = 'rgba(230, 92, 0, 0.08)';
+        sourceIndicator.style.borderColor = 'var(--accent-amber-dim)';
+    }
+
+    // Attach preloading listeners once
+    audioBefore.addEventListener('loadedmetadata', handleAudioLoaded);
+    audioAfter.addEventListener('loadedmetadata', handleAudioLoaded);
+    audioBefore.addEventListener('canplay', handleAudioLoaded);
+    audioAfter.addEventListener('canplay', handleAudioLoaded);
+    audioBefore.addEventListener('error', handleAudioError);
+    audioAfter.addEventListener('error', handleAudioError);
+
+    function checkAudioSources() {
+        if (audioBefore.readyState >= 1 && audioAfter.readyState >= 1) {
+            handleAudioLoaded();
+        } else {
+            // Set loading status while preloading headers
+            sourceIndicator.textContent = 'BUFFERING MUSIC MIX...';
+            sourceIndicator.style.color = 'var(--text-secondary)';
+            sourceIndicator.style.backgroundColor = 'rgba(0,0,0,0.02)';
+            sourceIndicator.style.borderColor = 'var(--border-color)';
+            
+            // Fail-safe: if the browser takes too long (e.g. offline/broken file)
+            // we default to fallback synth but don't disconnect preloading listeners.
+            // If the metadata loads later, handleAudioLoaded will promote it.
+            setTimeout(() => {
+                if (audioBefore.readyState < 1 || audioAfter.readyState < 1) {
+                    if (sourceIndicator.textContent === 'BUFFERING MUSIC MIX...') {
+                        handleAudioError();
+                    }
+                }
+            }, 6000); // 6 seconds fail-safe timeout for large WAV preloading over network
+        }
     }
     
     // Load a specific mix dynamically
@@ -241,6 +250,9 @@ document.addEventListener('DOMContentLoaded', () => {
         progressBar.style.width = '0%';
         progressHandle.style.left = '0%';
         timeCurrent.textContent = "0:00";
+        
+        // Temporarily set fallback true during reloading
+        isFallback = true;
         
         // Update elements
         audioBefore.src = `audio/Mix ${mixNumber}/mix_${mixNumber}_before.wav`;
@@ -276,29 +288,29 @@ document.addEventListener('DOMContentLoaded', () => {
         
         analyser.connect(masterGain);
         
-        if (!isFallback) {
-            try {
-                sourceBeforeNode = audioContext.createMediaElementSource(audioBefore);
-                sourceAfterNode = audioContext.createMediaElementSource(audioAfter);
-                
-                gainBeforeNode = audioContext.createGain();
-                gainAfterNode = audioContext.createGain();
-                
-                sourceBeforeNode.connect(gainBeforeNode);
-                sourceAfterNode.connect(gainAfterNode);
-                
-                gainBeforeNode.connect(analyser);
-                gainAfterNode.connect(analyser);
-                
-                updateRealAudioGains();
-                useWebAudioApiNodes = true;
-            } catch (err) {
-                console.warn("CORS/Local system security blocked connection. Audio elements routing to bypass visualizer.", err);
-                useWebAudioApiNodes = false;
-            }
-        } else {
-            setupSynthGraph();
+        // Attempt to connect HTML audio tags to Web Audio API
+        try {
+            sourceBeforeNode = audioContext.createMediaElementSource(audioBefore);
+            sourceAfterNode = audioContext.createMediaElementSource(audioAfter);
+            
+            gainBeforeNode = audioContext.createGain();
+            gainAfterNode = audioContext.createGain();
+            
+            sourceBeforeNode.connect(gainBeforeNode);
+            sourceAfterNode.connect(gainAfterNode);
+            
+            gainBeforeNode.connect(analyser);
+            gainAfterNode.connect(analyser);
+            
+            updateRealAudioGains();
+            useWebAudioApiNodes = true;
+        } catch (err) {
+            console.warn("CORS/Local system security blocked connection. Audio elements routing to bypass visualizer.", err);
+            useWebAudioApiNodes = false;
         }
+        
+        // Initialize the Synthesizer graph in parallel so both sources are pre-wired
+        setupSynthGraph();
         
         startSpectrogramRendering();
     }
