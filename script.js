@@ -165,11 +165,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // Web Audio API Variables
     let audioContext = null;
     let analyser = null;
-    let sourceBeforeNode = null;
-    let sourceAfterNode = null;
-    let gainBeforeNode = null;
-    let gainAfterNode = null;
     let masterGain = null;
+    
+    // Four independent media source nodes and gains
+    let sourceMix1BeforeNode = null;
+    let sourceMix1AfterNode = null;
+    let sourceMix2BeforeNode = null;
+    let sourceMix2AfterNode = null;
+    let gainMix1BeforeNode = null;
+    let gainMix1AfterNode = null;
+    let gainMix2BeforeNode = null;
+    let gainMix2AfterNode = null;
     
     // Fallback Synth Nodes
     let synthOsc1 = null;
@@ -178,15 +184,26 @@ document.addEventListener('DOMContentLoaded', () => {
     let lowpassFilter = null;
     let reverbNode = null;
     
-    // Load audio files
-    const audioBefore = document.getElementById('audio-before');
-    const audioAfter = document.getElementById('audio-after');
+    // Load audio elements
+    const audioMix1Before = document.getElementById('audio-mix1-before');
+    const audioMix1After = document.getElementById('audio-mix1-after');
+    const audioMix2Before = document.getElementById('audio-mix2-before');
+    const audioMix2After = document.getElementById('audio-mix2-after');
+    
+    function getActiveAudioElements() {
+        if (activeMix === 1) {
+            return { before: audioMix1Before, after: audioMix1After };
+        } else {
+            return { before: audioMix2Before, after: audioMix2After };
+        }
+    }
     
     // Check if real files are loaded
     function handleAudioLoaded() {
-        if (audioBefore.readyState >= 1 && audioAfter.readyState >= 1) {
+        const current = getActiveAudioElements();
+        if (current.before.readyState >= 1 && current.after.readyState >= 1) {
             isFallback = false;
-            duration = Math.max(audioBefore.duration, audioAfter.duration) || 24;
+            duration = Math.max(current.before.duration, current.after.duration) || 24;
             timeTotal.textContent = formatTime(duration);
             sourceIndicator.textContent = 'REAL AUDIO FILES ACTIVE';
             sourceIndicator.style.color = '#1c1c1e';
@@ -196,6 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function handleAudioError() {
+        // Only set fallback if the currently active mix elements throw an error
         isFallback = true;
         duration = 24; // Mock duration
         timeTotal.textContent = formatTime(duration);
@@ -205,16 +223,16 @@ document.addEventListener('DOMContentLoaded', () => {
         sourceIndicator.style.borderColor = 'var(--accent-amber-dim)';
     }
 
-    // Attach preloading listeners once
-    audioBefore.addEventListener('loadedmetadata', handleAudioLoaded);
-    audioAfter.addEventListener('loadedmetadata', handleAudioLoaded);
-    audioBefore.addEventListener('canplay', handleAudioLoaded);
-    audioAfter.addEventListener('canplay', handleAudioLoaded);
-    audioBefore.addEventListener('error', handleAudioError);
-    audioAfter.addEventListener('error', handleAudioError);
+    // Attach preloading listeners once to all elements
+    [audioMix1Before, audioMix1After, audioMix2Before, audioMix2After].forEach(audio => {
+        audio.addEventListener('loadedmetadata', handleAudioLoaded);
+        audio.addEventListener('canplay', handleAudioLoaded);
+        audio.addEventListener('error', handleAudioError);
+    });
 
     function checkAudioSources() {
-        if (audioBefore.readyState >= 1 && audioAfter.readyState >= 1) {
+        const current = getActiveAudioElements();
+        if (current.before.readyState >= 1 && current.after.readyState >= 1) {
             handleAudioLoaded();
         } else {
             // Set loading status while preloading headers
@@ -223,26 +241,33 @@ document.addEventListener('DOMContentLoaded', () => {
             sourceIndicator.style.backgroundColor = 'rgba(0,0,0,0.02)';
             sourceIndicator.style.borderColor = 'var(--border-color)';
             
-            // Fail-safe: if the browser takes too long (e.g. offline/broken file)
-            // we default to fallback synth but don't disconnect preloading listeners.
-            // If the metadata loads later, handleAudioLoaded will promote it.
             setTimeout(() => {
-                if (audioBefore.readyState < 1 || audioAfter.readyState < 1) {
+                const currentCheck = getActiveAudioElements();
+                if (currentCheck.before.readyState < 1 || currentCheck.after.readyState < 1) {
                     if (sourceIndicator.textContent === 'BUFFERING MUSIC MIX...') {
                         handleAudioError();
                     }
                 }
-            }, 6000); // 6 seconds fail-safe timeout for large WAV preloading over network
+            }, 6000); // 6 seconds fail-safe timeout for preloading over network
         }
     }
     
     // Load a specific mix dynamically
     function loadMix(mixNumber) {
+        // Pause all playing audio elements
+        [audioMix1Before, audioMix1After, audioMix2Before, audioMix2After].forEach(audio => {
+            audio.pause();
+        });
+        if (isPlaying) {
+            stopSynthVocalSequence();
+        }
+
         activeMix = mixNumber;
         
         const wasPlaying = isPlaying;
         if (isPlaying) {
-            pauseAudio();
+            clearInterval(playInterval);
+            isPlaying = false;
         }
         
         // Reset playback position
@@ -254,19 +279,22 @@ document.addEventListener('DOMContentLoaded', () => {
         // Temporarily set fallback true during reloading
         isFallback = true;
         
-        // Update elements
-        audioBefore.src = `audio/Mix ${mixNumber}/mix_${mixNumber}_before.wav`;
-        audioAfter.src = `audio/Mix ${mixNumber}/mix_${mixNumber}_after.wav`;
-        
-        audioBefore.load();
-        audioAfter.load();
+        // Preload elements manually just in case
+        const current = getActiveAudioElements();
+        current.before.load();
+        current.after.load();
         
         checkAudioSources();
+        
+        // Reset volume gains
+        if (audioContext && useWebAudioApiNodes) {
+            updateRealAudioGains();
+        }
         
         if (wasPlaying) {
             setTimeout(() => {
                 playAudio();
-            }, 150);
+            }, 200);
         }
     }
     
@@ -288,19 +316,29 @@ document.addEventListener('DOMContentLoaded', () => {
         
         analyser.connect(masterGain);
         
-        // Attempt to connect HTML audio tags to Web Audio API
+        // Connect all four elements to Web Audio context
         try {
-            sourceBeforeNode = audioContext.createMediaElementSource(audioBefore);
-            sourceAfterNode = audioContext.createMediaElementSource(audioAfter);
+            sourceMix1BeforeNode = audioContext.createMediaElementSource(audioMix1Before);
+            sourceMix1AfterNode = audioContext.createMediaElementSource(audioMix1After);
+            sourceMix2BeforeNode = audioContext.createMediaElementSource(audioMix2Before);
+            sourceMix2AfterNode = audioContext.createMediaElementSource(audioMix2After);
             
-            gainBeforeNode = audioContext.createGain();
-            gainAfterNode = audioContext.createGain();
+            gainMix1BeforeNode = audioContext.createGain();
+            gainMix1AfterNode = audioContext.createGain();
+            gainMix2BeforeNode = audioContext.createGain();
+            gainMix2AfterNode = audioContext.createGain();
             
-            sourceBeforeNode.connect(gainBeforeNode);
-            sourceAfterNode.connect(gainAfterNode);
+            // Connect Mix 1
+            sourceMix1BeforeNode.connect(gainMix1BeforeNode);
+            sourceMix1AfterNode.connect(gainMix1AfterNode);
+            gainMix1BeforeNode.connect(analyser);
+            gainMix1AfterNode.connect(analyser);
             
-            gainBeforeNode.connect(analyser);
-            gainAfterNode.connect(analyser);
+            // Connect Mix 2
+            sourceMix2BeforeNode.connect(gainMix2BeforeNode);
+            sourceMix2AfterNode.connect(gainMix2AfterNode);
+            gainMix2BeforeNode.connect(analyser);
+            gainMix2AfterNode.connect(analyser);
             
             updateRealAudioGains();
             useWebAudioApiNodes = true;
@@ -475,14 +513,33 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateRealAudioGains() {
-        if (!gainBeforeNode || !gainAfterNode) return;
+        if (!gainMix1BeforeNode || !gainMix1AfterNode || !gainMix2BeforeNode || !gainMix2AfterNode) return;
         const now = audioContext.currentTime;
-        if (!audioToggle.checked) {
-            gainBeforeNode.gain.setTargetAtTime(1.0, now, 0.05);
-            gainAfterNode.gain.setTargetAtTime(0.0, now, 0.05);
+        
+        if (activeMix === 1) {
+            // Mix 1 active
+            if (!audioToggle.checked) {
+                gainMix1BeforeNode.gain.setTargetAtTime(1.0, now, 0.05);
+                gainMix1AfterNode.gain.setTargetAtTime(0.0, now, 0.05);
+            } else {
+                gainMix1BeforeNode.gain.setTargetAtTime(0.0, now, 0.05);
+                gainMix1AfterNode.gain.setTargetAtTime(1.0, now, 0.05);
+            }
+            // Mute Mix 2
+            gainMix2BeforeNode.gain.setTargetAtTime(0.0, now, 0.05);
+            gainMix2AfterNode.gain.setTargetAtTime(0.0, now, 0.05);
         } else {
-            gainBeforeNode.gain.setTargetAtTime(0.0, now, 0.05);
-            gainAfterNode.gain.setTargetAtTime(1.0, now, 0.05);
+            // Mix 2 active
+            if (!audioToggle.checked) {
+                gainMix2BeforeNode.gain.setTargetAtTime(1.0, now, 0.05);
+                gainMix2AfterNode.gain.setTargetAtTime(0.0, now, 0.05);
+            } else {
+                gainMix2BeforeNode.gain.setTargetAtTime(0.0, now, 0.05);
+                gainMix2AfterNode.gain.setTargetAtTime(1.0, now, 0.05);
+            }
+            // Mute Mix 1
+            gainMix1BeforeNode.gain.setTargetAtTime(0.0, now, 0.05);
+            gainMix1AfterNode.gain.setTargetAtTime(0.0, now, 0.05);
         }
     }
 
@@ -596,11 +653,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         if (!isFallback) {
-            audioBefore.currentTime = currentTime;
-            audioAfter.currentTime = currentTime;
+            const current = getActiveAudioElements();
+            current.before.currentTime = currentTime;
+            current.after.currentTime = currentTime;
             
-            audioBefore.play();
-            audioAfter.play();
+            current.before.play();
+            current.after.play();
         } else {
             runSynthVocalSequence();
         }
@@ -624,10 +682,11 @@ document.addEventListener('DOMContentLoaded', () => {
             ledActive.classList.remove('active');
         }
         
-        if (!isFallback) {
-            audioBefore.pause();
-            audioAfter.pause();
-        } else {
+        // Pause all elements to be safe
+        [audioMix1Before, audioMix1After, audioMix2Before, audioMix2After].forEach(audio => {
+            audio.pause();
+        });
+        if (isFallback) {
             stopSynthVocalSequence();
         }
         
@@ -637,8 +696,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     function updateTimeline() {
         if (!isFallback) {
-            currentTime = audioBefore.currentTime;
-            duration = audioBefore.duration || duration;
+            const current = getActiveAudioElements();
+            currentTime = current.before.currentTime;
+            duration = current.before.duration || duration;
         } else {
             currentTime += 0.1;
             
@@ -676,8 +736,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (useWebAudioApiNodes) {
                     updateRealAudioGains();
                 } else {
-                    audioBefore.muted = false;
-                    audioAfter.muted = true;
+                    const current = getActiveAudioElements();
+                    current.before.muted = false;
+                    current.after.muted = true;
                 }
             } else {
                 updateSynthParameters();
@@ -693,8 +754,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (useWebAudioApiNodes) {
                     updateRealAudioGains();
                 } else {
-                    audioBefore.muted = true;
-                    audioAfter.muted = false;
+                    const current = getActiveAudioElements();
+                    current.before.muted = true;
+                    current.after.muted = false;
                 }
             } else {
                 updateSynthParameters();
@@ -738,8 +800,9 @@ document.addEventListener('DOMContentLoaded', () => {
         timeCurrent.textContent = formatTime(currentTime);
         
         if (!isFallback) {
-            audioBefore.currentTime = currentTime;
-            audioAfter.currentTime = currentTime;
+            const current = getActiveAudioElements();
+            current.before.currentTime = currentTime;
+            current.after.currentTime = currentTime;
         }
     });
     
@@ -760,16 +823,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         if (!isFallback && !useWebAudioApiNodes) {
-            audioBefore.volume = vol;
-            audioAfter.volume = vol;
+            [audioMix1Before, audioMix1After, audioMix2Before, audioMix2After].forEach(audio => {
+                audio.volume = vol;
+            });
         }
     });
 
-    audioBefore.addEventListener('ended', () => {
+    // Listen to ended events on both mixes
+    audioMix1Before.addEventListener('ended', () => {
+        if (activeMix === 1) handleEnded();
+    });
+    audioMix2Before.addEventListener('ended', () => {
+        if (activeMix === 2) handleEnded();
+    });
+
+    function handleEnded() {
         pauseAudio();
         currentTime = 0;
         progressBar.style.width = '0%';
         progressHandle.style.left = '0%';
         timeCurrent.textContent = "0:00";
-    });
+    }
 });
