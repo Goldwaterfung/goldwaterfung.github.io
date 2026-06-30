@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fung Kam Kiu | Music & Audio Engineer | Portfolio</title>
+    
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="Portfolio of Fung Kam Kiu, Music & Audio Engineering graduate specializing in dialogue restoration, game audio, VR ambisonics, and AI-driven audio post-production.">
+    <meta name="keywords" content="Audio Engineer, Dialogue Restoration, Sound Design, Unity3D, Ambisonics, iZotope RX, Pro Tools, AI Audio, Fung Kam Kiu">
+    
+    <!-- Google Fonts: Georgia (Serif), Space Mono (Monospace), Inter (Sans-serif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Georgia&family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Sticky Navigation -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="#hero" class="logo">
+                <span class="logo-name">FUNG KAM KIU</span>
+                <span class="logo-title">// Audio Engineer</span>
+            </a>
+            
+            <nav class="nav-menu" id="nav-menu">
+                <a href="#about" class="nav-link active">About</a>
+                <a href="#restoration" class="nav-link">Restoration Lab</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#portfolio" class="nav-link">Portfolio</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#contact" class="nav-link nav-btn">Contact</a>
+            </nav>
+            
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <canvas id="canvas-visualizer"></canvas>
+            
+            <div class="hero-container">
+                <div class="hero-header-line">
+                    <span class="mono-label">PORTFOLIO INDEX // FY2026</span>
+                    <span class="mono-status"><span class="status-dot"></span> Available for Curation</span>
+                </div>
+                
+                <h1 class="hero-title">
+                    Fung Kam Kiu
+                </h1>
+                
+                <h2 class="hero-subtitle">
+                    Music & Audio Engineering graduate specializing in dialogue restoration, game sound in Unity/Wwise, and AI audio datasets.
+                </h2>
+                
+                <div class="hero-cta-group">
+                    <a href="#restoration" class="btn btn-dark">
+                        <i class="fa-solid fa-play"></i> Restoration Lab
+                    </a>
+                    <a href="#portfolio" class="btn btn-light">
+                        <i class="fa-solid fa-folder-open"></i> Portfolio Highlights
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section about-section">
+            <div class="container">
+                <div class="section-grid">
+                    <div class="section-meta">
+                        <span class="mono-section-label">01 // PROFILE</span>
+                        <h2 class="section-serif-title">Professional Summary</h2>
+                    </div>
+                    
+                    <div class="section-content">
+                        <div class="editorial-lead">
+                            Recent Music & Audio Engineering graduate from Tainan National University of The Arts with a highly trained ear for acoustics, signal processing, and sound design.
+                        </div>
+                        <p class="editorial-body">
+                            Highly proficient in industry-standard DAWs and audio restoration workflows, as well as sound design in Unity3D and AudioKinetic Wwise with higher-order Ambisonics technology. Possess a deep interest in audio effect chain dataset engineering and post-production quality assurance. Operates a fully equipped, acoustically treated home studio for high-fidelity dialogue cleanup and auditory assessments.
+                        </p>
+                        
+                        <div class="about-contact-links">
+                            <div class="contact-link-item">
+                                <span class="mono-label">LOCATION</span>
+                                <span class="contact-val">Hong Kong</span>
+                            </div>
+                            <div class="contact-link-item">
+                                <span class="mono-label">EMAIL</span>
+                                <a href="mailto:kim.kamkiu.fung@gmail.com" class="contact-val underline-link">kim.kamkiu.fung@gmail.com</a>
+                            </div>
+                            <div class="contact-link-item">
+                                <span class="mono-label">PHONE</span>
+                                <a href="tel:+85292551940" class="contact-val">+852 92551940</a>
+                            </div>
+                            <div class="contact-link-item">
+                                <span class="mono-label">REPOSITORY</span>
+                                <a href="https://github.com/Goldwaterfung/goldwaterfung.github.io" target="_blank" rel="noopener" class="contact-val underline-link">goldwaterfung.github.io</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Audio Restoration Lab (Minimalist Hardware Console style) -->
+        <section id="restoration" class="section restoration-section">
+            <div class="container">
+                <div class="section-grid">
+                    <div class="section-meta">
+                        <span class="mono-section-label">02 // INTERACTIVE LAB</span>
+                        <h2 class="section-serif-title">Dialogue Restoration</h2>
+                        <p class="section-side-desc">
+                            Toggle between raw unprocessed source and AI-cleaned/RX restored output. The visualization simulates a hardware level analyzer displaying real-time spectrum amplitude.
+                        </p>
+                    </div>
+                    
+                    <div class="section-content">
+                        <div class="console-panel">
+                            <!-- Console Header -->
+                            <div class="console-header">
+                                <div class="console-title">STUDIO CONSOLE MODEL-1</div>
+                                <div class="console-leds">
+                                    <span class="led red"></span>
+                                    <span class="led amber active" id="led-active"></span>
+                                    <span class="led green"></span>
+                                </div>
+                            </div>
+                            
+                            <!-- Oscilloscope Screen -->
+                            <div class="oscilloscope-frame">
+                                <canvas id="spectrogram-canvas"></canvas>
+                                <div class="oscilloscope-grid"></div>
+                                <div class="oscilloscope-hud">
+                                    <span class="hud-left">CH.A // SPECTROGRAM</span>
+                                    <span class="hud-right" id="playback-hud-status">STANDBY</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Console Controls -->
+                            <div class="console-controls">
+                                <!-- Mode Selector -->
+                                <div class="control-group">
+                                    <span class="control-label">Restoration Selector</span>
+                                    <div class="mode-toggle-bar">
+                                        <button class="mode-toggle-btn active" id="btn-mode-before">Original (Noisy)</button>
+                                        <button class="mode-toggle-btn" id="btn-mode-after">Restored (Clean)</button>
+                                        <!-- Hidden input to maintain compatibility with script logic -->
+                                        <input type="checkbox" id="audio-source-toggle" style="display:none;">
+                                    </div>
+                                </div>
+                                
+                                <!-- Progress/Time Scrubber -->
+                                <div class="control-group scrubber-group">
+                                    <span class="control-label">Position / Scrubber</span>
+                                    <div class="timeline-row">
+                                        <span class="mono-time" id="time-current">0:00</span>
+                                        <div class="timeline-track-wrapper" id="progress-bar-wrapper">
+                                            <div class="timeline-fill" id="progress-bar"></div>
+                                            <div class="timeline-knob" id="progress-handle"></div>
+                                        </div>
+                                        <span class="mono-time" id="time-total">0:00</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Playback & Volume Row -->
+                                <div class="console-lower-row">
+                                    <button class="btn-console-play" id="btn-play-pause" aria-label="Play/Pause">
+                                        <i class="fa-solid fa-play"></i> PLAY
+                                    </button>
+                                    
+                                    <div class="console-volume">
+                                        <i class="fa-solid fa-volume-high volume-icon" id="volume-icon"></i>
+                                        <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.8" aria-label="Volume">
+                                    </div>
+                                    
+                                    <div class="system-status-indicator" id="source-indicator">
+                                        SYNTH FALLBACK ACTIVE
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Hidden Audio Tags -->
+                        <audio id="audio-before" src="audio/before.mp3" preload="auto"></audio>
+                        <audio id="audio-after" src="audio/after.mp3" preload="auto"></audio>
+                        
+                        <div class="restoration-metadata">
+                            <span class="meta-tag">Pipeline: se_der_sb_16k_small (Dereverb)</span>
+                            <span class="meta-tag">Model: CleanUNet 2 (Denoise)</span>
+                            <span class="meta-tag">Tool: iZotope RX (Spectral repair)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Skills Section -->
+        <section id="skills" class="section skills-section">
+            <div class="container">
+                <div class="section-grid">
+                    <div class="section-meta">
+                        <span class="mono-section-label">03 // SKILLSET</span>
+                        <h2 class="section-serif-title">Core Competencies</h2>
+                        <p class="section-side-desc">
+                            Engineering capabilities, platform proficiencies, and linguistic capabilities parsed from professional experience.
+                        </p>
+                    </div>
+                    
+                    <div class="section-content">
+                        <div class="skills-editorial-grid">
+                            <!-- Category 1 -->
+                            <div class="skills-block">
+                                <h3 class="skills-block-title">DAWs & Production</h3>
+                                <ul class="flat-skill-list">
+                                    <li>
+                                        <span class="skill-name">Pro Tools</span>
+                                        <span class="skill-rating">95%</span>
+                                    </li>
+                                    <li>
+                                        <span class="skill-name">Logic Pro</span>
+                                        <span class="skill-rating">90%</span>
+                                    </li>
+                                    <li>
+                                        <span class="skill-name">Studio One</span>
+                                        <span class="skill-rating">85%</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Category 2 -->
+                            <div class="skills-block">
+                                <h3 class="skills-block-title">Audio Processing</h3>
+                                <div class="text-tag-container">
+                                    <span class="text-tag">Noise Reduction</span>
+                                    <span class="text-tag">EQ / Compression</span>
+                                    <span class="text-tag">Vocal Modulation</span>
+                                    <span class="text-tag">Signal Processing</span>
+                                    <span class="text-tag">Waveform Analysis</span>
+                                    <span class="text-tag">Dialogue Editing</span>
+                                    <span class="text-tag">Vocal Recording</span>
+                                    <span class="text-tag">Acoustic Analysis</span>
+                                    <span class="text-tag">Loudness Standards</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Category 3 -->
+                            <div class="skills-block">
+                                <h3 class="skills-block-title">AI & Restoration Tools</h3>
+                                <ul class="flat-skill-list">
+                                    <li>
+                                        <span class="skill-name">iZotope RX Spectral Editor</span>
+                                        <span class="skill-rating">95%</span>
+                                    </li>
+                                    <li>
+                                        <span class="skill-name">Python Audio Pipelines (Demucs)</span>
+                                        <span class="skill-rating">80%</span>
+                                    </li>
+                                    <li>
+                                        <span class="skill-name">Unity3D / Wwise Spatial Audio</span>
+                                        <span class="skill-rating">85%</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Category 4 -->
+                            <div class="skills-block">
+                                <h3 class="skills-block-title">Languages</h3>
+                                <ul class="flat-skill-list">
+                                    <li>
+                                        <span class="skill-name">English</span>
+                                        <span class="skill-rating">Native</span>
+                                    </li>
+                                    <li>
+                                        <span class="skill-name">Cantonese</span>
+                                        <span class="skill-rating">Native</span>
+                                    </li>
+                                    <li>
+                                        <span class="skill-name">Mandarin</span>
+                                        <span class="skill-rating">Native</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio & Projects Section -->
+        <section id="portfolio" class="section portfolio-section">
+            <div class="container">
+                <div class="section-grid">
+                    <div class="section-meta">
+                        <span class="mono-section-label">04 // PORTFOLIO</span>
+                        <h2 class="section-serif-title">Research & Projects</h2>
+                        
+                        <div class="flat-filters">
+                            <button class="filter-btn active" data-filter="all">All</button>
+                            <button class="filter-btn" data-filter="research">Research</button>
+                            <button class="filter-btn" data-filter="audio-prod">Audio Prod</button>
+                        </div>
+                    </div>
+                    
+                    <div class="section-content">
+                        <div class="flat-project-grid" id="portfolio-grid">
+                            <!-- Project 1 -->
+                            <div class="flat-project-row" data-category="research">
+                                <div class="project-year">2026</div>
+                                <div class="project-details">
+                                    <span class="project-meta-label">RESEARCH & DEVELOPMENT</span>
+                                    <h3 class="project-row-title">Differentiable Audio Signal Processing with Customized Mixing Console</h3>
+                                    <p class="project-row-desc">
+                                        Collected high-quality music stems dataset scraping from the internet. Customized automation workflow from scraping process to source separation using <code>sam-audio-small</code>/Demucs.
+                                    </p>
+                                    <div class="project-row-tags">
+                                        <span>Python</span>
+                                        <span>Demucs</span>
+                                        <span>DSP</span>
+                                        <span>Audio Dataset</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Project 2 -->
+                            <div class="flat-project-row" data-category="research">
+                                <div class="project-year">2026</div>
+                                <div class="project-details">
+                                    <span class="project-meta-label">VR / SPATIAL AUDIO</span>
+                                    <h3 class="project-row-title">Measuring Visual Capture in VR under Sustained Audiovisual Conflict</h3>
+                                    <p class="project-row-desc">
+                                        Designed experiment environments in Unity3D utilizing third-order Ambisonics spatial sound. Built a telemetry system to capture head/hand coordinates, data cleaning in Python, sound generation from ElevenLabs.
+                                    </p>
+                                    <div class="project-row-tags">
+                                        <span>Unity3D</span>
+                                        <span>Ambisonics</span>
+                                        <span>Wwise</span>
+                                        <span>Python</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Project 3 -->
+                            <div class="flat-project-row" data-category="audio-prod">
+                                <div class="project-year">2026</div>
+                                <div class="project-details">
+                                    <span class="project-meta-label">AUDIO POST-PRODUCTION</span>
+                                    <h3 class="project-row-title">Short Film Sound Redesign utilizing Agentic AI Workflows</h3>
+                                    <p class="project-row-desc">
+                                        Redesigned all sound effects and background music for short film <em>Widdershins</em>. Used Pro Tools MCP with agentic storyboard alignment, Suno/ElevenLabs asset generation, vocal isolation, and frequency recovery.
+                                    </p>
+                                    <div class="project-row-tags">
+                                        <span>Pro Tools MCP</span>
+                                        <span>ElevenLabs</span>
+                                        <span>iZotope RX</span>
+                                        <span>Agentic QA</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Project 4 -->
+                            <div class="flat-project-row" data-category="audio-prod">
+                                <div class="project-year">2026</div>
+                                <div class="project-details">
+                                    <span class="project-meta-label">MIXING & RESTORATION</span>
+                                    <h3 class="project-row-title">Professional 100+ Track Multitrack Mixing</h3>
+                                    <p class="project-row-desc">
+                                        Executed high-density mixing making defensible processing choices for broadcast loudness. Resolved signal clipping/degradation and eliminated vocal artifacts without causing formant damage.
+                                    </p>
+                                    <div class="project-row-tags">
+                                        <span>Avid Pro Tools</span>
+                                        <span>Loudness Calibration</span>
+                                        <span>Vocal Repair</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Timeline Section -->
+        <section id="experience" class="section experience-section">
+            <div class="container">
+                <div class="section-grid">
+                    <div class="section-meta">
+                        <span class="mono-section-label">05 // TIMELINE</span>
+                        <h2 class="section-serif-title">Education & Experience</h2>
+                    </div>
+                    
+                    <div class="section-content">
+                        <div class="flat-timeline">
+                            <!-- Item 1 -->
+                            <div class="timeline-row">
+                                <div class="timeline-time">2022 - 2026</div>
+                                <div class="timeline-details">
+                                    <span class="timeline-tag">EDUCATION</span>
+                                    <h3 class="timeline-row-title">BA in Music & Audio Engineering</h3>
+                                    <div class="timeline-row-org">Tainan National University of the Arts (TNNUA)</div>
+                                    <p class="timeline-row-desc">
+                                        Relevant Coursework: Acoustic Analysis, Advanced Mixing, Digital Signal Processing, Sound Design, Studio Recording, AI in Music.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <!-- Item 2 -->
+                            <div class="timeline-row">
+                                <div class="timeline-time">2024 - 2025</div>
+                                <div class="timeline-details">
+                                    <span class="timeline-tag">EXPERIENCE</span>
+                                    <h3 class="timeline-row-title">College Studio Assistant</h3>
+                                    <div class="timeline-row-org">TNNUA Studio Operations</div>
+                                    <p class="timeline-row-desc">
+                                        Set up recording equipment, microphones, and DAWs. Conducted waveform editing, noise reduction, and data organization. Repaired technical routing and synchronization issues.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <!-- Item 3 -->
+                            <div class="timeline-row">
+                                <div class="timeline-time">2020 - PRESENT</div>
+                                <div class="timeline-details">
+                                    <span class="timeline-tag">EXPERIENCE</span>
+                                    <h3 class="timeline-row-title">Freelance Audio Editor</h3>
+                                    <div class="timeline-row-org">Self-Employed (Hong Kong / Remote)</div>
+                                    <p class="timeline-row-desc">
+                                        Delivered high-quality audio mixing and dialogue editing services. Guided non-technical clients to translate creative vision into professional acoustic files.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <div class="section-grid">
+                    <div class="section-meta">
+                        <span class="mono-section-label">06 // CONTACT</span>
+                        <h2 class="section-serif-title">Inquiries & Collaboration</h2>
+                        <p class="section-side-desc">
+                            Operating from a fully equipped, acoustically treated home studio. Open to full-time roles, contracts, and AI audio assessments.
+                        </p>
+                    </div>
+                    
+                    <div class="section-content">
+                        <form id="contact-form" class="flat-form" action="mailto:kim.kamkiu.fung@gmail.com" method="GET" enctype="text/plain">
+                            <div class="flat-form-row">
+                                <div class="flat-form-group">
+                                    <label for="form-name">Name</label>
+                                    <input type="text" id="form-name" name="subject" placeholder="Your Name" required>
+                                </div>
+                                <div class="flat-form-group">
+                                    <label for="form-email">Email</label>
+                                    <input type="email" id="form-email" placeholder="Your Email" required>
+                                </div>
+                            </div>
+                            <div class="flat-form-group">
+                                <label for="form-message">Message</label>
+                                <textarea id="form-message" name="body" rows="6" placeholder="Message details..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn-flat-submit">
+                                SEND MESSAGE
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-row">
+                <span>&copy; 2026 Fung Kam Kiu. All rights reserved.</span>
+                <div class="footer-links">
+                    <a href="mailto:kim.kamkiu.fung@gmail.com">Email</a>
+                    <a href="https://github.com/Goldwaterfung/goldwaterfung.github.io" target="_blank" rel="noopener">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
