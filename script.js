@@ -160,6 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let playInterval = null;
     let isFallback = true; 
     let useWebAudioApiNodes = false;
+    let activeMix = 1; // Track Mix 1 vs Mix 2
     
     // Web Audio API Variables
     let audioContext = null;
@@ -198,6 +199,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         
+        // Remove existing listener to prevent stacking on reload
+        audioBefore.removeEventListener('loadedmetadata', checkDone);
+        audioAfter.removeEventListener('loadedmetadata', checkDone);
         audioBefore.addEventListener('loadedmetadata', checkDone);
         audioAfter.addEventListener('loadedmetadata', checkDone);
         
@@ -209,12 +213,49 @@ document.addEventListener('DOMContentLoaded', () => {
                 timeTotal.textContent = formatTime(duration);
                 sourceIndicator.textContent = 'REAL AUDIO FILES ACTIVE';
                 sourceIndicator.style.color = '#1c1c1e';
+                sourceIndicator.style.backgroundColor = 'rgba(0,0,0,0.05)';
+                sourceIndicator.style.borderColor = 'rgba(0,0,0,0.1)';
             } else {
+                isFallback = true;
                 duration = 24; // Mock duration
                 timeTotal.textContent = formatTime(duration);
                 sourceIndicator.textContent = 'SYNTH FALLBACK ACTIVE';
+                sourceIndicator.style.color = 'var(--accent-amber)';
+                sourceIndicator.style.backgroundColor = 'rgba(230, 92, 0, 0.08)';
+                sourceIndicator.style.borderColor = 'var(--accent-amber-dim)';
             }
-        }, 1000);
+        }, 800);
+    }
+    
+    // Load a specific mix dynamically
+    function loadMix(mixNumber) {
+        activeMix = mixNumber;
+        
+        const wasPlaying = isPlaying;
+        if (isPlaying) {
+            pauseAudio();
+        }
+        
+        // Reset playback position
+        currentTime = 0;
+        progressBar.style.width = '0%';
+        progressHandle.style.left = '0%';
+        timeCurrent.textContent = "0:00";
+        
+        // Update elements
+        audioBefore.src = `audio/Mix ${mixNumber}/mix_${mixNumber}_before.wav`;
+        audioAfter.src = `audio/Mix ${mixNumber}/mix_${mixNumber}_after.wav`;
+        
+        audioBefore.load();
+        audioAfter.load();
+        
+        checkAudioSources();
+        
+        if (wasPlaying) {
+            setTimeout(() => {
+                playAudio();
+            }, 150);
+        }
     }
     
     checkAudioSources();
@@ -395,12 +436,23 @@ document.addEventListener('DOMContentLoaded', () => {
         s.voiceGain.gain.setTargetAtTime(0.6, now, 0.05);
         
         // Modulate vocal sweep
-        const targetFreq = 120 + Math.sin(currentTime * 2) * 12;
-        s.osc1.frequency.setValueAtTime(targetFreq, now);
-        s.osc2.frequency.setValueAtTime(targetFreq * 2, now);
-        
-        const filterSweep = 1100 + Math.sin(currentTime * 3) * 450;
-        s.filter.frequency.setValueAtTime(filterSweep, now);
+        if (activeMix === 1) {
+            // Mix 1: Low-mid vocal pitch simulation
+            const targetFreq = 120 + Math.sin(currentTime * 2) * 12;
+            s.osc1.frequency.setValueAtTime(targetFreq, now);
+            s.osc2.frequency.setValueAtTime(targetFreq * 2, now);
+            
+            const filterSweep = 1100 + Math.sin(currentTime * 3) * 450;
+            s.filter.frequency.setValueAtTime(filterSweep, now);
+        } else {
+            // Mix 2: Higher pitch synth sequence with fifth interval harmony
+            const targetFreq = 220 + Math.sin(currentTime * 4) * 30;
+            s.osc1.frequency.setValueAtTime(targetFreq, now);
+            s.osc2.frequency.setValueAtTime(targetFreq * 1.5, now); // Fifth interval harmony
+            
+            const filterSweep = 1500 + Math.cos(currentTime * 4) * 600;
+            s.filter.frequency.setValueAtTime(filterSweep, now);
+        }
     }
     
     function stopSynthVocalSequence() {
@@ -634,6 +686,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             } else {
                 updateSynthParameters();
+            }
+        });
+    }
+    
+    // Mix Selector buttons
+    const btnMix1 = document.getElementById('btn-mix-1');
+    const btnMix2 = document.getElementById('btn-mix-2');
+    
+    if (btnMix1 && btnMix2) {
+        btnMix1.addEventListener('click', () => {
+            if (activeMix !== 1) {
+                btnMix1.classList.add('active');
+                btnMix2.classList.remove('active');
+                loadMix(1);
+            }
+        });
+        
+        btnMix2.addEventListener('click', () => {
+            if (activeMix !== 2) {
+                btnMix2.classList.add('active');
+                btnMix1.classList.remove('active');
+                loadMix(2);
             }
         });
     }

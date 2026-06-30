@@ -153,14 +153,25 @@
                             
                             <!-- Console Controls -->
                             <div class="console-controls">
-                                <!-- Mode Selector -->
-                                <div class="control-group">
-                                    <span class="control-label">Restoration Selector</span>
-                                    <div class="mode-toggle-bar">
-                                        <button class="mode-toggle-btn active" id="btn-mode-before">Original (Noisy)</button>
-                                        <button class="mode-toggle-btn" id="btn-mode-after">Restored (Clean)</button>
-                                        <!-- Hidden input to maintain compatibility with script logic -->
-                                        <input type="checkbox" id="audio-source-toggle" style="display:none;">
+                                <div class="selector-row-grid">
+                                    <!-- Mix Selector -->
+                                    <div class="control-group">
+                                        <span class="control-label">Mix Selector</span>
+                                        <div class="mix-toggle-bar">
+                                            <button class="mix-toggle-btn active" id="btn-mix-1" data-mix="1">Mix 1</button>
+                                            <button class="mix-toggle-btn" id="btn-mix-2" data-mix="2">Mix 2</button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Mode Selector -->
+                                    <div class="control-group">
+                                        <span class="control-label">Restoration Selector</span>
+                                        <div class="mode-toggle-bar">
+                                            <button class="mode-toggle-btn active" id="btn-mode-before">Original (Noisy)</button>
+                                            <button class="mode-toggle-btn" id="btn-mode-after">Restored (Clean)</button>
+                                            <!-- Hidden input to maintain compatibility with script logic -->
+                                            <input type="checkbox" id="audio-source-toggle" style="display:none;">
+                                        </div>
                                     </div>
                                 </div>
                                 
@@ -196,8 +207,8 @@
                         </div>
 
                         <!-- Hidden Audio Tags -->
-                        <audio id="audio-before" src="audio/before.mp3" preload="auto"></audio>
-                        <audio id="audio-after" src="audio/after.mp3" preload="auto"></audio>
+                        <audio id="audio-before" src="audio/Mix 1/mix_1_before.wav" preload="auto"></audio>
+                        <audio id="audio-after" src="audio/Mix 1/mix_1_after.wav" preload="auto"></audio>
                         
                         <div class="restoration-metadata">
                             <span class="meta-tag">Pipeline: se_der_sb_16k_small (Dereverb)</span>
