@@ -155,10 +155,10 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Core state
     let isPlaying = false;
-    let duration = 24; 
+    let duration = 0; 
     let currentTime = 0;
     let playInterval = null;
-    let isFallback = true; 
+    let audioReady = false; // Tracks if active mix elements are ready
     let useWebAudioApiNodes = false;
     let activeMix = 1; // Track Mix 1 vs Mix 2
     
@@ -176,13 +176,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let gainMix1AfterNode = null;
     let gainMix2BeforeNode = null;
     let gainMix2AfterNode = null;
-    
-    // Fallback Synth Nodes
-    let synthOsc1 = null;
-    let synthOsc2 = null;
-    let noiseNode = null;
-    let lowpassFilter = null;
-    let reverbNode = null;
     
     // Load audio elements
     const audioMix1Before = document.getElementById('audio-mix1-before');
@@ -202,10 +195,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function handleAudioLoaded() {
         const current = getActiveAudioElements();
         if (current.before.readyState >= 1 && current.after.readyState >= 1) {
-            isFallback = false;
-            duration = Math.max(current.before.duration, current.after.duration) || 24;
+            audioReady = true;
+            duration = Math.max(current.before.duration, current.after.duration) || 0;
             timeTotal.textContent = formatTime(duration);
-            sourceIndicator.textContent = 'REAL AUDIO FILES ACTIVE';
+            sourceIndicator.textContent = 'LOSSLESS WAV READY';
             sourceIndicator.style.color = '#1c1c1e';
             sourceIndicator.style.backgroundColor = 'rgba(0,0,0,0.05)';
             sourceIndicator.style.borderColor = 'rgba(0,0,0,0.1)';
@@ -213,14 +206,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function handleAudioError() {
-        // Only set fallback if the currently active mix elements throw an error
-        isFallback = true;
-        duration = 24; // Mock duration
+        audioReady = false;
+        duration = 0;
         timeTotal.textContent = formatTime(duration);
-        sourceIndicator.textContent = 'SYNTH FALLBACK ACTIVE';
-        sourceIndicator.style.color = 'var(--accent-amber)';
-        sourceIndicator.style.backgroundColor = 'rgba(230, 92, 0, 0.08)';
-        sourceIndicator.style.borderColor = 'var(--accent-amber-dim)';
+        sourceIndicator.textContent = 'AUDIO LOAD ERROR';
+        sourceIndicator.style.color = '#ff3b30';
+        sourceIndicator.style.backgroundColor = 'rgba(255, 59, 48, 0.08)';
+        sourceIndicator.style.borderColor = 'rgba(255, 59, 48, 0.15)';
     }
 
     // Attach preloading listeners once to all elements
@@ -235,6 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (current.before.readyState >= 1 && current.after.readyState >= 1) {
             handleAudioLoaded();
         } else {
+            audioReady = false;
             // Set loading status while preloading headers
             sourceIndicator.textContent = 'BUFFERING MUSIC MIX...';
             sourceIndicator.style.color = 'var(--text-secondary)';
@@ -248,7 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         handleAudioError();
                     }
                 }
-            }, 6000); // 6 seconds fail-safe timeout for preloading over network
+            }, 8000); // 8 seconds fail-safe timeout for preloading over network
         }
     }
     
@@ -258,9 +251,6 @@ document.addEventListener('DOMContentLoaded', () => {
         [audioMix1Before, audioMix1After, audioMix2Before, audioMix2After].forEach(audio => {
             audio.pause();
         });
-        if (isPlaying) {
-            stopSynthVocalSequence();
-        }
 
         activeMix = mixNumber;
         
@@ -276,8 +266,7 @@ document.addEventListener('DOMContentLoaded', () => {
         progressHandle.style.left = '0%';
         timeCurrent.textContent = "0:00";
         
-        // Temporarily set fallback true during reloading
-        isFallback = true;
+        audioReady = false; 
         
         // Preload elements manually just in case
         const current = getActiveAudioElements();
@@ -347,169 +336,7 @@ document.addEventListener('DOMContentLoaded', () => {
             useWebAudioApiNodes = false;
         }
         
-        // Initialize the Synthesizer graph in parallel so both sources are pre-wired
-        setupSynthGraph();
-        
         startSpectrogramRendering();
-    }
-    
-    // ==========================================================================
-    // Web Audio Synthesizer Graph
-    // ==========================================================================
-    function setupSynthGraph() {
-        synthOsc1 = audioContext.createOscillator();
-        synthOsc2 = audioContext.createOscillator();
-        
-        synthOsc1.type = 'sawtooth';
-        synthOsc1.frequency.setValueAtTime(130, audioContext.currentTime); 
-        
-        synthOsc2.type = 'triangle';
-        synthOsc2.frequency.setValueAtTime(260, audioContext.currentTime);
-        
-        const oscGain1 = audioContext.createGain();
-        const oscGain2 = audioContext.createGain();
-        oscGain1.gain.value = 0.15;
-        oscGain2.gain.value = 0.2;
-        
-        synthOsc1.connect(oscGain1);
-        synthOsc2.connect(oscGain2);
-        
-        const voiceGain = audioContext.createGain();
-        voiceGain.gain.value = 0.0;
-        oscGain1.connect(voiceGain);
-        oscGain2.connect(voiceGain);
-        
-        // Noise buffer
-        const bufferSize = audioContext.sampleRate * 2;
-        const noiseBuffer = audioContext.createBuffer(1, bufferSize, audioContext.sampleRate);
-        const output = noiseBuffer.getChannelData(0);
-        for (let i = 0; i < bufferSize; i++) {
-            output[i] = Math.random() * 2 - 1;
-        }
-        noiseNode = audioContext.createBufferSource();
-        noiseNode.buffer = noiseBuffer;
-        noiseNode.loop = true;
-        
-        const noiseFilter = audioContext.createBiquadFilter();
-        noiseFilter.type = 'bandpass';
-        noiseFilter.frequency.value = 800;
-        noiseFilter.Q.value = 0.5;
-        
-        const noiseGain = audioContext.createGain();
-        noiseGain.gain.value = 0.0;
-        
-        noiseNode.connect(noiseFilter);
-        noiseFilter.connect(noiseGain);
-        
-        // Signal cleanup filter
-        lowpassFilter = audioContext.createBiquadFilter();
-        lowpassFilter.type = 'bandpass';
-        lowpassFilter.frequency.value = 1100;
-        lowpassFilter.Q.value = 1.2;
-        
-        // Hardware echo/reverb feedback delay
-        reverbNode = audioContext.createDelay(1.0);
-        reverbNode.delayTime.value = 0.2;
-        
-        const reverbFeedback = audioContext.createGain();
-        reverbFeedback.gain.value = 0.5; 
-        
-        const reverbMix = audioContext.createGain();
-        reverbMix.gain.value = 0.0;
-        
-        voiceGain.connect(lowpassFilter);
-        
-        // Connect Reverb loop
-        lowpassFilter.connect(reverbNode);
-        reverbNode.connect(reverbFeedback);
-        reverbFeedback.connect(reverbNode);
-        reverbNode.connect(reverbMix);
-        
-        const dryGain = audioContext.createGain();
-        dryGain.gain.value = 0.8;
-        lowpassFilter.connect(dryGain);
-        
-        dryGain.connect(analyser);
-        reverbMix.connect(analyser);
-        noiseGain.connect(analyser);
-        
-        synthOsc1.start();
-        synthOsc2.start();
-        noiseNode.start();
-        
-        audioContext.synth = {
-            voiceGain: voiceGain,
-            noiseGain: noiseGain,
-            reverbMix: reverbMix,
-            dryGain: dryGain,
-            osc1: synthOsc1,
-            osc2: synthOsc2,
-            filter: lowpassFilter
-        };
-        
-        updateSynthParameters();
-    }
-    
-    function updateSynthParameters() {
-        if (!audioContext || !audioContext.synth) return;
-        
-        const s = audioContext.synth;
-        const now = audioContext.currentTime;
-        
-        if (!audioToggle.checked) {
-            // ORIGINAL (NOISY / TAPE HISS / ECHO)
-            s.noiseGain.gain.setTargetAtTime(0.06, now, 0.08);
-            s.reverbMix.gain.setTargetAtTime(0.5, now, 0.1);
-            s.dryGain.gain.setTargetAtTime(0.35, now, 0.08);
-            
-            s.filter.type = 'bandpass';
-            s.filter.frequency.setTargetAtTime(900, now, 0.15);
-            s.filter.Q.setTargetAtTime(2.0, now, 0.15);
-        } else {
-            // RESTORED (CLEAN VOICE FORMANT)
-            s.noiseGain.gain.setTargetAtTime(0.0, now, 0.05);
-            s.reverbMix.gain.setTargetAtTime(0.0, now, 0.05);
-            s.dryGain.gain.setTargetAtTime(0.85, now, 0.08);
-            
-            s.filter.type = 'peaking';
-            s.filter.frequency.setTargetAtTime(1800, now, 0.15);
-            s.filter.Q.setTargetAtTime(0.6, now, 0.15);
-        }
-    }
-    
-    function runSynthVocalSequence() {
-        if (!isPlaying || !audioContext || !audioContext.synth) return;
-        
-        const s = audioContext.synth;
-        const now = audioContext.currentTime;
-        
-        s.voiceGain.gain.setTargetAtTime(0.6, now, 0.05);
-        
-        // Modulate vocal sweep
-        if (activeMix === 1) {
-            // Mix 1: Low-mid vocal pitch simulation
-            const targetFreq = 120 + Math.sin(currentTime * 2) * 12;
-            s.osc1.frequency.setValueAtTime(targetFreq, now);
-            s.osc2.frequency.setValueAtTime(targetFreq * 2, now);
-            
-            const filterSweep = 1100 + Math.sin(currentTime * 3) * 450;
-            s.filter.frequency.setValueAtTime(filterSweep, now);
-        } else {
-            // Mix 2: Higher pitch synth sequence with fifth interval harmony
-            const targetFreq = 220 + Math.sin(currentTime * 4) * 30;
-            s.osc1.frequency.setValueAtTime(targetFreq, now);
-            s.osc2.frequency.setValueAtTime(targetFreq * 1.5, now); // Fifth interval harmony
-            
-            const filterSweep = 1500 + Math.cos(currentTime * 4) * 600;
-            s.filter.frequency.setValueAtTime(filterSweep, now);
-        }
-    }
-    
-    function stopSynthVocalSequence() {
-        if (audioContext && audioContext.synth) {
-            audioContext.synth.voiceGain.gain.setTargetAtTime(0.0, audioContext.currentTime, 0.1);
-            audioContext.synth.noiseGain.gain.setTargetAtTime(0.0, audioContext.currentTime, 0.1);
-        }
     }
 
     function updateRealAudioGains() {
@@ -637,6 +464,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     function playAudio() {
+        if (!audioReady) return; // Ignore if tracks failed to buffer
+
         isPlaying = true;
         playBtn.innerHTML = '<i class="fa-solid fa-pause"></i> PAUSE';
         
@@ -652,16 +481,12 @@ document.addEventListener('DOMContentLoaded', () => {
             audioContext.resume();
         }
         
-        if (!isFallback) {
-            const current = getActiveAudioElements();
-            current.before.currentTime = currentTime;
-            current.after.currentTime = currentTime;
-            
-            current.before.play();
-            current.after.play();
-        } else {
-            runSynthVocalSequence();
-        }
+        const current = getActiveAudioElements();
+        current.before.currentTime = currentTime;
+        current.after.currentTime = currentTime;
+        
+        current.before.play();
+        current.after.play();
         
         playInterval = setInterval(updateTimeline, 100);
         
@@ -686,27 +511,15 @@ document.addEventListener('DOMContentLoaded', () => {
         [audioMix1Before, audioMix1After, audioMix2Before, audioMix2After].forEach(audio => {
             audio.pause();
         });
-        if (isFallback) {
-            stopSynthVocalSequence();
-        }
         
         clearInterval(playInterval);
         stopSpectrogramRendering();
     }
     
     function updateTimeline() {
-        if (!isFallback) {
-            const current = getActiveAudioElements();
-            currentTime = current.before.currentTime;
-            duration = current.before.duration || duration;
-        } else {
-            currentTime += 0.1;
-            
-            if (currentTime >= duration) {
-                currentTime = 0;
-            }
-            runSynthVocalSequence();
-        }
+        const current = getActiveAudioElements();
+        currentTime = current.before.currentTime;
+        duration = current.before.duration || duration;
         
         const percent = (currentTime / duration) * 100;
         progressBar.style.width = `${percent}%`;
@@ -732,16 +545,12 @@ document.addEventListener('DOMContentLoaded', () => {
             btnModeAfter.classList.remove('active');
             audioToggle.checked = false; // Hidden toggle synced
             
-            if (!isFallback) {
-                if (useWebAudioApiNodes) {
-                    updateRealAudioGains();
-                } else {
-                    const current = getActiveAudioElements();
-                    current.before.muted = false;
-                    current.after.muted = true;
-                }
+            if (useWebAudioApiNodes) {
+                updateRealAudioGains();
             } else {
-                updateSynthParameters();
+                const current = getActiveAudioElements();
+                current.before.muted = false;
+                current.after.muted = true;
             }
         });
         
@@ -750,16 +559,12 @@ document.addEventListener('DOMContentLoaded', () => {
             btnModeBefore.classList.remove('active');
             audioToggle.checked = true; // Hidden toggle synced
             
-            if (!isFallback) {
-                if (useWebAudioApiNodes) {
-                    updateRealAudioGains();
-                } else {
-                    const current = getActiveAudioElements();
-                    current.before.muted = true;
-                    current.after.muted = false;
-                }
+            if (useWebAudioApiNodes) {
+                updateRealAudioGains();
             } else {
-                updateSynthParameters();
+                const current = getActiveAudioElements();
+                current.before.muted = true;
+                current.after.muted = false;
             }
         });
     }
@@ -791,6 +596,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Scrubber click
     progressBarWrapper.addEventListener('click', (e) => {
+        if (!audioReady) return;
         const rect = progressBarWrapper.getBoundingClientRect();
         const percent = (e.clientX - rect.left) / rect.width;
         currentTime = percent * duration;
@@ -799,11 +605,9 @@ document.addEventListener('DOMContentLoaded', () => {
         progressHandle.style.left = `${percent * 100}%`;
         timeCurrent.textContent = formatTime(currentTime);
         
-        if (!isFallback) {
-            const current = getActiveAudioElements();
-            current.before.currentTime = currentTime;
-            current.after.currentTime = currentTime;
-        }
+        const current = getActiveAudioElements();
+        current.before.currentTime = currentTime;
+        current.after.currentTime = currentTime;
     });
     
     // Volume Control
@@ -822,7 +626,7 @@ document.addEventListener('DOMContentLoaded', () => {
             volumeIcon.className = 'fa-solid fa-volume-high volume-icon';
         }
         
-        if (!isFallback && !useWebAudioApiNodes) {
+        if (!useWebAudioApiNodes) {
             [audioMix1Before, audioMix1After, audioMix2Before, audioMix2After].forEach(audio => {
                 audio.volume = vol;
             });
