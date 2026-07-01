@@ -880,72 +880,7 @@ body {
     line-height: 1.5;
 }
 
-/* ==========================================================================
-   Contact Section (Editorial form)
-   ========================================================================== */
-.flat-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
 
-.flat-form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-.flat-form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.flat-form-group label {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    color: var(--text-secondary);
-    letter-spacing: 0.05em;
-}
-
-.flat-form input, .flat-form textarea {
-    background-color: var(--bg-panel);
-    border: 1px solid var(--border-color);
-    border-radius: 2px;
-    padding: 0.75rem 1rem;
-    color: var(--text-primary);
-    font-family: var(--font-sans);
-    font-size: 0.95rem;
-    transition: border-color 0.2s ease;
-}
-
-.flat-form input:focus, .flat-form textarea:focus {
-    outline: none;
-    border-color: var(--text-primary);
-}
-
-.flat-form textarea {
-    resize: none;
-}
-
-.btn-flat-submit {
-    align-self: start;
-    background-color: var(--text-primary);
-    color: var(--bg-body);
-    border: 1px solid var(--text-primary);
-    padding: 0.75rem 2rem;
-    font-family: var(--font-serif);
-    font-size: 0.8rem;
-    font-weight: 700;
-    cursor: pointer;
-    border-radius: 2px;
-    transition: all 0.2s ease;
-}
-
-.btn-flat-submit:hover {
-    background-color: #3a3a3c;
-}
 
 /* ==========================================================================
    Footer
@@ -1002,10 +937,7 @@ body {
         gap: 30px;
     }
     
-    .flat-form-row {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
+
 }
 
 @media (max-width: 768px) {
