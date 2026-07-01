@@ -421,44 +421,58 @@
                         <span class="mono-section-label">05 // RESEARCH</span>
                         <h2 class="section-serif-title">Visual Capture in VR</h2>
                         <p class="section-side-desc">
-                            A psychoacoustic study measuring sound localization accuracy and cognitive resistance under sustained cross-modal conflict with third-order Ambisonics.
+                            A psychoacoustic study measuring sound localization accuracy and cognitive resistance under
+                            sustained cross-modal conflict with third-order Ambisonics.
                         </p>
                     </div>
 
                     <div class="section-content">
                         <!-- Section Intro -->
                         <div class="editorial-lead" style="margin-bottom: 2rem;">
-                            This research introduced a <strong>decoupled tracking paradigm</strong> to isolate visual capture from post-pointing head correction in virtual reality. Even with a high-fidelity 16-channel Ambisonics baseline, incongruent visual decoys captured initial spatial judgments, causing substantial response delays and pointing errors.
+                            This research introduced a <strong>decoupled tracking paradigm</strong> to isolate visual
+                            capture from post-pointing head correction in virtual reality. When visual cues and 3D
+                            sounds were out of alignment, the brain chose vision: participants pointed directly at the
+                            decoy rather than the true sound, and processing this sensory conflict delayed their
+                            median response times by over 1.5 seconds.
                         </div>
 
                         <!-- Gallery: Experimental Setup -->
-                        <h3 class="subsection-serif-title" style="margin-bottom: 1rem;">Experimental Setup & Telemetry</h3>
+                        <h3 class="subsection-serif-title" style="margin-bottom: 1rem;">Experimental Setup & Telemetry
+                        </h3>
                         <p class="section-body-text" style="margin-bottom: 1.5rem;">
-                            The experiment was built in Unity 3D and conducted in a professional sound laboratory. Continuous telemetry captured head orientations and hand pointer vectors, translating real-time Cartesian inputs to spherical space to analyze cross-modal interference.
+                            The experiment was built in Unity 3D and conducted in a professional sound laboratory.
+                            Continuous telemetry captured head orientations and hand pointer vectors, translating
+                            real-time Cartesian inputs to spherical space to analyze cross-modal interference.
                         </p>
-                        
+
                         <div class="research-gallery">
                             <div class="research-gallery-item">
                                 <img src="research/sound-lab.jpg" alt="Acoustic Loudspeaker Lab Setup">
                                 <div class="caption-block">
                                     <span class="mono-label">FIG. A // 16-CHANNEL LOUDSPEAKER ARRAY</span>
-                                    <p class="caption-text">Anechoic reproduction layout satisfying the spatial resolution requirements for third-order Ambisonic decoding.</p>
+                                    <p class="caption-text">Anechoic reproduction layout satisfying the spatial
+                                        resolution requirements for third-order Ambisonic decoding.</p>
                                 </div>
                             </div>
-                            
+
                             <div class="research-gallery-item">
                                 <img src="research/experiment.jpg" alt="Participant conducting VR experiment">
                                 <div class="caption-block">
                                     <span class="mono-label">FIG. B // DECOUPLED ALIGNMENT TASK</span>
-                                    <p class="caption-text">Participant maintaining visual fixation on a decoy while pointing to the actual sound source by hand.</p>
+                                    <p class="caption-text">Participant maintaining visual fixation on a decoy while
+                                        pointing to the actual sound source by hand.</p>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Data & Results -->
-                        <h3 class="subsection-serif-title" style="margin-top: 3.5rem; margin-bottom: 1rem;">Empirical Findings & Data Pipeline</h3>
+                        <h3 class="subsection-serif-title" style="margin-top: 3.5rem; margin-bottom: 1rem;">Empirical
+                            Findings & Data Pipeline</h3>
                         <p class="section-body-text" style="margin-bottom: 2rem;">
-                            Inferential tests (repeated-measures ANOVA and Wilcoxon signed-rank tests) demonstrated that high-fidelity audio cannot shield spatial judgment from visual bias. However, tracking multi-attempt sequences revealed that participants partially correct their pointing errors while conflict remains active.
+                            Inferential tests (repeated-measures ANOVA and Wilcoxon signed-rank tests) demonstrated that
+                            high-fidelity audio cannot shield spatial judgment from visual bias. However, tracking
+                            multi-attempt sequences revealed that participants partially correct their pointing errors
+                            while conflict remains active.
                         </p>
 
                         <div class="research-stats-grid">
@@ -466,15 +480,20 @@
                                 <img src="research/angular_error.png" alt="Angular Error by Condition">
                                 <div class="caption-block">
                                     <span class="mono-label">FIG. C // ANGULAR LOCALIZATION ERROR</span>
-                                    <p class="caption-text">Incongruent trials inflated median error to 60.35°, showing the massive bias towards the visual decoy compared to Congruent (6.90°) and Audio-only (9.62°).</p>
+                                    <p class="caption-text">Incongruent trials inflated median error to 60.35°, showing
+                                        the massive bias towards the visual decoy compared to Congruent (6.90°) and
+                                        Audio-only (9.62°).</p>
                                 </div>
                             </div>
 
                             <div class="research-stat-card">
-                                <img src="research/spatial_correction.png" alt="First vs Final Angular Error Trajectories">
+                                <img src="research/spatial_correction.png"
+                                    alt="First vs Final Angular Error Trajectories">
                                 <div class="caption-block">
                                     <span class="mono-label">FIG. D // SPATIAL CORRECTION DYNAMICS</span>
-                                    <p class="caption-text">Tracking first-to-final pointing attempts revealed partial correction trajectories, showing users attempting to resolve the active conflict.</p>
+                                    <p class="caption-text">Tracking first-to-final pointing attempts revealed partial
+                                        correction trajectories, showing users attempting to resolve the active
+                                        conflict.</p>
                                 </div>
                             </div>
 
@@ -482,7 +501,9 @@
                                 <img src="research/response_time.png" alt="Response Time by Condition">
                                 <div class="caption-block">
                                     <span class="mono-label">FIG. E // COGNITIVE RESPONSE TIME COST</span>
-                                    <p class="caption-text">Resisting visual capture (Incongruent) and searching without visual cues (Audio-only) both increased response times by over 1.5 seconds compared to Congruent trials.</p>
+                                    <p class="caption-text">Resisting visual capture (Incongruent) and searching without
+                                        visual cues (Audio-only) both increased median response times by over 1.5 seconds
+                                        compared to Congruent trials.</p>
                                 </div>
                             </div>
 
@@ -490,7 +511,9 @@
                                 <img src="research/data_pipeline.png" alt="Telemetry Data Processing Pipeline">
                                 <div class="caption-block">
                                     <span class="mono-label">FIG. F // TELEMETRY DATA WORKFLOW</span>
-                                    <p class="caption-text">Custom data processing pipeline parsing raw HMD/controller coordinates to spherical angles, applying MAD outlier filtering, and performing statistical tests.</p>
+                                    <p class="caption-text">Custom data processing pipeline parsing raw HMD/controller
+                                        coordinates to spherical angles, applying MAD outlier filtering, and performing
+                                        statistical tests.</p>
                                 </div>
                             </div>
                         </div>
