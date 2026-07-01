@@ -85,14 +85,14 @@ body {
 }
 
 .logo-name {
-    font-family: var(--font-mono);
+    font-family: var(--font-serif);
     font-weight: 700;
     font-size: 1rem;
     letter-spacing: 0.05em;
 }
 
 .logo-title {
-    font-family: var(--font-mono);
+    font-family: var(--font-serif);
     font-size: 0.7rem;
     color: var(--text-secondary);
 }
@@ -106,7 +106,7 @@ body {
 .nav-link {
     color: var(--text-secondary);
     text-decoration: none;
-    font-family: var(--font-mono);
+    font-family: var(--font-serif);
     font-size: 0.8rem;
     font-weight: 400;
     transition: color 0.2s ease;
@@ -214,9 +214,9 @@ body {
 }
 
 .hero-title {
-    font-family: var(--font-mono);
-    font-size: 3.5rem;
-    font-weight: 700;
+    font-family: var(--font-serif);
+    font-size: 4.5rem;
+    font-weight: 400;
     letter-spacing: -0.02em;
     line-height: 1.05;
     color: var(--text-primary);
@@ -269,10 +269,10 @@ body {
     letter-spacing: 0.05em;
 }
 
-.section-title {
-    font-family: var(--font-mono);
-    font-size: 1.8rem;
-    font-weight: 700;
+.section-serif-title {
+    font-family: var(--font-serif);
+    font-size: 2.2rem;
+    font-weight: 400;
     line-height: 1.2;
     color: var(--text-primary);
 }
@@ -302,7 +302,7 @@ body {
     justify-content: center;
     gap: 8px;
     padding: 0.7rem 1.8rem;
-    font-family: var(--font-mono);
+    font-family: var(--font-serif);
     font-size: 0.8rem;
     text-decoration: none;
     cursor: pointer;
@@ -519,7 +519,7 @@ body {
     background-color: transparent;
     border: none;
     padding: 0.5rem;
-    font-family: var(--font-mono);
+    font-family: var(--font-serif);
     font-size: 0.75rem;
     font-weight: 500;
     color: var(--text-primary);
@@ -590,7 +590,7 @@ body {
     color: var(--bg-body);
     border: 1px solid var(--border-color-dark);
     padding: 0.5rem 1.5rem;
-    font-family: var(--font-mono);
+    font-family: var(--font-serif);
     font-size: 0.75rem;
     font-weight: 700;
     cursor: pointer;
@@ -678,9 +678,9 @@ body {
 }
 
 .skills-block-title {
-    font-family: var(--font-mono);
-    font-size: 1.1rem;
-    font-weight: 700;
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    font-weight: 400;
     border-bottom: 1px solid var(--text-primary);
     padding-bottom: 6px;
 }
@@ -740,7 +740,7 @@ body {
     border: 1px solid var(--border-color);
     color: var(--text-secondary);
     padding: 0.4rem 1.2rem;
-    font-family: var(--font-mono);
+    font-family: var(--font-serif);
     font-size: 0.75rem;
     cursor: pointer;
     border-radius: 2px;
@@ -792,9 +792,9 @@ body {
 }
 
 .project-row-title {
-    font-family: var(--font-mono);
-    font-size: 1.15rem;
-    font-weight: 700;
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    font-weight: 400;
     line-height: 1.25;
 }
 
@@ -862,9 +862,9 @@ body {
 }
 
 .timeline-row-title {
-    font-family: var(--font-mono);
-    font-size: 1.1rem;
-    font-weight: 700;
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    font-weight: 400;
 }
 
 .timeline-row-org {
@@ -935,7 +935,7 @@ body {
     color: var(--bg-body);
     border: 1px solid var(--text-primary);
     padding: 0.75rem 2rem;
-    font-family: var(--font-mono);
+    font-family: var(--font-serif);
     font-size: 0.8rem;
     font-weight: 700;
     cursor: pointer;
