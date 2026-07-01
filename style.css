@@ -1044,3 +1044,110 @@ body {
         transform: translateY(-6px) rotate(-45deg);
     }
 }
+
+/* ==========================================================================
+   Research Section Styling
+   ========================================================================== */
+.research-section {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.subsection-serif-title {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+}
+
+.section-body-text {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.research-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.research-gallery-item {
+    background-color: var(--bg-panel);
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.research-gallery-item img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border: 1px solid var(--border-color);
+    filter: grayscale(10%) contrast(105%);
+    transition: filter 0.3s ease;
+}
+
+.research-gallery-item img:hover {
+    filter: grayscale(0%) contrast(100%);
+}
+
+.research-stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.research-stat-card {
+    background-color: var(--bg-panel);
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.research-stat-card img {
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--border-color);
+}
+
+.caption-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.caption-block .mono-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.caption-text {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+/* Responsive Scaling for Research */
+@media (max-width: 768px) {
+    .research-gallery,
+    .research-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+    
+    .research-gallery-item img {
+        height: 200px;
+    }
+}
