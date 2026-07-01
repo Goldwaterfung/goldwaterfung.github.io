@@ -214,9 +214,9 @@ body {
 }
 
 .hero-title {
-    font-family: var(--font-serif);
-    font-size: 4.5rem;
-    font-weight: 400;
+    font-family: var(--font-mono);
+    font-size: 3.5rem;
+    font-weight: 700;
     letter-spacing: -0.02em;
     line-height: 1.05;
     color: var(--text-primary);
@@ -269,10 +269,10 @@ body {
     letter-spacing: 0.05em;
 }
 
-.section-serif-title {
-    font-family: var(--font-serif);
-    font-size: 2.2rem;
-    font-weight: 400;
+.section-title {
+    font-family: var(--font-mono);
+    font-size: 1.8rem;
+    font-weight: 700;
     line-height: 1.2;
     color: var(--text-primary);
 }
@@ -678,9 +678,9 @@ body {
 }
 
 .skills-block-title {
-    font-family: var(--font-serif);
-    font-size: 1.3rem;
-    font-weight: 400;
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    font-weight: 700;
     border-bottom: 1px solid var(--text-primary);
     padding-bottom: 6px;
 }
@@ -792,9 +792,9 @@ body {
 }
 
 .project-row-title {
-    font-family: var(--font-serif);
-    font-size: 1.35rem;
-    font-weight: 400;
+    font-family: var(--font-mono);
+    font-size: 1.15rem;
+    font-weight: 700;
     line-height: 1.25;
 }
 
@@ -862,9 +862,9 @@ body {
 }
 
 .timeline-row-title {
-    font-family: var(--font-serif);
-    font-size: 1.3rem;
-    font-weight: 400;
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    font-weight: 700;
 }
 
 .timeline-row-org {
