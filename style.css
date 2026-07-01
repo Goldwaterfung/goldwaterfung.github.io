@@ -1046,10 +1046,50 @@ body {
     line-height: 1.4;
 }
 
+.research-conditions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.2rem;
+    margin: 1.5rem 0 2.5rem 0;
+}
+
+.condition-card {
+    background-color: var(--bg-panel);
+    border: 1px solid var(--border-color);
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.condition-card .mono-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--text-primary);
+    text-transform: uppercase;
+}
+
+.condition-card h4 {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    margin: 0;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.condition-card p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin: 0;
+}
+
 /* Responsive Scaling for Research */
 @media (max-width: 768px) {
     .research-gallery,
-    .research-stats-grid {
+    .research-stats-grid,
+    .research-conditions-grid {
         grid-template-columns: 1fr;
         gap: 1.2rem;
     }
