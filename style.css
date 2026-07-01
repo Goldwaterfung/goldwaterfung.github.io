@@ -181,36 +181,11 @@ body {
     flex-direction: column;
     gap: 2rem;
 }
-
-.hero-header-line {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid var(--text-primary);
-    padding-bottom: 0.8rem;
-}
-
 .mono-label {
     font-family: var(--font-mono);
     font-size: 0.75rem;
     color: var(--text-secondary);
     letter-spacing: 0.05em;
-}
-
-.mono-status {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--text-primary);
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.status-dot {
-    width: 6px;
-    height: 6px;
-    background-color: var(--accent-amber);
-    border-radius: 50%;
 }
 
 .hero-title {
