@@ -39,6 +39,7 @@
             <nav class="nav-menu" id="nav-menu">
                 <a href="#about" class="nav-link active">About</a>
                 <a href="#restoration" class="nav-link">My Mixing Works</a>
+                <a href="#ai-workflow" class="nav-link">AI Sound Redesign</a>
                 <a href="#skills" class="nav-link">Skills</a>
                 <a href="#portfolio" class="nav-link">Portfolio</a>
                 <a href="#research" class="nav-link">Research</a>
@@ -67,7 +68,7 @@
 
                 <h2 class="hero-subtitle">
                     Music & Audio Engineering graduate specializing in dialogue restoration, game sound in Unity/Wwise,
-                    and AI audio datasets.
+                    and music stems datasets.
                 </h2>
 
                 <div class="hero-cta-group">
@@ -213,12 +214,82 @@
             </div>
         </section>
 
+        <!-- Agentic AI Workflow / Video Section -->
+        <section id="ai-workflow" class="section ai-workflow-section">
+            <div class="container">
+                <div class="section-grid">
+                    <div class="section-meta">
+                        <span class="mono-section-label">03 // AGENTIC WORKFLOW</span>
+                        <h2 class="section-serif-title">AI Sound Redesign</h2>
+                        <p class="section-side-desc">
+                            Short film sound redesign utilizing Agentic AI Workflows. Integrating Pro Tools MCP with agentic storyboard alignment, Suno/ElevenLabs asset generation, vocal isolation, and frequency recovery.
+                        </p>
+                    </div>
+
+                    <div class="section-content">
+                        <!-- Custom Video Player Console -->
+                        <div class="console-panel video-console-panel">
+                            <!-- Console Header -->
+                            <div class="console-header">
+                                <div class="console-title">MONITOR // WIDDERSHINS_SHORT.MP4</div>
+                                <div class="console-leds">
+                                    <span class="led red active blink"></span>
+                                    <span class="led amber active"></span>
+                                    <span class="led green"></span>
+                                </div>
+                            </div>
+
+                            <!-- Video Screen Frame -->
+                            <div class="video-monitor-frame">
+                                <video id="workflow-video" src="ai-workflow/Widdershins_short.mp4" playsinline preload="auto"></video>
+                                <div class="video-grid-overlay"></div>
+                                <div class="video-play-overlay" id="video-play-overlay">
+                                    <button class="video-play-overlay-btn" aria-label="Play Video">
+                                        <i class="fa-solid fa-play"></i>
+                                    </button>
+                                </div>
+                                <div class="oscilloscope-hud">
+                                    <span id="video-hud-resolution">1920x1080 @ 24FPS</span>
+                                    <span id="video-hud-time">0:00 / 0:00</span>
+                                </div>
+                            </div>
+
+                            <!-- Console Controls -->
+                            <div class="console-controls">
+                                <div class="timeline-row">
+                                    <span class="mono-time" id="video-time-current">0:00</span>
+                                    <div class="timeline-track-wrapper" id="video-progress-bar-wrapper">
+                                        <div class="timeline-fill" id="video-progress-bar"></div>
+                                        <div class="timeline-knob" id="video-progress-handle"></div>
+                                    </div>
+                                    <span class="mono-time" id="video-time-total">0:00</span>
+                                </div>
+
+                                <div class="console-lower-row">
+                                    <button class="btn-console-play" id="btn-video-play-pause" aria-label="Play/Pause">
+                                        <i class="fa-solid fa-play"></i> PLAY
+                                    </button>
+
+                                    <div class="console-volume">
+                                        <i class="fa-solid fa-volume-high volume-icon" id="video-volume-icon"></i>
+                                        <input type="range" id="video-volume-slider" min="0" max="1" step="0.05" value="0.8" aria-label="Volume">
+                                    </div>
+
+                                    <div class="system-status-indicator" id="video-status-indicator">SYSTEM READY</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Technical Skills Section -->
         <section id="skills" class="section skills-section">
             <div class="container">
                 <div class="section-grid">
                     <div class="section-meta">
-                        <span class="mono-section-label">03 // SKILLSET</span>
+                        <span class="mono-section-label">04 // SKILLSET</span>
                         <h2 class="section-serif-title">Core Competencies</h2>
                         <p class="section-side-desc">
                             Engineering capabilities, platform proficiencies, and linguistic capabilities parsed from
@@ -305,7 +376,7 @@
             <div class="container">
                 <div class="section-grid">
                     <div class="section-meta">
-                        <span class="mono-section-label">04 // PORTFOLIO</span>
+                        <span class="mono-section-label">05 // PORTFOLIO</span>
                         <h2 class="section-serif-title">Research & Projects</h2>
 
                         <div class="flat-filters">
@@ -412,7 +483,7 @@
             <div class="container">
                 <div class="section-grid">
                     <div class="section-meta">
-                        <span class="mono-section-label">05 // RESEARCH</span>
+                        <span class="mono-section-label">06 // RESEARCH</span>
                         <h2 class="section-serif-title">Visual Capture in VR</h2>
                         <p class="section-side-desc">
                             A psychoacoustic study measuring sound localization accuracy and cognitive resistance under
@@ -545,7 +616,7 @@
             <div class="container">
                 <div class="section-grid">
                     <div class="section-meta">
-                        <span class="mono-section-label">06 // TIMELINE</span>
+                        <span class="mono-section-label">07 // TIMELINE</span>
                         <h2 class="section-serif-title">Education & Experience</h2>
                     </div>
 

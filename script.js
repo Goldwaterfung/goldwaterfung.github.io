@@ -466,6 +466,11 @@ document.addEventListener('DOMContentLoaded', () => {
     function playAudio() {
         if (!audioReady) return; // Ignore if tracks failed to buffer
 
+        // Interlock: pause video if playing
+        if (typeof pauseVideo === 'function') {
+            pauseVideo();
+        }
+
         isPlaying = true;
         playBtn.innerHTML = '<i class="fa-solid fa-pause"></i> PAUSE';
         
@@ -647,5 +652,132 @@ document.addEventListener('DOMContentLoaded', () => {
         progressBar.style.width = '0%';
         progressHandle.style.left = '0%';
         timeCurrent.textContent = "0:00";
+    }
+
+    // ==========================================================================
+    // AI Workflow Video Player Controls
+    // ==========================================================================
+    const video = document.getElementById('workflow-video');
+    const videoPlayBtn = document.getElementById('btn-video-play-pause');
+    const videoPlayOverlay = document.getElementById('video-play-overlay');
+    const videoProgressBarWrapper = document.getElementById('video-progress-bar-wrapper');
+    const videoProgressBar = document.getElementById('video-progress-bar');
+    const videoProgressHandle = document.getElementById('video-progress-handle');
+    const videoTimeCurrent = document.getElementById('video-time-current');
+    const videoTimeTotal = document.getElementById('video-time-total');
+    const videoVolumeSlider = document.getElementById('video-volume-slider');
+    const videoVolumeIcon = document.getElementById('video-volume-icon');
+    const videoStatusIndicator = document.getElementById('video-status-indicator');
+    const videoHudTime = document.getElementById('video-hud-time');
+    const videoHudResolution = document.getElementById('video-hud-resolution');
+
+    let videoInterval = null;
+
+    function toggleVideoPlayback() {
+        if (!video) return;
+        if (video.paused || video.ended) {
+            playVideo();
+        } else {
+            pauseVideo();
+        }
+    }
+
+    function playVideo() {
+        if (!video) return;
+        
+        // Interlock: pause the audio player if it is playing
+        if (isPlaying) {
+            pauseAudio();
+        }
+
+        video.play();
+        videoPlayBtn.innerHTML = '<i class="fa-solid fa-pause"></i> PAUSE';
+        videoPlayOverlay.classList.add('hidden');
+        videoStatusIndicator.textContent = 'PLAYING';
+        videoStatusIndicator.style.color = 'var(--accent-amber)';
+        
+        // Start tracking timeline
+        videoInterval = setInterval(updateVideoTimeline, 100);
+    }
+
+    function pauseVideo() {
+        if (!video) return;
+        video.pause();
+        videoPlayBtn.innerHTML = '<i class="fa-solid fa-play"></i> PLAY';
+        videoPlayOverlay.classList.remove('hidden');
+        videoStatusIndicator.textContent = 'PAUSED';
+        videoStatusIndicator.style.color = 'rgba(28, 28, 30, 0.4)';
+        
+        clearInterval(videoInterval);
+    }
+
+    if (video) {
+        // Toggle playback on click elements
+        videoPlayBtn.addEventListener('click', toggleVideoPlayback);
+        videoPlayOverlay.addEventListener('click', toggleVideoPlayback);
+        video.addEventListener('click', toggleVideoPlayback);
+
+        // Update timeline values on metadata load
+        video.addEventListener('loadedmetadata', () => {
+            videoTimeTotal.textContent = formatTime(video.duration);
+            updateVideoTimeline();
+            if (video.videoWidth && video.videoHeight) {
+                videoHudResolution.textContent = `${video.videoWidth}x${video.videoHeight} @ 24FPS`;
+            }
+        });
+
+        // Set duration if already loaded
+        if (video.readyState >= 1) {
+            videoTimeTotal.textContent = formatTime(video.duration);
+            if (video.videoWidth && video.videoHeight) {
+                videoHudResolution.textContent = `${video.videoWidth}x${video.videoHeight} @ 24FPS`;
+            }
+        }
+
+        function updateVideoTimeline() {
+            const current = video.currentTime;
+            const dur = video.duration || 0;
+            const percent = dur > 0 ? (current / dur) * 100 : 0;
+            
+            videoProgressBar.style.width = `${percent}%`;
+            videoProgressHandle.style.left = `${percent}%`;
+            
+            videoTimeCurrent.textContent = formatTime(current);
+            videoTimeTotal.textContent = formatTime(dur);
+            videoHudTime.textContent = `${formatTime(current)} / ${formatTime(dur)}`;
+        }
+
+        // Scrubbing control
+        videoProgressBarWrapper.addEventListener('click', (e) => {
+            const rect = videoProgressBarWrapper.getBoundingClientRect();
+            const percent = (e.clientX - rect.left) / rect.width;
+            const dur = video.duration || 0;
+            video.currentTime = percent * dur;
+            updateVideoTimeline();
+        });
+
+        // Volume control
+        videoVolumeSlider.addEventListener('input', () => {
+            const vol = videoVolumeSlider.value;
+            video.volume = vol;
+            
+            if (vol == 0) {
+                videoVolumeIcon.className = 'fa-solid fa-volume-xmark volume-icon';
+                videoStatusIndicator.textContent = 'MUTED';
+            } else if (vol < 0.5) {
+                videoVolumeIcon.className = 'fa-solid fa-volume-low volume-icon';
+                if (!video.paused) videoStatusIndicator.textContent = 'PLAYING';
+            } else {
+                videoVolumeIcon.className = 'fa-solid fa-volume-high volume-icon';
+                if (!video.paused) videoStatusIndicator.textContent = 'PLAYING';
+            }
+        });
+
+        // Video ended event
+        video.addEventListener('ended', () => {
+            pauseVideo();
+            video.currentTime = 0;
+            updateVideoTimeline();
+        });
     }
 });
