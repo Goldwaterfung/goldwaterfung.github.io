@@ -668,8 +668,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const videoVolumeSlider = document.getElementById('video-volume-slider');
     const videoVolumeIcon = document.getElementById('video-volume-icon');
     const videoStatusIndicator = document.getElementById('video-status-indicator');
-    const videoHudTime = document.getElementById('video-hud-time');
-    const videoHudResolution = document.getElementById('video-hud-resolution');
 
     let videoInterval = null;
 
@@ -721,17 +719,11 @@ document.addEventListener('DOMContentLoaded', () => {
         video.addEventListener('loadedmetadata', () => {
             videoTimeTotal.textContent = formatTime(video.duration);
             updateVideoTimeline();
-            if (video.videoWidth && video.videoHeight) {
-                videoHudResolution.textContent = `${video.videoWidth}x${video.videoHeight} @ 24FPS`;
-            }
         });
 
         // Set duration if already loaded
         if (video.readyState >= 1) {
             videoTimeTotal.textContent = formatTime(video.duration);
-            if (video.videoWidth && video.videoHeight) {
-                videoHudResolution.textContent = `${video.videoWidth}x${video.videoHeight} @ 24FPS`;
-            }
         }
 
         function updateVideoTimeline() {
@@ -744,7 +736,6 @@ document.addEventListener('DOMContentLoaded', () => {
             
             videoTimeCurrent.textContent = formatTime(current);
             videoTimeTotal.textContent = formatTime(dur);
-            videoHudTime.textContent = `${formatTime(current)} / ${formatTime(dur)}`;
         }
 
         // Scrubbing control

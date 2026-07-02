@@ -432,23 +432,7 @@ body {
     pointer-events: none;
 }
 
-.oscilloscope-hud {
-    position: absolute;
-    bottom: 6px;
-    left: 10px;
-    right: 10px;
-    display: flex;
-    justify-content: space-between;
-    z-index: 3;
-    pointer-events: none;
-}
 
-.oscilloscope-hud span {
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    color: rgba(255, 255, 255, 0.4);
-    letter-spacing: 0.05em;
-}
 
 /* Console Control Elements */
 .console-controls {
