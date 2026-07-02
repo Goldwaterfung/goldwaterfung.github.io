@@ -1102,6 +1102,11 @@ body {
 /* ==========================================================================
    AI Workflow Video Player (Minimalist Video Monitor style)
    ========================================================================== */
+.video-console-panel {
+    max-width: 600px;
+    width: 100%;
+}
+
 .video-monitor-frame {
     width: 100%;
     aspect-ratio: 16 / 9;
