@@ -1,22 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fung Kam Kiu | Music & Audio Engineer | Portfolio</title>
+    <title>馮淦喬 (Kim Fung) | Product Manager & Product Planner Portfolio</title>
 
     <!-- Meta tags for SEO -->
     <meta name="description"
-        content="Portfolio of Fung Kam Kiu, Music & Audio Engineering graduate specializing in dialogue restoration, game audio, VR ambisonics, and AI-driven audio post-production.">
+        content="馮淦喬 (Kim Fung) 的產品企劃作品集。專注於音樂串流/內容平台、AI 助理應用與 0-to-1 產品體驗設計。具備南藝大音樂工程背景、IEEE 國際論文發表與企業創辦經歷。">
     <meta name="keywords"
-        content="Audio Engineer, Dialogue Restoration, Sound Design, Unity3D, Ambisonics, iZotope RX, Pro Tools, AI Audio, Fung Kam Kiu">
+        content="馮淦喬, Kim Fung, Product Manager, 產品經理, 產品企劃, KKBOX, 音樂串流, AI 助理, 0-to-1 產品 launch, A/B Testing, User Research, 華語流行音樂, 音樂工程">
 
     <!-- Google Fonts: Georgia (Serif), Space Mono (Monospace), Inter (Sans-serif) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Georgia&family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Georgia&family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
     <!-- FontAwesome Icons -->
@@ -28,23 +28,21 @@
 
 <body>
 
-    <!-- Sticky Navigation -->
+    <!-- Sticky Navigation Header -->
     <header class="header">
         <div class="nav-container">
             <a href="#hero" class="logo">
-                <span class="logo-name">FUNG KAM KIU</span>
-                <span class="logo-title">// Audio Engineer</span>
+                <span class="logo-name">馮淦喬 (KIM FUNG)</span>
+                <span class="logo-title">Product Manager & Planner</span>
             </a>
 
             <nav class="nav-menu" id="nav-menu">
-                <a href="#about" class="nav-link active">About</a>
-                <a href="#restoration" class="nav-link">My Mixing Works</a>
-                <a href="#ai-workflow" class="nav-link">AI Sound Redesign</a>
-                <a href="#skills" class="nav-link">Skills</a>
-                <a href="#portfolio" class="nav-link">Portfolio</a>
-                <a href="#research" class="nav-link">Research</a>
+                <a href="#about" class="nav-link active">About Profile</a>
+                <a href="#case-studies" class="nav-link">Case Studies</a>
+                <a href="#skills" class="nav-link">Competencies</a>
+                <a href="#projects" class="nav-link">Music & AI</a>
                 <a href="#experience" class="nav-link">Experience</a>
-                <a href="mailto:kim.kamkiu.fung@gmail.com" class="nav-link nav-btn">Contact</a>
+                <a href="#contact" class="nav-link nav-btn">Contact</a>
             </nav>
 
             <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu">
@@ -56,58 +54,86 @@
     </header>
 
     <main>
-        <!-- Hero Section -->
+        <!-- Hero Section (Above the Fold) -->
         <section id="hero" class="hero-section">
-            <canvas id="canvas-visualizer"></canvas>
-
             <div class="hero-container">
+                <div class="hero-layout"
+                    style="display: flex; align-items: center; justify-content: space-between; gap: 3rem; flex-wrap: wrap;">
+                    <div class="hero-text-side"
+                        style="flex: 1; min-width: 280px; display: flex; flex-direction: column; gap: 1.5rem;">
+                        <div class="hero-meta-badge">
+                            <span class="mono-label">0-TO-1 PRODUCT LAUNCH · AI APPLICATIONS · LIVE STREAMING & DATA
+                                STRATEGY</span>
+                        </div>
 
-                <h1 class="hero-title">
-                    Fung Kam Kiu
-                </h1>
+                        <h1 class="hero-title" style="margin: 0;">
+                            我是 馮淦喬 (Kim Fung)。
+                        </h1>
 
-                <h2 class="hero-subtitle">
-                    Music & Audio Engineering graduate specializing in dialogue restoration, game sound in Unity/Wwise,
-                    and music stems datasets.
-                </h2>
+                        <h2 class="hero-subtitle">
+                            專注於<strong>「音樂產業」</strong>、<strong>「AI 助理應用」</strong>與<strong>「產品體驗設計」</strong>。
+                        </h2>
 
-                <div class="hero-cta-group">
-                    <a href="#restoration" class="btn btn-dark">
-                        <i class="fa-solid fa-play"></i> Mixing Works
-                    </a>
-                    <a href="#portfolio" class="btn btn-light">
-                        <i class="fa-solid fa-folder-open"></i> Portfolio Highlights
-                    </a>
+                        <p class="hero-description">
+                            具備聲音工程與科技研發背景、IEEE 國際學術論文發表經驗與企業創辦歷程。擅長結合數據分析與跨部門溝通，將複雜前沿技術（如 3D
+                            互動、LLM Agent、空間音訊）轉化為直覺、高留存且具商業價值的產品體驗。
+                        </p>
+
+                        <div class="hero-cta-group">
+                            <a href="#case-studies" class="btn btn-dark">
+                                <i class="fa-solid fa-layer-group"></i> 瀏覽產品案例 Case Studies
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="hero-avatar-side"
+                        style="flex-shrink: 0; display: flex; justify-content: center; align-items: center;">
+                        <div class="avatar-frame"
+                            style="width: 220px; height: 220px; border-radius: 50%; overflow: hidden; border: 3px solid var(--text-primary); box-shadow: 0 10px 25px rgba(0,0,0,0.12);">
+                            <img src="assets/image/self.jpg" alt="馮淦喬 (Kim Fung)"
+                                style="width: 100%; height: 100%; object-fit: cover; object-position: center top;">
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- About Section -->
+        <!-- Section 01: Professional Profile -->
         <section id="about" class="section about-section">
             <div class="container">
                 <div class="section-grid">
                     <div class="section-meta">
-                        <span class="mono-section-label">01 // PROFILE</span>
-                        <h2 class="section-serif-title">Professional Summary</h2>
+                        <span class="mono-section-label">PROFILE</span>
+                        <h2 class="section-serif-title">專業總覽 & 產品哲學</h2>
                     </div>
 
                     <div class="section-content">
                         <div class="editorial-lead">
-                            Recent Music & Audio Engineering graduate from Tainan National University of The Arts with a
-                            highly trained ear for acoustics, signal processing, and sound design.
+                            「融合數據驅動思維、前沿科技理解與深刻的音樂文化底蘊，打造打動數百萬聽眾與使用者的產品體驗。」
                         </div>
                         <p class="editorial-body">
-                            Highly proficient in industry-standard DAWs and audio restoration workflows, as well as
-                            sound design in Unity3D and AudioKinetic Wwise with higher-order Ambisonics technology.
-                            Possess a deep interest in audio effect chain dataset engineering and post-production
-                            quality assurance. Operates a fully equipped, acoustically treated home studio for
-                            high-fidelity dialogue cleanup and auditory assessments.
+                            我畢業於國立臺南藝術大學音樂與聲音工程學系，並於心理聲學與空間音訊領域發表 IEEE 國際論文。除了具備 Python 導向的數據分析流程外，我曾共同創辦理髮店並親自主導開發
+                            0-to-1 門市髮型展示 App，具備端到端產品規劃、實體落地與營運成長的實戰經驗。
+                        </p>
+                        <p class="editorial-body">
+                            同時，我擁有五星級奢華酒店 (Marriott, Hyatt, Kerry Hotel 開幕團隊)
+                            的貴賓服務背景，培養了觀察顧客情緒與心理需求的能力，以及跨部門溝通、利害關係人協調技巧。無論是驅動 0-to-1
+                            產品從零到一，抑或是透過數據分析與產品持續優化現有功能，我都致力於為團隊帶來高規格的產品執行力。
                         </p>
 
                         <div class="about-contact-links">
                             <div class="contact-link-item">
+                                <span class="mono-label">FOCUS DOMAINS</span>
+                                <span class="contact-val">Live Streaming · AI Applications · UX</span>
+                            </div>
+                            <div class="contact-link-item">
+                                <span class="mono-label">LANGUAGES</span>
+                                <span class="contact-val">English (Native/Fluent) · Mandarin (Fluent) · Cantonese
+                                    (Native)</span>
+                            </div>
+                            <div class="contact-link-item">
                                 <span class="mono-label">LOCATION</span>
-                                <span class="contact-val">Hong Kong</span>
+                                <span class="contact-val">Hong Kong / Taiwan</span>
                             </div>
                             <div class="contact-link-item">
                                 <span class="mono-label">EMAIL</span>
@@ -120,267 +146,374 @@
             </div>
         </section>
 
-        <!-- Multitrack Mixing Console (Minimalist Hardware Console style) -->
-        <section id="restoration" class="section restoration-section">
+        <!-- Section 02: Featured PM Case Studies -->
+        <section id="case-studies" class="section case-studies-section">
             <div class="container">
                 <div class="section-grid">
                     <div class="section-meta">
-                        <span class="mono-section-label">02 // INTERACTIVE LAB</span>
-                        <h2 class="section-serif-title">Mixing Works</h2>
+                        <span class="mono-section-label">CASE STUDIES</span>
+                        <h2 class="section-serif-title">精選產品案例</h2>
                         <p class="section-side-desc">
-                            Toggle between the raw unmixed stems and the final polished multitrack stereo mix. The visualization
-                            simulates a hardware level analyzer displaying real-time spectrum amplitude.
-                        </p>
-                        <p class="section-side-desc" style="margin-top: 1rem;">
-                            Download multitracks: <br>
-                            <a href="https://drive.google.com/drive/folders/1Uyi3nBV2k8tBU5I08oVMnMG4jeUyzn4g?usp=sharing" target="_blank" rel="noopener" class="underline-link">Mix 1 Folder</a> &bull; 
-                            <a href="https://drive.google.com/drive/folders/12Lo8oNJzTSBCBHu6PZ6foHG0PX5EKaPF?usp=sharing" target="_blank" rel="noopener" class="underline-link">Mix 2 Folder</a>
+                            深入拆解 4 項代表性產品專案：涵蓋 0-to-1 產品企劃、B2B 產品體驗優化、AR+RAG 多模態 AI 系統整合，以及極限聲影同步效能調校。
                         </p>
                     </div>
 
                     <div class="section-content">
-                        <div class="console-panel">
-                            <!-- Console Header -->
-                            <div class="console-header">
-                                <div class="console-title"></div>
-                                <div class="console-leds">
-                                    <span class="led red"></span>
-                                    <span class="led amber active" id="led-active"></span>
-                                    <span class="led green"></span>
+                        <!-- Case Study 01 -->
+                        <article class="case-study-card">
+                            <div class="case-header">
+                                <div class="case-tags">
+                                    <span class="badge badge-accent">0-to-1 Product Launch</span>
+                                    <span class="badge">Retail Digital Transformation</span>
+                                    <span class="badge">User Research</span>
+                                </div>
+                                <h3 class="case-title">01. 門市實體與數位結合 — 3D 髮型互動展示與等候區體驗 App</h3>
+                                <div class="case-meta-line">
+                                    <span><strong>角色:</strong> 聯合創辦人兼產品負責人 (Co-Founder & Product Lead)</span>
+                                    <span><strong>時間:</strong> 2023 - 2026 年</span>
+                                    <span><strong>公司:</strong> MRKE Ltd.</span>
                                 </div>
                             </div>
 
-                            <!-- Oscilloscope Screen -->
-                            <div class="oscilloscope-frame">
-                                <canvas id="spectrogram-canvas"></canvas>
-                                <div class="oscilloscope-grid"></div>
+                            <div class="case-impact-highlights">
+                                <div class="impact-pill"><i class="fa-solid fa-chart-line"></i> 諮詢溝通時間縮短 ~35%</div>
+                                <div class="impact-pill"><i class="fa-solid fa-bolt"></i> 60 FPS 平板低延遲渲染</div>
+                                <div class="impact-pill"><i class="fa-solid fa-users"></i> 50+ 訪談與問卷驗證</div>
                             </div>
 
-                            <!-- Console Controls -->
-                            <div class="console-controls">
-                                <div class="selector-row-grid">
-                                    <!-- Mix Selector -->
-                                    <div class="control-group">
-                                        <div class="mix-toggle-bar">
-                                            <button class="mix-toggle-btn active" id="btn-mix-1" data-mix="1">Mix
-                                                1</button>
-                                            <button class="mix-toggle-btn" id="btn-mix-2" data-mix="2">Mix 2</button>
-                                        </div>
-                                    </div>
+                            <div class="case-body">
+                                <h4>1. 商業背景與問題發現</h4>
+                                <p>在實體理髮店營運中，顧客在等候區平均耗費 15–20 分鐘無所事事，部分顧客因此產生躁動與不耐。此外，顧客於諮詢時常因 2D
+                                    照片與實際剪髮造型產生嚴重資訊落差，導致髮型師溝通成本過高且顧客滿意度波動。</p>
 
-                                    <!-- Mode Selector -->
-                                    <div class="control-group">
-                                        <div class="mode-toggle-bar">
-                                            <button class="mode-toggle-btn active"
-                                                id="btn-mode-before">Original</button>
-                                            <button class="mode-toggle-btn" id="btn-mode-after">Mixed</button>
-                                            <!-- Hidden input to maintain compatibility with script logic -->
-                                            <input type="checkbox" id="audio-source-toggle" style="display:none;">
-                                        </div>
-                                    </div>
-                                </div>
+                                <h4>2. 使用者痛點與需求驗證</h4>
+                                <ul>
+                                    <li><strong>顧客痛點:</strong> 無法預覽 360 度髮型動態細節，對適合自己的造型缺乏自信。</li>
+                                    <li><strong>髮型師痛點:</strong> 需花費大量時間解釋髮型結構與適用髮質，拉長整體作業時間。</li>
+                                    <li><strong>驗證方式:</strong> 針對 50+ 位門市顧客進行離場問卷與並與髮型師深度訪談，確認「低延遲 3D 互動探索」為核心驗證需求。</li>
+                                </ul>
 
-                                <!-- Progress/Time Scrubber -->
-                                <div class="control-group scrubber-group">
-                                    <div class="timeline-row">
-                                        <span class="mono-time" id="time-current">0:00</span>
-                                        <div class="timeline-track-wrapper" id="progress-bar-wrapper">
-                                            <div class="timeline-fill" id="progress-bar"></div>
-                                            <div class="timeline-knob" id="progress-handle"></div>
-                                        </div>
-                                        <span class="mono-time" id="time-total">0:00</span>
-                                    </div>
-                                </div>
-
-                                <!-- Playback & Volume Row -->
-                                <div class="console-lower-row">
-                                    <button class="btn-console-play" id="btn-play-pause" aria-label="Play/Pause">
-                                        <i class="fa-solid fa-play"></i> PLAY
+                                <div class="accordion-box">
+                                    <button class="accordion-toggle" aria-expanded="false">
+                                        <i class="fa-solid fa-clipboard-question"></i> 查看門市顧客離場問卷核心 5 大問題細節
+                                        <i class="fa-solid fa-chevron-down toggle-icon"></i>
                                     </button>
-
-                                    <div class="console-volume">
-                                        <i class="fa-solid fa-volume-high volume-icon" id="volume-icon"></i>
-                                        <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.8"
-                                            aria-label="Volume">
+                                    <div class="accordion-content">
+                                        <ol class="survey-list">
+                                            <li><strong>等候體驗感知：</strong>「您今天在門市等候諮詢的過程大約耗費多久？等候期間是否希望有互動內容輔助體驗？」</li>
+                                            <li><strong>諮詢資訊落差：</strong>「在觀看 2D 平面髮型照片諮詢時，您是否難以想像剪髮後的 360 度動態線條與整體效果？」
+                                            </li>
+                                            <li><strong>造型選擇痛點：</strong>「與髮型師溝通時，最主要的顧慮是什麼？（如：擔心側面/後腦勺蓬鬆度不符預期、不確定是否適合個人臉型）」
+                                            </li>
+                                            <li><strong>3D 互動意願：</strong>「若提供平板可 360 度旋轉縮放預覽髮型 3D
+                                                模型，是否能幫助您更精準地向髮型師表達需求？」</li>
+                                            <li><strong>價值與滿意度：</strong>「若將等候時間轉化為透過 3D App
+                                                自行探索與挑選髮型，是否能提升您對門市整體服務的滿意度？」</li>
+                                        </ol>
                                     </div>
+                                </div>
 
-                                    <div class="system-status-indicator" id="source-indicator"></div>
+                                <h4>3. 產品策略與觀察驅動迭代</h4>
+                                <ul>
+                                    <li><strong>MVP 範疇設定:</strong> 打造可在 Android 平板低延遲運行的 360 度 3D 髮型展示系統，初始聚焦於男女成年髮型。
+                                    </li>
+                                    <li><strong>觀察驅動之 Roadmap 調整:</strong>
+                                        透過門市現場行為觀察與平板操作紀錄，發現等候區使用比例最高且停留最久者為<strong>兒童與青少年族群</strong>。基於此洞察，快速調整
+                                        Roadmap，優先開發並上線兒童/青少年專屬 3D 髮型模型，成功捕捉高互動受眾並帶動家庭客滿意度。</li>
+                                    <li><strong>技術規範與限制:</strong> 制定 3D 模型面數與紋理壓縮規格，確保在流動式硬體上實現 60fps
+                                        流暢渲染。</li>
+                                </ul>
+
+                                <div class="case-app-showcase"
+                                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
+                                    <figure style="margin: 0; text-align: center;">
+                                        <img src="assets/hair_app/hair_app_menu.png" alt="髮型分類選單介面"
+                                            style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
+                                        <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">圖
+                                            1：髮型分類與系列選單</figcaption>
+                                    </figure>
+                                    <figure style="margin: 0; text-align: center;">
+                                        <img src="assets/hair_app/hair_app_display1.png" alt="3D 髮型 360 度旋轉預覽 (長者系列)"
+                                            style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
+                                        <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">圖 2：3D
+                                            髮型 360 度預覽 (長者系列)</figcaption>
+                                    </figure>
+                                    <figure style="margin: 0; text-align: center;">
+                                        <img src="assets/hair_app/hair_app_display2.png" alt="3D 髮型 360 度旋轉預覽 (男士短髮)"
+                                            style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
+                                        <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">圖 3：3D
+                                            髮型 360 度預覽 (男士短髮)</figcaption>
+                                    </figure>
+                                </div>
+
+                                <h4>4. 門市作業流程與 SOP 培訓</h4>
+                                <p>制定門市服務 SOP 並培訓髮型師將 App
+                                    融入諮詢流程。持續收集第一線回饋與熱門髮型使用數據，針對高頻選用髮型加強剪裁技術培訓與溝通話術，拉近數位展示與實體造型的落差。</p>
+
+                                <h4>5. 產品影響力與成果</h4>
+                                <p class="highlight-text">
+                                    顧客選型諮詢時間平均縮短約 <strong>35%</strong>，顯著降低資訊落差；同時將枯燥等候時間轉化為互動探索，帶動門市整體顧客滿意度提升。
+                                </p>
+                                <p style="margin-top: 0.8rem;">
+                                    <a href="https://github.com/Goldwaterfung/3D-Product-Showcase-URP-Sample-in-Unity"
+                                        target="_blank" rel="noopener" class="underline-link"><i
+                                            class="fa-brands fa-github"></i> 前往 GitHub 查看 3D Product Showcase URP Sample
+                                        (Goldwaterfung/3D-Product-Showcase-URP-Sample-in-Unity)</a>
+                                </p>
+                            </div>
+                        </article>
+
+                        <!-- Case Study 02 -->
+                        <article class="case-study-card">
+                            <div class="case-header">
+                                <div class="case-tags">
+                                    <span class="badge badge-accent">B2B Product Optimization</span>
+                                    <span class="badge">UX & Data Analysis</span>
+                                    <span class="badge">AI & 3D Simulation</span>
+                                </div>
+                                <h3 class="case-title">02. B2B 醫療 3D 模擬與 LLM 臨床診斷培訓系統產品優化</h3>
+                                <div class="case-meta-line">
+                                    <span><strong>角色:</strong> UX Product Intern (醫諾華醫學科技 Innova Medical)</span>
+                                    <span><strong>時間:</strong> 2024 年 7-8 月</span>
+                                    <span><strong>客群:</strong> B2B 醫學大學與教育機構</span>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- Hidden Audio Tags -->
-                        <audio id="audio-mix1-before" src="audio/Mix 1/mix_1_before.wav" preload="auto"></audio>
-                        <audio id="audio-mix1-after" src="audio/Mix 1/mix_1_after.wav" preload="auto"></audio>
-                        <audio id="audio-mix2-before" src="audio/Mix 2/mix_2_before.wav" preload="auto"></audio>
-                        <audio id="audio-mix2-after" src="audio/Mix 2/mix_2_after.wav" preload="auto"></audio>
+                            <div class="case-impact-highlights">
+                                <div class="impact-pill"><i class="fa-solid fa-bullseye"></i> 身體檢查診斷誤判率顯著降低</div>
+                                <div class="impact-pill"><i class="fa-solid fa-handshake"></i> 強化 B2B 採購滿意度與產品定位</div>
+                            </div>
+
+                            <div class="case-body">
+                                <h4>1. 商業背景與問題識別</h4>
+                                <p>醫諾華開發結合 LLM 對話與 3D 虛擬病人的 B2B 臨床診斷培訓系統，供醫學生進行「望聞問切」與身體檢查 (Body Check) 培訓。初版測試顯示，學員在
+                                    Body Check 環節出現顯著的病因誤判，影響臨床培訓效果。</p>
+
+                                <h4>2. 數據分析與行為洞察</h4>
+                                <p>初始團隊猜測是 3D 畫面不夠美觀，但透過深入交叉分析學員診斷紀錄與操作行為後，發現核心瓶頸在於：</p>
+                                <ul>
+                                    <li><strong>聲影不同步:</strong> 3D 病人肢體/表情動作與 LLM 生成的口述症狀出現時間差與回應脫節。</li>
+                                    <li><strong>關鍵視覺病徵缺失:</strong> 臨床「望診」至關重要，但 3D
+                                        環境中病人的病理特徵（如皮疹、黃疸、異常步態）不明顯或有誤，導致學員無法獲得正確視覺線索。</li>
+                                </ul>
+
+                                <h4>3. 產品假設與優先級重構</h4>
+                                <ul>
+                                    <li><strong>核心假設:</strong> 3D 美術僅為錦上添花，依據症狀精準呈現「3D 身體特徵、病態動作與 LLM
+                                        即時同步」才是學員完成正確診斷的核心需求。</li>
+                                    <li><strong>產品重構重點:</strong> 優先建立疾病症狀與 3D 身體視覺特徵的精準映射邏輯，並重構 LLM 對話觸發與 3D
+                                        病人肢體反應的同步機制。</li>
+                                </ul>
+
+                                <h4>4. 測試驗證與成果</h4>
+                                <p class="highlight-text">
+                                    學員於 Body Check 環節的診斷錯誤率有下降趨勢，臨床綜合診斷評分精準度提升；成功將產品焦點從單純視覺美術轉向學員導向的診斷工具，強化醫學院採購認同。
+                                </p>
+                            </div>
+                        </article>
+
+                        <!-- Case Study 03 -->
+                        <article class="case-study-card">
+                            <div class="case-header">
+                                <div class="case-tags">
+                                    <span class="badge badge-accent">AI System Integration</span>
+                                    <span class="badge">Multimodal AI Agent</span>
+                                    <span class="badge">AR & RAG</span>
+                                </div>
+                                <h3 class="case-title">03. AR 與 RAG 結合之多模態 AI 即時虛擬學校代表</h3>
+                                <div class="case-meta-line">
+                                    <span><strong>角色:</strong> AI 產品與系統整合 PM (與台北 AI 技術團隊合作)</span>
+                                    <span><strong>時間:</strong> 2024 年 10 月 – 2025 年 3 月</span>
+                                </div>
+                            </div>
+
+                            <div class="case-impact-highlights">
+                                <div class="impact-pill"><i class="fa-solid fa-microchip"></i> Whisper + Llama 3 8B RAG
+                                    + Fish-Speech</div>
+                                <div class="impact-pill"><i class="fa-solid fa-clock"></i> LLM 推理等待動畫與情緒對接</div>
+                            </div>
+
+                            <div class="case-body">
+                                <h4>1. 專案背景與挑戰</h4>
+                                <p>打造結合 AR 視覺與校園知識庫檢索的即時虛擬 AI 代表。系統需在使用者進行語音提問時，即時達成「語音識別 ➔ LLM 知識檢索 ➔ 語音合成
+                                    ➔ 虛擬化身肢體與表情反應」的全流程低延遲互動，並解決 LLM 推理延遲造成的互動停頓感。</p>
+
+                                <h4>2. 跨團隊分工與架構劃分</h4>
+                                <ul>
+                                    <li><strong>台北 AI 技術團隊:</strong> 負責核心多模態 AI 流水線開發與模型部署 (Whisper Medium ASR, Llama 3
+                                        8B RAG, Fish-Speech TTS)。</li>
+                                    <li><strong>系統整合與狀態機主導 (本人):</strong> 負責端到端系統對接，串接 Azure Kinect 深度鏡頭與 Unity 3D
+                                        Avatar，設計低延遲互動狀態機。</li>
+                                </ul>
+
+                                <h4>3. 系統整合與動態響應機制</h4>
+                                <ul>
+                                    <li><strong>LLM 推理等待與緩衝:</strong> 設計等待狀態動畫，確保使用者在 LLM 推理期間獲得即時視覺回饋，消除停頓感。</li>
+                                    <li><strong>情緒訊號與 Avatar 動態觸發:</strong> 建立 LLM 推理結果與 Unity 的數據傳輸協定，在語音輸出的同時將情緒訊號發送至
+                                        Unity，觸發 3D Avatar 相應的面部表情、嘴型同步及肢體動作。</li>
+                                </ul>
+
+                                <h4>4. 成果與技術驗證</h4>
+                                <p class="highlight-text">
+                                    成功完成語音輸入、知識庫問答至 3D 虛擬代表即時說答與肢體表情響應之端到端測試，驗證 AR + RAG 技術於校園導覽與諮詢場景的應用可行性。
+                                </p>
+
+                                <div class="case-video-wrapper vertical-video"
+                                    style="margin: 1.5rem 0; display: flex; flex-direction: column; align-items: center;">
+                                    <video controls preload="metadata"
+                                        style="width: 100%; max-width: 280px; aspect-ratio: 9/16; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); border: 1px solid var(--border-color); background: #000; display: block;">
+                                        <source src="assets/videos/ar_llm_principal.mp4" type="video/mp4">
+                                        您的瀏覽器不支援影片播放。
+                                    </video>
+                                    <span
+                                        style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.6rem; text-align: center;"><i
+                                            class="fa-solid fa-mobile-screen"></i> AR 即時多模態 AI 虛擬代表實機展示 (9:16 直向)</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Case Study 04 -->
+                        <article class="case-study-card">
+                            <div class="case-header">
+                                <div class="case-tags">
+                                    <span class="badge badge-accent">Technical Integration</span>
+                                    <span class="badge">Real-Time Performance</span>
+                                    <span class="badge">Audio-Visual Sync</span>
+                                </div>
+                                <h3 class="case-title">04. 國樂二胡 Live — AI 動作捕捉與即時音視訊同步系統</h3>
+                                <div class="case-meta-line">
+                                    <span><strong>角色:</strong> 助理工程師 / 技術 (國立臺南藝術大學 博士班技術助理)</span>
+                                    <span><strong>時間:</strong> 2023 年 9 月 – 2024 年 6 月</span>
+                                </div>
+                            </div>
+
+                            <div class="case-impact-highlights">
+                                <div class="impact-pill"><i class="fa-solid fa-sliders"></i> 保障音質取捨 2 秒延遲精準對齊</div>
+                                <div class="impact-pill"><i class="fa-solid fa-masks-theater"></i> 大型公開 Live 舞台展示成功
+                                </div>
+                            </div>
+
+                            <div class="case-body">
+                                <h4>1. 背景與挑戰</h4>
+                                <p>推動傳統國樂二胡 Live 演出的虛擬化身系統整合。極高動態的二胡拉弓動作與音訊訊號流，在舞台公開直播時極易產生音畫不同步與計算延遲問題。
+                                </p>
+
+                                <h4>2. 跨領域協作</h4>
+                                <ul>
+                                    <li><strong>跨領域溝通:</strong>
+                                        擔任AI動捕工程師，與音樂家（表演者）之間的溝通橋樑，將非技術性的藝術演出需求轉化為精確的技術規格與測試腳本。</li>
+                                    <li><strong>效能調校:</strong> 在資源有限下，開發即時動捕數據包與音訊訊號流傳輸架構，優先確保核心幀數 (FPS) 與音訊品質。</li>
+                                </ul>
+
+                                <h4>3. 量化成果</h4>
+                                <p class="highlight-text">
+                                    在不影響高保真音質的前提下進行工程取捨，透過緩衝機制設定 <strong>1.5 秒穩定延遲</strong>，達成音訊訊號與 AI
+                                    動作捕捉數據流的精準同步對齊，順利完成大型公開 Live 舞台展演。
+                                </p>
+
+                                <div class="case-video-wrapper horizontal-video" style="margin: 1.5rem 0;">
+                                    <video controls preload="metadata"
+                                        style="width: 100%; max-width: 720px; aspect-ratio: 16/9; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); border: 1px solid var(--border-color); background: #000; display: block;">
+                                        <source src="assets/videos/音樂會.mp4" type="video/mp4">
+                                        您的瀏覽器不支援影片播放。
+                                    </video>
+                                    <span
+                                        style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.6rem; display: block;"><i
+                                            class="fa-solid fa-compact-disc"></i> 國樂二胡 Live 現場 AI 動作捕捉與音視訊同步展示 (16:9
+                                        橫向)</span>
+                                </div>
+                            </div>
+                        </article>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Agentic AI Workflow / Video Section -->
-        <section id="ai-workflow" class="section ai-workflow-section">
-            <div class="container">
-                <div class="section-grid">
-                    <div class="section-meta">
-                        <span class="mono-section-label">03 // AGENTIC WORKFLOW</span>
-                        <h2 class="section-serif-title">AI Sound Redesign</h2>
-                        <p class="section-side-desc">
-                            Short film sound redesign utilizing Agentic AI Workflows. Features dialogue restoration with AI-cleaned vocal isolation, spectral frequency recovery in iZotope RX, and automated asset generation via Suno/ElevenLabs, utilizing Pro Tools MCP to mark storyboard timelines and assist in Pro Tools editing.
-                        </p>
-                        <p class="section-side-desc" style="margin-top: 1rem;">
-                            To view the full-length video, please visit the <a
-                                href="https://drive.google.com/file/d/1mOxCQBn-IEpMDaLfQ3HiuNbrgG3w2M0h/view?usp=sharing"
-                                target="_blank" rel="noopener" class="underline-link">Google Drive Link</a>.
-                        </p>
-                    </div>
-
-                    <div class="section-content">
-                        <!-- Custom Video Player Console -->
-                        <div class="console-panel video-console-panel">
-                            <!-- Console Header -->
-                            <div class="console-header">
-                                <div class="console-title"></div>
-                                <div class="console-leds">
-                                    <span class="led red active blink"></span>
-                                    <span class="led amber active"></span>
-                                    <span class="led green"></span>
-                                </div>
-                            </div>
-
-                            <!-- Video Screen Frame -->
-                            <div class="video-monitor-frame">
-                                <video id="workflow-video" src="ai-workflow/Widdershins_short.mp4" playsinline
-                                    preload="auto"></video>
-                                <div class="video-grid-overlay"></div>
-                                <div class="video-play-overlay" id="video-play-overlay">
-                                    <button class="video-play-overlay-btn" aria-label="Play Video">
-                                        <i class="fa-solid fa-play"></i>
-                                    </button>
-                                </div>
-                            </div>
-
-                            <!-- Console Controls -->
-                            <div class="console-controls">
-                                <div class="timeline-row">
-                                    <span class="mono-time" id="video-time-current">0:00</span>
-                                    <div class="timeline-track-wrapper" id="video-progress-bar-wrapper">
-                                        <div class="timeline-fill" id="video-progress-bar"></div>
-                                        <div class="timeline-knob" id="video-progress-handle"></div>
-                                    </div>
-                                    <span class="mono-time" id="video-time-total">0:00</span>
-                                </div>
-
-                                <div class="console-lower-row">
-                                    <button class="btn-console-play" id="btn-video-play-pause" aria-label="Play/Pause">
-                                        <i class="fa-solid fa-play"></i> PLAY
-                                    </button>
-
-                                    <div class="console-volume">
-                                        <i class="fa-solid fa-volume-high volume-icon" id="video-volume-icon"></i>
-                                        <input type="range" id="video-volume-slider" min="0" max="1" step="0.05"
-                                            value="0.8" aria-label="Volume">
-                                    </div>
-
-                                    <div class="system-status-indicator" id="video-status-indicator">SYSTEM READY</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Technical Skills Section -->
+        <!-- Section 03: Core Competencies & Toolkit -->
         <section id="skills" class="section skills-section">
             <div class="container">
                 <div class="section-grid">
                     <div class="section-meta">
-                        <span class="mono-section-label">04 // SKILLSET</span>
-                        <h2 class="section-serif-title">Core Competencies</h2>
+                        <span class="mono-section-label">COMPETENCIES</span>
+                        <h2 class="section-serif-title">核心能力與 PM 工具箱</h2>
                         <p class="section-side-desc">
-                            Engineering capabilities, platform proficiencies, and linguistic capabilities parsed from
-                            professional experience.
+                            結合產品管理框架、數據與前沿 AI 技術能力、專業音樂領域底蘊與溝通領導力。
                         </p>
                     </div>
 
                     <div class="section-content">
-                        <div class="skills-editorial-grid">
+                        <div class="competency-grid">
                             <!-- Category 1 -->
-                            <div class="skills-block">
-                                <h3 class="skills-block-title">DAWs & Production</h3>
-                                <ul class="flat-skill-list">
-                                    <li>
-                                        <span class="skill-name">Pro Tools</span>
-                                    </li>
-                                    <li>
-                                        <span class="skill-name">Logic Pro</span>
-                                    </li>
-                                    <li>
-                                        <span class="skill-name">Studio One</span>
-                                    </li>
+                            <div class="competency-card">
+                                <div class="competency-icon"><i class="fa-solid fa-compass-drafting"></i></div>
+                                <h3>產品策略 & 規劃</h3>
+                                <ul>
+                                    <li>0-to-1 產品企劃與商業模式驗證</li>
+                                    <li>Product Roadmapping</li>
+                                    <li>PRD / Spec 撰寫與 User Stories 拆解</li>
+                                    <li>優先級排序</li>
+                                    <li>競品分析與市場趨勢追蹤</li>
                                 </ul>
                             </div>
 
                             <!-- Category 2 -->
-                            <div class="skills-block">
-                                <h3 class="skills-block-title">Audio Processing</h3>
-                                <div class="text-tag-container">
-                                    <span class="text-tag">Noise Reduction</span>
-                                    <span class="text-tag">EQ / Compression</span>
-                                    <span class="text-tag">Vocal Modulation</span>
-                                    <span class="text-tag">Signal Processing</span>
-                                    <span class="text-tag">Waveform Analysis</span>
-                                    <span class="text-tag">Dialogue Editing</span>
-                                    <span class="text-tag">Vocal Recording</span>
-                                    <span class="text-tag">Acoustic Analysis</span>
-                                    <span class="text-tag">Loudness Standards</span>
-                                </div>
+                            <div class="competency-card">
+                                <div class="competency-icon"><i class="fa-solid fa-user-gear"></i></div>
+                                <h3>使用者研究 & UX</h3>
+                                <ul>
+                                    <li>深度用戶訪談與問卷設計</li>
+                                    <li>現場行為觀察</li>
+                                    <li>Usability Testing</li>
+                                    <li>產品原型設計</li>
+                                </ul>
                             </div>
 
                             <!-- Category 3 -->
-                            <div class="skills-block">
-                                <h3 class="skills-block-title">Spatial & Interactive Audio</h3>
-                                <ul class="flat-skill-list">
-                                    <li>
-                                        <span class="skill-name">Unity3D / Wwise Spatial Audio</span>
-                                    </li>
-                                    <li>
-                                        <span class="skill-name">Higher-Order Ambisonics</span>
-                                    </li>
+                            <div class="competency-card">
+                                <div class="competency-icon"><i class="fa-solid fa-chart-line"></i></div>
+                                <h3>數據分析 & 技術</h3>
+                                <ul>
+                                    <li>Python 數據處理與統計分析</li>
+                                    <li>A/B Testing 實驗設計與漏斗優化</li>
+                                    <li>Git/GitHub 版本控制與 RESTful API 觀念</li>
+                                    <li>PostgreSQL / SQL 基礎查詢</li>
                                 </ul>
                             </div>
 
                             <!-- Category 4 -->
-                            <div class="skills-block">
-                                <h3 class="skills-block-title">AI & Restoration Tools</h3>
-                                <ul class="flat-skill-list">
-                                    <li>
-                                        <span class="skill-name">iZotope RX Spectral Editor</span>
-                                    </li>
-                                    <li>
-                                        <span class="skill-name">Python Audio Pipelines (Demucs)</span>
-                                    </li>
+                            <div class="competency-card">
+                                <div class="competency-icon"><i class="fa-solid fa-brain"></i></div>
+                                <h3>前沿科技應用 (AI & 3D 空間音訊)</h3>
+                                <ul>
+                                    <li>人工智慧基礎知識 (RAG, GraphRAG, LangGraph Agent)</li>
+                                    <li>多模態AI與虛擬人整合</li>
+                                    <li>Unity3D AR/VR SDKs & 3D 狀態機對接</li>
+                                    <li>Higher-Order Ambisonics 空間音訊</li>
                                 </ul>
                             </div>
 
                             <!-- Category 5 -->
-                            <div class="skills-block">
-                                <h3 class="skills-block-title">Languages</h3>
-                                <ul class="flat-skill-list">
-                                    <li>
-                                        <span class="skill-name">English</span>
-                                        <span class="skill-rating">Native</span>
-                                    </li>
-                                    <li>
-                                        <span class="skill-name">Cantonese</span>
-                                        <span class="skill-rating">Native</span>
-                                    </li>
-                                    <li>
-                                        <span class="skill-name">Mandarin</span>
-                                        <span class="skill-rating">Native</span>
-                                    </li>
+                            <div class="competency-card">
+                                <div class="competency-icon"><i class="fa-solid fa-music"></i></div>
+                                <h3>音樂領域專長</h3>
+                                <ul>
+                                    <li>熟悉獨立音樂與創作者生態</li>
+                                    <li>多元曲風鑑賞</li>
+                                    <li>曲庫探索與主題歌單策展策略</li>
+                                    <li>聽眾共情與播放留存分析</li>
+                                    <li>DAW 專業審聽 (Pro Tools, Logic, Ableton)</li>
+                                </ul>
+                            </div>
+
+                            <!-- Category 6 -->
+                            <div class="competency-card">
+                                <div class="competency-icon"><i class="fa-solid fa-people-group"></i></div>
+                                <h3>專案管理 & 溝通</h3>
+                                <ul>
+                                    <li>跨部門溝通</li>
+                                    <li>敏捷專案管理</li>
+                                    <li>VIP 貴賓關係與利害關係人管理 (飯店背景)</li>
+                                    <li>三語流利: 英語 (母語/流利)、國語 (流利)、粵語 (母語)</li>
                                 </ul>
                             </div>
                         </div>
@@ -389,103 +522,105 @@
             </div>
         </section>
 
-        <!-- Portfolio & Projects Section -->
-        <section id="portfolio" class="section portfolio-section">
+        <!-- Section 04: Specialized Projects & Research -->
+        <section id="projects" class="section projects-section">
             <div class="container">
                 <div class="section-grid">
                     <div class="section-meta">
-                        <span class="mono-section-label">05 // PORTFOLIO</span>
-                        <h2 class="section-serif-title">Research & Projects</h2>
-
+                        <span class="mono-section-label">AUDIO TECH & RESEARCH</span>
+                        <h2 class="section-serif-title">前沿音樂科技與學術研究</h2>
                         <div class="flat-filters">
                             <button class="filter-btn active" data-filter="all">All</button>
-                            <button class="filter-btn" data-filter="research">Research</button>
-                            <button class="filter-btn" data-filter="audio-prod">Audio Prod</button>
+                            <button class="filter-btn" data-filter="agent-daw">Agentic DAW</button>
+                            <button class="filter-btn" data-filter="research">IEEE Research</button>
                         </div>
                     </div>
 
                     <div class="section-content">
                         <div class="flat-project-grid" id="portfolio-grid">
-                            <!-- Project 1 -->
-                            <div class="flat-project-row" data-category="research">
+                            <!-- Project 1: Strata Studio Agentic DAW -->
+                            <div class="flat-project-row" data-category="agent-daw">
                                 <div class="project-year">2026</div>
                                 <div class="project-details">
-                                    <span class="project-meta-label">RESEARCH & DEVELOPMENT IN PROGRESS</span>
-                                    <h3 class="project-row-title">Differentiable Audio Signal Processing with Customized
-                                        Mixing Console</h3>
+                                    <span class="project-meta-label">Human-Agent Collaborative DAW (AI Coding)</span>
+                                    <h3 class="project-row-title">Strata Studio — 次世代人機協同 Agentic Digital Audio
+                                        Workstation</h3>
                                     <p class="project-row-desc">
-                                        Collect high-quality music stems dataset scraping from the internet.
-                                        Program automation workflow from scraping process to source separation using
-                                        sam-audio-small or Demucs. Design DSP functions for audio effects. Randomly
-                                        apply audio effects to make synthetic dataset with Python.
+                                        專為音樂創作者設計的新一代 Agentic DAW。突破傳統 DAW 純手動操作限制，打造「創作者 ＋ AI 助理協同製作」流程。透過為 AI Agent
+                                        量身打造的命令列介面，使 AI Agent 能像理解自然指令般直接控制
+                                        DAW，自動接手繁瑣的分軌管理、音量平衡與音訊處理，讓音樂人專注於靈感創作。
+                                    </p>
+                                    <p class="project-row-desc">
+                                        <a href="https://github.com/Goldwaterfung/Strata-Studio" target="_blank"
+                                            rel="noopener" class="underline-link"><i class="fa-brands fa-github"></i> 前往
+                                            GitHub 查看開源專案與架構 (Goldwaterfung/Strata-Studio)</a>
                                     </p>
                                     <div class="project-row-tags">
-                                        <span>Python</span>
-                                        <span>sam-audio-small</span>
-                                        <span>Demucs</span>
-                                        <span>DSP</span>
-                                        <span>Audio Dataset</span>
+                                        <span>Agentic DAW</span>
+                                        <span>Human-AI Collaboration</span>
+                                        <span>Real-Time Safe Audio Engine</span>
+                                        <span>Open Source</span>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Project 2 -->
+                            <!-- Project 2: IEEE Paper -->
                             <div class="flat-project-row" data-category="research">
                                 <div class="project-year">2026</div>
                                 <div class="project-details">
-                                    <span class="project-meta-label">VR / SPATIAL AUDIO RESEARCH</span>
-                                    <h3 class="project-row-title">Measuring Visual Capture in VR under Sustained
-                                        Audiovisual Conflict</h3>
+                                    <span class="project-meta-label">IEEE INTERNATIONAL CONFERENCE ON VIRTUAL REALITY
+                                        2026 PAPER</span>
+                                    <h3 class="project-row-title">Measuring Visual Capture in Virtual Reality under
+                                        Sustained Audiovisual Conflict</h3>
                                     <p class="project-row-desc">
-                                        Design experiment environments in Unity3D utilizing third-order Ambisonics
-                                        spatial sound. Build a telemetry system to capture head/hand coordinates, data
-                                        cleaning in Python, sound generation from ElevenLabs.
+                                        <strong>Fung, K. K.</strong>, Saw, T. W., & Rajapakse, R. P. C. J. (2026). 已獲
+                                        IEEE ICVR 2026 接收發表。本研究四大重點貢獻：
+                                        <br>1. <strong>解耦範式創新</strong>：首創「頭視線與手指向解耦」實驗範式，精確測量視聽干擾持續發生時的真實視覺捕捉率。
+                                        <br>2. <strong>高保真驗證</strong>：證實即便採用 16 聲道三階 Ambisonics，強烈視覺誘餌仍主導初始定位（偏差 60°，VBI
+                                        0.738），單靠音訊品質無法抵銷視覺干擾。
+                                        <br>3. <strong>行為成本量化</strong>：量化抗拒視覺誘餌的認知延遲（反應時間拉長）與受試者逐步自我修正定位的動態軌跡。
+                                        <br>4. <strong>VR/AR UX 指引</strong>：為空間運算體驗設計提供關鍵實證——空間定位精準度必須仰賴跨模態視聽一致性協同設計。
                                     </p>
+                                    <p class="project-row-desc">
+                                        <a href="https://github.com/Goldwaterfung/vr-under-sustained-audiovisual-conflict"
+                                            target="_blank" rel="noopener" class="underline-link"><i
+                                                class="fa-brands fa-github"></i> 前往
+                                            GitHub 查看 Unity 研究專案與 Python 數據處理源碼
+                                            (Goldwaterfung/vr-under-sustained-audiovisual-conflict)</a>
+                                    </p>
+                                    <div class="research-image-gallery"
+                                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.2rem 0;">
+                                        <figure style="margin: 0; text-align: center;">
+                                            <img src="assets/research/experiment.jpg" alt="VR 視聽衝突實驗操作"
+                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
+                                            <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">圖
+                                                1：VR 視聽衝突實驗操作</figcaption>
+                                        </figure>
+                                        <figure style="margin: 0; text-align: center;">
+                                            <img src="assets/research/sound-lab.jpg" alt="16 聲道三階 Ambisonics 聲學實驗室"
+                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
+                                            <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">圖
+                                                2：16 聲道三階 Ambisonics 實驗室</figcaption>
+                                        </figure>
+                                        <figure style="margin: 0; text-align: center;">
+                                            <img src="assets/research/1_angular_error_by_condition.png"
+                                                alt="初始定位角度誤差數據圖"
+                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
+                                            <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">圖
+                                                3：三條件初始角度誤差</figcaption>
+                                        </figure>
+                                        <figure style="margin: 0; text-align: center;">
+                                            <img src="assets/research/3_response_time_by_condition.png" alt="反應時間數據圖"
+                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
+                                            <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">圖
+                                                4：三條件反應時間分析</figcaption>
+                                        </figure>
+                                    </div>
                                     <div class="project-row-tags">
+                                        <span>Third-Order Ambisonics</span>
+                                        <span>Psychoacoustics</span>
+                                        <span>Python</span>
                                         <span>Unity3D</span>
-                                        <span>Ambisonics</span>
-                                        <span>Wwise</span>
-                                        <span>Python</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Project 3 -->
-                            <div class="flat-project-row" data-category="audio-prod">
-                                <div class="project-year">2026</div>
-                                <div class="project-details">
-                                    <span class="project-meta-label">AUDIO POST-PRODUCTION</span>
-                                    <h3 class="project-row-title">Short Film Sound Redesign utilizing Agentic AI
-                                        Workflows</h3>
-                                    <p class="project-row-desc">
-                                        Redesign all sound effects and background music for short film
-                                        <em>Widdershins</em>. Use Pro Tools MCP to mark storyboard timelines and assist in editing, alongside Suno/ElevenLabs asset generation, vocal isolation, and frequency recovery.
-                                    </p>
-                                    <div class="project-row-tags">
-                                        <span>Pro Tools MCP</span>
-                                        <span>ElevenLabs</span>
-                                        <span>Suno</span>
-                                        <span>iZotope RX</span>
-                                        <span>Agentic Workflow Development</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Project 4 -->
-                            <div class="flat-project-row" data-category="audio-prod">
-                                <div class="project-year">2026</div>
-                                <div class="project-details">
-                                    <span class="project-meta-label">MIXING & RESTORATION</span>
-                                    <h3 class="project-row-title">Professional 100+ Track Multitrack Mixing</h3>
-                                    <p class="project-row-desc">
-                                        Execute high-density mixing making defensible processing choices for broadcast
-                                        loudness. Resolve signal clipping/degradation and eliminate vocal artifacts
-                                        without causing formant damage.
-                                    </p>
-                                    <div class="project-row-tags">
-                                        <span>Avid Pro Tools</span>
-                                        <span>Loudness Calibration</span>
-                                        <span>Vocal Repair</span>
                                     </div>
                                 </div>
                             </div>
@@ -495,190 +630,105 @@
             </div>
         </section>
 
-        <!-- Research Section -->
-        <section id="research" class="section research-section">
-            <div class="container">
-                <div class="section-grid">
-                    <div class="section-meta">
-                        <span class="mono-section-label">06 // RESEARCH</span>
-                        <h2 class="section-serif-title">Visual Capture in VR</h2>
-                        <p class="section-side-desc">
-                            A psychoacoustic study measuring sound localization accuracy and cognitive resistance under
-                            sustained cross-modal conflict with third-order Ambisonics.
-                        </p>
-                    </div>
-
-                    <div class="section-content">
-                        <!-- Section Intro -->
-                        <div class="editorial-lead" style="margin-bottom: 2rem;">
-                            This research introduced a <strong>decoupled tracking paradigm</strong> to isolate visual
-                            capture from post-pointing head correction in virtual reality. When visual cues and 3D
-                            sounds were spatially out of alignment, the brain chose vision: participants pointed
-                            directly at the decoy rather than the true sound, and processing this sensory conflict
-                            delayed their median response times by over 1.5 seconds.
-                        </div>
-
-                        <!-- Gallery: Experimental Setup -->
-                        <h3 class="subsection-serif-title" style="margin-bottom: 1rem;">Experimental Setup & Telemetry
-                        </h3>
-                        <p class="section-body-text" style="margin-bottom: 1.5rem;">
-                            The experiment was built in Unity 3D and conducted in a professional sound laboratory.
-                            Continuous telemetry captured head orientations and hand pointer vectors, translating
-                            real-time Cartesian inputs to spherical space to analyze cross-modal interference across
-                            three primary conditions:
-                        </p>
-
-                        <!-- Experimental Conditions -->
-                        <div class="research-conditions-grid">
-                            <div class="condition-card">
-                                <span class="mono-label">Condition 1 // Congruent</span>
-                                <h4>No Conflict Baseline</h4>
-                                <p>The sound source and the visual target align perfectly, establishing the control
-                                    baseline for spatial accuracy.</p>
-                            </div>
-                            <div class="condition-card">
-                                <span class="mono-label">Condition 2 // Incongruent</span>
-                                <h4>Audiovisual Conflict</h4>
-                                <p>The ground-truth sound source is kept completely invisible, while a salient visual
-                                    decoy is displayed with a static 60°–65° spatial misalignment.</p>
-                            </div>
-                            <div class="condition-card">
-                                <span class="mono-label">Condition 3 // Audio-Only</span>
-                                <h4>Pure Acoustic Target</h4>
-                                <p>The virtual scene is rendered as a uniform neutral dark background with
-                                    no visual cues, forcing pure auditory localization.</p>
-                            </div>
-                        </div>
-
-                        <div class="research-gallery">
-                            <div class="research-gallery-item">
-                                <img src="research/sound-lab.jpg" alt="Acoustic Loudspeaker Lab Setup">
-                                <div class="caption-block">
-                                    <span class="mono-label">FIG. A // 16-CHANNEL LOUDSPEAKER ARRAY</span>
-                                    <p class="caption-text">Anechoic reproduction layout satisfying the spatial
-                                        resolution requirements for third-order Ambisonic decoding.</p>
-                                </div>
-                            </div>
-
-                            <div class="research-gallery-item">
-                                <img src="research/experiment.jpg" alt="Participant conducting VR experiment">
-                                <div class="caption-block">
-                                    <span class="mono-label">FIG. B // DECOUPLED ALIGNMENT TASK</span>
-                                    <p class="caption-text">Participant maintaining visual fixation on a decoy while
-                                        pointing to the actual sound source by hand.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Data & Results -->
-                        <h3 class="subsection-serif-title" style="margin-top: 3.5rem; margin-bottom: 1rem;">Empirical
-                            Findings & Data Pipeline</h3>
-                        <p class="section-body-text" style="margin-bottom: 2rem;">
-                            Inferential tests (repeated-measures ANOVA and Wilcoxon signed-rank tests) demonstrated that
-                            high-fidelity audio cannot shield spatial judgment from visual bias. However, tracking
-                            multi-attempt sequences revealed that participants partially correct their pointing errors
-                            while conflict remains active.
-                        </p>
-
-                        <div class="research-stats-grid">
-                            <div class="research-stat-card">
-                                <img src="research/angular_error.png" alt="Angular Error by Condition">
-                                <div class="caption-block">
-                                    <span class="mono-label">FIG. C // ANGULAR LOCALIZATION ERROR</span>
-                                    <p class="caption-text">Incongruent trials inflated median error to 60.35°, showing
-                                        the massive bias towards the visual decoy compared to Congruent (6.90°) and
-                                        Audio-only (9.62°).</p>
-                                </div>
-                            </div>
-
-                            <div class="research-stat-card">
-                                <img src="research/spatial_correction.png"
-                                    alt="First vs Final Angular Error Trajectories">
-                                <div class="caption-block">
-                                    <span class="mono-label">FIG. D // SPATIAL CORRECTION DYNAMICS</span>
-                                    <p class="caption-text">Tracking first-to-final pointing attempts revealed partial
-                                        correction trajectories, showing users attempting to resolve the active
-                                        conflict.</p>
-                                </div>
-                            </div>
-
-                            <div class="research-stat-card">
-                                <img src="research/response_time.png" alt="Response Time by Condition">
-                                <div class="caption-block">
-                                    <span class="mono-label">FIG. E // COGNITIVE RESPONSE TIME COST</span>
-                                    <p class="caption-text">Resisting visual capture (Incongruent) and searching without
-                                        visual cues (Audio-only) both increased median response times by over 1.5
-                                        seconds
-                                        compared to Congruent trials.</p>
-                                </div>
-                            </div>
-
-                            <div class="research-stat-card">
-                                <img src="research/data_pipeline.png" alt="Telemetry Data Processing Pipeline">
-                                <div class="caption-block">
-                                    <span class="mono-label">FIG. F // TELEMETRY DATA WORKFLOW</span>
-                                    <p class="caption-text">Custom data processing pipeline parsing raw HMD/controller
-                                        coordinates to spherical angles, applying MAD outlier filtering, and performing
-                                        statistical tests.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Experience Timeline Section -->
+        <!-- Section 05: Experience & Education Timeline -->
         <section id="experience" class="section experience-section">
             <div class="container">
                 <div class="section-grid">
                     <div class="section-meta">
-                        <span class="mono-section-label">07 // TIMELINE</span>
-                        <h2 class="section-serif-title">Education & Experience</h2>
+                        <span class="mono-section-label">TIMELINE</span>
+                        <h2 class="section-serif-title">工作經歷與教育背景</h2>
                     </div>
 
                     <div class="section-content">
                         <div class="flat-timeline">
-                            <!-- Item 1 -->
-                            <div class="timeline-row">
-                                <div class="timeline-time">2022 - 2026</div>
-                                <div class="timeline-details">
-                                    <span class="timeline-tag">EDUCATION</span>
-                                    <h3 class="timeline-row-title">BA in Music & Audio Engineering</h3>
-                                    <div class="timeline-row-org">Tainan National University of the Arts (TNNUA)</div>
-                                    <p class="timeline-row-desc">
-                                        Relevant Coursework: Acoustic Analysis, Advanced Mixing, Digital Signal
-                                        Processing, Sound Design, Studio Recording, AI in Music.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Item 2 -->
-                            <div class="timeline-row">
-                                <div class="timeline-time">2024 - 2025</div>
-                                <div class="timeline-details">
-                                    <span class="timeline-tag">EXPERIENCE</span>
-                                    <h3 class="timeline-row-title">College Studio Assistant</h3>
-                                    <div class="timeline-row-org">TNNUA Studio Operations</div>
-                                    <p class="timeline-row-desc">
-                                        Set up recording equipment, microphones, and DAWs. Conducted waveform editing,
-                                        noise reduction, and data organization. Repaired technical routing and
-                                        synchronization issues.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Item 3 -->
+                            <!-- Timeline Item 1 -->
                             <div class="timeline-row">
                                 <div class="timeline-time">2020 - 2026</div>
                                 <div class="timeline-details">
                                     <span class="timeline-tag">EXPERIENCE</span>
-                                    <h3 class="timeline-row-title">Freelance Audio Editor</h3>
-                                    <div class="timeline-row-org">Self-Employed (Remote)</div>
+                                    <h3 class="timeline-row-title">聯合創辦人兼董事 / 產品負責人</h3>
+                                    <div class="timeline-row-org">MRKE Ltd. 理髮店 | 香港</div>
                                     <p class="timeline-row-desc">
-                                        Delivered high-quality audio mixing and dialogue editing services. Guided
-                                        non-technical clients to translate creative vision into professional acoustic
-                                        files.
+                                        管理企業營運、財務預算與整體成長策略；企劃並部署 3D 髮型互動 Android App，將顧客等候時間轉化為互動探索，諮詢溝通時間縮短約 35%。
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Timeline Item 2 -->
+                            <div class="timeline-row">
+                                <div class="timeline-time">2024 - 2025</div>
+                                <div class="timeline-details">
+                                    <span class="timeline-tag">EXPERIENCE</span>
+                                    <h3 class="timeline-row-title">AI 產品與系統整合</h3>
+                                    <div class="timeline-row-org">與台北 AI 技術團隊跨團隊合作 前教務長專案 | 台灣</div>
+                                    <p class="timeline-row-desc">
+                                        對接 Whisper ASR, Llama 3 8B RAG 與 Fish-Speech TTS 多模態 AI Pipeline；主導 Unity
+                                        端低延遲狀態機與情緒訊號對接，達成流暢 3D Virtual Avatar 即時對話。
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Timeline Item 3 -->
+                            <div class="timeline-row">
+                                <div class="timeline-time">2024 (July - Aug)</div>
+                                <div class="timeline-details">
+                                    <span class="timeline-tag">EXPERIENCE</span>
+                                    <h3 class="timeline-row-title">使用者體驗產品實習生</h3>
+                                    <div class="timeline-row-org">醫諾華醫學科技股份有限公司 (Innova Medical) | 台灣高雄</div>
+                                    <p class="timeline-row-desc">
+                                        優化結合 LLM 與 3D 模擬的 Unity 醫師培訓系統，透過數據拆解聲影不同步與病徵缺失，降低身體檢查診斷誤判率。
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Timeline Item 4 -->
+                            <div class="timeline-row">
+                                <div class="timeline-time">2023 - 2024</div>
+                                <div class="timeline-details">
+                                    <span class="timeline-tag">EXPERIENCE</span>
+                                    <h3 class="timeline-row-title">工程師 / 技術</h3>
+                                    <div class="timeline-row-org">國立臺南藝術大學 前教務長專案 | 台灣臺南</div>
+                                    <p class="timeline-row-desc">
+                                        主導二胡國樂現場 AI 動捕與虛擬化身系統整合，在不影響音質下取捨 2 秒延遲達成音訊與 AI 動捕數據精準同步對齊，擔任技術團隊與國樂演奏家間的溝通橋樑。
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Timeline Item 5 -->
+                            <div class="timeline-row">
+                                <div class="timeline-time">2014 - 2021</div>
+                                <div class="timeline-details">
+                                    <span class="timeline-tag">EXPERIENCE</span>
+                                    <h3 class="timeline-row-title">禮賓與賓客體驗代表 / 飯店開幕籌備團隊</h3>
+                                    <div class="timeline-row-org">香港萬怡酒店 · 嘉里酒店 (開幕團隊) · 凱悅酒店 | 香港</div>
+                                    <p class="timeline-row-desc">
+                                        參與 Kerry Hotel 0 到 1 前廳營運架構與 SOP 規劃；於五星級奢華酒店環境管理 VIP 貴賓關係，進行高效跨部門溝通與突發應變。
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Timeline Item 6 (Education) -->
+                            <div class="timeline-row">
+                                <div class="timeline-time">2021 - 2026</div>
+                                <div class="timeline-details">
+                                    <span class="timeline-tag">EDUCATION</span>
+                                    <h3 class="timeline-row-title">音樂與音效工程學士 (BA in Music & Audio Engineering)</h3>
+                                    <div class="timeline-row-org">國立臺南藝術大學 (TNNUA) | 台灣臺南</div>
+                                    <p class="timeline-row-desc">
+                                        主修 MIR 音樂資訊檢索、音樂 AI、DSP 數位訊號處理、Unity C# / VR SDK、多聲道 Ambisonics 音訊。
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Timeline Item 7 (Education) -->
+                            <div class="timeline-row">
+                                <div class="timeline-time">2012 -2016</div>
+                                <div class="timeline-details">
+                                    <span class="timeline-tag">EDUCATION</span>
+                                    <h3 class="timeline-row-title">旅遊管理榮譽學士 (BA Hons in Tourism Management)</h3>
+                                    <div class="timeline-row-org">Plymouth University | 英國普利茅斯</div>
+                                    <p class="timeline-row-desc">
+                                        主修專案管理、應用統計學、行銷學、跨部門溝通與財務營運。
                                     </p>
                                 </div>
                             </div>
@@ -690,20 +740,32 @@
 
     </main>
 
-    <footer class="footer">
+    <!-- Footer / Contact Section -->
+    <footer id="contact" class="footer">
         <div class="container">
-            <div class="footer-row">
-                <span>&copy; 2026 Fung Kam Kiu. All rights reserved.</span>
-                <div class="footer-links">
-                    <a href="mailto:kim.kamkiu.fung@gmail.com">Email</a>
-                    <a href="https://github.com/Goldwaterfung/goldwaterfung.github.io" target="_blank"
-                        rel="noopener">GitHub</a>
+            <div class="footer-box">
+                <span class="mono-label">LET'S BUILD IMPACTFUL PRODUCTS</span>
+                <h2 class="footer-title">我的聯繫 Contact</h2>
+                <div class="footer-cta-buttons">
+                    <a href="mailto:kim.kamkiu.fung@gmail.com" class="btn btn-dark">
+                        <i class="fa-solid fa-envelope"></i> Email Me (kim.kamkiu.fung@gmail.com)
+                    </a>
+                    <a href="https://github.com/Goldwaterfung/" target="_blank" rel="noopener" class="btn btn-light">
+                        <i class="fa-brands fa-github"></i> GitHub Profile
+                    </a>
+                </div>
+                <div class="footer-bottom-line">
+                    <span>&copy; 2026 馮淦喬 (Kim Fung). All rights reserved.</span>
+                    <div class="footer-social-links">
+                        <a href="mailto:kim.kamkiu.fung@gmail.com">Email</a>
+                        <a href="https://github.com/Goldwaterfung/" target="_blank" rel="noopener">GitHub</a>
+                    </div>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Custom JS -->
+    <!-- Custom JavaScript -->
     <script src="script.js"></script>
 </body>
 
