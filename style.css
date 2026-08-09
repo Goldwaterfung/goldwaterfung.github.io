@@ -650,6 +650,46 @@ body {
     letter-spacing: 0.05em;
 }
 
+.badge-new {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--accent-amber);
+    background-color: var(--accent-amber-dim);
+    padding: 0.15rem 0.45rem;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+}
+
+.research-image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin: 1.2rem 0;
+}
+
+.research-image-gallery figure {
+    margin: 0;
+    text-align: center;
+}
+
+.research-image-gallery img {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid var(--border-color, rgba(0, 0, 0, 0.08));
+    transition: transform 0.2s ease;
+}
+
+.research-image-gallery figcaption {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+}
+
 .project-row-title {
     font-family: var(--font-serif);
     font-size: 1.35rem;
