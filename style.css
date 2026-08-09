@@ -636,14 +636,6 @@ body {
     gap: 0.6rem;
 }
 
-.project-meta-label {
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    font-weight: 700;
-    color: var(--text-secondary);
-    letter-spacing: 0.05em;
-}
-
 .badge-new {
     display: inline-block;
     font-family: var(--font-mono);
