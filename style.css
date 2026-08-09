@@ -104,12 +104,6 @@ body {
     letter-spacing: 0.03em;
 }
 
-.logo-title {
-    font-family: var(--font-serif);
-    font-size: 0.72rem;
-    color: var(--text-secondary);
-}
-
 .nav-menu {
     display: flex;
     align-items: center;
@@ -177,7 +171,7 @@ body {
    Hero Section
    ========================================================================== */
 .hero-section {
-    min-height: 85vh;
+    min-height: 75vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -195,10 +189,6 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1.8rem;
-}
-
-.hero-meta-badge {
-    display: inline-block;
 }
 
 .mono-label {
@@ -237,12 +227,6 @@ body {
     color: var(--text-secondary);
     max-width: 860px;
     line-height: 1.65;
-}
-
-.hero-cta-group {
-    display: flex;
-    gap: 1rem;
-    margin-top: 0.8rem;
 }
 
 /* ==========================================================================
@@ -415,29 +399,6 @@ body {
     gap: 0.8rem;
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 1.2rem;
-}
-
-.case-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.badge {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    padding: 3px 8px;
-    border-radius: 2px;
-    background-color: var(--bg-panel);
-    border: 1px solid var(--border-color);
-    color: var(--text-secondary);
-}
-
-.badge-accent {
-    background-color: var(--accent-amber-dim);
-    border-color: rgba(230, 92, 0, 0.3);
-    color: var(--accent-amber);
-    font-weight: 700;
 }
 
 .case-title {
