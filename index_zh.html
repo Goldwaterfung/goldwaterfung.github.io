@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>馮淦喬 (Kim Fung) Portfolio</title>
+
+    <!-- Google Fonts: Georgia (Serif), Space Mono (Monospace), Inter (Sans-serif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Georgia&family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Sticky Navigation Header -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="#hero" class="logo">
+                <span class="logo-name">馮淦喬 (KIM FUNG)</span>
+            </a>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="#about" class="nav-link active">About</a>
+                <a href="#case-studies" class="nav-link">Case Studies</a>
+                <a href="#skills" class="nav-link">Competencies</a>
+                <a href="#projects" class="nav-link">Music & Research</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#contact" class="nav-link nav-btn">Contact</a>
+            </nav>
+
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section (Above the Fold) -->
+        <section id="hero" class="hero-section">
+            <div class="hero-container">
+                <div class="hero-layout"
+                    style="display: flex; align-items: center; justify-content: space-between; gap: 3rem; flex-wrap: wrap;">
+                    <div class="hero-text-side"
+                        style="flex: 1; min-width: 280px; display: flex; flex-direction: column; gap: 1.5rem;">
+
+                        <h1 class="hero-title" style="margin: 0;">
+                            我是 馮淦喬 (Kim Fung)。
+                        </h1>
+
+                        <h2 class="hero-subtitle">
+                            <strong>AI 互動</strong> 與 <strong>音訊科技</strong> 產品經理 (Technical PM / Product Builder)，具備
+                            <strong>人體感知科學研究</strong> 與 <strong>0 到 1 產品落地</strong> 背景。
+                        </h2>
+
+                        <p class="hero-description">
+                            專注將多模態 AI（語音 ASR、RAG、即時狀態機）、空間音訊與人體感知科學，轉化為直覺且具商業價值的產品體驗。從 0 到 1 門市 3D 互動 App 到 IEEE
+                            國際論文發表，擅長在技術可行性、工程折衷與用戶真實需求之間找到最佳交叉點。
+                        </p>
+                    </div>
+
+                    <div class="hero-avatar-side"
+                        style="flex-shrink: 0; display: flex; justify-content: center; align-items: center;">
+                        <div class="avatar-frame"
+                            style="width: 220px; height: 220px; border-radius: 50%; overflow: hidden; border: 3px solid var(--text-primary); box-shadow: 0 10px 25px rgba(0,0,0,0.12);">
+                            <img src="assets/image/self.jpg" alt="馮淦喬 (Kim Fung)"
+                                style="width: 100%; height: 100%; object-fit: cover; object-position: center top;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 01: Professional Profile -->
+        <section id="about" class="section about-section">
+            <div class="container">
+                <div class="section-grid">
+                    <div class="section-meta">
+                        <span class="mono-section-label">PROFILE</span>
+                        <h2 class="section-serif-title">專業總覽 & 產品視角</h2>
+                    </div>
+
+                    <div class="section-content">
+                        <div class="editorial-lead">
+                            專注於自主 Agent 工作流、多模態 AI 交互與 0 到 1 產品落地的產品構建者，致力於將複雜的底層訊號與用戶需求轉化為高可靠性、高商業價值的系統體驗。
+                        </div>
+                        <p class="editorial-body">
+                            我具備端到端構建 Agentic 系統與商業化產品的實戰經驗。作為 MRKE 共同創辦人，我主導 0 到 1 門市 3D
+                            互動諮詢系統的開發與專屬硬體現場部署，透過第一線行為洞察與敏捷迭代將溝通耗時縮減 35%。在 AI 原生工具領域，我主導架構 Stratawright，將底層多軌音訊訊號轉譯為 LLM
+                            Agent 可解析的結構化 JSON 與 CLI 控制協定，實現全自動化調音與工作流編排。
+                        </p>
+                        <p class="editorial-body">
+                            我的底層優勢結合了發表於 IEEE ICVR 國際會議的人類感知科學實證研究，以及 4 年五星級奢華酒店（香港嘉里酒店開幕前籌備團隊與香港萬怡酒店）前廳營運與貴賓服務經驗。從 0 到 1
+                            建立標準作業程序 SOP 與高壓危機處理的歷練，轉化為我洞察用戶微觀痛點、透過狀態機架構化解多模態 AI 延遲，以及高效協調跨部門利害關係人的核心能力。
+                        </p>
+
+                        <div class="about-contact-links">
+                            <div class="contact-link-item">
+                                <span class="mono-label">FOCUS DOMAINS</span>
+                                <span class="contact-val">Multimodal AI · Music Tech · Spatial UX</span>
+                            </div>
+                            <div class="contact-link-item">
+                                <span class="mono-label">LANGUAGES</span>
+                                <span class="contact-val">English (Native/Fluent) · Mandarin (Fluent) · Cantonese
+                                    (Native)</span>
+                            </div>
+                            <div class="contact-link-item">
+                                <span class="mono-label">LOCATION</span>
+                                <span class="contact-val">Hong Kong / Taiwan</span>
+                            </div>
+                            <div class="contact-link-item">
+                                <span class="mono-label">EMAIL</span>
+                                <a href="mailto:kim.kamkiu.fung@gmail.com"
+                                    class="contact-val underline-link">kim.kamkiu.fung@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 02: Featured PM Case Studies -->
+        <section id="case-studies" class="section case-studies-section">
+            <div class="container">
+                <div class="section-grid">
+                    <div class="section-meta">
+                        <span class="mono-section-label">CASE STUDIES</span>
+                        <h2 class="section-serif-title">精選專案案例</h2>
+                    </div>
+
+                    <div class="section-content">
+                        <!-- Case Study 01 -->
+                        <article class="case-study-card">
+                            <div class="case-header">
+                                <h3 class="case-title">1. 門市實體與數位結合 — 3D 髮型互動展示與等候區體驗 App</h3>
+                                <div class="case-meta-line">
+                                    <span><strong>角色:</strong> Product Manager & Co-Founder</span>
+                                    <span><strong>時間:</strong> 2023 - 2026 年</span>
+                                    <span><strong>公司:</strong> MRKE Ltd.</span>
+                                </div>
+                            </div>
+
+                            <div class="case-impact-highlights">
+                                <div class="impact-pill"><i class="fa-solid fa-tablet-screen-button"></i> 門市平板部署並服務數百場諮詢
+                                </div>
+                                <div class="impact-pill"><i class="fa-solid fa-chart-line"></i> 諮詢溝通時間縮短約 35%</div>
+                                <div class="impact-pill"><i class="fa-solid fa-lightbulb"></i> 現場行為觀察驅動 Roadmap 轉向</div>
+                            </div>
+
+                            <div class="case-body">
+                                <h4>商業背景與問題發現</h4>
+                                <p>在實體門市營運中，顧客在等候區平均耗費 15 至 20
+                                    分鐘無所事事，部分顧客因此產生躁動與不耐。此外，顧客於諮詢時常因平面照片與實際剪髮造型產生嚴重資訊落差，導致髮型師溝通成本過高且顧客滿意度波動。</p>
+
+                                <h4>產品目標與權限邊界</h4>
+                                <p>作為產品經理兼共同創辦人，我為自己與團隊設定的核心目標是：<strong>在不增加門市人力成本的前提下，於門市等候區部署專屬 Android 平板並融入髮型師每日諮詢
+                                        SOP，將顧客選型諮詢時間縮短至少 30%，並將枯燥的等候時間轉化為高互動探索體驗。</strong></p>
+
+                                <h4>團隊協作、調查與數據驅動 Roadmap 轉向</h4>
+                                <ul>
+                                    <li><strong>訪談與問卷設計：</strong> 我親自設計 5 題門市離場問卷，並聯同門市夥伴訪談 50 位以上顧客。調查顯示 72%
+                                        顧客最大的焦慮源於無法預覽 360 度立體造型細節。</li>
+                                    <li><strong>跨角色的現場行為觀察：</strong> 產品 MVP 上線後，我邀請髮型師同事於每日交接時協助記錄 App
+                                        使用族群。數據與現場觀察顯示，互動最積極且停留最久者是陪同家長來的<strong>兒童與青少年族群</strong>。</li>
+                                    <li><strong>動態調整 Roadmap 與團隊共識：</strong> 我在週會中向團隊發表這項洞察，並與髮型師共同挑選出 5
+                                        款最受家長歡迎的熱門造型作為首批建模清單，快速調整優先級上線兒童 3D 模型，成功帶動家庭客體驗。</li>
+                                    <li><strong>技術與 SOP 對接：</strong> 制定面數與紋理壓縮規格確保流動式硬體達 60fps；同時培訓髮型師將 App 融入每日剪髮諮詢
+                                        SOP，拉近數位預覽與實體剪裁的落差。</li>
+                                </ul>
+
+                                <div class="accordion-box">
+                                    <button class="accordion-toggle" aria-expanded="false">
+                                        <i class="fa-solid fa-clipboard-question"></i> 查看門市顧客離場問卷核心 5 大問題細節
+                                        <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                                    </button>
+                                    <div class="accordion-content">
+                                        <ol class="survey-list">
+                                            <li><strong>等候體驗感知：</strong> 您今天在門市等候諮詢的過程大約耗費多久？等候期間是否希望有互動內容輔助體驗？</li>
+                                            <li><strong>諮詢資訊落差：</strong> 在觀看平面髮型照片諮詢時，您是否難以想像剪髮後的 360 度動態線條與整體效果？</li>
+                                            <li><strong>造型選擇痛點：</strong>
+                                                與髮型師溝通時，最主要的顧慮是什麼？（如：擔心側面與後腦勺蓬鬆度不符預期、不確定是否適合個人臉型）</li>
+                                            <li><strong>3D 互動意願：</strong> 若提供平板可 360 度旋轉縮放預覽髮型 3D 模型，是否能幫助您更精準地向髮型師表達需求？
+                                            </li>
+                                            <li><strong>價值與滿意度：</strong> 若將等候時間轉化為透過 3D App 自行探索與挑選髮型，是否能提升您對門市整體服務的滿意度？
+                                            </li>
+                                        </ol>
+                                    </div>
+                                </div>
+
+                                <div class="case-app-showcase"
+                                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
+                                    <figure style="margin: 0; text-align: center;">
+                                        <img src="assets/hair_app/hair_app_menu.png" alt="髮型分類選單介面"
+                                            style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
+                                        <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">圖
+                                            1：髮型分類與系列選單</figcaption>
+                                    </figure>
+                                    <figure style="margin: 0; text-align: center;">
+                                        <img src="assets/hair_app/hair_app_display1.png" alt="3D 髮型 360 度旋轉預覽 (長者系列)"
+                                            style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
+                                        <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">圖 2：3D
+                                            髮型 360 度預覽 (長者系列)</figcaption>
+                                    </figure>
+                                    <figure style="margin: 0; text-align: center;">
+                                        <img src="assets/hair_app/hair_app_display2.png" alt="3D 髮型 360 度旋轉預覽 (男士短髮)"
+                                            style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
+                                        <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">圖 3：3D
+                                            髮型 360 度預覽 (男士短髮)</figcaption>
+                                    </figure>
+                                </div>
+
+                                <h4>產品影響力與業務成果</h4>
+                                <p class="highlight-text">
+                                    App 於門市等候區部署專屬 Android 平板後，累計服務數百次真實顧客選型諮詢，並完全融入髮型師日常剪髮諮詢 SOP。顧客選型諮詢時間平均縮短約
+                                    <strong>35%</strong>，顯著降低資訊落差；同時將枯燥等候時間轉化為互動探索，帶動家庭客回訪率與整體門市滿意度提升。
+                                </p>
+                                <h4>戰略反思與學習</h4>
+                                <p><strong>MVP 上線並非終點，而是學習的起點。</strong>
+                                    若僅依賴初始的定量問卷，就會錯過兒童族群這個關鍵機會；唯有走入第一線結合團隊日常觀察，才能敏捷捕獲真實產品機會。</p>
+
+                                <p style="margin-top: 0.8rem;">
+                                    <a href="https://github.com/Goldwaterfung/3D-Product-Showcase-URP-Sample-in-Unity"
+                                        target="_blank" rel="noopener" class="underline-link"><i
+                                            class="fa-brands fa-github"></i> 前往 GitHub 查看 3D Product Showcase URP Sample
+                                        (Goldwaterfung/3D-Product-Showcase-URP-Sample-in-Unity)</a>
+                                </p>
+                            </div>
+                        </article>
+
+                        <!-- Case Study 02 -->
+                        <article class="case-study-card">
+                            <div class="case-header">
+                                <h3 class="case-title">2. B2B 醫療 3D 模擬與 LLM 臨床診斷培訓系統 — 實習期間 UX 診斷與優化建議</h3>
+                                <div class="case-meta-line">
+                                    <span><strong>角色:</strong> UX Product Intern</span>
+                                    <span><strong>機構:</strong> 醫諾華醫學科技 (Innova Medical) | 台灣高雄</span>
+                                    <span><strong>時間:</strong> 2024 年 7-8 月</span>
+                                </div>
+                            </div>
+
+                            <div class="case-impact-highlights">
+                                <div class="impact-pill"><i class="fa-solid fa-check-double"></i> 達成 3D 病徵與資料庫記載完全對齊
+                                </div>
+                                <div class="impact-pill"><i class="fa-solid fa-magnifying-glass"></i> 比對 50
+                                    個病例協助定位關鍵體驗瓶頸</div>
+                            </div>
+
+                            <div class="case-body">
+                                <h4>商業背景與問題識別</h4>
+                                <p>醫諾華開發結合 LLM 對話與 3D 虛擬病人的 B2B
+                                    臨床診斷培訓系統，供醫學生進行望聞問切與身體檢查培訓。初版測試顯示，學員在身體檢查環節出現顯著的病因誤判，影響培訓效果。</p>
+
+                                <h4>實習職責與探索任務</h4>
+                                <p>作為 UX 產品實習生，我的關鍵任務是：<strong>在有限的實習期間內，協助團隊深入拆解學員診斷誤判的根因，並提出具體改善建議與優先級參考。</strong>
+                                </p>
+
+                                <h4>產品親自體驗、問題定位與病徵對齊</h4>
+                                <ul>
+                                    <li><strong>觀察與診斷根本問題：</strong> 初步討論中，團隊主流假設是 3D
+                                        畫面美術不夠精緻導致分心。但我親自體驗產品並深入比對後，協助團隊找出影響學員診斷的兩個根本問題：一是虛擬病人動作與 LLM 語音輸入之間存在時間差；二是系統總計
+                                        50 個虛擬病例中，超過半數缺乏資料庫中文字描述的細微視覺特徵。</li>
+                                    <li><strong>產品體驗與資料庫資料比對：</strong>
+                                        我親自反覆測試產品並比對資料庫內容，證實誤判集中於聲影時間差，且超過半數病例因缺少文字記載的細微視覺特徵，導致學員無法精準望診。</li>
+                                    <li><strong>視覺病徵優化與報告簡報：</strong> 我親自優化 3D
+                                        虛擬病人的視覺特徵，使其與資料庫中記載的病徵完全一致；同時整理診斷報告向團隊簡報，輔助團隊將開發資源從提升美術品質優先調整至重構聲影同步機制與補齊病例細微視覺特徵。
+                                    </li>
+                                </ul>
+
+                                <h4>測試驗證與體驗成果</h4>
+                                <p class="highlight-text">
+                                    經團隊重構同步機制與優化視覺特徵後，3D
+                                    虛擬病人的視覺表現與資料庫文字記載達成完全對齊，有效解決學員因聲影時間差與視覺病徵缺失導致的望診困擾；驗證了從親自體驗與資料比對尋找根因的產品優化路徑。
+                                </p>
+                                <h4>實習反思與學習</h4>
+                                <p><strong>解決問題的第一步不是接納既有假設，而是親自體驗產品與對照底層資料。</strong>
+                                    實習期間最大的收穫是學會透過客觀體驗與資料庫比對輔助團隊決策，比主觀美術爭論更能建立高效的開發優先級。
+                                </p>
+                            </div>
+                        </article>
+
+                        <!-- Case Study 03 -->
+                        <article class="case-study-card">
+                            <div class="case-header">
+                                <h3 class="case-title">3. AR 與 RAG 結合之多模態 AI 即時虛擬學校代表</h3>
+                                <div class="case-meta-line">
+                                    <span><strong>角色:</strong> 專案助理 / 系統整合 (國立臺南藝術大學 教務長室專案)</span>
+                                    <span><strong>時間:</strong> 2024 年 10 月 – 2025 年 3 月</span>
+                                </div>
+                            </div>
+
+                            <div class="case-impact-highlights">
+                                <div class="impact-pill"><i class="fa-solid fa-users"></i> 成果展數十場即時對答零中途離開</div>
+                                <div class="impact-pill"><i class="fa-solid fa-wand-magic-sparkles"></i> 狀態機視覺緩衝化解 3-5
+                                    秒延遲</div>
+                                <div class="impact-pill"><i class="fa-solid fa-object-group"></i> 跨團隊多模態 AI 系統整合</div>
+                            </div>
+
+                            <div class="case-body">
+                                <h4>專案背景與任務目標</h4>
+                                <p>這是一項由教務長主持的校園創新專案，旨在開發一位能在真實環境中與訪客對話的 <strong>AR 虛擬校園導覽代表</strong>。於成果展與接待現場測試時發現，單張 24GB VRAM 本地 GPU 上的多模態推論（Whisper ASR、Llama 3 與 RAGFlow、Fish-Speech TTS）思考回答需要 3 至 5 秒，這段<strong>沉默的等待期</strong>常讓訪客誤以為系統當機而中途離開。我的任務是負責前端 3D
+                                    視覺與感測整合，在無法縮短後端運算時間的物理限制下，從前端狀態機與視覺體驗設計化解體驗斷層。
+                                </p>
+
+                                <h4>跨團隊協作與解決方案</h4>
+                                <ul>
+                                    <li><strong>設計視覺緩衝機制：</strong> 為了填補那 3 至 5 秒的停頓感，我設計了一套過渡狀態機。當 AI
+                                        正在後台運算時，虛擬導覽員會立刻做出<strong>點頭傾聽</strong>或<strong>摸下巴思考</strong>的即時動畫，明確告知訪客系統正在處理問題。
+                                    </li>
+                                    <li><strong>定義情緒與表情連動：</strong> 我與台北的 AI
+                                        團隊協商，在回傳文字解答時附帶簡單的情緒標籤。前端系統一收到標籤，就能立刻讓虛擬導覽員展現對應的喜怒哀樂與嘴型 Blendshapes，大幅提升對話擬真度。
+                                    </li>
+                                    <li><strong>加入空間環境感知：</strong> 整合空間攝影鏡頭進行頭部追蹤。當訪客在虛擬導覽員面前走動時，導覽員的視線與頭部能自然地跟隨訪客移動。
+                                    </li>
+                                    <li><strong>跨團隊通訊時序對齊：</strong> 前端視覺與後端 AI
+                                        由兩個異地團隊獨立開發。我主動與台北團隊對齊雙方資料傳輸的時間節點（音訊與文字封包順序），確保聲音與動畫精確同步，避免出現聲音先出、嘴巴後動的斷層。
+                                    </li>
+                                </ul>
+
+                                <h4>專案成果與體驗升級</h4>
+                                <p class="highlight-text">
+                                    專案於大學創新成果展與貴賓接待現場公開展示，承載數十場多輪即時語音問答。在完全不增加額外硬體與算力成本的前提下，透過狀態機視覺緩衝與跨團隊傳輸時序對齊，成功化解推論延遲帶來的停頓感，達成現場訪客<strong>零中途離開率</strong>，實現流暢的空間
+                                    AR 多模態互動體驗。
+                                </p>
+                                <h4>反思與學習</h4>
+                                <p><strong>從執行規格到主動解決體驗斷層。</strong>
+                                    這次經驗讓我體會到，工程師不只是被動執行規格；當理解了使用者端的體驗痛點後，就能主動從自己負責的技術層（如狀態機設計）提出解法，促成跨團隊的高效合作。</p>
+
+                                <div class="case-video-wrapper vertical-video"
+                                    style="margin: 1.5rem 0; display: flex; flex-direction: column; align-items: center;">
+                                    <video controls preload="metadata"
+                                        style="width: 100%; max-width: 280px; aspect-ratio: 9/16; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); border: 1px solid var(--border-color); background: #000; display: block;">
+                                        <source src="assets/videos/ar_llm_principal.mp4" type="video/mp4">
+                                        您的瀏覽器不支援影片播放。
+                                    </video>
+                                    <span
+                                        style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.6rem; text-align: center;"><i
+                                            class="fa-solid fa-mobile-screen"></i> AR 即時多模態 AI 虛擬代表實機展示</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Case Study 04 -->
+                        <article class="case-study-card">
+                            <div class="case-header">
+                                <h3 class="case-title">4. 國樂二胡 Live — AI 動作捕捉與即時音視訊同步系統</h3>
+                                <div class="case-meta-line">
+                                    <span><strong>角色:</strong> 助理工程師 / 技術 (國立臺南藝術大學 教務長室專案)</span>
+                                    <span><strong>時間:</strong> 2023 年 9 月 – 2024 年 6 月</span>
+                                </div>
+                            </div>
+
+                            <div class="case-impact-highlights">
+                                <div class="impact-pill"><i class="fa-solid fa-landmark"></i> 大學校園音樂廳現場公開展演</div>
+                                <div class="impact-pill"><i class="fa-solid fa-comments"></i> 藝術體驗與技術指標之跨領域轉譯</div>
+                                <div class="impact-pill"><i class="fa-solid fa-clock"></i> 1.5 秒固定緩衝達成舞台級音畫對齊</div>
+                            </div>
+
+                            <div class="case-body">
+                                <h4>背景與挑戰</h4>
+                                <p>推動傳統國樂二胡 Live 演出的虛擬化身系統整合。極高動態的二胡拉弓動作與音訊訊號流，在大學大型音樂廳面對數百位現場觀眾公開展演時，極易產生音畫不同步與計算延遲問題。
+                                </p>
+
+                                <h4>跨領域指標轉譯與任務定義</h4>
+                                <p>作為助理技術工程師，我的核心任務是：<strong>在確保高保真音質不受損的前提下，找到藝術家拉弓視覺與音訊數據流的最優同步點，實現舞台級穩定展演。</strong>
+                                </p>
+
+                                <h4>語言轉譯與工程取捨</h4>
+                                <ul>
+                                    <li><strong>藝術與技術的語言轉譯：</strong> 工程師關注毫秒級
+                                        latency，而音樂家關注拉弓起勢與音訊發聲的視覺韻律感。我走入排練室與二胡演奏家深度溝通，將拉弓呼吸感轉化為可被工程團隊量化的幀數與緩衝區指標。
+                                    </li>
+                                    <li><strong>共同測試與工程取捨：</strong> 我在排練現場紀錄動捕數據與音訊軌跡，發現演奏家弓法起勢窗口約為 0.8
+                                        秒。我與音訊工程師共同設計緩衝機制，決策採取 <strong>1.5 秒固定穩定延遲</strong>，使動捕數據與高保真音訊完全精準對齊。</li>
+                                    <li><strong>現場溝通與信心建構：</strong> 與演奏家共同進行多輪 Live 模擬，確認虛擬化身動作與演奏手感一致，建構舞台演出信心。</li>
+                                </ul>
+
+                                <h4>舞台展演與量化成果</h4>
+                                <p class="highlight-text">
+                                    在不影響高保真音質的前提下進行工程取捨，透過緩衝機制設定 <strong>1.5 秒固定穩定延遲</strong>，達成音訊訊號與 AI
+                                    動作捕捉數據流的精準同步對齊，於大學千人級大型音樂廳順利完成面對數百位觀眾的公開 Live 舞台展演。
+                                </p>
+                                <h4>戰略反思與學習</h4>
+                                <p><strong>跨領域協作的核心在於用對方的語言重新定義問題。</strong>
+                                    當技術指標與藝術體驗衝突時，主動搭起對話橋樑並找到兼顧雙方的折衷方案，才是促成專案成功落地的主因。</p>
+
+                                <div class="case-video-wrapper horizontal-video" style="margin: 1.5rem 0;">
+                                    <video controls preload="metadata"
+                                        style="width: 100%; max-width: 720px; aspect-ratio: 16/9; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); border: 1px solid var(--border-color); background: #000; display: block;">
+                                        <source src="assets/videos/音樂會.mp4" type="video/mp4">
+                                        您的瀏覽器不支援影片播放。
+                                    </video>
+                                    <span
+                                        style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.6rem; display: block;"><i
+                                            class="fa-solid fa-compact-disc"></i> 國樂二胡 Live 現場 AI 動作捕捉與音視訊同步展示</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 03: Specialized Projects & Research -->
+        <section id="projects" class="section projects-section">
+            <div class="container">
+                <div class="section-grid">
+                    <div class="section-meta">
+                        <span class="mono-section-label">FEATURED PROJECTS & RESEARCH</span>
+                        <h2 class="section-serif-title">前沿音樂科技與學術研究</h2>
+                        <div class="flat-filters">
+                            <button class="filter-btn active" data-filter="all">All</button>
+                            <button class="filter-btn" data-filter="agent-daw">Agentic DAW</button>
+                            <button class="filter-btn" data-filter="research">IEEE Research</button>
+                        </div>
+                    </div>
+
+                    <div class="section-content">
+                        <div class="flat-project-grid" id="portfolio-grid">
+                            <!-- Project 1: Stratawright Agentic DAW -->
+                            <div class="flat-project-row" data-category="agent-daw">
+                                <div class="project-year">2026</div>
+                                <div class="project-details">
+                                    <h3 class="project-row-title">Stratawright — 原生支援 AI Agent CLI 之次世代音樂製作工作站<span
+                                            class="badge-new">NEW</span></h3>
+                                    <p class="project-tagline">將數位音訊訊號轉化為大語言模型 Agent 可讀的結構化文本，讓 AI 代理人透過命令列精準調控多軌錄音工程。
+                                    </p>
+
+                                    <div class="project-qa-group">
+                                        <div class="project-qa-item">
+                                            <strong class="qa-question">為什麼我要做這個專案？</strong>
+                                            傳統音樂製作軟體為鍵盤滑鼠時代設計，當分軌龐大至 100 軌以上時，創作者超過 50%
+                                            的心智負擔被耗費在記憶快捷鍵、軌道路由與音量調整等機械式重複操作。現有 DAW 缺乏供 LLM 直接讀取與操作的訊號與控制介面，無法將 Agent
+                                            引入音訊生產鏈。
+                                        </div>
+                                        <div class="project-qa-item">
+                                            <strong class="qa-question">這專案解決的是什麼問題？</strong>
+                                            打造原生支援 AI Agent CLI 的音訊工作站架構。核心創新在於將底層音訊訊號（峰值分貝、LUFS 響度、頻譜能量分佈與波形特徵）轉譯為
+                                            Agent 可理解的結構化文字與 JSON 格式；同時提供雙向 CLI 控制協議，讓 Claude Code、Cursor、Codex 或 Gemini
+                                            等 Agent 能夠發送音訊檢測、分軌分組、Gain Staging 音量平衡、聲像 Panning 與 DSP
+                                            外掛參數自動化指令，建立高效的文字與訊號反饋迴圈，在數秒內完成百軌工程的管理與預混。
+                                        </div>
+                                    </div>
+
+                                    <p class="project-row-desc">
+                                        <a href="https://github.com/Goldwaterfung/Stratawright" target="_blank"
+                                            rel="noopener" class="underline-link"><i class="fa-brands fa-github"></i> 前往
+                                            GitHub 查看開源專案 (Goldwaterfung/Stratawright)</a>
+                                    </p>
+                                    <div class="project-row-tags">
+                                        <span>Agentic DAW</span>
+                                        <span>Signal-to-Text</span>
+                                        <span>Agent CLI Protocol</span>
+                                        <span>Human-AI Audio Workflow</span>
+                                        <span>DSP Automation</span>
+                                        <span>Open Source</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Project 2: IEEE Paper -->
+                            <div class="flat-project-row" data-category="research">
+                                <div class="project-year">2026</div>
+                                <div class="project-details">
+                                    <h3 class="project-row-title">Measuring Visual Capture in Virtual Reality under
+                                        Sustained Audiovisual Conflict with Third-Order Ambisonics</h3>
+                                    <p class="project-tagline">探索虛擬實境中視聽衝突下的感官邊界，為未來智慧眼鏡奠定跨模態體驗規範。</p>
+
+                                    <div class="project-qa-group">
+                                        <div class="project-qa-item">
+                                            <strong class="qa-question">為什麼我要做這個研究？</strong>
+                                            隨著智慧眼鏡與空間運算邁入大眾應用，數位資訊與物理空間高度融合。本研究前瞻探索在視聽資訊發生衝突時，人類感官認知的邊界——當耳聽與眼見矛盾時，大腦究竟信任哪種感官？
+                                        </div>
+                                    </div>
+
+                                    <div class="paper-citation">
+                                        <strong>Fung, K. K.</strong>, Saw, T. W., & Rajapakse, R. P. C. J. (2026). 已獲
+                                        IEEE ICVR 2026 接收發表。
+                                    </div>
+
+                                    <p class="project-row-desc" style="margin-bottom: 0.3rem;">
+                                        <strong>三大實驗與學術貢獻：</strong>
+                                    </p>
+                                    <ol class="project-list">
+                                        <li><strong>實驗範式創新</strong>：首創頭視線與手指向解耦追蹤範式，精確量化視聽干擾下的真實感官偏好與動態修正軌跡。</li>
+                                        <li><strong>感官壓制與代價實證</strong>：證實即便採用 16 聲道三階 Ambisonics
+                                            高保真空間音訊，強烈視覺誘餌仍壓倒性主導初始定位，且跨模態衝突會造成顯著的認知代價（反應時間拉長 1.6 秒）。</li>
+                                        <li><strong>空間運算感官學基礎</strong>：從深層認知心理學出發，實證單靠空間音訊無法抵銷視覺錯位，為未來智慧眼鏡與空間運算體驗奠定跨模態視聽協同的理論基礎與設計規範。
+                                        </li>
+                                    </ol>
+
+                                    <p class="project-row-desc">
+                                        <a href="https://github.com/Goldwaterfung/vr-under-sustained-audiovisual-conflict"
+                                            target="_blank" rel="noopener" class="underline-link"><i
+                                                class="fa-brands fa-github"></i> 前往
+                                            GitHub 查看 Unity 研究專案與 Python 數據處理源碼
+                                            (Goldwaterfung/vr-under-sustained-audiovisual-conflict)</a>
+                                    </p>
+                                    <div class="research-image-gallery"
+                                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.2rem 0;">
+                                        <figure style="margin: 0; text-align: center;">
+                                            <img src="assets/research/experiment.jpg" alt="VR 視聽衝突實驗操作"
+                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
+                                            <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">圖
+                                                1：VR 視聽衝突實驗操作</figcaption>
+                                        </figure>
+                                        <figure style="margin: 0; text-align: center;">
+                                            <img src="assets/research/sound-lab.jpg" alt="16 聲道三階 Ambisonics 聲學實驗室"
+                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
+                                            <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">圖
+                                                2：16 聲道三階 Ambisonics 實驗室</figcaption>
+                                        </figure>
+                                        <figure style="margin: 0; text-align: center;">
+                                            <img src="assets/research/1_angular_error_by_condition.png"
+                                                alt="初始定位角度誤差數據圖"
+                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
+                                            <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">圖
+                                                3：三條件初始角度誤差</figcaption>
+                                        </figure>
+                                        <figure style="margin: 0; text-align: center;">
+                                            <img src="assets/research/3_response_time_by_condition.png" alt="反應時間數據圖"
+                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
+                                            <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">圖
+                                                4：三條件反應時間分析</figcaption>
+                                        </figure>
+                                    </div>
+                                    <div class="project-row-tags">
+                                        <span>Spatial Computing UX</span>
+                                        <span>Third-Order Ambisonics</span>
+                                        <span>Psychoacoustics</span>
+                                        <span>Python</span>
+                                        <span>Unity3D</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 04: Core Competencies & Toolkit -->
+        <section id="skills" class="section skills-section">
+            <div class="container">
+                <div class="section-grid">
+                    <div class="section-meta">
+                        <span class="mono-section-label">COMPETENCIES</span>
+                        <h2 class="section-serif-title">核心能力與價值交付</h2>
+                        <p class="section-side-desc">
+                            對標多模態 AI 互動、音樂科技與成長期新創之端到端產品交付矩陣。
+                        </p>
+                    </div>
+
+                    <div class="section-content">
+                        <div class="competency-grid">
+                            <!-- Category 1 -->
+                            <div class="competency-card">
+                                <div class="competency-icon"><i class="fa-solid fa-brain"></i></div>
+                                <h3>多模態 AI 互動與 Agentic 系統架構</h3>
+                                <ul>
+                                    <li><strong>延遲抗性狀態機：</strong> 設計視覺緩衝與情緒標籤，化解 3 至 5 秒本地推論延遲，達成現場零中途離開率 <span
+                                            style="font-size: 0.82rem; color: #777;">(<a href="#case-studies"
+                                                class="underline-link">Case 03 AR 虛擬代表</a>)</span></li>
+                                    <li><strong>Agentic CLI 與 Telemetry 串流：</strong> 打造 daw-cli 工具調用介面與即時 Telemetry 串流（頻率遮蔽、頻譜能量、相位相關性），使 AI Coding Agent 能確定性自動化多軌 DSP 流程
+                                        <span style="font-size: 0.82rem; color: #777;">(<a href="#projects"
+                                                class="underline-link">Stratawright DAW</a>)</span>
+                                    </li>
+                                    <li><strong>多模態 Pipeline 整合：</strong> 熟練掌握 Whisper ASR、Llama 3、RAGFlow、Fish-Speech TTS 與
+                                        Unity 3D 虛擬人狀態對齊</li>
+                                </ul>
+                            </div>
+
+                            <!-- Category 2 -->
+                            <div class="competency-card">
+                                <div class="competency-icon"><i class="fa-solid fa-music"></i></div>
+                                <h3>音樂科技與空間感知科學</h3>
+                                <ul>
+                                    <li><strong>IEEE 國際論文實證研究：</strong> 第一作者發表 16 聲道三階 Ambisonics
+                                        與視聽衝突研究，實證空間音訊與視覺誘餌下的認知延遲代價 <span style="font-size: 0.82rem; color: #777;">(<a
+                                                href="#projects" class="underline-link">IEEE ICVR 2026</a>)</span></li>
+                                    <li><strong>工業級分軌混音與音訊工程：</strong> 具備專業審聽與多軌混音能力，擔任主要混音之合作作品入選 Jam Jam Asia 2026
+                                        官方展演陣容 <span style="font-size: 0.82rem; color: #777;">(<a href="#experience"
+                                                class="underline-link">獨立藝人合作</a>)</span></li>
+                                </ul>
+                            </div>
+
+                            <!-- Category 3 -->
+                            <div class="competency-card">
+                                <div class="competency-icon"><i class="fa-solid fa-compass-drafting"></i></div>
+                                <h3>0 到 1 產品管理與用戶研究</h3>
+                                <ul>
+                                    <li><strong>第一線行為挖掘與敏捷轉向：</strong> 透過門市日常交接觀察發現兒童受眾機會，快速調整優先級上線熱門 3D 模型帶動家庭客體驗 <span
+                                            style="font-size: 0.82rem; color: #777;">(<a href="#case-studies"
+                                                class="underline-link">Case 01 兒童客群洞察</a>)</span></li>
+                                    <li><strong>實證型根因診斷：</strong> 親自比對 50 個病例資料庫日誌與時間序列，推翻主觀美術假設並精確定位聲影時間差 <span
+                                            style="font-size: 0.82rem; color: #777;">(<a href="#case-studies"
+                                                class="underline-link">Case 02 醫療 3D 數據破局</a>)</span></li>
+                                    <li><strong>實體部署與 SOP 落地：</strong> 門市等候區部署專屬平板服務數百場諮詢，融入每日剪髮 SOP，縮短 35% 選型溝通時間</li>
+                                </ul>
+                            </div>
+
+                            <!-- Category 4 -->
+                            <div class="competency-card">
+                                <div class="competency-icon"><i class="fa-solid fa-people-group"></i></div>
+                                <h3>跨領域轉譯與高階利害關係人協調</h3>
+                                <ul>
+                                    <li><strong>跨領域語言精準轉譯：</strong> 走入排練現場將演奏家非技術呼吸感轉譯為 1.5 秒固定緩衝指標，達成大型音樂廳舞台級音畫同步 <span
+                                            style="font-size: 0.82rem; color: #777;">(<a href="#case-studies"
+                                                class="underline-link">Case 04 國樂 Live 同步</a>)</span></li>
+                                    <li><strong>高壓環境用戶心理與利害關係人協調：</strong> 4 年五星級奢華酒店（3 年香港嘉里酒店開幕前籌備團隊、1 年香港萬怡酒店）從 0 到開業後的飯店前廳籌備、SOP 規劃與 VIP 危機應變歷練，賦予極強的跨職能協同力</li>
+                                    <li><strong>國際三語無障礙溝通：</strong> 英語（母語/流利）、國語（流利）、粵語（母語）的高效跨國團隊協作</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 05: Experience Timeline -->
+        <section id="experience" class="section experience-section">
+            <div class="container">
+                <div class="section-grid">
+                    <div class="section-meta">
+                        <span class="mono-section-label">EXPERIENCE</span>
+                        <h2 class="section-serif-title">工作經歷</h2>
+                    </div>
+
+                    <div class="section-content">
+                        <div class="flat-timeline">
+                            <!-- Timeline Item 1 -->
+                            <div class="timeline-row">
+                                <div class="timeline-time">Dec 2020 - Jun 2026</div>
+                                <div class="timeline-details">
+                                    <span class="timeline-tag">EXPERIENCE</span>
+                                    <h3 class="timeline-row-title">Product Manager & Co-Founder</h3>
+                                    <div class="timeline-row-org">MRKE Ltd. | Retail Tech & 3D Interactive App</div>
+                                    <p class="timeline-row-desc">
+                                        負責 0 到 1 產品規劃、用戶調研與 Roadmap 敏捷迭代；主導開發並於門市等候區部署專屬 Android 平板，融入髮型師日常剪髮諮詢
+                                        SOP，累計服務數百場顧客諮詢，化解選型資訊落差，將諮詢溝通時間縮短約 35%。
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Timeline Item 2 -->
+                            <div class="timeline-row">
+                                <div class="timeline-time">Oct 2024 - Mar 2025</div>
+                                <div class="timeline-details">
+                                    <span class="timeline-tag">EXPERIENCE</span>
+                                    <h3 class="timeline-row-title">Multimodal AI Product & System Integration</h3>
+                                    <div class="timeline-row-org">國立臺南藝術大學 應用創新實驗專案</div>
+                                    <p class="timeline-row-desc">
+                                        對接 Whisper ASR、Llama 3 8B RAG 與 Fish-Speech TTS 多模態 AI 鏈路；主導 Unity
+                                        端低延遲狀態機與情緒標籤對接，設計視覺緩衝過渡機制化解 3 至 5 秒推論延遲，於成果展公開承載數十場多輪對話，達成零中途離開率。
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Timeline Item 3 -->
+                            <div class="timeline-row">
+                                <div class="timeline-time">2024 (July - Aug)</div>
+                                <div class="timeline-details">
+                                    <span class="timeline-tag">EXPERIENCE</span>
+                                    <h3 class="timeline-row-title">UX Product Intern</h3>
+                                    <div class="timeline-row-org">醫諾華醫學科技股份有限公司 (Innova Medical) | 台灣高雄</div>
+                                    <p class="timeline-row-desc">
+                                        深度測試並對比 50 個虛擬病例資料庫，定位臨床培訓誤判之根本原因在於聲影延遲與細微病徵缺失；親自優化 3D 視覺病徵達成完全對齊，協助團隊精準重排研發優先級。
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Timeline Item 4 -->
+                            <div class="timeline-row">
+                                <div class="timeline-time">Sep 2023 - Jun 2024</div>
+                                <div class="timeline-details">
+                                    <span class="timeline-tag">EXPERIENCE</span>
+                                    <h3 class="timeline-row-title">Technical Integration Engineer</h3>
+                                    <div class="timeline-row-org">國立臺南藝術大學 音樂科技展演專案</div>
+                                    <p class="timeline-row-desc">
+                                        主導二胡現場 AI 動作捕捉與虛擬化身系統整合；在確保高保真音質前提下取捨 1.5
+                                        秒固定緩衝延遲，達成動捕數據流精準同步對齊，於大學千人級大型音樂廳順利完成面對數百位觀眾的公開 Live 舞台展演。
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Timeline Item 4.5: Mixing Engineer / Independent Music Collaboration -->
+                            <div class="timeline-row">
+                                <div class="timeline-time">2016 - 2026</div>
+                                <div class="timeline-details">
+                                    <span class="timeline-tag">EXPERIENCE</span>
+                                    <h3 class="timeline-row-title">Mixing Engineer & Audio Producer</h3>
+                                    <div class="timeline-row-org">獨立音樂創作者合作 (合作藝人：Makav 真愛、宇宙資料庫、The Plane Plan)</div>
+                                    <p class="timeline-row-desc">
+                                        負責獨立音樂人分軌混音與聲音工程，將音樂創作概念轉化為高品質工業標準規格；擔任主要混音之合作藝人與樂團成功入選 Jam Jam Asia 2026
+                                        官方展演陣容。
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Timeline Item 5 -->
+                            <div class="timeline-row">
+                                <div class="timeline-time">2017 - 2021</div>
+                                <div class="timeline-details">
+                                    <span class="timeline-tag">EXPERIENCE</span>
+                                    <h3 class="timeline-row-title">Operations & VIP Guest Experience Specialist</h3>
+                                    <div class="timeline-row-org">Luxury Hospitality Groups (香港嘉里酒店開幕前籌備團隊 3 年 · 香港萬怡酒店 1
+                                        年)</div>
+                                    <p class="timeline-row-desc">
+                                        參與香港嘉里酒店（3 年）從 0 到開業後的飯店前廳籌備、營運架構與服務 SOP 規劃，以及香港萬怡酒店（1 年）貴賓服務；於五星級奢華酒店環境管理高階 VIP
+                                        關係，建立對微觀情緒與用戶心理的敏銳洞察，累積高壓跨部門協調與突發危機處理經驗，轉化為產品管理中的跨職能領導力。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 06: Education Timeline -->
+        <section id="education" class="section education-section">
+            <div class="container">
+                <div class="section-grid">
+                    <div class="section-meta">
+                        <span class="mono-section-label">EDUCATION</span>
+                        <h2 class="section-serif-title">教育背景</h2>
+                    </div>
+
+                    <div class="section-content">
+                        <div class="flat-timeline">
+                            <!-- Timeline Item 6 (Education) -->
+                            <div class="timeline-row">
+                                <div class="timeline-time">於2026畢業</div>
+                                <div class="timeline-details">
+                                    <span class="timeline-tag">EDUCATION</span>
+                                    <h3 class="timeline-row-title">音訊工程學士</h3>
+                                    <div class="timeline-row-org">國立臺南藝術大學</div>
+                                    <p class="timeline-row-desc">
+                                        主修 MIR 音樂資訊檢索、音樂 AI、DSP 數位訊號處理、Unity C# / VR SDK、多聲道 Ambisonics 音訊。
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Timeline Item 7 (Education) -->
+                            <div class="timeline-row">
+                                <div class="timeline-time">於2016畢業</div>
+                                <div class="timeline-details">
+                                    <span class="timeline-tag">EDUCATION</span>
+                                    <h3 class="timeline-row-title">旅遊管理榮譽學士</h3>
+                                    <div class="timeline-row-org">Plymouth University | 英國普利茅斯</div>
+                                    <p class="timeline-row-desc">
+                                        主修專案管理、應用統計學、行銷學、跨部門溝通與財務營運。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer / Contact Section -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-box">
+                <span class="mono-label">LET'S CONNECT</span>
+                <h2 class="footer-title">隨時歡迎交流</h2>
+                <p class="footer-desc">
+                    樂於結識各領域的開發者與創作者。無論是交流 AI 系統設計想法，或是聊聊正在解決的有趣難題，隨時歡迎打個招呼。
+                </p>
+                <div class="footer-cta-buttons">
+                    <a href="mailto:kim.kamkiu.fung@gmail.com" class="btn btn-dark">
+                        <i class="fa-solid fa-envelope"></i> 發送郵件打個招呼
+                    </a>
+                    <a href="https://github.com/Goldwaterfung/" target="_blank" rel="noopener" class="btn btn-light">
+                        <i class="fa-brands fa-github"></i> GitHub 主頁
+                    </a>
+                </div>
+                <div class="footer-bottom-line">
+                    <span>&copy; 2026 馮淦喬 (Kim Fung). All rights reserved.</span>
+                    <div class="footer-social-links">
+                        <a href="mailto:kim.kamkiu.fung@gmail.com">Email</a>
+                        <a href="https://github.com/Goldwaterfung/" target="_blank" rel="noopener">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>
