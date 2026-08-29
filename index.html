@@ -31,9 +31,9 @@
 
             <nav class="nav-menu" id="nav-menu">
                 <a href="#about" class="nav-link active">About</a>
+                <a href="#projects" class="nav-link">Music & Research</a>
                 <a href="#case-studies" class="nav-link">Case Studies</a>
                 <a href="#skills" class="nav-link">Competencies</a>
-                <a href="#projects" class="nav-link">Music & Research</a>
                 <a href="#experience" class="nav-link">Experience</a>
                 <a href="#education" class="nav-link">Education</a>
                 <a href="#hobbies" class="nav-link">Hobbies</a>
@@ -130,7 +130,175 @@
             </div>
         </section>
 
-        <!-- Section 02: Featured PM Case Studies -->
+        <!-- Section 02: Specialized Projects & Research -->
+        <section id="projects" class="section projects-section">
+            <div class="container">
+                <div class="section-grid">
+                    <div class="section-meta">
+                        <span class="mono-section-label">FEATURED PROJECTS & RESEARCH</span>
+                        <h2 class="section-serif-title">Cutting-Edge Music Tech & Academic Research</h2>
+                        <div class="flat-filters">
+                            <button class="filter-btn active" data-filter="all">All</button>
+                            <button class="filter-btn" data-filter="agent-daw">Agentic DAW</button>
+                            <button class="filter-btn" data-filter="research">IEEE Research</button>
+                        </div>
+                    </div>
+
+                    <div class="section-content">
+                        <div class="flat-project-grid" id="portfolio-grid">
+                            <!-- Project 1: Stratawright Agentic DAW -->
+                            <div class="flat-project-row" data-category="agent-daw">
+                                <div class="project-year">2026</div>
+                                <div class="project-details">
+                                    <h3 class="project-row-title">Stratawright — Next-Generation Digital Audio
+                                        Workstation Natively Supporting AI Agent CLI<span class="badge-new">NEW</span>
+                                    </h3>
+                                    <p class="project-tagline">Translating digital audio signals into structured text
+                                        readable by LLM agents, enabling AI agents to control multitrack audio
+                                        engineering precisely via command line.
+                                    </p>
+
+                                    <div class="project-qa-group">
+                                        <div class="project-qa-item">
+                                            <strong class="qa-question">Why did I initiate this project?</strong>
+                                            Traditional DAW software was designed for keyboard and mouse workflows. When
+                                            projects expand beyond 100 tracks, over 50%
+                                            of creator cognitive load is consumed by repetitive mechanical operations
+                                            such as memorizing shortcuts, routing tracks, and balancing volumes.
+                                            Existing DAWs lack signal and control interfaces directly accessible by
+                                            LLMs, hindering AI agents from entering audio production pipelines.
+                                        </div>
+                                        <div class="project-qa-item">
+                                            <strong class="qa-question">What problem does this project solve?</strong>
+                                            Constructing an audio workstation architecture natively supporting AI Agent
+                                            CLI. The core innovation translates low-level audio signals (peak dB, LUFS
+                                            loudness, spectral energy distribution, and waveform characteristics) into
+                                            structured text and JSON formats parseable by agents. Simultaneously, it
+                                            provides a bidirectional CLI protocol enabling agents such as Claude Code,
+                                            Cursor, Codex, or Gemini to execute audio analysis, track grouping, gain
+                                            staging, panning, and DSP plugin automation commands, establishing an
+                                            efficient text-signal feedback loop to organize and pre-mix 100+ track
+                                            projects within seconds.
+                                        </div>
+                                    </div>
+
+                                    <p class="project-row-desc">
+                                        <a href="https://github.com/Goldwaterfung/Stratawright" target="_blank"
+                                            rel="noopener" class="underline-link"><i class="fa-brands fa-github"></i>
+                                            View Open Source Project on GitHub (Goldwaterfung/Stratawright)</a>
+                                    </p>
+                                    <div class="project-row-tags">
+                                        <span>Agentic DAW</span>
+                                        <span>Signal-to-Text</span>
+                                        <span>Agent CLI Protocol</span>
+                                        <span>Human-AI Audio Workflow</span>
+                                        <span>DSP Automation</span>
+                                        <span>Open Source</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Project 2: IEEE Paper -->
+                            <div class="flat-project-row" data-category="research">
+                                <div class="project-year">2026</div>
+                                <div class="project-details">
+                                    <h3 class="project-row-title">Measuring Visual Capture in Virtual Reality under
+                                        Sustained Audiovisual Conflict with Third-Order Ambisonics</h3>
+                                    <p class="project-tagline">Exploring sensory boundaries under audiovisual conflict
+                                        in virtual reality, establishing cross-modal design principles for future smart
+                                        glasses.</p>
+
+                                    <div class="project-qa-group">
+                                        <div class="project-qa-item">
+                                            <strong class="qa-question">Why did I conduct this research?</strong>
+                                            As smart glasses and spatial computing enter mainstream adoption, digital
+                                            information blends deeply with physical space. This research investigates
+                                            the boundaries of human sensory perception during cross-modal conflict: when
+                                            auditory and visual cues contradict, which sense does the human brain
+                                            prioritize?
+                                        </div>
+                                    </div>
+
+                                    <div class="paper-citation">
+                                        <strong>Fung, K. K.</strong>, Saw, T. W., & Rajapakse, R. P. C. J. (2026).
+                                        Accepted for publication at IEEE ICVR 2026.
+                                    </div>
+
+                                    <p class="project-row-desc" style="margin-bottom: 0.3rem;">
+                                        <strong>Three Key Experimental and Academic Contributions:</strong>
+                                    </p>
+                                    <ol class="project-list">
+                                        <li><strong>Experimental Paradigm Innovation</strong>: Pioneered a decoupled
+                                            head-gaze and hand-pointing tracking paradigm to quantify true sensory
+                                            preferences and dynamic correction trajectories under audiovisual
+                                            interference.</li>
+                                        <li><strong>Empirical Evidence of Sensory Capture and Cognitive Cost</strong>:
+                                            Demonstrated that even with 16-channel Third-Order Ambisonics high-fidelity
+                                            spatial audio, salient visual distractors overwhelmingly dominate initial
+                                            localization, with cross-modal conflict incurring significant cognitive
+                                            costs (reaction times prolonged by 1.6 seconds).</li>
+                                        <li><strong>Foundations for Spatial Computing Perception</strong>: Grounded in
+                                            cognitive psychology, proved that spatial audio alone cannot counteract
+                                            visual misalignment, establishing theoretical foundations and design
+                                            guidelines for cross-modal audiovisual coherence in smart glasses and
+                                            spatial computing.
+                                        </li>
+                                    </ol>
+
+                                    <p class="project-row-desc">
+                                        <a href="https://github.com/Goldwaterfung/vr-under-sustained-audiovisual-conflict"
+                                            target="_blank" rel="noopener" class="underline-link"><i
+                                                class="fa-brands fa-github"></i> View Unity Research Project and Python
+                                            Data Processing Source on GitHub
+                                            (Goldwaterfung/vr-under-sustained-audiovisual-conflict)</a>
+                                    </p>
+                                    <div class="research-image-gallery"
+                                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.2rem 0;">
+                                        <figure style="margin: 0; text-align: center;">
+                                            <img src="assets/research/experiment.jpg"
+                                                alt="VR audiovisual conflict experiment setup"
+                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
+                                            <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">
+                                                Figure 1: VR Audiovisual Conflict Experiment Setup</figcaption>
+                                        </figure>
+                                        <figure style="margin: 0; text-align: center;">
+                                            <img src="assets/research/sound-lab.jpg"
+                                                alt="16-channel Third-Order Ambisonics acoustics laboratory"
+                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
+                                            <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">
+                                                Figure 2: 16-Channel Third-Order Ambisonics Laboratory</figcaption>
+                                        </figure>
+                                        <figure style="margin: 0; text-align: center;">
+                                            <img src="assets/research/1_angular_error_by_condition.png"
+                                                alt="Initial localization angular error chart"
+                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
+                                            <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">
+                                                Figure 3: Initial Angular Error Across Three Conditions</figcaption>
+                                        </figure>
+                                        <figure style="margin: 0; text-align: center;">
+                                            <img src="assets/research/3_response_time_by_condition.png"
+                                                alt="Response time analysis chart"
+                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
+                                            <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">
+                                                Figure 4: Response Time Analysis Across Three Conditions</figcaption>
+                                        </figure>
+                                    </div>
+                                    <div class="project-row-tags">
+                                        <span>Spatial Computing UX</span>
+                                        <span>Third-Order Ambisonics</span>
+                                        <span>Psychoacoustics</span>
+                                        <span>Python</span>
+                                        <span>Unity3D</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 03: Featured PM Case Studies -->
         <section id="case-studies" class="section case-studies-section">
             <div class="container">
                 <div class="section-grid">
@@ -197,11 +365,11 @@
                                         popular styles preferred by parents for initial 3D modeling, quickly
                                         prioritizing and deploying children's 3D models to enhance family customer
                                         experiences.</li>
-                                    <li><strong>Technical and SOP Integration:</strong> Established polygon count and
-                                        texture compression specifications to ensure 60fps performance on mobile
-                                        hardware; trained stylists to incorporate the app into daily haircut
-                                        consultation SOPs, bridging the gap between digital preview and physical
-                                        execution.</li>
+                                    <li><strong>Technical and SOP Integration:</strong> Architected client-cloud pipeline
+                                        connecting Unity to Google Cloud Storage (GCS) for over-the-air 3D asset streaming;
+                                        established polygon count and texture compression specifications to ensure 60fps
+                                        performance on mobile hardware; trained stylists to incorporate the app into daily haircut
+                                        consultation SOPs, bridging the gap between digital preview and physical execution.</li>
                                 </ul>
 
                                 <div class="accordion-box">
@@ -539,174 +707,6 @@
             </div>
         </section>
 
-        <!-- Section 03: Specialized Projects & Research -->
-        <section id="projects" class="section projects-section">
-            <div class="container">
-                <div class="section-grid">
-                    <div class="section-meta">
-                        <span class="mono-section-label">FEATURED PROJECTS & RESEARCH</span>
-                        <h2 class="section-serif-title">Cutting-Edge Music Tech & Academic Research</h2>
-                        <div class="flat-filters">
-                            <button class="filter-btn active" data-filter="all">All</button>
-                            <button class="filter-btn" data-filter="agent-daw">Agentic DAW</button>
-                            <button class="filter-btn" data-filter="research">IEEE Research</button>
-                        </div>
-                    </div>
-
-                    <div class="section-content">
-                        <div class="flat-project-grid" id="portfolio-grid">
-                            <!-- Project 1: Stratawright Agentic DAW -->
-                            <div class="flat-project-row" data-category="agent-daw">
-                                <div class="project-year">2026</div>
-                                <div class="project-details">
-                                    <h3 class="project-row-title">Stratawright — Next-Generation Digital Audio
-                                        Workstation Natively Supporting AI Agent CLI<span class="badge-new">NEW</span>
-                                    </h3>
-                                    <p class="project-tagline">Translating digital audio signals into structured text
-                                        readable by LLM agents, enabling AI agents to control multitrack audio
-                                        engineering precisely via command line.
-                                    </p>
-
-                                    <div class="project-qa-group">
-                                        <div class="project-qa-item">
-                                            <strong class="qa-question">Why did I initiate this project?</strong>
-                                            Traditional DAW software was designed for keyboard and mouse workflows. When
-                                            projects expand beyond 100 tracks, over 50%
-                                            of creator cognitive load is consumed by repetitive mechanical operations
-                                            such as memorizing shortcuts, routing tracks, and balancing volumes.
-                                            Existing DAWs lack signal and control interfaces directly accessible by
-                                            LLMs, hindering AI agents from entering audio production pipelines.
-                                        </div>
-                                        <div class="project-qa-item">
-                                            <strong class="qa-question">What problem does this project solve?</strong>
-                                            Constructing an audio workstation architecture natively supporting AI Agent
-                                            CLI. The core innovation translates low-level audio signals (peak dB, LUFS
-                                            loudness, spectral energy distribution, and waveform characteristics) into
-                                            structured text and JSON formats parseable by agents. Simultaneously, it
-                                            provides a bidirectional CLI protocol enabling agents such as Claude Code,
-                                            Cursor, Codex, or Gemini to execute audio analysis, track grouping, gain
-                                            staging, panning, and DSP plugin automation commands, establishing an
-                                            efficient text-signal feedback loop to organize and pre-mix 100+ track
-                                            projects within seconds.
-                                        </div>
-                                    </div>
-
-                                    <p class="project-row-desc">
-                                        <a href="https://github.com/Goldwaterfung/Stratawright" target="_blank"
-                                            rel="noopener" class="underline-link"><i class="fa-brands fa-github"></i>
-                                            View Open Source Project on GitHub (Goldwaterfung/Stratawright)</a>
-                                    </p>
-                                    <div class="project-row-tags">
-                                        <span>Agentic DAW</span>
-                                        <span>Signal-to-Text</span>
-                                        <span>Agent CLI Protocol</span>
-                                        <span>Human-AI Audio Workflow</span>
-                                        <span>DSP Automation</span>
-                                        <span>Open Source</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Project 2: IEEE Paper -->
-                            <div class="flat-project-row" data-category="research">
-                                <div class="project-year">2026</div>
-                                <div class="project-details">
-                                    <h3 class="project-row-title">Measuring Visual Capture in Virtual Reality under
-                                        Sustained Audiovisual Conflict with Third-Order Ambisonics</h3>
-                                    <p class="project-tagline">Exploring sensory boundaries under audiovisual conflict
-                                        in virtual reality, establishing cross-modal design principles for future smart
-                                        glasses.</p>
-
-                                    <div class="project-qa-group">
-                                        <div class="project-qa-item">
-                                            <strong class="qa-question">Why did I conduct this research?</strong>
-                                            As smart glasses and spatial computing enter mainstream adoption, digital
-                                            information blends deeply with physical space. This research investigates
-                                            the boundaries of human sensory perception during cross-modal conflict: when
-                                            auditory and visual cues contradict, which sense does the human brain
-                                            prioritize?
-                                        </div>
-                                    </div>
-
-                                    <div class="paper-citation">
-                                        <strong>Fung, K. K.</strong>, Saw, T. W., & Rajapakse, R. P. C. J. (2026).
-                                        Accepted for publication at IEEE ICVR 2026.
-                                    </div>
-
-                                    <p class="project-row-desc" style="margin-bottom: 0.3rem;">
-                                        <strong>Three Key Experimental and Academic Contributions:</strong>
-                                    </p>
-                                    <ol class="project-list">
-                                        <li><strong>Experimental Paradigm Innovation</strong>: Pioneered a decoupled
-                                            head-gaze and hand-pointing tracking paradigm to quantify true sensory
-                                            preferences and dynamic correction trajectories under audiovisual
-                                            interference.</li>
-                                        <li><strong>Empirical Evidence of Sensory Capture and Cognitive Cost</strong>:
-                                            Demonstrated that even with 16-channel Third-Order Ambisonics high-fidelity
-                                            spatial audio, salient visual distractors overwhelmingly dominate initial
-                                            localization, with cross-modal conflict incurring significant cognitive
-                                            costs (reaction times prolonged by 1.6 seconds).</li>
-                                        <li><strong>Foundations for Spatial Computing Perception</strong>: Grounded in
-                                            cognitive psychology, proved that spatial audio alone cannot counteract
-                                            visual misalignment, establishing theoretical foundations and design
-                                            guidelines for cross-modal audiovisual coherence in smart glasses and
-                                            spatial computing.
-                                        </li>
-                                    </ol>
-
-                                    <p class="project-row-desc">
-                                        <a href="https://github.com/Goldwaterfung/vr-under-sustained-audiovisual-conflict"
-                                            target="_blank" rel="noopener" class="underline-link"><i
-                                                class="fa-brands fa-github"></i> View Unity Research Project and Python
-                                            Data Processing Source on GitHub
-                                            (Goldwaterfung/vr-under-sustained-audiovisual-conflict)</a>
-                                    </p>
-                                    <div class="research-image-gallery"
-                                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.2rem 0;">
-                                        <figure style="margin: 0; text-align: center;">
-                                            <img src="assets/research/experiment.jpg"
-                                                alt="VR audiovisual conflict experiment setup"
-                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
-                                            <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">
-                                                Figure 1: VR Audiovisual Conflict Experiment Setup</figcaption>
-                                        </figure>
-                                        <figure style="margin: 0; text-align: center;">
-                                            <img src="assets/research/sound-lab.jpg"
-                                                alt="16-channel Third-Order Ambisonics acoustics laboratory"
-                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
-                                            <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">
-                                                Figure 2: 16-Channel Third-Order Ambisonics Laboratory</figcaption>
-                                        </figure>
-                                        <figure style="margin: 0; text-align: center;">
-                                            <img src="assets/research/1_angular_error_by_condition.png"
-                                                alt="Initial localization angular error chart"
-                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
-                                            <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">
-                                                Figure 3: Initial Angular Error Across Three Conditions</figcaption>
-                                        </figure>
-                                        <figure style="margin: 0; text-align: center;">
-                                            <img src="assets/research/3_response_time_by_condition.png"
-                                                alt="Response time analysis chart"
-                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
-                                            <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">
-                                                Figure 4: Response Time Analysis Across Three Conditions</figcaption>
-                                        </figure>
-                                    </div>
-                                    <div class="project-row-tags">
-                                        <span>Spatial Computing UX</span>
-                                        <span>Third-Order Ambisonics</span>
-                                        <span>Psychoacoustics</span>
-                                        <span>Python</span>
-                                        <span>Unity3D</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Section 04: Core Competencies & Toolkit -->
         <section id="skills" class="section skills-section">
             <div class="container">
@@ -842,14 +842,13 @@
 
                             <!-- Timeline Item 2 -->
                             <div class="timeline-row">
-                                <div class="timeline-time">Oct 2024 - Mar 2025</div>
+                                <div class="timeline-time">Sep 2023 - Mar 2025</div>
                                 <div class="timeline-details">
                                     <span class="timeline-tag">EXPERIENCE</span>
-                                    <h3 class="timeline-row-title">Multimodal AI Systems Integration & Deployment</h3>
-                                    <div class="timeline-row-org">National Tainan University of the Arts, Applied
-                                        Innovation Lab Project</div>
+                                    <h3 class="timeline-row-title">Multimodal AI & Systems Integration Engineer</h3>
+                                    <div class="timeline-row-org">National Tainan University of the Arts</div>
                                     <p class="timeline-row-desc">
-                                        Integrated Taipei AI team's multimodal AI pipeline (Whisper ASR, Llama 3 with RAGFlow, and Fish-Speech TTS) on a single 24GB VRAM local GPU; developed Unity animation state machine transitions (visual buffering cues) to bridge 3-5s inference latency and deployed the real-time virtual principal live at the university with zero mid-dialogue drop-offs.
+                                        Architected and deployed multimodal AI pipelines and real-time vision motion capture systems across university innovation initiatives: integrated Speech-to-Text, LLM with RAG, and Text-to-Speech models on local 24GB GPU infrastructure with Unity animation state machines to bridge 3-5s inference latency, delivering a live interactive avatar with zero drop-offs; engineered deterministic 1.5s streaming buffers to eliminate jitter between AI pose estimation tracking and high-fidelity audio streams for a flawless live Erhu concert in a 1,000-seat hall.
                                     </p>
                                 </div>
                             </div>
@@ -874,37 +873,26 @@
 
                             <!-- Timeline Item 4 -->
                             <div class="timeline-row">
-                                <div class="timeline-time">Sep 2023 - Jun 2024</div>
+                                <div class="timeline-time">2020 - 2021</div>
                                 <div class="timeline-details">
                                     <span class="timeline-tag">EXPERIENCE</span>
-                                    <h3 class="timeline-row-title">Technical Integration Engineer</h3>
-                                    <div class="timeline-row-org">National Tainan University of the Arts, Music
-                                        Technology Performance Project</div>
+                                    <h3 class="timeline-row-title">Guest Experience Concierge</h3>
+                                    <div class="timeline-row-org">Courtyard by Marriott | Hong Kong</div>
                                     <p class="timeline-row-desc">
-                                        Led Erhu live AI motion capture and virtual avatar system integration; balanced
-                                        engineering trade-offs with a 1.5s fixed buffer to preserve high-fidelity audio
-                                        while synchronizing motion capture streams, successfully staging a live public
-                                        performance in a major 1,000-seat university concert hall.
+                                        Delivered front-of-house VIP services, personalized experiences, and frontline crisis resolution under high-occupancy conditions; developed acute diagnostic sensitivity to user friction and subtle emotional needs under pressure.
                                     </p>
                                 </div>
                             </div>
 
                             <!-- Timeline Item 5 -->
                             <div class="timeline-row">
-                                <div class="timeline-time">2017 - 2021</div>
+                                <div class="timeline-time">2017 - 2020</div>
                                 <div class="timeline-details">
                                     <span class="timeline-tag">EXPERIENCE</span>
-                                    <h3 class="timeline-row-title">Operations & VIP Guest Experience Specialist</h3>
-                                    <div class="timeline-row-org">Luxury Hospitality Groups (Kerry Hotel Pre-Opening
-                                        Team 3 Years · Courtyard by Marriott 1 Year)</div>
+                                    <h3 class="timeline-row-title">Guest Experience Concierge</h3>
+                                    <div class="timeline-row-org">Kerry Hotel Hong Kong (Shangri-La Group Pre-Opening Team)</div>
                                     <p class="timeline-row-desc">
-                                        Participated in pre-opening to post-opening front office preparations,
-                                        operations architecture, and service SOP planning for Kerry Hotel Hong Kong (3
-                                        years) alongside front-of-house VIP service at Courtyard by Marriott (1 year);
-                                        managed VIP guest relationships in 5-star luxury environments, cultivating acute
-                                        sensitivity to subtle user psychology and emotional cues while mastering
-                                        high-pressure cross-departmental coordination and crisis management, now applied
-                                        to cross-functional product leadership.
+                                        Served on the pre-opening operations team for 3 years, drafting 0-to-1 front office service SOPs and cross-departmental communication workflows between housekeeping, engineering, and guest services to establish operational rigor.
                                     </p>
                                 </div>
                             </div>

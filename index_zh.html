@@ -31,9 +31,9 @@
 
             <nav class="nav-menu" id="nav-menu">
                 <a href="#about" class="nav-link active">About</a>
+                <a href="#projects" class="nav-link">Music & Research</a>
                 <a href="#case-studies" class="nav-link">Case Studies</a>
                 <a href="#skills" class="nav-link">Competencies</a>
-                <a href="#projects" class="nav-link">Music & Research</a>
                 <a href="#experience" class="nav-link">Experience</a>
                 <a href="#education" class="nav-link">Education</a>
                 <a href="#hobbies" class="nav-link">Hobbies</a>
@@ -116,7 +116,145 @@
             </div>
         </section>
 
-        <!-- Section 02: Featured PM Case Studies -->
+        <!-- Section 02: Specialized Projects & Research -->
+        <section id="projects" class="section projects-section">
+            <div class="container">
+                <div class="section-grid">
+                    <div class="section-meta">
+                        <span class="mono-section-label">FEATURED PROJECTS & RESEARCH</span>
+                        <h2 class="section-serif-title">前沿音樂科技與學術研究</h2>
+                        <div class="flat-filters">
+                            <button class="filter-btn active" data-filter="all">All</button>
+                            <button class="filter-btn" data-filter="agent-daw">Agentic DAW</button>
+                            <button class="filter-btn" data-filter="research">IEEE Research</button>
+                        </div>
+                    </div>
+
+                    <div class="section-content">
+                        <div class="flat-project-grid" id="portfolio-grid">
+                            <!-- Project 1: Stratawright Agentic DAW -->
+                            <div class="flat-project-row" data-category="agent-daw">
+                                <div class="project-year">2026</div>
+                                <div class="project-details">
+                                    <h3 class="project-row-title">Stratawright — 原生支援 AI Agent CLI 之次世代音樂製作工作站<span
+                                            class="badge-new">NEW</span></h3>
+                                    <p class="project-tagline">將數位音訊訊號轉化為大語言模型 Agent 可讀的結構化文本，讓 AI 代理人透過命令列精準調控多軌錄音工程。
+                                    </p>
+
+                                    <div class="project-qa-group">
+                                        <div class="project-qa-item">
+                                            <strong class="qa-question">為什麼我要做這個專案？</strong>
+                                            傳統音樂製作軟體為鍵盤滑鼠時代設計，當分軌龐大至 100 軌以上時，創作者超過 50%
+                                            的心智負擔被耗費在記憶快捷鍵、軌道路由與音量調整等機械式重複操作。現有 DAW 缺乏供 LLM 直接讀取與操作的訊號與控制介面，無法將 Agent
+                                            引入音訊生產鏈。
+                                        </div>
+                                        <div class="project-qa-item">
+                                            <strong class="qa-question">這專案解決的是什麼問題？</strong>
+                                            打造原生支援 AI Agent CLI 的音訊工作站架構。核心創新在於將底層音訊訊號（峰值分貝、LUFS 響度、頻譜能量分佈與波形特徵）轉譯為
+                                            Agent 可理解的結構化文字與 JSON 格式；同時提供雙向 CLI 控制協議，讓 Claude Code、Cursor、Codex 或 Gemini
+                                            等 Agent 能夠發送音訊檢測、分軌分組、Gain Staging 音量平衡、聲像 Panning 與 DSP
+                                            外掛參數自動化指令，建立高效的文字與訊號反饋迴圈，在數秒內完成百軌工程的管理與預混。
+                                        </div>
+                                    </div>
+
+                                    <p class="project-row-desc">
+                                        <a href="https://github.com/Goldwaterfung/Stratawright" target="_blank"
+                                            rel="noopener" class="underline-link"><i class="fa-brands fa-github"></i> 前往
+                                            GitHub 查看開源專案 (Goldwaterfung/Stratawright)</a>
+                                    </p>
+                                    <div class="project-row-tags">
+                                        <span>Agentic DAW</span>
+                                        <span>Signal-to-Text</span>
+                                        <span>Agent CLI Protocol</span>
+                                        <span>Human-AI Audio Workflow</span>
+                                        <span>DSP Automation</span>
+                                        <span>Open Source</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Project 2: IEEE Paper -->
+                            <div class="flat-project-row" data-category="research">
+                                <div class="project-year">2026</div>
+                                <div class="project-details">
+                                    <h3 class="project-row-title">Measuring Visual Capture in Virtual Reality under
+                                        Sustained Audiovisual Conflict with Third-Order Ambisonics</h3>
+                                    <p class="project-tagline">探索虛擬實境中視聽衝突下的感官邊界，為未來智慧眼鏡奠定跨模態體驗規範。</p>
+
+                                    <div class="project-qa-group">
+                                        <div class="project-qa-item">
+                                            <strong class="qa-question">為什麼我要做這個研究？</strong>
+                                            隨著智慧眼鏡與空間運算邁入大眾應用，數位資訊與物理空間高度融合。本研究前瞻探索在視聽資訊發生衝突時，人類感官認知的邊界——當耳聽與眼見矛盾時，大腦究竟信任哪種感官？
+                                        </div>
+                                    </div>
+
+                                    <div class="paper-citation">
+                                        <strong>Fung, K. K.</strong>, Saw, T. W., & Rajapakse, R. P. C. J. (2026). 已獲
+                                        IEEE ICVR 2026 接收發表。
+                                    </div>
+
+                                    <p class="project-row-desc" style="margin-bottom: 0.3rem;">
+                                        <strong>三大實驗與學術貢獻：</strong>
+                                    </p>
+                                    <ol class="project-list">
+                                        <li><strong>實驗範式創新</strong>：首創頭視線與手指向解耦追蹤範式，精確量化視聽干擾下的真實感官偏好與動態修正軌跡。</li>
+                                        <li><strong>感官壓制與代價實證</strong>：證實即便採用 16 聲道三階 Ambisonics
+                                            高保真空間音訊，強烈視覺誘餌仍壓倒性主導初始定位，且跨模態衝突會造成顯著的認知代價（反應時間拉長 1.6 秒）。</li>
+                                        <li><strong>空間運算感官學基礎</strong>：從深層認知心理學出發，實證單靠空間音訊無法抵銷視覺錯位，為未來智慧眼鏡與空間運算體驗奠定跨模態視聽協同的理論基礎與設計規範。
+                                        </li>
+                                    </ol>
+
+                                    <p class="project-row-desc">
+                                        <a href="https://github.com/Goldwaterfung/vr-under-sustained-audiovisual-conflict"
+                                            target="_blank" rel="noopener" class="underline-link"><i
+                                                class="fa-brands fa-github"></i> 前往
+                                            GitHub 查看 Unity 研究專案與 Python 數據處理源碼
+                                            (Goldwaterfung/vr-under-sustained-audiovisual-conflict)</a>
+                                    </p>
+                                    <div class="research-image-gallery"
+                                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.2rem 0;">
+                                        <figure style="margin: 0; text-align: center;">
+                                            <img src="assets/research/experiment.jpg" alt="VR 視聽衝突實驗操作"
+                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
+                                            <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">圖
+                                                1：VR 視聽衝突實驗操作</figcaption>
+                                        </figure>
+                                        <figure style="margin: 0; text-align: center;">
+                                            <img src="assets/research/sound-lab.jpg" alt="16 聲道三階 Ambisonics 聲學實驗室"
+                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
+                                            <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">圖
+                                                2：16 聲道三階 Ambisonics 實驗室</figcaption>
+                                        </figure>
+                                        <figure style="margin: 0; text-align: center;">
+                                            <img src="assets/research/1_angular_error_by_condition.png"
+                                                alt="初始定位角度誤差數據圖"
+                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
+                                            <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">圖
+                                                3：三條件初始角度誤差</figcaption>
+                                        </figure>
+                                        <figure style="margin: 0; text-align: center;">
+                                            <img src="assets/research/3_response_time_by_condition.png" alt="反應時間數據圖"
+                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
+                                            <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">圖
+                                                4：三條件反應時間分析</figcaption>
+                                        </figure>
+                                    </div>
+                                    <div class="project-row-tags">
+                                        <span>Spatial Computing UX</span>
+                                        <span>Third-Order Ambisonics</span>
+                                        <span>Psychoacoustics</span>
+                                        <span>Python</span>
+                                        <span>Unity3D</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 03: Featured PM Case Studies -->
         <section id="case-studies" class="section case-studies-section">
             <div class="container">
                 <div class="section-grid">
@@ -161,7 +299,7 @@
                                         使用族群。數據與現場觀察顯示，互動最積極且停留最久者是陪同家長來的<strong>兒童與青少年族群</strong>。</li>
                                     <li><strong>動態調整 Roadmap 與團隊共識：</strong> 我在週會中向團隊發表這項洞察，並與髮型師共同挑選出 5
                                         款最受家長歡迎的熱門造型作為首批建模清單，快速調整優先級上線兒童 3D 模型，成功帶動家庭客體驗。</li>
-                                    <li><strong>技術與 SOP 對接：</strong> 制定面數與紋理壓縮規格確保流動式硬體達 60fps；同時培訓髮型師將 App 融入每日剪髮諮詢
+                                    <li><strong>技術與 SOP 對接：</strong> 架構 Unity 連接 Google Cloud Storage (GCS) 之雲端資產管線以實現 3D 模型遠端串流；制定面數與紋理壓縮規格確保流動式硬體達 60fps；同時培訓髮型師將 App 融入每日剪髮諮詢
                                         SOP，拉近數位預覽與實體剪裁的落差。</li>
                                 </ul>
 
@@ -330,7 +468,7 @@
                                     </video>
                                     <span
                                         style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.6rem; text-align: center;"><i
-                                            class="fa-solid fa-mobile-screen"></i> AR 即時多模態 AI 虛擬校長實機展示</span>
+                                             class="fa-solid fa-mobile-screen"></i> AR 即時多模態 AI 虛擬校長實機展示</span>
                                 </div>
                             </div>
                         </article>
@@ -391,144 +529,6 @@
                                 </div>
                             </div>
                         </article>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 03: Specialized Projects & Research -->
-        <section id="projects" class="section projects-section">
-            <div class="container">
-                <div class="section-grid">
-                    <div class="section-meta">
-                        <span class="mono-section-label">FEATURED PROJECTS & RESEARCH</span>
-                        <h2 class="section-serif-title">前沿音樂科技與學術研究</h2>
-                        <div class="flat-filters">
-                            <button class="filter-btn active" data-filter="all">All</button>
-                            <button class="filter-btn" data-filter="agent-daw">Agentic DAW</button>
-                            <button class="filter-btn" data-filter="research">IEEE Research</button>
-                        </div>
-                    </div>
-
-                    <div class="section-content">
-                        <div class="flat-project-grid" id="portfolio-grid">
-                            <!-- Project 1: Stratawright Agentic DAW -->
-                            <div class="flat-project-row" data-category="agent-daw">
-                                <div class="project-year">2026</div>
-                                <div class="project-details">
-                                    <h3 class="project-row-title">Stratawright — 原生支援 AI Agent CLI 之次世代音樂製作工作站<span
-                                            class="badge-new">NEW</span></h3>
-                                    <p class="project-tagline">將數位音訊訊號轉化為大語言模型 Agent 可讀的結構化文本，讓 AI 代理人透過命令列精準調控多軌錄音工程。
-                                    </p>
-
-                                    <div class="project-qa-group">
-                                        <div class="project-qa-item">
-                                            <strong class="qa-question">為什麼我要做這個專案？</strong>
-                                            傳統音樂製作軟體為鍵盤滑鼠時代設計，當分軌龐大至 100 軌以上時，創作者超過 50%
-                                            的心智負擔被耗費在記憶快捷鍵、軌道路由與音量調整等機械式重複操作。現有 DAW 缺乏供 LLM 直接讀取與操作的訊號與控制介面，無法將 Agent
-                                            引入音訊生產鏈。
-                                        </div>
-                                        <div class="project-qa-item">
-                                            <strong class="qa-question">這專案解決的是什麼問題？</strong>
-                                            打造原生支援 AI Agent CLI 的音訊工作站架構。核心創新在於將底層音訊訊號（峰值分貝、LUFS 響度、頻譜能量分佈與波形特徵）轉譯為
-                                            Agent 可理解的結構化文字與 JSON 格式；同時提供雙向 CLI 控制協議，讓 Claude Code、Cursor、Codex 或 Gemini
-                                            等 Agent 能夠發送音訊檢測、分軌分組、Gain Staging 音量平衡、聲像 Panning 與 DSP
-                                            外掛參數自動化指令，建立高效的文字與訊號反饋迴圈，在數秒內完成百軌工程的管理與預混。
-                                        </div>
-                                    </div>
-
-                                    <p class="project-row-desc">
-                                        <a href="https://github.com/Goldwaterfung/Stratawright" target="_blank"
-                                            rel="noopener" class="underline-link"><i class="fa-brands fa-github"></i> 前往
-                                            GitHub 查看開源專案 (Goldwaterfung/Stratawright)</a>
-                                    </p>
-                                    <div class="project-row-tags">
-                                        <span>Agentic DAW</span>
-                                        <span>Signal-to-Text</span>
-                                        <span>Agent CLI Protocol</span>
-                                        <span>Human-AI Audio Workflow</span>
-                                        <span>DSP Automation</span>
-                                        <span>Open Source</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Project 2: IEEE Paper -->
-                            <div class="flat-project-row" data-category="research">
-                                <div class="project-year">2026</div>
-                                <div class="project-details">
-                                    <h3 class="project-row-title">Measuring Visual Capture in Virtual Reality under
-                                        Sustained Audiovisual Conflict with Third-Order Ambisonics</h3>
-                                    <p class="project-tagline">探索虛擬實境中視聽衝突下的感官邊界，為未來智慧眼鏡奠定跨模態體驗規範。</p>
-
-                                    <div class="project-qa-group">
-                                        <div class="project-qa-item">
-                                            <strong class="qa-question">為什麼我要做這個研究？</strong>
-                                            隨著智慧眼鏡與空間運算邁入大眾應用，數位資訊與物理空間高度融合。本研究前瞻探索在視聽資訊發生衝突時，人類感官認知的邊界——當耳聽與眼見矛盾時，大腦究竟信任哪種感官？
-                                        </div>
-                                    </div>
-
-                                    <div class="paper-citation">
-                                        <strong>Fung, K. K.</strong>, Saw, T. W., & Rajapakse, R. P. C. J. (2026). 已獲
-                                        IEEE ICVR 2026 接收發表。
-                                    </div>
-
-                                    <p class="project-row-desc" style="margin-bottom: 0.3rem;">
-                                        <strong>三大實驗與學術貢獻：</strong>
-                                    </p>
-                                    <ol class="project-list">
-                                        <li><strong>實驗範式創新</strong>：首創頭視線與手指向解耦追蹤範式，精確量化視聽干擾下的真實感官偏好與動態修正軌跡。</li>
-                                        <li><strong>感官壓制與代價實證</strong>：證實即便採用 16 聲道三階 Ambisonics
-                                            高保真空間音訊，強烈視覺誘餌仍壓倒性主導初始定位，且跨模態衝突會造成顯著的認知代價（反應時間拉長 1.6 秒）。</li>
-                                        <li><strong>空間運算感官學基礎</strong>：從深層認知心理學出發，實證單靠空間音訊無法抵銷視覺錯位，為未來智慧眼鏡與空間運算體驗奠定跨模態視聽協同的理論基礎與設計規範。
-                                        </li>
-                                    </ol>
-
-                                    <p class="project-row-desc">
-                                        <a href="https://github.com/Goldwaterfung/vr-under-sustained-audiovisual-conflict"
-                                            target="_blank" rel="noopener" class="underline-link"><i
-                                                class="fa-brands fa-github"></i> 前往
-                                            GitHub 查看 Unity 研究專案與 Python 數據處理源碼
-                                            (Goldwaterfung/vr-under-sustained-audiovisual-conflict)</a>
-                                    </p>
-                                    <div class="research-image-gallery"
-                                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.2rem 0;">
-                                        <figure style="margin: 0; text-align: center;">
-                                            <img src="assets/research/experiment.jpg" alt="VR 視聽衝突實驗操作"
-                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
-                                            <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">圖
-                                                1：VR 視聽衝突實驗操作</figcaption>
-                                        </figure>
-                                        <figure style="margin: 0; text-align: center;">
-                                            <img src="assets/research/sound-lab.jpg" alt="16 聲道三階 Ambisonics 聲學實驗室"
-                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
-                                            <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">圖
-                                                2：16 聲道三階 Ambisonics 實驗室</figcaption>
-                                        </figure>
-                                        <figure style="margin: 0; text-align: center;">
-                                            <img src="assets/research/1_angular_error_by_condition.png"
-                                                alt="初始定位角度誤差數據圖"
-                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
-                                            <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">圖
-                                                3：三條件初始角度誤差</figcaption>
-                                        </figure>
-                                        <figure style="margin: 0; text-align: center;">
-                                            <img src="assets/research/3_response_time_by_condition.png" alt="反應時間數據圖"
-                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
-                                            <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">圖
-                                                4：三條件反應時間分析</figcaption>
-                                        </figure>
-                                    </div>
-                                    <div class="project-row-tags">
-                                        <span>Spatial Computing UX</span>
-                                        <span>Third-Order Ambisonics</span>
-                                        <span>Psychoacoustics</span>
-                                        <span>Python</span>
-                                        <span>Unity3D</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -639,13 +639,13 @@
 
                             <!-- Timeline Item 2 -->
                             <div class="timeline-row">
-                                <div class="timeline-time">Oct 2024 - Mar 2025</div>
+                                <div class="timeline-time">Sep 2023 - Mar 2025</div>
                                 <div class="timeline-details">
                                     <span class="timeline-tag">EXPERIENCE</span>
-                                    <h3 class="timeline-row-title">Multimodal AI Systems Integration & Deployment</h3>
-                                    <div class="timeline-row-org">國立臺南藝術大學 應用創新實驗專案</div>
+                                    <h3 class="timeline-row-title">Multimodal AI & Systems Integration Engineer</h3>
+                                    <div class="timeline-row-org">國立臺南藝術大學</div>
                                     <p class="timeline-row-desc">
-                                        整合台北 AI 團隊之 Whisper ASR、Llama 3 8B RAG 與 Fish-Speech TTS 多模態 AI 鏈路；主導 Unity 端動畫狀態機過渡機制開發與情緒標籤對接，化解 3 至 5 秒後端推論等待期，並於大學現場部署 AR 虛擬校長系統，公開承載數十場多輪即時對答且達成零中途離開率。
+                                        主導大學前瞻創新專案之多模態 AI 鏈路與即時視覺動捕系統整合：於本地 24GB GPU 部署語音識別、大語言模型 RAG 與語音合成端到端鏈路，並開發 Unity 動畫狀態機視線與情緒反饋機制化解 3 至 5 秒推論等待期，實現零中途離開率之即時互動虛擬化身；主導二胡現場 AI 動作捕捉與虛擬化身系統整合，透過 1.5 秒固定緩衝延遲消除 AI 姿態推論與高保真音訊之抖動，於千人級音樂廳完成公開 Live 舞台展演。
                                     </p>
                                 </div>
                             </div>
@@ -665,29 +665,26 @@
 
                             <!-- Timeline Item 4 -->
                             <div class="timeline-row">
-                                <div class="timeline-time">Sep 2023 - Jun 2024</div>
+                                <div class="timeline-time">2020 - 2021</div>
                                 <div class="timeline-details">
                                     <span class="timeline-tag">EXPERIENCE</span>
-                                    <h3 class="timeline-row-title">Technical Integration Engineer</h3>
-                                    <div class="timeline-row-org">國立臺南藝術大學 音樂科技展演專案</div>
+                                    <h3 class="timeline-row-title">Guest Experience Concierge</h3>
+                                    <div class="timeline-row-org">香港萬怡酒店 (Courtyard by Marriott)</div>
                                     <p class="timeline-row-desc">
-                                        主導二胡現場 AI 動作捕捉與虛擬化身系統整合；在確保高保真音質前提下取捨 1.5
-                                        秒固定緩衝延遲，達成動捕數據流精準同步對齊，於大學千人級大型音樂廳順利完成面對數百位觀眾的公開 Live 舞台展演。
+                                        負責前廳貴賓接待、個人化體驗與高住房率下之現場危機應變；在高壓環境中培養對微觀情緒與用戶痛點的敏銳洞察，實踐同理心驅動之服務流程。
                                     </p>
                                 </div>
                             </div>
 
                             <!-- Timeline Item 5 -->
                             <div class="timeline-row">
-                                <div class="timeline-time">2017 - 2021</div>
+                                <div class="timeline-time">2017 - 2020</div>
                                 <div class="timeline-details">
                                     <span class="timeline-tag">EXPERIENCE</span>
-                                    <h3 class="timeline-row-title">Operations & VIP Guest Experience Specialist</h3>
-                                    <div class="timeline-row-org">Luxury Hospitality Groups (香港嘉里酒店開幕前籌備團隊 3 年 · 香港萬怡酒店 1
-                                        年)</div>
+                                    <h3 class="timeline-row-title">Guest Experience Concierge</h3>
+                                    <div class="timeline-row-org">香港嘉里酒店 (Kerry Hotel Hong Kong - 香格里拉集團開幕籌備團隊)</div>
                                     <p class="timeline-row-desc">
-                                        參與香港嘉里酒店（3 年）從籌備期至開業後的飯店前廳籌備、營運架構與服務 SOP 規劃，以及香港萬怡酒店（1 年）貴賓服務；於五星級奢華酒店環境管理高階 VIP
-                                        關係，建立對微觀情緒與用戶心理的敏銳洞察，累積高壓跨部門協調與突發危機處理經驗，轉化為產品管理中的跨職能領導力。
+                                        加入開幕前營運團隊 3 年，參與從籌備期至開業後的前廳營運架構、服務 SOP 制定，以及工程部、客房部與前台之跨部門協作交接，建立嚴謹的營運執行力。
                                     </p>
                                 </div>
                             </div>
