@@ -61,7 +61,7 @@
                 </h2>
 
                 <p class="hero-description">
-                    我習慣從第一性原理出發，透過高強度的自主學習與反覆實驗拆解複雜的技術難題。無論是在 IEEE ICVR 國際會議發表空間聽覺感知研究、為音訊工作站架構訊號轉文字的 Agent CLI 控制協議，或是將即時 3D 互動應用落地於實體門市，我都堅持從底層深入理解系統運作，並以真實數據與用戶行為驗證每一個設計與工程決策。
+                    我習慣從第一性原理出發，透過高強度的自主學習與反覆實驗拆解複雜的技術難題。無論是在 IEEE ICVR 國際會議發表空間聽覺感知研究、架構支援自主 Agent 的音訊工作站系統，或是將即時 3D 互動應用落地於實體門市，我都堅持從底層深入理解系統運作，並以真實數據與用戶行為驗證每一個設計與工程決策。
                 </p>
             </div>
         </section>
@@ -80,7 +80,7 @@
                             以深層好奇心、敏捷的自主學習力與第一性原理思維為驅動，我致力於構建連結底層複雜訊號、自主 Agent 工作流與真實人類互動的技術產品。
                         </div>
                         <p class="editorial-body">
-                            我的成長歷程展現了透過動手實作不斷拓展技術邊界的持續學習態度。在探索音訊訊號與現代 AI 的交叉點時，我從零架構 Stratawright，設計將多軌 DSP 訊號特徵轉譯為結構化 JSON 的 CLI 協議，讓 AI Agent 能精準調控音訊工程。在共同創辦 MRKE 時，我自學 Unity C# 與雲端資產串流架構，開發並部署 3D 互動預覽應用至實體門市平板，並依據現場每日觀察數據持續迭代模型。
+                            我的成長歷程展現了透過動手實作不斷拓展技術邊界的持續學習態度。在探索音訊訊號與現代 AI 的交叉點時，我從零架構 Stratawright，打造連結多軌 DSP 數位訊號處理與 AI Agent 自動化工作流的音訊工作站。在共同創辦 MRKE 時，我自學 Unity C# 與雲端資產串流架構，開發並部署 3D 互動預覽應用至實體門市平板，並依據現場每日觀察數據持續迭代模型。
                         </p>
                         <p class="editorial-body">
                             這種快速掌握全新領域的能力，奠基於兩大核心歷練：嚴謹的學術實證研究與第一線營運紀律。在深入心理聲學與空間運算研究的過程中，我以第一作者身份在 IEEE ICVR 2026 國際會議發表論文，設計實驗範式量化視聽衝突下的認知代價。此外，4 年五星級奢華酒店營運經驗（包含香港嘉里酒店開幕籌備團隊）則培養了我對用戶心理的敏銳洞察、標準作業程序 SOP 的架構能力與高壓下冷靜解決問題的紀律。我深信優秀的技術產品開發者不在於固守既有知識，而在於保持極致的求知慾、快速原型驗證，並以真實數據檢驗每一個假設。
@@ -133,7 +133,7 @@
                                 <div class="project-details">
                                     <h3 class="project-row-title">Stratawright - 原生支援 AI Agent CLI 自動化之音訊工作站架構<span
                                             class="badge-new">NEW</span></h3>
-                                    <p class="project-tagline">將多軌數位音訊訊號轉譯為結構化數據，讓 AI Coding Agent 透過命令列控制音訊工程工作流。
+                                    <p class="project-tagline">透過確定性 CLI 控制協議與 Tool Calling Schema 開放多軌音訊遙測數據，讓 AI Coding Agent 控制音訊工程工作流。
                                     </p>
 
                                     <div class="project-qa-group">
@@ -143,7 +143,7 @@
                                         </div>
                                         <div class="project-qa-item">
                                             <strong class="qa-question">這專案解決的是什麼問題？</strong>
-                                            打造原生支援 AI Agent CLI 工作流的音訊工作站架構。系統將底層音訊訊號（峰值分貝、LUFS 響度、頻譜能量分佈與波形特徵）轉譯為結構化 JSON 格式，並提供雙向 CLI 控制協議，讓 Claude Code、Cursor 或 Gemini 等 AI Agent 能檢測音訊遙測數據、組織分軌分組、平衡 Gain Staging、調整聲像 Panning 並透過確定性的命令列指令自動化 DSP 參數。
+                                            打造原生支援 AI Agent CLI 工作流的音訊工作站架構。系統將底層音訊訊號（峰值分貝、LUFS 響度、頻譜能量分佈與波形特徵）轉譯為確定性 CLI 控制協議與 Tool Calling Schema，讓 Claude Code、Cursor 或 Gemini 等 AI Agent 能檢測音訊遙測數據、組織分軌分組、平衡 Gain Staging、調整聲像 Panning 並透過確定性的命令列指令自動化 DSP 參數。
                                         </div>
                                     </div>
 
@@ -364,23 +364,23 @@
 
                             <div class="case-body">
                                 <h4>專案背景與目標</h4>
-                                <p>本專案研發並部署具備即時語音對答能力的 AR 虛擬校長。在單張 24GB 顯存本地 GPU 上端到端運行 Whisper ASR、Llama 3 與 RAGFlow、Fish-Speech TTS 多模態推論，會產生 3 至 5 秒的處理延遲，使現場參觀者誤以為系統當機。我的職責是將多模態鏈路整合至 Unity，設計狀態機過渡以在推論期間提供即時視覺反饋，並在校園公開展演中穩定運行。</p>
+                                <p>本專案研發並部署具備即時語音對答能力的 AR 虛擬校長。在本地 GPU 環境端到端運行多模態推論鏈路（語音識別、大語言模型 RAG 與語音合成）會產生 3 至 5 秒的處理延遲，使現場參觀者誤以為系統無反應。我的職責是將多模態鏈路整合至 Unity，設計即時對話感知緩衝機制以在推論期間提供即時視覺反饋，並在校園公開展演中穩定運行。</p>
 
                                 <h4>跨團隊協作與技術方案</h4>
                                 <ul>
-                                    <li><strong>Unity 動畫狀態機過渡設計：</strong> 為化解 3 至 5 秒的運算延遲，我在 Unity 中設計狀態機過渡。當檢測到用戶發言結束時，化身立即切換至專注點頭與思考動作，向用戶提供明確的運算中視覺確認。</li>
+                                    <li><strong>感知延遲掩蔽機制工程：</strong> 為化解 3 至 5 秒的運算延遲，我在 Unity 中研發即時對話視覺反饋機制。當檢測到用戶發言結束時，化身立即切換至專注聆聽與運算狀態，向用戶提供明確的運算中視覺確認，直到後端推論完成。</li>
                                     <li><strong>情緒驅動面部聯動與空間視線追蹤：</strong> 與 AI 模型團隊合作在回覆封包中嵌入情緒標籤，即時驅動 Unity 面部表情與對嘴 Blendshapes，並整合視線追蹤維持自然眼神接觸。</li>
                                     <li><strong>跨團隊封包時序對齊：</strong> 協調前後端音訊與文本封包序列，確保語音播放時唇形精準同步。</li>
                                 </ul>
 
                                 <h4>產品影響力與實際成果</h4>
                                 <p class="highlight-text">
-                                    在校園展演與貴賓接待中公開展示，系統穩定承載多輪即時語音對答。透過響應式狀態機緩衝化解後端運算延遲，無需額外擴充 GPU 硬體或雲端架構。
+                                    在校園展演與貴賓接待中公開展示，系統穩定承載多輪即時語音對答。透過響應式感知緩衝化解後端運算延遲，無需額外擴充 GPU 硬體或雲端架構。
                                 </p>
 
                                 <h4>心得與持續學習反思</h4>
                                 <p><strong>將硬體限制視為深化端到端系統思維的契機。</strong>
-                                    在有限資源條件下（單張本地 24GB GPU），我體會到透過主動學習整條多模態鏈路的運作原理，並從參觀者的心理感知出發，能以動畫狀態機過渡與跨服務協議對齊化解延遲痛點，打破單一技術邊界。
+                                    在有限硬體資源條件下，我體會到透過主動理解整條多模態鏈路的運作原理，並從參觀者的心理感知出發，能以感知延遲掩蔽與跨服務協議對齊化解延遲痛點，打破單一技術邊界。
                                 </p>
 
                                 <div class="case-video-wrapper vertical-video"
@@ -392,7 +392,7 @@
                                     </video>
                                     <span
                                         style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.6rem; text-align: center;"><i
-                                             class="fa-solid fa-vial"></i> 工程實機測試錄影：即時多模態語音對話與動畫狀態機過渡驗證</span>
+                                             class="fa-solid fa-vial"></i> 工程實機測試錄影：即時多模態語音對話與感知延遲掩蔽驗證</span>
                                 </div>
                             </div>
                         </article>
@@ -467,15 +467,14 @@
                                 <div class="competency-icon"><i class="fa-solid fa-brain"></i></div>
                                 <h3>多模態 AI 互動與 Agentic 系統架構</h3>
                                 <ul>
-                                    <li><strong>延遲韌性狀態機設計：</strong> 開發 Unity 動畫狀態機過渡機制與情緒標籤連動，化解 3 至 5 秒後端推論等待，提供流暢的現場即時語音互動展示 <span
+                                    <li><strong>感知延遲掩蔽機制：</strong> 開發 Unity 即時對話反饋機制與情緒標籤連動，化解 3 至 5 秒後端推論等待，提供流暢的現場即時語音互動展示 <span
                                             style="font-size: 0.82rem; color: #777;">(<a href="#case-studies"
                                                 class="underline-link">Case 03 AR 虛擬校長</a>)</span></li>
                                     <li><strong>Agentic CLI 與 Telemetry 串流：</strong> 打造 daw-cli 工具調用介面與即時 Telemetry 串流（頻率遮蔽、頻譜能量、相位相關性），使 AI Coding Agent 能確定性自動化多軌 DSP 流程
                                         <span style="font-size: 0.82rem; color: #777;">(<a href="#projects"
                                                 class="underline-link">Stratawright DAW</a>)</span>
                                     </li>
-                                    <li><strong>多模態鏈路整合：</strong> 熟練掌握 Whisper ASR、Llama 3 與 RAGFlow、Fish-Speech TTS 與
-                                        Unity 3D 虛擬人狀態對齊</li>
+                                    <li><strong>多模態鏈路整合：</strong> 具備在本地 GPU 推論環境部署端到端多模態 AI 鏈路（語音識別、大語言模型 RAG、語音合成）並與 Unity 3D 互動虛擬化身即時同步的完整經驗</li>
                                 </ul>
                             </div>
 
@@ -558,7 +557,7 @@
                                     <h3 class="timeline-row-title">Systems Integration Engineer</h3>
                                     <div class="timeline-row-org">國立臺南藝術大學</div>
                                     <p class="timeline-row-desc">
-                                        主導大學前瞻創新專案之多模態 AI 鏈路與即時視覺動捕系統整合。於本地 24GB GPU 部署語音識別、大語言模型 RAG 與語音合成端到端鏈路，並開發 Unity 動畫狀態機視線與情緒反饋機制化解 3 至 5 秒推論等待期。主導二胡現場 AI 動作捕捉與虛擬化身系統整合，透過 1.5 秒確定性緩衝消除姿態推論與音訊抖動，完成音樂廳現場展演。
+                                        主導大學前瞻創新專案之多模態 AI 鏈路與即時視覺動捕系統整合。於本地 GPU 部署端到端多模態 AI 鏈路（語音識別、大語言模型 RAG、語音合成），並在 Unity 開發即時視聽同步與感知延遲掩蔽機制化解 3 至 5 秒推論等待期。主導二胡現場 AI 動作捕捉與虛擬化身系統整合，透過 1.5 秒確定性緩衝消除姿態推論與音訊抖動，完成音樂廳現場展演。
                                     </p>
                                 </div>
                             </div>

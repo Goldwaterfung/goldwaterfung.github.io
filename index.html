@@ -61,7 +61,7 @@
                 </h2>
 
                 <p class="hero-description">
-                    I approach complex technical challenges through first principles and continuous, self-directed learning. Whether conducting peer-reviewed spatial psychoacoustics research in IEEE ICVR, architecting signal-to-text CLI protocols for agentic audio workstations, or deploying interactive 3D applications into physical retail operations, I focus on understanding underlying systems from the ground up and validating every design decision against empirical data.
+                    I approach complex technical challenges through first principles and continuous, self-directed learning. Whether conducting peer-reviewed spatial psychoacoustics research in IEEE ICVR, architecting agentic audio workstation systems, or deploying interactive 3D applications into physical retail operations, I focus on understanding underlying systems from the ground up and validating every design decision against empirical data.
                 </p>
             </div>
         </section>
@@ -80,7 +80,7 @@
                             Driven by deep curiosity, high learning agility, and first-principles thinking, I build technical products that connect complex underlying signals, agentic workflows, and real-world human interactions.
                         </div>
                         <p class="editorial-body">
-                            My journey reflects a continuous commitment to expanding technical boundaries through hands-on building. When exploring the intersection of audio signals and modern AI, I architected Stratawright from scratch, designing a CLI protocol that translates multitrack DSP telemetry into structured JSON for LLM agents. At MRKE, I taught myself Unity C# and cloud asset streaming to deliver a 3D interactive preview application on Android tablets, iterating models based on direct daily observations on the salon floor.
+                            My journey reflects a continuous commitment to expanding technical boundaries through hands-on building. When exploring the intersection of audio signals and modern AI, I architected Stratawright from scratch, building an agentic digital audio workstation that connects multitrack DSP signal processing with AI coding workflows. At MRKE, I taught myself Unity C# and cloud asset streaming to deliver a 3D interactive preview application on Android tablets, iterating models based on direct daily observations on the salon floor.
                         </p>
                         <p class="editorial-body">
                             This drive to master new domains is grounded in two formative foundations: rigorous academic research and frontline operational discipline. Pursuing empirical psychoacoustics research led to a first-author paper accepted at IEEE ICVR 2026, where I designed experimental paradigms to measure cognitive costs under audiovisual conflict. Complementing this, 4 years in luxury hospitality operations (including the pre-opening team at Kerry Hotel Hong Kong) instilled a relentless focus on user psychology, structured SOP design, and calm problem-solving under pressure. I believe the strongest technical builders are not those with rigid preconceptions, but those who learn voraciously, prototype rapidly, and validate every hypothesis against ground truth.
@@ -132,7 +132,7 @@
                                 <div class="project-details">
                                     <h3 class="project-row-title">Stratawright - Audio Workstation Signal Architecture for AI Agent CLI Automation<span class="badge-new">NEW</span>
                                     </h3>
-                                    <p class="project-tagline">Translating multitrack digital audio signals into structured schemas, enabling AI coding agents to control audio engineering workflows via command line.
+                                    <p class="project-tagline">Exposing multitrack digital audio telemetry through deterministic CLI protocols and tool-calling schemas, enabling AI coding agents to control audio engineering workflows.
                                     </p>
 
                                     <div class="project-qa-group">
@@ -142,7 +142,7 @@
                                         </div>
                                         <div class="project-qa-item">
                                             <strong class="qa-question">What problem does this project solve?</strong>
-                                            Constructing an audio workstation architecture natively supporting AI Agent CLI workflows. The system translates low-level audio signals (peak dB, LUFS loudness, spectral energy distribution, and waveform characteristics) into structured JSON schemas. It provides a bidirectional CLI protocol enabling AI coding agents (such as Claude Code, Cursor, or Gemini) to inspect audio telemetry, organize track groups, balance gain stages, adjust stereo panning, and automate DSP parameters through deterministic command-line execution.
+                                            Constructing an audio workstation architecture natively supporting AI Agent CLI workflows. The system translates low-level audio signals (peak dB, LUFS loudness, spectral energy distribution, and waveform characteristics) into deterministic CLI protocols and tool-calling schemas. It enables AI coding agents (such as Claude Code, Cursor, or Gemini) to inspect audio telemetry, organize track groups, balance gain stages, adjust stereo panning, and automate DSP parameters through command-line execution.
                                         </div>
                                     </div>
 
@@ -370,23 +370,23 @@
 
                             <div class="case-body">
                                 <h4>Project Background and Objectives</h4>
-                                <p>Developed an interactive AR virtual principal capable of real-time voice dialogue. Running end-to-end multimodal inference across Whisper ASR, Llama 3 with RAGFlow, and Fish-Speech TTS on a single local 24GB VRAM GPU incurred a 3 to 5 second latency gap, causing showcase visitors to think the application had stalled. My responsibility was to integrate the multimodal pipeline into Unity, design state machine transitions to provide immediate visual feedback during inference, and deploy the system live at university showcases.</p>
+                                <p>Developed an interactive AR virtual principal capable of real-time voice dialogue. Running an end-to-end multimodal pipeline (Speech-to-Text, LLM with RAG, Text-to-Speech) on local GPU inference incurred a 3 to 5 second latency gap, causing showcase visitors to perceive the application as unresponsive. My responsibility was to integrate the multimodal pipeline into Unity, implement perceptual latency masking to provide immediate feedback during inference, and deploy the system live at university showcases.</p>
 
                                 <h4>Cross-Team Collaboration and Technical Solutions</h4>
                                 <ul>
-                                    <li><strong>Designing Unity Animation State Machine Transitions:</strong> To bridge the 3 to 5 second compute latency, I designed state machine transitions in Unity. Upon detecting user speech completion, the avatar immediately transitions into attentive nodding and thinking animations, visually confirming input is being processed.</li>
+                                    <li><strong>Engineering Perceptual Latency Masking:</strong> To bridge the 3 to 5 second compute latency, I engineered real-time conversational visual feedback in Unity. Upon detecting user speech completion, the avatar immediately shifts into attentive listening and processing states, confirming input is actively being processed while backend inference completes.</li>
                                     <li><strong>Emotion-Driven Facial Linkages & Spatial Gaze:</strong> Linked LLM response sentiment tags to Unity facial blendshapes, and integrated camera-based head tracking so the avatar smoothly maintains eye contact as visitors move in front of the display.</li>
                                     <li><strong>Cross-Team Protocol Timing:</strong> Aligned audio and text payload packet sequencing between distributed frontend and backend services, ensuring precise lip-sync synchronization upon audio playback.</li>
                                 </ul>
 
                                 <h4>Product Impact and Practical Outcomes</h4>
                                 <p class="highlight-text">
-                                    Publicly demonstrated at university exhibitions and VIP receptions, the system reliably handled multi-turn real-time voice interactions. Responsive state machine buffering masked backend compute delays without requiring additional GPU hardware or cloud infrastructure.
+                                    Publicly demonstrated at university exhibitions and VIP receptions, the system reliably handled multi-turn real-time voice interactions. Responsive perceptual buffering masked backend compute delays without requiring additional GPU hardware or cloud infrastructure.
                                 </p>
 
                                 <h4>Key Takeaways and Continuous Learning</h4>
                                 <p><strong>Embracing hardware constraints as catalysts for creative, end-to-end system design.</strong>
-                                    Working under resource limitations taught me that engineering excellence is about understanding the entire pipeline end-to-end and designing around user perception, solving latency friction through Unity animation state machines and cross-service protocol alignment.
+                                    Working under resource limitations taught me that engineering excellence is about understanding the entire pipeline end-to-end and designing around user perception, solving latency friction through perceptual latency masking and cross-service protocol alignment.
                                 </p>
 
                                 <div class="case-video-wrapper vertical-video"
@@ -473,12 +473,12 @@
                                 <div class="competency-icon"><i class="fa-solid fa-brain"></i></div>
                                 <h3>Multimodal AI Interaction & Agentic System Architecture</h3>
                                 <ul>
-                                    <li><strong>Latency-Resilient State Machines:</strong> Engineered Unity animation state machine transitions (visual buffering and sentiment tag linkages) to bridge 3-5s backend inference latency during live conversational showcases <span style="font-size: 0.82rem; color: #777;">(<a
+                                    <li><strong>Perceptual Latency Masking:</strong> Engineered real-time conversational feedback and sentiment-driven blendshape linkages in Unity to bridge 3-5s backend inference latency during live interactive showcases <span style="font-size: 0.82rem; color: #777;">(<a
                                                 href="#case-studies" class="underline-link">Case 03 AR Virtual
                                                 Principal</a>)</span></li>
                                     <li><strong>Agentic CLI and Telemetry Streaming:</strong> Architected daw-cli tool calling interfaces and real-time telemetry streaming (frequency masking, spectral energy, phase correlation) to enable AI coding agents to automate multitrack DSP pipelines deterministically <span style="font-size: 0.82rem; color: #777;">(<a href="#projects" class="underline-link">Stratawright DAW</a>)</span>
                                     </li>
-                                    <li><strong>Multimodal Pipeline Integration:</strong> Experienced in integrating Whisper ASR, Llama 3 with RAGFlow, Fish-Speech TTS, and aligning Unity 3D avatar animation states</li>
+                                    <li><strong>Multimodal Pipeline Integration:</strong> Experienced in deploying end-to-end multimodal AI pipelines (Speech-to-Text, LLM with RAG, Text-to-Speech) for local GPU inference deployment and synchronizing with interactive 3D virtual avatars</li>
                                 </ul>
                             </div>
 
@@ -553,7 +553,7 @@
                                     <h3 class="timeline-row-title">Systems Integration Engineer</h3>
                                     <div class="timeline-row-org">National Tainan University of the Arts</div>
                                     <p class="timeline-row-desc">
-                                        Integrated distributed multimodal AI pipelines across Whisper ASR, Llama 3 with RAGFlow, and Fish-Speech TTS on a local 24GB GPU environment, using Unity animation state machines to bridge 3-5s inference latency. Engineered 1.5s deterministic streaming buffers to stabilize AI pose tracking and audio streams during live concert hall performances.
+                                        Integrated end-to-end multimodal AI pipelines (Speech-to-Text, LLM with RAG, Text-to-Speech) for local GPU inference deployment, implementing real-time audiovisual synchronization and perceptual latency masking in Unity. Engineered 1.5s deterministic streaming buffers to stabilize AI pose tracking and audio streams during live concert hall performances.
                                     </p>
                                 </div>
                             </div>
