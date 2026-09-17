@@ -95,4 +95,107 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     window.addEventListener('scroll', highlightNavOnScroll);
+
+    // ----------------------------------------------------
+    // 5. Reading Progress Indicator
+    // ----------------------------------------------------
+    const progressBar = document.getElementById('reading-progress');
+
+    if (progressBar) {
+        let isProgressTicking = false;
+
+        function updateReadingProgress() {
+            const totalScroll = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+            if (scrollableHeight > 0) {
+                const scrollRatio = (totalScroll / scrollableHeight) * 100;
+                progressBar.style.width = `${Math.min(100, Math.max(0, scrollRatio))}%`;
+            }
+            isProgressTicking = false;
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!isProgressTicking) {
+                window.requestAnimationFrame(updateReadingProgress);
+                isProgressTicking = true;
+            }
+        });
+
+        updateReadingProgress();
+    }
+
+    // ----------------------------------------------------
+    // 6. Calm Scroll Entrance Reveals
+    // ----------------------------------------------------
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+        const revealTargets = document.querySelectorAll(
+            '.section-grid, .flat-project-row, .flat-case-card, .timeline-row, .accordion-item, .contact-link-item'
+        );
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            root: null,
+            rootMargin: '0px 0px -40px 0px',
+            threshold: 0.06
+        });
+
+        revealTargets.forEach(el => {
+            el.classList.add('reveal-item');
+            revealObserver.observe(el);
+        });
+    }
+
+    // ----------------------------------------------------
+    // 7. Media Figure Lightbox Inspection
+    // ----------------------------------------------------
+    const mediaImages = document.querySelectorAll(
+        '.project-media-wrapper img, .research-image-gallery img, .horizontal-media-scroll img, .media-block img'
+    );
+
+    if (mediaImages.length > 0) {
+        const lightbox = document.createElement('div');
+        lightbox.className = 'figure-lightbox-overlay';
+        lightbox.setAttribute('role', 'dialog');
+        lightbox.setAttribute('aria-modal', 'true');
+        lightbox.setAttribute('aria-label', 'Diagram preview');
+
+        const lightboxImg = document.createElement('img');
+        lightboxImg.className = 'figure-lightbox-content';
+        lightbox.appendChild(lightboxImg);
+        document.body.appendChild(lightbox);
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            lightboxImg.src = '';
+            lightboxImg.alt = '';
+            document.body.style.overflow = '';
+        }
+
+        mediaImages.forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt || 'Expanded diagram preview';
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        lightbox.addEventListener('click', closeLightbox);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+    }
 });
+

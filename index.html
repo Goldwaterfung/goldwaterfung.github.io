@@ -45,6 +45,7 @@
                 <span class="bar"></span>
             </button>
         </div>
+        <div id="reading-progress" class="reading-progress-bar" aria-hidden="true"></div>
     </header>
 
     <main>
@@ -58,10 +59,6 @@
                 <h2 class="hero-subtitle">
                     Technical product builder driven by continuous learning, empirical research, and hands-on systems prototyping across <strong>Agentic Workflows</strong>, <strong>Spatial Audio</strong>, and <strong>Multimodal AI</strong>.
                 </h2>
-
-                <p class="hero-description">
-                    I approach complex technical challenges through first principles and continuous, self-directed learning. Whether conducting peer-reviewed spatial psychoacoustics research in IEEE ICVR, architecting agentic audio workstation systems, or deploying interactive 3D applications into physical retail operations, I focus on understanding underlying systems from the ground up and validating every design decision against empirical data.
-                </p>
             </div>
         </section>
 
@@ -76,13 +73,10 @@
 
                     <div class="section-content">
                         <div class="editorial-lead">
-                            Driven by deep curiosity, high learning agility, and first-principles thinking, I build technical products that connect complex underlying signals, agentic workflows, and real-time interactive applications.
+                            Bridging complex underlying signals, agent orchestration, and real-time interactive systems through first-principles engineering and continuous, self-directed learning.
                         </div>
                         <p class="editorial-body">
-                            My journey reflects a continuous commitment to expanding technical boundaries through hands-on building. When exploring the intersection of audio signals and modern AI, I architected Stratawright from scratch, building an agentic digital audio workstation that connects multitrack DSP signal processing with AI coding workflows. At MRKE, I taught myself Unity C# and cloud asset streaming, establishing CI/CD automation to deliver a 3D interactive preview application on Android tablets, iterating models based on direct daily observations on the salon floor.
-                        </p>
-                        <p class="editorial-body">
-                            This drive to master new domains is grounded in two formative foundations: rigorous academic research and frontline operational discipline. Pursuing empirical psychoacoustics research led to a first-author paper published at IEEE ICVR 2026 and archived in IEEE Xplore, where I designed experimental paradigms to measure cognitive costs under audiovisual conflict. Complementing this, 4 years in luxury hospitality operations (including the pre-opening team at Kerry Hotel Hong Kong) instilled a relentless focus on user psychology, structured SOP design, and calm problem-solving under pressure. I believe the strongest technical builders are not those with rigid preconceptions, but those who learn voraciously, prototype rapidly, and validate every hypothesis against ground truth.
+                            I approach complex technical challenges through first principles and continuous, self-directed learning. Whether conducting peer-reviewed spatial psychoacoustics research in IEEE ICVR, architecting agentic audio workstation systems, or deploying interactive 3D applications into physical retail operations, I focus on understanding underlying systems from the ground up and validating every design decision against empirical data.
                         </p>
 
                         <div class="about-contact-links">
@@ -107,6 +101,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
         </section>
 
         <!-- Section 02: Specialized Projects & Research -->
@@ -135,6 +130,14 @@
                                     <p class="project-tagline">Exposing multitrack digital audio telemetry through deterministic CLI protocols and tool-calling schemas, enabling AI coding agents to control audio engineering workflows.
                                     </p>
 
+                                    <figure class="project-media-wrapper">
+                                        <img src="assets/daw/daw-usecase.gif"
+                                            alt="Stratawright DAW Agent CLI Automation Workflow Demonstration"
+                                            loading="lazy">
+                                        <figcaption><i
+                                                 class="fa-solid fa-play"></i> Stratawright Agentic DAW CLI Automation Workflow Demonstration</figcaption>
+                                    </figure>
+
                                     <div class="project-qa-group">
                                         <div class="project-qa-item">
                                             <strong class="qa-question">Why did I initiate this project?</strong>
@@ -145,14 +148,6 @@
                                             Constructing an audio workstation architecture natively supporting AI Agent CLI workflows. The system translates low-level audio signals (peak dB, LUFS loudness, spectral energy distribution, and waveform characteristics) into deterministic CLI protocols and tool-calling schemas. It enables AI coding agents (such as Claude Code, Cursor, or Gemini) to inspect audio telemetry, organize track groups, balance gain stages, adjust stereo panning, and automate DSP parameters through command-line execution.
                                         </div>
                                     </div>
-
-                                    <figure class="project-media-wrapper">
-                                        <img src="assets/daw/daw-usecase.gif"
-                                            alt="Stratawright DAW Agent CLI Automation Workflow Demonstration"
-                                            loading="lazy">
-                                        <figcaption><i
-                                                 class="fa-solid fa-play"></i> Stratawright Agentic DAW CLI Automation Workflow Demonstration</figcaption>
-                                    </figure>
 
                                     <p class="project-row-desc">
                                         <a href="https://github.com/Goldwaterfung/Stratawright" target="_blank"
@@ -177,15 +172,42 @@
                                         Sustained Audiovisual Conflict with Third-Order Ambisonics</h3>
                                     <p class="project-tagline">Investigating human cross-modal perception under audiovisual conflict in VR to provide empirical foundations for spatial computing interfaces.</p>
 
+                                    <div class="research-image-gallery">
+                                        <figure style="margin: 0; text-align: center;">
+                                            <img src="assets/research/experiment.jpg"
+                                                alt="VR audiovisual conflict experiment setup"
+                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
+                                            <figcaption>
+                                                Figure 1: VR Audiovisual Conflict Experiment Setup</figcaption>
+                                        </figure>
+                                        <figure style="margin: 0; text-align: center;">
+                                            <img src="assets/research/sound-lab.jpg"
+                                                alt="16-channel Third-Order Ambisonics acoustics laboratory"
+                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
+                                            <figcaption>
+                                                Figure 2: 16-Channel Third-Order Ambisonics Laboratory</figcaption>
+                                        </figure>
+                                        <figure style="margin: 0; text-align: center;">
+                                            <img src="assets/research/1_angular_error_by_condition.png"
+                                                alt="Initial localization angular error chart"
+                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
+                                            <figcaption>
+                                                Figure 3: Initial Angular Error Across Three Conditions</figcaption>
+                                        </figure>
+                                        <figure style="margin: 0; text-align: center;">
+                                            <img src="assets/research/3_response_time_by_condition.png"
+                                                alt="Response time analysis chart"
+                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
+                                            <figcaption>
+                                                Figure 4: Response Time Analysis Across Three Conditions</figcaption>
+                                        </figure>
+                                    </div>
+
                                     <div class="project-qa-group">
                                         <div class="project-qa-item">
                                             <strong class="qa-question">Why did I conduct this research?</strong>
                                             As spatial computing and smart glasses advance, virtual visual and auditory cues are overlaid onto physical space. I wanted to understand the empirical limits of human perception when sensory inputs contradict: if high-fidelity spatial audio and visual stimuli deliver conflicting spatial locations, does the brain prioritize vision, and what is the measurable cognitive cost?
                                         </div>
-                                    </div>
-
-                                    <div class="paper-citation">
-                                        <strong>Fung, K. K.</strong>, Saw, T. W., & Rajapakse, R. P. C. J. (2026). Measuring Visual Capture in Virtual Reality under Sustained Audiovisual Conflict with Third-Order Ambisonics. In <em>2026 12th International Conference on Virtual Reality (ICVR)</em>, Cardiff, UK, pp. 221-228. IEEE. Archived in IEEE Xplore, DOI: <a href="https://doi.org/10.1109/ICVR70658.2026.11672319" target="_blank" rel="noopener" class="underline-link">10.1109/ICVR70658.2026.11672319</a>
                                     </div>
 
                                     <p class="project-row-desc" style="margin-bottom: 0.3rem;">
@@ -205,36 +227,6 @@
                                             target="_blank" rel="noopener" class="underline-link"><i
                                                 class="fa-brands fa-github"></i> View Unity Research Project and Python Data Processing Source on GitHub</a>
                                     </p>
-                                    <div class="research-image-gallery">
-                                        <figure style="margin: 0; text-align: center;">
-                                            <img src="assets/research/experiment.jpg"
-                                                alt="VR audiovisual conflict experiment setup"
-                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
-                                            <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">
-                                                Figure 1: VR Audiovisual Conflict Experiment Setup</figcaption>
-                                        </figure>
-                                        <figure style="margin: 0; text-align: center;">
-                                            <img src="assets/research/sound-lab.jpg"
-                                                alt="16-channel Third-Order Ambisonics acoustics laboratory"
-                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
-                                            <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">
-                                                Figure 2: 16-Channel Third-Order Ambisonics Laboratory</figcaption>
-                                        </figure>
-                                        <figure style="margin: 0; text-align: center;">
-                                            <img src="assets/research/1_angular_error_by_condition.png"
-                                                alt="Initial localization angular error chart"
-                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
-                                            <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">
-                                                Figure 3: Initial Angular Error Across Three Conditions</figcaption>
-                                        </figure>
-                                        <figure style="margin: 0; text-align: center;">
-                                            <img src="assets/research/3_response_time_by_condition.png"
-                                                alt="Response time analysis chart"
-                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
-                                            <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">
-                                                Figure 4: Response Time Analysis Across Three Conditions</figcaption>
-                                        </figure>
-                                    </div>
                                     <div class="project-row-tags">
                                         <span>Spatial Computing</span>
                                         <span>Third-Order Ambisonics</span>
@@ -254,6 +246,14 @@
                                     <p class="project-tagline">Unifying an infinite concept canvas, scholarly document engine, and LangGraph agent runtime with non-destructive diff staging and persistent memory.
                                     </p>
 
+                                    <figure class="project-media-wrapper">
+                                        <img src="assets/collaragent/showcase-collaragent.gif"
+                                            alt="CollarAgent Local-First Visual Research Studio Autonomous Agent Co-Working Showcase"
+                                            loading="lazy">
+                                        <figcaption><i
+                                                 class="fa-solid fa-play"></i> CollarAgent Autonomous Agent Co-Working and Visual Diff Showcase</figcaption>
+                                    </figure>
+
                                     <div class="project-qa-group">
                                         <div class="project-qa-item">
                                             <strong class="qa-question">Why did I build this project?</strong>
@@ -264,14 +264,6 @@
                                             Engineered a desktop application pairing LangGraph agent workflows with an infinite concept canvas and a scholarly document engine supporting LaTeX math and structured tables. Implemented bidirectional state synchronization between canvas nodes and document blocks, non-destructive visual diff staging to preview agent proposals before applying, and persistent memory to retain project guidelines across sessions.
                                         </div>
                                     </div>
-
-                                    <figure class="project-media-wrapper">
-                                        <img src="assets/collaragent/showcase-collaragent.gif"
-                                            alt="CollarAgent Local-First Visual Research Studio Autonomous Agent Co-Working Showcase"
-                                            loading="lazy">
-                                        <figcaption><i
-                                                 class="fa-solid fa-play"></i> CollarAgent Autonomous Agent Co-Working and Visual Diff Showcase</figcaption>
-                                    </figure>
 
                                     <p class="project-row-desc">
                                         <a href="https://github.com/Goldwaterfung/collaragent" target="_blank"
@@ -315,6 +307,28 @@
                             </div>
 
                             <div class="case-body">
+                                <div class="case-app-showcase"
+                                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 0.5rem 0 1.5rem 0;">
+                                    <figure style="margin: 0; text-align: center;">
+                                        <img src="assets/hair_app/hair_app_menu.png"
+                                            alt="Hairstyle category menu interface"
+                                            style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
+                                        <figcaption>Figure 1: Hairstyle Categories and Collection Menu</figcaption>
+                                    </figure>
+                                    <figure style="margin: 0; text-align: center;">
+                                        <img src="assets/hair_app/hair_app_display1.png"
+                                            alt="3D hairstyle 360-degree rotation preview"
+                                            style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
+                                        <figcaption>Figure 2: 3D Hairstyle 360-Degree Preview</figcaption>
+                                    </figure>
+                                    <figure style="margin: 0; text-align: center;">
+                                        <img src="assets/hair_app/hair_app_display2.png"
+                                            alt="3D hairstyle 360-degree rotation preview (Men's Short Hair)"
+                                            style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
+                                        <figcaption>Figure 3: 3D Hairstyle 360-Degree Preview (Men's Short Hair)</figcaption>
+                                    </figure>
+                                </div>
+
                                 <h4>Business Background and Problem Discovery</h4>
                                 <p>In salon operations, clients struggled to visualize volume and layering from flat 2D catalogs, causing hesitation and prolonged consultations before haircuts.</p>
 
@@ -327,31 +341,6 @@
                                     <li><strong>Daily Stylist Feedback Loop:</strong> Instituted daily tracking logs where stylists recorded client style selections and consultation satisfaction to guide ongoing 3D model tuning.</li>
                                     <li><strong>Unity URP Architecture & CI/CD Streaming:</strong> Built the mobile client in Unity C# using the Universal Render Pipeline (URP), establishing CI/CD automated release pipelines and Google Cloud Storage OTA asset streaming to deploy continuous updates without manual station-by-station app reinstalls.</li>
                                 </ul>
-
-                                <div class="case-app-showcase"
-                                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
-                                    <figure style="margin: 0; text-align: center;">
-                                        <img src="assets/hair_app/hair_app_menu.png"
-                                            alt="Hairstyle category menu interface"
-                                            style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
-                                        <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">Figure
-                                            1: Hairstyle Categories and Collection Menu</figcaption>
-                                    </figure>
-                                    <figure style="margin: 0; text-align: center;">
-                                        <img src="assets/hair_app/hair_app_display1.png"
-                                            alt="3D hairstyle 360-degree rotation preview"
-                                            style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
-                                        <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">Figure
-                                            2: 3D Hairstyle 360-Degree Preview</figcaption>
-                                    </figure>
-                                    <figure style="margin: 0; text-align: center;">
-                                        <img src="assets/hair_app/hair_app_display2.png"
-                                            alt="3D hairstyle 360-degree rotation preview (Men's Short Hair)"
-                                            style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
-                                        <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">Figure
-                                            3: 3D Hairstyle 360-Degree Preview (Men's Short Hair)</figcaption>
-                                    </figure>
-                                </div>
 
                                 <h4>Product Impact and Practical Outcomes</h4>
                                 <p class="highlight-text">
@@ -420,6 +409,16 @@
                             </div>
 
                             <div class="case-body">
+                                <figure class="case-image-wrapper vertical-image"
+                                    style="margin: 0.5rem 0 1.5rem 0; display: flex; flex-direction: column; align-items: center;">
+                                    <img src="assets/image/ar-llm-principal.png"
+                                        alt="Engineering Test Capture: AR and RAG-Integrated Multimodal AI Real-Time Virtual Principal Interface"
+                                        style="width: 100%; max-width: 280px; aspect-ratio: 9/16; object-fit: cover; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); border: 1px solid var(--border-color); display: block;">
+                                    <figcaption
+                                        style="font-size: 0.92rem; color: var(--text-secondary); margin-top: 0.6rem; text-align: center;"><i
+                                             class="fa-solid fa-vial"></i> Engineering Test Capture: Real-Time Multimodal Dialogue and Virtual Principal System</figcaption>
+                                </figure>
+
                                 <h4>Project Background and Objectives</h4>
                                 <p>Developed an interactive AR virtual principal capable of real-time voice dialogue. Running an end-to-end multimodal pipeline (Speech-to-Text, LLM with RAG, Text-to-Speech) on local GPU inference incurred a 3 to 5 second latency gap, causing showcase visitors to perceive the application as unresponsive. My responsibility was to integrate the multimodal pipeline into Unity, implement perceptual latency masking to provide immediate feedback during inference, and deploy the system live at university showcases.</p>
 
@@ -439,16 +438,6 @@
                                 <p><strong>Embracing hardware constraints as catalysts for creative, end-to-end system design.</strong>
                                     Working under resource limitations taught me that engineering excellence is about understanding the entire pipeline end-to-end and designing around user perception, solving latency friction through perceptual latency masking and cross-service protocol alignment.
                                 </p>
-
-                                <figure class="case-image-wrapper vertical-image"
-                                    style="margin: 1.5rem 0; display: flex; flex-direction: column; align-items: center;">
-                                    <img src="assets/image/ar-llm-principal.png"
-                                        alt="Engineering Test Capture: AR and RAG-Integrated Multimodal AI Real-Time Virtual Principal Interface"
-                                        style="width: 100%; max-width: 280px; aspect-ratio: 9/16; object-fit: cover; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); border: 1px solid var(--border-color); display: block;">
-                                    <figcaption
-                                        style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.6rem; text-align: center;"><i
-                                             class="fa-solid fa-vial"></i> Engineering Test Capture: Real-Time Multimodal Dialogue and Virtual Principal System</figcaption>
-                                </figure>
                             </div>
                         </article>
 
@@ -463,6 +452,17 @@
                             </div>
 
                             <div class="case-body">
+                                <div class="case-video-wrapper horizontal-video" style="margin: 0.5rem 0 1.5rem 0;">
+                                    <video controls preload="metadata"
+                                        style="width: 100%; max-width: 720px; aspect-ratio: 16/9; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); border: 1px solid var(--border-color); background: #000; display: block;">
+                                        <source src="assets/system_integration/virtual_concert.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <span
+                                        style="font-size: 0.92rem; color: var(--text-secondary); margin-top: 0.6rem; display: block;"><i
+                                             class="fa-solid fa-compact-disc"></i> Traditional Chinese Erhu Live AI Motion Capture & Audiovisual Sync Showcase</span>
+                                </div>
+
                                 <h4>Background and Challenges</h4>
                                 <p>Deploying a real-time virtual avatar for live traditional Chinese Erhu performances presented substantial latency and synchronization challenges. Rapid bowing gestures combined with live audio streams created visual jitter and desync when processed through AI vision pose estimation models during rehearsals.</p>
 
@@ -485,17 +485,6 @@
                                 <p><strong>Humility toward domain expertise and learning to translate across disciplinary vocabularies.</strong>
                                     Working closely with traditional instrumentalists taught me that technical metrics must serve human expression. Rather than imposing engineering abstractions, I learned to listen to performance intuition, observe natural preparatory timing, and translate artistic phrasing into deterministic buffer thresholds.
                                 </p>
-
-                                <div class="case-video-wrapper horizontal-video" style="margin: 1.5rem 0;">
-                                    <video controls preload="metadata"
-                                        style="width: 100%; max-width: 720px; aspect-ratio: 16/9; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); border: 1px solid var(--border-color); background: #000; display: block;">
-                                        <source src="assets/system_integration/virtual_concert.mp4" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                    </video>
-                                    <span
-                                        style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.6rem; display: block;"><i
-                                            class="fa-solid fa-compact-disc"></i> Traditional Chinese Erhu Live AI Motion Capture & Audiovisual Sync Showcase</span>
-                                </div>
                             </div>
                         </article>
                     </div>

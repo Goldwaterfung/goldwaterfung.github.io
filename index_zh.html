@@ -45,6 +45,7 @@
                 <span class="bar"></span>
             </button>
         </div>
+        <div id="reading-progress" class="reading-progress-bar" aria-hidden="true"></div>
     </header>
 
     <main>
@@ -58,10 +59,6 @@
                 <h2 class="hero-subtitle">
                     以持續學習、實證研究與動手實作為核心的技術產品開發者，專注於 <strong>自主 Agent 工作流</strong>、<strong>空間音訊感知</strong> 與 <strong>多模態 AI 系統構建</strong>。
                 </h2>
-
-                <p class="hero-description">
-                    我習慣從第一性原理出發，透過高強度的自主學習與反覆實驗拆解複雜的技術難題。無論是在 IEEE ICVR 國際會議發表空間聽覺感知研究、架構支援自主 Agent 的音訊工作站系統，或是將即時 3D 互動應用落地於實體門市，我都堅持從底層深入理解系統運作，並以真實數據與用戶行為驗證每一個設計與工程決策。
-                </p>
             </div>
         </section>
 
@@ -76,13 +73,10 @@
 
                     <div class="section-content">
                         <div class="editorial-lead">
-                            以深層好奇心、敏捷的自主學習力與第一性原理思維為驅動，我致力於構建連結底層複雜訊號、自主 Agent 工作流與即時互動應用的技術產品。
+                            從第一性原理與敏捷自學出發，致力於連結底層複雜訊號、自主 Agent 工作流與即時互動應用。
                         </div>
                         <p class="editorial-body">
-                            我的成長歷程展現了透過動手實作不斷拓展技術邊界的持續學習態度。在探索音訊訊號與現代 AI 的交叉點時，我從零架構 Stratawright，打造連結多軌 DSP 數位訊號處理與 AI Agent 自動化工作流的音訊工作站。在共同創辦 MRKE 時，我自學 Unity C# 並建立 CI/CD 自動化與雲端資產串流鏈路，持續將 3D 互動預覽應用部署至實體門市平板，並依據現場每日觀察數據持續迭代模型。
-                        </p>
-                        <p class="editorial-body">
-                            這種快速掌握全新領域的能力，奠基於兩大核心歷練：嚴謹的學術實證研究與第一線營運紀律。在深入心理聲學與空間運算研究的過程中，我以第一作者身份在 IEEE ICVR 2026 國際會議發表論文（現已正式收錄於 IEEE Xplore），設計實驗範式量化視聽衝突下的認知代價。此外，4 年五星級奢華酒店營運經驗（包含香港嘉里酒店開幕籌備團隊）則培養了我對用戶心理的敏銳洞察、標準作業程序 SOP 的架構能力與高壓下冷靜解決問題的紀律。我深信優秀的技術產品開發者不在於固守既有知識，而在於保持極致的求知慾、快速原型驗證，並以真實數據檢驗每一個假設。
+                            我習慣從第一性原理出發，透過高強度的自主學習與反覆實驗拆解複雜的技術難題。無論是在 IEEE ICVR 國際會議發表空間聽覺感知研究、架構支援自主 Agent 的音訊工作站系統，或是將即時 3D 互動應用落地於實體門市，我都堅持從底層深入理解系統運作，並以真實數據與用戶行為驗證每一個設計與工程決策。
                         </p>
 
                         <div class="about-contact-links">
@@ -136,6 +130,14 @@
                                     <p class="project-tagline">透過確定性 CLI 控制協議與 Tool Calling Schema 開放多軌音訊遙測數據，讓 AI Coding Agent 控制音訊工程工作流。
                                     </p>
 
+                                    <figure class="project-media-wrapper">
+                                        <img src="assets/daw/daw-usecase.gif"
+                                            alt="Stratawright DAW Agent CLI 自動化工作流程展示"
+                                            loading="lazy">
+                                        <figcaption><i
+                                                 class="fa-solid fa-play"></i> Stratawright Agentic DAW CLI 自動化工作流程動態展示</figcaption>
+                                    </figure>
+
                                     <div class="project-qa-group">
                                         <div class="project-qa-item">
                                             <strong class="qa-question">為什麼我要做這個專案？</strong>
@@ -146,14 +148,6 @@
                                             打造原生支援 AI Agent CLI 工作流的音訊工作站架構。系統將底層音訊訊號（峰值分貝、LUFS 響度、頻譜能量分佈與波形特徵）轉譯為確定性 CLI 控制協議與 Tool Calling Schema，讓 Claude Code、Cursor 或 Gemini 等 AI Agent 能檢測音訊遙測數據、組織分軌分組、平衡 Gain Staging、調整聲像 Panning 並透過確定性的命令列指令自動化 DSP 參數。
                                         </div>
                                     </div>
-
-                                    <figure class="project-media-wrapper">
-                                        <img src="assets/daw/daw-usecase.gif"
-                                            alt="Stratawright DAW Agent CLI 自動化工作流程展示"
-                                            loading="lazy">
-                                        <figcaption><i
-                                                 class="fa-solid fa-play"></i> Stratawright Agentic DAW CLI 自動化工作流程動態展示</figcaption>
-                                    </figure>
 
                                     <p class="project-row-desc">
                                         <a href="https://github.com/Goldwaterfung/Stratawright" target="_blank"
@@ -178,15 +172,35 @@
                                         Sustained Audiovisual Conflict with Third-Order Ambisonics</h3>
                                     <p class="project-tagline">探索虛擬實境中視聽衝突下的感官邊界，為空間運算介面提供跨模態感知實證基礎。</p>
 
+                                    <div class="research-image-gallery">
+                                        <figure style="margin: 0; text-align: center;">
+                                            <img src="assets/research/experiment.jpg" alt="VR 視聽衝突實驗操作"
+                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
+                                            <figcaption>圖 1：VR 視聽衝突實驗操作</figcaption>
+                                        </figure>
+                                        <figure style="margin: 0; text-align: center;">
+                                            <img src="assets/research/sound-lab.jpg" alt="16 聲道三階 Ambisonics 聲學實驗室"
+                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
+                                            <figcaption>圖 2：16 聲道三階 Ambisonics 實驗室</figcaption>
+                                        </figure>
+                                        <figure style="margin: 0; text-align: center;">
+                                            <img src="assets/research/1_angular_error_by_condition.png"
+                                                alt="初始定位角度誤差數據圖"
+                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
+                                            <figcaption>圖 3：三條件初始角度誤差</figcaption>
+                                        </figure>
+                                        <figure style="margin: 0; text-align: center;">
+                                            <img src="assets/research/3_response_time_by_condition.png" alt="反應時間數據圖"
+                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
+                                            <figcaption>圖 4：三條件反應時間分析</figcaption>
+                                        </figure>
+                                    </div>
+
                                     <div class="project-qa-group">
                                         <div class="project-qa-item">
                                             <strong class="qa-question">為什麼我要做這個研究？</strong>
                                             隨著空間運算與智慧眼鏡的發展，虛擬視聽資訊深度疊加於物理空間。我想透過實證實驗探討當感官輸入相互矛盾時的人類認知邊界：當高保真空間音訊與視覺誘餌提供衝突的空間方位時，大腦是否會壓倒性信任視覺，且該衝突會產生多少可量化的認知代價？
                                         </div>
-                                    </div>
-
-                                    <div class="paper-citation">
-                                        <strong>Fung, K. K.</strong>, Saw, T. W., & Rajapakse, R. P. C. J. (2026). Measuring Visual Capture in Virtual Reality under Sustained Audiovisual Conflict with Third-Order Ambisonics. In <em>2026 12th International Conference on Virtual Reality (ICVR)</em>, Cardiff, UK, pp. 221-228. IEEE. 現已正式收錄於 IEEE Xplore，DOI: <a href="https://doi.org/10.1109/ICVR70658.2026.11672319" target="_blank" rel="noopener" class="underline-link">10.1109/ICVR70658.2026.11672319</a>
                                     </div>
 
                                     <p class="project-row-desc" style="margin-bottom: 0.3rem;">
@@ -198,7 +212,7 @@
                                         <li><strong>空間運算感知基礎</strong>：從認知心理學出發，實證單靠空間音訊無法抵銷視覺錯位，為空間運算介面的跨模態視聽協同提供實證數據與設計準則。</li>
                                     </ol>
 
-                                    <p class="project-row-desc" style="display: flex; flex-wrap: wrap; gap: 1.25rem; align-items: center; margin-top: 0.5rem;">
+                                    <p class="project-row-desc" style="display: flex; flex-wrap: gap: 1.25rem; align-items: center; margin-top: 0.5rem;">
                                         <a href="https://ieeexplore.ieee.org/document/11672319"
                                             target="_blank" rel="noopener" class="underline-link"><i
                                                 class="fa-solid fa-file-lines"></i> 前往 IEEE Xplore 查閱論文</a>
@@ -206,33 +220,6 @@
                                             target="_blank" rel="noopener" class="underline-link"><i
                                                 class="fa-brands fa-github"></i> 前往 GitHub 查看 Unity 研究專案與 Python 數據處理源碼</a>
                                     </p>
-                                    <div class="research-image-gallery">
-                                        <figure style="margin: 0; text-align: center;">
-                                            <img src="assets/research/experiment.jpg" alt="VR 視聽衝突實驗操作"
-                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
-                                            <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">圖
-                                                1：VR 視聽衝突實驗操作</figcaption>
-                                        </figure>
-                                        <figure style="margin: 0; text-align: center;">
-                                            <img src="assets/research/sound-lab.jpg" alt="16 聲道三階 Ambisonics 聲學實驗室"
-                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
-                                            <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">圖
-                                                2：16 聲道三階 Ambisonics 實驗室</figcaption>
-                                        </figure>
-                                        <figure style="margin: 0; text-align: center;">
-                                            <img src="assets/research/1_angular_error_by_condition.png"
-                                                alt="初始定位角度誤差數據圖"
-                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
-                                            <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">圖
-                                                3：三條件初始角度誤差</figcaption>
-                                        </figure>
-                                        <figure style="margin: 0; text-align: center;">
-                                            <img src="assets/research/3_response_time_by_condition.png" alt="反應時間數據圖"
-                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
-                                            <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">圖
-                                                4：三條件反應時間分析</figcaption>
-                                        </figure>
-                                    </div>
                                     <div class="project-row-tags">
                                         <span>Spatial Computing</span>
                                         <span>Third-Order Ambisonics</span>
@@ -252,6 +239,14 @@
                                     <p class="project-tagline">整合無限概念畫布、學術文檔引擎與 LangGraph Agent 狀態機，提供非破壞性視覺 Diff 暫存與持久化記憶。
                                     </p>
 
+                                    <figure class="project-media-wrapper">
+                                        <img src="assets/collaragent/showcase-collaragent.gif"
+                                            alt="CollarAgent Local-First 視覺化研究工作台與 Agent 協作展示"
+                                            loading="lazy">
+                                        <figcaption><i
+                                                 class="fa-solid fa-play"></i> CollarAgent 自主 Agent 協作與視覺化 Diff 暫存動態展示</figcaption>
+                                    </figure>
+
                                     <div class="project-qa-group">
                                         <div class="project-qa-item">
                                             <strong class="qa-question">為什麼我要做這個專案？</strong>
@@ -262,14 +257,6 @@
                                             構建一套將 LangGraph 狀態機 Agent 與無限概念畫布及支援 LaTeX 數學式與結構化表格的學術文檔引擎深度整合的桌面應用。實現畫布節點與文檔區塊間的雙向狀態同步、非破壞性的視覺化 Diff 提案預覽機制，以及跨工作階段保留專案研究規範的持久化記憶架構。
                                         </div>
                                     </div>
-
-                                    <figure class="project-media-wrapper">
-                                        <img src="assets/collaragent/showcase-collaragent.gif"
-                                            alt="CollarAgent Local-First 視覺化研究工作台與 Agent 協作展示"
-                                            loading="lazy">
-                                        <figcaption><i
-                                                 class="fa-solid fa-play"></i> CollarAgent 自主 Agent 協作與視覺化 Diff 暫存動態展示</figcaption>
-                                    </figure>
 
                                     <p class="project-row-desc">
                                         <a href="https://github.com/Goldwaterfung/collaragent" target="_blank"
@@ -313,6 +300,25 @@
                             </div>
 
                             <div class="case-body">
+                                <div class="case-app-showcase"
+                                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 0.5rem 0 1.5rem 0;">
+                                    <figure style="margin: 0; text-align: center;">
+                                        <img src="assets/hair_app/hair_app_menu.png" alt="髮型分類選單介面"
+                                            style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
+                                        <figcaption>圖 1：髮型分類與系列選單</figcaption>
+                                    </figure>
+                                    <figure style="margin: 0; text-align: center;">
+                                        <img src="assets/hair_app/hair_app_display1.png" alt="3D 髮型 360 度旋轉預覽"
+                                            style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
+                                        <figcaption>圖 2：3D 髮型 360 度預覽</figcaption>
+                                    </figure>
+                                    <figure style="margin: 0; text-align: center;">
+                                        <img src="assets/hair_app/hair_app_display2.png" alt="3D 髮型 360 度旋轉預覽 (男士短髮)"
+                                            style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
+                                        <figcaption>圖 3：3D 髮型 360 度預覽 (男士短髮)</figcaption>
+                                    </figure>
+                                </div>
+
                                 <h4>商業背景與問題發現</h4>
                                 <p>在實體沙龍營運中，顧客在觀看平面照片諮詢時，難以掌握側面弧度與後腦勺層次，造成剪髮前溝通耗時且容易產生預期落差。</p>
 
@@ -325,28 +331,6 @@
                                     <li><strong>每日數據追蹤迴圈：</strong> 建立現場營運數據機制，每日記錄顧客選型與諮詢反饋，與髮型師共同微調 3D 模型細節與諮詢流程。</li>
                                     <li><strong>Unity URP 架構與 CI/CD 串流：</strong> 採用 Unity C# 與通用渲染管線 (URP) 開發前端互動架構，建立 CI/CD 自動化發布管線與 Google Cloud Storage (GCS) OTA 資產串流，無需手動逐台重裝即可持續向門市平板推送更新。</li>
                                 </ul>
-
-                                <div class="case-app-showcase"
-                                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
-                                    <figure style="margin: 0; text-align: center;">
-                                        <img src="assets/hair_app/hair_app_menu.png" alt="髮型分類選單介面"
-                                            style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
-                                        <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">圖
-                                            1：髮型分類與系列選單</figcaption>
-                                    </figure>
-                                    <figure style="margin: 0; text-align: center;">
-                                        <img src="assets/hair_app/hair_app_display1.png" alt="3D 髮型 360 度旋轉預覽"
-                                            style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
-                                        <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">圖 2：3D
-                                            髮型 360 度預覽</figcaption>
-                                    </figure>
-                                    <figure style="margin: 0; text-align: center;">
-                                        <img src="assets/hair_app/hair_app_display2.png" alt="3D 髮型 360 度旋轉預覽 (男士短髮)"
-                                            style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
-                                        <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">圖 3：3D
-                                            髮型 360 度預覽 (男士短髮)</figcaption>
-                                    </figure>
-                                </div>
 
                                 <h4>產品影響力與實際成果</h4>
                                 <p class="highlight-text">
@@ -414,6 +398,16 @@
                             </div>
 
                             <div class="case-body">
+                                <figure class="case-image-wrapper vertical-image"
+                                    style="margin: 0.5rem 0 1.5rem 0; display: flex; flex-direction: column; align-items: center;">
+                                    <img src="assets/image/ar-llm-principal.png"
+                                        alt="工程實機測試畫面：AR 與 RAG 整合之多模態 AI 即時虛擬校長系統介面"
+                                        style="width: 100%; max-width: 280px; aspect-ratio: 9/16; object-fit: cover; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); border: 1px solid var(--border-color); display: block;">
+                                    <figcaption
+                                        style="font-size: 0.92rem; color: var(--text-secondary); margin-top: 0.6rem; text-align: center;"><i
+                                             class="fa-solid fa-vial"></i> 工程實機測試畫面：即時多模態語音對話與虛擬校長系統介面</figcaption>
+                                </figure>
+
                                 <h4>專案背景與目標</h4>
                                 <p>本專案研發並部署具備即時語音對答能力的 AR 虛擬校長。在本地 GPU 環境端到端運行多模態推論鏈路（語音識別、大語言模型 RAG 與語音合成）會產生 3 至 5 秒的處理延遲，使現場參觀者誤以為系統無反應。我的職責是將多模態鏈路整合至 Unity，設計即時對話感知緩衝機制以在推論期間提供即時視覺反饋，並在校園公開展演中穩定運行。</p>
 
@@ -426,23 +420,13 @@
 
                                 <h4>產品影響力與實際成果</h4>
                                 <p class="highlight-text">
-                                    在校園展演與貴賓接待中公開展示，系統穩定承載多輪即時語音對答。透過響應式感知緩衝化解後端運算延遲，無需額外擴充 GPU 硬體或雲端架構。
+                                     在校園展演與貴賓接待中公開展示，系統穩定承載多輪即時語音對答。透過響應式感知緩衝化解後端運算延遲，無需額外擴充 GPU 硬體或雲端架構。
                                 </p>
 
                                 <h4>心得與持續學習反思</h4>
                                 <p><strong>將硬體限制視為深化端到端系統思維的契機。</strong>
                                     在有限硬體資源條件下，我體會到透過主動理解整條多模態鏈路的運作原理，並從參觀者的心理感知出發，能以感知延遲掩蔽與跨服務協議對齊化解延遲痛點，打破單一技術邊界。
                                 </p>
-
-                                <figure class="case-image-wrapper vertical-image"
-                                    style="margin: 1.5rem 0; display: flex; flex-direction: column; align-items: center;">
-                                    <img src="assets/image/ar-llm-principal.png"
-                                        alt="工程實機測試畫面：AR 與 RAG 整合之多模態 AI 即時虛擬校長系統介面"
-                                        style="width: 100%; max-width: 280px; aspect-ratio: 9/16; object-fit: cover; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); border: 1px solid var(--border-color); display: block;">
-                                    <figcaption
-                                        style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.6rem; text-align: center;"><i
-                                             class="fa-solid fa-vial"></i> 工程實機測試畫面：即時多模態語音對話與虛擬校長系統介面</figcaption>
-                                </figure>
                             </div>
                         </article>
 
@@ -457,6 +441,17 @@
                             </div>
 
                             <div class="case-body">
+                                <div class="case-video-wrapper horizontal-video" style="margin: 0.5rem 0 1.5rem 0;">
+                                    <video controls preload="metadata"
+                                        style="width: 100%; max-width: 720px; aspect-ratio: 16/9; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); border: 1px solid var(--border-color); background: #000; display: block;">
+                                        <source src="assets/system_integration/virtual_concert.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <span
+                                        style="font-size: 0.92rem; color: var(--text-secondary); margin-top: 0.6rem; display: block;"><i
+                                             class="fa-solid fa-compact-disc"></i> 傳統二胡現場 AI 動作捕捉與視聽同步展示</span>
+                                </div>
+
                                 <h4>背景與挑戰</h4>
                                 <p>在傳統二胡現場演奏中部署即時虛擬化身面臨顯著的延遲與同步挑戰。快速運弓動作結合即時音訊串流，在排練期間透過 AI 視覺姿態估計模型處理時容易產生畫面抖動與聲影脫節。</p>
 
@@ -479,17 +474,6 @@
                                 <p><strong>對專業領域保持謙遜，學會跨越學科語彙進行精準轉譯。</strong>
                                     與傳統器樂演奏家的深度協作讓我體認到，若技術指標無法服務於人類真實的情感表達就失去意義。與其將工程抽象概念強加於藝術家，我學會傾聽對方的演奏直覺、細心觀察起弓呼吸，並將藝術語彙轉譯為確定性的緩衝閾值。
                                 </p>
-
-                                <div class="case-video-wrapper horizontal-video" style="margin: 1.5rem 0;">
-                                    <video controls preload="metadata"
-                                        style="width: 100%; max-width: 720px; aspect-ratio: 16/9; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); border: 1px solid var(--border-color); background: #000; display: block;">
-                                        <source src="assets/system_integration/virtual_concert.mp4" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                    </video>
-                                    <span
-                                        style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.6rem; display: block;"><i
-                                            class="fa-solid fa-compact-disc"></i> 傳統二胡現場 AI 動作捕捉與視聽同步展示</span>
-                                </div>
                             </div>
                         </article>
                     </div>
