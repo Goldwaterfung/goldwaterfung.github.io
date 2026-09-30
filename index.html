@@ -51,14 +51,19 @@
     <main>
         <!-- Hero Section (Above the Fold) -->
         <section id="hero" class="hero-section">
-            <div class="hero-container">
-                <h1 class="hero-title">
-                    I am Kim Fung.
-                </h1>
+            <div class="hero-container hero-grid">
+                <div class="hero-text-col">
+                    <h1 class="hero-title">
+                        I am Kim Fung.
+                    </h1>
 
-                <h2 class="hero-subtitle">
-                    Technical product builder driven by continuous learning, empirical research, and hands-on systems prototyping across <strong>Agentic Workflows</strong>, <strong>Spatial Audio</strong>, and <strong>Multimodal AI</strong>.
-                </h2>
+                    <h2 class="hero-subtitle">
+                        Technical product builder driven by continuous learning, empirical research, and hands-on systems prototyping across <strong>Agentic Workflows</strong>, <strong>Spatial Audio</strong>, and <strong>Multimodal AI</strong>.
+                    </h2>
+                </div>
+                <div class="hero-canvas-col">
+                    <div id="hero-3d-canvas"></div>
+                </div>
             </div>
         </section>
 
@@ -681,6 +686,7 @@
 
     <!-- Custom JavaScript -->
     <script src="script.js"></script>
+    <script type="module" src="assets/hero-3d.js"></script>
 </body>
 
 </html>

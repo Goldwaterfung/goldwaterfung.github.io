@@ -51,14 +51,19 @@
     <main>
         <!-- Hero Section (Above the Fold) -->
         <section id="hero" class="hero-section">
-            <div class="hero-container">
-                <h1 class="hero-title">
-                    我是 馮淦喬 Kim Fung
-                </h1>
+            <div class="hero-container hero-grid">
+                <div class="hero-text-col">
+                    <h1 class="hero-title">
+                        我是 馮淦喬 Kim Fung
+                    </h1>
 
-                <h2 class="hero-subtitle">
-                    以持續學習、實證研究與動手實作為核心的技術產品開發者，專注於 <strong>自主 Agent 工作流</strong>、<strong>空間音訊感知</strong> 與 <strong>多模態 AI 系統構建</strong>。
-                </h2>
+                    <h2 class="hero-subtitle">
+                        以持續學習、實證研究與動手實作為核心的技術產品開發者，專注於 <strong>自主 Agent 工作流</strong>、<strong>空間音訊感知</strong> 與 <strong>多模態 AI 系統構建</strong>。
+                    </h2>
+                </div>
+                <div class="hero-canvas-col">
+                    <div id="hero-3d-canvas"></div>
+                </div>
             </div>
         </section>
 
@@ -665,6 +670,7 @@
 
     <!-- Custom JavaScript -->
     <script src="script.js"></script>
+    <script type="module" src="assets/hero-3d.js"></script>
 </body>
 
 </html>
