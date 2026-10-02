@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kim Fung Portfolio</title>
 
-    <!-- Google Fonts: Georgia (Serif), Space Mono (Monospace), Inter (Sans-serif) -->
+    <!-- Google Fonts: Space Mono (Monospace), Inter (Sans-serif) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Georgia&family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
     <!-- FontAwesome Icons -->
@@ -333,8 +333,29 @@
                     </div>
 
                     <div class="section-content">
-                        <!-- Case Study 01 -->
-                        <article class="case-study-card">
+                        <!-- Case Study Segmented Switcher -->
+                        <div class="case-study-switcher" role="tablist" aria-label="System Deployments">
+                            <button class="switcher-tab active" role="tab" aria-selected="true" data-target="case-mrke">
+                                <span class="tab-num">CASE 1</span>
+                                <span class="tab-title">Salon 3D App</span>
+                            </button>
+                            <button class="switcher-tab" role="tab" aria-selected="false" data-target="case-innova">
+                                <span class="tab-num">CASE 2</span>
+                                <span class="tab-title">Clinical AI Simulator</span>
+                            </button>
+                            <button class="switcher-tab" role="tab" aria-selected="false" data-target="case-principal">
+                                <span class="tab-num">CASE 3</span>
+                                <span class="tab-title">AI Virtual Principal</span>
+                            </button>
+                            <button class="switcher-tab" role="tab" aria-selected="false" data-target="case-erhu">
+                                <span class="tab-num">CASE 4</span>
+                                <span class="tab-title">Live AI Motion Capture</span>
+                            </button>
+                        </div>
+
+                        <!-- Case Study 1 -->
+                        <div class="case-study-panel active" id="case-mrke" role="tabpanel">
+                            <article class="case-study-card">
                             <div class="case-header">
                                 <h3 class="case-title">1. Physical-Digital Integration: 3D Hairstyle Interactive
                                     Showcase and Salon Experience App</h3>
@@ -417,10 +438,20 @@
                                         GitHub
                                         (Goldwaterfung/3D-Product-Showcase-URP-Sample-in-Unity)</a>
                                 </p>
+
+                                <div class="case-footer-nav">
+                                    <div></div>
+                                    <button type="button" class="case-nav-btn next" data-target="case-innova">
+                                        <span class="case-nav-sub">Next Deployment</span>
+                                        <span class="case-nav-title">Case 2: Clinical AI Simulator <i class="fa-solid fa-chevron-right"></i></span>
+                                    </button>
+                                </div>
                             </div>
                         </article>
+                    </div>
 
-                        <!-- Case Study 02 -->
+                    <!-- Case Study 2 -->
+                    <div class="case-study-panel" id="case-innova" role="tabpanel">
                         <article class="case-study-card">
                             <div class="case-header">
                                 <h3 class="case-title">2. B2B Medical 3D Simulation and LLM Clinical Diagnosis Training
@@ -476,13 +507,26 @@
                                     domain experts, methodically cross-examine database schemas, and anchor every UX
                                     recommendation in empirical evidence.
                                 </p>
+
+                                <div class="case-footer-nav">
+                                    <button type="button" class="case-nav-btn prev" data-target="case-mrke">
+                                        <span class="case-nav-sub">Previous Deployment</span>
+                                        <span class="case-nav-title"><i class="fa-solid fa-chevron-left"></i> Case 1: Salon 3D App</span>
+                                    </button>
+                                    <button type="button" class="case-nav-btn next" data-target="case-principal">
+                                        <span class="case-nav-sub">Next Deployment</span>
+                                        <span class="case-nav-title">Case 3: AI Virtual Principal <i class="fa-solid fa-chevron-right"></i></span>
+                                    </button>
+                                </div>
                             </div>
                         </article>
+                    </div>
 
-                        <!-- Case Study 03 -->
+                    <!-- Case Study 3 -->
+                    <div class="case-study-panel" id="case-principal" role="tabpanel">
                         <article class="case-study-card">
                             <div class="case-header">
-                                <h3 class="case-title">3. AR and RAG-Integrated Multimodal AI Real-Time Virtual
+                                <h3 class="case-title">3. RAG-Integrated Multimodal AI Real-Time Virtual
                                     Principal</h3>
                                 <div class="case-meta-line">
                                     <span><strong>Role:</strong> Systems Integration Engineer</span>
@@ -494,16 +538,16 @@
                                 <figure class="case-image-wrapper vertical-image"
                                     style="margin: 0.5rem 0 1.5rem 0; display: flex; flex-direction: column; align-items: center;">
                                     <img src="assets/image/ar-llm-principal.png"
-                                        alt="Engineering Test Capture: AR and RAG-Integrated Multimodal AI Real-Time Virtual Principal Interface"
+                                        alt="Engineering Test Capture: RAG-Integrated Multimodal AI Real-Time Virtual Principal Interface"
                                         style="width: 100%; max-width: 280px; aspect-ratio: 9/16; object-fit: cover; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); border: 1px solid var(--border-color); display: block;">
                                     <figcaption
                                         style="font-size: 0.92rem; color: var(--text-secondary); margin-top: 0.6rem; text-align: center;">
                                         <i class="fa-solid fa-vial"></i> Engineering Test Capture: Real-Time Multimodal
                                         Dialogue and Virtual Principal System</figcaption>
-                                </figure>
+                                 </figure>
 
                                 <h4>Project Background and Objectives</h4>
-                                <p>Developed an interactive AR virtual principal capable of real-time voice dialogue.
+                                <p>Developed an interactive AI virtual principal capable of real-time voice dialogue.
                                     Running an end-to-end multimodal pipeline (Speech-to-Text, LLM with RAG,
                                     Text-to-Speech) on local GPU inference incurred a 3 to 5 second latency gap, causing
                                     showcase visitors to perceive the application as unresponsive. My responsibility was
@@ -543,10 +587,23 @@
                                     solving latency friction through perceptual latency masking and cross-service
                                     protocol alignment.
                                 </p>
+
+                                <div class="case-footer-nav">
+                                    <button type="button" class="case-nav-btn prev" data-target="case-innova">
+                                        <span class="case-nav-sub">Previous Deployment</span>
+                                        <span class="case-nav-title"><i class="fa-solid fa-chevron-left"></i> Case 2: Clinical AI Simulator</span>
+                                    </button>
+                                    <button type="button" class="case-nav-btn next" data-target="case-erhu">
+                                        <span class="case-nav-sub">Next Deployment</span>
+                                        <span class="case-nav-title">Case 4: Live AI Motion Capture <i class="fa-solid fa-chevron-right"></i></span>
+                                    </button>
+                                </div>
                             </div>
                         </article>
+                    </div>
 
-                        <!-- Case Study 04 -->
+                    <!-- Case Study 4 -->
+                    <div class="case-study-panel" id="case-erhu" role="tabpanel">
                         <article class="case-study-card">
                             <div class="case-header">
                                 <h3 class="case-title">4. Chinese Traditional Erhu Live: AI Motion Capture and
@@ -612,11 +669,23 @@
                                     learned to listen to performance intuition, observe natural preparatory timing, and
                                     translate artistic phrasing into deterministic buffer thresholds.
                                 </p>
+
+                                <div class="case-footer-nav">
+                                    <button type="button" class="case-nav-btn prev" data-target="case-principal">
+                                        <span class="case-nav-sub">Previous Deployment</span>
+                                        <span class="case-nav-title"><i class="fa-solid fa-chevron-left"></i> Case 3: AI Virtual Principal</span>
+                                    </button>
+                                    <button type="button" class="case-nav-btn next" data-target="case-mrke">
+                                        <span class="case-nav-sub">Start Over</span>
+                                        <span class="case-nav-title">Case 1: Salon 3D App <i class="fa-solid fa-rotate-left"></i></span>
+                                    </button>
+                                </div>
                             </div>
                         </article>
                     </div>
                 </div>
             </div>
+        </div>
         </section>
 
         <!-- Section 04: Experience Timeline -->
@@ -634,7 +703,6 @@
                             <div class="timeline-row">
                                 <div class="timeline-time">Dec 2020 - Jun 2026</div>
                                 <div class="timeline-details">
-                                    <span class="timeline-tag">EXPERIENCE</span>
                                     <h3 class="timeline-row-title">Product Engineer & Co-Founder</h3>
                                     <div class="timeline-row-org">MRKE Ltd. | 3D Interactive Software & Salon Experience
                                     </div>
@@ -651,7 +719,6 @@
                             <div class="timeline-row">
                                 <div class="timeline-time">Sep 2023 - Mar 2025</div>
                                 <div class="timeline-details">
-                                    <span class="timeline-tag">EXPERIENCE</span>
                                     <h3 class="timeline-row-title">Systems Integration Engineer</h3>
                                     <div class="timeline-row-org">National Tainan University of the Arts</div>
                                     <p class="timeline-row-desc">
@@ -668,7 +735,6 @@
                             <div class="timeline-row">
                                 <div class="timeline-time">Jul 2024 - Aug 2024</div>
                                 <div class="timeline-details">
-                                    <span class="timeline-tag">EXPERIENCE</span>
                                     <h3 class="timeline-row-title">User Experience Designer</h3>
                                     <div class="timeline-row-org">Innova Medical Technology Co., Ltd. | Kaohsiung,
                                         Taiwan</div>
@@ -684,7 +750,6 @@
                             <div class="timeline-row">
                                 <div class="timeline-time">Jul 2020 - Jul 2021</div>
                                 <div class="timeline-details">
-                                    <span class="timeline-tag">EXPERIENCE</span>
                                     <h3 class="timeline-row-title">Guest Experience Concierge</h3>
                                     <div class="timeline-row-org">Courtyard by Marriott | Hong Kong</div>
                                     <p class="timeline-row-desc">
@@ -699,7 +764,6 @@
                             <div class="timeline-row">
                                 <div class="timeline-time">Jul 2017 - Jun 2020</div>
                                 <div class="timeline-details">
-                                    <span class="timeline-tag">EXPERIENCE</span>
                                     <h3 class="timeline-row-title">Guest Experience Concierge</h3>
                                     <div class="timeline-row-org">Kerry Hotel Hong Kong (Shangri-La Group Pre-Opening
                                         Team)</div>
@@ -731,7 +795,6 @@
                             <div class="timeline-row">
                                 <div class="timeline-time">Graduated 2026</div>
                                 <div class="timeline-details">
-                                    <span class="timeline-tag">EDUCATION</span>
                                     <h3 class="timeline-row-title">Bachelor of Arts in Audio Engineering</h3>
                                     <div class="timeline-row-org">National Tainan University of the Arts </div>
                                     <p class="timeline-row-desc">
@@ -745,7 +808,6 @@
                             <div class="timeline-row">
                                 <div class="timeline-time">Graduated 2016</div>
                                 <div class="timeline-details">
-                                    <span class="timeline-tag">EDUCATION</span>
                                     <h3 class="timeline-row-title">Bachelor of Arts (Honours) in Tourism Management</h3>
                                     <div class="timeline-row-org">Plymouth University</div>
                                     <p class="timeline-row-desc">
@@ -775,7 +837,6 @@
                             <div class="timeline-row">
                                 <div class="timeline-time">2016 - 2026</div>
                                 <div class="timeline-details">
-                                    <span class="timeline-tag">MUSIC PRODUCTION</span>
                                     <h3 class="timeline-row-title">Mixing Engineer & Audio Producer</h3>
                                     <div class="timeline-row-org">Independent Music Artist Collaborations (Makav,
                                         Universe Database, The Plane Plan)</div>

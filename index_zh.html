@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>馮淦喬 (Kim Fung) Portfolio</title>
 
-    <!-- Google Fonts: Georgia (Serif), Space Mono (Monospace), Inter (Sans-serif) -->
+    <!-- Google Fonts: Space Mono (Monospace), Inter (Sans-serif) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Georgia&family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
     <!-- FontAwesome Icons -->
@@ -290,8 +290,29 @@
                     </div>
 
                     <div class="section-content">
-                        <!-- Case Study 01 -->
-                        <article class="case-study-card">
+                        <!-- Case Study Segmented Switcher -->
+                        <div class="case-study-switcher" role="tablist" aria-label="系統實務與現場部署">
+                            <button class="switcher-tab active" role="tab" aria-selected="true" data-target="case-mrke">
+                                <span class="tab-num">案例 1</span>
+                                <span class="tab-title">沙龍 3D 互動 App</span>
+                            </button>
+                            <button class="switcher-tab" role="tab" aria-selected="false" data-target="case-innova">
+                                <span class="tab-num">案例 2</span>
+                                <span class="tab-title">臨床 AI 模擬系統</span>
+                            </button>
+                            <button class="switcher-tab" role="tab" aria-selected="false" data-target="case-principal">
+                                <span class="tab-num">案例 3</span>
+                                <span class="tab-title">AI 虛擬校長系統</span>
+                            </button>
+                            <button class="switcher-tab" role="tab" aria-selected="false" data-target="case-erhu">
+                                <span class="tab-num">案例 4</span>
+                                <span class="tab-title">即時動態捕捉系統</span>
+                            </button>
+                        </div>
+
+                        <!-- Case Study 1 -->
+                        <div class="case-study-panel active" id="case-mrke" role="tabpanel">
+                            <article class="case-study-card">
                             <div class="case-header">
                                 <h3 class="case-title">1. 實體與數位整合：3D 髮型互動展示與沙龍體驗 App</h3>
                                 <div class="case-meta-line">
@@ -353,10 +374,20 @@
                                             class="fa-brands fa-github"></i> 前往 GitHub 查看 3D Product Showcase URP Sample
                                         (Goldwaterfung/3D-Product-Showcase-URP-Sample-in-Unity)</a>
                                 </p>
+
+                                <div class="case-footer-nav">
+                                    <div></div>
+                                    <button type="button" class="case-nav-btn next" data-target="case-innova">
+                                        <span class="case-nav-sub">下一篇實務案例</span>
+                                        <span class="case-nav-title">案例 2：臨床 AI 模擬系統 <i class="fa-solid fa-chevron-right"></i></span>
+                                    </button>
+                                </div>
                             </div>
                         </article>
+                    </div>
 
-                        <!-- Case Study 02 -->
+                    <!-- Case Study 2 -->
+                    <div class="case-study-panel" id="case-innova" role="tabpanel">
                         <article class="case-study-card">
                             <div class="case-header">
                                 <h3 class="case-title">2. B2B 醫療 3D 模擬與大語言模型臨床診斷培訓系統</h3>
@@ -394,13 +425,26 @@
                                 <p><strong>學會以可驗證的數據為依歸，由底層理解系統運作架構。</strong>
                                     踏入專業醫療領域讓我學會保持謙遜，向領域專家請教、系統性比對底層資料庫架構，並將每一項體驗建議錨定在客觀事實上。
                                 </p>
+
+                                <div class="case-footer-nav">
+                                    <button type="button" class="case-nav-btn prev" data-target="case-mrke">
+                                        <span class="case-nav-sub">上一篇實務案例</span>
+                                        <span class="case-nav-title"><i class="fa-solid fa-chevron-left"></i> 案例 1：沙龍 3D 互動 App</span>
+                                    </button>
+                                    <button type="button" class="case-nav-btn next" data-target="case-principal">
+                                        <span class="case-nav-sub">下一篇實務案例</span>
+                                        <span class="case-nav-title">案例 3：AI 虛擬校長系統 <i class="fa-solid fa-chevron-right"></i></span>
+                                    </button>
+                                </div>
                             </div>
                         </article>
+                    </div>
 
-                        <!-- Case Study 03 -->
+                    <!-- Case Study 3 -->
+                    <div class="case-study-panel" id="case-principal" role="tabpanel">
                         <article class="case-study-card">
                             <div class="case-header">
-                                <h3 class="case-title">3. 整合 AR 與 RAG 之多模態 AI 即時虛擬校長系統</h3>
+                                <h3 class="case-title">3. 整合 RAG 之多模態 AI 即時虛擬校長系統</h3>
                                 <div class="case-meta-line">
                                     <span><strong>角色:</strong> Systems Integration Engineer</span>
                                     <span><strong>機構:</strong> 國立臺南藝術大學</span>
@@ -411,7 +455,7 @@
                                 <figure class="case-image-wrapper vertical-image"
                                     style="margin: 0.5rem 0 1.5rem 0; display: flex; flex-direction: column; align-items: center;">
                                     <img src="assets/image/ar-llm-principal.png"
-                                        alt="工程實機測試畫面：AR 與 RAG 整合之多模態 AI 即時虛擬校長系統介面"
+                                        alt="工程實機測試畫面：整合 RAG 之多模態 AI 即時虛擬校長系統介面"
                                         style="width: 100%; max-width: 280px; aspect-ratio: 9/16; object-fit: cover; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); border: 1px solid var(--border-color); display: block;">
                                     <figcaption
                                         style="font-size: 0.92rem; color: var(--text-secondary); margin-top: 0.6rem; text-align: center;">
@@ -419,7 +463,7 @@
                                 </figure>
 
                                 <h4>專案背景與目標</h4>
-                                <p>本專案研發並部署具備即時語音對答能力的 AR 虛擬校長。在本地 GPU 環境端到端運行多模態推論鏈路（語音識別、大語言模型 RAG 與語音合成）會產生 3 至 5
+                                <p>本專案研發並部署具備即時語音對答能力的 AI 虛擬校長。在本地 GPU 環境端到端運行多模態推論鏈路（語音識別、大語言模型 RAG 與語音合成）會產生 3 至 5
                                     秒的處理延遲，使現場參觀者誤以為系統無反應。我的職責是將多模態鏈路整合至 Unity，設計即時對話感知緩衝機制以在推論期間提供即時視覺反饋，並在校園公開展演中穩定運行。
                                 </p>
 
@@ -441,10 +485,23 @@
                                 <p><strong>將硬體限制視為深化端到端系統思維的契機。</strong>
                                     在有限硬體資源條件下，我體會到透過主動理解整條多模態鏈路的運作原理，並從參觀者的心理感知出發，能以感知延遲掩蔽與跨服務協議對齊化解延遲痛點，打破單一技術邊界。
                                 </p>
+
+                                <div class="case-footer-nav">
+                                    <button type="button" class="case-nav-btn prev" data-target="case-innova">
+                                        <span class="case-nav-sub">上一篇實務案例</span>
+                                        <span class="case-nav-title"><i class="fa-solid fa-chevron-left"></i> 案例 2：臨床 AI 模擬系統</span>
+                                    </button>
+                                    <button type="button" class="case-nav-btn next" data-target="case-erhu">
+                                        <span class="case-nav-sub">下一篇實務案例</span>
+                                        <span class="case-nav-title">案例 4：即時動態捕捉系統 <i class="fa-solid fa-chevron-right"></i></span>
+                                    </button>
+                                </div>
                             </div>
                         </article>
+                    </div>
 
-                        <!-- Case Study 04 -->
+                    <!-- Case Study 4 -->
+                    <div class="case-study-panel" id="case-erhu" role="tabpanel">
                         <article class="case-study-card">
                             <div class="case-header">
                                 <h3 class="case-title">4. 傳統二胡演奏 Live：AI 動作捕捉與視聽同步系統</h3>
@@ -491,11 +548,23 @@
                                 <p><strong>對專業領域保持謙遜，學會跨越學科語彙進行精準轉譯。</strong>
                                     與傳統器樂演奏家的深度協作讓我體認到，若技術指標無法服務於人類真實的情感表達就失去意義。與其將工程抽象概念強加於藝術家，我學會傾聽對方的演奏直覺、細心觀察起弓呼吸，並將藝術語彙轉譯為確定性的緩衝閾值。
                                 </p>
+
+                                <div class="case-footer-nav">
+                                    <button type="button" class="case-nav-btn prev" data-target="case-principal">
+                                        <span class="case-nav-sub">上一篇實務案例</span>
+                                        <span class="case-nav-title"><i class="fa-solid fa-chevron-left"></i> 案例 3：AI 虛擬校長系統</span>
+                                    </button>
+                                    <button type="button" class="case-nav-btn next" data-target="case-mrke">
+                                        <span class="case-nav-sub">返回第一篇</span>
+                                        <span class="case-nav-title">案例 1：沙龍 3D 互動 App <i class="fa-solid fa-rotate-left"></i></span>
+                                    </button>
+                                </div>
                             </div>
                         </article>
                     </div>
                 </div>
             </div>
+        </div>
         </section>
 
         <!-- Section 04: Experience Timeline -->
@@ -513,7 +582,6 @@
                             <div class="timeline-row">
                                 <div class="timeline-time">Dec 2020 - Jun 2026</div>
                                 <div class="timeline-details">
-                                    <span class="timeline-tag">EXPERIENCE</span>
                                     <h3 class="timeline-row-title">Product Engineer & Co-Founder</h3>
                                     <div class="timeline-row-org">MRKE Ltd. | 3D 互動軟體與沙龍體驗</div>
                                     <p class="timeline-row-desc">
@@ -527,7 +595,6 @@
                             <div class="timeline-row">
                                 <div class="timeline-time">Sep 2023 - Mar 2025</div>
                                 <div class="timeline-details">
-                                    <span class="timeline-tag">EXPERIENCE</span>
                                     <h3 class="timeline-row-title">Systems Integration Engineer</h3>
                                     <div class="timeline-row-org">國立臺南藝術大學</div>
                                     <p class="timeline-row-desc">
@@ -542,7 +609,6 @@
                             <div class="timeline-row">
                                 <div class="timeline-time">Jul 2024 - Aug 2024</div>
                                 <div class="timeline-details">
-                                    <span class="timeline-tag">EXPERIENCE</span>
                                     <h3 class="timeline-row-title">User Experience Designer</h3>
                                     <div class="timeline-row-org">醫諾華醫學科技股份有限公司 | 台灣高雄</div>
                                     <p class="timeline-row-desc">
@@ -555,7 +621,6 @@
                             <div class="timeline-row">
                                 <div class="timeline-time">Jul 2020 - Jul 2021</div>
                                 <div class="timeline-details">
-                                    <span class="timeline-tag">EXPERIENCE</span>
                                     <h3 class="timeline-row-title">Guest Experience Concierge</h3>
                                     <div class="timeline-row-org">香港萬怡酒店 | 香港</div>
                                     <p class="timeline-row-desc">
@@ -568,7 +633,6 @@
                             <div class="timeline-row">
                                 <div class="timeline-time">Jul 2017 - Jun 2020</div>
                                 <div class="timeline-details">
-                                    <span class="timeline-tag">EXPERIENCE</span>
                                     <h3 class="timeline-row-title">Guest Experience Concierge</h3>
                                     <div class="timeline-row-org">香港嘉里酒店 (香格里拉集團開幕籌備團隊)</div>
                                     <p class="timeline-row-desc">
@@ -597,7 +661,6 @@
                             <div class="timeline-row">
                                 <div class="timeline-time">於2026畢業</div>
                                 <div class="timeline-details">
-                                    <span class="timeline-tag">EDUCATION</span>
                                     <h3 class="timeline-row-title">音訊工程學士</h3>
                                     <div class="timeline-row-org">國立臺南藝術大學</div>
                                     <p class="timeline-row-desc">
@@ -610,7 +673,6 @@
                             <div class="timeline-row">
                                 <div class="timeline-time">於2016畢業</div>
                                 <div class="timeline-details">
-                                    <span class="timeline-tag">EDUCATION</span>
                                     <h3 class="timeline-row-title">旅遊管理榮譽學士</h3>
                                     <div class="timeline-row-org">Plymouth University | 英國普利茅斯</div>
                                     <p class="timeline-row-desc">
@@ -639,7 +701,6 @@
                             <div class="timeline-row">
                                 <div class="timeline-time">2016 - 2026</div>
                                 <div class="timeline-details">
-                                    <span class="timeline-tag">音樂製作</span>
                                     <h3 class="timeline-row-title">Mixing Engineer & Audio Producer</h3>
                                     <div class="timeline-row-org">獨立音樂創作者合作 (Makav 真愛、宇宙資料庫、The Plane Plan)</div>
                                     <p class="timeline-row-desc">

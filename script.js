@@ -63,8 +63,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 const category = row.getAttribute('data-category');
 
                 if (filterValue === 'all' || category === filterValue) {
-                    row.style.display = 'grid';
+                    row.style.display = '';
+                    window.requestAnimationFrame(() => {
+                        row.style.opacity = '1';
+                        row.style.transform = 'translateY(0)';
+                    });
                 } else {
+                    row.style.opacity = '0';
+                    row.style.transform = 'translateY(6px)';
                     row.style.display = 'none';
                 }
             });
@@ -72,7 +78,59 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ----------------------------------------------------
-    // 4. Scroll Spy - Highlight Active Navigation Link
+    // 4. Case Study Segmented Switcher & Flow Navigation
+    // ----------------------------------------------------
+    const switcherTabs = document.querySelectorAll('.switcher-tab');
+    const casePanels = document.querySelectorAll('.case-study-panel');
+    const caseNavBtns = document.querySelectorAll('.case-nav-btn');
+
+    function activateCaseStudy(targetId) {
+        if (!targetId) return;
+
+        switcherTabs.forEach(t => {
+            const isMatch = t.getAttribute('data-target') === targetId;
+            t.classList.toggle('active', isMatch);
+            t.setAttribute('aria-selected', isMatch ? 'true' : 'false');
+        });
+
+        casePanels.forEach(panel => {
+            panel.classList.toggle('active', panel.id === targetId);
+        });
+
+        // Ensure user is smoothly scrolled back to top of case studies
+        const caseSection = document.getElementById('case-studies');
+        if (caseSection) {
+            const headerOffset = 80;
+            const targetTop = caseSection.offsetTop - headerOffset;
+            if (window.pageYOffset > targetTop) {
+                window.scrollTo({
+                    top: targetTop,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    }
+
+    if (switcherTabs.length > 0 && casePanels.length > 0) {
+        switcherTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const targetId = tab.getAttribute('data-target');
+                activateCaseStudy(targetId);
+            });
+        });
+    }
+
+    if (caseNavBtns.length > 0) {
+        caseNavBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetId = btn.getAttribute('data-target');
+                activateCaseStudy(targetId);
+            });
+        });
+    }
+
+    // ----------------------------------------------------
+    // 5. Scroll Spy - Highlight Active Navigation Link
     // ----------------------------------------------------
     const sections = document.querySelectorAll('section[id], footer[id]');
 
@@ -94,10 +152,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    window.addEventListener('scroll', highlightNavOnScroll);
+    window.addEventListener('scroll', highlightNavOnScroll, { passive: true });
 
     // ----------------------------------------------------
-    // 5. Reading Progress Indicator
+    // 6. Reading Progress Indicator (GPU Accelerated)
     // ----------------------------------------------------
     const progressBar = document.getElementById('reading-progress');
 
@@ -109,8 +167,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
 
             if (scrollableHeight > 0) {
-                const scrollRatio = (totalScroll / scrollableHeight) * 100;
-                progressBar.style.width = `${Math.min(100, Math.max(0, scrollRatio))}%`;
+                const scrollRatio = Math.min(1, Math.max(0, totalScroll / scrollableHeight));
+                progressBar.style.transform = `scaleX(${scrollRatio})`;
             }
             isProgressTicking = false;
         }
@@ -120,13 +178,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.requestAnimationFrame(updateReadingProgress);
                 isProgressTicking = true;
             }
-        });
+        }, { passive: true });
 
         updateReadingProgress();
     }
 
     // ----------------------------------------------------
-    // 6. Calm Scroll Entrance Reveals
+    // 7. Calm Scroll Entrance Reveals
     // ----------------------------------------------------
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -155,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ----------------------------------------------------
-    // 7. Media Figure Lightbox Inspection
+    // 8. Media Figure Lightbox Inspection
     // ----------------------------------------------------
     const mediaImages = document.querySelectorAll(
         '.project-media-wrapper img, .research-image-gallery img, .horizontal-media-scroll img, .media-block img'
