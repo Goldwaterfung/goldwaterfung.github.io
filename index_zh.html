@@ -54,11 +54,13 @@
             <div class="hero-container hero-grid">
                 <div class="hero-text-col">
                     <h1 class="hero-title">
-                        我是 馮淦喬 Kim Fung
+                        我是 馮淦喬 <span class="hero-title-3d-container" id="hero-title-3d" aria-label="Kim Fung"><span
+                                class="hero-title-3d-fallback">Kim Fung</span></span>
                     </h1>
 
                     <h2 class="hero-subtitle">
-                        以持續學習與系統交付為核心的技術產品開發者，專注於 <strong>自主 Agent 工作流</strong>、<strong>多模態 AI 系統</strong> 與 <strong>即時互動系統</strong>。
+                        以持續學習與系統交付為核心的技術產品開發者，專注於 <strong>自主 Agent 工作流</strong>、<strong>多模態 AI 系統</strong> 與
+                        <strong>即時互動系統</strong>。
                     </h2>
                 </div>
                 <div class="hero-canvas-col">
@@ -81,7 +83,8 @@
                             從第一性原理與敏捷自學出發，致力於連結底層複雜訊號、自主 Agent 工作流與即時互動應用。
                         </div>
                         <p class="editorial-body">
-                            我習慣從第一性原理出發，透過高強度的自主學習與反覆實驗拆解複雜的技術難題。無論是在 IEEE ICVR 國際會議發表空間聽覺感知研究、架構支援自主 Agent 的音訊工作站系統，或是將即時 3D 互動應用落地於實體門市，我都堅持從底層深入理解系統運作，並以真實數據與用戶行為驗證每一個設計與工程決策。
+                            我習慣從第一性原理出發，透過高強度的自主學習與反覆實驗拆解複雜的技術難題。無論是在 IEEE ICVR 國際會議發表空間聽覺感知研究、架構支援自主 Agent
+                            的音訊工作站系統，或是將即時 3D 互動應用落地於實體門市，我都堅持從底層深入理解系統運作，並以真實數據與用戶行為驗證每一個設計與工程決策。
                         </p>
 
                         <div class="about-contact-links">
@@ -132,25 +135,29 @@
                                 <div class="project-details">
                                     <h3 class="project-row-title">Stratawright - 原生支援 AI Agent CLI 自動化之音訊工作站架構<span
                                             class="badge-new">NEW</span></h3>
-                                    <p class="project-tagline">透過確定性 CLI 控制協議與 Tool Calling Schema 開放多軌音訊遙測數據，讓 AI Coding Agent 控制音訊工程工作流。
+                                    <p class="project-tagline">透過確定性 CLI 控制協議與 Tool Calling Schema 開放多軌音訊遙測數據，讓 AI
+                                        Coding Agent 控制音訊工程工作流。
                                     </p>
 
                                     <figure class="project-media-wrapper">
-                                        <img src="assets/daw/daw-usecase.gif"
-                                            alt="Stratawright DAW Agent CLI 自動化工作流程展示"
+                                        <img src="assets/daw/daw-usecase.gif" alt="Stratawright DAW Agent CLI 自動化工作流程展示"
                                             loading="lazy">
-                                        <figcaption><i
-                                                 class="fa-solid fa-play"></i> Stratawright Agentic DAW CLI 自動化工作流程動態展示</figcaption>
+                                        <figcaption><i class="fa-solid fa-play"></i> Stratawright Agentic DAW CLI
+                                            自動化工作流程動態展示</figcaption>
                                     </figure>
 
                                     <div class="project-qa-group">
                                         <div class="project-qa-item">
                                             <strong class="qa-question">為什麼我要做這個專案？</strong>
-                                            隨著 AI Agent 在軟體開發與文字自動化展現強大能力，我觀察到音訊製作領域仍受限於傳統圖形介面與手動操作。在處理龐大的多軌錄音工程時，創作者耗費大量精力在重複的手動路由、Gain Staging 音量平衡與分軌管理。為了探索 Agent 如何自動化音訊工程，我著手從底層構建連結音訊訊號與 Agent CLI 工具的通訊橋樑。
+                                            隨著 AI Agent
+                                            在軟體開發與文字自動化展現強大能力，我觀察到音訊製作領域仍受限於傳統圖形介面與手動操作。在處理龐大的多軌錄音工程時，創作者耗費大量精力在重複的手動路由、Gain
+                                            Staging 音量平衡與分軌管理。為了探索 Agent 如何自動化音訊工程，我著手從底層構建連結音訊訊號與 Agent CLI 工具的通訊橋樑。
                                         </div>
                                         <div class="project-qa-item">
                                             <strong class="qa-question">這專案解決的是什麼問題？</strong>
-                                            打造原生支援 AI Agent CLI 工作流的音訊工作站架構。系統將底層音訊訊號（峰值分貝、LUFS 響度、頻譜能量分佈與波形特徵）轉譯為確定性 CLI 控制協議與 Tool Calling Schema，讓 Claude Code、Cursor 或 Gemini 等 AI Agent 能檢測音訊遙測數據、組織分軌分組、平衡 Gain Staging、調整聲像 Panning 並透過確定性的命令列指令自動化 DSP 參數。
+                                            打造原生支援 AI Agent CLI 工作流的音訊工作站架構。系統將底層音訊訊號（峰值分貝、LUFS 響度、頻譜能量分佈與波形特徵）轉譯為確定性
+                                            CLI 控制協議與 Tool Calling Schema，讓 Claude Code、Cursor 或 Gemini 等 AI Agent
+                                            能檢測音訊遙測數據、組織分軌分組、平衡 Gain Staging、調整聲像 Panning 並透過確定性的命令列指令自動化 DSP 參數。
                                         </div>
                                     </div>
 
@@ -207,17 +214,21 @@
                                     </p>
                                     <ol class="project-list">
                                         <li><strong>實驗範式創新</strong>：在 Unity 中設計頭部視線與手部指向解耦追蹤範式，分離感官捕捉效應並記錄即時認知修正軌跡。</li>
-                                        <li><strong>感官捕捉與認知代價實證</strong>：證實即便採用 16 聲道三階 Ambisonics 空間音訊，顯著視覺誘餌仍主導初始定位，且跨模態衝突會使認知反應時間增加 1.6 秒。</li>
-                                        <li><strong>空間運算感知基礎</strong>：從認知心理學出發，實證單靠空間音訊無法抵銷視覺錯位，為空間運算介面的跨模態視聽協同提供實證數據與設計準則。</li>
+                                        <li><strong>感官捕捉與認知代價實證</strong>：證實即便採用 16 聲道三階 Ambisonics
+                                            空間音訊，顯著視覺誘餌仍主導初始定位，且跨模態衝突會使認知反應時間增加 1.6 秒。</li>
+                                        <li><strong>空間運算感知基礎</strong>：從認知心理學出發，實證單靠空間音訊無法抵銷視覺錯位，為空間運算介面的跨模態視聽協同提供實證數據與設計準則。
+                                        </li>
                                     </ol>
 
-                                    <p class="project-row-desc" style="display: flex; flex-wrap: wrap; gap: 1.25rem; align-items: center; margin-top: 0.5rem;">
-                                        <a href="https://ieeexplore.ieee.org/document/11672319"
-                                            target="_blank" rel="noopener" class="underline-link"><i
-                                                class="fa-solid fa-file-lines"></i> 前往 IEEE Xplore 查閱論文</a>
+                                    <p class="project-row-desc"
+                                        style="display: flex; flex-wrap: wrap; gap: 1.25rem; align-items: center; margin-top: 0.5rem;">
+                                        <a href="https://ieeexplore.ieee.org/document/11672319" target="_blank"
+                                            rel="noopener" class="underline-link"><i class="fa-solid fa-file-lines"></i>
+                                            前往 IEEE Xplore 查閱論文</a>
                                         <a href="https://github.com/Goldwaterfung/vr-under-sustained-audiovisual-conflict"
                                             target="_blank" rel="noopener" class="underline-link"><i
-                                                class="fa-brands fa-github"></i> 前往 GitHub 查看 Unity 研究專案與 Python 數據處理源碼</a>
+                                                class="fa-brands fa-github"></i> 前往 GitHub 查看 Unity 研究專案與 Python
+                                            數據處理源碼</a>
                                     </p>
 
                                 </div>
@@ -227,27 +238,31 @@
                             <div class="flat-project-row" data-category="agent-studio">
                                 <div class="project-year">2025</div>
                                 <div class="project-details">
-                                    <h3 class="project-row-title">CollarAgent - 支援 LangGraph Agent 協作之 Local-First 視覺化研究工作台
+                                    <h3 class="project-row-title">CollarAgent - 支援 LangGraph Agent 協作之 Local-First
+                                        視覺化研究工作台
                                     </h3>
-                                    <p class="project-tagline">整合無限概念畫布、學術文檔引擎與 LangGraph Agent 狀態機，提供非破壞性視覺 Diff 暫存與持久化記憶。
+                                    <p class="project-tagline">整合無限概念畫布、學術文檔引擎與 LangGraph Agent 狀態機，提供非破壞性視覺 Diff
+                                        暫存與持久化記憶。
                                     </p>
 
                                     <figure class="project-media-wrapper">
                                         <img src="assets/collaragent/showcase-collaragent.gif"
-                                            alt="CollarAgent Local-First 視覺化研究工作台與 Agent 協作展示"
-                                            loading="lazy">
-                                        <figcaption><i
-                                                 class="fa-solid fa-play"></i> CollarAgent 自主 Agent 協作與視覺化 Diff 暫存動態展示</figcaption>
+                                            alt="CollarAgent Local-First 視覺化研究工作台與 Agent 協作展示" loading="lazy">
+                                        <figcaption><i class="fa-solid fa-play"></i> CollarAgent 自主 Agent 協作與視覺化 Diff
+                                            暫存動態展示</figcaption>
                                     </figure>
 
                                     <div class="project-qa-group">
                                         <div class="project-qa-item">
                                             <strong class="qa-question">為什麼我要做這個專案？</strong>
-                                            在進行文獻回顧與研究假設推導時，研究者常在獨立的白板工具、筆記軟體與 AI 對話視窗之間來回切換，導致思維脈絡碎片化。傳統生成式 AI 亦容易全篇覆蓋草稿而抹除重要論述。為此我打造了一套讓自主 Agent 能在概念圖譜與學術文檔中與研究者安全協作的整合工作台。
+                                            在進行文獻回顧與研究假設推導時，研究者常在獨立的白板工具、筆記軟體與 AI 對話視窗之間來回切換，導致思維脈絡碎片化。傳統生成式 AI
+                                            亦容易全篇覆蓋草稿而抹除重要論述。為此我打造了一套讓自主 Agent 能在概念圖譜與學術文檔中與研究者安全協作的整合工作台。
                                         </div>
                                         <div class="project-qa-item">
                                             <strong class="qa-question">這專案解決的是什麼問題？</strong>
-                                            構建一套將 LangGraph 狀態機 Agent 與無限概念畫布及支援 LaTeX 數學式與結構化表格的學術文檔引擎深度整合的桌面應用。實現畫布節點與文檔區塊間的雙向狀態同步、非破壞性的視覺化 Diff 提案預覽機制，以及跨工作階段保留專案研究規範的持久化記憶架構。
+                                            構建一套將 LangGraph 狀態機 Agent 與無限概念畫布及支援 LaTeX
+                                            數學式與結構化表格的學術文檔引擎深度整合的桌面應用。實現畫布節點與文檔區塊間的雙向狀態同步、非破壞性的視覺化 Diff
+                                            提案預覽機制，以及跨工作階段保留專案研究規範的持久化記憶架構。
                                         </div>
                                     </div>
 
@@ -309,18 +324,22 @@
                                 <p>在實體沙龍營運中，顧客在觀看平面照片諮詢時，難以掌握側面弧度與後腦勺層次，造成剪髮前溝通耗時且容易產生預期落差。</p>
 
                                 <h4>產品目標與權限邊界</h4>
-                                <p>作為產品工程師兼共同創辦人，我設定的目標是自學 Unity C# 從零開發輕量化 3D 髮型預覽 App，介接 Google Cloud Storage 實現模型隨選串流，並於沙龍工作台部署專屬 Android 平板，以 360 度立體模型取代平面照片。</p>
+                                <p>作為產品工程師兼共同創辦人，我設定的目標是自學 Unity C# 從零開發輕量化 3D 髮型預覽 App，介接 Google Cloud Storage
+                                    實現模型隨選串流，並於沙龍工作台部署專屬 Android 平板，以 360 度立體模型取代平面照片。</p>
 
                                 <h4>第一線洞察、持續數據追蹤與產品迭代</h4>
                                 <ul>
-                                    <li><strong>現場走查與客群洞察：</strong> 抱持好奇心走入沙龍現場觀察諮詢互動，發現 6 至 12 歲兒童與青少年探索意願最高，迅速調整研發優先級，推出專屬年輕客群 3D 系列。</li>
+                                    <li><strong>現場走查與客群洞察：</strong> 抱持好奇心走入沙龍現場觀察諮詢互動，發現 6 至 12
+                                        歲兒童與青少年探索意願最高，迅速調整研發優先級，推出專屬年輕客群 3D 系列。</li>
                                     <li><strong>每日數據追蹤迴圈：</strong> 建立現場營運數據機制，每日記錄顧客選型與諮詢反饋，與髮型師共同微調 3D 模型細節與諮詢流程。</li>
-                                    <li><strong>Unity URP 架構與 CI/CD 串流：</strong> 採用 Unity C# 與通用渲染管線 (URP) 開發前端互動架構，建立 CI/CD 自動化發布管線與 Google Cloud Storage (GCS) OTA 資產串流，無需手動逐台重裝即可持續向門市平板推送更新。</li>
+                                    <li><strong>Unity URP 架構與 CI/CD 串流：</strong> 採用 Unity C# 與通用渲染管線 (URP) 開發前端互動架構，建立
+                                        CI/CD 自動化發布管線與 Google Cloud Storage (GCS) OTA 資產串流，無需手動逐台重裝即可持續向門市平板推送更新。</li>
                                 </ul>
 
                                 <h4>產品影響力與實際成果</h4>
                                 <p class="highlight-text">
-                                    成功於沙龍等候區與剪髮工作台部署專屬 Android 平板，讓顧客在剪髮前 360 度立體預覽髮型細節。透過每日滿意度追蹤與持續模型調優，在數位資產迭代與現場諮詢之間建立緊密閉環。
+                                    成功於沙龍等候區與剪髮工作台部署專屬 Android 平板，讓顧客在剪髮前 360
+                                    度立體預覽髮型細節。透過每日滿意度追蹤與持續模型調優，在數位資產迭代與現場諮詢之間建立緊密閉環。
                                 </p>
 
                                 <h4>心得與持續學習反思</h4>
@@ -352,13 +371,18 @@
                                 <p>醫諾華醫學科技開發結合 LLM 語音對答與 3D 虛擬病人之 B2B 臨床診斷培訓系統。在初期測試中，醫學生在視診環節頻繁出現診斷困惑與誤判，影響臨床培訓效果。</p>
 
                                 <h4>專案目標與學習定位</h4>
-                                <p>作為暑期 UX 設計實習生，我的目標是親自系統性走查 50 個虛擬病例，探究導致醫學生誤判的根本原因，並學習將表層體驗問題向上溯源至底層資料架構，向研發團隊提出具體且結構化的建議。</p>
+                                <p>作為暑期 UX 設計實習生，我的目標是親自系統性走查 50
+                                    個虛擬病例，探究導致醫學生誤判的根本原因，並學習將表層體驗問題向上溯源至底層資料架構，向研發團隊提出具體且結構化的建議。</p>
 
                                 <h4>動手走查與根本原因診斷</h4>
                                 <ul>
-                                    <li><strong>透過親自走查挑戰既有假設：</strong> 團隊初期推測困惑源於 3D 美術精緻度不足。透過結構化使用者走查，我發現核心問題在於功能性缺陷：LLM 語音回覆與化身動作之間的聲影延遲，以及資料庫病徵文字描述與 3D 模型外觀的客觀落差。</li>
-                                    <li><strong>系統性資料庫與病例交叉比對：</strong> 系統性比對 50 個臨床虛擬病例與資料庫記錄，逐一標註醫療紀錄中提及但 3D 模型上遺漏或標註偏差的細微視覺病徵（如局部紅腫或膚色變化）。</li>
-                                    <li><strong>將體驗回饋錨定於客觀事實：</strong> 將發現整理為結構化比對矩陣並向工程與醫學主管匯報，引導研發資源優先修復聲影同步與病徵資料庫對齊，而非盲目進行美術外觀升級。</li>
+                                    <li><strong>透過親自走查挑戰既有假設：</strong> 團隊初期推測困惑源於 3D
+                                        美術精緻度不足。透過結構化使用者走查，我發現核心問題在於功能性缺陷：LLM 語音回覆與化身動作之間的聲影延遲，以及資料庫病徵文字描述與 3D
+                                        模型外觀的客觀落差。</li>
+                                    <li><strong>系統性資料庫與病例交叉比對：</strong> 系統性比對 50 個臨床虛擬病例與資料庫記錄，逐一標註醫療紀錄中提及但 3D
+                                        模型上遺漏或標註偏差的細微視覺病徵（如局部紅腫或膚色變化）。</li>
+                                    <li><strong>將體驗回饋錨定於客觀事實：</strong>
+                                        將發現整理為結構化比對矩陣並向工程與醫學主管匯報，引導研發資源優先修復聲影同步與病徵資料庫對齊，而非盲目進行美術外觀升級。</li>
                                 </ul>
 
                                 <h4>產品影響力與實際成果</h4>
@@ -390,23 +414,27 @@
                                         alt="工程實機測試畫面：AR 與 RAG 整合之多模態 AI 即時虛擬校長系統介面"
                                         style="width: 100%; max-width: 280px; aspect-ratio: 9/16; object-fit: cover; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); border: 1px solid var(--border-color); display: block;">
                                     <figcaption
-                                        style="font-size: 0.92rem; color: var(--text-secondary); margin-top: 0.6rem; text-align: center;"><i
-                                             class="fa-solid fa-vial"></i> 工程實機測試畫面：即時多模態語音對話與虛擬校長系統介面</figcaption>
+                                        style="font-size: 0.92rem; color: var(--text-secondary); margin-top: 0.6rem; text-align: center;">
+                                        <i class="fa-solid fa-vial"></i> 工程實機測試畫面：即時多模態語音對話與虛擬校長系統介面</figcaption>
                                 </figure>
 
                                 <h4>專案背景與目標</h4>
-                                <p>本專案研發並部署具備即時語音對答能力的 AR 虛擬校長。在本地 GPU 環境端到端運行多模態推論鏈路（語音識別、大語言模型 RAG 與語音合成）會產生 3 至 5 秒的處理延遲，使現場參觀者誤以為系統無反應。我的職責是將多模態鏈路整合至 Unity，設計即時對話感知緩衝機制以在推論期間提供即時視覺反饋，並在校園公開展演中穩定運行。</p>
+                                <p>本專案研發並部署具備即時語音對答能力的 AR 虛擬校長。在本地 GPU 環境端到端運行多模態推論鏈路（語音識別、大語言模型 RAG 與語音合成）會產生 3 至 5
+                                    秒的處理延遲，使現場參觀者誤以為系統無反應。我的職責是將多模態鏈路整合至 Unity，設計即時對話感知緩衝機制以在推論期間提供即時視覺反饋，並在校園公開展演中穩定運行。
+                                </p>
 
                                 <h4>跨團隊協作與技術方案</h4>
                                 <ul>
-                                    <li><strong>感知延遲掩蔽機制工程：</strong> 為化解 3 至 5 秒的運算延遲，我在 Unity 中研發即時對話視覺反饋機制。當檢測到用戶發言結束時，化身立即切換至專注聆聽與運算狀態，向用戶提供明確的運算中視覺確認，直到後端推論完成。</li>
-                                    <li><strong>情緒驅動面部聯動與空間視線追蹤：</strong> 與 AI 模型團隊合作在回覆封包中嵌入情緒標籤，即時驅動 Unity 面部表情與對嘴 Blendshapes，並整合視線追蹤維持自然眼神接觸。</li>
+                                    <li><strong>感知延遲掩蔽機制工程：</strong> 為化解 3 至 5 秒的運算延遲，我在 Unity
+                                        中研發即時對話視覺反饋機制。當檢測到用戶發言結束時，化身立即切換至專注聆聽與運算狀態，向用戶提供明確的運算中視覺確認，直到後端推論完成。</li>
+                                    <li><strong>情緒驅動面部聯動與空間視線追蹤：</strong> 與 AI 模型團隊合作在回覆封包中嵌入情緒標籤，即時驅動 Unity 面部表情與對嘴
+                                        Blendshapes，並整合視線追蹤維持自然眼神接觸。</li>
                                     <li><strong>跨團隊封包時序對齊：</strong> 協調前後端音訊與文本封包序列，確保語音播放時唇形精準同步。</li>
                                 </ul>
 
                                 <h4>產品影響力與實際成果</h4>
                                 <p class="highlight-text">
-                                     在校園展演與貴賓接待中公開展示，系統穩定承載多輪即時語音對答。透過響應式感知緩衝化解後端運算延遲，無需額外擴充 GPU 硬體或雲端架構。
+                                    在校園展演與貴賓接待中公開展示，系統穩定承載多輪即時語音對答。透過響應式感知緩衝化解後端運算延遲，無需額外擴充 GPU 硬體或雲端架構。
                                 </p>
 
                                 <h4>心得與持續學習反思</h4>
@@ -435,19 +463,22 @@
                                     </video>
                                     <span
                                         style="font-size: 0.92rem; color: var(--text-secondary); margin-top: 0.6rem; display: block;"><i
-                                             class="fa-solid fa-compact-disc"></i> 傳統二胡現場 AI 動作捕捉與視聽同步展示</span>
+                                            class="fa-solid fa-compact-disc"></i> 傳統二胡現場 AI 動作捕捉與視聽同步展示</span>
                                 </div>
 
                                 <h4>背景與挑戰</h4>
-                                <p>在傳統二胡現場演奏中部署即時虛擬化身面臨顯著的延遲與同步挑戰。快速運弓動作結合即時音訊串流，在排練期間透過 AI 視覺姿態估計模型處理時容易產生畫面抖動與聲影脫節。</p>
+                                <p>在傳統二胡現場演奏中部署即時虛擬化身面臨顯著的延遲與同步挑戰。快速運弓動作結合即時音訊串流，在排練期間透過 AI 視覺姿態估計模型處理時容易產生畫面抖動與聲影脫節。
+                                </p>
 
                                 <h4>跨領域轉譯與工程目標</h4>
                                 <p>我的目標是在不損害聲音品質的前提下，在運弓姿態估計與連續音訊串流之間找到最佳緩衝窗口，實現舞台級的穩定展演同步。</p>
 
                                 <h4>排練測試與工程取捨</h4>
                                 <ul>
-                                    <li><strong>連結藝術樂句與技術指標：</strong> 工程師關注底層封包延遲，而演奏家更看重視覺節奏與起弓時機。透過抱持好奇心觀察排練現場，我將演奏家約 0.8 秒的自然預備運弓動作映射為精確的幀率緩衝閾值。</li>
-                                    <li><strong>協同緩衝實作：</strong> 將動捕數據與音訊波形並行記錄，確立了 1.5 秒確定性串流緩衝，吸收 AI 推論波動並消除畫面瞬跳，同時保持聲音清晰度。</li>
+                                    <li><strong>連結藝術樂句與技術指標：</strong> 工程師關注底層封包延遲，而演奏家更看重視覺節奏與起弓時機。透過抱持好奇心觀察排練現場，我將演奏家約
+                                        0.8 秒的自然預備運弓動作映射為精確的幀率緩衝閾值。</li>
+                                    <li><strong>協同緩衝實作：</strong> 將動捕數據與音訊波形並行記錄，確立了 1.5 秒確定性串流緩衝，吸收 AI
+                                        推論波動並消除畫面瞬跳，同時保持聲音清晰度。</li>
                                     <li><strong>現場排練與驗證：</strong> 在舞台上進行多次完整彩排，驗證虛擬化身的響應節奏與演奏家的肢體表演高度對齊。</li>
                                 </ul>
 
@@ -486,7 +517,8 @@
                                     <h3 class="timeline-row-title">Product Engineer & Co-Founder</h3>
                                     <div class="timeline-row-org">MRKE Ltd. | 3D 互動軟體與沙龍體驗</div>
                                     <p class="timeline-row-desc">
-                                        負責產品規劃與從零自研 Unity (C#) 3D 髮型預覽應用，建立 CI/CD 發布自動化與 Google Cloud Storage 雲端串流，持續部署於沙龍專屬 Android 平板，化解顧客選型時的 2D 視覺落差。
+                                        負責產品規劃與從零自研 Unity (C#) 3D 髮型預覽應用，建立 CI/CD 發布自動化與 Google Cloud Storage
+                                        雲端串流，持續部署於沙龍專屬 Android 平板，化解顧客選型時的 2D 視覺落差。
                                     </p>
                                 </div>
                             </div>
@@ -499,7 +531,9 @@
                                     <h3 class="timeline-row-title">Systems Integration Engineer</h3>
                                     <div class="timeline-row-org">國立臺南藝術大學</div>
                                     <p class="timeline-row-desc">
-                                        主導大學前瞻創新專案之多模態 AI 鏈路與即時視覺動捕系統整合。於本地 GPU 部署端到端多模態 AI 鏈路（語音識別、大語言模型 RAG、語音合成），並在 Unity 開發即時視聽同步與感知延遲掩蔽機制化解 3 至 5 秒推論等待期。主導二胡現場 AI 動作捕捉與虛擬化身系統整合，透過 1.5 秒確定性緩衝消除姿態推論與音訊抖動，完成音樂廳現場展演。
+                                        主導大學前瞻創新專案之多模態 AI 鏈路與即時視覺動捕系統整合。於本地 GPU 部署端到端多模態 AI 鏈路（語音識別、大語言模型 RAG、語音合成），並在
+                                        Unity 開發即時視聽同步與感知延遲掩蔽機制化解 3 至 5 秒推論等待期。主導二胡現場 AI 動作捕捉與虛擬化身系統整合，透過 1.5
+                                        秒確定性緩衝消除姿態推論與音訊抖動，完成音樂廳現場展演。
                                     </p>
                                 </div>
                             </div>
@@ -609,7 +643,8 @@
                                     <h3 class="timeline-row-title">Mixing Engineer & Audio Producer</h3>
                                     <div class="timeline-row-org">獨立音樂創作者合作 (Makav 真愛、宇宙資料庫、The Plane Plan)</div>
                                     <p class="timeline-row-desc">
-                                        長期投入獨立音樂分軌混音與專業審聽實踐，將音樂人的創作意念轉譯為細緻均衡的聲音作品。這份對聲音工程的持續鑽研，亦促成合作作品入選 Jam Jam Asia 2026 官方展演陣容。
+                                        長期投入獨立音樂分軌混音與專業審聽實踐，將音樂人的創作意念轉譯為細緻均衡的聲音作品。這份對聲音工程的持續鑽研，亦促成合作作品入選 Jam Jam Asia
+                                        2026 官方展演陣容。
                                     </p>
                                 </div>
                             </div>

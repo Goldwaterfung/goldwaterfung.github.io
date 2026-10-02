@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { HeroCanvas } from './HeroCanvas';
+import { HeroTitleCanvas } from './HeroTitleCanvas';
 
 function isWebGLAvailable(): boolean {
   try {
@@ -32,8 +33,32 @@ function mountHeroCanvas() {
   );
 }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', mountHeroCanvas);
-} else {
-  mountHeroCanvas();
+function mountTitleCanvas() {
+  const mountTarget = document.getElementById('hero-title-3d');
+  if (!mountTarget) {
+    return;
+  }
+
+  if (!isWebGLAvailable()) {
+    return;
+  }
+
+  const root = ReactDOM.createRoot(mountTarget);
+  root.render(
+    <React.StrictMode>
+      <HeroTitleCanvas />
+    </React.StrictMode>
+  );
 }
+
+function init() {
+  mountHeroCanvas();
+  mountTitleCanvas();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
+
