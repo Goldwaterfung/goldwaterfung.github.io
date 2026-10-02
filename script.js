@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!prefersReducedMotion && 'IntersectionObserver' in window) {
         const revealTargets = document.querySelectorAll(
-            '.section-grid, .flat-project-row, .flat-case-card, .timeline-row, .accordion-item, .contact-link-item'
+            '.case-study-card, .flat-project-row, .timeline-row, .accordion-item, .contact-link-item'
         );
 
         const revealObserver = new IntersectionObserver((entries, observer) => {
@@ -144,8 +144,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }, {
             root: null,
-            rootMargin: '0px 0px -40px 0px',
-            threshold: 0.06
+            rootMargin: '0px 0px -20px 0px',
+            threshold: 0.01
         });
 
         revealTargets.forEach(el => {

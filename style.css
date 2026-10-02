@@ -231,6 +231,7 @@ body {
     height: 100%;
     position: relative;
     touch-action: pan-y;
+    cursor: pointer;
 }
 
 .hero-canvas-wrapper,
@@ -284,13 +285,6 @@ body {
 .hero-subtitle strong {
     color: var(--accent-amber);
     font-weight: 600;
-}
-
-.hero-description {
-    font-size: 1.1rem;
-    color: var(--text-secondary);
-    max-width: 68ch;
-    line-height: 1.7;
 }
 
 /* ==========================================================================
@@ -1073,6 +1067,15 @@ figcaption {
 
 @media (prefers-reduced-motion: reduce) {
     .reveal-item {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Ensure tall deployment case study cards are immediately visible on mobile */
+    .case-study-card.reveal-item {
         opacity: 1 !important;
         transform: none !important;
         transition: none !important;
