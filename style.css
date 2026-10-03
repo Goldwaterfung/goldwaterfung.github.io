@@ -1555,11 +1555,23 @@ figcaption {
     transform: translateY(0);
 }
 
+#projects .section-meta.reveal-item {
+    transform: translateY(12px);
+}
+
+.flat-project-row.reveal-item {
+    transition-delay: calc(var(--row-index, 0) * 45ms);
+}
+
 @media (prefers-reduced-motion: reduce) {
     .reveal-item {
         opacity: 1 !important;
         transform: none !important;
         transition: none !important;
+    }
+
+    .flat-project-row.reveal-item {
+        transition-delay: 0ms !important;
     }
 }
 

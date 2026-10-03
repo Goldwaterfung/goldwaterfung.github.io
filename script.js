@@ -294,8 +294,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+        const projectRows = document.querySelectorAll('.flat-project-grid .flat-project-row');
+        projectRows.forEach((row, idx) => {
+            row.style.setProperty('--row-index', idx);
+        });
+
         const revealTargets = document.querySelectorAll(
-            '.flat-project-row, .timeline-row, .contact-link-item'
+            '#projects .section-meta, .flat-project-row, .timeline-row, .contact-link-item'
         );
 
         const revealObserver = new IntersectionObserver((entries, observer) => {
