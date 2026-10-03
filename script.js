@@ -102,13 +102,20 @@ document.addEventListener('DOMContentLoaded', () => {
         currentSlideIndex = index;
 
         caseSlides.forEach((slide, i) => {
-            slide.classList.remove('active', 'past', 'future');
+            slide.classList.remove('active', 'past', 'future', 'stack-1', 'stack-2', 'stack-3');
             if (i === index) {
                 slide.classList.add('active');
             } else if (i < index) {
                 slide.classList.add('past');
             } else {
-                slide.classList.add('future');
+                const depth = i - index;
+                if (depth === 1) {
+                    slide.classList.add('stack-1');
+                } else if (depth === 2) {
+                    slide.classList.add('stack-2');
+                } else {
+                    slide.classList.add('stack-3');
+                }
             }
         });
 
@@ -136,6 +143,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Initialize slide deck state
+    if (caseSlides.length > 0) {
+        setSlide(0, false);
+    }
 
     // ----------------------------------------------------
     // 4. Vertical Transit Map Journey Controller

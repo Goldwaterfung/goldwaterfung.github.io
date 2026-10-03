@@ -39,7 +39,7 @@ export function createDefaultJourneyNetwork(): TransitNetwork {
     nameZh: '香港嘉里酒店',
     period: 'Jul 2017 - Jun 2020',
     periodZh: '2017 年 7 月 - 2020 年 6 月',
-    role: 'Guest Experience Concierge',
+    role: 'Associate Concierge',
     roleZh: '前廳禮賓接待 (開幕籌備團隊)',
     org: 'Kerry Hotel Hong Kong (Shangri-La Group)',
     orgZh: '香格里拉集團開幕籌備團隊',
@@ -55,8 +55,8 @@ export function createDefaultJourneyNetwork(): TransitNetwork {
     nameZh: '自學 Unity C# 與 Blender',
     period: '2019',
     periodZh: '2019 年',
-    role: 'Self-Taught Systems & 3D',
-    roleZh: '自主研習 3D 運算與物件導向程式',
+    role: 'Self-Taught Programming & 3D',
+    roleZh: '自主研習程式設計與 3D',
     org: 'Independent Study & Technical Foundations',
     orgZh: '獨立技術實踐與系統原型開發',
     side: 'left',
@@ -103,8 +103,8 @@ export function createDefaultJourneyNetwork(): TransitNetwork {
     nameZh: 'MRKE Ltd. (門市商業營運)',
     period: 'Dec 2020 - Jun 2026',
     periodZh: '2020 年 12 月 - 2026 年 6 月',
-    role: 'Co-Founder & Retail Business Operator',
-    roleZh: '共同創辦人暨門市商業營運',
+    role: 'Co-Founder',
+    roleZh: '共同創辦人',
     org: 'MRKE Ltd. | Fast-Turnaround Haircut Business',
     orgZh: 'MRKE Ltd. | 快速剪髮實體商業營運',
     side: 'right',
@@ -150,8 +150,8 @@ export function createDefaultJourneyNetwork(): TransitNetwork {
     nameZh: 'MRKE 3D 髮型預覽軟體',
     period: '2022 - Jun 2026',
     periodZh: '2022 年 - 2026 年 6 月',
-    role: 'Product Engineer & Software Builder',
-    roleZh: '產品工程師暨軟體開發者',
+    role: 'Product Engineer',
+    roleZh: '產品工程師',
     org: 'MRKE Ltd. | In-House Interactive 3D Tooling',
     orgZh: 'MRKE Ltd. | 店內專用 3D 互動軟體研發',
     side: 'right',
@@ -189,6 +189,54 @@ export function createDefaultJourneyNetwork(): TransitNetwork {
     lineType: 'siding',
   })
 
+  // Station 8: CollarAgent Research Studio (Local-First Autonomous Research Studio)
+  productLine.addPoint({
+    id: 'station-8',
+    date: '2025-02',
+    name: 'CollarAgent Research Studio',
+    nameZh: 'CollarAgent 視覺化研究工作台',
+    period: '2025',
+    periodZh: '2025 年',
+    role: 'Creator',
+    roleZh: 'Creator',
+    org: 'CollarAgent | Visual Research Studio',
+    orgZh: 'CollarAgent | 視覺化研究工作台',
+    side: 'right',
+    lineType: 'product',
+  })
+
+  // Station 9: IEEE ICVR 2026 Research (First Author Ambisonics VR Research)
+  systemsLine.addPoint({
+    id: 'station-9',
+    date: '2025-08',
+    name: 'IEEE ICVR 2026 Research',
+    nameZh: 'IEEE ICVR 2026 國際研究發表',
+    period: '2025 - 2026',
+    periodZh: '2025 年 - 2026 年',
+    role: 'First Author',
+    roleZh: '第一作者',
+    org: 'IEEE ICVR 2026 | Cardiff, UK',
+    orgZh: 'IEEE ICVR 2026 虛擬實境國際研討會',
+    side: 'left',
+    lineType: 'systems',
+  })
+
+  // Station 10: Stratawright Agentic DAW (Digital Audio Workstation for Coding Agents)
+  systemsLine.addPoint({
+    id: 'station-10',
+    date: '2026-01',
+    name: 'Stratawright Agentic DAW',
+    nameZh: 'Stratawright 音訊工作站架構',
+    period: '2026',
+    periodZh: '2026 年',
+    role: 'Creator',
+    roleZh: 'Creator',
+    org: 'Stratawright | Agentic Audio Workstation',
+    orgZh: 'Stratawright | 智慧代理音訊工作站',
+    side: 'left',
+    lineType: 'systems',
+  })
+
   // 5. Unified Trajectory Line (Terminal line)
   const terminalLine = network.createLine({
     id: 'unified',
@@ -202,10 +250,10 @@ export function createDefaultJourneyNetwork(): TransitNetwork {
     casingColor: COLOR_CASING,
   })
 
-  // Station 8: Next Destination
+  // Station 11: Next Destination
   terminalLine.addPoint({
-    id: 'station-8',
-    date: '2026-01',
+    id: 'station-11',
+    date: '2026-06',
     name: 'Next Destination',
     nameZh: '下一站',
     period: '2026+',

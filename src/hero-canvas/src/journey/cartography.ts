@@ -37,6 +37,9 @@ const DEFAULT_SIDES: StationSide[] = [
   'right',
   'left',
   'right',
+  'left',
+  'left',
+  'right',
 ]
 
 /**

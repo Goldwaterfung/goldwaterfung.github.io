@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@react-three/fiber": "^9.8.1",
+    "framer-motion": "^14.0.0",
     "opentype.js": "^2.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

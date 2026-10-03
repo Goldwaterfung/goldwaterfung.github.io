@@ -549,47 +549,91 @@ html {
     position: relative;
     width: 100%;
     height: 100%;
+    perspective: 1400px;
+    perspective-origin: center center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .case-slide {
     position: absolute;
     inset: 0;
-    width: 100%;
-    height: 100%;
-    padding-top: var(--case-padding-top, clamp(1rem, 3.2vh, 2.2rem));
-    padding-bottom: var(--case-padding-bottom, clamp(1rem, 3.2vh, 2.2rem));
-    padding-left: clamp(1.5rem, 4.5vw, 4rem);
-    padding-right: clamp(1.5rem, 4.5vw, 4rem);
+    margin: auto;
+    width: min(1200px, calc(100% - clamp(2.5rem, 6vw, 6rem)));
+    height: calc(100% - clamp(2rem, 5vh, 4rem));
+    max-height: 780px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    box-shadow: 0 10px 32px rgba(28, 28, 30, 0.06), 0 1px 2px rgba(28, 28, 30, 0.04);
+    padding: var(--case-padding-top, clamp(1.2rem, 2.5vh, 2rem)) clamp(1.5rem, 3.5vw, 2.8rem) var(--case-padding-bottom, clamp(1.2rem, 2.5vh, 2rem));
     box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0;
-    pointer-events: none;
     overflow: hidden;
-    background-color: var(--bg-body);
-    transition: opacity 160ms var(--ease-out);
+    will-change: transform, opacity;
+    transform-origin: center bottom;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transition: transform 520ms cubic-bezier(0.2, 0.9, 0.25, 1),
+                opacity 420ms ease,
+                box-shadow 420ms ease;
 }
 
+/* 1. Active Front Card */
 .case-slide.active {
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
     opacity: 1;
+    z-index: 10;
     pointer-events: auto;
-    z-index: 2;
-    transition: opacity 220ms var(--ease-out);
+    box-shadow: 0 20px 48px rgba(28, 28, 30, 0.09), 0 2px 6px rgba(28, 28, 30, 0.04);
 }
 
+/* 2. Swiped Away Card (Tinder swipe-out effect) */
 .case-slide.past {
+    transform: translate3d(-125%, -20px, 0) rotate(-14deg);
     opacity: 0;
+    z-index: 25;
     pointer-events: none;
-    z-index: 1;
-    transition: opacity 160ms var(--ease-out);
+    transition: transform 560ms cubic-bezier(0.2, 0.85, 0.3, 1), opacity 420ms ease;
+}
+
+/* Alternating swipe direction for even-numbered slide cards */
+.case-slide:nth-child(even).past {
+    transform: translate3d(125%, -20px, 0) rotate(14deg);
+}
+
+/* 3. Cards waiting behind in the stack */
+.case-slide.stack-1 {
+    transform: translate3d(0, 16px, -40px) scale(0.96) rotate(0deg);
+    opacity: 0.88;
+    z-index: 9;
+    pointer-events: none;
+    box-shadow: 0 12px 30px rgba(28, 28, 30, 0.05);
+}
+
+.case-slide.stack-2 {
+    transform: translate3d(0, 32px, -80px) scale(0.92) rotate(0deg);
+    opacity: 0.55;
+    z-index: 8;
+    pointer-events: none;
+    box-shadow: 0 8px 20px rgba(28, 28, 30, 0.04);
+}
+
+.case-slide.stack-3 {
+    transform: translate3d(0, 48px, -120px) scale(0.88) rotate(0deg);
+    opacity: 0.25;
+    z-index: 7;
+    pointer-events: none;
 }
 
 .case-slide.future {
+    transform: translate3d(0, 48px, -120px) scale(0.88) rotate(0deg);
     opacity: 0;
+    z-index: 6;
     pointer-events: none;
-    z-index: 1;
-    transition: opacity 160ms var(--ease-out);
 }
 
 .case-canvas-grid {
@@ -610,46 +654,6 @@ html {
     min-height: 0;
     overflow-y: auto;
     scrollbar-width: thin;
-    will-change: transform, opacity;
-}
-
-/* Choreographed column entrance and exit */
-.case-slide .case-col-left {
-    transform: translateY(12px);
-    opacity: 0;
-    transition: transform 150ms var(--ease-out), opacity 130ms var(--ease-out);
-}
-
-.case-slide .case-col-right {
-    transform: translateY(14px);
-    opacity: 0;
-    transition: transform 150ms var(--ease-out), opacity 130ms var(--ease-out);
-}
-
-.case-slide.active .case-col-left {
-    transform: translateY(0);
-    opacity: 1;
-    transition: transform 260ms var(--ease-out), opacity 220ms var(--ease-out);
-}
-
-.case-slide.active .case-col-right {
-    transform: translateY(0);
-    opacity: 1;
-    transition: transform 270ms var(--ease-out) 35ms, opacity 230ms var(--ease-out) 35ms;
-}
-
-.case-slide.past .case-col-left,
-.case-slide.past .case-col-right {
-    transform: translateY(-10px);
-    opacity: 0;
-    transition: transform 150ms var(--ease-out), opacity 130ms var(--ease-out);
-}
-
-.case-slide.future .case-col-left,
-.case-slide.future .case-col-right {
-    transform: translateY(12px);
-    opacity: 0;
-    transition: transform 150ms var(--ease-out), opacity 130ms var(--ease-out);
 }
 
 .case-header-compact {
@@ -832,7 +836,8 @@ html {
     .case-sticky-stage {
         position: relative;
         top: 0;
-        height: auto;
+        height: auto !important;
+        max-height: none !important;
         padding: 2rem 1.2rem;
         overflow: visible;
     }
@@ -843,21 +848,36 @@ html {
 
     .case-slides-viewport {
         position: relative;
-        height: auto;
+        height: auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 2rem !important;
+        perspective: none !important;
+        width: 100% !important;
     }
 
-    .case-slide {
-        position: relative;
-        inset: auto;
-        display: none;
-        height: auto;
+    .case-slide,
+    .case-slide.active,
+    .case-slide.past,
+    .case-slide.stack-1,
+    .case-slide.stack-2,
+    .case-slide.stack-3,
+    .case-slide.future {
+        position: relative !important;
+        inset: auto !important;
+        display: block !important;
+        width: 100% !important;
+        height: auto !important;
+        max-height: none !important;
         transform: none !important;
         opacity: 1 !important;
-        padding: 1rem 0;
-    }
-
-    .case-slide.active {
-        display: block;
+        pointer-events: auto !important;
+        padding: 1.6rem 1.2rem !important;
+        box-shadow: 0 4px 18px rgba(28, 28, 30, 0.05) !important;
+        border: 1px solid var(--border-color) !important;
+        border-radius: 16px !important;
+        background-color: var(--bg-card) !important;
+        margin: 0 !important;
     }
 
     .case-col-left,
@@ -865,6 +885,9 @@ html {
         transform: none !important;
         opacity: 1 !important;
         transition: none !important;
+        overflow: visible !important;
+        max-height: none !important;
+        height: auto !important;
     }
 
     .case-canvas-grid {
@@ -1094,11 +1117,16 @@ figcaption {
 
 .journey-header {
     margin-bottom: 3.5rem;
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
 
 .journey-meta-title {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
     gap: 0.25rem;
 }
 
@@ -1120,7 +1148,7 @@ figcaption {
     position: relative;
     max-width: 1140px;
     margin: 0 auto;
-    min-height: 2200px;
+    min-height: 2800px;
     width: 100%;
 }
 
@@ -1129,7 +1157,7 @@ figcaption {
     left: 50%;
     transform: translateX(-50%);
     width: 320px;
-    height: 2120px;
+    height: 2800px;
     z-index: 2;
     pointer-events: auto;
     contain: layout paint;
@@ -1239,9 +1267,30 @@ figcaption {
     transform: translateY(-50%);
 }
 
-/* Station 8: Next Destination (Right side, y = 1980px) */
+/* Station 8: CollarAgent Research Studio (Right side, y = 1920px) */
 .journey-card[data-station="7"] {
-    top: 1980px;
+    top: 1920px;
+    left: calc(50% + 160px);
+    transform: translateY(-50%);
+}
+
+/* Station 9: IEEE ICVR 2026 Research (Left side, y = 2140px) */
+.journey-card[data-station="8"] {
+    top: 2140px;
+    right: calc(50% + 160px);
+    transform: translateY(-50%);
+}
+
+/* Station 10: Stratawright Agentic DAW (Left side, y = 2360px) */
+.journey-card[data-station="9"] {
+    top: 2360px;
+    right: calc(50% + 160px);
+    transform: translateY(-50%);
+}
+
+/* Station 11: Next Destination (Right side, y = 2640px) */
+.journey-card[data-station="10"] {
+    top: 2640px;
     left: calc(50% + 160px);
     transform: translateY(-50%);
 }
@@ -1253,7 +1302,10 @@ figcaption {
 .journey-card[data-station="4"]:hover,
 .journey-card[data-station="5"]:hover,
 .journey-card[data-station="6"]:hover,
-.journey-card[data-station="7"]:hover {
+.journey-card[data-station="7"]:hover,
+.journey-card[data-station="8"]:hover,
+.journey-card[data-station="9"]:hover,
+.journey-card[data-station="10"]:hover {
     transform: translateY(-50%) translateY(-2px);
     z-index: 10;
 }

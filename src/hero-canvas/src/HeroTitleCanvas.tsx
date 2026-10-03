@@ -1,11 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import {
-  Mesh,
-  BufferGeometry,
-  MathUtils,
-} from 'three';
+import { Mesh, BufferGeometry } from 'three';
 import { parse as parseOpentype } from 'opentype.js';
+import { useMotionValue, useSpring, animate, useReducedMotion } from 'framer-motion';
 import { create3DTextGeometry } from './create3DTextGeometry';
 
 const getFontUrl = (): string => {
@@ -21,44 +18,72 @@ interface Text3DMeshProps {
 
 const Text3DMesh: React.FC<Text3DMeshProps> = ({ geometry }) => {
   const meshRef = useRef<Mesh>(null);
-  const nodOffset = useRef(0);
-  const nodVelocity = useRef(0);
+  const shouldReduceMotion = useReducedMotion();
+
+  // Entrance spring scaling smoothly from 0.95 to 1.0
+  const enterScale = useSpring(0.95, { stiffness: 140, damping: 16 });
+
+  // Spring physics for pointer tilt tracking
+  const pointerX = useMotionValue(0);
+  const pointerY = useMotionValue(0);
+  const springConfig = { stiffness: 140, damping: 18, mass: 0.8 };
+  const smoothRotY = useSpring(pointerX, springConfig);
+  const smoothRotX = useSpring(pointerY, springConfig);
+
+  // Interactive springs for hover lift and click recoil
+  const hoverScale = useSpring(1.0, { stiffness: 220, damping: 20 });
+  const hoverZ = useSpring(0, { stiffness: 220, damping: 20 });
+  const nodRotX = useMotionValue(0);
+
+  useEffect(() => {
+    enterScale.set(1.0);
+  }, [enterScale]);
 
   const handleClick = (e: { stopPropagation: () => void }) => {
     e.stopPropagation();
-    nodVelocity.current = -0.18;
+    // Tactile multi-phase nod recoil with physical spring
+    animate(nodRotX, [0, -0.22, 0.08, -0.02, 0], {
+      type: 'spring',
+      stiffness: 280,
+      damping: 14,
+      mass: 0.6,
+    });
   };
 
-  useFrame((state, delta) => {
+  const handlePointerOver = () => {
+    if (!shouldReduceMotion) {
+      hoverScale.set(1.035);
+      hoverZ.set(0.14);
+    }
+  };
+
+  const handlePointerOut = () => {
+    hoverScale.set(1.0);
+    hoverZ.set(0);
+  };
+
+  useFrame((state) => {
     if (!meshRef.current) return;
-    const clampedDelta = Math.min(delta, 0.1);
     const time = state.clock.getElapsedTime();
 
-    // Natural spring physics for interactive click nod
-    nodVelocity.current += -nodOffset.current * 20.0 * clampedDelta;
-    nodVelocity.current *= Math.exp(-clampedDelta * 8.0);
-    nodOffset.current += nodVelocity.current * clampedDelta;
-
     // Subtle breathing float and idle movement
-    const idleYaw = Math.sin(time * 0.8) * 0.025;
-    const idlePitch = Math.cos(time * 0.6) * 0.015;
+    const idleYaw = shouldReduceMotion ? 0 : Math.sin(time * 0.8) * 0.022;
+    const idlePitch = shouldReduceMotion ? 0 : Math.cos(time * 0.6) * 0.014;
 
-    // Smooth cursor tracking tilt
-    const targetRotX = -state.pointer.y * 0.22 + idlePitch + nodOffset.current;
-    const targetRotY = state.pointer.x * 0.32 + idleYaw;
+    if (!shouldReduceMotion) {
+      pointerX.set(state.pointer.x * 0.32);
+      pointerY.set(-state.pointer.y * 0.22);
+    } else {
+      pointerX.set(0);
+      pointerY.set(0);
+    }
 
-    meshRef.current.rotation.x = MathUtils.damp(
-      meshRef.current.rotation.x,
-      targetRotX,
-      4.0,
-      clampedDelta
-    );
-    meshRef.current.rotation.y = MathUtils.damp(
-      meshRef.current.rotation.y,
-      targetRotY,
-      4.0,
-      clampedDelta
-    );
+    meshRef.current.rotation.x = smoothRotX.get() + nodRotX.get() + idlePitch;
+    meshRef.current.rotation.y = smoothRotY.get() + idleYaw;
+    meshRef.current.position.z = hoverZ.get();
+
+    const scale = enterScale.get() * hoverScale.get();
+    meshRef.current.scale.set(scale, scale, scale);
   });
 
   return (
@@ -66,6 +91,8 @@ const Text3DMesh: React.FC<Text3DMeshProps> = ({ geometry }) => {
       ref={meshRef}
       geometry={geometry}
       onClick={handleClick}
+      onPointerOver={handlePointerOver}
+      onPointerOut={handlePointerOut}
       position={[0, 0, 0]}
     >
       <meshStandardMaterial
