@@ -1120,7 +1120,7 @@ figcaption {
     position: relative;
     max-width: 1140px;
     margin: 0 auto;
-    min-height: 1620px;
+    min-height: 2200px;
     width: 100%;
 }
 
@@ -1129,7 +1129,7 @@ figcaption {
     left: 50%;
     transform: translateX(-50%);
     width: 320px;
-    height: 1520px;
+    height: 2120px;
     z-index: 2;
     pointer-events: auto;
     contain: layout paint;
@@ -1190,44 +1190,58 @@ figcaption {
 }
 
 /* Desktop Exact Coordinate Alignment with Transit Stubs */
-/* Station 1: Kerry Hotel (Right side, y = 170px) */
+/* Station 1: Kerry Hotel (Right side, y = 180px) */
 .journey-card[data-station="0"] {
-    top: 170px;
+    top: 180px;
     left: calc(50% + 160px);
     transform: translateY(-50%);
 }
 
-/* Station 2: Courtyard by Marriott (Right side, y = 470px) */
+/* Station 2: Self-Taught Unity C# & Blender (Left side, y = 400px) */
 .journey-card[data-station="1"] {
-    top: 470px;
-    left: calc(50% + 160px);
+    top: 400px;
+    right: calc(50% + 160px);
     transform: translateY(-50%);
 }
 
-/* Station 3: Systems Integration Engineer (Left side, y = 740px) */
+/* Station 3: Courtyard by Marriott (Right side, y = 620px) */
 .journey-card[data-station="2"] {
-    top: 740px;
-    right: calc(50% + 160px);
-    transform: translateY(-50%);
-}
-
-/* Station 5: MRKE Ltd. (Right side, y = 820px) */
-.journey-card[data-station="4"] {
-    top: 820px;
+    top: 620px;
     left: calc(50% + 160px);
     transform: translateY(-50%);
 }
 
-/* Station 4: Innova Medical Technology (Left side, y = 1110px) */
+/* Station 4: MRKE Retail Enterprise (Right side, y = 1040px) */
 .journey-card[data-station="3"] {
-    top: 1110px;
+    top: 1040px;
+    left: calc(50% + 160px);
+    transform: translateY(-50%);
+}
+
+/* Station 5: Systems Integration Engineer (Left side, y = 1260px) */
+.journey-card[data-station="4"] {
+    top: 1260px;
     right: calc(50% + 160px);
     transform: translateY(-50%);
 }
 
-/* Station 6: Next Destination (Right side, y = 1440px) */
+/* Station 6: MRKE 3D Software (Right side, y = 1480px) */
 .journey-card[data-station="5"] {
-    top: 1440px;
+    top: 1480px;
+    left: calc(50% + 160px);
+    transform: translateY(-50%);
+}
+
+/* Station 7: Innova Medical Technology (Left side, y = 1700px) */
+.journey-card[data-station="6"] {
+    top: 1700px;
+    right: calc(50% + 160px);
+    transform: translateY(-50%);
+}
+
+/* Station 8: Next Destination (Right side, y = 1980px) */
+.journey-card[data-station="7"] {
+    top: 1980px;
     left: calc(50% + 160px);
     transform: translateY(-50%);
 }
@@ -1237,7 +1251,9 @@ figcaption {
 .journey-card[data-station="2"]:hover,
 .journey-card[data-station="3"]:hover,
 .journey-card[data-station="4"]:hover,
-.journey-card[data-station="5"]:hover {
+.journey-card[data-station="5"]:hover,
+.journey-card[data-station="6"]:hover,
+.journey-card[data-station="7"]:hover {
     transform: translateY(-50%) translateY(-2px);
     z-index: 10;
 }
