@@ -120,6 +120,26 @@ export const LONDON_MAP_STATIONS: LondonMapStation[] = [
     labelY: 804,
     textAnchor: 'start',
   },
+  {
+    id: 'station-6',
+    stationNumber: 6,
+    index: 5,
+    name: 'Next Destination',
+    nameZh: '下一站',
+    period: '2026+',
+    periodZh: '2026 年起',
+    role: 'Integrating Business, Creativity, and Engineering',
+    roleZh: '融合商業、創意與工程',
+    org: 'Open to Diverse Paths & Opportunities',
+    orgZh: '探索多元跨領域發展機會',
+    x: 140,
+    y: 1440,
+    lineType: 'interchange',
+    labelX: 158,
+    labelY: 1424,
+    textAnchor: 'start',
+    isInterchange: true,
+  },
 ]
 
 interface LondonTransitMapProps {
@@ -331,7 +351,11 @@ export const LondonTransitMap: React.FC<LondonTransitMapProps> = ({
               : COLOR_BLACK
 
           // Direction of horizontal connector stub toward adjacent card
-          const isRightCard = station.index === 0 || station.index === 1 || station.index === 4
+          const isRightCard =
+            station.index === 0 ||
+            station.index === 1 ||
+            station.index === 4 ||
+            station.index === 5
           const stubTargetX = isRightCard ? 280 : -40
 
           return (

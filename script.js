@@ -26,117 +26,116 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-
-
-    // ----------------------------------------------------
-    // 2. Dynamic Case Slide Padding Calculation
-    // ----------------------------------------------------
-    function calculateStageMetrics() {
-        const header = document.querySelector('.header');
-        const headerHeight = header ? Math.round(header.getBoundingClientRect().height) : 70;
-        const screenHeight = window.innerHeight;
-        const availableHeight = screenHeight - headerHeight;
-
-        // Proportional top and bottom padding based on available height.
-        // Stage height itself is handled by CSS dvh units, no JS pixel injection needed.
-        const verticalPadding = Math.max(16, Math.min(36, Math.round(availableHeight * 0.035)));
-
-        document.documentElement.style.setProperty('--case-padding-top', `${verticalPadding}px`);
-        document.documentElement.style.setProperty('--case-padding-bottom', `${verticalPadding}px`);
-    }
-
-    calculateStageMetrics();
-    window.addEventListener('resize', calculateStageMetrics, { passive: true });
-    window.addEventListener('orientationchange', calculateStageMetrics, { passive: true });
+    // Explicit smooth scrolling for in-page anchor links without global CSS scroll-behavior physics conflict
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', (e) => {
+            const targetId = anchor.getAttribute('href');
+            if (targetId && targetId !== '#') {
+                const targetEl = document.querySelector(targetId);
+                if (targetEl) {
+                    e.preventDefault();
+                    targetEl.scrollIntoView({ behavior: 'smooth' });
+                    if (window.history && window.history.pushState) {
+                        window.history.pushState(null, '', targetId);
+                    }
+                }
+            }
+        });
+    });
 
     // ----------------------------------------------------
-    // 3. Immersive Pinned Case Studies Scroll & Snap Controller
+    // 2. Cached Layout Metrics (Decoupled from Scroll Events)
     // ----------------------------------------------------
     const caseStudiesSection = document.getElementById('case-studies');
     const caseSlides = document.querySelectorAll('.case-slide');
     const caseDots = document.querySelectorAll('.case-indicator-dot');
+    const sections = document.querySelectorAll('section[id], footer[id]');
+    const progressBar = document.getElementById('reading-progress');
 
-    if (caseStudiesSection && caseSlides.length > 0) {
-        let currentSlideIndex = 0;
-        const totalSlides = caseSlides.length;
+    let cachedHeaderHeight = 70;
+    let cachedCaseTop = 0;
+    let cachedCaseScrollable = 0;
+    let cachedScrollableHeight = 0;
+    let cachedNavSections = [];
 
-        function setSlide(index, smoothScroll = false) {
-            if (index < 0 || index >= totalSlides) return;
-            currentSlideIndex = index;
+    function updateCachedLayout() {
+        const header = document.querySelector('.header');
+        cachedHeaderHeight = header ? Math.round(header.getBoundingClientRect().height) : 70;
+        const screenHeight = window.innerHeight;
+        const availableHeight = screenHeight - cachedHeaderHeight;
 
-            caseSlides.forEach((slide, i) => {
-                slide.classList.remove('active', 'past', 'future');
-                if (i === index) {
-                    slide.classList.add('active');
-                } else if (i < index) {
-                    slide.classList.add('past');
-                } else {
-                    slide.classList.add('future');
-                }
-            });
+        const verticalPadding = Math.max(16, Math.min(36, Math.round(availableHeight * 0.035)));
+        document.documentElement.style.setProperty('--case-padding-top', `${verticalPadding}px`);
+        document.documentElement.style.setProperty('--case-padding-bottom', `${verticalPadding}px`);
 
-            caseDots.forEach((dot, i) => {
-                const isActive = i === index;
-                dot.classList.toggle('active', isActive);
-                dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
-            });
+        cachedScrollableHeight = document.documentElement.scrollHeight - screenHeight;
 
-            if (smoothScroll && window.innerWidth > 960) {
-                const sectionTop = caseStudiesSection.offsetTop;
-                const header = document.querySelector('.header');
-                const headerOffset = header ? header.getBoundingClientRect().height : 70;
-                const scrollable = caseStudiesSection.offsetHeight - window.innerHeight;
-                if (scrollable > 0) {
-                    const targetY = sectionTop - headerOffset + (index / (totalSlides - 1)) * scrollable;
-                    window.scrollTo({
-                        top: targetY,
-                        behavior: 'smooth'
-                    });
-                }
-            }
+        if (caseStudiesSection) {
+            cachedCaseTop = caseStudiesSection.offsetTop;
+            const caseHeight = caseStudiesSection.offsetHeight;
+            cachedCaseScrollable = caseHeight - screenHeight;
         }
 
-        // Indicator dot click listeners
-        caseDots.forEach(dot => {
-            dot.addEventListener('click', () => {
-                const idx = parseInt(dot.getAttribute('data-slide-index'), 10);
-                if (!isNaN(idx)) {
-                    setSlide(idx, true);
-                }
-            });
+        cachedNavSections = Array.from(sections).map(sec => {
+            const id = sec.getAttribute('id');
+            return {
+                id,
+                top: sec.offsetTop - 120,
+                bottom: sec.offsetTop - 120 + sec.offsetHeight,
+                link: document.querySelector(`.nav-menu a[href*="#${id}"]`)
+            };
+        }).filter(item => item.link !== null);
+    }
+
+    updateCachedLayout();
+    window.addEventListener('resize', updateCachedLayout, { passive: true });
+    window.addEventListener('orientationchange', updateCachedLayout, { passive: true });
+
+    // ----------------------------------------------------
+    // 3. Immersive Pinned Case Studies Controller
+    // ----------------------------------------------------
+    let currentSlideIndex = 0;
+    const totalSlides = caseSlides.length;
+
+    function setSlide(index, smoothScroll = false) {
+        if (index < 0 || index >= totalSlides) return;
+        currentSlideIndex = index;
+
+        caseSlides.forEach((slide, i) => {
+            slide.classList.remove('active', 'past', 'future');
+            if (i === index) {
+                slide.classList.add('active');
+            } else if (i < index) {
+                slide.classList.add('past');
+            } else {
+                slide.classList.add('future');
+            }
         });
 
-        // Trackpad / mouse scroll controller on desktop
-        function onCaseScroll() {
-            if (window.innerWidth <= 960) return;
-            const rect = caseStudiesSection.getBoundingClientRect();
-            const header = document.querySelector('.header');
-            const headerOffset = header ? header.getBoundingClientRect().height : 70;
-            const scrollable = caseStudiesSection.offsetHeight - window.innerHeight;
+        caseDots.forEach((dot, i) => {
+            const isActive = i === index;
+            dot.classList.toggle('active', isActive);
+            dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
 
-            if (scrollable <= 0) return;
-
-            const scrolled = -rect.top + headerOffset;
-            if (scrolled >= 0 && scrolled <= scrollable) {
-                const progress = scrolled / scrollable;
-                const slideIdx = Math.min(totalSlides - 1, Math.floor(progress * totalSlides));
-                if (slideIdx !== currentSlideIndex) {
-                    setSlide(slideIdx, false);
-                }
-            } else if (scrolled < 0) {
-                if (currentSlideIndex !== 0) {
-                    setSlide(0, false);
-                }
-            } else if (scrolled > scrollable) {
-                if (currentSlideIndex !== totalSlides - 1) {
-                    setSlide(totalSlides - 1, false);
-                }
-            }
+        if (smoothScroll && window.innerWidth > 960 && caseStudiesSection && cachedCaseScrollable > 0) {
+            const targetY = cachedCaseTop - cachedHeaderHeight + (index / (totalSlides - 1)) * cachedCaseScrollable;
+            window.scrollTo({
+                top: targetY,
+                behavior: 'smooth'
+            });
         }
-
-        window.addEventListener('scroll', onCaseScroll, { passive: true });
-        onCaseScroll();
     }
+
+    // Indicator dot click listeners
+    caseDots.forEach(dot => {
+        dot.addEventListener('click', () => {
+            const idx = parseInt(dot.getAttribute('data-slide-index'), 10);
+            if (!isNaN(idx)) {
+                setSlide(idx, true);
+            }
+        });
+    });
 
     // ----------------------------------------------------
     // 4. Vertical Transit Map Journey Controller
@@ -213,58 +212,67 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ----------------------------------------------------
-    // 5. Scroll Spy - Highlight Active Navigation Link
+    // 5. Unified High-Performance Scroll Frame Loop (Zero Layout Thrashing)
     // ----------------------------------------------------
-    const sections = document.querySelectorAll('section[id], footer[id]');
+    let isScrollTicking = false;
 
-    function highlightNavOnScroll() {
-        const scrollY = window.pageYOffset;
+    function onScrollFrame() {
+        const scrollY = window.pageYOffset || document.documentElement.scrollTop;
 
-        sections.forEach(current => {
-            const sectionHeight = current.offsetHeight;
-            const sectionTop = current.offsetTop - 120;
-            const sectionId = current.getAttribute('id');
-            const correspondingNavLink = document.querySelector(`.nav-menu a[href*="#${sectionId}"]`);
-
-            if (correspondingNavLink) {
-                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                    navLinks.forEach(link => link.classList.remove('active'));
-                    correspondingNavLink.classList.add('active');
-                }
-            }
-        });
-    }
-
-    window.addEventListener('scroll', highlightNavOnScroll, { passive: true });
-
-    // ----------------------------------------------------
-    // 6. Reading Progress Indicator (GPU Accelerated)
-    // ----------------------------------------------------
-    const progressBar = document.getElementById('reading-progress');
-
-    if (progressBar) {
-        let isProgressTicking = false;
-
-        function updateReadingProgress() {
-            const totalScroll = window.pageYOffset || document.documentElement.scrollTop;
-            const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
-
-            if (scrollableHeight > 0) {
-                const scrollRatio = Math.min(1, Math.max(0, totalScroll / scrollableHeight));
-                progressBar.style.transform = `scaleX(${scrollRatio})`;
-            }
-            isProgressTicking = false;
+        // 1. Reading progress indicator (zero forced layout)
+        if (progressBar && cachedScrollableHeight > 0) {
+            const scrollRatio = Math.min(1, Math.max(0, scrollY / cachedScrollableHeight));
+            progressBar.style.transform = `scaleX(${scrollRatio})`;
         }
 
-        window.addEventListener('scroll', () => {
-            if (!isProgressTicking) {
-                window.requestAnimationFrame(updateReadingProgress);
-                isProgressTicking = true;
+        // 2. Navigation scroll spy highlighting (zero layout querying, pure arithmetic)
+        let activeNav = null;
+        for (let i = 0; i < cachedNavSections.length; i++) {
+            const item = cachedNavSections[i];
+            if (scrollY >= item.top && scrollY <= item.bottom) {
+                activeNav = item;
             }
-        }, { passive: true });
+        }
+        if (activeNav) {
+            navLinks.forEach(link => {
+                const isTarget = link === activeNav.link;
+                if (link.classList.contains('active') !== isTarget) {
+                    link.classList.toggle('active', isTarget);
+                }
+            });
+        }
 
-        updateReadingProgress();
+        // 3. Case studies slides controller (pure arithmetic, zero getBoundingClientRect calls)
+        if (caseStudiesSection && totalSlides > 0 && window.innerWidth > 960 && cachedCaseScrollable > 0) {
+            const scrolled = scrollY - cachedCaseTop + cachedHeaderHeight;
+            if (scrolled >= 0 && scrolled <= cachedCaseScrollable) {
+                const progress = scrolled / cachedCaseScrollable;
+                const slideIdx = Math.min(totalSlides - 1, Math.floor(progress * totalSlides));
+                if (slideIdx !== currentSlideIndex) {
+                    setSlide(slideIdx, false);
+                }
+            } else if (scrolled < 0) {
+                if (currentSlideIndex !== 0) {
+                    setSlide(0, false);
+                }
+            } else if (scrolled > cachedCaseScrollable) {
+                if (currentSlideIndex !== totalSlides - 1) {
+                    setSlide(totalSlides - 1, false);
+                }
+            }
+        }
+
+        isScrollTicking = false;
     }
+
+    window.addEventListener('scroll', () => {
+        if (!isScrollTicking) {
+            window.requestAnimationFrame(onScrollFrame);
+            isScrollTicking = true;
+        }
+    }, { passive: true });
+
+    onScrollFrame();
 
 
 

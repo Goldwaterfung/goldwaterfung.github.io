@@ -145,9 +145,9 @@ export const HeroTitleCanvas: React.FC = () => {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setIsVisible(entry.isIntersecting);
+        setIsVisible(entry.isIntersecting && entry.intersectionRatio >= 0.1);
       },
-      { threshold: 0.05 }
+      { threshold: [0, 0.1] }
     );
 
     observer.observe(target);
