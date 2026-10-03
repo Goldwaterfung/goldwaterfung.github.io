@@ -36,12 +36,12 @@ export const LONDON_MAP_STATIONS: LondonMapStation[] = [
     roleZh: '前廳禮賓接待 (開幕籌備團隊)',
     org: 'Kerry Hotel Hong Kong (Shangri-La Group)',
     orgZh: '香格里拉集團開幕籌備團隊',
-    x: 120,
-    y: 200,
+    x: 140,
+    y: 170,
     lineType: 'product',
-    labelX: 120,
-    labelY: 145,
-    textAnchor: 'middle',
+    labelX: 156,
+    labelY: 154,
+    textAnchor: 'start',
   },
   {
     id: 'station-2',
@@ -55,12 +55,12 @@ export const LONDON_MAP_STATIONS: LondonMapStation[] = [
     roleZh: '前廳貴賓接待與危機處理',
     org: 'Courtyard by Marriott | Hong Kong',
     orgZh: '香港萬怡酒店 (MRKE 共同創辦源起)',
-    x: 250,
-    y: 200,
+    x: 140,
+    y: 470,
     lineType: 'interchange',
-    labelX: 250,
-    labelY: 145,
-    textAnchor: 'middle',
+    labelX: 158,
+    labelY: 454,
+    textAnchor: 'start',
     isInterchange: true,
   },
   {
@@ -68,19 +68,19 @@ export const LONDON_MAP_STATIONS: LondonMapStation[] = [
     stationNumber: 3,
     index: 2,
     name: 'Systems Engineer',
-    nameZh: '系統工程師 (TNNUA)',
+    nameZh: '系統工程師',
     period: 'Sep 2023 - Mar 2025',
     periodZh: '2023 年 9 月 - 2025 年 3 月',
     role: 'Systems Integration Engineer',
     roleZh: '多模態 AI 管道與影音同步工程師',
     org: 'National Tainan University of the Arts',
     orgZh: '國立臺南藝術大學',
-    x: 480,
-    y: 140,
+    x: 85,
+    y: 740,
     lineType: 'systems',
-    labelX: 480,
-    labelY: 85,
-    textAnchor: 'middle',
+    labelX: 70,
+    labelY: 724,
+    textAnchor: 'end',
   },
   {
     id: 'station-4',
@@ -94,31 +94,31 @@ export const LONDON_MAP_STATIONS: LondonMapStation[] = [
     roleZh: '使用者體驗設計實習生',
     org: 'Innova Medical Technology Co., Ltd.',
     orgZh: '醫諾華醫學科技 (夏季實習)',
-    x: 650,
-    y: 80,
+    x: 55,
+    y: 1110,
     lineType: 'siding',
-    labelX: 650,
-    labelY: 35,
-    textAnchor: 'middle',
+    labelX: 42,
+    labelY: 1094,
+    textAnchor: 'end',
   },
   {
     id: 'station-5',
     stationNumber: 5,
     index: 4,
     name: 'MRKE Ltd.',
-    nameZh: 'MRKE Ltd. 平行營運核心',
+    nameZh: 'MRKE Ltd.',
     period: 'Dec 2020 - Jun 2026',
     periodZh: '2020 年 12 月 - 2026 年 6 月',
     role: 'Co-Founder & Product Engineer',
     roleZh: '共同創辦人暨產品工程師',
-    org: 'MRKE Ltd. | 3D Interactive Software',
-    orgZh: 'MRKE Ltd. 5.5 年持續商業營運',
-    x: 520,
-    y: 260,
+    org: 'MRKE Ltd. | 3D Interactive Software & Haircut Business',
+    orgZh: 'MRKE Ltd. 5.5 年剪髮事業持續營運',
+    x: 195,
+    y: 820,
     lineType: 'product',
-    labelX: 520,
-    labelY: 205,
-    textAnchor: 'middle',
+    labelX: 211,
+    labelY: 804,
+    textAnchor: 'start',
   },
 ]
 
@@ -150,32 +150,32 @@ export const LondonTransitMap: React.FC<LondonTransitMapProps> = ({
   const COLOR_BLACK = '#1c1c1e' // var(--text-primary): Unified Trajectory Line
   const COLOR_CASING = '#f7f5f0' // var(--bg-body): Physical Print Separation Casing
 
-  // Harry Beck Transit Cartography Geometry:
+  // Harry Beck Transit Cartography Geometry (Vertical Top to Bottom):
   // 1. Shared Foundation Trunk (Kerry Hotel to Marriott Pivot):
-  // Horizontally from (40, 200) through Kerry Hotel (120, 200) to Marriott (250, 200) and fork at (270, 200)
-  const pathFoundation = 'M 40 200 L 270 200'
+  // Vertically from (140, 30) through Kerry Hotel (140, 170) to Marriott (140, 470) and fork at (140, 540)
+  const pathFoundation = 'M 140 30 L 140 540'
 
   // 2. Commercial Product Line (Warm Amber #e65c00):
-  // Smooth 45-degree fillet from (270, 200) to (360, 260), horizontally through MRKE (520, 260) to (755, 260),
-  // then curves 45 degrees up into the convergence junction at (830, 200)
+  // Smooth 45-degree fillet from (140, 540) to (195, 625), vertically through MRKE (195, 820) to (195, 1260),
+  // then curves 45 degrees left into the convergence junction at (140, 1350)
   const pathProduct =
-    'M 270 200 Q 285 200, 296 211 L 334 249 Q 345 260, 360 260 L 755 260 Q 769 260, 780 249 L 818 211 Q 829 200, 830 200'
+    'M 140 540 Q 140 555, 150 565 L 185 600 Q 195 610, 195 625 L 195 1260 Q 195 1275, 185 1285 L 150 1320 Q 140 1330, 140 1350'
 
   // 3. Applied AI and Systems Line (Cobalt Blue #1d4ed8):
-  // Smooth 45-degree fillet from (270, 200) to (360, 140), horizontally through TNNUA (480, 140) to (755, 140),
-  // then curves 45 degrees down into the convergence junction at (830, 200)
+  // Smooth 45-degree fillet from (140, 540) to (85, 625), vertically through TNNUA (85, 740) to (85, 1260),
+  // then curves 45 degrees right into the convergence junction at (140, 1350)
   const pathSystems =
-    'M 270 200 Q 285 200, 296 189 L 334 151 Q 345 140, 360 140 L 755 140 Q 769 140, 780 151 L 818 189 Q 829 200, 830 200'
+    'M 140 540 Q 140 555, 130 565 L 95 600 Q 85 610, 85 625 L 85 1260 Q 85 1275, 95 1285 L 130 1320 Q 140 1330, 140 1350'
 
   // 4. Clinical Diagnostic Siding (Forest Green #2e7d32):
-  // Branches 45 degrees up from Systems Line at (530, 140), levels horizontally at y=80 through Innova (650, 80) to (672, 80),
-  // then curves 45 degrees down to rejoin Systems Line at (754, 140)
+  // Branches smoothly from Systems Line at (85, 960) to x=55 at y=1040, runs vertically through Innova (55, 1110) to (55, 1170),
+  // then curves smoothly to rejoin Systems Line at (85, 1250)
   const pathSiding =
-    'M 530 140 Q 544 140, 555 129 L 593 91 Q 604 80, 618 80 L 672 80 Q 683 80, 694 91 L 732 129 Q 743 140, 754 140'
+    'M 85 960 C 85 1000, 55 1000, 55 1040 L 55 1170 C 55 1210, 85 1210, 85 1250'
 
   // 5. Unified Trajectory Line (Matte Black #1c1c1e):
-  // Single solid mainline from convergence junction (830, 200) to terminal stop (950, 200)
-  const pathUnified = 'M 830 200 L 950 200'
+  // Mainline from convergence junction (140, 1350) to terminal stop (140, 1470)
+  const pathUnified = 'M 140 1350 L 140 1470'
 
   return (
     <div
@@ -191,7 +191,7 @@ export const LondonTransitMap: React.FC<LondonTransitMapProps> = ({
       }}
     >
       <svg
-        viewBox="0 0 1000 350"
+        viewBox="-40 0 320 1520"
         style={{
           width: '100%',
           height: '100%',
@@ -200,27 +200,7 @@ export const LondonTransitMap: React.FC<LondonTransitMapProps> = ({
         }}
         preserveAspectRatio="xMidYMid meet"
       >
-        <defs>
-          {/* Subtle Warm Gray Technical Drafting Grid */}
-          <pattern
-            id="transit-drafting-grid"
-            width="25"
-            height="25"
-            patternUnits="userSpaceOnUse"
-          >
-            <path
-              d="M 25 0 L 0 0 0 25"
-              fill="none"
-              stroke="rgba(28, 28, 30, 0.05)"
-              strokeWidth="1"
-            />
-          </pattern>
-        </defs>
-
-        {/* 1. Technical Drafting Grid Background */}
-        <rect width="1000" height="350" fill="url(#transit-drafting-grid)" />
-
-        {/* 2. Route Border Casings (Physical Print Separation) */}
+        {/* 1. Route Border Casings (Physical Print Separation) */}
         <path
           d={pathFoundation}
           fill="none"
@@ -262,7 +242,7 @@ export const LondonTransitMap: React.FC<LondonTransitMapProps> = ({
           strokeLinejoin="round"
         />
 
-        {/* 3. Solid Ink Route Stripes (Harry Beck Cartography) */}
+        {/* 2. Solid Ink Route Stripes (Harry Beck Cartography) */}
         {/* Shared Foundation Trunk (Kerry Hotel to Marriott Pivot) */}
         <path
           d={pathFoundation}
@@ -313,77 +293,29 @@ export const LondonTransitMap: React.FC<LondonTransitMapProps> = ({
           strokeLinejoin="round"
         />
 
-        {/* Terminal Stop Bar at (950, 200) */}
+        {/* Terminal Stop Bar at (140, 1470) */}
         <line
-          x1="950"
-          y1="192"
-          x2="950"
-          y2="208"
+          x1="124"
+          y1="1470"
+          x2="156"
+          y2="1470"
           stroke={COLOR_BLACK}
           strokeWidth="4"
           strokeLinecap="square"
         />
 
-        {/* Convergence Junction Interchange Roundel at (830, 200) */}
+        {/* Convergence Junction Interchange Roundel at (140, 1350) */}
         <circle
-          cx="830"
-          cy="200"
+          cx="140"
+          cy="1350"
           r="8"
           fill="#ffffff"
           stroke={COLOR_BLACK}
           strokeWidth="3"
         />
 
-        {/* Track Line Labels */}
-        <text
-          x="360"
-          y="126"
-          fill={COLOR_COBALT}
-          fontSize="8"
-          fontFamily="var(--font-mono)"
-          fontWeight="600"
-          letterSpacing="0.1em"
-        >
-          {isZh ? '應用 AI 與系統線' : 'APPLIED AI & SYSTEMS LINE'}
-        </text>
 
-        <text
-          x="360"
-          y="276"
-          fill={COLOR_AMBER}
-          fontSize="8"
-          fontFamily="var(--font-mono)"
-          fontWeight="600"
-          letterSpacing="0.1em"
-        >
-          {isZh ? '商業產品線' : 'COMMERCIAL PRODUCT LINE'}
-        </text>
-
-        <text
-          x="615"
-          y="68"
-          fill={COLOR_FOREST}
-          fontSize="7.5"
-          fontFamily="var(--font-mono)"
-          fontWeight="600"
-          letterSpacing="0.08em"
-        >
-          {isZh ? '臨床研發支線' : 'CLINICAL SIDING'}
-        </text>
-
-        <text
-          x="846"
-          y="188"
-          fill={COLOR_BLACK}
-          fontSize="7.5"
-          fontFamily="var(--font-mono)"
-          fontWeight="600"
-          letterSpacing="0.08em"
-        >
-          {isZh ? 'AGENTIC AI 整合主線' : 'UNIFIED TRAJECTORY'}
-        </text>
-
-        {/* 4. Station Waypoints & Interchange Roundels */}
+        {/* 3. Station Waypoints, Stubs & Interchange Roundels */}
         {LONDON_MAP_STATIONS.map((station) => {
           const isActive = station.index === activeStationIndex
           const isHovered = station.index === hoveredStationIndex
@@ -397,6 +329,10 @@ export const LondonTransitMap: React.FC<LondonTransitMapProps> = ({
               : station.lineType === 'siding'
               ? COLOR_FOREST
               : COLOR_BLACK
+
+          // Direction of horizontal connector stub toward adjacent card
+          const isRightCard = station.index === 0 || station.index === 1 || station.index === 4
+          const stubTargetX = isRightCard ? 280 : -40
 
           return (
             <g
@@ -422,6 +358,26 @@ export const LondonTransitMap: React.FC<LondonTransitMapProps> = ({
               {/* Expanded Invisible Click Target */}
               <circle cx={station.x} cy={station.y} r="28" fill="transparent" />
 
+              {/* Station Connector Stub extending toward card */}
+              <line
+                x1={station.x}
+                y1={station.y}
+                x2={stubTargetX}
+                y2={station.y}
+                stroke={stationColor}
+                strokeWidth={isActive ? '2.5' : '1.5'}
+                strokeDasharray={isActive ? 'none' : '3 3'}
+                opacity={isActive ? 0.9 : 0.45}
+                style={{ transition: 'stroke-width 0.18s ease, opacity 0.18s ease' }}
+              />
+              <circle
+                cx={stubTargetX}
+                cy={station.y}
+                r="3"
+                fill={isActive ? stationColor : '#8e8e93'}
+                opacity={isActive ? 1 : 0.6}
+              />
+
               {/* Active Technical Reticle (Concentric Hairline & Center Pip) */}
               {isActive && (
                 <g style={{ pointerEvents: 'none' }}>
@@ -443,7 +399,7 @@ export const LondonTransitMap: React.FC<LondonTransitMapProps> = ({
                 </g>
               )}
 
-              {/* Transit Marker: Interchange Roundel vs Perpendicular Tick & Node */}
+              {/* Transit Marker: Interchange Roundel vs Perpendicular Horizontal Tick & Node */}
               {isInterchange ? (
                 // Interchange Roundel: 10px white circular disc with bold 3px matte black rim
                 <circle
@@ -456,13 +412,13 @@ export const LondonTransitMap: React.FC<LondonTransitMapProps> = ({
                   style={{ transition: 'r 0.18s ease' }}
                 />
               ) : (
-                // Regular Station Waypoint: Perpendicular tick stub & crisp circular disc
+                // Regular Station Waypoint: Perpendicular horizontal tick stub & crisp circular disc
                 <g>
                   <line
-                    x1={station.x}
-                    y1={station.y - 6}
-                    x2={station.x}
-                    y2={station.y + 6}
+                    x1={station.x - 6}
+                    y1={station.y}
+                    x2={station.x + 6}
+                    y2={station.y}
                     stroke={stationColor}
                     strokeWidth="3.5"
                     strokeLinecap="square"
@@ -479,26 +435,26 @@ export const LondonTransitMap: React.FC<LondonTransitMapProps> = ({
                 </g>
               )}
 
-              {/* Station Label & Metadata */}
+              {/* Station Label & Number Badge */}
               <g
                 transform={`translate(${station.labelX}, ${station.labelY})`}
                 style={{ pointerEvents: 'none' }}
               >
                 {/* Station Badge Number */}
                 <rect
-                  x="-10"
-                  y="-28"
-                  width="20"
-                  height="14"
+                  x={station.textAnchor === 'end' ? -18 : 0}
+                  y="-16"
+                  width="18"
+                  height="13"
                   rx="2"
                   fill={isActive ? stationColor : 'rgba(28, 28, 30, 0.08)'}
                   style={{ transition: 'fill 0.18s ease' }}
                 />
                 <text
-                  x="0"
-                  y="-20.5"
+                  x={station.textAnchor === 'end' ? -9 : 9}
+                  y="-9.5"
                   fill={isActive ? '#ffffff' : '#3e3e42'}
-                  fontSize="9"
+                  fontSize="8.5"
                   fontWeight="700"
                   fontFamily="var(--font-mono)"
                   textAnchor="middle"
@@ -507,31 +463,21 @@ export const LondonTransitMap: React.FC<LondonTransitMapProps> = ({
                   {station.stationNumber}
                 </text>
 
-                {/* Station Name */}
+                {/* Station Short Name with Cartographic Knockout Halo */}
                 <text
                   x="0"
-                  y="-2"
+                  y="4"
                   fill={COLOR_BLACK}
-                  fontSize={isActive ? '13' : '12'}
+                  stroke={COLOR_CASING}
+                  strokeWidth="3.5"
+                  strokeLinejoin="round"
+                  paintOrder="stroke fill"
+                  fontSize={isActive ? '11' : '10'}
                   fontWeight={isActive ? '700' : '600'}
                   fontFamily="var(--font-sans)"
-                  textAnchor="middle"
+                  textAnchor={station.textAnchor}
                 >
                   {isZh ? station.nameZh : station.name}
-                </text>
-
-                {/* Station Period Tag */}
-                <text
-                  x="0"
-                  y="13"
-                  fill={isActive ? stationColor : '#8e8e93'}
-                  fontSize="9.5"
-                  fontFamily="var(--font-mono)"
-                  fontWeight="600"
-                  textAnchor="middle"
-                  style={{ transition: 'fill 0.18s ease' }}
-                >
-                  {isZh ? station.periodZh : station.period}
                 </text>
               </g>
             </g>

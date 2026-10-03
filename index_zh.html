@@ -30,10 +30,9 @@
             </a>
 
             <nav class="nav-menu" id="nav-menu">
-                <a href="#about" class="nav-link active">About</a>
-                <a href="#projects" class="nav-link">Music & Research</a>
+                <a href="#experience" class="nav-link active">Experience</a>
                 <a href="#case-studies" class="nav-link">Deployments</a>
-                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#projects" class="nav-link">專案與研究</a>
                 <a href="#education" class="nav-link">Education</a>
                 <a href="#hobbies" class="nav-link">Hobbies</a>
                 <a href="#contact" class="nav-link nav-btn">Contact</a>
@@ -69,62 +68,318 @@
             </div>
         </section>
 
-        <!-- Section 01: Professional Profile -->
-        <section id="about" class="section about-section">
-            <div class="container">
-                <div class="section-grid">
-                    <div class="section-meta">
-                        <span class="mono-section-label">PROFILE</span>
-                        <h2 class="section-serif-title">專業總覽 & 產品視角</h2>
+        <!-- Section 01: 歷程 (Experience Journey) -->
+        <section id="experience" class="journey-section" aria-label="我的歷程">
+            <div class="journey-container">
+                <div class="journey-header">
+                    <div class="journey-meta-title">
+                        <span class="mono-section-label">EXPERIENCE</span>
+                        <h2 class="journey-title">我的歷程</h2>
                     </div>
+                </div>
 
-                    <div class="section-content">
-                        <div class="editorial-lead">
-                            從第一性原理與敏捷自學出發，致力於連結底層複雜訊號、自主 Agent 工作流與即時互動應用。
-                        </div>
-                        <p class="editorial-body">
-                            我習慣從第一性原理出發，透過高強度的自主學習與反覆實驗拆解複雜的技術難題。無論是在 IEEE ICVR 國際會議發表空間聽覺感知研究、架構支援自主 Agent
-                            的音訊工作站系統，或是將即時 3D 互動應用落地於實體門市，我都堅持從底層深入理解系統運作，並以真實數據與用戶行為驗證每一個設計與工程決策。
+                <div class="journey-grid">
+                    <!-- Central Vertical Transit Map Mount Target -->
+                    <div id="journey-3d-canvas" class="journey-spine-viewport" aria-hidden="true"></div>
+
+                    <!-- Station 1: 香港嘉里酒店 -->
+                    <article class="journey-card active" data-station="0">
+                        <div class="journey-card-time">2017 年 7 月 - 2020 年 6 月</div>
+                        <h3 class="journey-card-role">Guest Experience Concierge</h3>
+                        <div class="journey-card-org">香港嘉里酒店 (香格里拉集團開幕籌備團隊)</div>
+                        <p class="journey-card-desc">
+                            加入開幕前營運團隊 3 年，參與從籌備期至開業後的前廳營運架構、服務 SOP 制定，以及工程部、客房部與前台之跨部門協作交接，建立嚴謹的營運執行力。
                         </p>
+                    </article>
 
-                        <div class="about-contact-links">
-                            <div class="contact-link-item">
-                                <span class="mono-label">FOCUS DOMAINS</span>
-                                <span class="contact-val">Agentic Workflows · Multimodal AI · Interactive Systems</span>
-                            </div>
-                            <div class="contact-link-item">
-                                <span class="mono-label">LANGUAGES</span>
-                                <span class="contact-val">English (Native/Fluent) · Mandarin (Fluent) · Cantonese
-                                    (Native)</span>
-                            </div>
-                            <div class="contact-link-item">
-                                <span class="mono-label">LOCATION</span>
-                                <span class="contact-val">香港</span>
-                            </div>
-                            <div class="contact-link-item">
-                                <span class="mono-label">EMAIL</span>
-                                <a href="mailto:kim.kamkiu.fung@gmail.com"
-                                    class="contact-val underline-link">kim.kamkiu.fung@gmail.com</a>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- Station 2: 香港萬怡酒店 -->
+                    <article class="journey-card" data-station="1">
+                        <div class="journey-card-time">2020 年 7 月 - 2021 年 7 月</div>
+                        <h3 class="journey-card-role">Guest Experience Concierge</h3>
+                        <div class="journey-card-org">香港萬怡酒店 | 香港</div>
+                        <p class="journey-card-desc">
+                            負責前廳貴賓接待、個人化體驗與高住房率下之現場危機應變。在高壓環境中培養對微觀情緒與用戶痛點的敏銳洞察，實踐同理心驅動之服務流程。
+                        </p>
+                    </article>
+
+                    <!-- Station 3: 國立臺南藝術大學 (TNNUA) -->
+                    <article class="journey-card" data-station="2">
+                        <div class="journey-card-time">2023 年 9 月 - 2025 年 3 月</div>
+                        <h3 class="journey-card-role">Systems Integration Engineer</h3>
+                        <div class="journey-card-org">國立臺南藝術大學 (TNNUA)</div>
+                        <p class="journey-card-desc">
+                            整合端到端多模態 AI 管道，涵蓋語音轉文字、本機 LLM 結合 RAG 與文字轉語音，於本機 GPU 推論環境中部署，並於 Unity 中實現即時影音同步與對話狀態反饋。建置 1.5 秒確定性串流緩衝區，在音樂廳實體演出中精準穩定 AI 動作捕捉與即時音訊。
+                        </p>
+                    </article>
+
+                    <!-- Station 4: 醫諾華醫學科技 -->
+                    <article class="journey-card" data-station="3">
+                        <div class="journey-card-time">2024 年 7 月 - 2024 年 8 月</div>
+                        <h3 class="journey-card-role">User Experience Designer (Intern)</h3>
+                        <div class="journey-card-org">醫諾華醫學科技股份有限公司 | 台灣高雄</div>
+                        <p class="journey-card-desc">
+                            於 2 個月夏季臨床實習期間，深度測試並比對 50 個虛擬病例與資料庫架構，定位臨床培訓誤判根本原因在於影音延遲與病徵缺失，協助研發團隊精準重排修復優先級。
+                        </p>
+                    </article>
+
+                    <!-- Station 5: MRKE Ltd. -->
+                    <article class="journey-card" data-station="4">
+                        <div class="journey-card-time">2020 年 12 月 - 2026 年 6 月</div>
+                        <h3 class="journey-card-role">Co-Founder & Product Engineer</h3>
+                        <div class="journey-card-org">MRKE Ltd. | 3D 互動軟體與剪髮事業</div>
+                        <p class="journey-card-desc">
+                            從零開始自主使用 Unity (C#) 開發互動式 3D 髮型預覽系統，串接 Google Cloud Storage 實現雲端模型串流，並建置 GitHub Actions 自動化 CI/CD 發布流程，部署於門市專用平板以消除諮詢溝通落差。作為長達 5.5 年的持續營運技術核心，與系統研發平行推展。
+                        </p>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <!-- Section 02: Specialized Projects & Research -->
+        <!-- Section 02: Production Deployments & Systems (Full Immersive Canvas Slide Deck) -->
+        <section id="case-studies" class="case-studies-section" aria-label="系統實務與現場部署">
+            <!-- Scroll Snap Track for Browser-Native Section Snapping -->
+            <div class="case-snap-track" aria-hidden="true">
+                <div class="case-snap-anchor" data-anchor="0"></div>
+                <div class="case-snap-anchor" data-anchor="1"></div>
+                <div class="case-snap-anchor" data-anchor="2"></div>
+                <div class="case-snap-anchor" data-anchor="3"></div>
+            </div>
+
+            <!-- Full-Screen Immersive Canvas Stage (100% width, 100% height minus header nav) -->
+            <div class="case-sticky-stage">
+                <!-- Minimalist Quiet Floating Slide Indicators (No text banner) -->
+                <div class="case-canvas-indicators" role="tablist" aria-label="實務部署案例切換">
+                    <button type="button" class="case-indicator-dot active" data-slide-index="0" aria-label="案例 1"></button>
+                    <button type="button" class="case-indicator-dot" data-slide-index="1" aria-label="案例 2"></button>
+                    <button type="button" class="case-indicator-dot" data-slide-index="2" aria-label="案例 3"></button>
+                    <button type="button" class="case-indicator-dot" data-slide-index="3" aria-label="案例 4"></button>
+                </div>
+
+                <!-- Slide Viewport -->
+                <div class="case-slides-viewport">
+                    <!-- Slide 1: 沙龍 3D 互動 App (Three Image Array in 16:9 Frame) -->
+                    <article class="case-slide active" data-slide="0">
+                        <div class="case-canvas-grid">
+                            <!-- Left Column: Title, 16:9 Three-Image Array, Background -->
+                            <div class="case-col-left">
+                                <div class="case-header-compact">
+                                    <h3 class="case-slide-title">1. 實體與數位整合：3D 髮型互動展示與沙龍體驗 App</h3>
+                                    <div class="case-meta-line">
+                                        <span><strong>角色:</strong> Product Engineer & Co-Founder</span>
+                                        <span><strong>公司:</strong> MRKE Ltd.</span>
+                                    </div>
+                                </div>
+
+                                <!-- 16:9 Widescreen Frame containing Three Vertical Screens -->
+                                <div class="case-widescreen-frame">
+                                    <div class="three-images-grid">
+                                        <figure class="three-images-col">
+                                            <img src="assets/hair_app/hair_app_menu.png" alt="髮型分類選單介面">
+                                            <figcaption>分類選單</figcaption>
+                                        </figure>
+                                        <figure class="three-images-col">
+                                            <img src="assets/hair_app/hair_app_display1.png" alt="3D 髮型 360 度旋轉預覽">
+                                            <figcaption>立體預覽</figcaption>
+                                        </figure>
+                                        <figure class="three-images-col">
+                                            <img src="assets/hair_app/hair_app_display2.png" alt="3D 髮型 360 度旋轉預覽 男士短髮">
+                                            <figcaption>短髮細節</figcaption>
+                                        </figure>
+                                    </div>
+                                </div>
+
+                                <div class="case-text-block">
+                                    <h4>商業背景與問題發現</h4>
+                                    <p>在實體沙龍營運中，顧客在觀看平面照片諮詢時，難以掌握側面弧度與後腦勺層次，造成剪髮前溝通耗時且容易產生預期落差。</p>
+                                </div>
+                            </div>
+
+                            <!-- Right Column: Goals, Frontline Insights, Practical Outcomes, Link -->
+                            <div class="case-col-right">
+                                <div class="case-text-block">
+                                    <h4>產品目標與權限邊界</h4>
+                                    <p>作為產品工程師兼共同創辦人，我設定的目標是自學 Unity C# 從零開發輕量化 3D 髮型預覽 App，介接 Google Cloud Storage 實現模型隨選串流，並於沙龍工作台部署專屬 Android 平板，以 360 度立體模型取代平面照片。</p>
+                                </div>
+
+                                <div class="case-text-block">
+                                    <h4>第一線洞察、持續數據追蹤與產品迭代</h4>
+                                    <ul>
+                                        <li><strong>現場走查與客群洞察：</strong> 抱持好奇心走入沙龍現場觀察諮詢互動，發現兒童與青少年探索意願最高，迅速調整研發優先級推出專屬年輕客群 3D 系列。</li>
+                                        <li><strong>Unity C# 開發與 OTA 串流：</strong> 採用 Unity C# 與通用渲染管線 (URP) 開發前端互動架構，建立 CI/CD 自動化發布管線與 Google Cloud Storage OTA 資產串流，無需手動逐台重裝即可持續向門市平板推送更新。</li>
+                                        <li><strong>每日營運追蹤迴圈：</strong> 建立現場營運數據機制，每日由髮型師記錄顧客選型與反饋，與團隊共同微調 3D 模型細節與現場流程。</li>
+                                    </ul>
+                                </div>
+
+                                <div class="case-text-block">
+                                    <h4>產品影響力與實際成果</h4>
+                                    <p class="highlight-text">
+                                        成功於沙龍等候區與剪髮工作台部署專屬 Android 平板，讓顧客在剪髮前 360 度立體預覽髮型細節。透過每日滿意度追蹤與持續模型調優，在數位資產迭代與現場諮詢之間建立緊密閉環。
+                                    </p>
+                                </div>
+
+                                <div class="case-link-row">
+                                    <a href="https://github.com/Goldwaterfung/3D-Product-Showcase-URP-Sample-in-Unity"
+                                        target="_blank" rel="noopener" class="underline-link"><i class="fa-brands fa-github"></i> 前往 GitHub 查看 3D Product Showcase URP Sample</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Slide 2: 臨床 AI 模擬系統 (No Image, Rich Two-Column Layout) -->
+                    <article class="case-slide" data-slide="1">
+                        <div class="case-canvas-grid">
+                            <!-- Left Column: Title, Background, Goals, Clinical Matrix Card -->
+                            <div class="case-col-left">
+                                <div class="case-header-compact">
+                                    <h3 class="case-slide-title">2. B2B 醫療 3D 模擬與大語言模型臨床診斷培訓系統</h3>
+                                    <div class="case-meta-line">
+                                        <span><strong>角色:</strong> User Experience Designer (Intern)</span>
+                                        <span><strong>機構:</strong> 醫諾華醫學科技股份有限公司 | 台灣高雄</span>
+                                    </div>
+                                </div>
+
+                                <div class="case-text-block">
+                                    <h4>商業背景與問題發現</h4>
+                                    <p>醫諾華醫學科技開發結合 LLM 語音對答與 3D 虛擬病人之 B2B 臨床診斷培訓系統。在初期測試中，醫學生在視診環節頻繁出現診斷困惑與誤判，影響臨床培訓效果。</p>
+                                </div>
+
+                                <div class="case-text-block">
+                                    <h4>專案目標與學習定位</h4>
+                                    <p>作為暑期 UX 設計實習生，我的目標是親自系統性走查 50 個虛擬病例，探究導致醫學生誤判的根本原因，並學習將表層體驗問題向上溯源至底層資料架構，向研發團隊提出具體且結構化的建議。</p>
+                                </div>
+                            </div>
+
+                            <!-- Right Column: Hands-On Testing Bullets, Practical Outcomes -->
+                            <div class="case-col-right">
+                                <div class="case-text-block">
+                                    <h4>動手走查與根本原因診斷</h4>
+                                    <ul>
+                                        <li><strong>透過親自走查挑戰既有假設：</strong> 團隊初期推測困惑源於 3D 美術精緻度不足。透過結構化使用者走查，我發現核心問題在於功能性缺陷：LLM 語音回覆與化身動作之間的聲影延遲，以及資料庫病徵文字描述與 3D 模型外觀的客觀落差。</li>
+                                        <li><strong>系統性資料庫與病例交叉比對：</strong> 系統性比對 50 個臨床虛擬病例與資料庫記錄，逐一標註醫療紀錄中提及但 3D 模型上遺漏或標註偏差的細微視覺病徵。</li>
+                                        <li><strong>將體驗回饋錨定於客觀事實：</strong> 將發現整理為結構化比對矩陣並向工程與醫學主管匯報，引導研發資源優先修復聲影同步與病徵資料庫對齊，而非盲目進行美術外觀升級。</li>
+                                    </ul>
+                                </div>
+
+                                <div class="case-text-block">
+                                    <h4>產品影響力與實際成果</h4>
+                                    <p class="highlight-text">
+                                        將使用者體驗回饋與底層資料庫記錄進行交叉比對，協助團隊精準定位診斷困惑的深層根因，推動研發重心從表層 3D 重繪轉向基礎資料與同步機制對齊，化解學生誤判瓶頸。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Slide 3: AI 虛擬校長系統 (Vertical Image 9:16 Design) -->
+                    <article class="case-slide" data-slide="2">
+                        <div class="case-canvas-grid">
+                            <!-- Left Column: Title, Vertical Device Frame (9:16) + Background Text -->
+                            <div class="case-col-left">
+                                <div class="case-header-compact">
+                                    <h3 class="case-slide-title">3. 整合 RAG 之多模態 AI 即時虛擬校長系統</h3>
+                                    <div class="case-meta-line">
+                                        <span><strong>角色:</strong> Systems Integration Engineer</span>
+                                        <span><strong>機構:</strong> 國立臺南藝術大學</span>
+                                    </div>
+                                </div>
+
+                                <div class="case-vertical-split-layout">
+                                    <div class="case-vertical-device-frame">
+                                        <img src="assets/image/ar-llm-principal.png"
+                                            alt="工程實機測試畫面：整合 RAG 之多模態 AI 即時虛擬校長系統介面"
+                                            class="case-vertical-device-img">
+                                    </div>
+                                    <div class="case-vertical-context">
+                                        <h4>專案背景與目標</h4>
+                                        <p>在本地 GPU 運行端到端多模態推論鏈路（語音識別、LLM RAG 與語音合成）產生了 3 至 5 秒的運算延遲，使參觀者誤以為虛擬化身無反應。我負責將鏈路整合至 Unity，並實作即時對話狀態反饋以支援校園公開展演。</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Right Column: Technical Collaboration Bullets, Practical Outcomes -->
+                            <div class="case-col-right">
+                                <div class="case-text-block">
+                                    <h4>跨團隊協作與技術方案</h4>
+                                    <ul>
+                                        <li><strong>即時對話狀態反饋工程：</strong> 為化解 3 至 5 秒的運算延遲，我在 Unity 中研發即時對話視覺反饋機制。當檢測到用戶發言結束時，化身立即切換至專注聆聽與運算狀態，向用戶提供明確的運算中視覺確認，直到後端推論完成。</li>
+                                        <li><strong>情緒驅動面部聯動與空間視線追蹤：</strong> 與 AI 模型團隊合作在回覆封包中嵌入情緒標籤，即時驅動 Unity 面部表情與對嘴 Blendshapes，並整合視線追蹤維持自然眼神接觸。</li>
+                                        <li><strong>跨團隊封包時序對齊：</strong> 協調前後端音訊與文本封包序列，確保語音播放時唇形精準同步。</li>
+                                    </ul>
+                                </div>
+
+                                <div class="case-text-block">
+                                    <h4>產品影響力與實際成果</h4>
+                                    <p class="highlight-text">
+                                        在校園展演與貴賓接待中公開展示，系統穩定承載多輪即時語音對答。透過響應式對話狀態反饋化解後端運算延遲，無需額外擴充 GPU 硬體或雲端架構。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Slide 4: 即時動態捕捉系統 (16:9 Video Frame, Same Design with Case 1) -->
+                    <article class="case-slide" data-slide="3">
+                        <div class="case-canvas-grid">
+                            <!-- Left Column: Title, 16:9 Video Frame, Background -->
+                            <div class="case-col-left">
+                                <div class="case-header-compact">
+                                    <h3 class="case-slide-title">4. 傳統二胡現場：AI 動作捕捉與視聽同步系統</h3>
+                                    <div class="case-meta-line">
+                                        <span><strong>角色:</strong> Systems Integration Engineer</span>
+                                        <span><strong>機構:</strong> 國立臺南藝術大學</span>
+                                    </div>
+                                </div>
+
+                                <!-- 16:9 Widescreen Frame containing Video (Identical frame design with Case 1) -->
+                                <div class="case-widescreen-frame">
+                                    <video controls preload="metadata" class="case-widescreen-video">
+                                        <source src="assets/system_integration/virtual_concert.mp4" type="video/mp4">
+                                        您的瀏覽器不支援影片標籤。
+                                    </video>
+                                </div>
+
+                                <div class="case-text-block">
+                                    <h4>背景與挑戰</h4>
+                                    <p>在傳統二胡現場演奏中部署即時虛擬化身面臨顯著的延遲與同步挑戰。快速運弓動作結合即時音訊串流，在排練期間透過 AI 視覺姿態估計模型處理時容易產生畫面抖動與聲影脫節。</p>
+                                </div>
+                            </div>
+
+                            <!-- Right Column: Objectives, Rehearsal Testing Bullets, Practical Outcomes -->
+                            <div class="case-col-right">
+                                <div class="case-text-block">
+                                    <h4>跨領域轉譯與工程目標</h4>
+                                    <p>我的目標是在不損害聲音品質的前提下，在運弓姿態估計與連續音訊串流之間找到最佳緩衝窗口，實現舞台級的穩定展演同步。</p>
+                                </div>
+
+                                <div class="case-text-block">
+                                    <h4>排練測試與工程取捨</h4>
+                                    <ul>
+                                        <li><strong>連結藝術樂句與技術指標：</strong> 工程師關注底層封包延遲，而演奏家更看重視覺節奏與起弓時機。透過抱持好奇心觀察排練現場，我將演奏家約 0.8 秒的自然預備運弓動作映射為精確的幀率緩衝閾值。</li>
+                                        <li><strong>協同緩衝實作：</strong> 將動捕數據與音訊波形並行記錄，確立了 1.5 秒確定性串流緩衝，吸收 AI 推論波動並消除畫面瞬跳，同時保持聲音清晰度。</li>
+                                        <li><strong>現場排練與驗證：</strong> 在舞台上進行多次完整彩排，驗證虛擬化身的響應節奏與演奏家的肢體表演高度對齊。</li>
+                                    </ul>
+                                </div>
+
+                                <div class="case-text-block">
+                                    <h4>產品影響力與實際成果</h4>
+                                    <p class="highlight-text">
+                                        1.5 秒確定性緩衝在大學音樂廳正式展演中全程保持視線追蹤穩定，並與現場原聲緊密對齊。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 03: Specialized Projects & Research -->
         <section id="projects" class="section projects-section">
             <div class="container">
                 <div class="section-grid">
                     <div class="section-meta">
                         <span class="mono-section-label">FEATURED PROJECTS & RESEARCH</span>
                         <h2 class="section-serif-title">Agent 系統與實證研究</h2>
-                        <div class="flat-filters">
-                            <button class="filter-btn active" data-filter="all">All</button>
-                            <button class="filter-btn" data-filter="agent-daw">Agentic DAW</button>
-                            <button class="filter-btn" data-filter="research">IEEE Research</button>
-                            <button class="filter-btn" data-filter="agent-studio">視覺化研究工作台</button>
-                        </div>
                     </div>
 
                     <div class="section-content">
@@ -133,8 +388,7 @@
                             <div class="flat-project-row" data-category="agent-daw">
                                 <div class="project-year">2026</div>
                                 <div class="project-details">
-                                    <h3 class="project-row-title">Stratawright - 原生支援 AI Agent CLI 自動化之音訊工作站架構<span
-                                            class="badge-new">NEW</span></h3>
+                                    <h3 class="project-row-title">Stratawright - 原生支援 AI Agent CLI 自動化之音訊工作站架構</h3>
                                     <p class="project-tagline">透過確定性 CLI 控制協議與 Tool Calling Schema 開放多軌音訊遙測數據，讓 AI
                                         Coding Agent 控制音訊工程工作流。
                                     </p>
@@ -280,373 +534,7 @@
             </div>
         </section>
 
-        <!-- Section 03: Production Deployments & Systems -->
-        <section id="case-studies" class="section case-studies-section">
-            <div class="container">
-                <div class="section-grid">
-                    <div class="section-meta">
-                        <span class="mono-section-label">SYSTEM DEPLOYMENTS</span>
-                        <h2 class="section-serif-title">系統實務與現場部署</h2>
-                    </div>
-
-                    <div class="section-content">
-                        <!-- Case Study Segmented Switcher -->
-                        <div class="case-study-switcher" role="tablist" aria-label="系統實務與現場部署">
-                            <button class="switcher-tab active" role="tab" aria-selected="true" data-target="case-mrke">
-                                <span class="tab-num">案例 1</span>
-                                <span class="tab-title">沙龍 3D 互動 App</span>
-                            </button>
-                            <button class="switcher-tab" role="tab" aria-selected="false" data-target="case-innova">
-                                <span class="tab-num">案例 2</span>
-                                <span class="tab-title">臨床 AI 模擬系統</span>
-                            </button>
-                            <button class="switcher-tab" role="tab" aria-selected="false" data-target="case-principal">
-                                <span class="tab-num">案例 3</span>
-                                <span class="tab-title">AI 虛擬校長系統</span>
-                            </button>
-                            <button class="switcher-tab" role="tab" aria-selected="false" data-target="case-erhu">
-                                <span class="tab-num">案例 4</span>
-                                <span class="tab-title">即時動態捕捉系統</span>
-                            </button>
-                        </div>
-
-                        <!-- Case Study 1 -->
-                        <div class="case-study-panel active" id="case-mrke" role="tabpanel">
-                            <article class="case-study-card">
-                            <div class="case-header">
-                                <h3 class="case-title">1. 實體與數位整合：3D 髮型互動展示與沙龍體驗 App</h3>
-                                <div class="case-meta-line">
-                                    <span><strong>角色:</strong> Product Engineer & Co-Founder</span>
-                                    <span><strong>公司:</strong> MRKE Ltd.</span>
-                                </div>
-                            </div>
-
-                            <div class="case-body">
-                                <div class="case-app-showcase"
-                                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 0.5rem 0 1.5rem 0;">
-                                    <figure style="margin: 0; text-align: center;">
-                                        <img src="assets/hair_app/hair_app_menu.png" alt="髮型分類選單介面"
-                                            style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
-                                        <figcaption>圖 1：髮型分類與系列選單</figcaption>
-                                    </figure>
-                                    <figure style="margin: 0; text-align: center;">
-                                        <img src="assets/hair_app/hair_app_display1.png" alt="3D 髮型 360 度旋轉預覽"
-                                            style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
-                                        <figcaption>圖 2：3D 髮型 360 度預覽</figcaption>
-                                    </figure>
-                                    <figure style="margin: 0; text-align: center;">
-                                        <img src="assets/hair_app/hair_app_display2.png" alt="3D 髮型 360 度旋轉預覽 (男士短髮)"
-                                            style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
-                                        <figcaption>圖 3：3D 髮型 360 度預覽 (男士短髮)</figcaption>
-                                    </figure>
-                                </div>
-
-                                <h4>商業背景與問題發現</h4>
-                                <p>在實體沙龍營運中，顧客在觀看平面照片諮詢時，難以掌握側面弧度與後腦勺層次，造成剪髮前溝通耗時且容易產生預期落差。</p>
-
-                                <h4>產品目標與權限邊界</h4>
-                                <p>作為產品工程師兼共同創辦人，我設定的目標是自學 Unity C# 從零開發輕量化 3D 髮型預覽 App，介接 Google Cloud Storage
-                                    實現模型隨選串流，並於沙龍工作台部署專屬 Android 平板，以 360 度立體模型取代平面照片。</p>
-
-                                <h4>第一線洞察、持續數據追蹤與產品迭代</h4>
-                                <ul>
-                                    <li><strong>現場走查與客群洞察：</strong> 抱持好奇心走入沙龍現場觀察諮詢互動，發現 6 至 12
-                                        歲兒童與青少年探索意願最高，迅速調整研發優先級，推出專屬年輕客群 3D 系列。</li>
-                                    <li><strong>每日數據追蹤迴圈：</strong> 建立現場營運數據機制，每日記錄顧客選型與諮詢反饋，與髮型師共同微調 3D 模型細節與諮詢流程。</li>
-                                    <li><strong>Unity URP 架構與 CI/CD 串流：</strong> 採用 Unity C# 與通用渲染管線 (URP) 開發前端互動架構，建立
-                                        CI/CD 自動化發布管線與 Google Cloud Storage (GCS) OTA 資產串流，無需手動逐台重裝即可持續向門市平板推送更新。</li>
-                                </ul>
-
-                                <h4>產品影響力與實際成果</h4>
-                                <p class="highlight-text">
-                                    成功於沙龍等候區與剪髮工作台部署專屬 Android 平板，讓顧客在剪髮前 360
-                                    度立體預覽髮型細節。透過每日滿意度追蹤與持續模型調優，在數位資產迭代與現場諮詢之間建立緊密閉環。
-                                </p>
-
-                                <h4>心得與持續學習反思</h4>
-                                <p><strong>在真實用戶行為面前保持謙遜，在每日營運反饋中持續精進。</strong>
-                                    親自走入沙龍現場並自學 Unity C#，讓我體會到產品開發是一場持續學習的實踐，唯有貼近第一線、認真傾聽回饋並親自動手迭代，才能打磨出真正解決問題的系統。
-                                </p>
-
-                                <p style="margin-top: 0.8rem;">
-                                    <a href="https://github.com/Goldwaterfung/3D-Product-Showcase-URP-Sample-in-Unity"
-                                        target="_blank" rel="noopener" class="underline-link"><i
-                                            class="fa-brands fa-github"></i> 前往 GitHub 查看 3D Product Showcase URP Sample
-                                        (Goldwaterfung/3D-Product-Showcase-URP-Sample-in-Unity)</a>
-                                </p>
-
-                                <div class="case-footer-nav">
-                                    <div></div>
-                                    <button type="button" class="case-nav-btn next" data-target="case-innova">
-                                        <span class="case-nav-sub">下一篇實務案例</span>
-                                        <span class="case-nav-title">案例 2：臨床 AI 模擬系統 <i class="fa-solid fa-chevron-right"></i></span>
-                                    </button>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-
-                    <!-- Case Study 2 -->
-                    <div class="case-study-panel" id="case-innova" role="tabpanel">
-                        <article class="case-study-card">
-                            <div class="case-header">
-                                <h3 class="case-title">2. B2B 醫療 3D 模擬與大語言模型臨床診斷培訓系統</h3>
-                                <div class="case-meta-line">
-                                    <span><strong>角色:</strong> User Experience Designer</span>
-                                    <span><strong>機構:</strong> 醫諾華醫學科技股份有限公司 | 台灣高雄</span>
-                                </div>
-                            </div>
-
-                            <div class="case-body">
-                                <h4>商業背景與問題發現</h4>
-                                <p>醫諾華醫學科技開發結合 LLM 語音對答與 3D 虛擬病人之 B2B 臨床診斷培訓系統。在初期測試中，醫學生在視診環節頻繁出現診斷困惑與誤判，影響臨床培訓效果。</p>
-
-                                <h4>專案目標與學習定位</h4>
-                                <p>作為暑期 UX 設計實習生，我的目標是親自系統性走查 50
-                                    個虛擬病例，探究導致醫學生誤判的根本原因，並學習將表層體驗問題向上溯源至底層資料架構，向研發團隊提出具體且結構化的建議。</p>
-
-                                <h4>動手走查與根本原因診斷</h4>
-                                <ul>
-                                    <li><strong>透過親自走查挑戰既有假設：</strong> 團隊初期推測困惑源於 3D
-                                        美術精緻度不足。透過結構化使用者走查，我發現核心問題在於功能性缺陷：LLM 語音回覆與化身動作之間的聲影延遲，以及資料庫病徵文字描述與 3D
-                                        模型外觀的客觀落差。</li>
-                                    <li><strong>系統性資料庫與病例交叉比對：</strong> 系統性比對 50 個臨床虛擬病例與資料庫記錄，逐一標註醫療紀錄中提及但 3D
-                                        模型上遺漏或標註偏差的細微視覺病徵（如局部紅腫或膚色變化）。</li>
-                                    <li><strong>將體驗回饋錨定於客觀事實：</strong>
-                                        將發現整理為結構化比對矩陣並向工程與醫學主管匯報，引導研發資源優先修復聲影同步與病徵資料庫對齊，而非盲目進行美術外觀升級。</li>
-                                </ul>
-
-                                <h4>產品影響力與實際成果</h4>
-                                <p class="highlight-text">
-                                    將使用者體驗回饋與底層資料庫記錄進行交叉比對，協助團隊精準定位診斷困惑的深層根因，推動研發優先級從表層 3D 重繪轉向基礎資料與同步機制修復。
-                                </p>
-
-                                <h4>心得與持續學習反思</h4>
-                                <p><strong>學會以可驗證的數據為依歸，由底層理解系統運作架構。</strong>
-                                    踏入專業醫療領域讓我學會保持謙遜，向領域專家請教、系統性比對底層資料庫架構，並將每一項體驗建議錨定在客觀事實上。
-                                </p>
-
-                                <div class="case-footer-nav">
-                                    <button type="button" class="case-nav-btn prev" data-target="case-mrke">
-                                        <span class="case-nav-sub">上一篇實務案例</span>
-                                        <span class="case-nav-title"><i class="fa-solid fa-chevron-left"></i> 案例 1：沙龍 3D 互動 App</span>
-                                    </button>
-                                    <button type="button" class="case-nav-btn next" data-target="case-principal">
-                                        <span class="case-nav-sub">下一篇實務案例</span>
-                                        <span class="case-nav-title">案例 3：AI 虛擬校長系統 <i class="fa-solid fa-chevron-right"></i></span>
-                                    </button>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-
-                    <!-- Case Study 3 -->
-                    <div class="case-study-panel" id="case-principal" role="tabpanel">
-                        <article class="case-study-card">
-                            <div class="case-header">
-                                <h3 class="case-title">3. 整合 RAG 之多模態 AI 即時虛擬校長系統</h3>
-                                <div class="case-meta-line">
-                                    <span><strong>角色:</strong> Systems Integration Engineer</span>
-                                    <span><strong>機構:</strong> 國立臺南藝術大學</span>
-                                </div>
-                            </div>
-
-                            <div class="case-body">
-                                <figure class="case-image-wrapper vertical-image"
-                                    style="margin: 0.5rem 0 1.5rem 0; display: flex; flex-direction: column; align-items: center;">
-                                    <img src="assets/image/ar-llm-principal.png"
-                                        alt="工程實機測試畫面：整合 RAG 之多模態 AI 即時虛擬校長系統介面"
-                                        style="width: 100%; max-width: 280px; aspect-ratio: 9/16; object-fit: cover; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); border: 1px solid var(--border-color); display: block;">
-                                    <figcaption
-                                        style="font-size: 0.92rem; color: var(--text-secondary); margin-top: 0.6rem; text-align: center;">
-                                        <i class="fa-solid fa-vial"></i> 工程實機測試畫面：即時多模態語音對話與虛擬校長系統介面</figcaption>
-                                </figure>
-
-                                <h4>專案背景與目標</h4>
-                                <p>本專案研發並部署具備即時語音對答能力的 AI 虛擬校長。在本地 GPU 環境端到端運行多模態推論鏈路（語音識別、大語言模型 RAG 與語音合成）會產生 3 至 5
-                                    秒的處理延遲，使現場參觀者誤以為系統無反應。我的職責是將多模態鏈路整合至 Unity，設計即時對話感知緩衝機制以在推論期間提供即時視覺反饋，並在校園公開展演中穩定運行。
-                                </p>
-
-                                <h4>跨團隊協作與技術方案</h4>
-                                <ul>
-                                    <li><strong>感知延遲掩蔽機制工程：</strong> 為化解 3 至 5 秒的運算延遲，我在 Unity
-                                        中研發即時對話視覺反饋機制。當檢測到用戶發言結束時，化身立即切換至專注聆聽與運算狀態，向用戶提供明確的運算中視覺確認，直到後端推論完成。</li>
-                                    <li><strong>情緒驅動面部聯動與空間視線追蹤：</strong> 與 AI 模型團隊合作在回覆封包中嵌入情緒標籤，即時驅動 Unity 面部表情與對嘴
-                                        Blendshapes，並整合視線追蹤維持自然眼神接觸。</li>
-                                    <li><strong>跨團隊封包時序對齊：</strong> 協調前後端音訊與文本封包序列，確保語音播放時唇形精準同步。</li>
-                                </ul>
-
-                                <h4>產品影響力與實際成果</h4>
-                                <p class="highlight-text">
-                                    在校園展演與貴賓接待中公開展示，系統穩定承載多輪即時語音對答。透過響應式感知緩衝化解後端運算延遲，無需額外擴充 GPU 硬體或雲端架構。
-                                </p>
-
-                                <h4>心得與持續學習反思</h4>
-                                <p><strong>將硬體限制視為深化端到端系統思維的契機。</strong>
-                                    在有限硬體資源條件下，我體會到透過主動理解整條多模態鏈路的運作原理，並從參觀者的心理感知出發，能以感知延遲掩蔽與跨服務協議對齊化解延遲痛點，打破單一技術邊界。
-                                </p>
-
-                                <div class="case-footer-nav">
-                                    <button type="button" class="case-nav-btn prev" data-target="case-innova">
-                                        <span class="case-nav-sub">上一篇實務案例</span>
-                                        <span class="case-nav-title"><i class="fa-solid fa-chevron-left"></i> 案例 2：臨床 AI 模擬系統</span>
-                                    </button>
-                                    <button type="button" class="case-nav-btn next" data-target="case-erhu">
-                                        <span class="case-nav-sub">下一篇實務案例</span>
-                                        <span class="case-nav-title">案例 4：即時動態捕捉系統 <i class="fa-solid fa-chevron-right"></i></span>
-                                    </button>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-
-                    <!-- Case Study 4 -->
-                    <div class="case-study-panel" id="case-erhu" role="tabpanel">
-                        <article class="case-study-card">
-                            <div class="case-header">
-                                <h3 class="case-title">4. 傳統二胡演奏 Live：AI 動作捕捉與視聽同步系統</h3>
-                                <div class="case-meta-line">
-                                    <span><strong>角色:</strong> Systems Integration Engineer</span>
-                                    <span><strong>機構:</strong> 國立臺南藝術大學</span>
-                                </div>
-                            </div>
-
-                            <div class="case-body">
-                                <div class="case-video-wrapper horizontal-video" style="margin: 0.5rem 0 1.5rem 0;">
-                                    <video controls preload="metadata"
-                                        style="width: 100%; max-width: 720px; aspect-ratio: 16/9; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); border: 1px solid var(--border-color); background: #000; display: block;">
-                                        <source src="assets/system_integration/virtual_concert.mp4" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                    </video>
-                                    <span
-                                        style="font-size: 0.92rem; color: var(--text-secondary); margin-top: 0.6rem; display: block;"><i
-                                            class="fa-solid fa-compact-disc"></i> 傳統二胡現場 AI 動作捕捉與視聽同步展示</span>
-                                </div>
-
-                                <h4>背景與挑戰</h4>
-                                <p>在傳統二胡現場演奏中部署即時虛擬化身面臨顯著的延遲與同步挑戰。快速運弓動作結合即時音訊串流，在排練期間透過 AI 視覺姿態估計模型處理時容易產生畫面抖動與聲影脫節。
-                                </p>
-
-                                <h4>跨領域轉譯與工程目標</h4>
-                                <p>我的目標是在不損害聲音品質的前提下，在運弓姿態估計與連續音訊串流之間找到最佳緩衝窗口，實現舞台級的穩定展演同步。</p>
-
-                                <h4>排練測試與工程取捨</h4>
-                                <ul>
-                                    <li><strong>連結藝術樂句與技術指標：</strong> 工程師關注底層封包延遲，而演奏家更看重視覺節奏與起弓時機。透過抱持好奇心觀察排練現場，我將演奏家約
-                                        0.8 秒的自然預備運弓動作映射為精確的幀率緩衝閾值。</li>
-                                    <li><strong>協同緩衝實作：</strong> 將動捕數據與音訊波形並行記錄，確立了 1.5 秒確定性串流緩衝，吸收 AI
-                                        推論波動並消除畫面瞬跳，同時保持聲音清晰度。</li>
-                                    <li><strong>現場排練與驗證：</strong> 在舞台上進行多次完整彩排，驗證虛擬化身的響應節奏與演奏家的肢體表演高度對齊。</li>
-                                </ul>
-
-                                <h4>產品影響力與實際成果</h4>
-                                <p class="highlight-text">
-                                    1.5 秒確定性緩衝在大學音樂廳正式展演中全程保持視線追蹤穩定，並與現場原聲緊密對齊。
-                                </p>
-
-                                <h4>心得與持續學習反思</h4>
-                                <p><strong>對專業領域保持謙遜，學會跨越學科語彙進行精準轉譯。</strong>
-                                    與傳統器樂演奏家的深度協作讓我體認到，若技術指標無法服務於人類真實的情感表達就失去意義。與其將工程抽象概念強加於藝術家，我學會傾聽對方的演奏直覺、細心觀察起弓呼吸，並將藝術語彙轉譯為確定性的緩衝閾值。
-                                </p>
-
-                                <div class="case-footer-nav">
-                                    <button type="button" class="case-nav-btn prev" data-target="case-principal">
-                                        <span class="case-nav-sub">上一篇實務案例</span>
-                                        <span class="case-nav-title"><i class="fa-solid fa-chevron-left"></i> 案例 3：AI 虛擬校長系統</span>
-                                    </button>
-                                    <button type="button" class="case-nav-btn next" data-target="case-mrke">
-                                        <span class="case-nav-sub">返回第一篇</span>
-                                        <span class="case-nav-title">案例 1：沙龍 3D 互動 App <i class="fa-solid fa-rotate-left"></i></span>
-                                    </button>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </section>
-
-        <!-- Section 04: Experience Timeline -->
-        <section id="experience" class="section experience-section">
-            <div class="container">
-                <div class="section-grid">
-                    <div class="section-meta">
-                        <span class="mono-section-label">EXPERIENCE</span>
-                        <h2 class="section-serif-title">工作經歷</h2>
-                    </div>
-
-                    <div class="section-content">
-                        <div class="flat-timeline">
-                            <!-- Timeline Item 1 -->
-                            <div class="timeline-row">
-                                <div class="timeline-time">Dec 2020 - Jun 2026</div>
-                                <div class="timeline-details">
-                                    <h3 class="timeline-row-title">Product Engineer & Co-Founder</h3>
-                                    <div class="timeline-row-org">MRKE Ltd. | 3D 互動軟體與沙龍體驗</div>
-                                    <p class="timeline-row-desc">
-                                        負責產品規劃與從零自研 Unity (C#) 3D 髮型預覽應用，建立 CI/CD 發布自動化與 Google Cloud Storage
-                                        雲端串流，持續部署於沙龍專屬 Android 平板，化解顧客選型時的 2D 視覺落差。
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Timeline Item 2 -->
-                            <div class="timeline-row">
-                                <div class="timeline-time">Sep 2023 - Mar 2025</div>
-                                <div class="timeline-details">
-                                    <h3 class="timeline-row-title">Systems Integration Engineer</h3>
-                                    <div class="timeline-row-org">國立臺南藝術大學</div>
-                                    <p class="timeline-row-desc">
-                                        主導大學前瞻創新專案之多模態 AI 鏈路與即時視覺動捕系統整合。於本地 GPU 部署端到端多模態 AI 鏈路（語音識別、大語言模型 RAG、語音合成），並在
-                                        Unity 開發即時視聽同步與感知延遲掩蔽機制化解 3 至 5 秒推論等待期。主導二胡現場 AI 動作捕捉與虛擬化身系統整合，透過 1.5
-                                        秒確定性緩衝消除姿態推論與音訊抖動，完成音樂廳現場展演。
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Timeline Item 3 -->
-                            <div class="timeline-row">
-                                <div class="timeline-time">Jul 2024 - Aug 2024</div>
-                                <div class="timeline-details">
-                                    <h3 class="timeline-row-title">User Experience Designer</h3>
-                                    <div class="timeline-row-org">醫諾華醫學科技股份有限公司 | 台灣高雄</div>
-                                    <p class="timeline-row-desc">
-                                        深度測試並比對 50 個虛擬病例與臨床資料庫，定位臨床培訓誤判之根本原因在於聲影延遲與細微病徵缺失，協助研發團隊精準重排修復優先級。
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Timeline Item 4 -->
-                            <div class="timeline-row">
-                                <div class="timeline-time">Jul 2020 - Jul 2021</div>
-                                <div class="timeline-details">
-                                    <h3 class="timeline-row-title">Guest Experience Concierge</h3>
-                                    <div class="timeline-row-org">香港萬怡酒店 | 香港</div>
-                                    <p class="timeline-row-desc">
-                                        負責前廳貴賓接待、個人化體驗與高住房率下之現場危機應變。在高壓環境中培養對微觀情緒與用戶痛點的敏銳洞察，實踐同理心驅動之服務流程。
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Timeline Item 5 -->
-                            <div class="timeline-row">
-                                <div class="timeline-time">Jul 2017 - Jun 2020</div>
-                                <div class="timeline-details">
-                                    <h3 class="timeline-row-title">Guest Experience Concierge</h3>
-                                    <div class="timeline-row-org">香港嘉里酒店 (香格里拉集團開幕籌備團隊)</div>
-                                    <p class="timeline-row-desc">
-                                        加入開幕前營運團隊 3 年，參與從籌備期至開業後的前廳營運架構、服務 SOP 制定，以及工程部、客房部與前台之跨部門協作交接，建立嚴謹的營運執行力。
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 05: Education Timeline -->
+        <!-- Section 04: Education Timeline -->
         <section id="education" class="section education-section">
             <div class="container">
                 <div class="section-grid">
@@ -686,7 +574,7 @@
             </div>
         </section>
 
-        <!-- Section 06: Hobbies -->
+        <!-- Section 05: Hobbies -->
         <section id="hobbies" class="section hobbies-section">
             <div class="container">
                 <div class="section-grid">

@@ -66,7 +66,7 @@ The journey progresses chronologically from career departure to the current term
 3. **Station 3: MRKE Ltd.**
    - Period: Dec 2020 - Jun 2026
    - Role: Product Engineer and Co-Founder
-   - Organization: MRKE Ltd. | 3D Interactive Software and Salon Experience
+   - Organization: MRKE Ltd. | 3D Interactive Software and Haircut Business
    - Summary: Built an interactive 3D hairstyle preview application from scratch in Unity C# with CI/CD release automation and Google Cloud Storage asset streaming, deploying on dedicated Android tablets across salon stations.
 
 4. **Station 4: Innova Medical Technology Co., Ltd.**

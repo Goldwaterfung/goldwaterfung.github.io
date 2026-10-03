@@ -30,10 +30,9 @@
             </a>
 
             <nav class="nav-menu" id="nav-menu">
-                <a href="#about" class="nav-link active">About</a>
-                <a href="#projects" class="nav-link">Music & Research</a>
+                <a href="#experience" class="nav-link active">Experience</a>
                 <a href="#case-studies" class="nav-link">Deployments</a>
-                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#projects" class="nav-link">Projects & Research</a>
                 <a href="#education" class="nav-link">Education</a>
                 <a href="#hobbies" class="nav-link">Hobbies</a>
                 <a href="#contact" class="nav-link nav-btn">Contact</a>
@@ -70,66 +69,318 @@
             </div>
         </section>
 
-        <!-- Section 01: Professional Profile -->
-        <section id="about" class="section about-section">
-            <div class="container">
-                <div class="section-grid">
-                    <div class="section-meta">
-                        <span class="mono-section-label">PROFILE</span>
-                        <h2 class="section-serif-title">Professional Overview & Product Perspective</h2>
+        <!-- Section 01: Experience Journey (Vertical Transit Map) -->
+        <section id="experience" class="journey-section" aria-label="My Journey">
+            <div class="journey-container">
+                <div class="journey-header">
+                    <div class="journey-meta-title">
+                        <span class="mono-section-label">EXPERIENCE</span>
+                        <h2 class="journey-title">My Journey</h2>
                     </div>
+                </div>
 
-                    <div class="section-content">
-                        <div class="editorial-lead">
-                            Bridging complex underlying signals, agent orchestration, and real-time interactive systems
-                            through first-principles engineering and continuous, self-directed learning.
-                        </div>
-                        <p class="editorial-body">
-                            I approach complex technical challenges through first principles and continuous,
-                            self-directed learning. Whether conducting peer-reviewed spatial psychoacoustics research in
-                            IEEE ICVR, architecting agentic audio workstation systems, or deploying interactive 3D
-                            applications into physical retail operations, I focus on understanding underlying systems
-                            from the ground up and validating every design decision against empirical data.
+                <div class="journey-grid">
+                    <!-- Central Vertical Transit Map Mount Target -->
+                    <div id="journey-3d-canvas" class="journey-spine-viewport" aria-hidden="true"></div>
+
+                    <!-- Station 1: Kerry Hotel Hong Kong -->
+                    <article class="journey-card active" data-station="0">
+                        <div class="journey-card-time">Jul 2017 - Jun 2020</div>
+                        <h3 class="journey-card-role">Guest Experience Concierge</h3>
+                        <div class="journey-card-org">Kerry Hotel Hong Kong (Shangri-La Group Pre-Opening Team)</div>
+                        <p class="journey-card-desc">
+                            Served on the pre-opening operations team for 3 years, drafting 0-to-1 front office service SOPs and cross-departmental communication workflows between housekeeping, engineering, and guest services to establish operational rigor.
                         </p>
+                    </article>
 
-                        <div class="about-contact-links">
-                            <div class="contact-link-item">
-                                <span class="mono-label">FOCUS DOMAINS</span>
-                                <span class="contact-val">Agentic Workflows · Multimodal AI · Interactive Systems</span>
-                            </div>
-                            <div class="contact-link-item">
-                                <span class="mono-label">LANGUAGES</span>
-                                <span class="contact-val">English (Native/Fluent) · Mandarin (Fluent) · Cantonese
-                                    (Native)</span>
-                            </div>
-                            <div class="contact-link-item">
-                                <span class="mono-label">LOCATION</span>
-                                <span class="contact-val">Hong Kong</span>
-                            </div>
-                            <div class="contact-link-item">
-                                <span class="mono-label">EMAIL</span>
-                                <a href="mailto:kim.kamkiu.fung@gmail.com"
-                                    class="contact-val underline-link">kim.kamkiu.fung@gmail.com</a>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- Station 2: Courtyard by Marriott -->
+                    <article class="journey-card" data-station="1">
+                        <div class="journey-card-time">Jul 2020 - Jul 2021</div>
+                        <h3 class="journey-card-role">Guest Experience Concierge</h3>
+                        <div class="journey-card-org">Courtyard by Marriott | Hong Kong</div>
+                        <p class="journey-card-desc">
+                            Delivered front-of-house VIP services, personalized experiences, and frontline crisis resolution under high-occupancy conditions, developing acute diagnostic sensitivity to user friction and subtle emotional needs under pressure.
+                        </p>
+                    </article>
+
+                    <!-- Station 3: Systems Integration Engineer (TNNUA) -->
+                    <article class="journey-card" data-station="2">
+                        <div class="journey-card-time">Sep 2023 - Mar 2025</div>
+                        <h3 class="journey-card-role">Systems Integration Engineer</h3>
+                        <div class="journey-card-org">National Tainan University of the Arts (TNNUA)</div>
+                        <p class="journey-card-desc">
+                            Integrated end-to-end multimodal AI pipelines (Speech-to-Text, LLM with RAG, Text-to-Speech) for local GPU inference deployment, implementing real-time audiovisual synchronization in Unity. Engineered 1.5s deterministic streaming buffers to stabilize AI pose tracking and audio streams during live concert hall performances.
+                        </p>
+                    </article>
+
+                    <!-- Station 4: UX Designer Intern (Innova Medical) -->
+                    <article class="journey-card" data-station="3">
+                        <div class="journey-card-time">Jul 2024 - Aug 2024</div>
+                        <h3 class="journey-card-role">User Experience Designer (Intern)</h3>
+                        <div class="journey-card-org">Innova Medical Technology Co., Ltd. | Kaohsiung, Taiwan</div>
+                        <p class="journey-card-desc">
+                            Conducted UX diagnostics and database cross-validation across 50 clinical training cases during a 2-month summer residency, identifying root causes of student misdiagnoses in audiovisual desynchronization and missing symptom cues to realign engineering priorities.
+                        </p>
+                    </article>
+
+                    <!-- Station 5: Co-Founder & Product Engineer (MRKE Ltd.) -->
+                    <article class="journey-card" data-station="4">
+                        <div class="journey-card-time">Dec 2020 - Jun 2026</div>
+                        <h3 class="journey-card-role">Co-Founder & Product Engineer</h3>
+                        <div class="journey-card-org">MRKE Ltd. | 3D Interactive Software & Haircut Business</div>
+                        <p class="journey-card-desc">
+                            Built an interactive 3D hairstyle preview application from scratch in Unity (C#) with CI/CD release automation and Google Cloud Storage asset streaming, deploying on dedicated Android tablets across haircut stations. Operated as Kim's continuous commercial enterprise across 5.5 years, running parallel to the systems line.
+                        </p>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <!-- Section 02: Specialized Projects & Research -->
+        <!-- Section 02: Production Deployments & Systems (Full Immersive Canvas Slide Deck) -->
+        <section id="case-studies" class="case-studies-section" aria-label="Production Deployments & Systems">
+            <!-- Scroll Snap Track for Browser-Native Section Snapping -->
+            <div class="case-snap-track" aria-hidden="true">
+                <div class="case-snap-anchor" data-anchor="0"></div>
+                <div class="case-snap-anchor" data-anchor="1"></div>
+                <div class="case-snap-anchor" data-anchor="2"></div>
+                <div class="case-snap-anchor" data-anchor="3"></div>
+            </div>
+
+            <!-- Full-Screen Immersive Canvas Stage (100% width, 100% height minus header nav) -->
+            <div class="case-sticky-stage">
+                <!-- Minimalist Quiet Floating Slide Indicators (No text banner) -->
+                <div class="case-canvas-indicators" role="tablist" aria-label="Case slides">
+                    <button type="button" class="case-indicator-dot active" data-slide-index="0" aria-label="Slide 1"></button>
+                    <button type="button" class="case-indicator-dot" data-slide-index="1" aria-label="Slide 2"></button>
+                    <button type="button" class="case-indicator-dot" data-slide-index="2" aria-label="Slide 3"></button>
+                    <button type="button" class="case-indicator-dot" data-slide-index="3" aria-label="Slide 4"></button>
+                </div>
+
+                <!-- Slide Viewport -->
+                <div class="case-slides-viewport">
+                    <!-- Slide 1: Salon 3D App (Three Image Array in 16:9 Frame) -->
+                    <article class="case-slide active" data-slide="0">
+                        <div class="case-canvas-grid">
+                            <!-- Left Column: Title, 16:9 Three-Image Array, Background -->
+                            <div class="case-col-left">
+                                <div class="case-header-compact">
+                                    <h3 class="case-slide-title">1. Physical-Digital Integration: 3D Hairstyle Interactive Preview App</h3>
+                                    <div class="case-meta-line">
+                                        <span><strong>Role:</strong> Product Engineer & Co-Founder</span>
+                                        <span><strong>Company:</strong> MRKE Ltd.</span>
+                                    </div>
+                                </div>
+
+                                <!-- 16:9 Widescreen Frame containing Three Vertical Screens -->
+                                <div class="case-widescreen-frame">
+                                    <div class="three-images-grid">
+                                        <figure class="three-images-col">
+                                            <img src="assets/hair_app/hair_app_menu.png" alt="Hairstyle category menu interface">
+                                            <figcaption>Menu</figcaption>
+                                        </figure>
+                                        <figure class="three-images-col">
+                                            <img src="assets/hair_app/hair_app_display1.png" alt="3D hairstyle 360-degree preview">
+                                            <figcaption>3D Preview</figcaption>
+                                        </figure>
+                                        <figure class="three-images-col">
+                                            <img src="assets/hair_app/hair_app_display2.png" alt="3D hairstyle preview short hair">
+                                            <figcaption>Short Hair</figcaption>
+                                        </figure>
+                                    </div>
+                                </div>
+
+                                <div class="case-text-block">
+                                    <h4>Business Background and Problem Discovery</h4>
+                                    <p>In salon operations, clients struggled to visualize volume and layering from flat 2D catalogs, causing hesitation and prolonged consultations before haircuts.</p>
+                                </div>
+                            </div>
+
+                            <!-- Right Column: Goals, Frontline Insights, Practical Outcomes, Link -->
+                            <div class="case-col-right">
+                                <div class="case-text-block">
+                                    <h4>Product Goals and Scope</h4>
+                                    <p>As Product Engineer and Co-Founder, I set out to build a lightweight 3D hairstyle preview application in Unity C# from scratch, connect it to Google Cloud Storage for over-the-air asset streaming, and deploy it on dedicated in-store Android tablets to eliminate consultation ambiguity.</p>
+                                </div>
+
+                                <div class="case-text-block">
+                                    <h4>Frontline Insights, Continuous Data Tracking, and Product Iteration</h4>
+                                    <ul>
+                                        <li><strong>Curious Floor Observation:</strong> Spent time on the salon floor observing consultations directly, discovering that children (ages 6 to 12) and teenagers were the most enthusiastic users, and reprioritized the asset pipeline to launch dedicated youth 3D collections.</li>
+                                        <li><strong>Daily Stylist Feedback Loop:</strong> Instituted daily tracking logs where stylists recorded client style selections and consultation satisfaction to guide ongoing 3D model tuning.</li>
+                                        <li><strong>Unity URP Architecture & CI/CD Streaming:</strong> Built the mobile client in Unity C# using the Universal Render Pipeline (URP), establishing CI/CD automated release pipelines and Google Cloud Storage OTA asset streaming to deploy continuous updates without manual station-by-station app reinstalls.</li>
+                                    </ul>
+                                </div>
+
+                                <div class="case-text-block">
+                                    <h4>Product Impact and Practical Outcomes</h4>
+                                    <p class="highlight-text">
+                                        Deployed dedicated tablets across styling stations, turning haircut consultations into an interactive 360-degree preview. Anchoring digital asset iteration in daily stylist logs established a closed feedback loop between software delivery and salon floor operations.
+                                    </p>
+                                </div>
+
+                                <div class="case-link-row">
+                                    <a href="https://github.com/Goldwaterfung/3D-Product-Showcase-URP-Sample-in-Unity"
+                                        target="_blank" rel="noopener" class="underline-link"><i class="fa-brands fa-github"></i> View 3D Product Showcase URP Sample on GitHub</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Slide 2: Clinical AI Simulator (No Image, Rich Two-Column Layout) -->
+                    <article class="case-slide" data-slide="1">
+                        <div class="case-canvas-grid">
+                            <!-- Left Column: Title, Background, Goals, Clinical Matrix Card -->
+                            <div class="case-col-left">
+                                <div class="case-header-compact">
+                                    <h3 class="case-slide-title">2. B2B Medical 3D Simulation & LLM Clinical Diagnosis Training System</h3>
+                                    <div class="case-meta-line">
+                                        <span><strong>Role:</strong> User Experience Designer (Intern)</span>
+                                        <span><strong>Organization:</strong> Innova Medical Technology Co., Ltd. | Kaohsiung, Taiwan</span>
+                                    </div>
+                                </div>
+
+                                <div class="case-text-block">
+                                    <h4>Business Background and Problem Discovery</h4>
+                                    <p>Innova Medical developed a B2B clinical diagnostic training platform combining LLM dialogue with 3D virtual patients for medical students. During initial testing, students experienced diagnostic confusion and misjudgments in visual examination modules.</p>
+                                </div>
+
+                                <div class="case-text-block">
+                                    <h4>Product Goals and Scope</h4>
+                                    <p>As a UX Designer intern, my goal was to systematically walk through all 50 virtual patient cases, identify root causes behind student misdiagnoses, and learn to trace surface UX friction back to underlying system data to guide structured recommendations.</p>
+                                </div>
+                            </div>
+
+                            <!-- Right Column: Hands-On Testing Bullets, Practical Outcomes -->
+                            <div class="case-col-right">
+                                <div class="case-text-block">
+                                    <h4>Hands-On Testing and Root-Cause Diagnostics</h4>
+                                    <ul>
+                                        <li><strong>Questioning Assumptions Through Direct Walkthroughs:</strong> Rather than assuming confusion stemmed from 3D art styling, structured walkthroughs revealed functional issues: temporal latency between LLM dialogue and avatar animations, plus discrepancies between clinical database notes and visual cues.</li>
+                                        <li><strong>Systematic Database and Case Cross-Validation:</strong> Tested all 50 virtual patient cases against database symptom records, meticulously cataloging instances where visual signs (such as localized swelling or discoloration) were missing or misaligned on 3D models.</li>
+                                        <li><strong>Anchoring Feedback in Objective Evidence:</strong> Synthesized findings into a structured cross-validation matrix, guiding engineering and medical leads to prioritize audiovisual synchronization and symptom schema alignment over cosmetic visual rework.</li>
+                                    </ul>
+                                </div>
+
+                                <div class="case-text-block">
+                                    <h4>Product Impact and Practical Outcomes</h4>
+                                    <p class="highlight-text">
+                                        Cross-referencing user experience with underlying database schemas enabled the team to resolve root causes of diagnostic confusion, refocusing roadmap priorities from cosmetic 3D rework to foundational data and synchronization fixes.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Slide 3: AI Virtual Principal (Vertical Image 9:16 Design) -->
+                    <article class="case-slide" data-slide="2">
+                        <div class="case-canvas-grid">
+                            <!-- Left Column: Title, Vertical Device Frame (9:16) + Background Text -->
+                            <div class="case-col-left">
+                                <div class="case-header-compact">
+                                    <h3 class="case-slide-title">3. Multimodal AI Real-Time Virtual Principal System</h3>
+                                    <div class="case-meta-line">
+                                        <span><strong>Role:</strong> Systems Integration Engineer</span>
+                                        <span><strong>Organization:</strong> National Tainan University of the Arts</span>
+                                    </div>
+                                </div>
+
+                                <div class="case-vertical-split-layout">
+                                    <div class="case-vertical-device-frame">
+                                        <img src="assets/image/ar-llm-principal.png"
+                                            alt="Engineering Test Capture: RAG-Integrated Multimodal AI Real-Time Virtual Principal Interface"
+                                            class="case-vertical-device-img">
+                                    </div>
+                                    <div class="case-vertical-context">
+                                        <h4>Project Background and Objectives</h4>
+                                        <p>Running an end-to-end multimodal pipeline (Speech-to-Text, LLM with RAG, Text-to-Speech) on local GPU inference incurred a 3 to 5 second latency gap, making the avatar feel unresponsive. I integrated the pipeline into Unity and engineered real-time conversational state feedback for live university showcases.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Right Column: Technical Collaboration Bullets, Practical Outcomes -->
+                            <div class="case-col-right">
+                                <div class="case-text-block">
+                                    <h4>Cross-Team Collaboration and Technical Solutions</h4>
+                                    <ul>
+                                        <li><strong>Real-Time Conversational State Feedback:</strong> To bridge the 3 to 5 second compute latency, I engineered real-time conversational visual feedback in Unity. Upon detecting user speech completion, the avatar immediately shifts into attentive listening and processing states, confirming input is actively being processed while backend inference completes.</li>
+                                        <li><strong>Emotion-Driven Facial Linkages & Spatial Gaze:</strong> Linked LLM response sentiment tags to Unity facial blendshapes, and integrated camera-based head tracking so the avatar smoothly maintains eye contact as visitors move in front of the display.</li>
+                                        <li><strong>Cross-Team Protocol Timing:</strong> Aligned audio and text payload packet sequencing between distributed frontend and backend services, ensuring precise lip-sync synchronization upon audio playback.</li>
+                                    </ul>
+                                </div>
+
+                                <div class="case-text-block">
+                                    <h4>Product Impact and Practical Outcomes</h4>
+                                    <p class="highlight-text">
+                                        Publicly demonstrated at university exhibitions and VIP receptions, the system reliably handled multi-turn real-time voice interactions. Responsive conversational state feedback resolved perception of compute delays without requiring additional GPU hardware or cloud infrastructure.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Slide 4: Live AI Motion Capture (16:9 Video Frame, Same Design with Case 1) -->
+                    <article class="case-slide" data-slide="3">
+                        <div class="case-canvas-grid">
+                            <!-- Left Column: Title, 16:9 Video Frame, Background -->
+                            <div class="case-col-left">
+                                <div class="case-header-compact">
+                                    <h3 class="case-slide-title">4. Chinese Traditional Erhu Live: AI Motion Capture & Audiovisual Synchronization</h3>
+                                    <div class="case-meta-line">
+                                        <span><strong>Role:</strong> Systems Integration Engineer</span>
+                                        <span><strong>Organization:</strong> National Tainan University of the Arts</span>
+                                    </div>
+                                </div>
+
+                                <!-- 16:9 Widescreen Frame containing Video (Identical frame design with Case 1) -->
+                                <div class="case-widescreen-frame">
+                                    <video controls preload="metadata" class="case-widescreen-video">
+                                        <source src="assets/system_integration/virtual_concert.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+
+                                <div class="case-text-block">
+                                    <h4>Background and Challenges</h4>
+                                    <p>Deploying a real-time virtual avatar for live traditional Chinese Erhu performances presented substantial latency and synchronization challenges. Rapid bowing gestures combined with live audio streams created visual jitter and desync when processed through AI vision pose estimation models during rehearsals.</p>
+                                </div>
+                            </div>
+
+                            <!-- Right Column: Objectives, Rehearsal Testing Bullets, Practical Outcomes -->
+                            <div class="case-col-right">
+                                <div class="case-text-block">
+                                    <h4>Cross-Domain Translation and Engineering Objectives</h4>
+                                    <p>My objective was to determine an optimal buffer window between bowing pose estimation and continuous audio streams without compromising sound fidelity, delivering stable live performance synchronization.</p>
+                                </div>
+
+                                <div class="case-text-block">
+                                    <h4>Rehearsal Testing and Engineering Trade-Offs</h4>
+                                    <ul>
+                                        <li><strong>Bridging Artistic Phrasing with Technical Metrics:</strong> While engineers focused on raw packet latency, the musician prioritized visual cadence and attack timing. By observing rehearsal sessions with curiosity, I mapped the musician's natural ~0.8s preparatory bowing cadence into frame-accurate buffer thresholds.</li>
+                                        <li><strong>Collaborative Buffer Implementation:</strong> Recording motion tracking data alongside audio waveforms, we established a 1.5s deterministic streaming buffer that absorbed AI inference variance and eliminated visual snapping while preserving acoustic clarity.</li>
+                                        <li><strong>Live Stage Validation:</strong> Conducted multiple full-dress simulations on stage to verify that virtual avatar responsiveness aligned with the musician's physical performance timing.</li>
+                                    </ul>
+                                </div>
+
+                                <div class="case-text-block">
+                                    <h4>Product Impact and Practical Outcomes</h4>
+                                    <p class="highlight-text">
+                                        The 1.5s deterministic buffer stabilized the vision tracking stream and maintained tight alignment with live acoustic audio throughout the university concert hall performance.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 03: Specialized Projects & Research -->
         <section id="projects" class="section projects-section">
             <div class="container">
                 <div class="section-grid">
                     <div class="section-meta">
                         <span class="mono-section-label">FEATURED PROJECTS & RESEARCH</span>
                         <h2 class="section-serif-title">Agent Systems & Empirical Research</h2>
-                        <div class="flat-filters">
-                            <button class="filter-btn active" data-filter="all">All</button>
-                            <button class="filter-btn" data-filter="agent-daw">Agentic DAW</button>
-                            <button class="filter-btn" data-filter="research">IEEE Research</button>
-                            <button class="filter-btn" data-filter="agent-studio">Research Studio</button>
-                        </div>
                     </div>
 
                     <div class="section-content">
@@ -139,8 +390,7 @@
                                 <div class="project-year">2026</div>
                                 <div class="project-details">
                                     <h3 class="project-row-title">Stratawright - Audio Workstation Signal Architecture
-                                        for AI Agent CLI Automation<span class="badge-new">NEW</span>
-                                    </h3>
+                                        for AI Agent CLI Automation</h3>
                                     <p class="project-tagline">Exposing multitrack digital audio telemetry through
                                         deterministic CLI protocols and tool-calling schemas, enabling AI coding agents
                                         to control audio engineering workflows.
@@ -323,464 +573,7 @@
             </div>
         </section>
 
-        <!-- Section 03: Production Deployments & Systems -->
-        <section id="case-studies" class="section case-studies-section">
-            <div class="container">
-                <div class="section-grid">
-                    <div class="section-meta">
-                        <span class="mono-section-label">SYSTEM DEPLOYMENTS</span>
-                        <h2 class="section-serif-title">Production Deployments & Systems</h2>
-                    </div>
-
-                    <div class="section-content">
-                        <!-- Case Study Segmented Switcher -->
-                        <div class="case-study-switcher" role="tablist" aria-label="System Deployments">
-                            <button class="switcher-tab active" role="tab" aria-selected="true" data-target="case-mrke">
-                                <span class="tab-num">CASE 1</span>
-                                <span class="tab-title">Salon 3D App</span>
-                            </button>
-                            <button class="switcher-tab" role="tab" aria-selected="false" data-target="case-innova">
-                                <span class="tab-num">CASE 2</span>
-                                <span class="tab-title">Clinical AI Simulator</span>
-                            </button>
-                            <button class="switcher-tab" role="tab" aria-selected="false" data-target="case-principal">
-                                <span class="tab-num">CASE 3</span>
-                                <span class="tab-title">AI Virtual Principal</span>
-                            </button>
-                            <button class="switcher-tab" role="tab" aria-selected="false" data-target="case-erhu">
-                                <span class="tab-num">CASE 4</span>
-                                <span class="tab-title">Live AI Motion Capture</span>
-                            </button>
-                        </div>
-
-                        <!-- Case Study 1 -->
-                        <div class="case-study-panel active" id="case-mrke" role="tabpanel">
-                            <article class="case-study-card">
-                            <div class="case-header">
-                                <h3 class="case-title">1. Physical-Digital Integration: 3D Hairstyle Interactive
-                                    Showcase and Salon Experience App</h3>
-                                <div class="case-meta-line">
-                                    <span><strong>Role:</strong> Product Engineer & Co-Founder</span>
-                                    <span><strong>Company:</strong> MRKE Ltd.</span>
-                                </div>
-                            </div>
-
-                            <div class="case-body">
-                                <div class="case-app-showcase"
-                                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 0.5rem 0 1.5rem 0;">
-                                    <figure style="margin: 0; text-align: center;">
-                                        <img src="assets/hair_app/hair_app_menu.png"
-                                            alt="Hairstyle category menu interface"
-                                            style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
-                                        <figcaption>Figure 1: Hairstyle Categories and Collection Menu</figcaption>
-                                    </figure>
-                                    <figure style="margin: 0; text-align: center;">
-                                        <img src="assets/hair_app/hair_app_display1.png"
-                                            alt="3D hairstyle 360-degree rotation preview"
-                                            style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
-                                        <figcaption>Figure 2: 3D Hairstyle 360-Degree Preview</figcaption>
-                                    </figure>
-                                    <figure style="margin: 0; text-align: center;">
-                                        <img src="assets/hair_app/hair_app_display2.png"
-                                            alt="3D hairstyle 360-degree rotation preview (Men's Short Hair)"
-                                            style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
-                                        <figcaption>Figure 3: 3D Hairstyle 360-Degree Preview (Men's Short Hair)
-                                        </figcaption>
-                                    </figure>
-                                </div>
-
-                                <h4>Business Background and Problem Discovery</h4>
-                                <p>In salon operations, clients struggled to visualize volume and layering from flat 2D
-                                    catalogs, causing hesitation and prolonged consultations before haircuts.</p>
-
-                                <h4>Product Goals and Scope</h4>
-                                <p>As Product Engineer and Co-Founder, I set out to build a lightweight 3D hairstyle
-                                    preview application in Unity C# from scratch, connect it to Google Cloud Storage for
-                                    over-the-air asset streaming, and deploy it on dedicated in-store Android tablets to
-                                    eliminate consultation ambiguity.</p>
-
-                                <h4>Frontline Insights, Continuous Data Tracking, and Product Iteration</h4>
-                                <ul>
-                                    <li><strong>Curious Floor Observation:</strong> Spent time on the salon floor
-                                        observing consultations directly, discovering that children (ages 6 to 12) and
-                                        teenagers were the most enthusiastic users, and reprioritized the asset pipeline
-                                        to launch dedicated youth 3D collections.</li>
-                                    <li><strong>Daily Stylist Feedback Loop:</strong> Instituted daily tracking logs
-                                        where stylists recorded client style selections and consultation satisfaction to
-                                        guide ongoing 3D model tuning.</li>
-                                    <li><strong>Unity URP Architecture & CI/CD Streaming:</strong> Built the mobile
-                                        client in Unity C# using the Universal Render Pipeline (URP), establishing CI/CD
-                                        automated release pipelines and Google Cloud Storage OTA asset streaming to
-                                        deploy continuous updates without manual station-by-station app reinstalls.</li>
-                                </ul>
-
-                                <h4>Product Impact and Practical Outcomes</h4>
-                                <p class="highlight-text">
-                                    Deployed dedicated tablets across styling stations, turning haircut consultations
-                                    into an interactive 360-degree preview. Anchoring digital asset iteration in daily
-                                    stylist logs established a closed feedback loop between software delivery and salon
-                                    floor operations.
-                                </p>
-
-                                <h4>Key Takeaways and Continuous Learning</h4>
-                                <p><strong>Staying humble before actual user behavior and learning through daily
-                                        operational feedback.</strong>
-                                    By spending time on the salon floor and teaching myself Unity C#, I learned that
-                                    product development is an ongoing learning practice, where listening to frontline
-                                    staff and iteratively tuning assets produces far better outcomes than rigid
-                                    planning.
-                                </p>
-
-                                <p style="margin-top: 0.8rem;">
-                                    <a href="https://github.com/Goldwaterfung/3D-Product-Showcase-URP-Sample-in-Unity"
-                                        target="_blank" rel="noopener" class="underline-link"><i
-                                            class="fa-brands fa-github"></i> View 3D Product Showcase URP Sample on
-                                        GitHub
-                                        (Goldwaterfung/3D-Product-Showcase-URP-Sample-in-Unity)</a>
-                                </p>
-
-                                <div class="case-footer-nav">
-                                    <div></div>
-                                    <button type="button" class="case-nav-btn next" data-target="case-innova">
-                                        <span class="case-nav-sub">Next Deployment</span>
-                                        <span class="case-nav-title">Case 2: Clinical AI Simulator <i class="fa-solid fa-chevron-right"></i></span>
-                                    </button>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-
-                    <!-- Case Study 2 -->
-                    <div class="case-study-panel" id="case-innova" role="tabpanel">
-                        <article class="case-study-card">
-                            <div class="case-header">
-                                <h3 class="case-title">2. B2B Medical 3D Simulation and LLM Clinical Diagnosis Training
-                                    System</h3>
-                                <div class="case-meta-line">
-                                    <span><strong>Role:</strong> User Experience Designer</span>
-                                    <span><strong>Organization:</strong> Innova Medical Technology Co., Ltd. |
-                                        Kaohsiung, Taiwan</span>
-                                </div>
-                            </div>
-
-                            <div class="case-body">
-                                <h4>Business Background and Problem Discovery</h4>
-                                <p>Innova Medical developed a B2B clinical diagnostic training platform combining LLM
-                                    dialogue with 3D virtual patients for medical students. During initial testing,
-                                    students experienced diagnostic confusion and misjudgments in visual examination
-                                    modules.</p>
-
-                                <h4>Product Goals and Scope</h4>
-                                <p>As a UX Designer intern, my goal was to systematically walk through all 50 virtual
-                                    patient cases, identify root causes behind student misdiagnoses, and learn to trace
-                                    surface UX friction back to underlying system data to guide structured
-                                    recommendations.</p>
-
-                                <h4>Hands-On Testing and Root-Cause Diagnostics</h4>
-                                <ul>
-                                    <li><strong>Questioning Assumptions Through Direct Walkthroughs:</strong> Rather
-                                        than assuming confusion stemmed from 3D art styling, structured walkthroughs
-                                        revealed functional issues: temporal latency between LLM dialogue and avatar
-                                        animations, plus discrepancies between clinical database notes and visual cues.
-                                    </li>
-                                    <li><strong>Systematic Database and Case Cross-Validation:</strong> Tested all 50
-                                        virtual patient cases against database symptom records, meticulously cataloging
-                                        instances where visual signs (such as localized swelling or discoloration) were
-                                        missing or misaligned on 3D models.</li>
-                                    <li><strong>Anchoring Feedback in Objective Evidence:</strong> Synthesized findings
-                                        into a structured cross-validation matrix, guiding engineering and medical leads
-                                        to prioritize audiovisual synchronization and symptom schema alignment over
-                                        cosmetic visual rework.</li>
-                                </ul>
-
-                                <h4>Product Impact and Practical Outcomes</h4>
-                                <p class="highlight-text">
-                                    Cross-referencing user experience with underlying database schemas enabled the team
-                                    to resolve root causes of diagnostic confusion, refocusing roadmap priorities from
-                                    cosmetic 3D rework to foundational data and synchronization fixes.
-                                </p>
-
-                                <h4>Key Takeaways and Continuous Learning</h4>
-                                <p><strong>Learning to ground design in verifiable data and understand technical systems
-                                        from the bottom up.</strong>
-                                    Stepping into a specialized medical domain taught me to stay curious, listen to
-                                    domain experts, methodically cross-examine database schemas, and anchor every UX
-                                    recommendation in empirical evidence.
-                                </p>
-
-                                <div class="case-footer-nav">
-                                    <button type="button" class="case-nav-btn prev" data-target="case-mrke">
-                                        <span class="case-nav-sub">Previous Deployment</span>
-                                        <span class="case-nav-title"><i class="fa-solid fa-chevron-left"></i> Case 1: Salon 3D App</span>
-                                    </button>
-                                    <button type="button" class="case-nav-btn next" data-target="case-principal">
-                                        <span class="case-nav-sub">Next Deployment</span>
-                                        <span class="case-nav-title">Case 3: AI Virtual Principal <i class="fa-solid fa-chevron-right"></i></span>
-                                    </button>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-
-                    <!-- Case Study 3 -->
-                    <div class="case-study-panel" id="case-principal" role="tabpanel">
-                        <article class="case-study-card">
-                            <div class="case-header">
-                                <h3 class="case-title">3. RAG-Integrated Multimodal AI Real-Time Virtual
-                                    Principal</h3>
-                                <div class="case-meta-line">
-                                    <span><strong>Role:</strong> Systems Integration Engineer</span>
-                                    <span><strong>Organization:</strong> National Tainan University of the Arts</span>
-                                </div>
-                            </div>
-
-                            <div class="case-body">
-                                <figure class="case-image-wrapper vertical-image"
-                                    style="margin: 0.5rem 0 1.5rem 0; display: flex; flex-direction: column; align-items: center;">
-                                    <img src="assets/image/ar-llm-principal.png"
-                                        alt="Engineering Test Capture: RAG-Integrated Multimodal AI Real-Time Virtual Principal Interface"
-                                        style="width: 100%; max-width: 280px; aspect-ratio: 9/16; object-fit: cover; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); border: 1px solid var(--border-color); display: block;">
-                                    <figcaption
-                                        style="font-size: 0.92rem; color: var(--text-secondary); margin-top: 0.6rem; text-align: center;">
-                                        <i class="fa-solid fa-vial"></i> Engineering Test Capture: Real-Time Multimodal
-                                        Dialogue and Virtual Principal System</figcaption>
-                                 </figure>
-
-                                <h4>Project Background and Objectives</h4>
-                                <p>Developed an interactive AI virtual principal capable of real-time voice dialogue.
-                                    Running an end-to-end multimodal pipeline (Speech-to-Text, LLM with RAG,
-                                    Text-to-Speech) on local GPU inference incurred a 3 to 5 second latency gap, causing
-                                    showcase visitors to perceive the application as unresponsive. My responsibility was
-                                    to integrate the multimodal pipeline into Unity, implement perceptual latency
-                                    masking to provide immediate feedback during inference, and deploy the system live
-                                    at university showcases.</p>
-
-                                <h4>Cross-Team Collaboration and Technical Solutions</h4>
-                                <ul>
-                                    <li><strong>Engineering Perceptual Latency Masking:</strong> To bridge the 3 to 5
-                                        second compute latency, I engineered real-time conversational visual feedback in
-                                        Unity. Upon detecting user speech completion, the avatar immediately shifts into
-                                        attentive listening and processing states, confirming input is actively being
-                                        processed while backend inference completes.</li>
-                                    <li><strong>Emotion-Driven Facial Linkages & Spatial Gaze:</strong> Linked LLM
-                                        response sentiment tags to Unity facial blendshapes, and integrated camera-based
-                                        head tracking so the avatar smoothly maintains eye contact as visitors move in
-                                        front of the display.</li>
-                                    <li><strong>Cross-Team Protocol Timing:</strong> Aligned audio and text payload
-                                        packet sequencing between distributed frontend and backend services, ensuring
-                                        precise lip-sync synchronization upon audio playback.</li>
-                                </ul>
-
-                                <h4>Product Impact and Practical Outcomes</h4>
-                                <p class="highlight-text">
-                                    Publicly demonstrated at university exhibitions and VIP receptions, the system
-                                    reliably handled multi-turn real-time voice interactions. Responsive perceptual
-                                    buffering masked backend compute delays without requiring additional GPU hardware or
-                                    cloud infrastructure.
-                                </p>
-
-                                <h4>Key Takeaways and Continuous Learning</h4>
-                                <p><strong>Embracing hardware constraints as catalysts for creative, end-to-end system
-                                        design.</strong>
-                                    Working under resource limitations taught me that engineering excellence is about
-                                    understanding the entire pipeline end-to-end and designing around user perception,
-                                    solving latency friction through perceptual latency masking and cross-service
-                                    protocol alignment.
-                                </p>
-
-                                <div class="case-footer-nav">
-                                    <button type="button" class="case-nav-btn prev" data-target="case-innova">
-                                        <span class="case-nav-sub">Previous Deployment</span>
-                                        <span class="case-nav-title"><i class="fa-solid fa-chevron-left"></i> Case 2: Clinical AI Simulator</span>
-                                    </button>
-                                    <button type="button" class="case-nav-btn next" data-target="case-erhu">
-                                        <span class="case-nav-sub">Next Deployment</span>
-                                        <span class="case-nav-title">Case 4: Live AI Motion Capture <i class="fa-solid fa-chevron-right"></i></span>
-                                    </button>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-
-                    <!-- Case Study 4 -->
-                    <div class="case-study-panel" id="case-erhu" role="tabpanel">
-                        <article class="case-study-card">
-                            <div class="case-header">
-                                <h3 class="case-title">4. Chinese Traditional Erhu Live: AI Motion Capture and
-                                    Audiovisual Synchronization System</h3>
-                                <div class="case-meta-line">
-                                    <span><strong>Role:</strong> Systems Integration Engineer</span>
-                                    <span><strong>Organization:</strong> National Tainan University of the Arts</span>
-                                </div>
-                            </div>
-
-                            <div class="case-body">
-                                <div class="case-video-wrapper horizontal-video" style="margin: 0.5rem 0 1.5rem 0;">
-                                    <video controls preload="metadata"
-                                        style="width: 100%; max-width: 720px; aspect-ratio: 16/9; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); border: 1px solid var(--border-color); background: #000; display: block;">
-                                        <source src="assets/system_integration/virtual_concert.mp4" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                    </video>
-                                    <span
-                                        style="font-size: 0.92rem; color: var(--text-secondary); margin-top: 0.6rem; display: block;"><i
-                                            class="fa-solid fa-compact-disc"></i> Traditional Chinese Erhu Live AI
-                                        Motion Capture & Audiovisual Sync Showcase</span>
-                                </div>
-
-                                <h4>Background and Challenges</h4>
-                                <p>Deploying a real-time virtual avatar for live traditional Chinese Erhu performances
-                                    presented substantial latency and synchronization challenges. Rapid bowing gestures
-                                    combined with live audio streams created visual jitter and desync when processed
-                                    through AI vision pose estimation models during rehearsals.</p>
-
-                                <h4>Cross-Domain Translation and Engineering Objectives</h4>
-                                <p>My objective was to determine an optimal buffer window between bowing pose estimation
-                                    and continuous audio streams without compromising sound fidelity, delivering stable
-                                    live performance synchronization.</p>
-
-                                <h4>Rehearsal Testing and Engineering Trade-Offs</h4>
-                                <ul>
-                                    <li><strong>Bridging Artistic Phrasing with Technical Metrics:</strong> While
-                                        engineers focused on raw packet latency, the musician prioritized visual cadence
-                                        and attack timing. By observing rehearsal sessions with curiosity, I mapped the
-                                        musician's natural ~0.8s preparatory bowing cadence into frame-accurate buffer
-                                        thresholds.</li>
-                                    <li><strong>Collaborative Buffer Implementation:</strong> Recording motion tracking
-                                        data alongside audio waveforms, we established a 1.5s deterministic streaming
-                                        buffer that absorbed AI inference variance and eliminated visual snapping while
-                                        preserving acoustic clarity.</li>
-                                    <li><strong>Live Stage Validation:</strong> Conducted multiple full-dress
-                                        simulations on stage to verify that virtual avatar responsiveness aligned with
-                                        the musician's physical performance timing.</li>
-                                </ul>
-
-                                <h4>Product Impact and Practical Outcomes</h4>
-                                <p class="highlight-text">
-                                    The 1.5s deterministic buffer stabilized the vision tracking stream and maintained
-                                    tight alignment with live acoustic audio throughout the university concert hall
-                                    performance.
-                                </p>
-
-                                <h4>Key Takeaways and Continuous Learning</h4>
-                                <p><strong>Humility toward domain expertise and learning to translate across
-                                        disciplinary vocabularies.</strong>
-                                    Working closely with traditional instrumentalists taught me that technical metrics
-                                    must serve human expression. Rather than imposing engineering abstractions, I
-                                    learned to listen to performance intuition, observe natural preparatory timing, and
-                                    translate artistic phrasing into deterministic buffer thresholds.
-                                </p>
-
-                                <div class="case-footer-nav">
-                                    <button type="button" class="case-nav-btn prev" data-target="case-principal">
-                                        <span class="case-nav-sub">Previous Deployment</span>
-                                        <span class="case-nav-title"><i class="fa-solid fa-chevron-left"></i> Case 3: AI Virtual Principal</span>
-                                    </button>
-                                    <button type="button" class="case-nav-btn next" data-target="case-mrke">
-                                        <span class="case-nav-sub">Start Over</span>
-                                        <span class="case-nav-title">Case 1: Salon 3D App <i class="fa-solid fa-rotate-left"></i></span>
-                                    </button>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </section>
-
-        <!-- Section 04: Experience Timeline -->
-        <section id="experience" class="section experience-section">
-            <div class="container">
-                <div class="section-grid">
-                    <div class="section-meta">
-                        <span class="mono-section-label">EXPERIENCE</span>
-                        <h2 class="section-serif-title">Work Experience</h2>
-                    </div>
-
-                    <div class="section-content">
-                        <div class="flat-timeline">
-                            <!-- Timeline Item 1 -->
-                            <div class="timeline-row">
-                                <div class="timeline-time">Dec 2020 - Jun 2026</div>
-                                <div class="timeline-details">
-                                    <h3 class="timeline-row-title">Product Engineer & Co-Founder</h3>
-                                    <div class="timeline-row-org">MRKE Ltd. | 3D Interactive Software & Salon Experience
-                                    </div>
-                                    <p class="timeline-row-desc">
-                                        Built an interactive 3D hairstyle preview application from scratch in Unity (C#)
-                                        with CI/CD release automation and Google Cloud Storage asset streaming,
-                                        deploying on dedicated Android tablets across salon stations to eliminate visual
-                                        ambiguity in customer consultations.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Timeline Item 2 -->
-                            <div class="timeline-row">
-                                <div class="timeline-time">Sep 2023 - Mar 2025</div>
-                                <div class="timeline-details">
-                                    <h3 class="timeline-row-title">Systems Integration Engineer</h3>
-                                    <div class="timeline-row-org">National Tainan University of the Arts</div>
-                                    <p class="timeline-row-desc">
-                                        Integrated end-to-end multimodal AI pipelines (Speech-to-Text, LLM with RAG,
-                                        Text-to-Speech) for local GPU inference deployment, implementing real-time
-                                        audiovisual synchronization and perceptual latency masking in Unity. Engineered
-                                        1.5s deterministic streaming buffers to stabilize AI pose tracking and audio
-                                        streams during live concert hall performances.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Timeline Item 3 -->
-                            <div class="timeline-row">
-                                <div class="timeline-time">Jul 2024 - Aug 2024</div>
-                                <div class="timeline-details">
-                                    <h3 class="timeline-row-title">User Experience Designer</h3>
-                                    <div class="timeline-row-org">Innova Medical Technology Co., Ltd. | Kaohsiung,
-                                        Taiwan</div>
-                                    <p class="timeline-row-desc">
-                                        Conducted UX diagnostics and database cross-validation across 50 clinical
-                                        training cases, identifying root causes of student misdiagnoses in audiovisual
-                                        desynchronization and missing symptom cues to realign engineering priorities.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Timeline Item 4 -->
-                            <div class="timeline-row">
-                                <div class="timeline-time">Jul 2020 - Jul 2021</div>
-                                <div class="timeline-details">
-                                    <h3 class="timeline-row-title">Guest Experience Concierge</h3>
-                                    <div class="timeline-row-org">Courtyard by Marriott | Hong Kong</div>
-                                    <p class="timeline-row-desc">
-                                        Delivered front-of-house VIP services, personalized experiences, and frontline
-                                        crisis resolution under high-occupancy conditions, developing acute diagnostic
-                                        sensitivity to user friction and subtle emotional needs under pressure.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Timeline Item 5 -->
-                            <div class="timeline-row">
-                                <div class="timeline-time">Jul 2017 - Jun 2020</div>
-                                <div class="timeline-details">
-                                    <h3 class="timeline-row-title">Guest Experience Concierge</h3>
-                                    <div class="timeline-row-org">Kerry Hotel Hong Kong (Shangri-La Group Pre-Opening
-                                        Team)</div>
-                                    <p class="timeline-row-desc">
-                                        Served on the pre-opening operations team for 3 years, drafting 0-to-1 front
-                                        office service SOPs and cross-departmental communication workflows between
-                                        housekeeping, engineering, and guest services to establish operational rigor.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 05: Education Timeline -->
+        <!-- Section 04: Education Timeline -->
         <section id="education" class="section education-section">
             <div class="container">
                 <div class="section-grid">
@@ -822,7 +615,7 @@
             </div>
         </section>
 
-        <!-- Section 06: Hobbies -->
+        <!-- Section 05: Hobbies -->
         <section id="hobbies" class="section hobbies-section">
             <div class="container">
                 <div class="section-grid">

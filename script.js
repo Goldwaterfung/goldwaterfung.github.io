@@ -1,6 +1,6 @@
 /**
- * Minimalist Editorial PM Portfolio Script
- * Handles navigation interactions, accordion expansion, project filtering, and active scroll spy.
+ * Minimalist Editorial Portfolio Script
+ * Handles navigation interactions, case study switching, scroll spy, and media lightbox inspection.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -26,107 +26,190 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ----------------------------------------------------
-    // 2. Accordion Toggle for Case Study Details
-    // ----------------------------------------------------
-    const accordionToggles = document.querySelectorAll('.accordion-toggle');
 
-    accordionToggles.forEach(toggle => {
-        toggle.addEventListener('click', () => {
-            const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
-            const content = toggle.nextElementSibling;
-
-            toggle.setAttribute('aria-expanded', !isExpanded);
-            toggle.classList.toggle('active');
-
-            if (content) {
-                content.classList.toggle('open');
-            }
-        });
-    });
 
     // ----------------------------------------------------
-    // 3. Project Filter Buttons (Music Curation & Research)
+    // 2. Dynamic Case Slide Padding Calculation
     // ----------------------------------------------------
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const projectRows = document.querySelectorAll('.flat-project-row');
+    function calculateStageMetrics() {
+        const header = document.querySelector('.header');
+        const headerHeight = header ? Math.round(header.getBoundingClientRect().height) : 70;
+        const screenHeight = window.innerHeight;
+        const availableHeight = screenHeight - headerHeight;
 
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Remove active class from all filter buttons
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+        // Proportional top and bottom padding based on available height.
+        // Stage height itself is handled by CSS dvh units, no JS pixel injection needed.
+        const verticalPadding = Math.max(16, Math.min(36, Math.round(availableHeight * 0.035)));
 
-            const filterValue = btn.getAttribute('data-filter');
+        document.documentElement.style.setProperty('--case-padding-top', `${verticalPadding}px`);
+        document.documentElement.style.setProperty('--case-padding-bottom', `${verticalPadding}px`);
+    }
 
-            projectRows.forEach(row => {
-                const category = row.getAttribute('data-category');
+    calculateStageMetrics();
+    window.addEventListener('resize', calculateStageMetrics, { passive: true });
+    window.addEventListener('orientationchange', calculateStageMetrics, { passive: true });
 
-                if (filterValue === 'all' || category === filterValue) {
-                    row.style.display = '';
-                    window.requestAnimationFrame(() => {
-                        row.style.opacity = '1';
-                        row.style.transform = 'translateY(0)';
-                    });
+    // ----------------------------------------------------
+    // 3. Immersive Pinned Case Studies Scroll & Snap Controller
+    // ----------------------------------------------------
+    const caseStudiesSection = document.getElementById('case-studies');
+    const caseSlides = document.querySelectorAll('.case-slide');
+    const caseDots = document.querySelectorAll('.case-indicator-dot');
+
+    if (caseStudiesSection && caseSlides.length > 0) {
+        let currentSlideIndex = 0;
+        const totalSlides = caseSlides.length;
+
+        function setSlide(index, smoothScroll = false) {
+            if (index < 0 || index >= totalSlides) return;
+            currentSlideIndex = index;
+
+            caseSlides.forEach((slide, i) => {
+                slide.classList.remove('active', 'past', 'future');
+                if (i === index) {
+                    slide.classList.add('active');
+                } else if (i < index) {
+                    slide.classList.add('past');
                 } else {
-                    row.style.opacity = '0';
-                    row.style.transform = 'translateY(6px)';
-                    row.style.display = 'none';
+                    slide.classList.add('future');
+                }
+            });
+
+            caseDots.forEach((dot, i) => {
+                const isActive = i === index;
+                dot.classList.toggle('active', isActive);
+                dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
+            });
+
+            if (smoothScroll && window.innerWidth > 960) {
+                const sectionTop = caseStudiesSection.offsetTop;
+                const header = document.querySelector('.header');
+                const headerOffset = header ? header.getBoundingClientRect().height : 70;
+                const scrollable = caseStudiesSection.offsetHeight - window.innerHeight;
+                if (scrollable > 0) {
+                    const targetY = sectionTop - headerOffset + (index / (totalSlides - 1)) * scrollable;
+                    window.scrollTo({
+                        top: targetY,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        }
+
+        // Indicator dot click listeners
+        caseDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const idx = parseInt(dot.getAttribute('data-slide-index'), 10);
+                if (!isNaN(idx)) {
+                    setSlide(idx, true);
                 }
             });
         });
-    });
+
+        // Trackpad / mouse scroll controller on desktop
+        function onCaseScroll() {
+            if (window.innerWidth <= 960) return;
+            const rect = caseStudiesSection.getBoundingClientRect();
+            const header = document.querySelector('.header');
+            const headerOffset = header ? header.getBoundingClientRect().height : 70;
+            const scrollable = caseStudiesSection.offsetHeight - window.innerHeight;
+
+            if (scrollable <= 0) return;
+
+            const scrolled = -rect.top + headerOffset;
+            if (scrolled >= 0 && scrolled <= scrollable) {
+                const progress = scrolled / scrollable;
+                const slideIdx = Math.min(totalSlides - 1, Math.floor(progress * totalSlides));
+                if (slideIdx !== currentSlideIndex) {
+                    setSlide(slideIdx, false);
+                }
+            } else if (scrolled < 0) {
+                if (currentSlideIndex !== 0) {
+                    setSlide(0, false);
+                }
+            } else if (scrolled > scrollable) {
+                if (currentSlideIndex !== totalSlides - 1) {
+                    setSlide(totalSlides - 1, false);
+                }
+            }
+        }
+
+        window.addEventListener('scroll', onCaseScroll, { passive: true });
+        onCaseScroll();
+    }
 
     // ----------------------------------------------------
-    // 4. Case Study Segmented Switcher & Flow Navigation
+    // 4. Vertical Transit Map Journey Controller
     // ----------------------------------------------------
-    const switcherTabs = document.querySelectorAll('.switcher-tab');
-    const casePanels = document.querySelectorAll('.case-study-panel');
-    const caseNavBtns = document.querySelectorAll('.case-nav-btn');
+    const journeySection = document.getElementById('experience');
+    const stationCards = document.querySelectorAll('.journey-card');
 
-    function activateCaseStudy(targetId) {
-        if (!targetId) return;
+    if (journeySection && stationCards.length > 0) {
+        let currentStationIndex = 0;
+        const totalStations = stationCards.length;
 
-        switcherTabs.forEach(t => {
-            const isMatch = t.getAttribute('data-target') === targetId;
-            t.classList.toggle('active', isMatch);
-            t.setAttribute('aria-selected', isMatch ? 'true' : 'false');
-        });
+        function setStation(index, scrollToCard = false) {
+            if (index < 0 || index >= totalStations) return;
+            currentStationIndex = index;
 
-        casePanels.forEach(panel => {
-            panel.classList.toggle('active', panel.id === targetId);
-        });
+            stationCards.forEach((card, i) => {
+                card.classList.toggle('active', i === index);
+            });
 
-        // Ensure user is smoothly scrolled back to top of case studies
-        const caseSection = document.getElementById('case-studies');
-        if (caseSection) {
-            const headerOffset = 80;
-            const targetTop = caseSection.offsetTop - headerOffset;
-            if (window.pageYOffset > targetTop) {
-                window.scrollTo({
-                    top: targetTop,
-                    behavior: 'smooth'
+            window.dispatchEvent(new CustomEvent('journey-set-station', {
+                detail: { index }
+            }));
+
+            if (scrollToCard && stationCards[index]) {
+                stationCards[index].scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
                 });
             }
         }
-    }
 
-    if (switcherTabs.length > 0 && casePanels.length > 0) {
-        switcherTabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                const targetId = tab.getAttribute('data-target');
-                activateCaseStudy(targetId);
+        // Click on station cards activates that station
+        stationCards.forEach((card, idx) => {
+            card.addEventListener('click', () => {
+                setStation(idx, false);
             });
         });
-    }
 
-    if (caseNavBtns.length > 0) {
-        caseNavBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const targetId = btn.getAttribute('data-target');
-                activateCaseStudy(targetId);
-            });
+        // Listen to SVG station click events
+        window.addEventListener('journey-active-station-changed', (e) => {
+            const idx = e.detail?.index;
+            if (typeof idx === 'number' && idx !== currentStationIndex && idx >= 0 && idx < totalStations) {
+                setStation(idx, true);
+            }
         });
+
+        // IntersectionObserver to sync active station as user scrolls naturally
+        if ('IntersectionObserver' in window) {
+            const cardObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const stationIdx = parseInt(entry.target.getAttribute('data-station') || '0', 10);
+                        if (!isNaN(stationIdx) && stationIdx !== currentStationIndex) {
+                            currentStationIndex = stationIdx;
+                            stationCards.forEach((card, i) => {
+                                card.classList.toggle('active', i === stationIdx);
+                            });
+                            window.dispatchEvent(new CustomEvent('journey-set-station', {
+                                detail: { index: stationIdx }
+                            }));
+                        }
+                    }
+                });
+            }, {
+                root: null,
+                rootMargin: '-20% 0px -40% 0px',
+                threshold: 0.2
+            });
+
+            stationCards.forEach((card) => cardObserver.observe(card));
+        }
+
+        setStation(0, false);
     }
 
     // ----------------------------------------------------
@@ -183,6 +266,8 @@ document.addEventListener('DOMContentLoaded', () => {
         updateReadingProgress();
     }
 
+
+
     // ----------------------------------------------------
     // 7. Calm Scroll Entrance Reveals
     // ----------------------------------------------------
@@ -190,7 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!prefersReducedMotion && 'IntersectionObserver' in window) {
         const revealTargets = document.querySelectorAll(
-            '.case-study-card, .flat-project-row, .timeline-row, .accordion-item, .contact-link-item'
+            '.flat-project-row, .timeline-row, .contact-link-item'
         );
 
         const revealObserver = new IntersectionObserver((entries, observer) => {
@@ -216,7 +301,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 8. Media Figure Lightbox Inspection
     // ----------------------------------------------------
     const mediaImages = document.querySelectorAll(
-        '.project-media-wrapper img, .research-image-gallery img, .horizontal-media-scroll img, .media-block img'
+        '.project-media-wrapper img, .research-image-gallery img, .horizontal-media-scroll img, .media-block img, .three-images-col img, .case-vertical-device-img'
     );
 
     if (mediaImages.length > 0) {
