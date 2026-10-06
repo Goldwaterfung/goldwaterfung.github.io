@@ -3,7 +3,7 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Mesh, BufferGeometry } from 'three';
 import { parse as parseOpentype } from 'opentype.js';
 import { useMotionValue, useSpring, animate, useReducedMotion } from 'framer-motion';
-import { create3DTextGeometry } from './create3DTextGeometry';
+import { create3DTextGeometry, applyXAxisGradient } from './create3DTextGeometry';
 
 const getFontUrl = (): string => {
   if (typeof document !== 'undefined' && document.baseURI) {
@@ -96,9 +96,9 @@ const Text3DMesh: React.FC<Text3DMeshProps> = ({ geometry }) => {
       position={[0, 0, 0]}
     >
       <meshStandardMaterial
-        color="#e65c00"
-        roughness={0.8}
-        metalness={0.2}
+        vertexColors
+        roughness={0.45}
+        metalness={0.35}
       />
     </mesh>
   );
@@ -146,6 +146,14 @@ export const HeroTitleCanvas: React.FC = () => {
             createdGeom.center();
           }
         }
+
+        // Ember Copper Flow gradient (left → right across "Kim Fung")
+        applyXAxisGradient(createdGeom, [
+          { offset: 0.0, color: '#431802' },
+          { offset: 0.38, color: '#9E3A00' },
+          { offset: 0.68, color: '#E65C00' },
+          { offset: 1.0, color: '#FFAB5E' },
+        ]);
 
         if (!isCancelled) {
           setGeometry(createdGeom);

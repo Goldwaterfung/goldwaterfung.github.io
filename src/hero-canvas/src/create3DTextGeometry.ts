@@ -1,5 +1,57 @@
-import { ShapePath, ExtrudeGeometry, BufferGeometry } from 'three';
+import { ShapePath, ExtrudeGeometry, BufferGeometry, BufferAttribute, Color } from 'three';
 import type { Font } from 'opentype.js';
+
+export interface GradientStop {
+  offset: number;
+  color: string;
+}
+
+/**
+ * Bakes an X-axis (left → right) multi-stop gradient into vertex colors.
+ * Must be called AFTER final scale/center so the 0..1 range matches the
+ * on-screen reading direction. Mutates and returns the same geometry.
+ */
+export function applyXAxisGradient(
+  geometry: BufferGeometry,
+  stops: GradientStop[]
+): BufferGeometry {
+  const sorted = [...stops].sort((a, b) => a.offset - b.offset);
+  const colors = sorted.map((s) => new Color(s.color));
+
+  geometry.computeBoundingBox();
+  const bbox = geometry.boundingBox;
+  if (!bbox) return geometry;
+
+  const minX = bbox.min.x;
+  const rangeX = bbox.max.x - minX || 1;
+
+  const pos = geometry.getAttribute('position');
+  const count = pos.count;
+  const colorArray = new Float32Array(count * 3);
+  const tmp = new Color();
+
+  for (let i = 0; i < count; i++) {
+    const t = Math.min(1, Math.max(0, (pos.getX(i) - minX) / rangeX));
+
+    let seg = 0;
+    while (seg < sorted.length - 2 && t > sorted[seg + 1].offset) {
+      seg++;
+    }
+
+    const start = sorted[seg];
+    const end = sorted[seg + 1];
+    const span = end.offset - start.offset || 1;
+    const localT = Math.min(1, Math.max(0, (t - start.offset) / span));
+
+    tmp.copy(colors[seg]).lerp(colors[seg + 1], localT);
+    colorArray[i * 3] = tmp.r;
+    colorArray[i * 3 + 1] = tmp.g;
+    colorArray[i * 3 + 2] = tmp.b;
+  }
+
+  geometry.setAttribute('color', new BufferAttribute(colorArray, 3));
+  return geometry;
+}
 
 export interface Text3DOptions {
   text: string;
