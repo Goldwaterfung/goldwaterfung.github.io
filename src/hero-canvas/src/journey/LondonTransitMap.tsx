@@ -194,7 +194,7 @@ export const LondonTransitMap: React.FC<LondonTransitMapProps> = ({
                 strokeWidth={isActive ? '2.5' : '1.5'}
                 strokeDasharray={isActive ? 'none' : '3 3'}
                 opacity={isActive ? 0.9 : 0.45}
-                style={{ transition: 'stroke-width 0.18s ease, opacity 0.18s ease' }}
+                style={{ transition: 'opacity 0.15s ease' }}
               />
               <circle
                 cx={stubTargetX}
@@ -234,7 +234,6 @@ export const LondonTransitMap: React.FC<LondonTransitMapProps> = ({
                   fill="#ffffff"
                   stroke={COLOR_BLACK}
                   strokeWidth="3"
-                  style={{ transition: 'r 0.18s ease' }}
                 />
               ) : (
                 <g>
@@ -254,7 +253,6 @@ export const LondonTransitMap: React.FC<LondonTransitMapProps> = ({
                     fill="#ffffff"
                     stroke={stationColor}
                     strokeWidth="2.5"
-                    style={{ transition: 'r 0.18s ease' }}
                   />
                 </g>
               )}

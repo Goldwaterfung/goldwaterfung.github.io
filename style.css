@@ -1161,6 +1161,7 @@ figcaption {
     z-index: 2;
     pointer-events: auto;
     contain: layout paint;
+    will-change: transform;
 }
 
 /* Station Cards Styling */
@@ -1180,6 +1181,7 @@ figcaption {
     transition: transform var(--duration-ui) var(--ease-out), border-color var(--duration-ui) var(--ease-out), box-shadow var(--duration-ui) var(--ease-out);
     cursor: default;
     z-index: 3;
+    will-change: transform;
 }
 
 .journey-card:hover,

@@ -90,6 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCachedLayout();
     window.addEventListener('resize', updateCachedLayout, { passive: true });
     window.addEventListener('orientationchange', updateCachedLayout, { passive: true });
+    window.addEventListener('journey-layout-updated', updateCachedLayout, { passive: true });
 
     // ----------------------------------------------------
     // 3. Immersive Pinned Case Studies Controller

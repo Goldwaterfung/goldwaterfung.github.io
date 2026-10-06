@@ -11,6 +11,8 @@ export const JourneyCanvas: React.FC = () => {
   const network = useMemo(() => createDefaultJourneyNetwork(), [])
   const stations = useMemo(() => network.getAllStations(), [network])
 
+  const lastHeightsRef = useRef<number[] | null>(null)
+
   // Algorithmic Auto-Layout: Measures rendered card heights and assigns guaranteed non-overlapping positions
   const updateLayout = useCallback(() => {
     if (typeof window === 'undefined') return
@@ -23,6 +25,15 @@ export const JourneyCanvas: React.FC = () => {
     if (cards.length === 0) return
 
     const heights = Array.from(cards).map((c) => c.offsetHeight || 220)
+    const last = lastHeightsRef.current
+    const hasChanged =
+      !last ||
+      last.length !== heights.length ||
+      heights.some((h, i) => Math.abs(h - last[i]) > 1)
+
+    if (!hasChanged) return
+    lastHeightsRef.current = heights
+
     const result = network.computeLayout(heights)
     setLayout(result)
 
@@ -42,31 +53,46 @@ export const JourneyCanvas: React.FC = () => {
     if (viewport) {
       viewport.style.height = `${result.totalHeight}px`
     }
-  }, [])
+
+    // Broadcast layout update so outside controllers (e.g. scroll spy in script.js) remain synchronized
+    window.dispatchEvent(
+      new CustomEvent('journey-layout-updated', {
+        detail: { totalHeight: result.totalHeight },
+      })
+    )
+  }, [network])
 
   useEffect(() => {
     // Initial layout execution
     updateLayout()
 
-    // Observe changes to card sizes, text wrapping, and window dimensions
-    const grid = document.querySelector<HTMLElement>('.journey-grid')
+    // Observe changes to card sizes and text wrapping (do NOT observe grid to prevent self-triggering feedback loop)
     const cards = document.querySelectorAll<HTMLElement>('.journey-card')
     let observer: ResizeObserver | null = null
+    let rafId: number | null = null
 
-    if (typeof ResizeObserver !== 'undefined' && grid) {
+    if (typeof ResizeObserver !== 'undefined' && cards.length > 0) {
       observer = new ResizeObserver(() => {
-        updateLayout()
+        if (rafId !== null) cancelAnimationFrame(rafId)
+        rafId = requestAnimationFrame(() => {
+          updateLayout()
+        })
       })
-      observer.observe(grid)
       cards.forEach((card) => observer?.observe(card))
     }
 
     const handleResize = () => {
-      updateLayout()
+      if (rafId !== null) cancelAnimationFrame(rafId)
+      rafId = requestAnimationFrame(() => {
+        updateLayout()
+      })
     }
     window.addEventListener('resize', handleResize)
 
     return () => {
+      if (rafId !== null) {
+        cancelAnimationFrame(rafId)
+      }
       if (observer) {
         observer.disconnect()
       }
