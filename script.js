@@ -307,6 +307,24 @@ document.addEventListener('DOMContentLoaded', () => {
             if (journeyModalCount) journeyModalCount.textContent = `${index + 1} / ${totalStations}`;
             if (journeyModalPrev) journeyModalPrev.disabled = index <= 0;
             if (journeyModalNext) journeyModalNext.disabled = index >= totalStations - 1;
+
+            const cardLink = card.querySelector('.journey-card-link');
+            let modalLink = journeyModal.querySelector('#journey-modal-link');
+            if (!modalLink && cardLink && journeyModalPanel) {
+                modalLink = document.createElement('a');
+                modalLink.id = 'journey-modal-link';
+                modalLink.className = 'journey-card-link';
+                journeyModalPanel.appendChild(modalLink);
+            }
+            if (modalLink) {
+                if (cardLink) {
+                    modalLink.href = cardLink.getAttribute('href');
+                    modalLink.textContent = cardLink.textContent;
+                    modalLink.style.display = 'inline-block';
+                } else {
+                    modalLink.style.display = 'none';
+                }
+            }
             return true;
         }
 

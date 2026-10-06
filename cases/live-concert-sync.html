@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erhu Live Concert AI Motion Capture Sync | Kim Fung</title>
+    <meta name="description" content="Real-time virtual avatar synchronized with live traditional Erhu performance in a 1000-seat concert hall using a 1.5-second deterministic streaming buffer.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="case.css">
+</head>
+
+<body class="case-page">
+
+    <header class="case-nav">
+        <div class="case-container case-nav-inner">
+            <a href="../index.html" class="case-nav-brand">Kim Fung</a>
+            <nav class="case-nav-links">
+                <a href="../index.html#experience" class="case-nav-link back-link">Back to Journey</a>
+                <a href="ieee-vr-conflict.html" class="case-nav-link">Next Case</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="case-container">
+
+        <header class="case-hero">
+            <span class="case-kicker">Live Performance and Motion Capture Sync</span>
+            <h1 class="case-title">Kept a virtual avatar in sync with live Erhu on stage</h1>
+            <p class="case-subtitle">
+                Shadowed rehearsals to convert the musician's natural bowing cadence into a 1.5-second deterministic streaming buffer, eliminating visual snapping in a 1000-seat concert hall.
+            </p>
+
+            <div class="case-meta-grid">
+                <div class="case-meta-item">
+                    <span class="meta-label">Role</span>
+                    <span class="meta-val">Systems Integration Engineer</span>
+                </div>
+                <div class="case-meta-item">
+                    <span class="meta-label">Organization</span>
+                    <span class="meta-val">National Tainan University of the Arts</span>
+                </div>
+                <div class="case-meta-item">
+                    <span class="meta-label">Timeline</span>
+                    <span class="meta-val">Nov 2023 - Dec 2024</span>
+                </div>
+                <div class="case-meta-item">
+                    <span class="meta-label">Key Systems</span>
+                    <span class="meta-val">AI Pose Estimation, Streaming Buffer, Unity</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="case-media-hero">
+            <video controls playsinline>
+                <source src="../assets/system_integration/virtual_concert.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <section class="case-section">
+            <h2 class="case-section-title">Context and Live Stage Problem</h2>
+            <div class="case-body">
+                <p>
+                    For a premier live Erhu performance in a 1,000-seat university concert hall, our engineering team was tasked with projecting an interactive 3D virtual avatar driven live by the master musician's bow gestures using vision-based AI pose tracking.
+                </p>
+                <p>
+                    During early rehearsals, rapid bowing passages broke raw vision tracking. Inference frame drops and optical motion blur produced severe visual jitter. The avatar repeatedly snapped between erratic limb positions, drifting out of sync with the live acoustic audio in the hall.
+                </p>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <h2 class="case-section-title">Engineering Interventions and Rehearsal Calibration</h2>
+            <div class="case-body">
+                <p>
+                    Rather than trying to force zero-latency tracking that caused jitter, I calibrated system buffers to the natural physical cadence of the live instrument:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Musician Rehearsal Shadowing:</strong> Attended rehearsals alongside the musician to analyze musical cadences, discovering that the performer executed an organic ~0.8-second preparatory physical motion before fast bowing phrases.
+                    </li>
+                    <li>
+                        <strong>Deterministic 1.5-Second Streaming Buffer:</strong> Implemented a 1.5-second streaming buffer between vision pose inference and avatar animation playback in Unity. This buffer absorbed inference variance and temporal micro-jitters without breaking visual stability.
+                    </li>
+                    <li>
+                        <strong>Waveform and Keypoint Alignment:</strong> Recorded motion data alongside audio waveforms to verify that avatar bowing stroke direction changes aligned with acoustic note attacks.
+                    </li>
+                    <li>
+                        <strong>Full-Dress Stage Simulations:</strong> Validated the pipeline across repeated full-dress hall simulations under concert lighting and stage acoustics.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <h2 class="case-section-title">Practical Outcomes and Performance Impact</h2>
+            <div class="case-body">
+                <div class="case-callout">
+                    <div class="case-callout-title">Live Performance Reliability</div>
+                    <p class="case-callout-text">
+                        The virtual avatar stayed locked to the live Erhu performance throughout the concert with zero visual snapping. Acoustic clarity and visual cadence remained cohesive before 1,000 live audience members.
+                    </p>
+                </div>
+
+                <p>
+                    The performance demonstrated that solving live real-time synchronization requires understanding the physical, domain-specific cadence of the human performer, rather than relying on unbuffered algorithms.
+                </p>
+            </div>
+        </section>
+
+        <footer class="case-footer-nav">
+            <div class="case-footer-nav-inner">
+                <a href="virtual-principal.html" class="case-footer-nav-item">
+                    <span class="case-footer-nav-label">Previous Case Study</span>
+                    <span class="case-footer-nav-title">Local GPU Multimodal AI Virtual Principal</span>
+                </a>
+                <a href="ieee-vr-conflict.html" class="case-footer-nav-item case-footer-nav-next">
+                    <span class="case-footer-nav-label">Next Case Study</span>
+                    <span class="case-footer-nav-title">IEEE VR Ambisonics Research</span>
+                </a>
+            </div>
+        </footer>
+
+    </main>
+
+</body>
+
+</html>

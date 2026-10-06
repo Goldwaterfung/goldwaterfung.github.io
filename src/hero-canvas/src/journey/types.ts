@@ -27,6 +27,9 @@ export interface StationInput {
   roleZh: string
   org: string
   orgZh: string
+  actionHeadline?: string
+  actionHeadlineZh?: string
+  caseUrl?: string
   side?: StationSide
   lineType?: LineType
   isInterchange?: boolean

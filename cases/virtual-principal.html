@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local GPU Multimodal AI Virtual Principal | Kim Fung</title>
+    <meta name="description" content="End-to-end multimodal AI pipeline (STT, LLM with RAG, TTS) integrated into Unity with real-time conversational feedback and local GPU inference.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="case.css">
+</head>
+
+<body class="case-page">
+
+    <header class="case-nav">
+        <div class="case-container case-nav-inner">
+            <a href="../index.html" class="case-nav-brand">Kim Fung</a>
+            <nav class="case-nav-links">
+                <a href="../index.html#experience" class="case-nav-link back-link">Back to Journey</a>
+                <a href="live-concert-sync.html" class="case-nav-link">Next Case</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="case-container">
+
+        <header class="case-hero">
+            <span class="case-kicker">Multimodal AI and Edge Inference</span>
+            <h1 class="case-title">Made a 5-second local AI inference delay feel responsive live</h1>
+            <p class="case-subtitle">
+                Integrated an end-to-end multimodal AI pipeline (Speech-to-Text, local LLM with RAG, and Text-to-Speech) into Unity, engineering real-time conversational visual feedback on a single local GPU.
+            </p>
+
+            <div class="case-meta-grid">
+                <div class="case-meta-item">
+                    <span class="meta-label">Role</span>
+                    <span class="meta-val">Systems Integration Engineer</span>
+                </div>
+                <div class="case-meta-item">
+                    <span class="meta-label">Organization</span>
+                    <span class="meta-val">National Tainan University of the Arts</span>
+                </div>
+                <div class="case-meta-item">
+                    <span class="meta-label">Timeline</span>
+                    <span class="meta-val">Sep 2023 - Jun 2024</span>
+                </div>
+                <div class="case-meta-item">
+                    <span class="meta-label">Key Systems</span>
+                    <span class="meta-val">Local GPU AI, Unity C#, Head Tracking</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="case-figure" style="max-width: 520px; margin: 0 auto 3.5rem;">
+            <img src="../assets/image/ar-llm-principal.png" alt="RAG-Integrated Multimodal AI Real-Time Virtual Principal Interface">
+            <figcaption>Multimodal AI Virtual Principal Interface with Live Spatial Tracking</figcaption>
+        </div>
+
+        <section class="case-section">
+            <h2 class="case-section-title">Context and Problem</h2>
+            <div class="case-body">
+                <p>
+                    For university academic showcases and VIP receptions, we deployed an interactive 3D virtual avatar powered by local multimodal AI models. Because the deployment required full privacy and offline reliability, cloud APIs were excluded. All inference ran locally on a single GPU workstation.
+                </p>
+                <p>
+                    Chaining Speech-to-Text, local LLM with RAG retrieval, and Text-to-Speech generation required 3 to 5 seconds of total compute time per conversational turn. During live trials, users assumed the system was frozen after finishing their sentences, leading to repeated interruptions and failed interactions.
+                </p>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <h2 class="case-section-title">Systems Integration and Interaction Feedback</h2>
+            <div class="case-body">
+                <p>
+                    I engineered the systems integration bridge in Unity to handle the inference gap without additional hardware:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Conversational State Feedback:</strong> Integrated real-time audio energy detectors that identified the exact millisecond user speech finished. The avatar immediately transitioned into attentive listening and nodding micro-gestures, giving users instant visual confirmation that their query was being processed.
+                    </li>
+                    <li>
+                        <strong>Sentiment-Driven Facial Blendshapes:</strong> Connected backend LLM sentiment metadata to facial blendshapes in Unity, allowing the avatar to adopt appropriate emotional expressions as speech audio began streaming.
+                    </li>
+                    <li>
+                        <strong>Camera Head Tracking:</strong> Implemented vision-based head tracking to maintain continuous, natural eye contact as visitors moved physically in front of the display.
+                    </li>
+                    <li>
+                        <strong>Packet Synchronization:</strong> Aligned audio chunk and viseme packet sequencing between local Python inference processes and the Unity C# rendering engine, eliminating lip-sync drift during multi-turn interactions.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <h2 class="case-section-title">Practical Outcomes and Verification</h2>
+            <div class="case-body">
+                <div class="case-callout">
+                    <div class="case-callout-title">Operational Result</div>
+                    <p class="case-callout-text">
+                        Visitors conducted multi-turn voice conversations smoothly on the existing local GPU setup with zero cloud dependencies. The perceived delay was resolved through real-time conversational feedback.
+                    </p>
+                </div>
+
+                <p>
+                    By solving the latency gap through behavioral interaction design rather than expensive hardware upgrades, the project proved that real-time feedback loops can make complex local AI pipelines feel responsive and natural.
+                </p>
+            </div>
+        </section>
+
+        <footer class="case-footer-nav">
+            <div class="case-footer-nav-inner">
+                <a href="innova-medical.html" class="case-footer-nav-item">
+                    <span class="case-footer-nav-label">Previous Case Study</span>
+                    <span class="case-footer-nav-title">Clinical AI Simulator UX Diagnostics</span>
+                </a>
+                <a href="live-concert-sync.html" class="case-footer-nav-item case-footer-nav-next">
+                    <span class="case-footer-nav-label">Next Case Study</span>
+                    <span class="case-footer-nav-title">Erhu Live Concert AI Motion Capture</span>
+                </a>
+            </div>
+        </footer>
+
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Measuring Visual Capture in VR with Third-Order Ambisonics | Kim Fung</title>
+    <meta name="description" content="Empirical research on cross-modal sensory conflict in virtual reality published at IEEE ICVR 2026. Designed a decoupled head-gaze and hand-pointing tracking paradigm in Unity.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="case.css">
+</head>
+
+<body class="case-page">
+
+    <header class="case-nav">
+        <div class="case-container case-nav-inner">
+            <a href="../index.html" class="case-nav-brand">Kim Fung</a>
+            <nav class="case-nav-links">
+                <a href="../index.html#experience" class="case-nav-link back-link">Back to Journey</a>
+                <a href="stratawright.html" class="case-nav-link">Next Case</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="case-container">
+
+        <header class="case-hero">
+            <span class="case-kicker">Empirical Research and Spatial Computing</span>
+            <h1 class="case-title">Measuring visual capture in virtual reality under sustained audiovisual conflict with third-order Ambisonics</h1>
+            <p class="case-subtitle">
+                Pioneered a decoupled head-gaze and hand-pointing tracking paradigm in Unity to quantify human sensory boundaries and cognitive overhead during sustained cross-modal conflict in 16-channel spatial audio.
+            </p>
+
+            <div class="case-meta-grid">
+                <div class="case-meta-item">
+                    <span class="meta-label">Role</span>
+                    <span class="meta-val">First Author</span>
+                </div>
+                <div class="case-meta-item">
+                    <span class="meta-label">Publication</span>
+                    <span class="meta-val">IEEE ICVR 2026 (Cardiff, UK)</span>
+                </div>
+                <div class="case-meta-item">
+                    <span class="meta-label">Timeline</span>
+                    <span class="meta-val">2025 - 2026</span>
+                </div>
+                <div class="case-meta-item">
+                    <span class="meta-label">Key Systems</span>
+                    <span class="meta-val">Unity C#, Wwise, Python Telemetry</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="case-media-hero">
+            <video controls autoplay muted loop playsinline>
+                <source src="../assets/research/incongruent-gameplay.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <section class="case-section">
+            <h2 class="case-section-title">Context and Problem</h2>
+            <div class="case-body">
+                <p>
+                    As spatial computing and augmented reality interfaces advance, virtual visual and auditory cues are overlaid onto physical space. In real environments, sensory inputs frequently contradict each other due to latency, occlusions, or sensor calibration drift.
+                </p>
+                <p>
+                    Prior psychoacoustic research established that vision typically captures audition (the ventriloquism effect). However, earlier studies relied on brief static flashes and low-order spatial audio. It remained unproven whether high-fidelity 16-channel Third-Order Ambisonics could prevent visual capture under sustained exposure, and what exact cognitive cost human users pay when attempting to resolve spatial sensory conflict.
+                </p>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <h2 class="case-section-title">Experimental Paradigm and System Engineering</h2>
+            <div class="case-body">
+                <p>
+                    To isolate auditory localization from visual distraction without breaking sensory conflict, I built an experimental apparatus in Unity C# coupled with Wwise audio middleware:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Decoupled Tracking Paradigm:</strong> Designed an experimental interaction where participants maintained visual gaze on an animated visual decoy through continuous HMD head tracking, while independently pointing toward their perceived sound source using a handheld 6DoF VR controller.
+                    </li>
+                    <li>
+                        <strong>Dynamic Conflict Algorithm:</strong> Implemented a real-time incongruent rotation algorithm in C# that dynamically shifted the Wwise sound emitter 60 to 65 degrees along the Y-axis relative to the visual decoy around the player camera, sustaining precise cross-modal contradiction regardless of participant head movement.
+                    </li>
+                    <li>
+                        <strong>Dual-Stream Telemetry Pipeline:</strong> Automated high-resolution data logging across macro trial summaries and micro attempt-by-attempt trajectories, recording up to 3 active pointing corrections per trial.
+                    </li>
+                    <li>
+                        <strong>Python Statistical Pipeline:</strong> Developed an automated analysis suite with Fisher-Yates condition shuffling validation, trajectory aggregation, and nonparametric significance testing.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <h2 class="case-section-title">Empirical Findings</h2>
+            <div class="case-body">
+                <div class="case-callout">
+                    <div class="case-callout-title">Core Quantitative Finding</div>
+                    <p class="case-callout-text">
+                        Visual distractors inflated initial angular error to a median of 60.35 degrees with a Visual Bias Index of 0.738, compared to 6.90 degrees in Congruent trials (p &lt; 0.001). Resolving this sensory conflict increased user reaction latency by 1.64 seconds.
+                    </p>
+                </div>
+
+                <p>
+                    The quantitative data across 60 main randomized trials per participant revealed three critical operational realities:
+                </p>
+                <ol>
+                    <li>
+                        <strong>Visual Capture Dominance:</strong> Even when high-fidelity 16-channel Third-Order Ambisonics provided clean spatial sound, visual distractors dominated initial localization, confirming that high-order audio alone cannot compensate for misaligned visuals.
+                    </li>
+                    <li>
+                        <strong>Measurable Cognitive Latency:</strong> Incongruent trials required an average of 6,235 ms to respond, compared to 4,592 ms in Congruent conditions. Resisting visual capture imposes heavy cognitive overhead on human users.
+                    </li>
+                    <li>
+                        <strong>Active Perceptual Correction:</strong> Across 3 successive pointing attempts within a single trial, participants partially realigned their spatial perception, reducing median angular error from 60.68 degrees down to 38.17 degrees.
+                    </li>
+                </ol>
+
+                <div class="case-gallery-2col">
+                    <figure class="case-figure">
+                        <img src="../assets/research/1_angular_error_by_condition.png" alt="Initial localization angular error chart across conditions">
+                        <figcaption>Initial Angular Error Across Experimental Conditions</figcaption>
+                    </figure>
+                    <figure class="case-figure">
+                        <img src="../assets/research/3_response_time_by_condition.png" alt="Response time analysis chart across conditions">
+                        <figcaption>Response Time Latency Analysis Across Conditions</figcaption>
+                    </figure>
+                </div>
+
+                <div class="case-gallery-2col">
+                    <figure class="case-figure">
+                        <img src="../assets/research/experiment.jpg" alt="VR audiovisual conflict experimental setup">
+                        <figcaption>Experimental Testing Setup with Head-Mounted Display</figcaption>
+                    </figure>
+                    <figure class="case-figure">
+                        <img src="../assets/research/sound-lab.jpg" alt="16-channel Third-Order Ambisonics acoustics laboratory">
+                        <figcaption>16-Channel Third-Order Ambisonics Calibration Environment</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <h2 class="case-section-title">Design Engineering Takeaways</h2>
+            <div class="case-body">
+                <p>
+                    This empirical research demonstrates that spatial computing interfaces must maintain strict cross-modal coherence. System designers cannot rely on spatial audio to mask visual drift or positional errors. Contradictory perceptual cues trigger measurable cognitive latency and attention hijacking, establishing clear tolerances for multi-sensor AR and VR systems.
+                </p>
+
+                <div class="case-action-links">
+                    <a href="https://ieeexplore.ieee.org/document/11672319" target="_blank" rel="noopener" class="case-action-btn">
+                        View Paper on IEEE Xplore
+                    </a>
+                    <a href="https://github.com/Goldwaterfung/vr-under-sustained-audiovisual-conflict" target="_blank" rel="noopener" class="case-action-btn-outline">
+                        View Research Code on GitHub
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <footer class="case-footer-nav">
+            <div class="case-footer-nav-inner">
+                <a href="../index.html#experience" class="case-footer-nav-item">
+                    <span class="case-footer-nav-label">Overview</span>
+                    <span class="case-footer-nav-title">Return to Journey Timeline</span>
+                </a>
+                <a href="stratawright.html" class="case-footer-nav-item case-footer-nav-next">
+                    <span class="case-footer-nav-label">Next Case Study</span>
+                    <span class="case-footer-nav-title">Stratawright Agentic DAW</span>
+                </a>
+            </div>
+        </footer>
+
+    </main>
+
+</body>
+
+</html>

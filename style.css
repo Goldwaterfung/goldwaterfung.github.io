@@ -850,9 +850,36 @@ html {
     color: #fff;
     z-index: 2;
     text-shadow: 0 2px 14px rgba(0,0,0,0.65);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1.25rem;
 }
+.immersive-desc-wrap { flex: 1; min-width: 260px; }
 .immersive-desc { display: none; font-size: 1rem; opacity: 0.92; max-width: 70ch; margin: 0; }
 .immersive-desc.active { display: block; }
+.immersive-case-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 1.15rem;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 4px;
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-shadow: none;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+.immersive-case-link:hover {
+    background: rgba(0, 0, 0, 0.85);
+    border-color: #fff;
+}
 .immersive-center {
     position: absolute;
     top: 50%;
@@ -1383,80 +1410,89 @@ figcaption {
     margin-top: 0.25rem;
 }
 
+.journey-card-link {
+    display: inline-block;
+    margin-top: 0.85rem;
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-decoration: none;
+    border-bottom: 1px solid var(--text-primary);
+    padding-bottom: 2px;
+    transition: opacity var(--duration-press) var(--ease-out);
+}
+
+.journey-card-link:hover {
+    opacity: 0.65;
+}
+
 /* Desktop Exact Coordinate Alignment with Transit Stubs */
-/* Station 1: Kerry Hotel (Right side, y = 180px) */
+/* Station 1: Unity C# & Blender (Left side, y = 250px) */
 .journey-card[data-station="0"] {
-    top: 180px;
-    left: calc(50% + 160px);
+    top: 250px;
+    right: calc(50% + 160px);
     transform: translateY(-50%);
 }
 
-/* Station 2: Self-Taught Unity C# & Blender (Left side, y = 400px) */
+/* Station 2: MRKE Fast-Turnaround Salon (Right side, y = 480px) */
 .journey-card[data-station="1"] {
-    top: 400px;
-    right: calc(50% + 160px);
+    top: 480px;
+    left: calc(50% + 160px);
     transform: translateY(-50%);
 }
 
-/* Station 3: Courtyard by Marriott (Right side, y = 620px) */
+/* Station 3: Local Multimodal AI Avatar (Left side, y = 720px) */
 .journey-card[data-station="2"] {
-    top: 620px;
-    left: calc(50% + 160px);
+    top: 720px;
+    right: calc(50% + 160px);
     transform: translateY(-50%);
 }
 
-/* Station 4: MRKE Retail Enterprise (Right side, y = 1040px) */
+/* Station 4: Live Concert Motion Capture Sync (Left side, y = 960px) */
 .journey-card[data-station="3"] {
-    top: 1040px;
-    left: calc(50% + 160px);
+    top: 960px;
+    right: calc(50% + 160px);
     transform: translateY(-50%);
 }
 
-/* Station 5: Systems Integration Engineer (Left side, y = 1260px) */
+/* Station 5: MRKE In-Store 3D Preview App (Right side, y = 1200px) */
 .journey-card[data-station="4"] {
-    top: 1260px;
-    right: calc(50% + 160px);
-    transform: translateY(-50%);
-}
-
-/* Station 6: MRKE 3D Software (Right side, y = 1480px) */
-.journey-card[data-station="5"] {
-    top: 1480px;
+    top: 1200px;
     left: calc(50% + 160px);
     transform: translateY(-50%);
 }
 
-/* Station 7: Innova Medical Technology (Left side, y = 1700px) */
-.journey-card[data-station="6"] {
-    top: 1700px;
+/* Station 6: Clinical AI Simulator Diagnostics (Left side, y = 1440px) */
+.journey-card[data-station="5"] {
+    top: 1440px;
     right: calc(50% + 160px);
     transform: translateY(-50%);
 }
 
-/* Station 8: CollarAgent Research Studio (Right side, y = 1920px) */
+/* Station 7: CollarAgent Visual Research Studio (Right side, y = 1680px) */
+.journey-card[data-station="6"] {
+    top: 1680px;
+    left: calc(50% + 160px);
+    transform: translateY(-50%);
+}
+
+/* Station 8: IEEE ICVR 2026 Ambisonics Study (Left side, y = 1920px) */
 .journey-card[data-station="7"] {
     top: 1920px;
-    left: calc(50% + 160px);
+    right: calc(50% + 160px);
     transform: translateY(-50%);
 }
 
-/* Station 9: IEEE ICVR 2026 Research (Left side, y = 2140px) */
+/* Station 9: Stratawright Agentic DAW (Left side, y = 2160px) */
 .journey-card[data-station="8"] {
-    top: 2140px;
+    top: 2160px;
     right: calc(50% + 160px);
     transform: translateY(-50%);
 }
 
-/* Station 10: Stratawright Agentic DAW (Left side, y = 2360px) */
+/* Station 10: Next Destination (Right side, y = 2420px) */
 .journey-card[data-station="9"] {
-    top: 2360px;
-    right: calc(50% + 160px);
-    transform: translateY(-50%);
-}
-
-/* Station 11: Next Destination (Right side, y = 2640px) */
-.journey-card[data-station="10"] {
-    top: 2640px;
+    top: 2420px;
     left: calc(50% + 160px);
     transform: translateY(-50%);
 }
@@ -1470,8 +1506,7 @@ figcaption {
 .journey-card[data-station="6"]:hover,
 .journey-card[data-station="7"]:hover,
 .journey-card[data-station="8"]:hover,
-.journey-card[data-station="9"]:hover,
-.journey-card[data-station="10"]:hover {
+.journey-card[data-station="9"]:hover {
     transform: translateY(-50%) translateY(-2px);
     z-index: 10;
 }

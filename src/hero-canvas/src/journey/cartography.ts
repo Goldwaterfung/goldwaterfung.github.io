@@ -29,10 +29,9 @@ export const MIN_CHRONO_STEP = 110
 export const FILLET_HEIGHT = 85
 
 const DEFAULT_SIDES: StationSide[] = [
-  'right',
   'left',
   'right',
-  'right',
+  'left',
   'left',
   'right',
   'left',

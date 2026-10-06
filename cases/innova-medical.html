@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinical AI Simulator UX Diagnostics | Kim Fung</title>
+    <meta name="description" content="Systematic diagnostic walkthrough of 50 virtual patient simulation cases, aligning clinical schemas and eliminating student diagnostic errors.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="case.css">
+</head>
+
+<body class="case-page">
+
+    <header class="case-nav">
+        <div class="case-container case-nav-inner">
+            <a href="../index.html" class="case-nav-brand">Kim Fung</a>
+            <nav class="case-nav-links">
+                <a href="../index.html#experience" class="case-nav-link back-link">Back to Journey</a>
+                <a href="virtual-principal.html" class="case-nav-link">Next Case</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="case-container">
+
+        <header class="case-hero">
+            <span class="case-kicker">UX Diagnostics and Medical Simulation</span>
+            <h1 class="case-title">Fixed student misdiagnoses by fixing data, not graphics</h1>
+            <p class="case-subtitle">
+                Systematically audited 50 clinical simulation cases on a medical training platform combining LLM dialogue with 3D virtual patients, shifting engineering priorities away from cosmetic rework toward schema alignment.
+            </p>
+
+            <div class="case-meta-grid">
+                <div class="case-meta-item">
+                    <span class="meta-label">Role</span>
+                    <span class="meta-val">User Experience Designer (Intern)</span>
+                </div>
+                <div class="case-meta-item">
+                    <span class="meta-label">Company</span>
+                    <span class="meta-val">Innova Medical Technology</span>
+                </div>
+                <div class="case-meta-item">
+                    <span class="meta-label">Timeline</span>
+                    <span class="meta-val">Jul 2024 - Aug 2024</span>
+                </div>
+                <div class="case-meta-item">
+                    <span class="meta-label">Discipline</span>
+                    <span class="meta-val">Clinical Schema Validation & UX</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="case-section">
+            <h2 class="case-section-title">Context and Problem</h2>
+            <div class="case-body">
+                <p>
+                    Innova Medical developed a B2B clinical diagnosis training platform that paired large language model dialogue with 3D virtual patient avatars to train medical students. During early university deployments, medical students repeatedly misjudged visual examination modules across 50 simulation cases.
+                </p>
+                <p>
+                    The initial assumption among stakeholders was that the 3D patient avatars lacked realistic graphical styling. Teams were preparing to allocate significant engineering cycles to cosmetic 3D rework and texture redesign.
+                </p>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <h2 class="case-section-title">Diagnostic Walkthroughs and Discovery</h2>
+            <div class="case-body">
+                <p>
+                    Rather than accepting surface visual assumptions, I conducted a structured diagnostic investigation:
+                </p>
+                <ul>
+                    <li>
+                        <strong>End-to-End Case Walkthroughs:</strong> Systematically worked through all 50 virtual patient cases as an evaluator, recording dialogue turns, exam findings, and student feedback points.
+                    </li>
+                    <li>
+                        <strong>Root Cause Isolation:</strong> Discovered that diagnostic confusion was not caused by avatar polygon counts or rendering style. Instead, issues stemmed from latency between LLM dialogue and avatar animations, alongside severe contradictions between underlying clinical database records and rendered 3D visual models.
+                    </li>
+                    <li>
+                        <strong>Database Schema Cross-Validation:</strong> Verified all 50 virtual patient cases directly against clinical database symptom records. Cataloged specific defects where localized swelling, rash patterns, or discoloration were completely missing on the 3D mesh despite being described in medical dialogue.
+                    </li>
+                    <li>
+                        <strong>Defect Matrix Synthesis:</strong> Synthesized findings into a structured cross-validation matrix mapping patient ID, LLM prompt variables, database truth records, and avatar rendering status for engineering and medical leads.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <h2 class="case-section-title">Practical Outcomes and Impact</h2>
+            <div class="case-body">
+                <div class="case-callout">
+                    <div class="case-callout-title">Strategic Roadmap Shift</div>
+                    <p class="case-callout-text">
+                        Roadmap priorities shifted away from cosmetic 3D redesign toward foundational audiovisual synchronization and symptom schema alignment. Diagnostic confusion was resolved at the root data layer.
+                    </p>
+                </div>
+
+                <p>
+                    By proving that student diagnostic errors were driven by data discrepancies rather than graphics, the team avoided weeks of misplaced artistic rework. Training outcomes were successfully grounded in medically accurate, synchronized system behavior.
+                </p>
+            </div>
+        </section>
+
+        <footer class="case-footer-nav">
+            <div class="case-footer-nav-inner">
+                <a href="mrke-3d.html" class="case-footer-nav-item">
+                    <span class="case-footer-nav-label">Previous Case Study</span>
+                    <span class="case-footer-nav-title">MRKE 3D Hairstyle Preview Software</span>
+                </a>
+                <a href="virtual-principal.html" class="case-footer-nav-item case-footer-nav-next">
+                    <span class="case-footer-nav-label">Next Case Study</span>
+                    <span class="case-footer-nav-title">Local GPU Multimodal AI Virtual Principal</span>
+                </a>
+            </div>
+        </footer>
+
+    </main>
+
+</body>
+
+</html>

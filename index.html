@@ -37,11 +37,8 @@
             </a>
 
             <nav class="nav-menu" id="nav-menu">
-                <a href="#experience" class="nav-link active">Experience</a>
-                <a href="#case-studies" class="nav-link">Deployments</a>
-                <a href="#projects" class="nav-link">Projects & Research</a>
-                <a href="#education" class="nav-link">Education</a>
-                <a href="#hobbies" class="nav-link">Hobbies</a>
+                <a href="#immersive" class="nav-link">Research Gameplay</a>
+                <a href="#experience" class="nav-link active">Journey</a>
                 <a href="#contact" class="nav-link nav-btn">Contact</a>
             </nav>
 
@@ -125,9 +122,12 @@
                 </div>
 
                 <div class="immersive-hud-bottom">
-                    <p class="immersive-desc active" data-chapter-desc="0">Animal calls around you in third-order Ambisonics, calibrating your ears before the task.</p>
-                    <p class="immersive-desc" data-chapter-desc="1">Red sphere aligned with sound vs. all-dark silence, the two baselines (6.90° vs. 9.62°).</p>
-                    <p class="immersive-desc" data-chapter-desc="2">Visible decoy, hidden source 60 to 65° away, where vision hijacks hearing (60.35°, VBI 0.738).</p>
+                    <div class="immersive-desc-wrap">
+                        <p class="immersive-desc active" data-chapter-desc="0">Animal calls around you in third-order Ambisonics, calibrating your ears before the task.</p>
+                        <p class="immersive-desc" data-chapter-desc="1">Red sphere aligned with sound vs. all-dark silence, the two baselines (6.90° vs. 9.62°).</p>
+                        <p class="immersive-desc" data-chapter-desc="2">Visible decoy, hidden source 60 to 65° away, where vision hijacks hearing (60.35°, VBI 0.738).</p>
+                    </div>
+                    <a href="cases/ieee-vr-conflict.html" class="immersive-case-link">Read Full Research Paper</a>
                 </div>
             </div>
         </section>
@@ -146,113 +146,110 @@
                     <!-- Central Vertical Transit Map Mount Target -->
                     <div id="journey-3d-canvas" class="journey-spine-viewport" aria-hidden="true"></div>
 
-                    <!-- Station 1: Kerry Hotel Hong Kong -->
+                    <!-- Station 1: Unity C# & Blender -->
                     <article class="journey-card active" data-station="0">
-                        <div class="journey-card-time">Jul 2017 - Jun 2020</div>
-                        <h3 class="journey-card-role">Associate Concierge</h3>
-                        <div class="journey-card-org">Kerry Hotel Hong Kong (Shangri-La Group Pre-Opening Team)</div>
-                        <p class="journey-card-desc">
-                            Served on the pre-opening operations team for 3 years, drafting 0-to-1 front office service SOPs and cross-departmental communication workflows between housekeeping, engineering, and guest services to establish operational rigor.
-                        </p>
-                    </article>
-
-                    <!-- Station 2: Self-Taught Unity C# & Blender -->
-                    <article class="journey-card" data-station="1">
                         <div class="journey-card-time">2019</div>
-                        <h3 class="journey-card-role">Self-Taught Programming & 3D</h3>
-                        <div class="journey-card-org">Independent Study & Technical Foundations</div>
+                        <h3 class="journey-card-role">Mastered programming in Unity C# and 3D modeling</h3>
+                        <div class="journey-card-org">Independent Technical Foundations</div>
                         <p class="journey-card-desc">
-                            Initiated self-directed technical study during off-hours while in hospitality, mastering C# object-oriented programming, Unity real-time architecture, and Blender 3D mesh modeling and UV unwrapping to build foundational software capabilities.
+                            Mastered object-oriented programming in C#, real-time scene architecture in Unity, and 3D modeling with UV unwrapping in Blender during off-hours, establishing core software delivery skills.
                         </p>
                     </article>
 
-                    <!-- Station 3: Courtyard by Marriott -->
-                    <article class="journey-card" data-station="2">
-                        <div class="journey-card-time">Jul 2020 - Jul 2021</div>
-                        <h3 class="journey-card-role">Guest Experience Concierge</h3>
-                        <div class="journey-card-org">Courtyard by Marriott | Hong Kong</div>
-                        <p class="journey-card-desc">
-                            Delivered front-of-house VIP services, personalized experiences, and frontline crisis resolution under high-occupancy conditions, developing acute diagnostic sensitivity to user friction and subtle emotional needs under pressure.
-                        </p>
-                    </article>
-
-                    <!-- Station 4: MRKE Ltd. (Retail Enterprise) -->
-                    <article class="journey-card" data-station="3">
+                    <!-- Station 2: MRKE Fast-Turnaround Salon -->
+                    <article class="journey-card" data-station="1">
                         <div class="journey-card-time">Dec 2020 - Jun 2026</div>
-                        <h3 class="journey-card-role">Co-Founder</h3>
+                        <h3 class="journey-card-role">Founded fast-turnaround haircut business and mapped consultation bottlenecks</h3>
                         <div class="journey-card-org">MRKE Ltd. | Fast-Turnaround Haircut Business</div>
                         <p class="journey-card-desc">
-                            Co-founded and operated a fast-turnaround haircut business serving a community of 10 residential blocks. Designed service menus, commercial pricing structures, and storefront workflows. Spent extensive hours on the shop floor observing consultations to identify customer indecision caused by ambiguous 2D catalog photos.
+                            Co-founded and operated a physical fast-turnaround haircut salon serving 10 residential blocks. Formulated pricing structures and observed consultations directly on the shop floor, discovering that ambiguous 2D catalog photos caused persistent customer indecision.
                         </p>
                     </article>
 
-                    <!-- Station 5: Systems Integration Engineer (TNNUA) -->
-                    <article class="journey-card" data-station="4">
-                        <div class="journey-card-time">Sep 2023 - Mar 2025</div>
-                        <h3 class="journey-card-role">Systems Integration Engineer</h3>
-                        <div class="journey-card-org">National Tainan University of the Arts (TNNUA)</div>
+                    <!-- Station 3: Local Multimodal AI Avatar -->
+                    <article class="journey-card" data-station="2">
+                        <div class="journey-card-time">Sep 2023 - Jun 2024</div>
+                        <h3 class="journey-card-role">Engineered local GPU multimodal AI pipeline with real-time visual feedback</h3>
+                        <div class="journey-card-org">National Tainan University of the Arts</div>
                         <p class="journey-card-desc">
-                            Integrated end-to-end multimodal AI pipelines (Speech-to-Text, LLM with RAG, Text-to-Speech) for local GPU inference deployment, implementing real-time audiovisual synchronization in Unity. Engineered 1.5s deterministic streaming buffers to stabilize AI pose tracking and audio streams during live concert hall performances.
+                            Integrated Speech-to-Text, local LLM with RAG, and Text-to-Speech in Unity. Resolved a 3 to 5 second local GPU inference latency window by engineering instant listening and processing visual states, maintaining continuous eye contact and emotion-driven blendshapes.
                         </p>
+                        <a href="cases/virtual-principal.html" class="journey-card-link">Explore Case Study</a>
                     </article>
 
-                    <!-- Station 6: MRKE 3D Hairstyle Preview Software -->
-                    <article class="journey-card" data-station="5">
+                    <!-- Station 4: Live Concert Motion Capture Sync -->
+                    <article class="journey-card" data-station="3">
+                        <div class="journey-card-time">Nov 2023 - Dec 2024</div>
+                        <h3 class="journey-card-role">Synchronized virtual avatar with live Erhu performance using 1.5-second buffer</h3>
+                        <div class="journey-card-org">National Tainan University of the Arts</div>
+                        <p class="journey-card-desc">
+                            Deployed AI vision pose estimation for a virtual avatar in a 1000-seat hall. Shadowed musician rehearsals to convert natural bowing cadence into a 1.5-second deterministic streaming buffer, eliminating visual snapping while preserving acoustic alignment.
+                        </p>
+                        <a href="cases/live-concert-sync.html" class="journey-card-link">Explore Case Study</a>
+                    </article>
+
+                    <!-- Station 5: MRKE In-Store 3D Preview App -->
+                    <article class="journey-card" data-station="4">
                         <div class="journey-card-time">2022 - Jun 2026</div>
-                        <h3 class="journey-card-role">Product Engineer</h3>
+                        <h3 class="journey-card-role">Shipped in-store 3D preview app cutting consultation ambiguity by 35 percent</h3>
                         <div class="journey-card-org">MRKE Ltd. | In-House Interactive 3D Tooling</div>
                         <p class="journey-card-desc">
-                            Applied self-taught Unity C# and Blender foundations to build an interactive 3D hairstyle preview tool from scratch. Architected Google Cloud Storage over-the-air asset streaming pipelines and deployed dedicated Android tablets across haircut stations, reducing consultation ambiguity by 35%.
+                            Mapped consultation flows in Figma and built an interactive 3D hairstyle preview tool in Unity C#. Deployed across dedicated shop tablets with Google Cloud Storage over-the-air streaming, reducing consultation ambiguity by 35 percent.
                         </p>
+                        <a href="cases/mrke-3d.html" class="journey-card-link">Explore Case Study</a>
                     </article>
 
-                    <!-- Station 7: UX Designer Intern (Innova Medical) -->
-                    <article class="journey-card" data-station="6">
+                    <!-- Station 6: Clinical AI Simulator Diagnostics -->
+                    <article class="journey-card" data-station="5">
                         <div class="journey-card-time">Jul 2024 - Aug 2024</div>
-                        <h3 class="journey-card-role">User Experience Designer (Intern)</h3>
-                        <div class="journey-card-org">Innova Medical Technology Co., Ltd. | Kaohsiung, Taiwan</div>
+                        <h3 class="journey-card-role">Audited 50 clinical simulation cases to align schemas and eliminate diagnostic errors</h3>
+                        <div class="journey-card-org">Innova Medical Technology Co., Ltd.</div>
                         <p class="journey-card-desc">
-                            Conducted UX diagnostics and database cross-validation across 50 clinical training cases during a 2-month summer residency, identifying root causes of student misdiagnoses in audiovisual desynchronization and missing symptom cues to realign engineering priorities.
+                            Conducted systematic walkthroughs across 50 virtual patient cases. Identified discrepancies between clinical database records and 3D visual models, re-aligning engineering roadmap priorities toward audiovisual sync and schema consistency.
                         </p>
+                        <a href="cases/innova-medical.html" class="journey-card-link">Explore Case Study</a>
                     </article>
 
-                    <!-- Station 8: CollarAgent Research Studio -->
-                    <article class="journey-card" data-station="7">
+                    <!-- Station 7: CollarAgent Visual Research Studio -->
+                    <article class="journey-card" data-station="6">
                         <div class="journey-card-time">2025</div>
-                        <h3 class="journey-card-role">Creator</h3>
+                        <h3 class="journey-card-role">Built local-first visual research studio pairing LangGraph with infinite canvas</h3>
                         <div class="journey-card-org">CollarAgent | Visual Research Studio</div>
                         <p class="journey-card-desc">
-                            Built a local-first visual workspace for AI autonomous research, pairing LangGraph agent workflows with an infinite concept canvas and structured document engine to transform complex literature exploration into visual concept maps and structured manuscripts. Used to draft the IEEE ICVR 2026 research manuscript before open sourcing the project in August 2026.
+                            Created a desktop research workspace uniting LangGraph autonomous workflows with an infinite concept canvas and structured document engine, featuring non-destructive visual diff staging and persistent memory across research sessions.
                         </p>
+                        <a href="cases/collaragent.html" class="journey-card-link">Explore Case Study</a>
                     </article>
 
-                    <!-- Station 9: IEEE ICVR 2026 Research (First Author) -->
-                    <article class="journey-card" data-station="8">
+                    <!-- Station 8: IEEE ICVR 2026 Ambisonics Study -->
+                    <article class="journey-card" data-station="7">
                         <div class="journey-card-time">2025 - 2026</div>
-                        <h3 class="journey-card-role">First Author</h3>
+                        <h3 class="journey-card-role">Quantified visual capture and sensory conflict in VR with 16-channel Ambisonics</h3>
                         <div class="journey-card-org">IEEE ICVR 2026 | Cardiff, UK</div>
                         <p class="journey-card-desc">
-                            Investigated human sensory perception boundaries during cross-modal conflict in virtual reality, pioneering a decoupled head-gaze and hand-pointing paradigm to quantify dynamic correction trajectories in 16-channel Ambisonics environments. The research manuscript was drafted using CollarAgent.
+                            Investigated cross-modal sensory conflict in virtual reality, designing a decoupled head-gaze and hand-pointing tracking paradigm in Unity to measure cognitive latency and active perceptual correction paths under Third-Order Ambisonics.
                         </p>
+                        <a href="cases/ieee-vr-conflict.html" class="journey-card-link">Explore Case Study</a>
                     </article>
 
-                    <!-- Station 10: Stratawright Agentic DAW -->
-                    <article class="journey-card" data-station="9">
+                    <!-- Station 9: Stratawright Agentic DAW -->
+                    <article class="journey-card" data-station="8">
                         <div class="journey-card-time">2026</div>
-                        <h3 class="journey-card-role">Creator</h3>
+                        <h3 class="journey-card-role">Architected digital audio workstation controlled by agent CLI protocols</h3>
                         <div class="journey-card-org">Stratawright | Agentic Audio Workstation</div>
                         <p class="journey-card-desc">
-                            Developed a digital audio workstation signal architecture that allows autonomous coding agents to use CLI commands to inspect track telemetry and control the DAW across multi-track audio workflows.
+                            Architected a digital audio workstation signal system that translates low-level audio telemetry (LUFS, peak dB, spectral energy) into deterministic CLI protocols, enabling autonomous coding agents to automate multi-track sessions.
                         </p>
+                        <a href="cases/stratawright.html" class="journey-card-link">Explore Case Study</a>
                     </article>
 
-                    <!-- Station 11: Next Destination -->
-                    <article class="journey-card" data-station="10">
+                    <!-- Station 10: Next Destination -->
+                    <article class="journey-card" data-station="9">
                         <div class="journey-card-time">2026+</div>
-                        <h3 class="journey-card-role">Next Destination</h3>
-                        <div class="journey-card-org">Integrating Business, Creativity, and Engineering</div>
+                        <h3 class="journey-card-role">Connecting commercial operations, creative arts, and software engineering</h3>
+                        <div class="journey-card-org">Future Destination | Design Engineering</div>
                         <p class="journey-card-desc">
-                            Looking forward to bringing together past experiences in commercial operations, creative arts, and software engineering. Exploring new challenges where customer empathy, aesthetic intuition, and technical execution can connect into meaningful products and collaborative teams.
+                            Bringing together commercial frontline insights, creative sound design, and real-time software systems to build thoughtful, resilient human-machine interaction experiences.
                         </p>
                     </article>
                 </div>
@@ -263,7 +260,7 @@
                     <div class="journey-modal-panel" role="dialog" aria-modal="true" aria-labelledby="journey-modal-role" aria-describedby="journey-modal-desc">
                         <div class="journey-modal-handle" aria-hidden="true"></div>
                         <div class="journey-modal-topbar">
-                            <span class="journey-modal-count" id="journey-modal-count">1 / 11</span>
+                            <span class="journey-modal-count" id="journey-modal-count">1 / 10</span>
                             <div class="journey-modal-nav">
                                 <button type="button" class="journey-modal-step" id="journey-modal-prev" aria-label="Previous station"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
                                 <button type="button" class="journey-modal-step" id="journey-modal-next" aria-label="Next station"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
@@ -278,519 +275,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- Section 02: Production Deployments & Systems (Full Immersive Canvas Slide Deck) -->
-        <section id="case-studies" class="case-studies-section" aria-label="Production Deployments & Systems">
-            <!-- Scroll Snap Track for Browser-Native Section Snapping -->
-            <div class="case-snap-track" aria-hidden="true">
-                <div class="case-snap-anchor" data-anchor="0"></div>
-                <div class="case-snap-anchor" data-anchor="1"></div>
-                <div class="case-snap-anchor" data-anchor="2"></div>
-                <div class="case-snap-anchor" data-anchor="3"></div>
-            </div>
-
-            <!-- Full-Screen Immersive Canvas Stage (100% width, 100% height minus header nav) -->
-            <div class="case-sticky-stage">
-                <!-- Minimalist Quiet Floating Slide Indicators (No text banner) -->
-                <div class="case-canvas-indicators" role="tablist" aria-label="Case slides">
-                    <button type="button" class="case-indicator-dot active" data-slide-index="0" aria-label="Slide 1"></button>
-                    <button type="button" class="case-indicator-dot" data-slide-index="1" aria-label="Slide 2"></button>
-                    <button type="button" class="case-indicator-dot" data-slide-index="2" aria-label="Slide 3"></button>
-                    <button type="button" class="case-indicator-dot" data-slide-index="3" aria-label="Slide 4"></button>
-                </div>
-
-                <!-- Slide Viewport -->
-                <div class="case-slides-viewport">
-                    <!-- Slide 1: Salon 3D App (Three Image Array in 16:9 Frame) -->
-                    <article class="case-slide active" data-slide="0">
-                        <div class="case-canvas-grid">
-                            <!-- Left Column: Title, 16:9 Three-Image Array, Background -->
-                            <div class="case-col-left">
-                                <div class="case-header-compact">
-                                    <h3 class="case-slide-title">1. In-store 3D previews that cut consultation time 35 percent</h3>
-                                    <div class="case-meta-line">
-                                        <span><strong>Role:</strong> Product Engineer & Co-Founder</span>
-                                        <span><strong>Company:</strong> MRKE Ltd.</span>
-                                    </div>
-                                </div>
-
-                                <!-- 16:9 Widescreen Frame containing Three Vertical Screens -->
-                                <div class="case-widescreen-frame">
-                                    <div class="three-images-grid">
-                                        <figure class="three-images-col">
-                                            <img src="assets/hair_app/hair_app_menu.png" alt="Hairstyle category menu interface" loading="lazy" decoding="async" fetchpriority="low">
-                                            <figcaption>Menu</figcaption>
-                                        </figure>
-                                        <figure class="three-images-col">
-                                            <img src="assets/hair_app/hair_app_display1.png" alt="3D hairstyle 360-degree preview" loading="lazy" decoding="async" fetchpriority="low">
-                                            <figcaption>3D Preview</figcaption>
-                                        </figure>
-                                        <figure class="three-images-col">
-                                            <img src="assets/hair_app/hair_app_display2.png" alt="3D hairstyle preview short hair" loading="lazy" decoding="async" fetchpriority="low">
-                                            <figcaption>Short Hair</figcaption>
-                                        </figure>
-                                    </div>
-                                </div>
-
-                                <div class="case-text-block">
-                                    <h4>Problem</h4>
-                                    <p>On the shop floor, flat 2D catalogs left customers unable to picture volume and layering. Consultations dragged and broke our fast turnaround promise.</p>
-                                </div>
-                            </div>
-
-                            <!-- Right Column: Frontline Insights, Practical Outcomes, Link -->
-                            <div class="case-col-right">
-
-                                <div class="case-text-block">
-                                    <h4>Goal</h4>
-                                    <p>Build a practical in-store tool that let customers and stylists agree on a style in seconds, without pausing daily operations for updates.</p>
-                                </div>
-
-                                <div class="case-text-block">
-                                    <h4>What I did</h4>
-                                    <ul>
-                                        <li>Mapped consultation flow in Figma, then built lightweight Unity C# preview app for Android tablets at styling stations.</li>
-                                        <li>Added Google Cloud Storage streaming for over-the-air model updates with no downtime.</li>
-                                        <li>Spotted through floor observation that kids age 6 to 12 were the most eager users and prioritized youth styles first. Ran daily stylist logs to tune models and flow.</li>
-                                    </ul>
-                                </div>
-
-                                <div class="case-text-block">
-                                    <h4>Result</h4>
-                                    <p class="highlight-text">
-                                        Customers rotated styles in 360 degrees before the cut. Consultation ambiguity and discussion time fell about 35 percent across hundreds of live sessions.
-                                    </p>
-                                </div>
-
-                                <div class="case-link-row">
-                                    <a href="https://github.com/Goldwaterfung/3D-Product-Showcase-URP-Sample-in-Unity"
-                                        target="_blank" rel="noopener" class="underline-link"><i class="fa-brands fa-github"></i> View 3D Product Showcase URP Sample on GitHub</a>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Slide 2: Clinical AI Simulator (No Image, Rich Two-Column Layout) -->
-                    <article class="case-slide stack-1" data-slide="1">
-                        <div class="case-canvas-grid">
-                            <!-- Left Column: Title, Background, Goals, Clinical Matrix Card -->
-                            <div class="case-col-left">
-                                <div class="case-header-compact">
-                                    <h3 class="case-slide-title">2. Fixed student misdiagnoses by fixing data, not graphics</h3>
-                                    <div class="case-meta-line">
-                                        <span><strong>Role:</strong> User Experience Designer (Intern)</span>
-                                        <span><strong>Organization:</strong> Innova Medical Technology Co., Ltd. | Kaohsiung, Taiwan</span>
-                                    </div>
-                                </div>
-
-                                <div class="case-text-block">
-                                    <h4>Problem</h4>
-                                    <p>On a B2B training platform with LLM dialogue plus 3D virtual patients, students kept misjudging visual exams across 50 cases. The default assumption was weak 3D styling.</p>
-                                </div>
-
-                                <div class="case-text-block">
-                                    <h4>Goal</h4>
-                                    <p>Walk all cases, find the real root cause, and give engineering and medical leads a clear fix priority.</p>
-                                </div>
-                            </div>
-
-                            <!-- Right Column: Hands-On Testing Bullets, Practical Outcomes -->
-                            <div class="case-col-right">
-                                <div class="case-text-block">
-                                    <h4>What I did</h4>
-                                    <ul>
-                                        <li>Walked all 50 cases end to end and tested outputs against clinical database records.</li>
-                                        <li>Found latency between LLM dialogue and avatar animation plus missing visual signs like swelling or discoloration that contradicted the database.</li>
-                                        <li>Cataloged each defect in a structured cross-validation matrix for engineering and medical leads.</li>
-                                    </ul>
-                                </div>
-
-                                <div class="case-text-block">
-                                    <h4>Result</h4>
-                                    <p class="highlight-text">
-                                        Roadmap shifted away from cosmetic 3D rework toward audiovisual sync and symptom schema alignment. Training outcomes were grounded in accurate data again.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Slide 3: AI Virtual Principal (Vertical Image 9:16 Design) -->
-                    <article class="case-slide stack-2" data-slide="2">
-                        <div class="case-canvas-grid">
-                            <!-- Left Column: Title, Vertical Device Frame (9:16) + Background Text -->
-                            <div class="case-col-left">
-                                <div class="case-header-compact">
-                                    <h3 class="case-slide-title">3. Made a 5-second local AI delay feel instant live</h3>
-                                    <div class="case-meta-line">
-                                        <span><strong>Role:</strong> Systems Integration Engineer</span>
-                                        <span><strong>Organization:</strong> National Tainan University of the Arts</span>
-                                    </div>
-                                </div>
-
-                                <div class="case-vertical-split-layout">
-                                    <div class="case-vertical-device-frame">
-                                        <img src="assets/image/ar-llm-principal.png"
-                                            alt="Engineering Test Capture: RAG-Integrated Multimodal AI Real-Time Virtual Principal Interface"
-                                            class="case-vertical-device-img" loading="lazy" decoding="async" fetchpriority="low">
-                                    </div>
-                                    <div class="case-vertical-context">
-                                        <h4>Problem</h4>
-                                        <p>Local speech to text plus LLM with RAG plus text to speech took 3 to 5 seconds on local GPU. The avatar felt frozen at exhibitions and VIP receptions.</p>
-                                        <h4>Goal</h4>
-                                        <p>Integrate the pipeline into Unity and make multi-turn voice interaction feel responsive with no extra hardware or cloud.</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Right Column: Technical Collaboration Bullets, Practical Outcomes -->
-                            <div class="case-col-right">
-                                <div class="case-text-block">
-                                    <h4>What I did</h4>
-                                    <ul>
-                                        <li>Added instant listening and processing states the moment user speech ended to cover the inference window.</li>
-                                        <li>Mapped LLM sentiment tags to facial blendshapes for emotion plus camera head tracking for steady eye contact.</li>
-                                        <li>Aligned audio and text packet sequencing for drift-free lip sync.</li>
-                                    </ul>
-                                </div>
-
-                                <div class="case-text-block">
-                                    <h4>Result</h4>
-                                    <p class="highlight-text">
-                                        Visitors held natural multi-turn conversations live on the existing local GPU setup. The perceived delay disappeared.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Slide 4: Live AI Motion Capture (16:9 Video Frame, Same Design with Case 1) -->
-                    <article class="case-slide stack-3" data-slide="3">
-                        <div class="case-canvas-grid">
-                            <!-- Left Column: Title, 16:9 Video Frame, Background -->
-                            <div class="case-col-left">
-                                <div class="case-header-compact">
-                                    <h3 class="case-slide-title">4. Kept a virtual avatar in sync with live Erhu on stage</h3>
-                                    <div class="case-meta-line">
-                                        <span><strong>Role:</strong> Systems Integration Engineer</span>
-                                        <span><strong>Organization:</strong> National Tainan University of the Arts</span>
-                                    </div>
-                                </div>
-
-                                <!-- 16:9 Widescreen Frame containing Video (Identical frame design with Case 1) -->
-                                <div class="case-widescreen-frame">
-                                    <video controls preload="none" class="case-widescreen-video" data-stage="3">
-                                        <source data-src="assets/system_integration/virtual_concert.mp4" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                    </video>
-                                </div>
-
-                                <div class="case-text-block">
-                                    <h4>Problem</h4>
-                                    <p>For a live Erhu concert in a 1000-seat hall, rapid bowing broke AI pose estimation in rehearsals. Visual jitter and snapping drifted from live acoustic audio.</p>
-                                </div>
-                            </div>
-
-                            <!-- Right Column: Objectives, Rehearsal Testing Bullets, Practical Outcomes -->
-                            <div class="case-col-right">
-                                <div class="case-text-block">
-                                    <h4>Goal</h4>
-                                    <p>Find a stable buffer between pose estimation and continuous audio that held sync without harming sound fidelity.</p>
-                                </div>
-
-                                <div class="case-text-block">
-                                    <h4>What I did</h4>
-                                    <ul>
-                                        <li>Shadowed rehearsals and mapped the player natural 0.8-second prep bow into a technical threshold.</li>
-                                        <li>Recorded motion data alongside audio waveforms and set a 1.5-second deterministic streaming buffer to absorb inference variance.</li>
-                                        <li>Validated with full-dress stage simulations.</li>
-                                    </ul>
-                                </div>
-
-                                <div class="case-text-block">
-                                    <h4>Result</h4>
-                                    <p class="highlight-text">
-                                        Avatar stayed locked to live performance with no snapping. Acoustic clarity held through the concert.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 03: Specialized Projects & Research -->
-        <section id="projects" class="section projects-section">
-            <div class="container">
-                <div class="section-grid">
-                    <div class="section-meta">
-                        <span class="mono-section-label">Featured Projects & Research</span>
-                        <h2 class="section-serif-title">Agent Systems & Empirical Research</h2>
-                    </div>
-
-                    <div class="section-content">
-                        <div class="flat-project-grid" id="portfolio-grid">
-                            <!-- Project 1: Stratawright Agentic DAW -->
-                            <div class="flat-project-row" data-category="agent-daw">
-                                <div class="project-year">2026</div>
-                                <div class="project-details">
-                                    <h3 class="project-row-title">Stratawright - Digital audio workstation software built from scratch for agent CLI workflows</h3>
-                                    <p class="project-tagline">An open-source C++20 digital audio workstation software built from scratch, featuring a signal architecture that allows autonomous coding agents to use CLI commands to inspect track telemetry and control multi-track audio workflows.
-                                    </p>
-
-                                    <figure class="project-media-wrapper">
-                                        <img src="assets/daw/daw-usecase.gif"
-                                            alt="Stratawright DAW Agent CLI Automation Workflow Demonstration"
-                                            loading="lazy" decoding="async" fetchpriority="low">
-                                        <figcaption><i class="fa-solid fa-play"></i> Stratawright Agentic DAW CLI
-                                            Automation Workflow Demonstration</figcaption>
-                                    </figure>
-
-                                    <div class="project-qa-group">
-                                        <div class="project-qa-item">
-                                            <strong class="qa-question">Why did I initiate this project?</strong>
-                                            While AI agents excel at code and text automation, audio engineering remains
-                                            locked in manual GUI interactions. When working on large multitrack
-                                            sessions, creators spend substantial time on repetitive mechanical routing,
-                                            gain staging, and track management. To explore how agents could automate
-                                            audio workflows, I set out to bridge the gap between low-level audio signals
-                                            and agentic CLI tooling.
-                                        </div>
-                                        <div class="project-qa-item">
-                                            <strong class="qa-question">What problem does this project solve?</strong>
-                                            Constructing an audio workstation architecture natively supporting AI Agent
-                                            CLI workflows. The system translates low-level audio signals (peak dB, LUFS
-                                            loudness, spectral energy distribution, and waveform characteristics) into
-                                            deterministic CLI protocols and tool-calling schemas. It enables AI coding
-                                            agents (such as Claude Code, Cursor, or Gemini) to inspect audio telemetry,
-                                            organize track groups, balance gain stages, adjust stereo panning, and
-                                            automate DSP parameters through command-line execution.
-                                        </div>
-                                    </div>
-
-                                    <p class="project-row-desc">
-                                        <a href="https://github.com/Goldwaterfung/Stratawright" target="_blank"
-                                            rel="noopener" class="underline-link"><i class="fa-brands fa-github"></i>
-                                            View Open Source Project on GitHub (Goldwaterfung/Stratawright)</a>
-                                    </p>
-
-                                </div>
-                            </div>
-
-                            <!-- Project 2: IEEE Paper -->
-                            <div class="flat-project-row" data-category="research">
-                                <div class="project-year">2026</div>
-                                <div class="project-details">
-                                    <h3 class="project-row-title">Measuring visual capture in virtual reality under sustained audiovisual conflict with third-order Ambisonics</h3>
-                                    <p class="project-tagline">Investigating human cross-modal perception under
-                                        audiovisual conflict in VR to provide empirical foundations for spatial
-                                        computing interfaces.</p>
-
-                                    <div class="research-image-gallery">
-                                        <figure style="margin: 0; text-align: center;">
-                                            <img src="assets/research/experiment.jpg"
-                                                alt="VR audiovisual conflict experiment setup"
-                                                loading="lazy" decoding="async" fetchpriority="low"
-                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
-                                            <figcaption>
-                                                Figure 1: VR Audiovisual Conflict Experiment Setup</figcaption>
-                                        </figure>
-                                        <figure style="margin: 0; text-align: center;">
-                                            <img src="assets/research/sound-lab.jpg"
-                                                alt="16-channel Third-Order Ambisonics acoustics laboratory"
-                                                loading="lazy" decoding="async" fetchpriority="low"
-                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
-                                            <figcaption>
-                                                Figure 2: 16-Channel Third-Order Ambisonics Laboratory</figcaption>
-                                        </figure>
-                                        <figure style="margin: 0; text-align: center;">
-                                            <img src="assets/research/1_angular_error_by_condition.png"
-                                                alt="Initial localization angular error chart"
-                                                loading="lazy" decoding="async" fetchpriority="low"
-                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
-                                            <figcaption>
-                                                Figure 3: Initial Angular Error Across Three Conditions</figcaption>
-                                        </figure>
-                                        <figure style="margin: 0; text-align: center;">
-                                            <img src="assets/research/3_response_time_by_condition.png"
-                                                alt="Response time analysis chart"
-                                                loading="lazy" decoding="async" fetchpriority="low"
-                                                style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
-                                            <figcaption>
-                                                Figure 4: Response Time Analysis Across Three Conditions</figcaption>
-                                        </figure>
-                                    </div>
-
-                                    <div class="project-qa-group">
-                                        <div class="project-qa-item">
-                                            <strong class="qa-question">Why did I conduct this research?</strong>
-                                            As spatial computing and smart glasses advance, virtual visual and auditory
-                                            cues are overlaid onto physical space. I wanted to understand the empirical
-                                            limits of human perception when sensory inputs contradict: if high-fidelity
-                                            spatial audio and visual stimuli deliver conflicting spatial locations, does
-                                            the brain prioritize vision, and what is the measurable cognitive cost?
-                                        </div>
-                                    </div>
-
-                                    <p class="project-row-desc" style="margin-bottom: 0.3rem;">
-                                        <strong>Three Key Experimental and Academic Contributions:</strong>
-                                    </p>
-                                    <ol class="project-list">
-                                        <li><strong>Experimental Paradigm Innovation</strong>: Designed a decoupled
-                                            head-gaze and hand-pointing tracking paradigm in Unity to isolate sensory
-                                            capture and track real-time cognitive correction paths.</li>
-                                        <li><strong>Empirical Evidence of Sensory Capture and Cognitive Cost</strong>:
-                                            Demonstrated that even with 16-channel Third-Order Ambisonics spatial audio,
-                                            salient visual distractors dominate initial localization, with cross-modal
-                                            conflict increasing cognitive latency by 1.6 seconds.</li>
-                                        <li><strong>Foundations for Spatial Computing</strong>: Grounded in cognitive
-                                            psychology, proved that spatial audio alone cannot compensate for visual
-                                            misalignment, establishing empirical guidelines for cross-modal coherence in
-                                            spatial interfaces.</li>
-                                    </ol>
-
-                                    <p class="project-row-desc"
-                                        style="display: flex; flex-wrap: wrap; gap: 1.25rem; align-items: center; margin-top: 0.5rem;">
-                                        <a href="https://ieeexplore.ieee.org/document/11672319" target="_blank"
-                                            rel="noopener" class="underline-link"><i class="fa-solid fa-file-lines"></i>
-                                            View Paper in IEEE Xplore</a>
-                                        <a href="https://github.com/Goldwaterfung/vr-under-sustained-audiovisual-conflict"
-                                            target="_blank" rel="noopener" class="underline-link"><i
-                                                class="fa-brands fa-github"></i> View Unity Research Project and Python
-                                            Data Processing Source on GitHub</a>
-                                    </p>
-
-                                </div>
-                            </div>
-
-                            <!-- Project 3: CollarAgent Research Studio -->
-                            <div class="flat-project-row" data-category="agent-studio">
-                                <div class="project-year">2025</div>
-                                <div class="project-details">
-                                    <h3 class="project-row-title">CollarAgent - Local-first visual research studio with autonomous agent co-working</h3>
-                                    <p class="project-tagline">Unifying an infinite concept canvas, scholarly document
-                                        engine, and LangGraph agent runtime with non-destructive diff staging and
-                                        persistent memory.
-                                    </p>
-
-                                    <figure class="project-media-wrapper">
-                                        <img src="assets/collaragent/showcase-collaragent.gif"
-                                            alt="CollarAgent Local-First Visual Research Studio Autonomous Agent Co-Working Showcase"
-                                            loading="lazy" decoding="async" fetchpriority="low">
-                                        <figcaption><i class="fa-solid fa-play"></i> CollarAgent Autonomous Agent
-                                            Co-Working and Visual Diff Showcase</figcaption>
-                                    </figure>
-
-                                    <div class="project-qa-group">
-                                        <div class="project-qa-item">
-                                            <strong class="qa-question">Why did I build this project?</strong>
-                                            When conducting literature reviews and drafting research hypotheses,
-                                            researchers often struggle with fragmented workflows across separate
-                                            whiteboard apps, note editors, and AI chat windows. Traditional generative
-                                            tools also risk overwriting work destructively. I built an integrated studio
-                                            where an autonomous research agent can co-work on concept maps and
-                                            structured manuscripts alongside the researcher safely.
-                                        </div>
-                                        <div class="project-qa-item">
-                                            <strong class="qa-question">What problem does this project solve?</strong>
-                                            Engineered a desktop application pairing LangGraph agent workflows with an
-                                            infinite concept canvas and a scholarly document engine supporting LaTeX
-                                            math and structured tables. Implemented bidirectional state synchronization
-                                            between canvas nodes and document blocks, non-destructive visual diff
-                                            staging to preview agent proposals before applying, and persistent memory to
-                                            retain project guidelines across sessions.
-                                        </div>
-                                    </div>
-
-                                    <p class="project-row-desc">
-                                        <a href="https://github.com/Goldwaterfung/collaragent" target="_blank"
-                                            rel="noopener" class="underline-link"><i class="fa-brands fa-github"></i>
-                                            View Open Source Project on GitHub (Goldwaterfung/collaragent)</a>
-                                    </p>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 04: Education Timeline -->
-        <section id="education" class="section education-section">
-            <div class="container">
-                <div class="section-grid">
-                    <div class="section-meta">
-                        <span class="mono-section-label">Education</span>
-                        <h2 class="section-serif-title">Education</h2>
-                    </div>
-
-                    <div class="section-content">
-                        <div class="flat-timeline">
-                            <!-- Timeline Item 6 (Education) -->
-                            <div class="timeline-row">
-                                <div class="timeline-time">Graduated 2026</div>
-                                <div class="timeline-details">
-                                    <h3 class="timeline-row-title">Bachelor of Arts in Audio Engineering</h3>
-                                    <div class="timeline-row-org">National Tainan University of the Arts </div>
-                                    <p class="timeline-row-desc">
-                                        Focus on MIR (Music Information Retrieval), Music AI, DSP (Digital Signal
-                                        Processing), Unity C# / VR SDKs, and Higher-Order Ambisonics Audio.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Timeline Item 7 (Education) -->
-                            <div class="timeline-row">
-                                <div class="timeline-time">Graduated 2016</div>
-                                <div class="timeline-details">
-                                    <h3 class="timeline-row-title">Bachelor of Arts (Honours) in Tourism Management</h3>
-                                    <div class="timeline-row-org">Plymouth University</div>
-                                    <p class="timeline-row-desc">
-                                        Focus on Project Management, Applied Statistics, Marketing, Cross-Departmental
-                                        Communications, and Financial Operations.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 05: Hobbies -->
-        <section id="hobbies" class="section hobbies-section">
-            <div class="container">
-                <div class="section-grid">
-                    <div class="section-meta">
-                        <span class="mono-section-label">Hobbies</span>
-                        <h2 class="section-serif-title">Hobbies & creative work</h2>
-                    </div>
-
-                    <div class="section-content">
-                        <div class="flat-timeline">
-                            <!-- Timeline Item (Hobbies) -->
-                            <div class="timeline-row">
-                                <div class="timeline-time">2016 - 2026</div>
-                                <div class="timeline-details">
-                                    <h3 class="timeline-row-title">Mixing Engineer & Audio Producer</h3>
-                                    <div class="timeline-row-org">Independent Music Artist Collaborations (Makav,
-                                        Universe Database, The Plane Plan)</div>
-                                    <p class="timeline-row-desc">
-                                        Collaborating with independent artists on multitrack mixing and critical
-                                        listening, translating musical concepts into balanced, cohesive soundscapes.
-                                        This continuous exploration in audio engineering also led to mixing
-                                        collaborations being selected for the official Jam Jam Asia 2026 lineup.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
     </main>
 
     <!-- Footer / Contact Section -->
