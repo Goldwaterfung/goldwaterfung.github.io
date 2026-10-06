@@ -187,31 +187,75 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Listen to SVG station click events
+        // Listen to SVG station click events. Only explicit user selections
+        // may recenter the page: scroll-driven syncs (scroll-scrub) must never
+        // trigger programmatic scrolling or they fight the user's own scroll.
+        // A card already near the viewport center is also left alone.
+        function isCardCentered(card) {
+            const rect = card.getBoundingClientRect();
+            const viewportCenter = window.innerHeight / 2;
+            const cardCenter = rect.top + rect.height / 2;
+            return Math.abs(cardCenter - viewportCenter) < window.innerHeight * 0.2;
+        }
+
         window.addEventListener('journey-active-station-changed', (e) => {
             const idx = e.detail?.index;
+            const source = e.detail?.source;
             if (typeof idx === 'number' && idx !== currentStationIndex && idx >= 0 && idx < totalStations) {
-                setStation(idx, true);
+                if (source !== 'svg-click') {
+                    setStation(idx, false);
+                    return;
+                }
+                const card = stationCards[idx];
+                setStation(idx, card ? !isCardCentered(card) : true);
             }
         });
 
-        // IntersectionObserver to sync active station as user scrolls naturally
+        // IntersectionObserver to sync active station as user scrolls naturally.
+        // When several cards intersect the band at once (dense spacing, fast
+        // scroll), activate only the one nearest the viewport center and apply
+        // it once per frame so the active index can't flap back and forth.
         if ('IntersectionObserver' in window) {
-            const cardObserver = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        const stationIdx = parseInt(entry.target.getAttribute('data-station') || '0', 10);
-                        if (!isNaN(stationIdx) && stationIdx !== currentStationIndex) {
-                            currentStationIndex = stationIdx;
-                            stationCards.forEach((card, i) => {
-                                card.classList.toggle('active', i === stationIdx);
-                            });
-                            window.dispatchEvent(new CustomEvent('journey-set-station', {
-                                detail: { index: stationIdx }
-                            }));
-                        }
+            let observerTicking = false;
+            let latestEntries = [];
+
+            function applyNearestStation() {
+                observerTicking = false;
+                const viewportCenter = window.innerHeight / 2;
+                let bestIdx = -1;
+                let bestDistance = Infinity;
+
+                latestEntries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
+                    const stationIdx = parseInt(entry.target.getAttribute('data-station') || '0', 10);
+                    if (isNaN(stationIdx)) return;
+                    const rect = entry.boundingClientRect;
+                    const cardCenter = rect.top + rect.height / 2;
+                    const distance = Math.abs(cardCenter - viewportCenter);
+                    if (distance < bestDistance) {
+                        bestDistance = distance;
+                        bestIdx = stationIdx;
                     }
                 });
+
+                latestEntries = [];
+                if (bestIdx >= 0 && bestIdx !== currentStationIndex) {
+                    currentStationIndex = bestIdx;
+                    stationCards.forEach((card, i) => {
+                        card.classList.toggle('active', i === bestIdx);
+                    });
+                    window.dispatchEvent(new CustomEvent('journey-set-station', {
+                        detail: { index: bestIdx }
+                    }));
+                }
+            }
+
+            const cardObserver = new IntersectionObserver((entries) => {
+                latestEntries = entries;
+                if (!observerTicking) {
+                    observerTicking = true;
+                    window.requestAnimationFrame(applyNearestStation);
+                }
             }, {
                 root: null,
                 rootMargin: '-20% 0px -40% 0px',
