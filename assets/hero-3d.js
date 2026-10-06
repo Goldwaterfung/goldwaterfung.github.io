@@ -70012,8 +70012,8 @@ const FZ = () => typeof document < "u" && document.baseURI ? new URL("assets/fon
         "meshStandardMaterial",
         {
           vertexColors: !0,
-          roughness: 0.45,
-          metalness: 0.35
+          roughness: 0.55,
+          metalness: 0.15
         }
       )
     }
@@ -70045,10 +70045,10 @@ const FZ = () => typeof document < "u" && document.baseURI ? new URL("assets/fon
         }
       }
       UZ(l, [
-        { offset: 0, color: "#431802" },
-        { offset: 0.38, color: "#9E3A00" },
+        { offset: 0, color: "#B84A0A" },
+        { offset: 0.38, color: "#D65E14" },
         { offset: 0.68, color: "#E65C00" },
-        { offset: 1, color: "#FFAB5E" }
+        { offset: 1, color: "#EF8B2F" }
       ]), a ? l.dispose() : t(l);
     }).catch((c) => {
       console.warn("3D title font could not be initialized:", c);

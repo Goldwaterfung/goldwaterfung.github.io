@@ -97,8 +97,8 @@ const Text3DMesh: React.FC<Text3DMeshProps> = ({ geometry }) => {
     >
       <meshStandardMaterial
         vertexColors
-        roughness={0.45}
-        metalness={0.35}
+        roughness={0.55}
+        metalness={0.15}
       />
     </mesh>
   );
@@ -147,12 +147,12 @@ export const HeroTitleCanvas: React.FC = () => {
           }
         }
 
-        // Ember Copper Flow gradient (left → right across "Kim Fung")
+        // Warm Ember gradient (low-contrast, theme-matched left → right)
         applyXAxisGradient(createdGeom, [
-          { offset: 0.0, color: '#431802' },
-          { offset: 0.38, color: '#9E3A00' },
+          { offset: 0.0, color: '#B84A0A' },
+          { offset: 0.38, color: '#D65E14' },
           { offset: 0.68, color: '#E65C00' },
-          { offset: 1.0, color: '#FFAB5E' },
+          { offset: 1.0, color: '#EF8B2F' },
         ]);
 
         if (!isCancelled) {
