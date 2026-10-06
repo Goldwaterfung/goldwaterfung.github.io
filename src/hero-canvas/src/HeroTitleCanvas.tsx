@@ -97,7 +97,7 @@ const Text3DMesh: React.FC<Text3DMeshProps> = ({ geometry }) => {
     >
       <meshStandardMaterial
         vertexColors
-        roughness={0.55}
+        roughness={0.85}
         metalness={0.15}
       />
     </mesh>

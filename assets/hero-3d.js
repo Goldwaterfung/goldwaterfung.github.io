@@ -70012,7 +70012,7 @@ const FZ = () => typeof document < "u" && document.baseURI ? new URL("assets/fon
         "meshStandardMaterial",
         {
           vertexColors: !0,
-          roughness: 0.55,
+          roughness: 0.85,
           metalness: 0.15
         }
       )
