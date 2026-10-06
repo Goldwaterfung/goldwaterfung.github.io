@@ -15,13 +15,18 @@
 
     <!-- Stage 1 priority: hero 3D assets load first -->
     <link rel="modulepreload" href="assets/hero-3d.js" fetchpriority="high">
-    <link rel="preload" href="assets/3d/kim-meshy.glb" as="fetch" type="model/gltf-binary" crossorigin fetchpriority="high">
-    <link rel="preload" href="assets/fonts/eurostile-bold-regular.ttf" as="font" type="font/ttf" crossorigin fetchpriority="high">
+    <link rel="preload" href="assets/3d/kim-meshy.glb" as="fetch" type="model/gltf-binary" crossorigin
+        fetchpriority="high">
+    <link rel="preload" href="assets/fonts/eurostile-bold-regular.ttf" as="font" type="font/ttf" crossorigin
+        fetchpriority="high">
 
     <!-- FontAwesome Icons (Stage 3: non-blocking, below-fold icons only) -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </noscript>
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
@@ -62,7 +67,8 @@
                     </h1>
 
                     <h2 class="hero-subtitle">
-                        <strong>Design Engineer</strong> for real-time interactive applications. I combine user experience design and systems engineering with <strong>Multimodal AI</strong> and <strong>Agentic Workflows</strong>.
+                        <strong>Design Engineer</strong> for real-time interactive applications. I combine user
+                        experience and systems engineering with <strong>interactive design</strong>.
                     </h2>
                 </div>
                 <div class="hero-canvas-col">
@@ -105,10 +111,12 @@
 
                 <span class="immersive-counter" id="immersive-counter">1 / 3</span>
 
-                <button type="button" class="immersive-arrow immersive-arrow-left" id="immersive-prev" aria-label="Previous video">
+                <button type="button" class="immersive-arrow immersive-arrow-left" id="immersive-prev"
+                    aria-label="Previous video">
                     <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
                 </button>
-                <button type="button" class="immersive-arrow immersive-arrow-right" id="immersive-next" aria-label="Next video">
+                <button type="button" class="immersive-arrow immersive-arrow-right" id="immersive-next"
+                    aria-label="Next video">
                     <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
                 </button>
 
@@ -123,9 +131,12 @@
 
                 <div class="immersive-hud-bottom">
                     <div class="immersive-desc-wrap">
-                        <p class="immersive-desc active" data-chapter-desc="0">Animal calls around you in third-order Ambisonics, calibrating your ears before the task.</p>
-                        <p class="immersive-desc" data-chapter-desc="1">Red sphere aligned with sound vs. all-dark silence, the two baselines (6.90° vs. 9.62°).</p>
-                        <p class="immersive-desc" data-chapter-desc="2">Visible decoy, hidden source 60 to 65° away, where vision hijacks hearing (60.35°, VBI 0.738).</p>
+                        <p class="immersive-desc active" data-chapter-desc="0">Animal calls around you in third-order
+                            Ambisonics, calibrating your ears before the task.</p>
+                        <p class="immersive-desc" data-chapter-desc="1">Red sphere aligned with sound vs. all-dark
+                            silence, the two baselines (6.90° vs. 9.62°).</p>
+                        <p class="immersive-desc" data-chapter-desc="2">Visible decoy, hidden source 60 to 65° away,
+                            where vision hijacks hearing (60.35°, VBI 0.738).</p>
                     </div>
                     <a href="cases/ieee-vr-conflict.html" class="immersive-case-link">Read Full Research Paper</a>
                 </div>
@@ -152,27 +163,35 @@
                         <h3 class="journey-card-role">Mastered programming in Unity C# and 3D modeling</h3>
                         <div class="journey-card-org">Independent Technical Foundations</div>
                         <p class="journey-card-desc">
-                            Mastered object-oriented programming in C#, real-time scene architecture in Unity, and 3D modeling with UV unwrapping in Blender during off-hours, establishing core software delivery skills.
+                            Mastered object-oriented programming in C#, real-time scene architecture in Unity, and 3D
+                            modeling with UV unwrapping in Blender during off-hours, establishing core software delivery
+                            skills.
                         </p>
                     </article>
 
                     <!-- Station 2: MRKE Fast-Turnaround Salon -->
                     <article class="journey-card" data-station="1">
                         <div class="journey-card-time">Dec 2020 - Jun 2026</div>
-                        <h3 class="journey-card-role">Founded fast-turnaround haircut business and mapped consultation bottlenecks</h3>
+                        <h3 class="journey-card-role">Founded fast-turnaround haircut business and mapped consultation
+                            bottlenecks</h3>
                         <div class="journey-card-org">MRKE Ltd. | Fast-Turnaround Haircut Business</div>
                         <p class="journey-card-desc">
-                            Co-founded and operated a physical fast-turnaround haircut salon serving 10 residential blocks. Formulated pricing structures and observed consultations directly on the shop floor, discovering that ambiguous 2D catalog photos caused persistent customer indecision.
+                            Co-founded and operated a physical fast-turnaround haircut salon serving 10 residential
+                            blocks. Formulated pricing structures and observed consultations directly on the shop floor,
+                            discovering that ambiguous 2D catalog photos caused persistent customer indecision.
                         </p>
                     </article>
 
                     <!-- Station 3: Local Multimodal AI Avatar -->
                     <article class="journey-card" data-station="2">
                         <div class="journey-card-time">Sep 2023 - Jun 2024</div>
-                        <h3 class="journey-card-role">Engineered local GPU multimodal AI pipeline with real-time visual feedback</h3>
+                        <h3 class="journey-card-role">Engineered local GPU multimodal AI pipeline with real-time visual
+                            feedback</h3>
                         <div class="journey-card-org">National Tainan University of the Arts</div>
                         <p class="journey-card-desc">
-                            Integrated Speech-to-Text, local LLM with RAG, and Text-to-Speech in Unity. Resolved a 3 to 5 second local GPU inference latency window by engineering instant listening and processing visual states, maintaining continuous eye contact and emotion-driven blendshapes.
+                            Integrated Speech-to-Text, local LLM with RAG, and Text-to-Speech in Unity. Resolved a 3 to
+                            5 second local GPU inference latency window by engineering instant listening and processing
+                            visual states, maintaining continuous eye contact and emotion-driven blendshapes.
                         </p>
                         <a href="cases/virtual-principal.html" class="journey-card-link">Explore Case Study</a>
                     </article>
@@ -180,10 +199,13 @@
                     <!-- Station 4: Live Concert Motion Capture Sync -->
                     <article class="journey-card" data-station="3">
                         <div class="journey-card-time">Nov 2023 - Dec 2024</div>
-                        <h3 class="journey-card-role">Synchronized virtual avatar with live Erhu performance using 1.5-second buffer</h3>
+                        <h3 class="journey-card-role">Synchronized virtual avatar with live Erhu performance using
+                            1.5-second buffer</h3>
                         <div class="journey-card-org">National Tainan University of the Arts</div>
                         <p class="journey-card-desc">
-                            Deployed AI vision pose estimation for a virtual avatar in a 1000-seat hall. Shadowed musician rehearsals to convert natural bowing cadence into a 1.5-second deterministic streaming buffer, eliminating visual snapping while preserving acoustic alignment.
+                            Deployed AI vision pose estimation for a virtual avatar in a 1000-seat hall. Shadowed
+                            musician rehearsals to convert natural bowing cadence into a 1.5-second deterministic
+                            streaming buffer, eliminating visual snapping while preserving acoustic alignment.
                         </p>
                         <a href="cases/live-concert-sync.html" class="journey-card-link">Explore Case Study</a>
                     </article>
@@ -191,10 +213,13 @@
                     <!-- Station 5: MRKE In-Store 3D Preview App -->
                     <article class="journey-card" data-station="4">
                         <div class="journey-card-time">2022 - Jun 2026</div>
-                        <h3 class="journey-card-role">Shipped in-store 3D preview app cutting consultation ambiguity by 35 percent</h3>
+                        <h3 class="journey-card-role">Shipped in-store 3D preview app cutting consultation ambiguity by
+                            35 percent</h3>
                         <div class="journey-card-org">MRKE Ltd. | In-House Interactive 3D Tooling</div>
                         <p class="journey-card-desc">
-                            Mapped consultation flows in Figma and built an interactive 3D hairstyle preview tool in Unity C#. Deployed across dedicated shop tablets with Google Cloud Storage over-the-air streaming, reducing consultation ambiguity by 35 percent.
+                            Mapped consultation flows in Figma and built an interactive 3D hairstyle preview tool in
+                            Unity C#. Deployed across dedicated shop tablets with Google Cloud Storage over-the-air
+                            streaming, reducing consultation ambiguity by 35 percent.
                         </p>
                         <a href="cases/mrke-3d.html" class="journey-card-link">Explore Case Study</a>
                     </article>
@@ -202,10 +227,13 @@
                     <!-- Station 6: Clinical AI Simulator Diagnostics -->
                     <article class="journey-card" data-station="5">
                         <div class="journey-card-time">Jul 2024 - Aug 2024</div>
-                        <h3 class="journey-card-role">Audited 50 clinical simulation cases to align schemas and eliminate diagnostic errors</h3>
+                        <h3 class="journey-card-role">Audited 50 clinical simulation cases to align schemas and
+                            eliminate diagnostic errors</h3>
                         <div class="journey-card-org">Innova Medical Technology Co., Ltd.</div>
                         <p class="journey-card-desc">
-                            Conducted systematic walkthroughs across 50 virtual patient cases. Identified discrepancies between clinical database records and 3D visual models, re-aligning engineering roadmap priorities toward audiovisual sync and schema consistency.
+                            Conducted systematic walkthroughs across 50 virtual patient cases. Identified discrepancies
+                            between clinical database records and 3D visual models, re-aligning engineering roadmap
+                            priorities toward audiovisual sync and schema consistency.
                         </p>
                         <a href="cases/innova-medical.html" class="journey-card-link">Explore Case Study</a>
                     </article>
@@ -213,10 +241,13 @@
                     <!-- Station 7: CollarAgent Visual Research Studio -->
                     <article class="journey-card" data-station="6">
                         <div class="journey-card-time">2025</div>
-                        <h3 class="journey-card-role">Built local-first visual research studio pairing LangGraph with infinite canvas</h3>
+                        <h3 class="journey-card-role">Built local-first visual research studio pairing LangGraph with
+                            infinite canvas</h3>
                         <div class="journey-card-org">CollarAgent | Visual Research Studio</div>
                         <p class="journey-card-desc">
-                            Created a desktop research workspace uniting LangGraph autonomous workflows with an infinite concept canvas and structured document engine, featuring non-destructive visual diff staging and persistent memory across research sessions.
+                            Created a desktop research workspace uniting LangGraph autonomous workflows with an infinite
+                            concept canvas and structured document engine, featuring non-destructive visual diff staging
+                            and persistent memory across research sessions.
                         </p>
                         <a href="cases/collaragent.html" class="journey-card-link">Explore Case Study</a>
                     </article>
@@ -224,10 +255,13 @@
                     <!-- Station 8: IEEE ICVR 2026 Ambisonics Study -->
                     <article class="journey-card" data-station="7">
                         <div class="journey-card-time">2025 - 2026</div>
-                        <h3 class="journey-card-role">Quantified visual capture and sensory conflict in VR with 16-channel Ambisonics</h3>
+                        <h3 class="journey-card-role">Quantified visual capture and sensory conflict in VR with
+                            16-channel Ambisonics</h3>
                         <div class="journey-card-org">IEEE ICVR 2026 | Cardiff, UK</div>
                         <p class="journey-card-desc">
-                            Investigated cross-modal sensory conflict in virtual reality, designing a decoupled head-gaze and hand-pointing tracking paradigm in Unity to measure cognitive latency and active perceptual correction paths under Third-Order Ambisonics.
+                            Investigated cross-modal sensory conflict in virtual reality, designing a decoupled
+                            head-gaze and hand-pointing tracking paradigm in Unity to measure cognitive latency and
+                            active perceptual correction paths under Third-Order Ambisonics.
                         </p>
                         <a href="cases/ieee-vr-conflict.html" class="journey-card-link">Explore Case Study</a>
                     </article>
@@ -235,10 +269,13 @@
                     <!-- Station 9: Stratawright Agentic DAW -->
                     <article class="journey-card" data-station="8">
                         <div class="journey-card-time">2026</div>
-                        <h3 class="journey-card-role">Architected digital audio workstation controlled by agent CLI protocols</h3>
+                        <h3 class="journey-card-role">Architected digital audio workstation controlled by agent CLI
+                            protocols</h3>
                         <div class="journey-card-org">Stratawright | Agentic Audio Workstation</div>
                         <p class="journey-card-desc">
-                            Architected a digital audio workstation signal system that translates low-level audio telemetry (LUFS, peak dB, spectral energy) into deterministic CLI protocols, enabling autonomous coding agents to automate multi-track sessions.
+                            Architected a digital audio workstation signal system that translates low-level audio
+                            telemetry (LUFS, peak dB, spectral energy) into deterministic CLI protocols, enabling
+                            autonomous coding agents to automate multi-track sessions.
                         </p>
                         <a href="cases/stratawright.html" class="journey-card-link">Explore Case Study</a>
                     </article>
@@ -246,10 +283,12 @@
                     <!-- Station 10: Next Destination -->
                     <article class="journey-card" data-station="9">
                         <div class="journey-card-time">2026+</div>
-                        <h3 class="journey-card-role">Connecting commercial operations, creative arts, and software engineering</h3>
+                        <h3 class="journey-card-role">Connecting commercial operations, creative arts, and software
+                            engineering</h3>
                         <div class="journey-card-org">Future Destination | Design Engineering</div>
                         <p class="journey-card-desc">
-                            Bringing together commercial frontline insights, creative sound design, and real-time software systems to build thoughtful, resilient human-machine interaction experiences.
+                            Bringing together startup experiences, creative sound design, and real-time software systems
+                            to build thoughtful, resilient human-machine interaction experiences.
                         </p>
                     </article>
                 </div>
@@ -257,14 +296,20 @@
                 <!-- Mobile journey bottom-sheet (single reusable dialog, filled from cards above) -->
                 <div id="journey-modal" hidden>
                     <div class="journey-modal-backdrop" data-journey-close></div>
-                    <div class="journey-modal-panel" role="dialog" aria-modal="true" aria-labelledby="journey-modal-role" aria-describedby="journey-modal-desc">
+                    <div class="journey-modal-panel" role="dialog" aria-modal="true"
+                        aria-labelledby="journey-modal-role" aria-describedby="journey-modal-desc">
                         <div class="journey-modal-handle" aria-hidden="true"></div>
                         <div class="journey-modal-topbar">
                             <span class="journey-modal-count" id="journey-modal-count">1 / 10</span>
                             <div class="journey-modal-nav">
-                                <button type="button" class="journey-modal-step" id="journey-modal-prev" aria-label="Previous station"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
-                                <button type="button" class="journey-modal-step" id="journey-modal-next" aria-label="Next station"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
-                                <button type="button" class="journey-modal-close" data-journey-close aria-label="Close station details">×</button>
+                                <button type="button" class="journey-modal-step" id="journey-modal-prev"
+                                    aria-label="Previous station"><i class="fa-solid fa-chevron-left"
+                                        aria-hidden="true"></i></button>
+                                <button type="button" class="journey-modal-step" id="journey-modal-next"
+                                    aria-label="Next station"><i class="fa-solid fa-chevron-right"
+                                        aria-hidden="true"></i></button>
+                                <button type="button" class="journey-modal-close" data-journey-close
+                                    aria-label="Close station details">×</button>
                             </div>
                         </div>
                         <div class="journey-modal-time" id="journey-modal-time"></div>
