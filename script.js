@@ -5,6 +5,113 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     // ----------------------------------------------------
+    // 0. Staged Asset Loading: Stage 1 (3D hero) -> Stage 2 (immersive) -> Stage 3 (rest)
+    // Stage 1 is prioritized via <modulepreload>/<preload> in <head>.
+    // This controller holds back Stage 2/3 video fetches until Stage 1 is ready.
+    // ----------------------------------------------------
+    function ensureVideoSource(video) {
+        if (!video || video.dataset.loaded === 'true') return;
+        const srcEl = video.querySelector('source[data-src]');
+        if (srcEl && !srcEl.getAttribute('src')) {
+            srcEl.setAttribute('src', srcEl.getAttribute('data-src'));
+            video.load();
+            video.dataset.loaded = 'true';
+        } else if (!srcEl && video.getAttribute('data-src') && !video.getAttribute('src')) {
+            video.setAttribute('src', video.getAttribute('data-src'));
+            video.load();
+            video.dataset.loaded = 'true';
+        }
+    }
+
+    function waitForHeroReady(timeoutMs = 3500) {
+        return new Promise((resolve) => {
+            const heroCanvas = document.getElementById('hero-3d-canvas');
+            if (heroCanvas && heroCanvas.querySelector('canvas')) {
+                resolve();
+                return;
+            }
+            let done = false;
+            const finish = () => {
+                if (done) return;
+                done = true;
+                resolve();
+            };
+            // Resolve early as soon as hero WebGL canvas mounts
+            if (heroCanvas && 'MutationObserver' in window) {
+                const mo = new MutationObserver(() => {
+                    if (heroCanvas.querySelector('canvas')) {
+                        mo.disconnect();
+                        finish();
+                    }
+                });
+                mo.observe(heroCanvas, { childList: true, subtree: true });
+                setTimeout(() => mo.disconnect(), timeoutMs);
+            }
+            if (document.readyState === 'complete') {
+                setTimeout(finish, 600);
+            } else {
+                window.addEventListener('load', () => setTimeout(finish, 600), { once: true });
+            }
+            setTimeout(finish, timeoutMs);
+        });
+    }
+
+    function idleRun(fn, delay = 800) {
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(fn, { timeout: delay + 1500 });
+        } else {
+            setTimeout(fn, delay);
+        }
+    }
+
+    const stagedImmersiveVideos = Array.from(document.querySelectorAll('video[data-immersive-video]'));
+    const immersiveSection = document.getElementById('immersive');
+    let stage2Started = false;
+
+    function loadStage2Sequence() {
+        if (stage2Started) return;
+        stage2Started = true;
+        // Chapter 0 first for instant play, then stagger 1/2 to avoid bandwidth burst
+        if (stagedImmersiveVideos[0]) ensureVideoSource(stagedImmersiveVideos[0]);
+        idleRun(() => {
+            if (stagedImmersiveVideos[1]) ensureVideoSource(stagedImmersiveVideos[1]);
+            idleRun(() => {
+                if (stagedImmersiveVideos[2]) ensureVideoSource(stagedImmersiveVideos[2]);
+            }, 900);
+        }, 700);
+    }
+
+    // Default path: wait for Stage 1 hero, then load Stage 2
+    waitForHeroReady().then(loadStage2Sequence);
+
+    // Fast-scroll escape hatch: if user reaches immersive before hero is ready, load immediately
+    if (immersiveSection && 'IntersectionObserver' in window && stagedImmersiveVideos.length > 0) {
+        const fastScrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    loadStage2Sequence();
+                    fastScrollObserver.disconnect();
+                }
+            });
+        }, { root: null, rootMargin: '600px 0px', threshold: 0 });
+        fastScrollObserver.observe(immersiveSection);
+    }
+
+    // Stage 3: below-fold case-study video only when near viewport
+    const stage3Videos = Array.from(document.querySelectorAll('video[data-stage="3"]'));
+    if (stage3Videos.length > 0 && 'IntersectionObserver' in window) {
+        const stage3Observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    ensureVideoSource(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { root: null, rootMargin: '800px 0px', threshold: 0 });
+        stage3Videos.forEach((v) => stage3Observer.observe(v));
+    }
+
+    // ----------------------------------------------------
     // 1. Mobile Menu Toggle
     // ----------------------------------------------------
     const navToggle = document.getElementById('nav-toggle');
@@ -362,7 +469,16 @@ document.addEventListener('DOMContentLoaded', () => {
             const isActive = i === immersiveIndex;
             slide.classList.toggle('active', isActive);
             const video = slide.querySelector('video');
-            if (video && !isActive && !video.paused) video.pause();
+            if (isActive) {
+                // Stage 2 on-demand: user navigation always wins over staging
+                ensureVideoSource(video);
+                // Preload the next chapter so arrow/swipe feels instant
+                const nextSlide = immersiveSlides[(immersiveIndex + 1) % total];
+                const nextVideo = nextSlide ? nextSlide.querySelector('video') : null;
+                if (nextVideo) ensureVideoSource(nextVideo);
+            } else if (video && !video.paused) {
+                video.pause();
+            }
         });
         immersiveDescs.forEach((desc, i) => {
             desc.classList.toggle('active', i === immersiveIndex);
@@ -407,6 +523,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.stopPropagation();
         const video = getActiveImmersiveVideo();
         if (!video) return;
+        ensureVideoSource(video);
         if (video.paused) video.play().catch(() => {});
         else video.pause();
     });
@@ -414,6 +531,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.stopPropagation();
         const video = getActiveImmersiveVideo();
         if (!video) return;
+        ensureVideoSource(video);
         video.muted = !video.muted;
         syncImmersiveButtons();
     });
@@ -425,6 +543,7 @@ document.addEventListener('DOMContentLoaded', () => {
         video.addEventListener('volumechange', syncImmersiveButtons);
         video.addEventListener('ended', syncImmersiveButtons);
         video.addEventListener('click', () => {
+            ensureVideoSource(video);
             if (video.paused) video.play().catch(() => {});
             else video.pause();
         });

@@ -13,8 +13,15 @@
         href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Stage 1 priority: hero 3D assets load first -->
+    <link rel="modulepreload" href="assets/hero-3d.js" fetchpriority="high">
+    <link rel="preload" href="assets/3d/kim-meshy.glb" as="fetch" type="model/gltf-binary" crossorigin fetchpriority="high">
+    <link rel="preload" href="assets/fonts/eurostile-bold-regular.ttf" as="font" type="font/ttf" crossorigin fetchpriority="high">
+
+    <!-- FontAwesome Icons (Stage 3: non-blocking, below-fold icons only) -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
@@ -72,22 +79,22 @@
             <div class="immersive-viewport">
                 <!-- Chapter 0 -->
                 <figure class="immersive-slide active" data-chapter="0">
-                    <video preload="metadata" playsinline class="immersive-video" data-immersive-video>
-                        <source src="assets/research/vr-sound-localization-testing.mp4" type="video/mp4">
+                    <video preload="none" playsinline class="immersive-video" data-immersive-video data-stage="2">
+                        <source data-src="assets/research/vr-sound-localization-testing.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </figure>
                 <!-- Chapter 1 -->
                 <figure class="immersive-slide" data-chapter="1">
-                    <video preload="metadata" playsinline class="immersive-video" data-immersive-video>
-                        <source src="assets/research/sound-localization-gameplay.mp4" type="video/mp4">
+                    <video preload="none" playsinline class="immersive-video" data-immersive-video data-stage="2">
+                        <source data-src="assets/research/sound-localization-gameplay.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </figure>
                 <!-- Chapter 2 -->
                 <figure class="immersive-slide" data-chapter="2">
-                    <video preload="metadata" playsinline class="immersive-video" data-immersive-video>
-                        <source src="assets/research/incongruent-gameplay.mp4" type="video/mp4">
+                    <video preload="none" playsinline class="immersive-video" data-immersive-video data-stage="2">
+                        <source data-src="assets/research/incongruent-gameplay.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </figure>
@@ -291,15 +298,15 @@
                                 <div class="case-widescreen-frame">
                                     <div class="three-images-grid">
                                         <figure class="three-images-col">
-                                            <img src="assets/hair_app/hair_app_menu.png" alt="Hairstyle category menu interface">
+                                            <img src="assets/hair_app/hair_app_menu.png" alt="Hairstyle category menu interface" loading="lazy" decoding="async" fetchpriority="low">
                                             <figcaption>Menu</figcaption>
                                         </figure>
                                         <figure class="three-images-col">
-                                            <img src="assets/hair_app/hair_app_display1.png" alt="3D hairstyle 360-degree preview">
+                                            <img src="assets/hair_app/hair_app_display1.png" alt="3D hairstyle 360-degree preview" loading="lazy" decoding="async" fetchpriority="low">
                                             <figcaption>3D Preview</figcaption>
                                         </figure>
                                         <figure class="three-images-col">
-                                            <img src="assets/hair_app/hair_app_display2.png" alt="3D hairstyle preview short hair">
+                                            <img src="assets/hair_app/hair_app_display2.png" alt="3D hairstyle preview short hair" loading="lazy" decoding="async" fetchpriority="low">
                                             <figcaption>Short Hair</figcaption>
                                         </figure>
                                     </div>
@@ -405,7 +412,7 @@
                                     <div class="case-vertical-device-frame">
                                         <img src="assets/image/ar-llm-principal.png"
                                             alt="Engineering Test Capture: RAG-Integrated Multimodal AI Real-Time Virtual Principal Interface"
-                                            class="case-vertical-device-img">
+                                            class="case-vertical-device-img" loading="lazy" decoding="async" fetchpriority="low">
                                     </div>
                                     <div class="case-vertical-context">
                                         <h4>Project Background and Objectives</h4>
@@ -450,8 +457,8 @@
 
                                 <!-- 16:9 Widescreen Frame containing Video (Identical frame design with Case 1) -->
                                 <div class="case-widescreen-frame">
-                                    <video controls preload="metadata" class="case-widescreen-video">
-                                        <source src="assets/system_integration/virtual_concert.mp4" type="video/mp4">
+                                    <video controls preload="none" class="case-widescreen-video" data-stage="3">
+                                        <source data-src="assets/system_integration/virtual_concert.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
@@ -513,7 +520,7 @@
                                     <figure class="project-media-wrapper">
                                         <img src="assets/daw/daw-usecase.gif"
                                             alt="Stratawright DAW Agent CLI Automation Workflow Demonstration"
-                                            loading="lazy">
+                                            loading="lazy" decoding="async" fetchpriority="low">
                                         <figcaption><i class="fa-solid fa-play"></i> Stratawright Agentic DAW CLI
                                             Automation Workflow Demonstration</figcaption>
                                     </figure>
@@ -563,6 +570,7 @@
                                         <figure style="margin: 0; text-align: center;">
                                             <img src="assets/research/experiment.jpg"
                                                 alt="VR audiovisual conflict experiment setup"
+                                                loading="lazy" decoding="async" fetchpriority="low"
                                                 style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
                                             <figcaption>
                                                 Figure 1: VR Audiovisual Conflict Experiment Setup</figcaption>
@@ -570,6 +578,7 @@
                                         <figure style="margin: 0; text-align: center;">
                                             <img src="assets/research/sound-lab.jpg"
                                                 alt="16-channel Third-Order Ambisonics acoustics laboratory"
+                                                loading="lazy" decoding="async" fetchpriority="low"
                                                 style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
                                             <figcaption>
                                                 Figure 2: 16-Channel Third-Order Ambisonics Laboratory</figcaption>
@@ -577,6 +586,7 @@
                                         <figure style="margin: 0; text-align: center;">
                                             <img src="assets/research/1_angular_error_by_condition.png"
                                                 alt="Initial localization angular error chart"
+                                                loading="lazy" decoding="async" fetchpriority="low"
                                                 style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
                                             <figcaption>
                                                 Figure 3: Initial Angular Error Across Three Conditions</figcaption>
@@ -584,6 +594,7 @@
                                         <figure style="margin: 0; text-align: center;">
                                             <img src="assets/research/3_response_time_by_condition.png"
                                                 alt="Response time analysis chart"
+                                                loading="lazy" decoding="async" fetchpriority="low"
                                                 style="width: 100%; border-radius: 8px; border: 1px solid #eee;">
                                             <figcaption>
                                                 Figure 4: Response Time Analysis Across Three Conditions</figcaption>
@@ -647,7 +658,7 @@
                                     <figure class="project-media-wrapper">
                                         <img src="assets/collaragent/showcase-collaragent.gif"
                                             alt="CollarAgent Local-First Visual Research Studio Autonomous Agent Co-Working Showcase"
-                                            loading="lazy">
+                                            loading="lazy" decoding="async" fetchpriority="low">
                                         <figcaption><i class="fa-solid fa-play"></i> CollarAgent Autonomous Agent
                                             Co-Working and Visual Diff Showcase</figcaption>
                                     </figure>
@@ -792,9 +803,9 @@
         </div>
     </footer>
 
-    <!-- Custom JavaScript -->
-    <script src="script.js"></script>
-    <script type="module" src="assets/hero-3d.js"></script>
+    <!-- Custom JavaScript: Stage 1 defers so hero 3D module + GLB fetch first -->
+    <script src="script.js" defer fetchpriority="low"></script>
+    <script type="module" src="assets/hero-3d.js" fetchpriority="high"></script>
 </body>
 
 </html>
