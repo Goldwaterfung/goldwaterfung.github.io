@@ -26,7 +26,7 @@
     <header class="header">
         <div class="nav-container">
             <a href="#hero" class="logo">
-                <span class="logo-name">馮淦喬 (KIM FUNG)</span>
+                <span class="logo-name">馮淦喬 (Kim Fung)</span>
             </a>
 
             <nav class="nav-menu" id="nav-menu">
@@ -72,7 +72,7 @@
             <div class="journey-container">
                 <div class="journey-header">
                     <div class="journey-meta-title">
-                        <span class="mono-section-label">EXPERIENCE</span>
+                        <span class="mono-section-label">Experience</span>
                         <h2 class="journey-title">我的歷程</h2>
                     </div>
                 </div>
@@ -190,6 +190,26 @@
                             期待將過往在商業營運、藝術創意與軟體工程中所積累的經驗融會貫通。持續探索能將用戶共情、審美直覺與技術執行力緊密結合的新挑戰，與團隊共同打造有溫度的實用產品。
                         </p>
                     </article>
+                </div>
+
+                <!-- Mobile journey bottom-sheet (single reusable dialog, filled from cards above) -->
+                <div id="journey-modal" hidden>
+                    <div class="journey-modal-backdrop" data-journey-close></div>
+                    <div class="journey-modal-panel" role="dialog" aria-modal="true" aria-labelledby="journey-modal-role" aria-describedby="journey-modal-desc">
+                        <div class="journey-modal-handle" aria-hidden="true"></div>
+                        <div class="journey-modal-topbar">
+                            <span class="journey-modal-count" id="journey-modal-count">1 / 11</span>
+                            <div class="journey-modal-nav">
+                                <button type="button" class="journey-modal-step" id="journey-modal-prev" aria-label="上一站"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+                                <button type="button" class="journey-modal-step" id="journey-modal-next" aria-label="下一站"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+                                <button type="button" class="journey-modal-close" data-journey-close aria-label="關閉站點資訊">×</button>
+                            </div>
+                        </div>
+                        <div class="journey-modal-time" id="journey-modal-time"></div>
+                        <h3 class="journey-card-role" id="journey-modal-role"></h3>
+                        <div class="journey-card-org" id="journey-modal-org"></div>
+                        <p class="journey-card-desc" id="journey-modal-desc"></p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -438,7 +458,7 @@
             <div class="container">
                 <div class="section-grid">
                     <div class="section-meta">
-                        <span class="mono-section-label">FEATURED PROJECTS & RESEARCH</span>
+                        <span class="mono-section-label">Featured Projects & Research</span>
                         <h2 class="section-serif-title">Agent 系統與實證研究</h2>
                     </div>
 
@@ -598,7 +618,7 @@
             <div class="container">
                 <div class="section-grid">
                     <div class="section-meta">
-                        <span class="mono-section-label">EDUCATION</span>
+                        <span class="mono-section-label">Education</span>
                         <h2 class="section-serif-title">教育背景</h2>
                     </div>
 
@@ -638,7 +658,7 @@
             <div class="container">
                 <div class="section-grid">
                     <div class="section-meta">
-                        <span class="mono-section-label">HOBBIES</span>
+                        <span class="mono-section-label">Hobbies</span>
                         <h2 class="section-serif-title">興趣與創作</h2>
                     </div>
 
@@ -668,7 +688,7 @@
     <footer id="contact" class="footer">
         <div class="container">
             <div class="footer-box">
-                <span class="mono-label">LET'S CONNECT</span>
+                <span class="mono-label">Let's connect</span>
                 <h2 class="footer-title">隨時歡迎交流</h2>
                 <p class="footer-desc">
                     樂於結識各領域的開發者與創作者。無論是交流 AI 系統設計想法，或是聊聊正在解決的有趣難題，隨時歡迎打個招呼。

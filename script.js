@@ -638,9 +638,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const immersivePlay = document.getElementById('immersive-play');
     const immersiveMute = document.getElementById('immersive-mute');
     const immersiveChapters = [
-        { kicker: 'FAMILIARIZATION', title: '1. Hear the Space' },
-        { kicker: 'CONGRUENT SCENE + AUDIO ONLY SCENE', title: '2. Baseline Gameplay' },
-        { kicker: 'INCONGRUENT', title: '3. Audiovisual Conflict' }
+        { kicker: 'Familiarization', title: '1. Hear the Space' },
+        { kicker: 'Congruent scene and audio only scene', title: '2. Baseline Gameplay' },
+        { kicker: 'Incongruent scene', title: '3. Audiovisual Conflict' }
     ];
     let immersiveIndex = 0;
 
