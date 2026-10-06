@@ -741,6 +741,145 @@ html {
     display: block;
 }
 
+/* Immersive VR showcase: full-bleed, no frames, HUD inside video */
+.immersive-full {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    background: #000;
+}
+.immersive-viewport {
+    position: relative;
+    width: 100%;
+    height: clamp(480px, 86vh, 860px);
+    overflow: hidden;
+    background: #000;
+}
+.immersive-slide {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    display: none;
+}
+.immersive-slide.active {
+    display: block;
+}
+.immersive-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    background: #000;
+}
+.immersive-shade {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 28%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.62) 100%);
+}
+.immersive-hud-top {
+    position: absolute;
+    top: 2rem;
+    left: 2.5rem;
+    color: #fff;
+    pointer-events: none;
+    text-shadow: 0 2px 18px rgba(0,0,0,0.6);
+}
+.immersive-kicker {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    font-weight: 700;
+    opacity: 0.85;
+    text-transform: uppercase;
+}
+.immersive-title {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    margin-top: 0.3rem;
+}
+.immersive-counter {
+    position: absolute;
+    top: 2.2rem;
+    right: 2.5rem;
+    color: #fff;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    opacity: 0.85;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+}
+.immersive-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.35);
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(8px);
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, transform 0.16s ease;
+    z-index: 3;
+}
+.immersive-arrow:hover { background: rgba(0,0,0,0.6); transform: translateY(-50%) scale(1.06); }
+.immersive-arrow-left { left: 1.5rem; }
+.immersive-arrow-right { right: 1.5rem; }
+.immersive-hud-bottom {
+    position: absolute;
+    left: 2.5rem;
+    right: 2.5rem;
+    bottom: 1.8rem;
+    color: #fff;
+    z-index: 2;
+    text-shadow: 0 2px 14px rgba(0,0,0,0.65);
+}
+.immersive-desc { display: none; font-size: 1rem; opacity: 0.92; max-width: 70ch; margin: 0; }
+.immersive-desc.active { display: block; }
+.immersive-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 1rem;
+    z-index: 3;
+}
+.immersive-btn {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.4);
+    background: rgba(0,0,0,0.45);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, transform 0.16s ease, opacity 0.3s ease;
+}
+.immersive-btn:hover { background: rgba(0,0,0,0.7); transform: scale(1.06); }
+.immersive-center.is-playing .immersive-btn { opacity: 0.55; }
+.immersive-center.is-playing .immersive-btn:hover { opacity: 1; }
+@media (max-width: 720px) {
+    .immersive-viewport { height: 78vh; }
+    .immersive-hud-top { top: 1.2rem; left: 1.2rem; right: 4rem; }
+    .immersive-counter { top: 1.4rem; right: 1.2rem; }
+    .immersive-arrow { width: 44px; height: 44px; }
+    .immersive-arrow-left { left: 0.7rem; }
+    .immersive-arrow-right { right: 0.7rem; }
+    .immersive-hud-bottom { left: 1.2rem; right: 1.2rem; bottom: 4.5rem; }
+}
+
 /* Vertical 9:16 Design for Case 3 */
 .case-vertical-split-layout {
     display: grid;

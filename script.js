@@ -334,6 +334,130 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // ----------------------------------------------------
+    // 6. Immersive VR Chapter Switcher (post-hero showcase)
+    // ----------------------------------------------------
+    const immersiveSlides = document.querySelectorAll('.immersive-slide');
+    const immersiveDescs = document.querySelectorAll('[data-chapter-desc]');
+    const immersiveCounter = document.getElementById('immersive-counter');
+    const immersiveKicker = document.getElementById('immersive-kicker');
+    const immersiveTitle = document.getElementById('immersive-title');
+    const immersivePrev = document.getElementById('immersive-prev');
+    const immersiveNext = document.getElementById('immersive-next');
+    const immersiveCenter = document.getElementById('immersive-center');
+    const immersivePlay = document.getElementById('immersive-play');
+    const immersiveMute = document.getElementById('immersive-mute');
+    const immersiveChapters = [
+        { kicker: 'FAMILIARIZATION', title: '1. Hear the Space' },
+        { kicker: 'CONGRUENT SCENE + AUDIO ONLY SCENE', title: '2. Baseline Gameplay' },
+        { kicker: 'INCONGRUENT', title: '3. Audiovisual Conflict' }
+    ];
+    let immersiveIndex = 0;
+
+    function setImmersiveChapter(index) {
+        if (immersiveSlides.length === 0) return;
+        const total = immersiveSlides.length;
+        immersiveIndex = ((index % total) + total) % total;
+
+        immersiveSlides.forEach((slide, i) => {
+            const isActive = i === immersiveIndex;
+            slide.classList.toggle('active', isActive);
+            const video = slide.querySelector('video');
+            if (video && !isActive && !video.paused) video.pause();
+        });
+        immersiveDescs.forEach((desc, i) => {
+            desc.classList.toggle('active', i === immersiveIndex);
+        });
+        if (immersiveCounter) {
+            immersiveCounter.textContent = `${immersiveIndex + 1} / ${total}`;
+        }
+        const chapter = immersiveChapters[immersiveIndex];
+        if (chapter) {
+            if (immersiveKicker) immersiveKicker.textContent = chapter.kicker;
+            if (immersiveTitle) immersiveTitle.textContent = chapter.title;
+        }
+        syncImmersiveButtons();
+    }
+
+    function getActiveImmersiveVideo() {
+        const slide = immersiveSlides[immersiveIndex];
+        return slide ? slide.querySelector('video') : null;
+    }
+
+    function syncImmersiveButtons() {
+        const video = getActiveImmersiveVideo();
+        if (!video) return;
+        if (immersivePlay) {
+            immersivePlay.innerHTML = video.paused
+                ? '<i class="fa-solid fa-play" aria-hidden="true"></i>'
+                : '<i class="fa-solid fa-pause" aria-hidden="true"></i>';
+            immersivePlay.setAttribute('aria-label', video.paused ? 'Play video' : 'Pause video');
+        }
+        if (immersiveMute) {
+            immersiveMute.innerHTML = video.muted
+                ? '<i class="fa-solid fa-volume-xmark" aria-hidden="true"></i>'
+                : '<i class="fa-solid fa-volume-high" aria-hidden="true"></i>';
+            immersiveMute.setAttribute('aria-label', video.muted ? 'Unmute video' : 'Mute video');
+        }
+        if (immersiveCenter) {
+            immersiveCenter.classList.toggle('is-playing', !video.paused);
+        }
+    }
+
+    if (immersivePlay) immersivePlay.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const video = getActiveImmersiveVideo();
+        if (!video) return;
+        if (video.paused) video.play().catch(() => {});
+        else video.pause();
+    });
+    if (immersiveMute) immersiveMute.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const video = getActiveImmersiveVideo();
+        if (!video) return;
+        video.muted = !video.muted;
+        syncImmersiveButtons();
+    });
+    immersiveSlides.forEach((slide) => {
+        const video = slide.querySelector('video');
+        if (!video) return;
+        video.addEventListener('play', syncImmersiveButtons);
+        video.addEventListener('pause', syncImmersiveButtons);
+        video.addEventListener('volumechange', syncImmersiveButtons);
+        video.addEventListener('ended', syncImmersiveButtons);
+        video.addEventListener('click', () => {
+            if (video.paused) video.play().catch(() => {});
+            else video.pause();
+        });
+    });
+    syncImmersiveButtons();
+
+    if (immersivePrev) immersivePrev.addEventListener('click', () => setImmersiveChapter(immersiveIndex - 1));
+    if (immersiveNext) immersiveNext.addEventListener('click', () => setImmersiveChapter(immersiveIndex + 1));
+    document.addEventListener('keydown', (e) => {
+        const section = document.getElementById('immersive');
+        if (!section) return;
+        const rect = section.getBoundingClientRect();
+        const inView = rect.top < window.innerHeight && rect.bottom > 0;
+        if (!inView) return;
+        if (e.key === 'ArrowLeft') setImmersiveChapter(immersiveIndex - 1);
+        if (e.key === 'ArrowRight') setImmersiveChapter(immersiveIndex + 1);
+    });
+    // Touch swipe on viewport
+    const immersiveViewport = document.querySelector('.immersive-viewport');
+    if (immersiveViewport) {
+        let touchStartX = 0;
+        immersiveViewport.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].clientX;
+        }, { passive: true });
+        immersiveViewport.addEventListener('touchend', (e) => {
+            const dx = e.changedTouches[0].clientX - touchStartX;
+            if (Math.abs(dx) > 40) {
+                setImmersiveChapter(immersiveIndex + (dx < 0 ? 1 : -1));
+            }
+        }, { passive: true });
+    }
+
+    // ----------------------------------------------------
     // 7. Calm Scroll Entrance Reveals
     // ----------------------------------------------------
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

@@ -67,6 +67,64 @@
             </div>
         </section>
 
+        <!-- Immersive VR Research Gameplay (right after hero): full-bleed, no frames -->
+        <section id="immersive" class="immersive-full" aria-label="Immersive VR research gameplay">
+            <div class="immersive-viewport">
+                <!-- Chapter 0 -->
+                <figure class="immersive-slide active" data-chapter="0">
+                    <video preload="metadata" playsinline class="immersive-video" data-immersive-video>
+                        <source src="assets/research/vr-sound-localization-testing.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </figure>
+                <!-- Chapter 1 -->
+                <figure class="immersive-slide" data-chapter="1">
+                    <video preload="metadata" playsinline class="immersive-video" data-immersive-video>
+                        <source src="assets/research/sound-localization-gameplay.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </figure>
+                <!-- Chapter 2 -->
+                <figure class="immersive-slide" data-chapter="2">
+                    <video preload="metadata" playsinline class="immersive-video" data-immersive-video>
+                        <source src="assets/research/incongruent-gameplay.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </figure>
+
+                <div class="immersive-shade" aria-hidden="true"></div>
+
+                <div class="immersive-hud-top">
+                    <span class="immersive-kicker" id="immersive-kicker">FAMILIARIZATION</span>
+                    <h2 class="immersive-title" id="immersive-title">1. Hear the Space</h2>
+                </div>
+
+                <span class="immersive-counter" id="immersive-counter">1 / 3</span>
+
+                <button type="button" class="immersive-arrow immersive-arrow-left" id="immersive-prev" aria-label="Previous video">
+                    <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+                </button>
+                <button type="button" class="immersive-arrow immersive-arrow-right" id="immersive-next" aria-label="Next video">
+                    <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </button>
+
+                <div class="immersive-center" id="immersive-center">
+                    <button type="button" class="immersive-btn" id="immersive-play" aria-label="Play video">
+                        <i class="fa-solid fa-play" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="immersive-btn" id="immersive-mute" aria-label="Mute video">
+                        <i class="fa-solid fa-volume-high" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+                <div class="immersive-hud-bottom">
+                    <p class="immersive-desc active" data-chapter-desc="0">Animal calls around you in third-order Ambisonics — calibrate your ears before the task.</p>
+                    <p class="immersive-desc" data-chapter-desc="1">Red sphere aligned with sound vs. all-dark silence — the two baselines (6.90° vs. 9.62°).</p>
+                    <p class="immersive-desc" data-chapter-desc="2">Visible decoy, hidden source 60–65° away — vision hijacks hearing (60.35°, VBI 0.738).</p>
+                </div>
+            </div>
+        </section>
+
         <!-- Section 01: Experience Journey (Vertical Transit Map) -->
         <section id="experience" class="journey-section" aria-label="My Journey">
             <div class="journey-container">
