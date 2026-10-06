@@ -266,6 +266,106 @@ document.addEventListener('DOMContentLoaded', () => {
     if (journeySection && stationCards.length > 0) {
         let currentStationIndex = 0;
         const totalStations = stationCards.length;
+        const journeyMedia = window.matchMedia('(max-width: 900px)');
+        const isMobileJourney = () => journeyMedia.matches;
+
+        // Single reusable mobile bottom-sheet (see #journey-modal in index.html).
+        const journeyModal = document.getElementById('journey-modal');
+        const journeyModalPanel = journeyModal ? journeyModal.querySelector('.journey-modal-panel') : null;
+        const journeyModalTime = document.getElementById('journey-modal-time');
+        const journeyModalRole = document.getElementById('journey-modal-role');
+        const journeyModalOrg = document.getElementById('journey-modal-org');
+        const journeyModalDesc = document.getElementById('journey-modal-desc');
+        const journeyModalCount = document.getElementById('journey-modal-count');
+        const journeyModalPrev = document.getElementById('journey-modal-prev');
+        const journeyModalNext = document.getElementById('journey-modal-next');
+        const journeyModalClose = journeyModal ? journeyModal.querySelector('[data-journey-close].journey-modal-close') : null;
+        let journeyModalOpen = false;
+        let journeyModalHideTimer = null;
+        let journeyLastTrigger = null;
+        let journeyPrevBodyOverflow = '';
+
+        function focusStationNode(index) {
+            const nodes = document.querySelectorAll('#journey-3d-canvas g[role="button"]');
+            const node = nodes[index];
+            if (node && typeof node.focus === 'function') {
+                try { node.focus({ preventScroll: true }); } catch (e) { node.focus(); }
+            }
+        }
+
+        function fillJourneyModal(index) {
+            const card = stationCards[index];
+            if (!card || !journeyModal) return false;
+            const text = (sel) => {
+                const el = card.querySelector(sel);
+                return el ? el.textContent.trim() : '';
+            };
+            if (journeyModalTime) journeyModalTime.textContent = text('.journey-card-time');
+            if (journeyModalRole) journeyModalRole.textContent = text('.journey-card-role');
+            if (journeyModalOrg) journeyModalOrg.textContent = text('.journey-card-org');
+            if (journeyModalDesc) journeyModalDesc.textContent = text('.journey-card-desc');
+            if (journeyModalCount) journeyModalCount.textContent = `${index + 1} / ${totalStations}`;
+            if (journeyModalPrev) journeyModalPrev.disabled = index <= 0;
+            if (journeyModalNext) journeyModalNext.disabled = index >= totalStations - 1;
+            return true;
+        }
+
+        function openJourneyModal(index) {
+            if (index < 0 || index >= totalStations) return;
+            if (!journeyModal || !journeyModalPanel) return;
+            currentStationIndex = index;
+            stationCards.forEach((card, i) => {
+                card.classList.toggle('active', i === index);
+            });
+            window.dispatchEvent(new CustomEvent('journey-set-station', {
+                detail: { index }
+            }));
+            if (!fillJourneyModal(index)) return;
+
+            if (!journeyModalOpen) {
+                journeyLastTrigger = document.activeElement;
+                journeyPrevBodyOverflow = document.body.style.overflow;
+                document.body.style.overflow = 'hidden';
+            }
+            if (journeyModalHideTimer !== null) {
+                window.clearTimeout(journeyModalHideTimer);
+                journeyModalHideTimer = null;
+            }
+            journeyModal.hidden = false;
+            window.requestAnimationFrame(() => {
+                window.requestAnimationFrame(() => {
+                    journeyModal.classList.add('open');
+                });
+            });
+            journeyModalOpen = true;
+            if (journeyModalClose) {
+                window.setTimeout(() => journeyModalClose.focus({ preventScroll: true }), 60);
+            } else {
+                window.setTimeout(() => journeyModalPanel.focus && journeyModalPanel.focus({ preventScroll: true }), 60);
+            }
+        }
+
+        function closeJourneyModal(returnFocus = true) {
+            if (!journeyModal || !journeyModalOpen) return;
+            journeyModalOpen = false;
+            journeyModal.classList.remove('open');
+            if (journeyModalHideTimer !== null) {
+                window.clearTimeout(journeyModalHideTimer);
+            }
+            journeyModalHideTimer = window.setTimeout(() => {
+                journeyModal.hidden = true;
+                journeyModalHideTimer = null;
+            }, 240);
+            document.body.style.overflow = journeyPrevBodyOverflow;
+            if (returnFocus) {
+                if (journeyLastTrigger && document.contains(journeyLastTrigger)) {
+                    try { journeyLastTrigger.focus({ preventScroll: true }); } catch (e) { journeyLastTrigger.focus(); }
+                } else {
+                    focusStationNode(currentStationIndex);
+                }
+                journeyLastTrigger = null;
+            }
+        }
 
         function setStation(index, scrollToCard = false) {
             if (index < 0 || index >= totalStations) return;
@@ -279,7 +379,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 detail: { index }
             }));
 
-            if (scrollToCard && stationCards[index]) {
+            // Inline cards are display:none on mobile (modal is the UI), so never scroll there.
+            if (scrollToCard && !isMobileJourney() && stationCards[index]) {
                 stationCards[index].scrollIntoView({
                     behavior: 'smooth',
                     block: 'center'
@@ -287,10 +388,14 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Click on station cards activates that station
+        // Click on station cards activates that station (desktop only; hidden on mobile)
         stationCards.forEach((card, idx) => {
             card.addEventListener('click', () => {
-                setStation(idx, false);
+                if (isMobileJourney()) {
+                    openJourneyModal(idx);
+                } else {
+                    setStation(idx, false);
+                }
             });
         });
 
@@ -308,26 +413,90 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('journey-active-station-changed', (e) => {
             const idx = e.detail?.index;
             const source = e.detail?.source;
-            if (typeof idx === 'number' && idx !== currentStationIndex && idx >= 0 && idx < totalStations) {
-                if (source !== 'svg-click') {
-                    setStation(idx, false);
+            if (typeof idx === 'number' && idx >= 0 && idx < totalStations) {
+                if (source === 'svg-click') {
+                    // Mobile: tap station -> bottom-sheet. Desktop: sync + recenter card.
+                    if (isMobileJourney()) {
+                        openJourneyModal(idx);
+                        return;
+                    }
+                    if (idx !== currentStationIndex) {
+                        const card = stationCards[idx];
+                        setStation(idx, card ? !isCardCentered(card) : true);
+                    }
                     return;
                 }
-                const card = stationCards[idx];
-                setStation(idx, card ? !isCardCentered(card) : true);
+                if (idx !== currentStationIndex) {
+                    setStation(idx, false);
+                }
             }
         });
+
+        // Modal controls: backdrop/close, prev/next, Escape, minimal focus trap.
+        if (journeyModal) {
+            journeyModal.querySelectorAll('[data-journey-close]').forEach((el) => {
+                el.addEventListener('click', () => closeJourneyModal(true));
+            });
+            if (journeyModalPrev) {
+                journeyModalPrev.addEventListener('click', () => {
+                    if (currentStationIndex > 0) openJourneyModal(currentStationIndex - 1);
+                });
+            }
+            if (journeyModalNext) {
+                journeyModalNext.addEventListener('click', () => {
+                    if (currentStationIndex < totalStations - 1) openJourneyModal(currentStationIndex + 1);
+                });
+            }
+            document.addEventListener('keydown', (e) => {
+                if (!journeyModalOpen) return;
+                if (e.key === 'Escape') {
+                    e.preventDefault();
+                    closeJourneyModal(true);
+                    return;
+                }
+                if (e.key === 'Tab' && journeyModalPanel) {
+                    const focusables = Array.from(
+                        journeyModalPanel.querySelectorAll('button:not([disabled])')
+                    ).filter((el) => el.offsetParent !== null);
+                    if (focusables.length === 0) return;
+                    const first = focusables[0];
+                    const last = focusables[focusables.length - 1];
+                    if (e.shiftKey && document.activeElement === first) {
+                        e.preventDefault();
+                        last.focus();
+                    } else if (!e.shiftKey && document.activeElement === last) {
+                        e.preventDefault();
+                        first.focus();
+                    }
+                }
+            });
+            // Leaving mobile viewport with an open sheet: close and restore scroll.
+            const handleJourneyMediaChange = (ev) => {
+                if (!ev.matches) closeJourneyModal(false);
+            };
+            if (typeof journeyMedia.addEventListener === 'function') {
+                journeyMedia.addEventListener('change', handleJourneyMediaChange);
+            } else if (typeof journeyMedia.addListener === 'function') {
+                journeyMedia.addListener(handleJourneyMediaChange);
+            }
+        }
 
         // IntersectionObserver to sync active station as user scrolls naturally.
         // When several cards intersect the band at once (dense spacing, fast
         // scroll), activate only the one nearest the viewport center and apply
         // it once per frame so the active index can't flap back and forth.
+        // Desktop only: mobile cards are display:none and the modal owns state.
+        let cardObserver = null;
         if ('IntersectionObserver' in window) {
             let observerTicking = false;
             let latestEntries = [];
 
             function applyNearestStation() {
                 observerTicking = false;
+                if (isMobileJourney()) {
+                    latestEntries = [];
+                    return;
+                }
                 const viewportCenter = window.innerHeight / 2;
                 let bestIdx = -1;
                 let bestDistance = Infinity;
@@ -357,7 +526,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
-            const cardObserver = new IntersectionObserver((entries) => {
+            cardObserver = new IntersectionObserver((entries) => {
+                if (isMobileJourney()) return;
                 latestEntries = entries;
                 if (!observerTicking) {
                     observerTicking = true;
@@ -369,7 +539,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 threshold: 0.2
             });
 
-            stationCards.forEach((card) => cardObserver.observe(card));
+            if (!isMobileJourney()) {
+                stationCards.forEach((card) => cardObserver.observe(card));
+            }
+            const handleObserverMedia = (ev) => {
+                if (!cardObserver) return;
+                try { cardObserver.disconnect(); } catch (e) {}
+                if (!ev.matches) {
+                    stationCards.forEach((card) => cardObserver.observe(card));
+                }
+            };
+            if (typeof journeyMedia.addEventListener === 'function') {
+                journeyMedia.addEventListener('change', handleObserverMedia);
+            } else if (typeof journeyMedia.addListener === 'function') {
+                journeyMedia.addListener(handleObserverMedia);
+            }
         }
 
         setStation(0, false);
