@@ -1486,8 +1486,15 @@ figcaption {
     left: 0;
     right: 0;
     bottom: 0;
-    max-height: 85dvh;
-    overflow-y: auto;
+    /* Fixed sheet height so the topbar/buttons never shift with word count.
+       Only the description scrolls internally. */
+    height: 68vh;
+    height: 68dvh;
+    min-height: 380px;
+    max-height: 600px;
+    max-height: min(600px, 85vh);
+    max-height: min(600px, 85dvh);
+    overflow: hidden;
     -webkit-overflow-scrolling: touch;
     background: var(--bg-card);
     border-top: 1px solid var(--border-color);
@@ -1512,6 +1519,21 @@ figcaption {
     background: var(--border-color);
     margin: 0.35rem auto 0.6rem;
     flex-shrink: 0;
+}
+
+.journey-modal-topbar,
+.journey-modal-time,
+.journey-modal-panel .journey-card-role,
+.journey-modal-panel .journey-card-org {
+    flex-shrink: 0;
+}
+
+#journey-modal-desc {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.25rem;
 }
 
 .journey-modal-topbar {
