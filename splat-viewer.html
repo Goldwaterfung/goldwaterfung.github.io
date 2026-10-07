@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Vintage Living Room — Splat Viewer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: #000;
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        #splat-stage {
+            position: fixed;
+            inset: 0;
+        }
+
+        .splat-canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+            touch-action: none;
+        }
+
+        /* Loading veil — removed once the splat is ready */
+        #splat-veil {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: #000;
+            color: #f5f0e8;
+            z-index: 10;
+            transition: opacity 0.5s ease;
+        }
+
+        #splat-veil.is-hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        #splat-veil .veil-title {
+            font-size: 14px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            opacity: 0.85;
+        }
+
+        #splat-progress {
+            font-size: 13px;
+            font-variant-numeric: tabular-nums;
+            opacity: 0.6;
+        }
+
+        .veil-spinner {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 2px solid rgba(245, 240, 232, 0.2);
+            border-top-color: #e65c00;
+            animation: veil-spin 0.9s linear infinite;
+        }
+
+        @keyframes veil-spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Error box — only shown on failure */
+        #splat-error {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 20;
+            padding: 24px;
+        }
+
+        #splat-error[hidden] {
+            display: none;
+        }
+
+        .error-card {
+            max-width: 420px;
+            background: #141414;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 24px;
+            color: #f5f0e8;
+            text-align: center;
+        }
+
+        .error-card h1 {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .error-card p {
+            font-size: 13px;
+            opacity: 0.7;
+            margin-bottom: 16px;
+            word-break: break-word;
+        }
+
+        .error-card button {
+            background: #e65c00;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        /* Minimal floating exit — the only chrome on the page */
+        .viewer-exit {
+            position: fixed;
+            top: max(16px, env(safe-area-inset-top));
+            right: 164px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.55);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            color: #fff;
+            font-size: 20px;
+            line-height: 1;
+            text-decoration: none;
+            z-index: 5;
+            backdrop-filter: blur(6px);
+            transition: right 0.25s ease;
+        }
+
+        body.furn-collapsed .viewer-exit {
+            right: max(16px, env(safe-area-inset-right));
+        }
+
+        .viewer-exit:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        /* FPS meter — hidden unless ?fps=1 */
+        #splat-fps {
+            position: fixed;
+            left: max(16px, env(safe-area-inset-left));
+            bottom: max(16px, env(safe-area-inset-bottom));
+            padding: 6px 10px;
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.55);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            color: #7dff9a;
+            font: 12px/1.4 ui-monospace, "SF Mono", Menlo, monospace;
+            font-variant-numeric: tabular-nums;
+            z-index: 5;
+        }
+
+        #splat-fps[hidden] {
+            display: none;
+        }
+
+        /* Furniture catalog — single vertical column docked right */
+        #furn-panel {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 148px;
+            display: flex;
+            flex-direction: column;
+            background: rgba(10, 10, 12, 0.72);
+            border-left: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            z-index: 6;
+            transition: transform 0.25s ease;
+        }
+
+        #furn-panel.is-collapsed {
+            transform: translateX(calc(100% - 0px));
+            visibility: hidden;
+        }
+
+        .furn-panel-head {
+            padding: 14px 12px 10px;
+            color: #f5f0e8;
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            opacity: 0.85;
+            text-align: center;
+        }
+
+        .furn-panel-hint {
+            padding: 0 12px 10px;
+            color: #f5f0e8;
+            font-size: 11px;
+            line-height: 1.45;
+            opacity: 0.55;
+            text-align: center;
+        }
+
+        #furn-panel-list {
+            flex: 1;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 2px 12px 14px;
+        }
+
+        .furn-card {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 10px;
+            cursor: grab;
+            touch-action: none;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .furn-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .furn-card.is-armed {
+            border-color: #e65c00;
+            cursor: grabbing;
+        }
+
+        .furn-card img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border-radius: 6px;
+            pointer-events: none;
+            background: #1c1c1e;
+        }
+
+        .furn-name {
+            color: #f5f0e8;
+            font-size: 11px;
+            line-height: 1.3;
+            text-align: center;
+            pointer-events: none;
+        }
+
+        /* Gizmo mode switch — bottom-center pill */
+        #gizmo-bar {
+            position: fixed;
+            left: 50%;
+            bottom: max(16px, env(safe-area-inset-bottom));
+            transform: translateX(-50%);
+            display: flex;
+            gap: 4px;
+            padding: 4px;
+            border-radius: 999px;
+            background: rgba(0, 0, 0, 0.55);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            backdrop-filter: blur(6px);
+            z-index: 7;
+        }
+
+        #gizmo-bar button {
+            border: none;
+            border-radius: 999px;
+            padding: 8px 18px;
+            font-size: 13px;
+            background: transparent;
+            color: rgba(255, 255, 255, 0.65);
+            cursor: pointer;
+        }
+
+        #gizmo-bar button.is-active {
+            background: #e65c00;
+            color: #fff;
+        }
+
+        /* Panel collapse toggle */
+        #furn-toggle {
+            position: fixed;
+            right: 164px;
+            top: calc(max(16px, env(safe-area-inset-top)) + 48px);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.55);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            color: #fff;
+            font-size: 18px;
+            z-index: 7;
+            cursor: pointer;
+            backdrop-filter: blur(6px);
+            transition: right 0.25s ease;
+        }
+
+        body.furn-collapsed #furn-toggle {
+            right: max(16px, env(safe-area-inset-right));
+        }
+    </style>
+</head>
+
+<body>
+    <div id="splat-stage" aria-label="Gaussian splat viewer: vintage living room"></div>
+
+    <div id="splat-veil" role="status" aria-live="polite">
+        <div class="veil-spinner" aria-hidden="true"></div>
+        <div class="veil-title">Vintage Living Room</div>
+        <div id="splat-progress">Preparing viewer…</div>
+    </div>
+
+    <div id="splat-error" hidden>
+        <div class="error-card">
+            <h1>Could not load the room</h1>
+            <p id="splat-error-detail">Unknown error.</p>
+            <button type="button" onclick="location.reload()">Retry</button>
+        </div>
+    </div>
+
+    <a class="viewer-exit" href="index.html" aria-label="Back to portfolio">×</a>
+    <div id="splat-fps" hidden></div>
+
+    <div id="gizmo-bar" role="toolbar" aria-label="Edit mode">
+        <button type="button" data-mode="translate" class="is-active">Move</button>
+        <button type="button" data-mode="rotate">Rotate</button>
+        <button type="button" data-mode="scale">Scale</button>
+    </div>
+
+    <aside id="furn-panel" aria-label="Furniture catalog">
+        <div class="furn-panel-head">Furniture</div>
+        <div class="furn-panel-hint">Drag a piece into the room</div>
+        <div id="furn-panel-list"></div>
+    </aside>
+    <button id="furn-toggle" type="button" aria-label="Toggle furniture panel">▤</button>
+    <script>
+        document.getElementById("furn-toggle").addEventListener("click", function () {
+            document.getElementById("furn-panel").classList.toggle("is-collapsed");
+            document.body.classList.toggle("furn-collapsed");
+        });
+    </script>
+
+    <script type="module" src="assets/splat-viewer.js"></script>
+</body>
+
+</html>

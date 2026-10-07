@@ -143,6 +143,47 @@
             </div>
         </section>
 
+        <!-- Gaussian Splatting Room Editor (right after immersive): full-bleed, no frames -->
+        <section id="splat-room" class="immersive-full" aria-label="Gaussian Splatting 3D room editor">
+            <div class="immersive-viewport">
+                <figure class="splat-slide">
+                    <video preload="none" playsinline class="immersive-video" id="splat-video"
+                        data-immersive-video data-stage="3">
+                        <source data-src="assets/gaussian_room/gaussian_splatting_video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </figure>
+
+                <div class="immersive-shade" aria-hidden="true"></div>
+
+                <div class="immersive-hud-top">
+                    <span class="immersive-kicker">Gaussian Splatting · Home Design</span>
+                    <h2 class="immersive-title">Furnish This Room in 3D</h2>
+                </div>
+
+                <div class="immersive-center" id="splat-center">
+                    <button type="button" class="immersive-btn" id="splat-play" aria-label="Play video">
+                        <i class="fa-solid fa-play" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="immersive-btn" id="splat-mute" aria-label="Mute video">
+                        <i class="fa-solid fa-volume-high" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+                <div class="immersive-hud-bottom">
+                    <div class="immersive-desc-wrap">
+                        <p class="immersive-desc active">A scanned living room rendered as 1.57M Gaussian splats.
+                            Drag in a divan, an armchair, a wardrobe — then move, rotate and scale them with
+                            Unity-style gizmos.</p>
+                    </div>
+                    <div class="splat-hud-actions">
+                        <a href="splat-viewer.html" class="splat-cta-primary">Enter the 3D Room</a>
+                        <a href="cases/splat-room-editor.html" class="immersive-case-link">Read the Build Story</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Section 01: Experience Journey (Vertical Transit Map) -->
         <section id="experience" class="journey-section" aria-label="My Journey">
             <div class="journey-container">

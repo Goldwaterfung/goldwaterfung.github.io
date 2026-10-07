@@ -779,6 +779,59 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ----------------------------------------------------
+    // 6b. Gaussian Splatting Room Showcase (single scene, own wiring)
+    // ----------------------------------------------------
+    const splatVideo = document.getElementById('splat-video');
+    const splatCenter = document.getElementById('splat-center');
+    const splatPlay = document.getElementById('splat-play');
+    const splatMute = document.getElementById('splat-mute');
+
+    function syncSplatButtons() {
+        if (!splatVideo) return;
+        if (splatPlay) {
+            splatPlay.innerHTML = splatVideo.paused
+                ? '<i class="fa-solid fa-play" aria-hidden="true"></i>'
+                : '<i class="fa-solid fa-pause" aria-hidden="true"></i>';
+            splatPlay.setAttribute('aria-label', splatVideo.paused ? 'Play video' : 'Pause video');
+        }
+        if (splatMute) {
+            splatMute.innerHTML = splatVideo.muted
+                ? '<i class="fa-solid fa-volume-xmark" aria-hidden="true"></i>'
+                : '<i class="fa-solid fa-volume-high" aria-hidden="true"></i>';
+            splatMute.setAttribute('aria-label', splatVideo.muted ? 'Unmute video' : 'Mute video');
+        }
+        if (splatCenter) {
+            splatCenter.classList.toggle('is-playing', !splatVideo.paused);
+        }
+    }
+
+    function toggleSplatPlayback() {
+        if (!splatVideo) return;
+        ensureVideoSource(splatVideo);
+        if (splatVideo.paused) splatVideo.play().catch(() => {});
+        else splatVideo.pause();
+    }
+
+    if (splatVideo) {
+        if (splatPlay) splatPlay.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleSplatPlayback();
+        });
+        if (splatMute) splatMute.addEventListener('click', (e) => {
+            e.stopPropagation();
+            ensureVideoSource(splatVideo);
+            splatVideo.muted = !splatVideo.muted;
+            syncSplatButtons();
+        });
+        splatVideo.addEventListener('play', syncSplatButtons);
+        splatVideo.addEventListener('pause', syncSplatButtons);
+        splatVideo.addEventListener('volumechange', syncSplatButtons);
+        splatVideo.addEventListener('ended', syncSplatButtons);
+        splatVideo.addEventListener('click', toggleSplatPlayback);
+        syncSplatButtons();
+    }
+
+    // ----------------------------------------------------
     // 7. Calm Scroll Entrance Reveals
     // ----------------------------------------------------
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

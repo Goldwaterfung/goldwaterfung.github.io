@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furnishing a Gaussian Splatting Room | Kim Fung</title>
+    <meta name="description" content="How I designed and built a real-time 3D interior editor: a Gaussian Splatting living room rendered with Three.js and Spark, furnished with drag-drop staging and Unity-style move, rotate and scale gizmos.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="case.css">
+</head>
+
+<body class="case-page">
+
+    <header class="case-nav">
+        <div class="case-container case-nav-inner">
+            <a href="../index.html" class="case-nav-brand">Kim Fung</a>
+            <nav class="case-nav-links">
+                <a href="../index.html#experience" class="case-nav-link back-link">Back to Journey</a>
+                <a href="stratawright.html" class="case-nav-link">Next Case</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="case-container">
+
+        <header class="case-hero">
+            <span class="case-kicker">Real-Time 3D and Spatial Interaction</span>
+            <h1 class="case-title">I furnished a Gaussian Splatting room, in the browser</h1>
+            <p class="case-subtitle">
+                I rendered a scanned living room as Gaussian splats and built an editor around it — I drag furniture from a catalog, snap it to the floor, then move, rotate and scale it with Unity-style gizmos. This is the story of how I got there, step by step.
+            </p>
+
+            <div class="case-meta-grid">
+                <div class="case-meta-item">
+                    <span class="meta-label">Role</span>
+                    <span class="meta-val">Design Engineer, Independent Showcase</span>
+                </div>
+                <div class="case-meta-item">
+                    <span class="meta-label">Timeline</span>
+                    <span class="meta-val">October 2026</span>
+                </div>
+                <div class="case-meta-item">
+                    <span class="meta-label">Key Systems</span>
+                    <span class="meta-val">Three.js, Spark, TypeScript, Vite</span>
+                </div>
+                <div class="case-meta-item">
+                    <span class="meta-label">Use Case</span>
+                    <span class="meta-val">Home Interior Staging</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="case-section">
+            <h2 class="case-section-title">Why I Started: My Viewer Wasn't a World</h2>
+            <div class="case-body">
+                <p>
+                    I already had a 3D portrait viewer on my portfolio — React Three Fiber, custom 3D typography, spring physics, the works. I was proud of it. Then I read the roles I actually wanted, and they kept asking for something I didn't have: a <strong>3D editing canvas inside whole generated worlds</strong>, with camera behaviour, selection, and manipulation patterns nobody has standardized yet.
+                </p>
+                <p>
+                    That stung a little, because it was true. I could render an object. I couldn't hand someone a world and let them change it. So I gave myself a brief: close exactly that gap, in the open, one thin slice at a time.
+                </p>
+                <ul>
+                    <li>
+                        <strong>I read before I built:</strong> I installed <strong>@sparkjsdev/spark</strong>, a Three.js-based Gaussian Splatting renderer, and mirrored all 25 official documentation pages locally. I wanted the renderer's own vocabulary in my head before I wrote a line of scene code.
+                    </li>
+                    <li>
+                        <strong>I picked one real asset:</strong> a vintage living room scan (a single-file .sog, 1.57M splats) and three furniture models with thumbnails.
+                    </li>
+                    <li>
+                        <strong>I chose a use case with a real user:</strong> home design. Years earlier I had watched salon customers struggle to picture a haircut from 2D catalog photos, and I built them a 3D preview tool. This felt like the same consultation loop, rebuilt for the browser: walk through a scanned room, stage furniture in it, decide with confidence.
+                    </li>
+                    <li>
+                        <strong>I built in slices I could test on my phone:</strong> viewer first, then the navigation boundary, then performance, then drag-and-drop, then gizmo editing. Every slice had to run on device before I moved on.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <h2 class="case-section-title">Step 1: My First Room, Floating in Black</h2>
+            <div class="case-body">
+                <p>
+                    I followed Spark's quick-start recipe the way the docs wrote it: one <strong>SparkRenderer</strong> added to my scene, one <strong>SplatMesh</strong> pointed at the .sog URL — which the loader auto-detected from the zip contents, no file-type hint needed — and Spark's own <strong>SparkControls</strong> for WASD and touch movement.
+                </p>
+                <p>
+                    I didn't trust everything I read, though. The docs' coordinate re-orientation quaternion looked like magic, so I pulled up Spark's official SOG example on GitHub and confirmed the same convention there before keeping it. That habit — verifying against upstream source instead of cargo-culting a snippet — saved me more than once on this project.
+                </p>
+                <p>
+                    Then I made a decision about feeling, not technology. I put the viewer on <strong>its own fullscreen page — no header, no footer, no frames</strong>. Just a loading veil with byte progress, an error card with a retry button, and one small exit button. I believe spatial presence dies the moment site chrome intrudes, and I wanted stepping into this room to feel like arriving somewhere.
+                </p>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <h2 class="case-section-title">Step 2: I Kept Flying Through Walls, So I Built a Fence</h2>
+            <div class="case-body">
+                <p>
+                    The moment I could move, I did what every user does: I flew straight through a wall into black nothing. It felt broken, because it was. A scanned room you can fall out of isn't a world — it's a diorama with no glass.
+                </p>
+                <p>
+                    I refused to hardcode room dimensions; I wanted the fence to fit any scan I load next. So at runtime I read the loaded splats' own extents through <strong>SplatMesh.getBoundingBox()</strong> — the same API Spark's editor example uses — transformed them into world space, and clamped the camera every frame after the controls update. I opened the floor plan to an 8 by 8 meter roam area but kept the floor and ceiling fenced, and I start every visit inside the room at standing eye height.
+                </p>
+                <p>
+                    Because my clamp runs after the controls and owns the final say, it catches everything uniformly: WASD, mouse drag, scroll wheel, touch inertia. I tested each one by trying to escape. I couldn't.
+                </p>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <h2 class="case-section-title">Step 3: My Phone Told Me the Truth About Performance</h2>
+            <div class="case-body">
+                <p>
+                    On my desktop the room sang. On my phone it groaned. So I counted first: 1.57M splats, sitting right at the Android budget ceiling of 1–2M in Spark's own performance guide. The numbers told me optimization wasn't polish here — it was the difference between a showcase and a slideshow.
+                </p>
+                <ul>
+                    <li>
+                        <strong>I cut pixels before polygons:</strong> mobile renders at 1x pixel ratio, desktop up to 2x. On a 3x-DPR phone that erases roughly 9x of fill cost in one line.
+                    </li>
+                    <li>
+                        <strong>I tightened the Gaussian falloff</strong> from sqrt(8) to sqrt(5) — the docs call it perceptually near-identical, and my eyes agreed, while transparent overdraw dropped hard.
+                    </li>
+                    <li>
+                        <strong>I switched on Level-of-Detail:</strong> a background worker builds a downsampled tree and auto-fits each platform's splat budget.
+                    </li>
+                    <li>
+                        <strong>I stopped asserting and started measuring:</strong> a ?fps=1 flag reveals a corner meter, so every claim above is a number I read on my device, not a hope I shipped.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <h2 class="case-section-title">Step 4: Stocking the Shelves, Then Throwing Things on the Floor</h2>
+            <div class="case-body">
+                <p>
+                    With the room solid, I turned to the reason it exists: furniture. I built a single-column catalog rail docked to the right edge, rendered from a manifest array — adding a fourth piece means adding one row, not redesigning a page. It felt good to make the catalog data-driven from day one; I've been burned by hardcoded UI before.
+                </p>
+                <p>
+                    The models fought me quietly. Their GLB files carry no unit metadata, so I normalize each one at load to a real-world height — the divan becomes 0.8 m, the armchair 0.95 m, the wardrobe 2.0 m — and I convert every material to <strong>unlit shading</strong>, because my scene has no lights and I chose visible-over-physical: the wood grain and fabric prints show exactly as authored.
+                </p>
+                <p>
+                    For the drag itself I skipped HTML5 drag-and-drop entirely — it was never built for this — and wrote pointer-based dragging that unifies mouse and touch. While I drag, a <strong>footprint circle</strong> tracks my pointer across the floor, auto-sized to each piece's extent, positioned by raycasting onto the floor plane and clamped inside the room bounds. When I release over the canvas, the real mesh commits where the circle stood. When I release over the panel, nothing happens. I deliberately killed an early floating-thumbnail idea along the way: all feedback belongs in the scene, not under my cursor.
+                </p>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <h2 class="case-section-title">Step 5: Teaching It Unity's Vocabulary</h2>
+            <div class="case-body">
+                <p>
+                    Dropping furniture wasn't enough — I wanted to <em>arrange</em> it. So I gave the editor the interaction language every 3D tool shares: click a piece and a white ring marks it as selected with a gizmo attached; <strong>Move, Rotate, Scale</strong> switch from a bottom pill or the W/E/R keys I know from Unity. Translate hides its vertical handle so my pieces stay grounded; scale clamps to 0.3–3x so nothing vanishes or swallows the room; every edit re-clamps into the boundary.
+                </p>
+                <p>
+                    The genuinely tricky part was arbitration. Spark's camera controls and the transform gizmo both listen to the same canvas, and the first time I dragged a rotation ring, the whole room swung with it — nauseating. I fixed it by gating camera updates while a gizmo drag owns the pointer, and by teaching click-selection to ignore presses that start on a gizmo handle. Two small rules, and the two control systems stopped fighting forever.
+                </p>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <h2 class="case-section-title">Step 6: The Floor Was Lying to Me</h2>
+            <div class="case-body">
+                <p>
+                    Then came my favorite bug. My furniture kept sinking — the floor boundary sat visibly <em>under</em> the actual floor. I assumed the bounding-box bottom was the floor. It isn't. The lowest splat centers live well below the surface you see, down in outlier territory.
+                </p>
+                <p>
+                    So I did something slightly obsessive: I decoded the .sog position textures offline and histogrammed all 1.57 million heights. The true floor announced itself as a ridge of half a million splats, about 0.6 m above where I'd put it. I felt very clever — until my runtime auto-scan of the same data misfired on device and put the floor somewhere absurd, probably reading a different splat subset under Level-of-Detail.
+                </p>
+                <p>
+                    I deleted the clever code. In its place: the measured default, plus <strong>live [ and ] keys</strong> that nudge the floor in 2 cm steps with the value printed to console. One honest number, confirmed by my own eyes, beats an elegant estimate that is wrong. That's the line I'd put on a slide.
+                </p>
+                <div class="case-callout">
+                    <div class="case-callout-title">What I Learned</div>
+                    <p class="case-callout-text">
+                        Scanned geometry lies about its own surfaces. Any editor that furnishes gaussian scenes needs a floor-calibration story — measured from data, confirmed on device, tunable per asset. I won't ship a scanned-space editor without one again.
+                    </p>
+                </div>
+                <div class="case-action-links">
+                    <a href="../splat-viewer.html" class="case-action-btn">
+                        Step Into the Live Showcase
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <h2 class="case-section-title">Where I Go Next</h2>
+            <div class="case-body">
+                <p>
+                    I'm not done — I see this as the foundation of the 3D editing canvas those roles describe. Delete and duplicate slot straight into my selection model. Multi-room scans want per-room volumes instead of one box. And one day I'll raycast the splat volume itself for true surface placement instead of my floor-plane approximation. But the loop already works end to end: I walk into a captured room, and I make it mine. That feeling — the first time I spun a wardrobe to face the room and shoved it against a wall that stopped it cold — is why I build in slices. I got to feel it in week one, not month three.
+                </p>
+            </div>
+        </section>
+
+        <footer class="case-footer-nav">
+            <div class="case-footer-nav-inner">
+                <a href="stratawright.html" class="case-footer-nav-item">
+                    <span class="case-footer-nav-label">Previous Case Study</span>
+                    <span class="case-footer-nav-title">Stratawright Agentic DAW</span>
+                </a>
+                <a href="../index.html#experience" class="case-footer-nav-item case-footer-nav-next">
+                    <span class="case-footer-nav-label">Next Case Study</span>
+                    <span class="case-footer-nav-title">Return to Journey Timeline</span>
+                </a>
+            </div>
+        </footer>
+
+    </main>
+
+</body>
+
+</html>
