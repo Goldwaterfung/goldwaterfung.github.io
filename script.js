@@ -64,9 +64,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    const stagedImmersiveVideos = Array.from(document.querySelectorAll('video[data-immersive-video]'));
+    // Stage 2: immersive VR chapters only (scoped to #immersive so the
+    // Gaussian Splatting preview can't get pulled into the VR sequence).
+    const stagedImmersiveVideos = Array.from(document.querySelectorAll('#immersive video[data-immersive-video]'));
     const immersiveSection = document.getElementById('immersive');
     let stage2Started = false;
+    let stage2Done = false;
+    const pendingStage3 = new Set();
+
+    function flushPendingStage3() {
+        if (!stage2Done) return;
+        pendingStage3.forEach((video) => ensureVideoSource(video));
+        pendingStage3.clear();
+    }
 
     function loadStage2Sequence() {
         if (stage2Started) return;
@@ -77,6 +87,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (stagedImmersiveVideos[1]) ensureVideoSource(stagedImmersiveVideos[1]);
             idleRun(() => {
                 if (stagedImmersiveVideos[2]) ensureVideoSource(stagedImmersiveVideos[2]);
+                stage2Done = true;
+                flushPendingStage3();
             }, 900);
         }, 700);
     }
@@ -97,13 +109,21 @@ document.addEventListener('DOMContentLoaded', () => {
         fastScrollObserver.observe(immersiveSection);
     }
 
-    // Stage 3: below-fold case-study video only when near viewport
+    // Stage 3: Gaussian Splatting preview — strictly after Stage 2 VR chapters,
+    // and only when near viewport (below-fold). Explicit play clicks still load
+    // on demand via toggleSplatPlayback regardless of staging.
     const stage3Videos = Array.from(document.querySelectorAll('video[data-stage="3"]'));
     if (stage3Videos.length > 0 && 'IntersectionObserver' in window) {
         const stage3Observer = new IntersectionObserver((entries, observer) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    ensureVideoSource(entry.target);
+                    // Deep-link/jump cover: never load splat before VR chapters start.
+                    loadStage2Sequence();
+                    if (stage2Done) {
+                        ensureVideoSource(entry.target);
+                    } else {
+                        pendingStage3.add(entry.target);
+                    }
                     observer.unobserve(entry.target);
                 }
             });
