@@ -179,7 +179,11 @@ async function init(): Promise<void> {
   const shell = shellBox.isEmpty() ? FALLBACK_WALK_BOX.clone() : shellBox.clone();
   const shellCenter = shell.getCenter(new THREE.Vector3());
   const queryFloor = Number.parseFloat(new URLSearchParams(window.location.search).get("floor") ?? "");
-  const initialFloorY = MEASURED_FLOOR_Y + 0.01 + (Number.isFinite(queryFloor) ? queryFloor : 0);
+  // Clamp debug override so a crafted ?floor= can't push the camera volume out of the room.
+  const floorOverride = Number.isFinite(queryFloor)
+    ? Math.max(-0.3, Math.min(0.3, queryFloor))
+    : 0;
+  const initialFloorY = MEASURED_FLOOR_Y + 0.01 + floorOverride;
   const walkBox = new THREE.Box3(
     new THREE.Vector3(
       shellCenter.x - AREA_HALF_EXTENT,
@@ -198,7 +202,6 @@ async function init(): Promise<void> {
   window.addEventListener("keydown", (e) => {
     if (e.key !== "[" && e.key !== "]") return;
     furnCtx.floorY = +(furnCtx.floorY + (e.key === "]" ? 0.02 : -0.02)).toFixed(3);
-    console.info("[splat-viewer] floorY", furnCtx.floorY.toFixed(3));
     const chip = document.getElementById("splat-fps");
     if (chip && !chip.hidden) chip.textContent = `floor ${furnCtx.floorY.toFixed(2)} m`;
   });
@@ -213,13 +216,6 @@ async function init(): Promise<void> {
   camera.lookAt(walkCenter.x, furnCtx.floorY + 1.3, walkBox.min.z);
 
   // Furniture shares the navigation boundary: same 8x8 XZ area and floor.
-  console.info(
-    "[splat-viewer] walkBox",
-    walkBox.min.toArray().map((v) => +v.toFixed(2)),
-    walkBox.max.toArray().map((v) => +v.toFixed(2)),
-    "floorY",
-    +furnCtx.floorY.toFixed(3)
-  );
   const furnitureEditor = createFurnitureEditor(furnCtx);
 
   renderer.setAnimationLoop(() => {

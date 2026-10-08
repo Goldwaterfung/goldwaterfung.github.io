@@ -5,6 +5,22 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     // ----------------------------------------------------
+    // 0a. Obfuscated contact email: plain address never appears in HTML
+    // (reassembled here so scrapers see only fragments).
+    // ----------------------------------------------------
+    const EMAIL_USER = ['kim', 'kamkiu', 'fung'].join('.');
+    const EMAIL_DOMAIN = ['gmail', 'com'].join('.');
+    document.querySelectorAll('[data-email-link]').forEach((a) => {
+        a.setAttribute('href', `mailto:${EMAIL_USER}@${EMAIL_DOMAIN}`);
+    });
+
+    // Inline SVG icons (no icon CDN). Same shapes as the static HTML.
+    const ICON_PLAY = '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5 L19 12 L8 19 Z" fill="currentColor"/></svg>';
+    const ICON_PAUSE = '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="5" width="3.4" height="14" rx="1" fill="currentColor"/><rect x="13.6" y="5" width="3.4" height="14" rx="1" fill="currentColor"/></svg>';
+    const ICON_VOL_ON = '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9 L4 15 L8 15 L13 19 L13 5 L8 9 Z" fill="currentColor"/><path d="M16 9 Q18.5 12 16 15 M18.5 6.5 Q23 12 18.5 17.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+    const ICON_VOL_OFF = '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9 L4 15 L8 15 L13 19 L13 5 L8 9 Z" fill="currentColor"/><path d="M16.5 10.5 L21.5 15.5 M21.5 10.5 L16.5 15.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+
+    // ----------------------------------------------------
     // 0. Staged Asset Loading: Stage 1 (3D hero) -> Stage 2 (immersive) -> Stage 3 (rest)
     // Stage 1 is prioritized via <modulepreload>/<preload> in <head>.
     // This controller holds back Stage 2/3 video fetches until Stage 1 is ready.
@@ -725,15 +741,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const video = getActiveImmersiveVideo();
         if (!video) return;
         if (immersivePlay) {
-            immersivePlay.innerHTML = video.paused
-                ? '<i class="fa-solid fa-play" aria-hidden="true"></i>'
-                : '<i class="fa-solid fa-pause" aria-hidden="true"></i>';
+            immersivePlay.innerHTML = video.paused ? ICON_PLAY : ICON_PAUSE;
             immersivePlay.setAttribute('aria-label', video.paused ? 'Play video' : 'Pause video');
         }
         if (immersiveMute) {
-            immersiveMute.innerHTML = video.muted
-                ? '<i class="fa-solid fa-volume-xmark" aria-hidden="true"></i>'
-                : '<i class="fa-solid fa-volume-high" aria-hidden="true"></i>';
+            immersiveMute.innerHTML = video.muted ? ICON_VOL_OFF : ICON_VOL_ON;
             immersiveMute.setAttribute('aria-label', video.muted ? 'Unmute video' : 'Mute video');
         }
         if (immersiveCenter) {
@@ -809,15 +821,11 @@ document.addEventListener('DOMContentLoaded', () => {
     function syncSplatButtons() {
         if (!splatVideo) return;
         if (splatPlay) {
-            splatPlay.innerHTML = splatVideo.paused
-                ? '<i class="fa-solid fa-play" aria-hidden="true"></i>'
-                : '<i class="fa-solid fa-pause" aria-hidden="true"></i>';
+            splatPlay.innerHTML = splatVideo.paused ? ICON_PLAY : ICON_PAUSE;
             splatPlay.setAttribute('aria-label', splatVideo.paused ? 'Play video' : 'Pause video');
         }
         if (splatMute) {
-            splatMute.innerHTML = splatVideo.muted
-                ? '<i class="fa-solid fa-volume-xmark" aria-hidden="true"></i>'
-                : '<i class="fa-solid fa-volume-high" aria-hidden="true"></i>';
+            splatMute.innerHTML = splatVideo.muted ? ICON_VOL_OFF : ICON_VOL_ON;
             splatMute.setAttribute('aria-label', splatVideo.muted ? 'Unmute video' : 'Mute video');
         }
         if (splatCenter) {

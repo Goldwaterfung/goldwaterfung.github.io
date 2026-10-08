@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="referrer" content="no-referrer">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' data: blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'">
     <title>Vintage Living Room — Splat Viewer</title>
     <style>
         * {
@@ -337,7 +340,7 @@
         <div class="error-card">
             <h1>Could not load the room</h1>
             <p id="splat-error-detail">Unknown error.</p>
-            <button type="button" onclick="location.reload()">Retry</button>
+            <button type="button" id="splat-retry">Retry</button>
         </div>
     </div>
 
@@ -360,6 +363,9 @@
         document.getElementById("furn-toggle").addEventListener("click", function () {
             document.getElementById("furn-panel").classList.toggle("is-collapsed");
             document.body.classList.toggle("furn-collapsed");
+        });
+        document.getElementById("splat-retry").addEventListener("click", function () {
+            location.reload();
         });
     </script>
 

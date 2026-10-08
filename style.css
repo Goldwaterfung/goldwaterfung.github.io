@@ -2239,3 +2239,20 @@ figcaption {
         transition: none;
     }
 }
+/* Inline SVG icons (replaces FontAwesome CDN): inherit button text color */
+.icon {
+    width: 1em;
+    height: 1em;
+    flex: none;
+    vertical-align: -0.125em;
+}
+.btn .icon {
+    margin-right: 0.5em;
+}
+.immersive-btn .icon,
+.immersive-arrow .icon,
+.journey-modal-step .icon {
+    width: 1.1em;
+    height: 1.1em;
+    vertical-align: middle;
+}
