@@ -293,8 +293,10 @@ body {
 .hero-title-3d-container {
     display: inline-block;
     vertical-align: -0.20em;
+    width: clamp(260px, 32vw, 420px);
+    height: 1.25em;
     position: relative;
-    cursor: default;
+    cursor: pointer;
 }
 
 .hero-title-3d-wrapper,
@@ -307,16 +309,6 @@ body {
 
 .hero-title-3d-fallback {
     display: inline;
-    /* Ember gradient preserved in CSS now that the title lives in the single
-       hero WebGL scene as a nameplate above the portrait */
-    background: linear-gradient(100deg, #B84A0A 0%, #D65E14 38%, #E65C00 68%, #EF8B2F 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    white-space: nowrap;
 }
 
 .sr-only {
@@ -1917,6 +1909,8 @@ figcaption {
     }
 
     .hero-title-3d-container {
+        width: clamp(210px, 60vw, 320px);
+        height: 1.25em;
         vertical-align: -0.2em;
     }
 

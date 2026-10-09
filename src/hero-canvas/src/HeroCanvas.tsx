@@ -1,17 +1,8 @@
 import React, { useState, useEffect, useRef, useCallback, Suspense } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Group, Mesh, MeshBasicMaterial, PointLight, BufferGeometry } from 'three';
-import { parse as parseOpentype } from 'opentype.js';
+import { Group, Mesh, MeshBasicMaterial, PointLight } from 'three';
 import { useMotionValue, useSpring, useTransform, animate, useReducedMotion } from 'framer-motion';
 import { PortraitModel } from './PortraitModel';
-import { create3DTextGeometry, applyXAxisGradient } from './create3DTextGeometry';
-
-const getFontUrl = (): string => {
-  if (typeof document !== 'undefined' && document.baseURI) {
-    return new URL('assets/fonts/eurostile-bold-regular.ttf', document.baseURI).href;
-  }
-  return 'assets/fonts/eurostile-bold-regular.ttf';
-};
 
 interface LoadingGyroscopeProps {
   isLoaded: boolean;
@@ -201,173 +192,13 @@ const InteractiveStudioLights: React.FC = () => {
   );
 };
 
-interface Text3DMeshProps {
-  geometry: BufferGeometry;
-  position?: [number, number, number];
-}
-
-const Text3DMesh: React.FC<Text3DMeshProps> = ({ geometry, position = [0, 0, 0] }) => {
-  const meshRef = useRef<Mesh>(null);
-  const shouldReduceMotion = useReducedMotion();
-
-  // Entrance spring scaling smoothly from 0.95 to 1.0
-  const enterScale = useSpring(0.95, { stiffness: 140, damping: 16 });
-
-  // Spring physics for pointer tilt tracking
-  const pointerX = useMotionValue(0);
-  const pointerY = useMotionValue(0);
-  const springConfig = { stiffness: 140, damping: 18, mass: 0.8 };
-  const smoothRotY = useSpring(pointerX, springConfig);
-  const smoothRotX = useSpring(pointerY, springConfig);
-
-  // Interactive springs for hover lift and click recoil
-  const hoverScale = useSpring(1.0, { stiffness: 220, damping: 20 });
-  const hoverZ = useSpring(0, { stiffness: 220, damping: 20 });
-  const nodRotX = useMotionValue(0);
-
-  useEffect(() => {
-    enterScale.set(1.0);
-  }, [enterScale]);
-
-  const handleClick = (e: { stopPropagation: () => void }) => {
-    e.stopPropagation();
-    // Tactile multi-phase nod recoil with physical spring
-    animate(nodRotX, [0, -0.22, 0.08, -0.02, 0], {
-      type: 'spring',
-      stiffness: 280,
-      damping: 14,
-      mass: 0.6,
-    });
-  };
-
-  const handlePointerOver = () => {
-    if (!shouldReduceMotion) {
-      hoverScale.set(1.035);
-      hoverZ.set(0.14);
-    }
-  };
-
-  const handlePointerOut = () => {
-    hoverScale.set(1.0);
-    hoverZ.set(0);
-  };
-
-  useFrame((state) => {
-    if (!meshRef.current) return;
-    const time = state.clock.getElapsedTime();
-
-    // Subtle breathing float and idle movement
-    const idleYaw = shouldReduceMotion ? 0 : Math.sin(time * 0.8) * 0.022;
-    const idlePitch = shouldReduceMotion ? 0 : Math.cos(time * 0.6) * 0.014;
-
-    if (!shouldReduceMotion) {
-      pointerX.set(state.pointer.x * 0.32);
-      pointerY.set(-state.pointer.y * 0.22);
-    } else {
-      pointerX.set(0);
-      pointerY.set(0);
-    }
-
-    meshRef.current.rotation.x = smoothRotX.get() + nodRotX.get() + idlePitch;
-    meshRef.current.rotation.y = smoothRotY.get() + idleYaw;
-    // Preserve base position; hover lift applies on top of base Z
-    meshRef.current.position.set(position[0], position[1], position[2] + hoverZ.get());
-
-    const scale = enterScale.get() * hoverScale.get();
-    meshRef.current.scale.set(scale, scale, scale);
-  });
-
-  return (
-    <mesh
-      ref={meshRef}
-      geometry={geometry}
-      onClick={handleClick}
-      onPointerOver={handlePointerOver}
-      onPointerOut={handlePointerOut}
-      position={position}
-    >
-      <meshStandardMaterial
-        vertexColors
-        roughness={0.85}
-        metalness={0.15}
-      />
-    </mesh>
-  );
-};
-
 export const HeroCanvas: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(true);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [titleGeometry, setTitleGeometry] = useState<BufferGeometry | null>(null);
 
   const handleLoaded = useCallback(() => {
     setIsLoaded(true);
-  }, []);
-
-  // Parse font at runtime using the 5-stage computational geometry pipeline.
-  // Normalized to ~0.55 world units so it frames as a nameplate above the
-  // portrait in the shared camera (visible height ≈ 3.5 units at origin).
-  useEffect(() => {
-    let isCancelled = false;
-    let createdGeom: BufferGeometry | null = null;
-
-    fetch(getFontUrl())
-      .then((res) => {
-        if (!res.ok) throw new Error(`Failed to load font: ${res.statusText}`);
-        return res.arrayBuffer();
-      })
-      .then((buffer) => {
-        if (isCancelled) return;
-        const font = parseOpentype(buffer);
-
-        createdGeom = create3DTextGeometry(font, {
-          text: 'Kim Fung',
-          fontSize: 36,
-          depth: 3.2,
-          bevelEnabled: true,
-          bevelThickness: 0.65,
-          bevelSize: 0.38,
-          bevelSegments: 2,
-          curveSegments: 6,
-        });
-
-        if (createdGeom.boundingBox) {
-          const height =
-            createdGeom.boundingBox.max.y - createdGeom.boundingBox.min.y;
-          if (height > 0) {
-            const targetHeight = 0.55;
-            const scale = targetHeight / height;
-            createdGeom.scale(scale, scale, scale);
-            createdGeom.computeBoundingBox();
-            createdGeom.center();
-          }
-        }
-
-        // Warm Ember gradient (low-contrast, theme-matched left → right)
-        applyXAxisGradient(createdGeom, [
-          { offset: 0.0, color: '#B84A0A' },
-          { offset: 0.38, color: '#D65E14' },
-          { offset: 0.68, color: '#E65C00' },
-          { offset: 1.0, color: '#EF8B2F' },
-        ]);
-
-        if (!isCancelled) {
-          setTitleGeometry(createdGeom);
-        } else {
-          createdGeom.dispose();
-        }
-      })
-      .catch((err) => {
-        console.warn('3D title font could not be initialized:', err);
-      });
-
-    return () => {
-      isCancelled = true;
-      if (createdGeom) {
-        createdGeom.dispose();
-      }
-    };
   }, []);
 
   useEffect(() => {
@@ -393,7 +224,7 @@ export const HeroCanvas: React.FC = () => {
       <Canvas
         frameloop={isVisible ? 'always' : 'never'}
         dpr={[1, 1.5]}
-        camera={{ position: [0, 0.15, 4.4], fov: 45 }}
+        camera={{ position: [0, 0, 4.2], fov: 45 }}
         gl={{
           alpha: true,
           antialias: true,
@@ -401,16 +232,11 @@ export const HeroCanvas: React.FC = () => {
         }}
         className="hero-canvas-webgl"
       >
-        {/* Studio lighting configured for rich PBR diffuse map illumination.
-            Single shared rig lights both the portrait and the title nameplate,
-            replacing the two duplicated rigs from the split-canvas setup. */}
+        {/* Studio lighting configured for rich PBR diffuse map illumination */}
         <InteractiveStudioLights />
 
         {/* Multi-ring loading gyroscope rendered during loading with smooth exit dispersion */}
         <LoadingGyroscope isLoaded={isLoaded} />
-
-        {/* 3D nameplate floating above the portrait — same scene, one context */}
-        {titleGeometry && <Text3DMesh geometry={titleGeometry} position={[0, 1.15, 0]} />}
 
         <Suspense fallback={null}>
           <PortraitModel onLoaded={handleLoaded} />
