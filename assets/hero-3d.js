@@ -70460,7 +70460,7 @@ function LU() {
     caseUrl: "cases/ieee-vr-conflict.html",
     side: "left",
     lineType: "systems"
-  }), i.addPoint({
+  }), t.addPoint({
     id: "station-9",
     date: "2026-01",
     name: "Stratawright Agentic DAW",
@@ -70469,8 +70469,8 @@ function LU() {
     org: "Stratawright | Agentic Audio Workstation",
     actionHeadline: "Architected digital audio workstation controlled by agent CLI protocols",
     caseUrl: "cases/stratawright.html",
-    side: "left",
-    lineType: "systems"
+    side: "right",
+    lineType: "product"
   }), n.createLine({
     id: "unified",
     name: "Unified Trajectory Line",

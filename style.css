@@ -1518,10 +1518,10 @@ figcaption {
     transform: translateY(-50%);
 }
 
-/* Station 9: Stratawright Agentic DAW (Left side, y = 2160px) */
+/* Station 9: Stratawright Agentic DAW (Right side, y = 2160px) */
 .journey-card[data-station="8"] {
     top: 2160px;
-    right: calc(50% + 160px);
+    left: calc(50% + 160px);
     transform: translateY(-50%);
 }
 

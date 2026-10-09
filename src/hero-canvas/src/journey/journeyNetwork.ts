@@ -183,7 +183,7 @@ export function createDefaultJourneyNetwork(): TransitNetwork {
   })
 
   // Station 9: Stratawright Agentic DAW
-  systemsLine.addPoint({
+  productLine.addPoint({
     id: 'station-9',
     date: '2026-01',
     name: 'Stratawright Agentic DAW',
@@ -192,8 +192,8 @@ export function createDefaultJourneyNetwork(): TransitNetwork {
     org: 'Stratawright | Agentic Audio Workstation',
     actionHeadline: 'Architected digital audio workstation controlled by agent CLI protocols',
     caseUrl: 'cases/stratawright.html',
-    side: 'left',
-    lineType: 'systems',
+    side: 'right',
+    lineType: 'product',
   })
 
   // 5. Unified Trajectory Line (Terminal line)
