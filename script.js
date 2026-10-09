@@ -169,7 +169,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Explicit smooth scrolling for in-page anchor links without global CSS scroll-behavior physics conflict
+    // Vestibular-safe anchor jumps: instant cut, no smooth travel.
+    // Layout stays single-page; only the header motion is removed.
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', (e) => {
             const targetId = anchor.getAttribute('href');
@@ -177,10 +178,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 const targetEl = document.querySelector(targetId);
                 if (targetEl) {
                     e.preventDefault();
-                    targetEl.scrollIntoView({ behavior: 'smooth' });
+                    targetEl.scrollIntoView({ behavior: 'auto', block: 'start' });
                     if (window.history && window.history.pushState) {
                         window.history.pushState(null, '', targetId);
                     }
+                    // Move keyboard focus without triggering a second scroll
+                    if (!targetEl.hasAttribute('tabindex')) {
+                        targetEl.setAttribute('tabindex', '-1');
+                    }
+                    try { targetEl.focus({ preventScroll: true }); } catch (err) { targetEl.focus(); }
                 }
             }
         });
