@@ -70443,9 +70443,9 @@ function LU() {
     date: "2025-02",
     name: "CollarAgent Visual Research Studio",
     period: "2025",
-    role: "Built local-first visual studio pairing LangGraph with canvas",
+    role: "Built Electron research studio in React + TypeScript pairing LangGraph with canvas",
     org: "CollarAgent | Visual Research Studio",
-    actionHeadline: "Built local-first visual research studio pairing LangGraph with infinite canvas",
+    actionHeadline: "Built local-first Electron research studio in React + TypeScript pairing LangGraph with infinite canvas",
     caseUrl: "cases/collaragent.html",
     side: "right",
     lineType: "product"
