@@ -110,7 +110,6 @@ function computeDefaultStationLabel(
 export class TransitLine {
   public readonly id: string
   public readonly name: string
-  public readonly nameZh?: string
   public readonly color: string
   public readonly x: number
   public readonly branchType: BranchType
@@ -132,7 +131,6 @@ export class TransitLine {
   ) {
     this.id = options.id
     this.name = options.name
-    this.nameZh = options.nameZh
     this.color = options.color
     this.x = options.x
     this.branchType = options.branchType || 'trunk'

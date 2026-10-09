@@ -33,16 +33,6 @@ export const LondonTransitMap: React.FC<LondonTransitMapProps> = ({
 }) => {
   const [hoveredStationIndex, setHoveredStationIndex] = useState<number | null>(null)
 
-  // Detect bilingual display from document context
-  const isZh = useMemo(() => {
-    if (typeof document === 'undefined') return false
-    return (
-      document.documentElement.lang === 'zh' ||
-      document.documentElement.lang.startsWith('zh') ||
-      window.location.pathname.includes('_zh')
-    )
-  }, [])
-
   // Resolve active network (custom or default)
   const activeNetwork = useMemo(() => network || defaultJourneyNetwork, [network])
 
@@ -165,11 +155,7 @@ export const LondonTransitMap: React.FC<LondonTransitMapProps> = ({
               key={station.id}
               role="button"
               tabIndex={0}
-              aria-label={
-                isZh
-                  ? `${station.stationNumber}. ${station.nameZh}`
-                  : `${station.stationNumber}. ${station.name}`
-              }
+              aria-label={`${station.stationNumber}. ${station.name}`}
               onClick={() => onSelectStation(station.index)}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
@@ -275,7 +261,7 @@ export const LondonTransitMap: React.FC<LondonTransitMapProps> = ({
                   fontFamily="var(--font-sans)"
                   textAnchor={station.textAnchor}
                 >
-                  {isZh ? station.nameZh : station.name}
+                  {station.name}
                 </text>
               </g>
             </g>

@@ -20,15 +20,10 @@ export interface StationInput {
   id: string
   date: string | Date | number
   name: string
-  nameZh: string
   period: string
-  periodZh: string
   role: string
-  roleZh: string
   org: string
-  orgZh: string
   actionHeadline?: string
-  actionHeadlineZh?: string
   caseUrl?: string
   side?: StationSide
   lineType?: LineType
@@ -55,7 +50,6 @@ export interface TransitStation extends StationInput {
 export interface LineOptions {
   id: string
   name: string
-  nameZh?: string
   color: string
   x: number
   branchType?: BranchType

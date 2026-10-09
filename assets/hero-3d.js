@@ -401,8 +401,8 @@ var _C;
 function Qv() {
   return _C || (_C = 1, hT.exports = IP()), hT.exports;
 }
-var Qe = Qv();
-const pi = /* @__PURE__ */ DS(Qe);
+var Je = Qv();
+const pi = /* @__PURE__ */ DS(Je);
 var dT = { exports: {} }, Y0 = {}, pT = { exports: {} }, mT = {};
 var TC;
 function NP() {
@@ -1095,7 +1095,7 @@ function FP() {
 ` + B + r + pe;
   }
   var Ge = !1;
-  function Je(r, o) {
+  function Qe(r, o) {
     if (!r || Ge) return "";
     Ge = !0;
     var h = Error.prepareStackTrace;
@@ -1213,11 +1213,11 @@ function FP() {
         return Ce("SuspenseList");
       case 0:
       case 15:
-        return Je(r.type, !1);
+        return Qe(r.type, !1);
       case 11:
-        return Je(r.type.render, !1);
+        return Qe(r.type.render, !1);
       case 1:
-        return Je(r.type, !0);
+        return Qe(r.type, !0);
       case 31:
         return Ce("Activity");
       case 30:
@@ -25801,7 +25801,7 @@ class ry extends un {
         let He, ke, Lt;
         const te = De.x - Ve.x, It = De.y - Ve.y, _t = Le.x - De.x, zt = Le.y - De.y, Be = te * te + It * It, Tn = te * zt - It * _t;
         if (Math.abs(Tn) > Number.EPSILON) {
-          const X = Math.sqrt(Be), B = Math.sqrt(_t * _t + zt * zt), pe = Ve.x - It / X, Ce = Ve.y + te / X, Ge = Le.x - zt / B, Je = Le.y + _t / B, it = ((Ge - pe) * zt - (Je - Ce) * _t) / (te * zt - It * _t);
+          const X = Math.sqrt(Be), B = Math.sqrt(_t * _t + zt * zt), pe = Ve.x - It / X, Ce = Ve.y + te / X, Ge = Le.x - zt / B, Qe = Le.y + _t / B, it = ((Ge - pe) * zt - (Qe - Ce) * _t) / (te * zt - It * _t);
           He = pe + te * it - De.x, ke = Ce + It * it - De.y;
           const we = He * He + ke * ke;
           if (we <= 2)
@@ -41508,7 +41508,7 @@ function K2(n, e, t, i, s, a) {
       j = Vt.vertexShader, ue = Vt.fragmentShader;
     } else
       j = I.vertexShader, ue = I.fragmentShader, c.update(I), re = c.getVertexShaderID(I), ve = c.getFragmentShaderID(I);
-    const ye = n.getRenderTarget(), Fe = n.state.buffers.depth.getReversed(), Ye = Q.isInstancedMesh === !0, Oe = Q.isBatchedMesh === !0, je = !!I.map, Tt = !!I.matcap, De = !!de, Ve = !!I.aoMap, Le = !!I.lightMap, He = !!I.bumpMap, ke = !!I.normalMap, Lt = !!I.displacementMap, te = !!I.emissiveMap, It = !!I.metalnessMap, _t = !!I.roughnessMap, zt = I.anisotropy > 0, Be = I.clearcoat > 0, Tn = I.dispersion > 0, X = I.iridescence > 0, B = I.sheen > 0, pe = I.transmission > 0, Ce = zt && !!I.anisotropyMap, Ge = Be && !!I.clearcoatMap, Je = Be && !!I.clearcoatNormalMap, it = Be && !!I.clearcoatRoughnessMap, we = X && !!I.iridescenceMap, Ue = X && !!I.iridescenceThicknessMap, st = B && !!I.sheenColorMap, gt = B && !!I.sheenRoughnessMap, rt = !!I.specularMap, nt = !!I.specularColorMap, kt = !!I.specularIntensityMap, tn = pe && !!I.transmissionMap, En = pe && !!I.thicknessMap, se = !!I.gradientMap, $e = !!I.alphaMap, Ie = I.alphaTest > 0, bt = !!I.alphaHash, at = !!I.extensions;
+    const ye = n.getRenderTarget(), Fe = n.state.buffers.depth.getReversed(), Ye = Q.isInstancedMesh === !0, Oe = Q.isBatchedMesh === !0, je = !!I.map, Tt = !!I.matcap, De = !!de, Ve = !!I.aoMap, Le = !!I.lightMap, He = !!I.bumpMap, ke = !!I.normalMap, Lt = !!I.displacementMap, te = !!I.emissiveMap, It = !!I.metalnessMap, _t = !!I.roughnessMap, zt = I.anisotropy > 0, Be = I.clearcoat > 0, Tn = I.dispersion > 0, X = I.iridescence > 0, B = I.sheen > 0, pe = I.transmission > 0, Ce = zt && !!I.anisotropyMap, Ge = Be && !!I.clearcoatMap, Qe = Be && !!I.clearcoatNormalMap, it = Be && !!I.clearcoatRoughnessMap, we = X && !!I.iridescenceMap, Ue = X && !!I.iridescenceThicknessMap, st = B && !!I.sheenColorMap, gt = B && !!I.sheenRoughnessMap, rt = !!I.specularMap, nt = !!I.specularColorMap, kt = !!I.specularIntensityMap, tn = pe && !!I.transmissionMap, En = pe && !!I.thicknessMap, se = !!I.gradientMap, $e = !!I.alphaMap, Ie = I.alphaTest > 0, bt = !!I.alphaHash, at = !!I.extensions;
     let qe = So;
     I.toneMapped && (ye === null || ye.isXRRenderTarget === !0) && (qe = n.toneMapping);
     const wt = {
@@ -41550,7 +41550,7 @@ function K2(n, e, t, i, s, a) {
       anisotropyMap: Ce,
       clearcoat: Be,
       clearcoatMap: Ge,
-      clearcoatNormalMap: Je,
+      clearcoatNormalMap: Qe,
       clearcoatRoughnessMap: it,
       dispersion: Tn,
       iridescence: X,
@@ -41583,7 +41583,7 @@ function K2(n, e, t, i, s, a) {
       roughnessMapUv: _t && T(I.roughnessMap.channel),
       anisotropyMapUv: Ce && T(I.anisotropyMap.channel),
       clearcoatMapUv: Ge && T(I.clearcoatMap.channel),
-      clearcoatNormalMapUv: Je && T(I.clearcoatNormalMap.channel),
+      clearcoatNormalMapUv: Qe && T(I.clearcoatNormalMap.channel),
       clearcoatRoughnessMapUv: it && T(I.clearcoatRoughnessMap.channel),
       iridescenceMapUv: we && T(I.iridescenceMap.channel),
       iridescenceThicknessMapUv: Ue && T(I.iridescenceThicknessMap.channel),
@@ -42557,7 +42557,7 @@ function f8(n, e) {
       Bt("WebGLState:", se);
     }
   }
-  function Je() {
+  function Qe() {
     try {
       n.texStorage2D(...arguments);
     } catch (se) {
@@ -42639,7 +42639,7 @@ function f8(n, e) {
     getParameter: st,
     updateUBOMapping: kt,
     uniformBlockBinding: tn,
-    texStorage2D: Je,
+    texStorage2D: Qe,
     texStorage3D: it,
     texSubImage2D: B,
     texSubImage3D: pe,
@@ -42667,10 +42667,10 @@ function h8(n, e, t, i, s, a, l) {
     const Ge = Tn(X);
     if ((Ge.width > pe || Ge.height > pe) && (Ce = pe / Math.max(Ge.width, Ge.height)), Ce < 1)
       if (typeof HTMLImageElement < "u" && X instanceof HTMLImageElement || typeof HTMLCanvasElement < "u" && X instanceof HTMLCanvasElement || typeof ImageBitmap < "u" && X instanceof ImageBitmap || typeof VideoFrame < "u" && X instanceof VideoFrame) {
-        const Je = Math.floor(Ce * Ge.width), it = Math.floor(Ce * Ge.height);
-        x === void 0 && (x = C(Je, it));
-        const we = B ? C(Je, it) : x;
-        return we.width = Je, we.height = it, we.getContext("2d").drawImage(X, 0, 0, Je, it), ft("WebGLRenderer: Texture has been resized from (" + Ge.width + "x" + Ge.height + ") to (" + Je + "x" + it + ")."), we;
+        const Qe = Math.floor(Ce * Ge.width), it = Math.floor(Ce * Ge.height);
+        x === void 0 && (x = C(Qe, it));
+        const we = B ? C(Qe, it) : x;
+        return we.width = Qe, we.height = it, we.getContext("2d").drawImage(X, 0, 0, Qe, it), ft("WebGLRenderer: Texture has been resized from (" + Ge.width + "x" + Ge.height + ") to (" + Qe + "x" + it + ")."), we;
       } else
         return "data" in X && ft("WebGLRenderer: Image in DataTexture is too big (" + Ge.width + "x" + Ge.height + ")."), X;
     return X;
@@ -42684,7 +42684,7 @@ function h8(n, e, t, i, s, a, l) {
   function O(X) {
     return X.isWebGLCubeRenderTarget ? n.TEXTURE_CUBE_MAP : X.isWebGL3DRenderTarget ? n.TEXTURE_3D : X.isWebGLArrayRenderTarget || X.isCompressedArrayTexture ? n.TEXTURE_2D_ARRAY : n.TEXTURE_2D;
   }
-  function D(X, B, pe, Ce, Ge, Je = !1) {
+  function D(X, B, pe, Ce, Ge, Qe = !1) {
     if (X !== null) {
       if (n[X] !== void 0) return n[X];
       ft("WebGLRenderer: Attempt to use non-existing WebGL internal format '" + X + "'");
@@ -42693,7 +42693,7 @@ function h8(n, e, t, i, s, a, l) {
     Ce && (it = e.get("EXT_texture_norm16"), it || ft("WebGLRenderer: Unable to use normalized textures without EXT_texture_norm16 extension"));
     let we = B;
     if (B === n.RED && (pe === n.FLOAT && (we = n.R32F), pe === n.HALF_FLOAT && (we = n.R16F), pe === n.UNSIGNED_BYTE && (we = n.R8), pe === n.UNSIGNED_SHORT && it && (we = it.R16_EXT), pe === n.SHORT && it && (we = it.R16_SNORM_EXT)), B === n.RED_INTEGER && (pe === n.UNSIGNED_BYTE && (we = n.R8UI), pe === n.UNSIGNED_SHORT && (we = n.R16UI), pe === n.UNSIGNED_INT && (we = n.R32UI), pe === n.BYTE && (we = n.R8I), pe === n.SHORT && (we = n.R16I), pe === n.INT && (we = n.R32I)), B === n.RG && (pe === n.FLOAT && (we = n.RG32F), pe === n.HALF_FLOAT && (we = n.RG16F), pe === n.UNSIGNED_BYTE && (we = n.RG8), pe === n.UNSIGNED_SHORT && it && (we = it.RG16_EXT), pe === n.SHORT && it && (we = it.RG16_SNORM_EXT)), B === n.RG_INTEGER && (pe === n.UNSIGNED_BYTE && (we = n.RG8UI), pe === n.UNSIGNED_SHORT && (we = n.RG16UI), pe === n.UNSIGNED_INT && (we = n.RG32UI), pe === n.BYTE && (we = n.RG8I), pe === n.SHORT && (we = n.RG16I), pe === n.INT && (we = n.RG32I)), B === n.RGB_INTEGER && (pe === n.UNSIGNED_BYTE && (we = n.RGB8UI), pe === n.UNSIGNED_SHORT && (we = n.RGB16UI), pe === n.UNSIGNED_INT && (we = n.RGB32UI), pe === n.BYTE && (we = n.RGB8I), pe === n.SHORT && (we = n.RGB16I), pe === n.INT && (we = n.RGB32I)), B === n.RGBA_INTEGER && (pe === n.UNSIGNED_BYTE && (we = n.RGBA8UI), pe === n.UNSIGNED_SHORT && (we = n.RGBA16UI), pe === n.UNSIGNED_INT && (we = n.RGBA32UI), pe === n.BYTE && (we = n.RGBA8I), pe === n.SHORT && (we = n.RGBA16I), pe === n.INT && (we = n.RGBA32I)), B === n.RGB && (pe === n.UNSIGNED_SHORT && it && (we = it.RGB16_EXT), pe === n.SHORT && it && (we = it.RGB16_SNORM_EXT), pe === n.UNSIGNED_INT_5_9_9_9_REV && (we = n.RGB9_E5), pe === n.UNSIGNED_INT_10F_11F_11F_REV && (we = n.R11F_G11F_B10F)), B === n.RGBA) {
-      const Ue = Je ? Uv : _n.getTransfer(Ge);
+      const Ue = Qe ? Uv : _n.getTransfer(Ge);
       pe === n.FLOAT && (we = n.RGBA32F), pe === n.HALF_FLOAT && (we = n.RGBA16F), pe === n.UNSIGNED_BYTE && (we = Ue === ii ? n.SRGB8_ALPHA8 : n.RGBA8), pe === n.UNSIGNED_SHORT && it && (we = it.RGBA16_EXT), pe === n.SHORT && it && (we = it.RGBA16_SNORM_EXT), pe === n.UNSIGNED_SHORT_4_4_4_4 && (we = n.RGBA4), pe === n.UNSIGNED_SHORT_5_5_5_1 && (we = n.RGB5_A1);
     }
     return (we === n.R16F || we === n.R32F || we === n.RG16F || we === n.RG32F || we === n.RGBA16F || we === n.RGBA32F) && e.get("EXT_color_buffer_float"), we;
@@ -42751,8 +42751,8 @@ function h8(n, e, t, i, s, a, l) {
     }
     const pe = X.textures;
     for (let Ce = 0, Ge = pe.length; Ce < Ge; Ce++) {
-      const Je = i.get(pe[Ce]);
-      Je.__webglTexture && (n.deleteTexture(Je.__webglTexture), l.memory.textures--), i.remove(pe[Ce]);
+      const Qe = i.get(pe[Ce]);
+      Qe.__webglTexture && (n.deleteTexture(Qe.__webglTexture), l.memory.textures--), i.remove(pe[Ce]);
     }
     i.remove(X);
   }
@@ -42849,14 +42849,14 @@ function h8(n, e, t, i, s, a, l) {
     const Ce = B.source;
     let Ge = _.get(Ce);
     Ge === void 0 && (Ge = {}, _.set(Ce, Ge));
-    const Je = $(B);
-    if (Je !== X.__cacheKey) {
-      Ge[Je] === void 0 && (Ge[Je] = {
+    const Qe = $(B);
+    if (Qe !== X.__cacheKey) {
+      Ge[Qe] === void 0 && (Ge[Qe] = {
         texture: n.createTexture(),
         usedTimes: 0
-      }, l.memory.textures++, pe = !0), Ge[Je].usedTimes++;
+      }, l.memory.textures++, pe = !0), Ge[Qe].usedTimes++;
       const it = Ge[X.__cacheKey];
-      it !== void 0 && (Ge[X.__cacheKey].usedTimes--, it.usedTimes === 0 && z(B)), X.__cacheKey = Je, X.__webglTexture = Ge[Je].texture;
+      it !== void 0 && (Ge[X.__cacheKey].usedTimes--, it.usedTimes === 0 && z(B)), X.__cacheKey = Qe, X.__webglTexture = Ge[Qe].texture;
     }
     return pe;
   }
@@ -42864,24 +42864,24 @@ function h8(n, e, t, i, s, a, l) {
     return Math.floor(Math.floor(X / pe) / B);
   }
   function ye(X, B, pe, Ce) {
-    const Je = X.updateRanges;
-    if (Je.length === 0)
+    const Qe = X.updateRanges;
+    if (Qe.length === 0)
       t.texSubImage2D(n.TEXTURE_2D, 0, 0, 0, B.width, B.height, pe, Ce, B.data);
     else {
-      Je.sort((gt, rt) => gt.start - rt.start);
+      Qe.sort((gt, rt) => gt.start - rt.start);
       let it = 0;
-      for (let gt = 1; gt < Je.length; gt++) {
-        const rt = Je[it], nt = Je[gt], kt = rt.start + rt.count, tn = ve(nt.start, B.width, 4), En = ve(rt.start, B.width, 4);
+      for (let gt = 1; gt < Qe.length; gt++) {
+        const rt = Qe[it], nt = Qe[gt], kt = rt.start + rt.count, tn = ve(nt.start, B.width, 4), En = ve(rt.start, B.width, 4);
         nt.start <= kt + 1 && tn === En && ve(nt.start + nt.count - 1, B.width, 4) === tn ? rt.count = Math.max(
           rt.count,
           nt.start + nt.count - rt.start
-        ) : (++it, Je[it] = nt);
+        ) : (++it, Qe[it] = nt);
       }
-      Je.length = it + 1;
+      Qe.length = it + 1;
       const we = t.getParameter(n.UNPACK_ROW_LENGTH), Ue = t.getParameter(n.UNPACK_SKIP_PIXELS), st = t.getParameter(n.UNPACK_SKIP_ROWS);
       t.pixelStorei(n.UNPACK_ROW_LENGTH, B.width);
-      for (let gt = 0, rt = Je.length; gt < rt; gt++) {
-        const nt = Je[gt], kt = Math.floor(nt.start / 4), tn = Math.ceil(nt.count / 4), En = kt % B.width, se = Math.floor(kt / B.width), $e = tn, Ie = 1;
+      for (let gt = 0, rt = Qe.length; gt < rt; gt++) {
+        const nt = Qe[gt], kt = Math.floor(nt.start / 4), tn = Math.ceil(nt.count / 4), En = kt % B.width, se = Math.floor(kt / B.width), $e = tn, Ie = 1;
         t.pixelStorei(n.UNPACK_SKIP_PIXELS, En), t.pixelStorei(n.UNPACK_SKIP_ROWS, se), t.texSubImage2D(n.TEXTURE_2D, 0, En, se, $e, Ie, pe, Ce, B.data);
       }
       X.clearUpdateRanges(), t.pixelStorei(n.UNPACK_ROW_LENGTH, we), t.pixelStorei(n.UNPACK_SKIP_PIXELS, Ue), t.pixelStorei(n.UNPACK_SKIP_ROWS, st);
@@ -42890,10 +42890,10 @@ function h8(n, e, t, i, s, a, l) {
   function Fe(X, B, pe) {
     let Ce = n.TEXTURE_2D;
     (B.isDataArrayTexture || B.isCompressedArrayTexture) && (Ce = n.TEXTURE_2D_ARRAY), B.isData3DTexture && (Ce = n.TEXTURE_3D);
-    const Ge = re(X, B), Je = B.source;
+    const Ge = re(X, B), Qe = B.source;
     t.bindTexture(Ce, X.__webglTexture, n.TEXTURE0 + pe);
-    const it = i.get(Je);
-    if (Je.version !== it.__version || Ge === !0) {
+    const it = i.get(Qe);
+    if (Qe.version !== it.__version || Ge === !0) {
       if (t.activeTexture(n.TEXTURE0 + pe), (typeof ImageBitmap < "u" && B.image instanceof ImageBitmap) === !1) {
         const Ie = _n.getPrimaries(_n.workingColorSpace), bt = B.colorSpace === ec ? null : _n.getPrimaries(B.colorSpace), at = B.colorSpace === ec || Ie === bt ? n.NONE : n.BROWSER_DEFAULT_WEBGL;
         t.pixelStorei(n.UNPACK_FLIP_Y_WEBGL, B.flipY), t.pixelStorei(n.UNPACK_PREMULTIPLY_ALPHA_WEBGL, B.premultiplyAlpha), t.pixelStorei(n.UNPACK_COLORSPACE_CONVERSION_WEBGL, at);
@@ -42905,7 +42905,7 @@ function h8(n, e, t, i, s, a, l) {
       let rt = D(B.internalFormat, st, gt, B.normalized, B.colorSpace, B.isVideoTexture);
       ue(Ce, B);
       let nt;
-      const kt = B.mipmaps, tn = B.isVideoTexture !== !0, En = it.__version === void 0 || Ge === !0, se = Je.dataReady, $e = U(B, Ue);
+      const kt = B.mipmaps, tn = B.isVideoTexture !== !0, En = it.__version === void 0 || Ge === !0, se = Qe.dataReady, $e = U(B, Ue);
       if (B.isDepthTexture)
         rt = k(B.format === Tf, B.type), En && (tn ? t.texStorage2D(n.TEXTURE_2D, 1, rt, Ue.width, Ue.height) : t.texImage2D(n.TEXTURE_2D, 0, rt, Ue.width, Ue.height, 0, st, gt, null));
       else if (B.isDataTexture)
@@ -43005,7 +43005,7 @@ function h8(n, e, t, i, s, a, l) {
         se && t.texSubImage2D(n.TEXTURE_2D, 0, 0, 0, st, gt, Ue);
       } else
         t.texImage2D(n.TEXTURE_2D, 0, rt, st, gt, Ue);
-      A(B) && L(Ce), it.__version = Je.version, B.onUpdate && B.onUpdate(B);
+      A(B) && L(Ce), it.__version = Qe.version, B.onUpdate && B.onUpdate(B);
     }
     X.__version = B.version;
   }
@@ -43013,15 +43013,15 @@ function h8(n, e, t, i, s, a, l) {
     if (B.image.length !== 6) return;
     const Ce = re(X, B), Ge = B.source;
     t.bindTexture(n.TEXTURE_CUBE_MAP, X.__webglTexture, n.TEXTURE0 + pe);
-    const Je = i.get(Ge);
-    if (Ge.version !== Je.__version || Ce === !0) {
+    const Qe = i.get(Ge);
+    if (Ge.version !== Qe.__version || Ce === !0) {
       t.activeTexture(n.TEXTURE0 + pe);
       const it = _n.getPrimaries(_n.workingColorSpace), we = B.colorSpace === ec ? null : _n.getPrimaries(B.colorSpace), Ue = B.colorSpace === ec || it === we ? n.NONE : n.BROWSER_DEFAULT_WEBGL;
       t.pixelStorei(n.UNPACK_FLIP_Y_WEBGL, B.flipY), t.pixelStorei(n.UNPACK_PREMULTIPLY_ALPHA_WEBGL, B.premultiplyAlpha), t.pixelStorei(n.UNPACK_ALIGNMENT, B.unpackAlignment), t.pixelStorei(n.UNPACK_COLORSPACE_CONVERSION_WEBGL, Ue);
       const st = B.isCompressedTexture || B.image[0].isCompressedTexture, gt = B.image[0] && B.image[0].isDataTexture, rt = [];
       for (let qe = 0; qe < 6; qe++)
         !st && !gt ? rt[qe] = E(B.image[qe], !0, s.maxCubemapSize) : rt[qe] = gt ? B.image[qe].image : B.image[qe], rt[qe] = Be(B, rt[qe]);
-      const nt = rt[0], kt = a.convert(B.format, B.colorSpace), tn = a.convert(B.type), En = D(B.internalFormat, kt, tn, B.normalized, B.colorSpace), se = B.isVideoTexture !== !0, $e = Je.__version === void 0 || Ce === !0, Ie = Ge.dataReady;
+      const nt = rt[0], kt = a.convert(B.format, B.colorSpace), tn = a.convert(B.type), En = D(B.internalFormat, kt, tn, B.normalized, B.colorSpace), se = B.isVideoTexture !== !0, $e = Qe.__version === void 0 || Ce === !0, Ie = Ge.dataReady;
       let bt = U(B, nt);
       ue(n.TEXTURE_CUBE_MAP, B);
       let at;
@@ -43055,26 +43055,26 @@ function h8(n, e, t, i, s, a, l) {
             }
           }
       }
-      A(B) && L(n.TEXTURE_CUBE_MAP), Je.__version = Ge.version, B.onUpdate && B.onUpdate(B);
+      A(B) && L(n.TEXTURE_CUBE_MAP), Qe.__version = Ge.version, B.onUpdate && B.onUpdate(B);
     }
     X.__version = B.version;
   }
-  function Oe(X, B, pe, Ce, Ge, Je) {
+  function Oe(X, B, pe, Ce, Ge, Qe) {
     const it = a.convert(pe.format, pe.colorSpace), we = a.convert(pe.type), Ue = D(pe.internalFormat, it, we, pe.normalized, pe.colorSpace), st = i.get(B), gt = i.get(pe);
     if (gt.__renderTarget = B, !st.__hasExternalTextures) {
-      const rt = Math.max(1, B.width >> Je), nt = Math.max(1, B.height >> Je);
-      Ge === n.TEXTURE_3D || Ge === n.TEXTURE_2D_ARRAY ? t.texImage3D(Ge, Je, Ue, rt, nt, B.depth, 0, it, we, null) : t.texImage2D(Ge, Je, Ue, rt, nt, 0, it, we, null);
+      const rt = Math.max(1, B.width >> Qe), nt = Math.max(1, B.height >> Qe);
+      Ge === n.TEXTURE_3D || Ge === n.TEXTURE_2D_ARRAY ? t.texImage3D(Ge, Qe, Ue, rt, nt, B.depth, 0, it, we, null) : t.texImage2D(Ge, Qe, Ue, rt, nt, 0, it, we, null);
     }
-    t.bindFramebuffer(n.FRAMEBUFFER, X), _t(B) ? c.framebufferTexture2DMultisampleEXT(n.FRAMEBUFFER, Ce, Ge, gt.__webglTexture, 0, It(B)) : (Ge === n.TEXTURE_2D || Ge >= n.TEXTURE_CUBE_MAP_POSITIVE_X && Ge <= n.TEXTURE_CUBE_MAP_NEGATIVE_Z) && n.framebufferTexture2D(n.FRAMEBUFFER, Ce, Ge, gt.__webglTexture, Je), t.bindFramebuffer(n.FRAMEBUFFER, null);
+    t.bindFramebuffer(n.FRAMEBUFFER, X), _t(B) ? c.framebufferTexture2DMultisampleEXT(n.FRAMEBUFFER, Ce, Ge, gt.__webglTexture, 0, It(B)) : (Ge === n.TEXTURE_2D || Ge >= n.TEXTURE_CUBE_MAP_POSITIVE_X && Ge <= n.TEXTURE_CUBE_MAP_NEGATIVE_Z) && n.framebufferTexture2D(n.FRAMEBUFFER, Ce, Ge, gt.__webglTexture, Qe), t.bindFramebuffer(n.FRAMEBUFFER, null);
   }
   function je(X, B, pe) {
     if (n.bindRenderbuffer(n.RENDERBUFFER, X), B.depthBuffer) {
-      const Ce = B.depthTexture, Ge = Ce && Ce.isDepthTexture ? Ce.type : null, Je = k(B.stencilBuffer, Ge), it = B.stencilBuffer ? n.DEPTH_STENCIL_ATTACHMENT : n.DEPTH_ATTACHMENT;
-      _t(B) ? c.renderbufferStorageMultisampleEXT(n.RENDERBUFFER, It(B), Je, B.width, B.height) : pe ? n.renderbufferStorageMultisample(n.RENDERBUFFER, It(B), Je, B.width, B.height) : n.renderbufferStorage(n.RENDERBUFFER, Je, B.width, B.height), n.framebufferRenderbuffer(n.FRAMEBUFFER, it, n.RENDERBUFFER, X);
+      const Ce = B.depthTexture, Ge = Ce && Ce.isDepthTexture ? Ce.type : null, Qe = k(B.stencilBuffer, Ge), it = B.stencilBuffer ? n.DEPTH_STENCIL_ATTACHMENT : n.DEPTH_ATTACHMENT;
+      _t(B) ? c.renderbufferStorageMultisampleEXT(n.RENDERBUFFER, It(B), Qe, B.width, B.height) : pe ? n.renderbufferStorageMultisample(n.RENDERBUFFER, It(B), Qe, B.width, B.height) : n.renderbufferStorage(n.RENDERBUFFER, Qe, B.width, B.height), n.framebufferRenderbuffer(n.FRAMEBUFFER, it, n.RENDERBUFFER, X);
     } else {
       const Ce = B.textures;
       for (let Ge = 0; Ge < Ce.length; Ge++) {
-        const Je = Ce[Ge], it = a.convert(Je.format, Je.colorSpace), we = a.convert(Je.type), Ue = D(Je.internalFormat, it, we, Je.normalized, Je.colorSpace);
+        const Qe = Ce[Ge], it = a.convert(Qe.format, Qe.colorSpace), we = a.convert(Qe.type), Ue = D(Qe.internalFormat, it, we, Qe.normalized, Qe.colorSpace);
         _t(B) ? c.renderbufferStorageMultisampleEXT(n.RENDERBUFFER, It(B), Ue, B.width, B.height) : pe ? n.renderbufferStorageMultisample(n.RENDERBUFFER, It(B), Ue, B.width, B.height) : n.renderbufferStorage(n.RENDERBUFFER, Ue, B.width, B.height);
       }
     }
@@ -43096,11 +43096,11 @@ function h8(n, e, t, i, s, a, l) {
       }
     } else
       de(B.depthTexture, 0);
-    const Je = Ge.__webglTexture, it = It(B), we = Ce ? n.TEXTURE_CUBE_MAP_POSITIVE_X + pe : n.TEXTURE_2D, Ue = B.depthTexture.format === Tf ? n.DEPTH_STENCIL_ATTACHMENT : n.DEPTH_ATTACHMENT;
+    const Qe = Ge.__webglTexture, it = It(B), we = Ce ? n.TEXTURE_CUBE_MAP_POSITIVE_X + pe : n.TEXTURE_2D, Ue = B.depthTexture.format === Tf ? n.DEPTH_STENCIL_ATTACHMENT : n.DEPTH_ATTACHMENT;
     if (B.depthTexture.format === mu)
-      _t(B) ? c.framebufferTexture2DMultisampleEXT(n.FRAMEBUFFER, Ue, we, Je, 0, it) : n.framebufferTexture2D(n.FRAMEBUFFER, Ue, we, Je, 0);
+      _t(B) ? c.framebufferTexture2DMultisampleEXT(n.FRAMEBUFFER, Ue, we, Qe, 0, it) : n.framebufferTexture2D(n.FRAMEBUFFER, Ue, we, Qe, 0);
     else if (B.depthTexture.format === Tf)
-      _t(B) ? c.framebufferTexture2DMultisampleEXT(n.FRAMEBUFFER, Ue, we, Je, 0, it) : n.framebufferTexture2D(n.FRAMEBUFFER, Ue, we, Je, 0);
+      _t(B) ? c.framebufferTexture2DMultisampleEXT(n.FRAMEBUFFER, Ue, we, Qe, 0, it) : n.framebufferTexture2D(n.FRAMEBUFFER, Ue, we, Qe, 0);
     else
       throw new Error("Unknown depthTexture format");
   }
@@ -43130,16 +43130,16 @@ function h8(n, e, t, i, s, a, l) {
         if (t.bindFramebuffer(n.FRAMEBUFFER, B.__webglFramebuffer[Ce]), B.__webglDepthbuffer[Ce] === void 0)
           B.__webglDepthbuffer[Ce] = n.createRenderbuffer(), je(B.__webglDepthbuffer[Ce], X, !1);
         else {
-          const Ge = X.stencilBuffer ? n.DEPTH_STENCIL_ATTACHMENT : n.DEPTH_ATTACHMENT, Je = B.__webglDepthbuffer[Ce];
-          n.bindRenderbuffer(n.RENDERBUFFER, Je), n.framebufferRenderbuffer(n.FRAMEBUFFER, Ge, n.RENDERBUFFER, Je);
+          const Ge = X.stencilBuffer ? n.DEPTH_STENCIL_ATTACHMENT : n.DEPTH_ATTACHMENT, Qe = B.__webglDepthbuffer[Ce];
+          n.bindRenderbuffer(n.RENDERBUFFER, Qe), n.framebufferRenderbuffer(n.FRAMEBUFFER, Ge, n.RENDERBUFFER, Qe);
         }
     } else {
       const Ce = X.texture.mipmaps;
       if (Ce && Ce.length > 0 ? t.bindFramebuffer(n.FRAMEBUFFER, B.__webglFramebuffer[0]) : t.bindFramebuffer(n.FRAMEBUFFER, B.__webglFramebuffer), B.__webglDepthbuffer === void 0)
         B.__webglDepthbuffer = n.createRenderbuffer(), je(B.__webglDepthbuffer, X, !1);
       else {
-        const Ge = X.stencilBuffer ? n.DEPTH_STENCIL_ATTACHMENT : n.DEPTH_ATTACHMENT, Je = B.__webglDepthbuffer;
-        n.bindRenderbuffer(n.RENDERBUFFER, Je), n.framebufferRenderbuffer(n.FRAMEBUFFER, Ge, n.RENDERBUFFER, Je);
+        const Ge = X.stencilBuffer ? n.DEPTH_STENCIL_ATTACHMENT : n.DEPTH_ATTACHMENT, Qe = B.__webglDepthbuffer;
+        n.bindRenderbuffer(n.RENDERBUFFER, Qe), n.framebufferRenderbuffer(n.FRAMEBUFFER, Ge, n.RENDERBUFFER, Qe);
       }
     }
     t.bindFramebuffer(n.FRAMEBUFFER, null);
@@ -43151,8 +43151,8 @@ function h8(n, e, t, i, s, a, l) {
   function Le(X) {
     const B = X.texture, pe = i.get(X), Ce = i.get(B);
     X.addEventListener("dispose", I);
-    const Ge = X.textures, Je = X.isWebGLCubeRenderTarget === !0, it = Ge.length > 1;
-    if (it || (Ce.__webglTexture === void 0 && (Ce.__webglTexture = n.createTexture()), Ce.__version = B.version, l.memory.textures++), Je) {
+    const Ge = X.textures, Qe = X.isWebGLCubeRenderTarget === !0, it = Ge.length > 1;
+    if (it || (Ce.__webglTexture === void 0 && (Ce.__webglTexture = n.createTexture()), Ce.__version = B.version, l.memory.textures++), Qe) {
       pe.__webglFramebuffer = [];
       for (let we = 0; we < 6; we++)
         if (B.mipmaps && B.mipmaps.length > 0) {
@@ -43184,7 +43184,7 @@ function h8(n, e, t, i, s, a, l) {
         n.bindRenderbuffer(n.RENDERBUFFER, null), X.depthBuffer && (pe.__webglDepthRenderbuffer = n.createRenderbuffer(), je(pe.__webglDepthRenderbuffer, X, !0)), t.bindFramebuffer(n.FRAMEBUFFER, null);
       }
     }
-    if (Je) {
+    if (Qe) {
       t.bindTexture(n.TEXTURE_CUBE_MAP, Ce.__webglTexture), ue(n.TEXTURE_CUBE_MAP, B);
       for (let we = 0; we < 6; we++)
         if (B.mipmaps && B.mipmaps.length > 0)
@@ -43216,8 +43216,8 @@ function h8(n, e, t, i, s, a, l) {
     for (let pe = 0, Ce = B.length; pe < Ce; pe++) {
       const Ge = B[pe];
       if (A(Ge)) {
-        const Je = O(X), it = i.get(Ge).__webglTexture;
-        t.bindTexture(Je, it), L(Je), t.unbindTexture();
+        const Qe = O(X), it = i.get(Ge).__webglTexture;
+        t.bindTexture(Qe, it), L(Qe), t.unbindTexture();
       }
     }
   }
@@ -43227,7 +43227,7 @@ function h8(n, e, t, i, s, a, l) {
       if (_t(X) === !1) {
         const B = X.textures, pe = X.width, Ce = X.height;
         let Ge = n.COLOR_BUFFER_BIT;
-        const Je = X.stencilBuffer ? n.DEPTH_STENCIL_ATTACHMENT : n.DEPTH_ATTACHMENT, it = i.get(X), we = B.length > 1;
+        const Qe = X.stencilBuffer ? n.DEPTH_STENCIL_ATTACHMENT : n.DEPTH_ATTACHMENT, it = i.get(X), we = B.length > 1;
         if (we)
           for (let st = 0; st < B.length; st++)
             t.bindFramebuffer(n.FRAMEBUFFER, it.__webglMultisampledFramebuffer), n.framebufferRenderbuffer(n.FRAMEBUFFER, n.COLOR_ATTACHMENT0 + st, n.RENDERBUFFER, null), t.bindFramebuffer(n.FRAMEBUFFER, it.__webglFramebuffer), n.framebufferTexture2D(n.DRAW_FRAMEBUFFER, n.COLOR_ATTACHMENT0 + st, n.TEXTURE_2D, null, 0);
@@ -43240,7 +43240,7 @@ function h8(n, e, t, i, s, a, l) {
             const gt = i.get(B[st]).__webglTexture;
             n.framebufferTexture2D(n.DRAW_FRAMEBUFFER, n.COLOR_ATTACHMENT0, n.TEXTURE_2D, gt, 0);
           }
-          n.blitFramebuffer(0, 0, pe, Ce, 0, 0, pe, Ce, Ge, n.NEAREST), d === !0 && (ke.length = 0, Lt.length = 0, ke.push(n.COLOR_ATTACHMENT0 + st), X.depthBuffer && X.resolveDepthBuffer === !1 && (ke.push(Je), Lt.push(Je), n.invalidateFramebuffer(n.DRAW_FRAMEBUFFER, Lt)), n.invalidateFramebuffer(n.READ_FRAMEBUFFER, ke));
+          n.blitFramebuffer(0, 0, pe, Ce, 0, 0, pe, Ce, Ge, n.NEAREST), d === !0 && (ke.length = 0, Lt.length = 0, ke.push(n.COLOR_ATTACHMENT0 + st), X.depthBuffer && X.resolveDepthBuffer === !1 && (ke.push(Qe), Lt.push(Qe), n.invalidateFramebuffer(n.DRAW_FRAMEBUFFER, Lt)), n.invalidateFramebuffer(n.READ_FRAMEBUFFER, ke));
         }
         if (t.bindFramebuffer(n.READ_FRAMEBUFFER, null), t.bindFramebuffer(n.DRAW_FRAMEBUFFER, null), we)
           for (let st = 0; st < B.length; st++) {
@@ -44469,9 +44469,9 @@ class jD {
     } catch (G) {
       throw Bt("WebGLRenderer: " + G.message), G;
     }
-    let _t, zt, Be, Tn, X, B, pe, Ce, Ge, Je, it, we, Ue, st, gt, rt, nt, kt, tn, En, se, $e, Ie;
+    let _t, zt, Be, Tn, X, B, pe, Ce, Ge, Qe, it, we, Ue, st, gt, rt, nt, kt, tn, En, se, $e, Ie;
     function bt() {
-      _t = new _6(te), _t.init(), se = new qD(te, _t), zt = new p6(te, _t, e, se), Be = new f8(te, _t), zt.reversedDepthBuffer && x && Be.buffers.depth.setReversed(!0), Tn = new E6(te), X = new Q2(), B = new h8(te, _t, Be, X, zt, se, Tn), pe = new S6(z), Ce = new RB(te), $e = new h6(te, Ce), Ge = new T6(te, Ce, Tn, $e), Je = new w6(te, Ge, Ce, $e, Tn), kt = new A6(te, zt, B), gt = new m6(X), it = new K2(z, pe, _t, zt, $e, gt), we = new y8(z, X), Ue = new $2(), st = new r8(_t), nt = new f6(z, pe, Be, Je, T, d), rt = new c8(z, Je, zt), Ie = new x8(te, Tn, zt, Be), tn = new d6(te, _t, Tn), En = new M6(te, _t, Tn), Tn.programs = it.programs, z.capabilities = zt, z.extensions = _t, z.properties = X, z.renderLists = Ue, z.shadowMap = rt, z.state = Be, z.info = Tn;
+      _t = new _6(te), _t.init(), se = new qD(te, _t), zt = new p6(te, _t, e, se), Be = new f8(te, _t), zt.reversedDepthBuffer && x && Be.buffers.depth.setReversed(!0), Tn = new E6(te), X = new Q2(), B = new h8(te, _t, Be, X, zt, se, Tn), pe = new S6(z), Ce = new RB(te), $e = new h6(te, Ce), Ge = new T6(te, Ce, Tn, $e), Qe = new w6(te, Ge, Ce, $e, Tn), kt = new A6(te, zt, B), gt = new m6(X), it = new K2(z, pe, _t, zt, $e, gt), we = new y8(z, X), Ue = new $2(), st = new r8(_t), nt = new f6(z, pe, Be, Qe, T, d), rt = new c8(z, Qe, zt), Ie = new x8(te, Tn, zt, Be), tn = new d6(te, _t, Tn), En = new M6(te, _t, Tn), Tn.programs = it.programs, z.capabilities = zt, z.extensions = _t, z.properties = X, z.renderLists = Ue, z.shadowMap = rt, z.state = Be, z.info = Tn;
     }
     bt(), C !== Xr && (F = new R6(C, t.width, t.height, s, a));
     const at = new g8(z, te);
@@ -44564,7 +44564,7 @@ class jD {
     }, this.setNodesHandler = function(G) {
       G.setRenderer(this), Q = G;
     }, this.dispose = function() {
-      t.removeEventListener("webglcontextlost", qe, !1), t.removeEventListener("webglcontextrestored", wt, !1), t.removeEventListener("webglcontextcreationerror", Vt, !1), nt.dispose(), Ue.dispose(), st.dispose(), X.dispose(), pe.dispose(), Je.dispose(), $e.dispose(), Ie.dispose(), it.dispose(), at.dispose(), at.removeEventListener("sessionstart", za), at.removeEventListener("sessionend", cr), ds.stop();
+      t.removeEventListener("webglcontextlost", qe, !1), t.removeEventListener("webglcontextrestored", wt, !1), t.removeEventListener("webglcontextcreationerror", Vt, !1), nt.dispose(), Ue.dispose(), st.dispose(), X.dispose(), pe.dispose(), Qe.dispose(), $e.dispose(), Ie.dispose(), it.dispose(), at.dispose(), at.removeEventListener("sessionstart", za), at.removeEventListener("sessionend", cr), ds.stop();
     };
     function qe(G) {
       G.preventDefault(), kv("WebGLRenderer: Context Lost."), W = !0;
@@ -44726,11 +44726,11 @@ class jD {
         else if (G.isSprite) {
           if (!G.frustumCulled || Oe.intersectsSprite(G)) {
             ge && Le.setFromMatrixPosition(G.matrixWorld).applyMatrix4(De);
-            const Mt = Je.update(G), ht = G.material;
+            const Mt = Qe.update(G), ht = G.material;
             ht.visible && k.push(G, Mt, ht, xe, Le.z, null);
           }
         } else if ((G.isMesh || G.isLine || G.isPoints) && (!G.frustumCulled || Oe.intersectsObject(G))) {
-          const Mt = Je.update(G), ht = G.material;
+          const Mt = Qe.update(G), ht = G.material;
           if (ge && (G.boundingSphere !== void 0 ? (G.boundingSphere === null && G.computeBoundingSphere(), Le.copy(G.boundingSphere.center)) : (Mt.boundingSphere === null && Mt.computeBoundingSphere(), Le.copy(Mt.boundingSphere.center)), Le.applyMatrix4(G.matrixWorld).applyMatrix4(De)), Array.isArray(ht)) {
             const St = Mt.groups;
             for (let vt = 0, qt = St.length; vt < qt; vt++) {
@@ -45826,9 +45826,9 @@ function UA(n) {
   for (; e.getState().previousRoot; ) e = e.getState().previousRoot;
   return e;
 }
-const $D = (n) => n && n.isOrthographicCamera, X8 = (n) => n && n.hasOwnProperty("current"), q8 = (n) => n != null && (typeof n == "string" || typeof n == "number" || n.isColor), cg = /* @__PURE__ */ ((n, e) => typeof window < "u" && (((n = window.document) == null ? void 0 : n.createElement) || ((e = window.navigator) == null ? void 0 : e.product) === "ReactNative"))() ? Qe.useLayoutEffect : Qe.useEffect;
+const $D = (n) => n && n.isOrthographicCamera, X8 = (n) => n && n.hasOwnProperty("current"), q8 = (n) => n != null && (typeof n == "string" || typeof n == "number" || n.isColor), cg = /* @__PURE__ */ ((n, e) => typeof window < "u" && (((n = window.document) == null ? void 0 : n.createElement) || ((e = window.navigator) == null ? void 0 : e.product) === "ReactNative"))() ? Je.useLayoutEffect : Je.useEffect;
 function eI(n) {
-  const e = Qe.useRef(n);
+  const e = Je.useRef(n);
   return cg(() => void (e.current = n), [n]), e;
 }
 const uS = () => {
@@ -45837,11 +45837,11 @@ function Y8({
   promise: n,
   onSettled: e
 }) {
-  return Qe.use(n), cg(e, [e]), null;
+  return Je.use(n), cg(e, [e]), null;
 }
 function j8() {
-  const [n, e] = Qe.useState(null), t = Qe.useCallback(() => e(null), []), i = Qe.useCallback((a) => e((l) => l ?? Promise.resolve(a).then(uS, uS)), []);
-  return [n ? /* @__PURE__ */ ct.jsx(Qe.Suspense, {
+  const [n, e] = Je.useState(null), t = Je.useCallback(() => e(null), []), i = Je.useCallback((a) => e((l) => l ?? Promise.resolve(a).then(uS, uS)), []);
+  return [n ? /* @__PURE__ */ ct.jsx(Je.Suspense, {
     fallback: null,
     children: /* @__PURE__ */ ct.jsx(Y8, {
       promise: n,
@@ -45849,13 +45849,13 @@ function j8() {
     })
   }) : null, i];
 }
-const Z8 = Qe.Activity ? W8 : () => Qe.Fragment;
+const Z8 = Je.Activity ? W8 : () => Je.Fragment;
 function K8() {
   const n = NA(), e = H8(), t = Z8();
-  return Qe.useMemo(() => ({
+  return Je.useMemo(() => ({
     children: i
   }) => {
-    const a = !!g_(n, !0, (l) => l.type === Qe.StrictMode) ? Qe.StrictMode : Qe.Fragment;
+    const a = !!g_(n, !0, (l) => l.type === Je.StrictMode) ? Je.StrictMode : Je.Fragment;
     return /* @__PURE__ */ ct.jsx(a, {
       children: /* @__PURE__ */ ct.jsx(t, {
         children: /* @__PURE__ */ ct.jsx(e, {
@@ -45870,7 +45870,7 @@ function Q8({
 }) {
   return cg(() => (n(new Promise(() => null)), () => n(!1)), [n]), null;
 }
-const J8 = /* @__PURE__ */ ((n) => (n = class extends Qe.Component {
+const J8 = /* @__PURE__ */ ((n) => (n = class extends Je.Component {
   constructor(...t) {
     super(...t), this.state = {
       error: !1
@@ -46378,7 +46378,7 @@ function lV(n) {
     handlePointer: c
   };
 }
-const PA = (n) => !!(n != null && n.render), sI = /* @__PURE__ */ Qe.createContext(null), uV = (n, e) => {
+const PA = (n) => !!(n != null && n.render), sI = /* @__PURE__ */ Je.createContext(null), uV = (n, e) => {
   const t = I8((c, d) => {
     const p = new Y(), g = new Y(), y = new Y();
     function x(A = d().camera, L = g, O = d().size) {
@@ -46520,7 +46520,7 @@ const PA = (n) => !!(n != null && n.render), sI = /* @__PURE__ */ Qe.createConte
         initialClick: [0, 0],
         initialHits: [],
         capturedMap: /* @__PURE__ */ new Map(),
-        lastEvent: /* @__PURE__ */ Qe.createRef(),
+        lastEvent: /* @__PURE__ */ Je.createRef(),
         // Updates
         active: !1,
         frames: 0,
@@ -46562,7 +46562,7 @@ const PA = (n) => !!(n != null && n.render), sI = /* @__PURE__ */ Qe.createConte
   }), t.subscribe((c) => n(c)), t;
 };
 function cV() {
-  const n = Qe.useContext(sI);
+  const n = Je.useContext(sI);
   if (!n) throw new Error("R3F: Hooks can only be used within the Canvas component!");
   return n;
 }
@@ -47536,7 +47536,7 @@ Error generating stack: ` + S.message + `
           refCount: 0
         };
       }
-      function Je(u) {
+      function Qe(u) {
         u.refCount--, u.refCount === 0 && jx(I0, function() {
           u.controller.abort();
         });
@@ -50751,10 +50751,10 @@ Error generating stack: ` + S.message + `
       }
       function Nl(u, f) {
         var v = null;
-        u !== null && u.memoizedState !== null && u.memoizedState.cachePool !== null && (v = u.memoizedState.cachePool.pool), u = null, f.memoizedState !== null && f.memoizedState.cachePool !== null && (u = f.memoizedState.cachePool.pool), u !== v && (u != null && u.refCount++, v != null && Je(v));
+        u !== null && u.memoizedState !== null && u.memoizedState.cachePool !== null && (v = u.memoizedState.cachePool.pool), u = null, f.memoizedState !== null && f.memoizedState.cachePool !== null && (u = f.memoizedState.cachePool.pool), u !== v && (u != null && u.refCount++, v != null && Qe(v));
       }
       function Rc(u, f) {
-        u = null, f.alternate !== null && (u = f.alternate.memoizedState.cache), f = f.memoizedState.cache, f !== u && (f.refCount++, u != null && Je(u));
+        u = null, f.alternate !== null && (u = f.alternate.memoizedState.cache), f = f.memoizedState.cache, f !== u && (f.refCount++, u != null && Qe(u));
       }
       function Bs(u, f, v, S) {
         var w = (v & 335544064) === v;
@@ -50775,7 +50775,7 @@ Error generating stack: ` + S.message + `
             Bs(u, f, v, S);
             break;
           case 3:
-            Bs(u, f, v, S), w && bi && Nh && vx(u.containerInfo), R & 2048 && (u = null, f.alternate !== null && (u = f.alternate.memoizedState.cache), f = f.memoizedState.cache, f !== u && (f.refCount++, u != null && Je(u)));
+            Bs(u, f, v, S), w && bi && Nh && vx(u.containerInfo), R & 2048 && (u = null, f.alternate !== null && (u = f.alternate.memoizedState.cache), f = f.memoizedState.cache, f !== u && (f.refCount++, u != null && Qe(u)));
             break;
           case 12:
             if (R & 2048) {
@@ -50961,7 +50961,7 @@ Error generating stack: ` + S.message + `
               }
               break;
             case 24:
-              Je(v.memoizedState.cache);
+              Qe(v.memoizedState.cache);
           }
           if (S = v.child, S !== null) S.return = v, ni = S;
           else e: for (v = u; ni !== null; ) {
@@ -51514,7 +51514,7 @@ Error generating stack: ` + S.message + `
         }
       }
       function Pl(u, f) {
-        (u.pooledCacheLanes &= f) === 0 && (f = u.pooledCache, f != null && (u.pooledCache = null, Je(f)));
+        (u.pooledCacheLanes &= f) === 0 && (f = u.pooledCache, f != null && (u.pooledCache = null, Qe(f)));
       }
       function ja() {
         return Ql !== null && (xx(Ql), Ql = null), Zg(), Au(), ch(), Kg();
@@ -52626,7 +52626,7 @@ const Dm = /* @__PURE__ */ wV({
   NotPendingTransition: null,
   // The reconciler types use the internal ReactContext with all the hidden properties
   // so we have to cast from the public React.Context type
-  HostTransitionContext: /* @__PURE__ */ Qe.createContext(null),
+  HostTransitionContext: /* @__PURE__ */ Je.createContext(null),
   setCurrentUpdatePriority(n) {
     e1 = n;
   },
@@ -53040,9 +53040,9 @@ function YV({ debounce: n, scroll: e, polyfill: t, offsetSize: i } = { debounce:
   const s = t || (typeof window > "u" ? class {
   } : window.ResizeObserver);
   if (!s) throw new Error("This browser does not support ResizeObserver out of the box. See: https://github.com/react-spring/react-use-measure/#resize-observer-polyfills");
-  const [a, l] = Qe.useState({ left: 0, top: 0, width: 0, height: 0, bottom: 0, right: 0, x: 0, y: 0 }), c = Qe.useRef({ element: null, scrollContainers: null, resizeObserver: null, lastBounds: a, orientationHandler: null }), d = n ? typeof n == "number" ? n : n.scroll : null, p = n ? typeof n == "number" ? n : n.resize : null, g = Qe.useRef(!1);
-  Qe.useEffect(() => (g.current = !0, () => void (g.current = !1)));
-  const [y, x, _] = Qe.useMemo(() => {
+  const [a, l] = Je.useState({ left: 0, top: 0, width: 0, height: 0, bottom: 0, right: 0, x: 0, y: 0 }), c = Je.useRef({ element: null, scrollContainers: null, resizeObserver: null, lastBounds: a, orientationHandler: null }), d = n ? typeof n == "number" ? n : n.scroll : null, p = n ? typeof n == "number" ? n : n.resize : null, g = Je.useRef(!1);
+  Je.useEffect(() => (g.current = !0, () => void (g.current = !1)));
+  const [y, x, _] = Je.useMemo(() => {
     const A = () => {
       if (!c.current.element) return;
       const { left: L, top: O, width: D, height: k, bottom: U, right: P, x: I, y: F } = c.current.element.getBoundingClientRect(), z = { left: L, top: O, width: D, height: k, bottom: U, right: P, x: I, y: F };
@@ -53061,18 +53061,18 @@ function YV({ debounce: n, scroll: e, polyfill: t, offsetSize: i } = { debounce:
   const E = (A) => {
     !A || A === c.current.element || (T(), c.current.element = A, c.current.scrollContainers = hI(A), C());
   };
-  return ZV(_, !!e), jV(x), Qe.useEffect(() => {
+  return ZV(_, !!e), jV(x), Je.useEffect(() => {
     T(), C();
-  }, [e, _, x]), Qe.useEffect(() => T, []), [E, a, y];
+  }, [e, _, x]), Je.useEffect(() => T, []), [E, a, y];
 }
 function jV(n) {
-  Qe.useEffect(() => {
+  Je.useEffect(() => {
     const e = n;
     return window.addEventListener("resize", e), () => void window.removeEventListener("resize", e);
   }, [n]);
 }
 function ZV(n, e) {
-  Qe.useEffect(() => {
+  Je.useEffect(() => {
     if (e) {
       const t = n;
       return window.addEventListener("scroll", t, { capture: !0, passive: !0 }), () => void window.removeEventListener("scroll", t, !0);
@@ -53111,7 +53111,7 @@ function JV({
   onCreated: k,
   ...U
 }) {
-  Qe.useMemo(() => OV(_8), []);
+  Je.useMemo(() => OV(_8), []);
   const P = K8(), [I, F] = YV({
     scroll: !0,
     debounce: {
@@ -53119,13 +53119,13 @@ function JV({
       resize: 0
     },
     ...i
-  }), z = Qe.useRef(null), W = Qe.useRef(null);
-  Qe.useImperativeHandle(n, () => z.current);
-  const Q = eI(D), Z = Qe.useCallback((j) => Q.current == null ? void 0 : Q.current(j), [Q]), [ne, q] = Qe.useState(!1), [K, $] = Qe.useState(!1);
+  }), z = Je.useRef(null), W = Je.useRef(null);
+  Je.useImperativeHandle(n, () => z.current);
+  const Q = eI(D), Z = Je.useCallback((j) => Q.current == null ? void 0 : Q.current(j), [Q]), [ne, q] = Je.useState(!1), [K, $] = Je.useState(!1);
   if (ne) throw ne;
   if (K) throw K;
-  const de = Qe.useRef(null), [Ae, Re] = j8(), Xe = Qe.useRef(null), et = () => c ? X8(c) ? c.current : c : W.current;
-  Qe.useInsertionEffect(() => () => {
+  const de = Je.useRef(null), [Ae, Re] = j8(), Xe = Je.useRef(null), et = () => c ? X8(c) ? c.current : c : W.current;
+  Je.useInsertionEffect(() => () => {
     const j = de.current;
     de.current = null, j?.unmount();
   }, []), cg(() => {
@@ -53159,7 +53159,7 @@ function JV({
     }).catch($), de.current.ready.status === "fulfilled" ? de.current.render(/* @__PURE__ */ ct.jsx(P, {
       children: /* @__PURE__ */ ct.jsx(J8, {
         set: $,
-        children: /* @__PURE__ */ ct.jsx(Qe.Suspense, {
+        children: /* @__PURE__ */ ct.jsx(Je.Suspense, {
           fallback: /* @__PURE__ */ ct.jsx(Q8, {
             set: q
           }),
@@ -53167,11 +53167,11 @@ function JV({
         })
       })
     })) : de.current.ready.status === "pending" && Re(de.current.ready));
-  }), Qe.useEffect(() => {
+  }), Je.useEffect(() => {
     var j;
     const ue = (j = Xe.current) == null ? void 0 : j.get(), re = et();
     ue && re && ue.events.connected !== re && (ue.events.connect == null || ue.events.connect(re));
-  }), Qe.useEffect(() => {
+  }), Je.useEffect(() => {
     const j = z.current;
     return () => {
       var ue;
@@ -53214,10 +53214,10 @@ function dI(n) {
   });
 }
 function mS(n) {
-  const e = Qe.useRef(null);
+  const e = Je.useRef(null);
   return e.current === null && (e.current = n()), e.current;
 }
-const $V = typeof window < "u", eH = $V ? Qe.useLayoutEffect : Qe.useEffect;
+const $V = typeof window < "u", eH = $V ? Je.useLayoutEffect : Je.useEffect;
 function tH(n, e) {
   n.indexOf(e) === -1 && n.push(e);
 }
@@ -55695,16 +55695,16 @@ function I9(n, e, t) {
   const i = py(n) ? n : T_(n);
   return i.start(eN("", i, e, t)), i.animation;
 }
-const fN = Qe.createContext({
+const fN = Je.createContext({
   transformPagePoint: (n) => n,
   isStatic: !1,
   reducedMotion: "never"
 });
 function pa(n) {
-  const e = mS(() => T_(n)), { isStatic: t } = Qe.useContext(fN);
+  const e = mS(() => T_(n)), { isStatic: t } = Je.useContext(fN);
   if (t) {
-    const [, i] = Qe.useState(n);
-    Qe.useEffect(() => e.on("change", i), []);
+    const [, i] = Je.useState(n);
+    Je.useEffect(() => e.on("change", i), []);
   }
   return e;
 }
@@ -55756,18 +55756,18 @@ function U9(n, e, t, i) {
   return a;
 }
 function P9(n, e, t) {
-  const { isStatic: i } = Qe.useContext(fN), s = () => py(n) ? n.get() : n;
+  const { isStatic: i } = Je.useContext(fN), s = () => py(n) ? n.get() : n;
   if (i)
     return Lv(s);
   const a = pa(s());
-  return Qe.useInsertionEffect(() => t(a, n, e), [a, JSON.stringify(e)]), a;
+  return Je.useInsertionEffect(() => t(a, n, e), [a, JSON.stringify(e)]), a;
 }
 function ar(n, e = {}) {
   return P9(n, e, R9);
 }
 function M_() {
   !cN.current && D9();
-  const [n] = Qe.useState(TE.current);
+  const [n] = Je.useState(TE.current);
   return n;
 }
 function ow(n) {
@@ -57693,10 +57693,10 @@ function oL(n, e, t) {
   });
 }
 const N7 = () => typeof document < "u" && document.baseURI ? new URL("assets/3d/kim-meshy.glb", document.baseURI).href : "assets/3d/kim-meshy.glb", U7 = ({ onLoaded: n }) => {
-  const e = Qe.useRef(null), t = M_(), i = ar(0.92, { stiffness: 120, damping: 16 }), s = ar(0.45, { stiffness: 90, damping: 15 }), a = ar(0.2, { stiffness: 100, damping: 16 }), l = Qe.useRef(!1), c = ar(0, { stiffness: 180, damping: 20 }), d = pa(0), p = ar(1, { stiffness: 350, damping: 16, mass: 0.6 }), g = ar(1, { stiffness: 350, damping: 16, mass: 0.6 }), y = pa(0), x = pa(0), _ = ar(y, { stiffness: 130, damping: 18, mass: 1 }), T = ar(x, { stiffness: 130, damping: 18, mass: 1 }), C = FA(e7, N7());
-  Qe.useEffect(() => {
+  const e = Je.useRef(null), t = M_(), i = ar(0.92, { stiffness: 120, damping: 16 }), s = ar(0.45, { stiffness: 90, damping: 15 }), a = ar(0.2, { stiffness: 100, damping: 16 }), l = Je.useRef(!1), c = ar(0, { stiffness: 180, damping: 20 }), d = pa(0), p = ar(1, { stiffness: 350, damping: 16, mass: 0.6 }), g = ar(1, { stiffness: 350, damping: 16, mass: 0.6 }), y = pa(0), x = pa(0), _ = ar(y, { stiffness: 130, damping: 18, mass: 1 }), T = ar(x, { stiffness: 130, damping: 18, mass: 1 }), C = FA(e7, N7());
+  Je.useEffect(() => {
     l.current || (l.current = !0, n?.()), i.set(1.3), s.set(0), a.set(0);
-  }, [n, i, s, a]), Qe.useMemo(() => {
+  }, [n, i, s, a]), Je.useMemo(() => {
     C.scene.traverse((O) => {
       if (O.isMesh) {
         const D = O;
@@ -57746,8 +57746,8 @@ const N7 = () => typeof document < "u" && document.baseURI ? new URL("assets/3d/
     }
   );
 }, P7 = ({ isLoaded: n, onExitComplete: e }) => {
-  const t = Qe.useRef(null), i = Qe.useRef(null), s = Qe.useRef(null), a = Qe.useRef(null), l = Qe.useRef(null), c = Qe.useRef(null), d = M_(), [p, g] = Qe.useState(!1), y = pa(1), x = pa(0.7), _ = pa(0), T = pa(0), C = ar(_, { stiffness: 120, damping: 18 }), E = ar(T, { stiffness: 120, damping: 18 });
-  return Qe.useEffect(() => {
+  const t = Je.useRef(null), i = Je.useRef(null), s = Je.useRef(null), a = Je.useRef(null), l = Je.useRef(null), c = Je.useRef(null), d = M_(), [p, g] = Je.useState(!1), y = pa(1), x = pa(0.7), _ = pa(0), T = pa(0), C = ar(_, { stiffness: 120, damping: 18 }), E = ar(T, { stiffness: 120, damping: 18 });
+  return Je.useEffect(() => {
     if (!n) return;
     const A = yS(y, 1.7, {
       duration: 0.55,
@@ -57793,7 +57793,7 @@ const N7 = () => typeof document < "u" && document.baseURI ? new URL("assets/3d/
     /* @__PURE__ */ ct.jsx("pointLight", { ref: c, position: [0, 0, 0], color: "#e65c00", intensity: 0.9, distance: 4 })
   ] });
 }, F7 = () => {
-  const n = Qe.useRef(null), e = M_(), t = pa(0), i = pa(0), s = ar(t, { stiffness: 90, damping: 20 }), a = ar(i, { stiffness: 90, damping: 20 }), l = Lv(s, [-1, 1], [-2.3, -1.3]), c = Lv(a, [-1, 1], [-1.4, -2.6]), d = Lv(a, [-1, 1], [0.65, 0.95]);
+  const n = Je.useRef(null), e = M_(), t = pa(0), i = pa(0), s = ar(t, { stiffness: 90, damping: 20 }), a = ar(i, { stiffness: 90, damping: 20 }), l = Lv(s, [-1, 1], [-2.3, -1.3]), c = Lv(a, [-1, 1], [-1.4, -2.6]), d = Lv(a, [-1, 1], [0.65, 0.95]);
   return v_((p) => {
     e || (t.set(p.pointer.x), i.set(p.pointer.y)), n.current && (n.current.position.x = l.get(), n.current.position.y = c.get(), n.current.intensity = d.get());
   }), /* @__PURE__ */ ct.jsxs(ct.Fragment, { children: [
@@ -57812,10 +57812,10 @@ const N7 = () => typeof document < "u" && document.baseURI ? new URL("assets/3d/
     )
   ] });
 }, k7 = () => {
-  const n = Qe.useRef(null), [e, t] = Qe.useState(!0), [i, s] = Qe.useState(!1), a = Qe.useCallback(() => {
+  const n = Je.useRef(null), [e, t] = Je.useState(!0), [i, s] = Je.useState(!1), a = Je.useCallback(() => {
     s(!0);
   }, []);
-  return Qe.useEffect(() => {
+  return Je.useEffect(() => {
     const l = n.current;
     if (!l) return;
     const c = new IntersectionObserver(
@@ -57842,7 +57842,7 @@ const N7 = () => typeof document < "u" && document.baseURI ? new URL("assets/3d/
       children: [
         /* @__PURE__ */ ct.jsx(F7, {}),
         /* @__PURE__ */ ct.jsx(P7, { isLoaded: i }),
-        /* @__PURE__ */ ct.jsx(Qe.Suspense, { fallback: null, children: /* @__PURE__ */ ct.jsx(U7, { onLoaded: a }) })
+        /* @__PURE__ */ ct.jsx(Je.Suspense, { fallback: null, children: /* @__PURE__ */ ct.jsx(U7, { onLoaded: a }) })
       ]
     }
   ) });
@@ -69977,8 +69977,8 @@ function PZ(n, e) {
   return _.computeBoundingBox(), _.center(), _.computeVertexNormals(), _;
 }
 const FZ = () => typeof document < "u" && document.baseURI ? new URL("assets/fonts/eurostile-bold-regular.ttf", document.baseURI).href : "assets/fonts/eurostile-bold-regular.ttf", kZ = ({ geometry: n }) => {
-  const e = Qe.useRef(null), t = M_(), i = ar(0.95, { stiffness: 140, damping: 16 }), s = pa(0), a = pa(0), l = { stiffness: 140, damping: 18, mass: 0.8 }, c = ar(s, l), d = ar(a, l), p = ar(1, { stiffness: 220, damping: 20 }), g = ar(0, { stiffness: 220, damping: 20 }), y = pa(0);
-  Qe.useEffect(() => {
+  const e = Je.useRef(null), t = M_(), i = ar(0.95, { stiffness: 140, damping: 16 }), s = pa(0), a = pa(0), l = { stiffness: 140, damping: 18, mass: 0.8 }, c = ar(s, l), d = ar(a, l), p = ar(1, { stiffness: 220, damping: 20 }), g = ar(0, { stiffness: 220, damping: 20 }), y = pa(0);
+  Je.useEffect(() => {
     i.set(1);
   }, [i]);
   const x = (C) => {
@@ -70019,8 +70019,8 @@ const FZ = () => typeof document < "u" && document.baseURI ? new URL("assets/fon
     }
   );
 }, BZ = () => {
-  const n = Qe.useRef(null), [e, t] = Qe.useState(null), [i, s] = Qe.useState(!0);
-  return Qe.useEffect(() => {
+  const n = Je.useRef(null), [e, t] = Je.useState(null), [i, s] = Je.useState(!0);
+  return Je.useEffect(() => {
     let a = !1, l = null;
     return fetch(FZ()).then((c) => {
       if (!c.ok) throw new Error(`Failed to load font: ${c.statusText}`);
@@ -70055,7 +70055,7 @@ const FZ = () => typeof document < "u" && document.baseURI ? new URL("assets/fon
     }), () => {
       a = !0, l && l.dispose();
     };
-  }, []), Qe.useEffect(() => {
+  }, []), Je.useEffect(() => {
     const a = n.current;
     if (!a) return;
     const l = new IntersectionObserver(
@@ -70128,7 +70128,6 @@ function GZ(n, e) {
 class _w {
   id;
   name;
-  nameZh;
   color;
   x;
   branchType;
@@ -70142,7 +70141,7 @@ class _w {
   network;
   points = [];
   constructor(e, t, i = null) {
-    this.id = e.id, this.name = e.name, this.nameZh = e.nameZh, this.color = e.color, this.x = e.x, this.branchType = e.branchType || "trunk", this.defaultSide = e.defaultSide || "right", this.lineType = e.lineType || (this.branchType === "siding" ? "siding" : "product"), this.casingColor = e.casingColor || rd, this.casingWidth = e.casingWidth || 10, this.strokeWidth = e.strokeWidth || 7, this.network = t, this.parentLine = i;
+    this.id = e.id, this.name = e.name, this.color = e.color, this.x = e.x, this.branchType = e.branchType || "trunk", this.defaultSide = e.defaultSide || "right", this.lineType = e.lineType || (this.branchType === "siding" ? "siding" : "product"), this.casingColor = e.casingColor || rd, this.casingWidth = e.casingWidth || 10, this.strokeWidth = e.strokeWidth || 7, this.network = t, this.parentLine = i;
   }
   /**
    * Adds a point/station to this line with a date.
@@ -70331,7 +70330,6 @@ function LU() {
   const n = new WZ(), e = n.createLine({
     id: "foundation",
     name: "Foundation Trunk",
-    nameZh: "技術實踐與系統基礎",
     color: Sf,
     x: md,
     branchType: "trunk",
@@ -70343,13 +70341,9 @@ function LU() {
     id: "station-1",
     date: "2019-01",
     name: "Unity C# & Blender",
-    nameZh: "自學 Unity C# 與 Blender",
     period: "2019",
-    periodZh: "2019 年",
     role: "Mastered programming in Unity C# and 3D modeling",
-    roleZh: "自主研習 Unity C# 程式設計與 3D 建模",
     org: "Independent Technical Foundations",
-    orgZh: "獨立技術實踐與系統基礎",
     actionHeadline: "Mastered self-taught programming in Unity C# and 3D modeling",
     side: "left",
     lineType: "systems"
@@ -70357,7 +70351,6 @@ function LU() {
   const t = e.addLine({
     id: "product",
     name: "Commercial Product Line",
-    nameZh: "商業產品與互動軟體",
     color: MU,
     x: CU,
     branchType: "fork",
@@ -70371,13 +70364,9 @@ function LU() {
     id: "station-2",
     date: "2020-12",
     name: "MRKE Fast-Turnaround Salon",
-    nameZh: "MRKE 門市商業營運",
     period: "Dec 2020 - Jun 2026",
-    periodZh: "2020 年 12 月 - 2026 年 6 月",
     role: "Founded fast-turnaround salon and mapped consultation bottlenecks",
-    roleZh: "創辦快速剪髮門市並梳理溝通痛點",
     org: "MRKE Ltd. | Fast-Turnaround Haircut Business",
-    orgZh: "MRKE Ltd. | 快速剪髮實體商業營運",
     actionHeadline: "Founded fast-turnaround haircut business and mapped consultation bottlenecks",
     side: "right",
     lineType: "product"
@@ -70385,7 +70374,6 @@ function LU() {
   const i = e.addLine({
     id: "systems",
     name: "Applied AI and Systems Line",
-    nameZh: "應用 AI 與系統工程",
     color: EU,
     x: wU,
     branchType: "fork",
@@ -70399,13 +70387,9 @@ function LU() {
     id: "station-3",
     date: "2023-09",
     name: "Local Multimodal AI Avatar",
-    nameZh: "本地多模態 AI 虛擬校長",
     period: "Sep 2023 - Jun 2024",
-    periodZh: "2023 年 9 月 - 2024 年 6 月",
     role: "Engineered local GPU multimodal pipeline with real-time feedback",
-    roleZh: "建構本地 GPU 多模態管線與即時反饋",
     org: "National Tainan University of the Arts",
-    orgZh: "國立臺南藝術大學",
     actionHeadline: "Engineered local GPU multimodal AI pipeline with real-time visual feedback",
     caseUrl: "cases/virtual-principal.html",
     side: "left",
@@ -70414,13 +70398,9 @@ function LU() {
     id: "station-4",
     date: "2023-11",
     name: "Live Concert Motion Capture Sync",
-    nameZh: "二胡音樂會動捕即時同步",
     period: "Nov 2023 - Dec 2024",
-    periodZh: "2023 年 11 月 - 2024 年 12 月",
     role: "Synchronized virtual avatar with live Erhu using 1.5s buffer",
-    roleZh: "運用 1.5 秒緩衝同步虛擬化身與現場演出",
     org: "National Tainan University of the Arts",
-    orgZh: "國立臺南藝術大學",
     actionHeadline: "Synchronized virtual avatar with live Erhu performance using 1.5-second buffer",
     caseUrl: "cases/live-concert-sync.html",
     side: "left",
@@ -70429,13 +70409,9 @@ function LU() {
     id: "station-5",
     date: "2024-01",
     name: "MRKE In-Store 3D Preview App",
-    nameZh: "MRKE 3D 髮型預覽軟體",
     period: "2022 - Jun 2026",
-    periodZh: "2022 年 - 2026 年 6 月",
     role: "Shipped in-store 3D preview app cutting consultation ambiguity 35%",
-    roleZh: "研發 3D 預覽軟體降低 35% 諮詢溝通誤差",
     org: "MRKE Ltd. | In-House Interactive 3D Tooling",
-    orgZh: "MRKE Ltd. | 店內專用 3D 互動軟體研發",
     actionHeadline: "Shipped in-store 3D preview app cutting consultation ambiguity by 35 percent",
     caseUrl: "cases/mrke-3d.html",
     side: "right",
@@ -70443,7 +70419,6 @@ function LU() {
   }), i.addLine({
     id: "siding",
     name: "Clinical Diagnostic Siding",
-    nameZh: "臨床診療數位驗證支線",
     color: AU,
     x: RU,
     branchType: "siding",
@@ -70456,13 +70431,9 @@ function LU() {
     id: "station-6",
     date: "2024-07",
     name: "Clinical AI Simulator Diagnostics",
-    nameZh: "醫諾華臨床模擬體驗診斷",
     period: "Jul 2024 - Aug 2024",
-    periodZh: "2024 年 7 月 - 2024 年 8 月",
     role: "Audited 50 clinical simulation cases to align schemas",
-    roleZh: "診斷 50 例虛擬病人對齊醫學數據綱要",
     org: "Innova Medical Technology Co., Ltd.",
-    orgZh: "醫諾華醫學科技股份有限公司",
     actionHeadline: "Audited 50 clinical simulation cases to align schemas and eliminate diagnostic errors",
     caseUrl: "cases/innova-medical.html",
     side: "left",
@@ -70471,13 +70442,9 @@ function LU() {
     id: "station-7",
     date: "2025-02",
     name: "CollarAgent Visual Research Studio",
-    nameZh: "CollarAgent 視覺化研究工作台",
     period: "2025",
-    periodZh: "2025 年",
     role: "Built local-first visual studio pairing LangGraph with canvas",
-    roleZh: "打造結合 LangGraph 與無限畫布的視覺化工作台",
     org: "CollarAgent | Visual Research Studio",
-    orgZh: "CollarAgent | 視覺化研究工作台",
     actionHeadline: "Built local-first visual research studio pairing LangGraph with infinite canvas",
     caseUrl: "cases/collaragent.html",
     side: "right",
@@ -70486,13 +70453,9 @@ function LU() {
     id: "station-8",
     date: "2025-08",
     name: "IEEE ICVR 2026 Ambisonics Study",
-    nameZh: "IEEE ICVR 2026 國際研究發表",
     period: "2025 - 2026",
-    periodZh: "2025 年 - 2026 年",
     role: "Quantified visual capture and sensory conflict in VR",
-    roleZh: "量化 VR 視聽衝突與空間音訊感知邊界",
     org: "IEEE ICVR 2026 | Cardiff, UK",
-    orgZh: "IEEE ICVR 2026 虛擬實境國際研討會",
     actionHeadline: "Quantified visual capture and sensory conflict in VR with 16-channel Ambisonics",
     caseUrl: "cases/ieee-vr-conflict.html",
     side: "left",
@@ -70501,13 +70464,9 @@ function LU() {
     id: "station-9",
     date: "2026-01",
     name: "Stratawright Agentic DAW",
-    nameZh: "Stratawright 智慧代理音訊工作站",
     period: "2026",
-    periodZh: "2026 年",
     role: "Architected digital audio workstation for agent CLI protocols",
-    roleZh: "架構支援 Agent CLI 協議的專業音訊工作站",
     org: "Stratawright | Agentic Audio Workstation",
-    orgZh: "Stratawright | 智慧代理音訊工作站",
     actionHeadline: "Architected digital audio workstation controlled by agent CLI protocols",
     caseUrl: "cases/stratawright.html",
     side: "left",
@@ -70515,7 +70474,6 @@ function LU() {
   }), n.createLine({
     id: "unified",
     name: "Unified Trajectory Line",
-    nameZh: "未來願景與發展樞紐",
     color: Sf,
     x: md,
     branchType: "terminal",
@@ -70526,13 +70484,9 @@ function LU() {
     id: "station-10",
     date: "2026-06",
     name: "Next Destination",
-    nameZh: "下一站",
     period: "2026+",
-    periodZh: "2026 年起",
     role: "Connecting business, creative arts, and software engineering",
-    roleZh: "融合商業營運、創意藝術與軟體工程",
     org: "Future Destination | Design Engineering",
-    orgZh: "探索多元跨領域發展機會",
     actionHeadline: "Connecting commercial operations, creative arts, and software engineering",
     side: "right",
     lineType: "interchange",
@@ -70547,7 +70501,7 @@ const XZ = ({
   network: t,
   metrics: i
 }) => {
-  const [s, a] = Qe.useState(null), l = Qe.useMemo(() => typeof document > "u" ? !1 : document.documentElement.lang === "zh" || document.documentElement.lang.startsWith("zh") || window.location.pathname.includes("_zh"), []), c = Qe.useMemo(() => t || OU, [t]), d = Qe.useMemo(() => i || c.computeLayout([]), [c, i]), p = Qe.useMemo(() => c.getAllStations(), [c]), g = Qe.useMemo(() => c.generateRoutes(d), [c, d]);
+  const [s, a] = Je.useState(null), l = Je.useMemo(() => t || OU, [t]), c = Je.useMemo(() => i || l.computeLayout([]), [l, i]), d = Je.useMemo(() => l.getAllStations(), [l]), p = Je.useMemo(() => l.generateRoutes(c), [l, c]);
   return /* @__PURE__ */ ct.jsx(
     "div",
     {
@@ -70564,7 +70518,7 @@ const XZ = ({
       children: /* @__PURE__ */ ct.jsxs(
         "svg",
         {
-          viewBox: `-40 0 320 ${d.totalHeight}`,
+          viewBox: `-40 0 320 ${c.totalHeight}`,
           style: {
             width: "100%",
             height: "100%",
@@ -70573,37 +70527,37 @@ const XZ = ({
           },
           preserveAspectRatio: "xMidYMid meet",
           children: [
-            g.map((y) => /* @__PURE__ */ ct.jsx(
+            p.map((g) => /* @__PURE__ */ ct.jsx(
               "path",
               {
-                d: y.pathD,
+                d: g.pathD,
                 fill: "none",
-                stroke: y.casingColor,
-                strokeWidth: y.casingWidth,
+                stroke: g.casingColor,
+                strokeWidth: g.casingWidth,
                 strokeLinecap: "round",
                 strokeLinejoin: "round"
               },
-              `casing-${y.id}`
+              `casing-${g.id}`
             )),
-            g.map((y) => /* @__PURE__ */ ct.jsx(
+            p.map((g) => /* @__PURE__ */ ct.jsx(
               "path",
               {
-                d: y.pathD,
+                d: g.pathD,
                 fill: "none",
-                stroke: y.strokeColor,
-                strokeWidth: y.strokeWidth,
+                stroke: g.strokeColor,
+                strokeWidth: g.strokeWidth,
                 strokeLinecap: "round",
                 strokeLinejoin: "round"
               },
-              `ink-${y.id}`
+              `ink-${g.id}`
             )),
             /* @__PURE__ */ ct.jsx(
               "line",
               {
                 x1: md - 16,
-                y1: d.terminalY,
+                y1: c.terminalY,
                 x2: md + 16,
-                y2: d.terminalY,
+                y2: c.terminalY,
                 stroke: Sf,
                 strokeWidth: "4",
                 strokeLinecap: "square"
@@ -70613,7 +70567,7 @@ const XZ = ({
               "circle",
               {
                 cx: md,
-                cy: d.forkY,
+                cy: c.forkY,
                 r: "8",
                 fill: "#ffffff",
                 stroke: Sf,
@@ -70624,63 +70578,63 @@ const XZ = ({
               "circle",
               {
                 cx: md,
-                cy: d.convergenceY,
+                cy: c.convergenceY,
                 r: "8",
                 fill: "#ffffff",
                 stroke: Sf,
                 strokeWidth: "3"
               }
             ),
-            p.map((y) => {
-              const x = d.stationYs[y.index], _ = y.index === n, T = y.index === s, C = !!y.isInterchange, E = y.lineType === "product" ? MU : y.lineType === "systems" ? EU : y.lineType === "siding" ? AU : Sf, L = y.side === "right" ? 280 : -40, O = x - 4;
+            d.map((g) => {
+              const y = c.stationYs[g.index], x = g.index === n, _ = g.index === s, T = !!g.isInterchange, C = g.lineType === "product" ? MU : g.lineType === "systems" ? EU : g.lineType === "siding" ? AU : Sf, A = g.side === "right" ? 280 : -40, L = y - 4;
               return /* @__PURE__ */ ct.jsxs(
                 "g",
                 {
                   role: "button",
                   tabIndex: 0,
-                  "aria-label": l ? `${y.stationNumber}. ${y.nameZh}` : `${y.stationNumber}. ${y.name}`,
-                  onClick: () => e(y.index),
-                  onKeyDown: (D) => {
-                    (D.key === "Enter" || D.key === " ") && (D.preventDefault(), e(y.index));
+                  "aria-label": `${g.stationNumber}. ${g.name}`,
+                  onClick: () => e(g.index),
+                  onKeyDown: (O) => {
+                    (O.key === "Enter" || O.key === " ") && (O.preventDefault(), e(g.index));
                   },
-                  onMouseEnter: () => a(y.index),
+                  onMouseEnter: () => a(g.index),
                   onMouseLeave: () => a(null),
                   style: { cursor: "pointer", outline: "none" },
                   children: [
-                    /* @__PURE__ */ ct.jsx("circle", { cx: y.x, cy: x, r: "28", fill: "transparent" }),
+                    /* @__PURE__ */ ct.jsx("circle", { cx: g.x, cy: y, r: "28", fill: "transparent" }),
                     /* @__PURE__ */ ct.jsx(
                       "line",
                       {
-                        x1: y.x,
-                        y1: x,
-                        x2: L,
-                        y2: x,
-                        stroke: E,
-                        strokeWidth: _ ? "2.5" : "1.5",
-                        strokeDasharray: _ ? "none" : "3 3",
-                        opacity: _ ? 0.9 : 0.45,
+                        x1: g.x,
+                        y1: y,
+                        x2: A,
+                        y2: y,
+                        stroke: C,
+                        strokeWidth: x ? "2.5" : "1.5",
+                        strokeDasharray: x ? "none" : "3 3",
+                        opacity: x ? 0.9 : 0.45,
                         style: { transition: "opacity 0.15s ease" }
                       }
                     ),
                     /* @__PURE__ */ ct.jsx(
                       "circle",
                       {
-                        cx: L,
-                        cy: x,
+                        cx: A,
+                        cy: y,
                         r: "3",
-                        fill: _ ? E : "#8e8e93",
-                        opacity: _ ? 1 : 0.6
+                        fill: x ? C : "#8e8e93",
+                        opacity: x ? 1 : 0.6
                       }
                     ),
-                    _ && /* @__PURE__ */ ct.jsxs("g", { style: { pointerEvents: "none" }, children: [
+                    x && /* @__PURE__ */ ct.jsxs("g", { style: { pointerEvents: "none" }, children: [
                       /* @__PURE__ */ ct.jsx(
                         "circle",
                         {
-                          cx: y.x,
-                          cy: x,
+                          cx: g.x,
+                          cy: y,
                           r: "16",
                           fill: "none",
-                          stroke: E,
+                          stroke: C,
                           strokeWidth: "1.5",
                           opacity: "0.5"
                         }
@@ -70688,19 +70642,19 @@ const XZ = ({
                       /* @__PURE__ */ ct.jsx(
                         "circle",
                         {
-                          cx: y.x,
-                          cy: x,
+                          cx: g.x,
+                          cy: y,
                           r: "3",
-                          fill: E
+                          fill: C
                         }
                       )
                     ] }),
-                    C ? /* @__PURE__ */ ct.jsx(
+                    T ? /* @__PURE__ */ ct.jsx(
                       "circle",
                       {
-                        cx: y.x,
-                        cy: x,
-                        r: _ ? 10 : T ? 9 : 8,
+                        cx: g.x,
+                        cy: y,
+                        r: x ? 10 : _ ? 9 : 8,
                         fill: "#ffffff",
                         stroke: Sf,
                         strokeWidth: "3"
@@ -70709,11 +70663,11 @@ const XZ = ({
                       /* @__PURE__ */ ct.jsx(
                         "line",
                         {
-                          x1: y.x - 6,
-                          y1: x,
-                          x2: y.x + 6,
-                          y2: x,
-                          stroke: E,
+                          x1: g.x - 6,
+                          y1: y,
+                          x2: g.x + 6,
+                          y2: y,
+                          stroke: C,
                           strokeWidth: "3.5",
                           strokeLinecap: "square"
                         }
@@ -70721,11 +70675,11 @@ const XZ = ({
                       /* @__PURE__ */ ct.jsx(
                         "circle",
                         {
-                          cx: y.x,
-                          cy: x,
-                          r: _ ? 7 : T ? 6 : 5,
+                          cx: g.x,
+                          cy: y,
+                          r: x ? 7 : _ ? 6 : 5,
                           fill: "#ffffff",
-                          stroke: E,
+                          stroke: C,
                           strokeWidth: "2.5"
                         }
                       )
@@ -70733,7 +70687,7 @@ const XZ = ({
                     /* @__PURE__ */ ct.jsx(
                       "g",
                       {
-                        transform: `translate(${y.labelX}, ${O})`,
+                        transform: `translate(${g.labelX}, ${L})`,
                         style: { pointerEvents: "none" },
                         children: /* @__PURE__ */ ct.jsx(
                           "text",
@@ -70745,18 +70699,18 @@ const XZ = ({
                             strokeWidth: "3.5",
                             strokeLinejoin: "round",
                             paintOrder: "stroke fill",
-                            fontSize: _ ? "11" : "10",
-                            fontWeight: _ ? "700" : "600",
+                            fontSize: x ? "11" : "10",
+                            fontWeight: x ? "700" : "600",
                             fontFamily: "var(--font-sans)",
-                            textAnchor: y.textAnchor,
-                            children: l ? y.nameZh : y.name
+                            textAnchor: g.textAnchor,
+                            children: g.name
                           }
                         )
                       }
                     )
                   ]
                 },
-                y.id
+                g.id
               );
             })
           ]
@@ -70765,7 +70719,7 @@ const XZ = ({
     }
   );
 }, qZ = () => {
-  const [n, e] = Qe.useState(0), [t, i] = Qe.useState(null), s = Qe.useRef(null), a = Qe.useMemo(() => LU(), []), l = Qe.useMemo(() => a.getAllStations(), [a]), c = Qe.useRef(null), d = Qe.useRef(!1), p = Qe.useRef(null), g = Qe.useRef(!1), y = 4, x = 150, _ = Qe.useCallback(
+  const [n, e] = Je.useState(0), [t, i] = Je.useState(null), s = Je.useRef(null), a = Je.useMemo(() => LU(), []), l = Je.useMemo(() => a.getAllStations(), [a]), c = Je.useRef(null), d = Je.useRef(!1), p = Je.useRef(null), g = Je.useRef(!1), y = 4, x = 150, _ = Je.useCallback(
     (E) => {
       if (typeof window > "u") return;
       if (window.innerWidth <= 900) {
@@ -70799,7 +70753,7 @@ const XZ = ({
       );
     },
     [a]
-  ), T = Qe.useCallback(
+  ), T = Je.useCallback(
     (E) => {
       if (d.current && !E?.force) {
         g.current = !0;
@@ -70809,7 +70763,7 @@ const XZ = ({
     },
     [_]
   );
-  Qe.useEffect(() => {
+  Je.useEffect(() => {
     let E = null, A = null, L = null;
     const O = (P) => {
       A !== null && cancelAnimationFrame(A), A = requestAnimationFrame(() => {
@@ -70836,7 +70790,7 @@ const XZ = ({
       A !== null && cancelAnimationFrame(A), L !== null && window.clearTimeout(L), p.current !== null && (window.clearTimeout(p.current), p.current = null), E && E.disconnect(), window.removeEventListener("scroll", D), window.removeEventListener("resize", U);
     };
   }, [T]);
-  const C = Qe.useCallback(
+  const C = Je.useCallback(
     (E) => {
       e(E), window.dispatchEvent(
         new CustomEvent("journey-active-station-changed", {
@@ -70850,7 +70804,7 @@ const XZ = ({
     },
     [l]
   );
-  return Qe.useEffect(() => {
+  return Je.useEffect(() => {
     const E = (L) => {
       const O = L;
       if (typeof O.detail?.progress == "number") {
