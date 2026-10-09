@@ -115,7 +115,7 @@ export function createDefaultJourneyNetwork(): TransitNetwork {
   // Station 5: MRKE 3D Hairstyle App
   productLine.addPoint({
     id: 'station-5',
-    date: '2024-01',
+    date: '2022-01',
     name: 'MRKE In-Store 3D Preview App',
     period: '2022 - Jun 2026',
     role: 'Shipped in-store 3D preview app cutting consultation ambiguity 35%',

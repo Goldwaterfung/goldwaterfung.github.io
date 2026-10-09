@@ -1476,24 +1476,24 @@ figcaption {
     transform: translateY(-50%);
 }
 
-/* Station 3: Local Multimodal AI Avatar (Left side, y = 720px) */
+/* Station 5: MRKE In-Store 3D Preview App (Right side, y = 720px) */
 .journey-card[data-station="2"] {
     top: 720px;
-    right: calc(50% + 160px);
+    left: calc(50% + 160px);
     transform: translateY(-50%);
 }
 
-/* Station 4: Live Concert Motion Capture Sync (Left side, y = 960px) */
+/* Station 3: Local Multimodal AI Avatar (Left side, y = 960px) */
 .journey-card[data-station="3"] {
     top: 960px;
     right: calc(50% + 160px);
     transform: translateY(-50%);
 }
 
-/* Station 5: MRKE In-Store 3D Preview App (Right side, y = 1200px) */
+/* Station 4: Live Concert Motion Capture Sync (Left side, y = 1200px) */
 .journey-card[data-station="4"] {
     top: 1200px;
-    left: calc(50% + 160px);
+    right: calc(50% + 160px);
     transform: translateY(-50%);
 }
 
