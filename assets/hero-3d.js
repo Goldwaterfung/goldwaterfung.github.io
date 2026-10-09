@@ -70454,9 +70454,9 @@ function LU() {
     date: "2025-08",
     name: "IEEE ICVR 2026 Ambisonics Study",
     period: "2025 - 2026",
-    role: "Quantified visual capture and sensory conflict in VR",
+    role: "Led HCI perception research in VR on visual capture and sensory conflict",
     org: "IEEE ICVR 2026 | Cardiff, UK",
-    actionHeadline: "Quantified visual capture and sensory conflict in VR with 16-channel Ambisonics",
+    actionHeadline: "Led Human-Computer Interaction perception research in VR with 16-channel Ambisonics",
     caseUrl: "cases/ieee-vr-conflict.html",
     side: "left",
     lineType: "systems"
