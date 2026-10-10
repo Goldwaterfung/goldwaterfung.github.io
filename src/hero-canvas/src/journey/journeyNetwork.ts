@@ -168,15 +168,15 @@ export function createDefaultJourneyNetwork(): TransitNetwork {
     lineType: 'product',
   })
 
-  // Station 8: IEEE ICVR 2026 Research
+  // Station 8: Human-Computer Interaction Research
   systemsLine.addPoint({
     id: 'station-8',
     date: '2025-08',
-    name: 'IEEE ICVR 2026 Ambisonics Study',
+    name: 'HCI Perception Research',
     period: '2025 - 2026',
-    role: 'Led HCI perception research in VR on visual capture and sensory conflict',
+    role: 'First-author HCI research on interface perception and cognitive latency',
     org: 'IEEE ICVR 2026 | Cardiff, UK',
-    actionHeadline: 'Led Human-Computer Interaction perception research in VR with 16-channel Ambisonics',
+    actionHeadline: 'First-author Human-Computer Interaction research on interface perception and cognitive latency',
     caseUrl: 'cases/ieee-vr-conflict.html',
     side: 'left',
     lineType: 'systems',
