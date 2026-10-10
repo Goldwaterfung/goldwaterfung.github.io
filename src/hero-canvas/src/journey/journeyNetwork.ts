@@ -168,15 +168,15 @@ export function createDefaultJourneyNetwork(): TransitNetwork {
     lineType: 'product',
   })
 
-  // Station 8: Human-Computer Interaction Research
+  // Station 8: Human-Computer Interaction and Virtual Reality Research
   systemsLine.addPoint({
     id: 'station-8',
     date: '2025-08',
-    name: 'HCI Perception Research',
+    name: 'HCI & VR Perception Study',
     period: '2025 - 2026',
-    role: 'First-author HCI research on interface perception and cognitive latency',
+    role: 'First-author HCI research in Virtual Reality on cognitive latency',
     org: 'IEEE ICVR 2026 | Cardiff, UK',
-    actionHeadline: 'First-author Human-Computer Interaction research on interface perception and cognitive latency',
+    actionHeadline: 'First-author Human-Computer Interaction research in Virtual Reality on cognitive latency',
     caseUrl: 'cases/ieee-vr-conflict.html',
     side: 'left',
     lineType: 'systems',
