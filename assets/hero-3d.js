@@ -70452,11 +70452,11 @@ function LU() {
   }), i.addPoint({
     id: "station-8",
     date: "2025-08",
-    name: "IEEE ICVR 2026 Ambisonics Study",
+    name: "HCI & VR Perception Study",
     period: "2025 - 2026",
-    role: "Led HCI perception research in VR on visual capture and sensory conflict",
+    role: "First-author HCI research in Virtual Reality on cognitive latency",
     org: "IEEE ICVR 2026 | Cardiff, UK",
-    actionHeadline: "Led Human-Computer Interaction perception research in VR with 16-channel Ambisonics",
+    actionHeadline: "First-author Human-Computer Interaction research in Virtual Reality on cognitive latency",
     caseUrl: "cases/ieee-vr-conflict.html",
     side: "left",
     lineType: "systems"

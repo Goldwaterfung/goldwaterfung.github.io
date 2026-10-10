@@ -257,6 +257,7 @@ export function createFurnitureEditor(ctx: FurnitureEditorContext): FurnitureEdi
         ctx.scene.add(placed);
         placedItems.push(placed);
         select(placed);
+        pushHistory({ kind: "add", obj: placed });
       }
       if (ghost) {
         ctx.scene.remove(ghost);
@@ -277,11 +278,148 @@ export function createFurnitureEditor(ctx: FurnitureEditorContext): FurnitureEdi
   const placedItems: THREE.Group[] = [];
   let selected: THREE.Group | null = null;
 
+  // ---- Command history (add / delete / transform) ----
+  interface TransformSnapshot {
+    pos: THREE.Vector3;
+    quat: THREE.Quaternion;
+    scale: THREE.Vector3;
+  }
+  type HistoryEntry =
+    | { kind: "add"; obj: THREE.Group }
+    | { kind: "delete"; obj: THREE.Group; index: number }
+    | { kind: "transform"; obj: THREE.Group; before: TransformSnapshot; after: TransformSnapshot };
+  const undoStack: HistoryEntry[] = [];
+  const redoStack: HistoryEntry[] = [];
+  const MAX_HISTORY = 50;
+
+  function snapshotOf(obj: THREE.Group): TransformSnapshot {
+    return { pos: obj.position.clone(), quat: obj.quaternion.clone(), scale: obj.scale.clone() };
+  }
+  function applySnapshot(obj: THREE.Group, snap: TransformSnapshot): void {
+    obj.position.copy(snap.pos);
+    obj.quaternion.copy(snap.quat);
+    obj.scale.copy(snap.scale);
+  }
+  function snapshotsEqual(a: TransformSnapshot, b: TransformSnapshot): boolean {
+    const eps = 1e-5;
+    return (
+      a.pos.distanceToSquared(b.pos) < eps &&
+      a.scale.distanceToSquared(b.scale) < eps &&
+      1 - Math.abs(a.quat.dot(b.quat)) < eps
+    );
+  }
+
+  function updateHistoryButtons(): void {
+    const undoBtn = document.getElementById("btn-undo") as HTMLButtonElement | null;
+    const redoBtn = document.getElementById("btn-redo") as HTMLButtonElement | null;
+    const delBtn = document.getElementById("btn-delete") as HTMLButtonElement | null;
+    const dupBtn = document.getElementById("btn-duplicate") as HTMLButtonElement | null;
+    if (undoBtn) undoBtn.disabled = undoStack.length === 0;
+    if (redoBtn) redoBtn.disabled = redoStack.length === 0;
+    if (delBtn) delBtn.disabled = selected === null;
+    if (dupBtn) dupBtn.disabled = selected === null;
+  }
+
+  function pushHistory(entry: HistoryEntry): void {
+    undoStack.push(entry);
+    if (undoStack.length > MAX_HISTORY) undoStack.shift();
+    redoStack.length = 0;
+    updateHistoryButtons();
+  }
+
+  function removeObject(obj: THREE.Group): void {
+    const idx = placedItems.indexOf(obj);
+    if (idx >= 0) placedItems.splice(idx, 1);
+    ctx.scene.remove(obj);
+  }
+
+  function undo(): void {
+    const entry = undoStack.pop();
+    if (!entry) return;
+    if (entry.kind === "add") {
+      if (selected === entry.obj) select(null);
+      removeObject(entry.obj);
+      redoStack.push(entry);
+    } else if (entry.kind === "delete") {
+      placedItems.splice(Math.min(entry.index, placedItems.length), 0, entry.obj);
+      ctx.scene.add(entry.obj);
+      select(entry.obj);
+      redoStack.push(entry);
+    } else {
+      applySnapshot(entry.obj, entry.before);
+      entry.obj.position.x = THREE.MathUtils.clamp(entry.obj.position.x, ctx.roomBox.min.x, ctx.roomBox.max.x);
+      entry.obj.position.z = THREE.MathUtils.clamp(entry.obj.position.z, ctx.roomBox.min.z, ctx.roomBox.max.z);
+      entry.obj.position.y = ctx.floorY;
+      select(entry.obj);
+      redoStack.push(entry);
+    }
+    updateHistoryButtons();
+  }
+
+  function redo(): void {
+    const entry = redoStack.pop();
+    if (!entry) return;
+    if (entry.kind === "add") {
+      placedItems.push(entry.obj);
+      ctx.scene.add(entry.obj);
+      select(entry.obj);
+      undoStack.push(entry);
+    } else if (entry.kind === "delete") {
+      if (selected === entry.obj) select(null);
+      removeObject(entry.obj);
+      undoStack.push(entry);
+    } else {
+      applySnapshot(entry.obj, entry.after);
+      entry.obj.position.x = THREE.MathUtils.clamp(entry.obj.position.x, ctx.roomBox.min.x, ctx.roomBox.max.x);
+      entry.obj.position.z = THREE.MathUtils.clamp(entry.obj.position.z, ctx.roomBox.min.z, ctx.roomBox.max.z);
+      entry.obj.position.y = ctx.floorY;
+      select(entry.obj);
+      undoStack.push(entry);
+    }
+    updateHistoryButtons();
+  }
+
+  function deleteSelected(): void {
+    if (!selected || gizmo.dragging) return;
+    const obj = selected;
+    const index = placedItems.indexOf(obj);
+    select(null);
+    removeObject(obj);
+    pushHistory({ kind: "delete", obj, index: Math.max(0, index) });
+  }
+
+  function duplicateSelected(): void {
+    if (!selected || gizmo.dragging) return;
+    const copy = selected.clone(true);
+    copy.position.x = THREE.MathUtils.clamp(copy.position.x + 0.3, ctx.roomBox.min.x, ctx.roomBox.max.x);
+    copy.position.z = THREE.MathUtils.clamp(copy.position.z + 0.3, ctx.roomBox.min.z, ctx.roomBox.max.z);
+    copy.position.y = ctx.floorY;
+    ctx.scene.add(copy);
+    placedItems.push(copy);
+    select(copy);
+    pushHistory({ kind: "add", obj: copy });
+  }
+
   const gizmo = new TransformControls(ctx.camera, ctx.renderer.domElement);
   gizmo.setSize(0.8);
   gizmo.setMode("translate");
   gizmo.showY = false; // pieces stay grounded; no vertical handle
   ctx.scene.add(gizmo.getHelper());
+
+  // Snapshot the transform on grab so a full drag compresses to one undo step.
+  let dragSnapshot: { obj: THREE.Group; before: TransformSnapshot } | null = null;
+  gizmo.addEventListener("mouseDown", () => {
+    if (selected) dragSnapshot = { obj: selected, before: snapshotOf(selected) };
+  });
+  gizmo.addEventListener("mouseUp", () => {
+    if (dragSnapshot && dragSnapshot.obj === selected && selected) {
+      const after = snapshotOf(selected);
+      if (!snapshotsEqual(dragSnapshot.before, after)) {
+        pushHistory({ kind: "transform", obj: selected, before: dragSnapshot.before, after });
+      }
+    }
+    dragSnapshot = null;
+  });
 
   // Persistent selection ring (white) under the selected piece.
   const selectRing = new THREE.Mesh(
@@ -312,6 +450,7 @@ export function createFurnitureEditor(ctx: FurnitureEditorContext): FurnitureEdi
       gizmo.detach();
       selectRing.visible = false;
     }
+    updateHistoryButtons();
   }
 
   // Keep edits inside the room box; pieces stay on the floor; scale stays sane.
@@ -332,20 +471,48 @@ export function createFurnitureEditor(ctx: FurnitureEditorContext): FurnitureEdi
   function setMode(mode: GizmoMode): void {
     gizmo.setMode(mode);
     gizmo.showY = mode !== "translate";
-    document.querySelectorAll<HTMLButtonElement>("#gizmo-bar button").forEach((btn) => {
+    document.querySelectorAll<HTMLButtonElement>("#gizmo-bar button[data-mode]").forEach((btn) => {
       btn.classList.toggle("is-active", btn.dataset.mode === mode);
     });
   }
 
-  document.querySelectorAll<HTMLButtonElement>("#gizmo-bar button").forEach((btn) => {
+  document.querySelectorAll<HTMLButtonElement>("#gizmo-bar button[data-mode]").forEach((btn) => {
     btn.addEventListener("click", () => setMode(btn.dataset.mode as GizmoMode));
   });
+  document.getElementById("btn-duplicate")?.addEventListener("click", duplicateSelected);
+  document.getElementById("btn-delete")?.addEventListener("click", deleteSelected);
+  document.getElementById("btn-undo")?.addEventListener("click", undo);
+  document.getElementById("btn-redo")?.addEventListener("click", redo);
   window.addEventListener("keydown", (e) => {
-    if (e.key === "w" || e.key === "W") setMode("translate");
+    const mod = e.ctrlKey || e.metaKey;
+    const key = e.key.toLowerCase();
+    if (mod && key === "z" && !e.shiftKey) {
+      e.preventDefault();
+      undo();
+      return;
+    }
+    if ((mod && key === "y") || (mod && key === "z" && e.shiftKey)) {
+      e.preventDefault();
+      redo();
+      return;
+    }
+    if (mod && key === "d") {
+      e.preventDefault();
+      duplicateSelected();
+      return;
+    }
+    if (mod) return; // don't hijack browser shortcuts (e.g. Cmd+R)
+    const target = e.target as HTMLElement | null;
+    if (target && (target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.isContentEditable)) return;
+    if (e.key === "Delete" || e.key === "Backspace") {
+      e.preventDefault();
+      deleteSelected();
+    } else if (e.key === "w" || e.key === "W") setMode("translate");
     else if (e.key === "e" || e.key === "E") setMode("rotate");
     else if (e.key === "r" || e.key === "R") setMode("scale");
     else if (e.key === "Escape") select(null);
   });
+  updateHistoryButtons();
 
   // Click (no drag) on canvas: select topmost piece, or deselect on empty.
   // Ignored while hovering the gizmo itself so orbiting handles can't drop selection.

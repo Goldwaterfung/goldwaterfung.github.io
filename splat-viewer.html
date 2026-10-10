@@ -300,6 +300,18 @@
             color: #fff;
         }
 
+        #gizmo-bar .gizmo-sep {
+            width: 1px;
+            align-self: stretch;
+            margin: 6px 2px;
+            background: rgba(255, 255, 255, 0.18);
+        }
+
+        #gizmo-bar button:disabled {
+            opacity: 0.35;
+            cursor: default;
+        }
+
         /* Panel collapse toggle */
         #furn-toggle {
             position: fixed;
@@ -351,6 +363,12 @@
         <button type="button" data-mode="translate" class="is-active">Move</button>
         <button type="button" data-mode="rotate">Rotate</button>
         <button type="button" data-mode="scale">Scale</button>
+        <span class="gizmo-sep" aria-hidden="true"></span>
+        <button type="button" id="btn-duplicate" title="Duplicate selected (Ctrl+D)" disabled>Duplicate</button>
+        <button type="button" id="btn-delete" title="Delete selected (Del)" disabled>Delete</button>
+        <span class="gizmo-sep" aria-hidden="true"></span>
+        <button type="button" id="btn-undo" title="Undo (Ctrl+Z)" disabled>Undo</button>
+        <button type="button" id="btn-redo" title="Redo (Ctrl+Shift+Z)" disabled>Redo</button>
     </div>
 
     <aside id="furn-panel" aria-label="Furniture catalog">
