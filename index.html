@@ -356,14 +356,11 @@
             </div>
         </section>
 
-        <!-- Follow-up: Selected Case Studies (for visitors who skipped journey links) -->
-        <section id="selected-cases" class="followup-section" aria-label="Selected case studies">
+        <!-- Follow-up: highlighted cases (for visitors who skipped journey links) -->
+        <section id="selected-cases" class="followup-section" aria-label="Highlighted case studies">
             <div class="followup-container">
                 <div class="followup-header">
-                    <span class="mono-section-label">Selected Case Studies</span>
                     <h2 class="followup-title">Skimmed the journey? Start with these three.</h2>
-                    <p class="followup-sub">If you did not open a case study above, these are the three to click — each
-                        one shows how I turn an ambiguous user need into a shipped system.</p>
                 </div>
 
                 <div class="followup-list">
@@ -436,17 +433,30 @@
                     real-time applications people can actually use. Currently open to full-time roles.
                 </p>
                 <div class="footer-cta-buttons">
-                    <a href="#" data-email-link class="btn btn-dark">
-                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3.5 7 L12 13 L20.5 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Get in Touch About a Role
-                    </a>
+                    <button type="button" id="contact-reveal-btn" class="btn btn-dark" aria-expanded="false"
+                        aria-controls="contact-card">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5 15 V6 a2 2 0 0 1 2-2 h9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Copy Email for a Role
+                    </button>
                     <a href="https://github.com/Goldwaterfung/" target="_blank" rel="noopener" class="btn btn-light">
                         <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 8 L4 12 L8 16 M16 8 L20 12 L16 16 M13.5 5 L10.5 19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> GitHub Profile
                     </a>
                 </div>
+                <div id="contact-card" class="contact-card" hidden>
+                    <p class="contact-card-label">Email — I reply within 24h</p>
+                    <div class="contact-card-email-row">
+                        <code id="contact-email-text" class="contact-email-text">…</code>
+                        <button type="button" id="contact-copy-btn" class="btn btn-light btn-small">Copy</button>
+                    </div>
+                    <p id="contact-copy-feedback" class="contact-copy-feedback" role="status" aria-live="polite"></p>
+                    <div class="contact-card-actions">
+                        <a id="contact-gmail-link" class="btn btn-light btn-small" target="_blank" rel="noopener" href="#">Open in Gmail</a>
+                        <a id="contact-outlook-link" class="btn btn-light btn-small" target="_blank" rel="noopener" href="#">Open in Outlook</a>
+                    </div>
+                </div>
                 <div class="footer-bottom-line">
                     <span>&copy; 2026 Kim Fung. All rights reserved.</span>
                     <div class="footer-social-links">
-                        <a href="#" data-email-link>Email</a>
+                        <button type="button" id="contact-footer-link" class="footer-text-btn">Email</button>
                         <a href="https://github.com/Goldwaterfung/" target="_blank" rel="noopener">GitHub</a>
                     </div>
                 </div>

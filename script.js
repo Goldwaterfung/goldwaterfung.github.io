@@ -5,13 +5,96 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     // ----------------------------------------------------
-    // 0a. Obfuscated contact email: plain address never appears in HTML
-    // (reassembled here so scrapers see only fragments).
+    // 0a. Contact email: plain address never appears in HTML.
+    // Revealed only on user click (copy-first, no native mail client)
+    // to avoid native mail-app dead-ends + scraper harvesting.
     // ----------------------------------------------------
     const EMAIL_USER = ['kim', 'kamkiu', 'fung'].join('.');
     const EMAIL_DOMAIN = ['gmail', 'com'].join('.');
-    document.querySelectorAll('[data-email-link]').forEach((a) => {
-        a.setAttribute('href', `mailto:${EMAIL_USER}@${EMAIL_DOMAIN}`);
+    const CONTACT_SUBJECT = 'Role Opportunity for Kim Fung';
+    const revealBtn = document.getElementById('contact-reveal-btn');
+    const contactCard = document.getElementById('contact-card');
+    const emailText = document.getElementById('contact-email-text');
+    const copyBtn = document.getElementById('contact-copy-btn');
+    const copyFeedback = document.getElementById('contact-copy-feedback');
+    const gmailLink = document.getElementById('contact-gmail-link');
+    const outlookLink = document.getElementById('contact-outlook-link');
+    const footerEmailBtn = document.getElementById('contact-footer-link');
+
+    function getContactEmail() {
+        return `${EMAIL_USER}@${EMAIL_DOMAIN}`;
+    }
+
+    function openContactCard() {
+        if (!contactCard || !revealBtn) return;
+        const email = getContactEmail();
+        if (emailText) emailText.textContent = email;
+        if (gmailLink) {
+            gmailLink.href = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}&su=${encodeURIComponent(CONTACT_SUBJECT)}`;
+        }
+        if (outlookLink) {
+            outlookLink.href = `https://outlook.live.com/owa/?path=/mail/action/compose&to=${encodeURIComponent(email)}&subject=${encodeURIComponent(CONTACT_SUBJECT)}`;
+        }
+        contactCard.hidden = false;
+        revealBtn.setAttribute('aria-expanded', 'true');
+    }
+
+    function toggleContactCard() {
+        if (!contactCard || !revealBtn) return;
+        if (contactCard.hidden) {
+            openContactCard();
+        } else {
+            contactCard.hidden = true;
+            revealBtn.setAttribute('aria-expanded', 'false');
+        }
+    }
+
+    async function copyContactEmail() {
+        openContactCard();
+        const email = getContactEmail();
+        let ok = false;
+        try {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                await navigator.clipboard.writeText(email);
+                ok = true;
+            }
+        } catch (err) { /* fall through to legacy path */ }
+        if (!ok) {
+            try {
+                const ta = document.createElement('textarea');
+                ta.value = email;
+                ta.setAttribute('readonly', '');
+                ta.style.position = 'absolute';
+                ta.style.left = '-9999px';
+                document.body.appendChild(ta);
+                ta.select();
+                ok = document.execCommand('copy');
+                document.body.removeChild(ta);
+            } catch (err) { ok = false; }
+        }
+        if (copyFeedback) {
+            copyFeedback.textContent = ok
+                ? 'Copied — paste it in your ATS or Gmail.'
+                : `Copy failed — email is ${email}`;
+        }
+        if (copyBtn) {
+            const original = 'Copy';
+            if (ok) {
+                copyBtn.textContent = 'Copied ✓';
+                window.setTimeout(() => { copyBtn.textContent = original; }, 2000);
+            }
+        }
+    }
+
+    if (revealBtn) revealBtn.addEventListener('click', toggleContactCard);
+    if (copyBtn) copyBtn.addEventListener('click', copyContactEmail);
+    if (footerEmailBtn) footerEmailBtn.addEventListener('click', () => {
+        const wasHidden = contactCard ? contactCard.hidden : true;
+        openContactCard();
+        if (wasHidden && contactCard) {
+            contactCard.scrollIntoView({ behavior: 'auto', block: 'nearest' });
+        }
+        if (copyBtn) copyBtn.focus({ preventScroll: true });
     });
 
     // Inline SVG icons (no icon CDN). Same shapes as the static HTML.
