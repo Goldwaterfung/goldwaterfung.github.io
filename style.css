@@ -1781,6 +1781,18 @@ figcaption {
     justify-content: space-between;
 }
 
+@media (min-width: 768px) {
+    .case-modal-header-inner {
+        padding: 0 2.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .case-modal-header-inner {
+        padding: 0 3rem;
+    }
+}
+
 .case-modal-back-btn {
     appearance: none;
     border: none;
@@ -1848,11 +1860,34 @@ figcaption {
     overflow-y: auto;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
-    padding-bottom: 5rem;
+    overscroll-behavior: contain;
 }
 
-.case-modal-body {
+.case-modal-body,
+.case-modal-body.case-container {
     width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 6rem;
+    box-sizing: border-box;
+}
+
+.case-modal-body .case-hero {
+    padding-top: 2rem;
+}
+
+@media (min-width: 768px) {
+    .case-modal-body,
+    .case-modal-body.case-container {
+        padding: 2.5rem 2.5rem 7rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .case-modal-body,
+    .case-modal-body.case-container {
+        padding: 3rem 3rem 8rem;
+    }
 }
 
 .case-modal-loading {
