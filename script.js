@@ -181,12 +181,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const caseSlides = document.querySelectorAll('.case-slide');
     const caseDots = document.querySelectorAll('.case-indicator-dot');
     const sections = document.querySelectorAll('section[id], footer[id]');
-    const progressBar = document.getElementById('reading-progress');
 
     let cachedHeaderHeight = 70;
     let cachedCaseTop = 0;
     let cachedCaseScrollable = 0;
-    let cachedScrollableHeight = 0;
     let cachedNavSections = [];
 
     function updateCachedLayout() {
@@ -198,8 +196,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const verticalPadding = Math.max(16, Math.min(36, Math.round(availableHeight * 0.035)));
         document.documentElement.style.setProperty('--case-padding-top', `${verticalPadding}px`);
         document.documentElement.style.setProperty('--case-padding-bottom', `${verticalPadding}px`);
-
-        cachedScrollableHeight = document.documentElement.scrollHeight - screenHeight;
 
         if (caseStudiesSection) {
             cachedCaseTop = caseStudiesSection.offsetTop;
@@ -610,13 +606,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function onScrollFrame() {
         const scrollY = window.pageYOffset || document.documentElement.scrollTop;
 
-        // 1. Reading progress indicator (zero forced layout)
-        if (progressBar && cachedScrollableHeight > 0) {
-            const scrollRatio = Math.min(1, Math.max(0, scrollY / cachedScrollableHeight));
-            progressBar.style.transform = `scaleX(${scrollRatio})`;
-        }
-
-        // 2. Navigation scroll spy highlighting (zero layout querying, pure arithmetic)
+        // Navigation scroll spy highlighting (zero layout querying, pure arithmetic)
         let activeNav = null;
         for (let i = 0; i < cachedNavSections.length; i++) {
             const item = cachedNavSections[i];

@@ -70044,16 +70044,24 @@ const FZ = () => typeof document < "u" && document.baseURI ? new URL("assets/fon
           l.scale(y, y, y), l.computeBoundingBox(), l.center();
         }
       }
-      UZ(l, [
+      if (UZ(l, [
         { offset: 0, color: "#B84A0A" },
         { offset: 0.38, color: "#D65E14" },
         { offset: 0.68, color: "#E65C00" },
         { offset: 1, color: "#EF8B2F" }
-      ]), a ? l.dispose() : t(l);
+      ]), a)
+        l.dispose();
+      else {
+        t(l);
+        const p = document.querySelector(".hero-title");
+        p && p.classList.add("has-3d");
+      }
     }).catch((c) => {
       console.warn("3D title font could not be initialized:", c);
     }), () => {
       a = !0, l && l.dispose();
+      const c = document.querySelector(".hero-title");
+      c && c.classList.remove("has-3d");
     };
   }, []), Je.useEffect(() => {
     const a = n.current;

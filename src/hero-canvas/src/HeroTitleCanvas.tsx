@@ -157,6 +157,10 @@ export const HeroTitleCanvas: React.FC = () => {
 
         if (!isCancelled) {
           setGeometry(createdGeom);
+          const heroTitle = document.querySelector('.hero-title');
+          if (heroTitle) {
+            heroTitle.classList.add('has-3d');
+          }
         } else {
           createdGeom.dispose();
         }
@@ -169,6 +173,10 @@ export const HeroTitleCanvas: React.FC = () => {
       isCancelled = true;
       if (createdGeom) {
         createdGeom.dispose();
+      }
+      const heroTitle = document.querySelector('.hero-title');
+      if (heroTitle) {
+        heroTitle.classList.remove('has-3d');
       }
     };
   }, []);
