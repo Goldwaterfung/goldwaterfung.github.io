@@ -1708,6 +1708,189 @@ figcaption {
     }
 }
 
+/* ==========================================================================
+   Immersive Case Study Modal
+   ========================================================================== */
+#case-study-modal[hidden] {
+    display: none;
+}
+
+#case-study-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+#case-study-modal.open {
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.case-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(28, 28, 30, 0.55);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    opacity: 0;
+    transition: opacity var(--duration-ui) var(--ease-out);
+}
+
+#case-study-modal.open .case-modal-backdrop {
+    opacity: 1;
+}
+
+.case-modal-panel {
+    position: absolute;
+    inset: 0;
+    background: var(--bg-body);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(18px);
+    transition: transform 260ms var(--ease-out), opacity 260ms var(--ease-out);
+}
+
+#case-study-modal.open .case-modal-panel {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.case-modal-header {
+    flex-shrink: 0;
+    height: var(--header-height);
+    background: rgba(247, 245, 240, 0.94);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
+
+.case-modal-header-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    height: 100%;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.case-modal-back-btn {
+    appearance: none;
+    border: none;
+    background: transparent;
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-size: 0.92rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid var(--text-primary);
+    transition: opacity var(--duration-press) var(--ease-out);
+}
+
+.case-modal-back-btn:hover {
+    opacity: 0.65;
+}
+
+.case-modal-back-btn .icon {
+    width: 16px;
+    height: 16px;
+}
+
+.case-modal-close-btn {
+    appearance: none;
+    border: 1px solid var(--border-color);
+    background: var(--bg-panel);
+    color: var(--text-primary);
+    border-radius: 999px;
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    min-height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: border-color var(--duration-ui) var(--ease-out), transform var(--duration-press) var(--ease-out);
+}
+
+.case-modal-close-btn:hover {
+    border-color: var(--text-primary);
+}
+
+.case-modal-close-btn:active {
+    transform: scale(0.95);
+}
+
+.case-modal-close-btn:focus-visible,
+.case-modal-back-btn:focus-visible {
+    outline: 2px solid var(--text-primary);
+    outline-offset: 2px;
+}
+
+.case-modal-close-btn .icon {
+    width: 18px;
+    height: 18px;
+}
+
+.case-modal-scroll {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 5rem;
+}
+
+.case-modal-body {
+    width: 100%;
+}
+
+.case-modal-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 55vh;
+    gap: 1.25rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+}
+
+.case-modal-spinner {
+    width: 30px;
+    height: 30px;
+    border: 2px solid var(--border-color);
+    border-top-color: var(--text-primary);
+    border-radius: 50%;
+    animation: case-modal-spin 0.8s linear infinite;
+}
+
+@keyframes case-modal-spin {
+    to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .case-modal-backdrop,
+    .case-modal-panel {
+        transition: none;
+    }
+    .case-modal-spinner {
+        animation: none;
+    }
+}
+
 /* Mobile & Tablet Breakpoint */
 @media (max-width: 900px) {
     .journey-section {

@@ -70,71 +70,63 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Stage 2: immersive VR chapters only (scoped to #immersive so the
-    // Gaussian Splatting preview can't get pulled into the VR sequence).
-    const stagedImmersiveVideos = Array.from(document.querySelectorAll('#immersive video[data-immersive-video]'));
-    const immersiveSection = document.getElementById('immersive');
-    let stage2Started = false;
+    // Stage 2: 3D Room preview (directly after hero)
+    const splatSection = document.getElementById('splat-room');
+    const splatVideoEl = document.getElementById('splat-video');
     let stage2Done = false;
-    const pendingStage3 = new Set();
+    let stage3Started = false;
 
-    function flushPendingStage3() {
-        if (!stage2Done) return;
-        pendingStage3.forEach((video) => ensureVideoSource(video));
-        pendingStage3.clear();
+    function loadStage2Splat() {
+        if (stage2Done) return;
+        stage2Done = true;
+        if (splatVideoEl) ensureVideoSource(splatVideoEl);
+        // Once 3D room video source is set, queue Stage 3 (VR sequence) during idle time
+        idleRun(loadStage3VRSequence, 600);
     }
 
-    function loadStage2Sequence() {
-        if (stage2Started) return;
-        stage2Started = true;
-        // Chapter 0 first for instant play, then stagger 1/2 to avoid bandwidth burst
+    // Stage 3: Immersive VR research chapters (following 3D room)
+    const stagedImmersiveVideos = Array.from(document.querySelectorAll('#immersive video[data-immersive-video]'));
+    const immersiveSection = document.getElementById('immersive');
+
+    function loadStage3VRSequence() {
+        if (stage3Started) return;
+        stage3Started = true;
+        // Chapter 0 first for instant play, then stagger 1 and 2 to avoid bandwidth bursts
         if (stagedImmersiveVideos[0]) ensureVideoSource(stagedImmersiveVideos[0]);
         idleRun(() => {
             if (stagedImmersiveVideos[1]) ensureVideoSource(stagedImmersiveVideos[1]);
             idleRun(() => {
                 if (stagedImmersiveVideos[2]) ensureVideoSource(stagedImmersiveVideos[2]);
-                stage2Done = true;
-                flushPendingStage3();
             }, 900);
         }, 700);
     }
 
-    // Default path: wait for Stage 1 hero, then load Stage 2
-    waitForHeroReady().then(loadStage2Sequence);
+    // Default path: wait for Stage 1 hero, then load Stage 2 (3D room)
+    waitForHeroReady().then(loadStage2Splat);
 
-    // Fast-scroll escape hatch: if user reaches immersive before hero is ready, load immediately
-    if (immersiveSection && 'IntersectionObserver' in window && stagedImmersiveVideos.length > 0) {
-        const fastScrollObserver = new IntersectionObserver((entries) => {
+    // Fast-scroll escape hatches: if user scrolls quickly into either section
+    if (splatSection && 'IntersectionObserver' in window && splatVideoEl) {
+        const splatScrollObserver = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    loadStage2Sequence();
-                    fastScrollObserver.disconnect();
+                    loadStage2Splat();
+                    splatScrollObserver.disconnect();
                 }
             });
         }, { root: null, rootMargin: '600px 0px', threshold: 0 });
-        fastScrollObserver.observe(immersiveSection);
+        splatScrollObserver.observe(splatSection);
     }
 
-    // Stage 3: Gaussian Splatting preview — strictly after Stage 2 VR chapters,
-    // and only when near viewport (below-fold). Explicit play clicks still load
-    // on demand via toggleSplatPlayback regardless of staging.
-    const stage3Videos = Array.from(document.querySelectorAll('video[data-stage="3"]'));
-    if (stage3Videos.length > 0 && 'IntersectionObserver' in window) {
-        const stage3Observer = new IntersectionObserver((entries, observer) => {
+    if (immersiveSection && 'IntersectionObserver' in window && stagedImmersiveVideos.length > 0) {
+        const immersiveScrollObserver = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    // Deep-link/jump cover: never load splat before VR chapters start.
-                    loadStage2Sequence();
-                    if (stage2Done) {
-                        ensureVideoSource(entry.target);
-                    } else {
-                        pendingStage3.add(entry.target);
-                    }
-                    observer.unobserve(entry.target);
+                    loadStage3VRSequence();
+                    immersiveScrollObserver.disconnect();
                 }
             });
-        }, { root: null, rootMargin: '800px 0px', threshold: 0 });
-        stage3Videos.forEach((v) => stage3Observer.observe(v));
+        }, { root: null, rootMargin: '600px 0px', threshold: 0 });
+        immersiveScrollObserver.observe(immersiveSection);
     }
 
     // ----------------------------------------------------
@@ -416,6 +408,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 journeyLastTrigger = null;
             }
         }
+        window.__closeJourneyModal = closeJourneyModal;
 
         function setStation(index, scrollToCard = false) {
             if (index < 0 || index >= totalStations) return;
@@ -792,7 +785,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'ArrowRight') setImmersiveChapter(immersiveIndex + 1);
     });
     // Touch swipe on viewport
-    const immersiveViewport = document.querySelector('.immersive-viewport');
+    const immersiveViewport = document.querySelector('#immersive .immersive-viewport');
     if (immersiveViewport) {
         let touchStartX = 0;
         immersiveViewport.addEventListener('touchstart', (e) => {
@@ -931,6 +924,224 @@ document.addEventListener('DOMContentLoaded', () => {
                 closeLightbox();
             }
         });
+    }
+
+    // ----------------------------------------------------
+    // 9. Immersive Case Study Modal
+    // ----------------------------------------------------
+    const caseModal = document.getElementById('case-study-modal');
+    const caseModalScroll = document.getElementById('case-modal-scroll');
+    const caseModalBody = document.getElementById('case-modal-body');
+
+    if (caseModal && caseModalScroll && caseModalBody) {
+        let caseModalOpen = false;
+        let caseModalTimer = null;
+        let caseLastTrigger = null;
+        let casePrevOverflow = '';
+        const caseCache = new Map();
+
+        function normalizeCaseUrl(rawUrl) {
+            if (!rawUrl) return '';
+            let url = rawUrl.trim();
+            const hashIndex = url.indexOf('#');
+            if (hashIndex !== -1) url = url.substring(0, hashIndex);
+            const queryIndex = url.indexOf('?');
+            if (queryIndex !== -1) url = url.substring(0, queryIndex);
+            url = url.replace(/^\.\//, '').replace(/^\//, '');
+            if (!url.startsWith('cases/')) {
+                url = 'cases/' + url;
+            }
+            return url;
+        }
+
+        function extractSlug(url) {
+            return url.replace(/^(\.\.\/|\/)?cases\//, '').replace(/\.html$/, '');
+        }
+
+        async function fetchCaseContent(url) {
+            if (caseCache.has(url)) {
+                return caseCache.get(url);
+            }
+            const res = await fetch(url);
+            if (!res.ok) {
+                throw new Error(`Failed to load case study (${res.status})`);
+            }
+            const html = await res.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            const mainContent = doc.querySelector('main.case-container') || doc.body;
+
+            // Rewrite relative ../assets/ paths to assets/ for root index context
+            mainContent.querySelectorAll('img, video, source').forEach(el => {
+                ['src', 'data-src', 'poster'].forEach(attr => {
+                    const val = el.getAttribute(attr);
+                    if (val && val.startsWith('../assets/')) {
+                        el.setAttribute(attr, val.replace(/^\.\.\/assets\//, 'assets/'));
+                    }
+                });
+            });
+
+            // Adjust internal links
+            mainContent.querySelectorAll('a').forEach(a => {
+                const href = a.getAttribute('href');
+                if (!href) return;
+                if (href.includes('index.html') || a.classList.contains('back-link')) {
+                    a.setAttribute('data-case-close', '');
+                } else if (href.endsWith('.html') && !href.startsWith('http') && !href.startsWith('//')) {
+                    a.setAttribute('data-case-url', normalizeCaseUrl(href));
+                }
+            });
+
+            const processedHtml = mainContent.innerHTML;
+            caseCache.set(url, processedHtml);
+            return processedHtml;
+        }
+
+        async function openCaseModal(rawUrl, triggerEl = null) {
+            const url = normalizeCaseUrl(rawUrl);
+            if (!url) return;
+
+            // Close mobile journey bottom-sheet if open
+            if (typeof window.__closeJourneyModal === 'function') {
+                window.__closeJourneyModal(false);
+            }
+
+            if (!caseModalOpen) {
+                caseLastTrigger = triggerEl || document.activeElement;
+                casePrevOverflow = document.body.style.overflow;
+                document.body.style.overflow = 'hidden';
+            }
+
+            if (caseModalTimer !== null) {
+                window.clearTimeout(caseModalTimer);
+                caseModalTimer = null;
+            }
+
+            caseModal.hidden = false;
+            caseModal.setAttribute('aria-hidden', 'false');
+            window.requestAnimationFrame(() => {
+                window.requestAnimationFrame(() => {
+                    caseModal.classList.add('open');
+                });
+            });
+            caseModalOpen = true;
+
+            const closeBtn = caseModal.querySelector('.case-modal-close-btn');
+            if (closeBtn) {
+                window.setTimeout(() => closeBtn.focus({ preventScroll: true }), 60);
+            }
+
+            const slug = extractSlug(url);
+            if (window.location.hash !== `#case-${slug}`) {
+                history.pushState({ caseModalOpen: true, caseUrl: url }, '', `#case-${slug}`);
+            }
+
+            if (!caseCache.has(url)) {
+                caseModalBody.innerHTML = `
+                    <div class="case-modal-loading">
+                        <div class="case-modal-spinner" aria-hidden="true"></div>
+                        <span>Loading case study...</span>
+                    </div>
+                `;
+            }
+
+            caseModalScroll.scrollTop = 0;
+
+            try {
+                const content = await fetchCaseContent(url);
+                caseModalBody.innerHTML = content;
+                caseModalScroll.scrollTop = 0;
+
+                caseModalBody.querySelectorAll('video[autoplay]').forEach(video => {
+                    video.play().catch(() => {});
+                });
+            } catch (err) {
+                caseModalBody.innerHTML = `
+                    <div class="case-modal-loading">
+                        <p>Unable to load case study.</p>
+                        <a href="${url}" class="case-modal-back-btn" style="margin-top:1rem;">Open in new window</a>
+                    </div>
+                `;
+            }
+        }
+
+        function closeCaseModal(updateHistory = true) {
+            if (!caseModalOpen) return;
+
+            caseModalBody.querySelectorAll('video').forEach(video => {
+                try { video.pause(); } catch (e) {}
+            });
+
+            caseModalOpen = false;
+            caseModal.classList.remove('open');
+            caseModal.setAttribute('aria-hidden', 'true');
+
+            if (caseModalTimer !== null) {
+                window.clearTimeout(caseModalTimer);
+            }
+            caseModalTimer = window.setTimeout(() => {
+                caseModal.hidden = true;
+                caseModalBody.innerHTML = '';
+                caseModalTimer = null;
+            }, 260);
+
+            document.body.style.overflow = casePrevOverflow;
+
+            if (updateHistory && window.location.hash.startsWith('#case-')) {
+                history.pushState(null, '', window.location.pathname + window.location.search + '#experience');
+            }
+
+            if (caseLastTrigger && document.contains(caseLastTrigger)) {
+                try { caseLastTrigger.focus({ preventScroll: true }); } catch (e) { caseLastTrigger.focus(); }
+            }
+            caseLastTrigger = null;
+        }
+
+        document.addEventListener('click', (e) => {
+            const closeTarget = e.target.closest('[data-case-close]');
+            if (closeTarget && caseModal.contains(closeTarget)) {
+                e.preventDefault();
+                closeCaseModal(true);
+                return;
+            }
+
+            const siblingLink = e.target.closest('[data-case-url]');
+            if (siblingLink && caseModal.contains(siblingLink)) {
+                e.preventDefault();
+                const targetUrl = siblingLink.getAttribute('data-case-url');
+                openCaseModal(targetUrl, siblingLink);
+                return;
+            }
+
+            const caseLink = e.target.closest('a[href*="cases/"]');
+            if (caseLink && !caseModal.contains(caseLink)) {
+                const href = caseLink.getAttribute('href');
+                if (href && href.includes('cases/') && href.endsWith('.html')) {
+                    e.preventDefault();
+                    openCaseModal(href, caseLink);
+                }
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && caseModalOpen) {
+                closeCaseModal(true);
+            }
+        });
+
+        window.addEventListener('popstate', (e) => {
+            if (caseModalOpen) {
+                closeCaseModal(false);
+            } else if (e.state && e.state.caseModalOpen && e.state.caseUrl) {
+                openCaseModal(e.state.caseUrl);
+            }
+        });
+
+        if (window.location.hash && window.location.hash.startsWith('#case-')) {
+            const slug = window.location.hash.replace('#case-', '');
+            const targetUrl = `cases/${slug}.html`;
+            openCaseModal(targetUrl);
+        }
     }
 });
 
