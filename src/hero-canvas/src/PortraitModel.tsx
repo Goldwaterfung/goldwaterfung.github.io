@@ -2,6 +2,7 @@ import React, { useRef, useMemo, useEffect } from 'react';
 import { Group, Mesh, MeshStandardMaterial, DoubleSide } from 'three';
 import { useFrame, useLoader, ThreeEvent } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
 import { useMotionValue, useSpring, animate, useReducedMotion } from 'framer-motion';
 
 // Resolve URL relative to document base for consistent loading across environments
@@ -11,6 +12,16 @@ const getModelUrl = (): string => {
   }
   return 'assets/3d/kim-meshy.glb';
 };
+
+const getDracoDecoderUrl = (): string => {
+  if (typeof document !== 'undefined' && document.baseURI) {
+    return new URL('assets/draco/', document.baseURI).href;
+  }
+  return 'assets/draco/';
+};
+
+const dracoLoader = new DRACOLoader();
+dracoLoader.setDecoderPath(getDracoDecoderUrl());
 
 interface PortraitModelProps {
   onLoaded?: () => void;
@@ -39,7 +50,9 @@ export const PortraitModel: React.FC<PortraitModelProps> = ({ onLoaded }) => {
   const smoothRotY = useSpring(pointerRotY, { stiffness: 130, damping: 18, mass: 1.0 });
 
   // Asynchronously load GLTF 2.0 binary asset with embedded 2K diffuse texture
-  const gltf = useLoader(GLTFLoader, getModelUrl());
+  const gltf = useLoader(GLTFLoader, getModelUrl(), (loader) => {
+    loader.setDRACOLoader(dracoLoader);
+  });
 
   useEffect(() => {
     if (!hasNotifiedLoaded.current) {

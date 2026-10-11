@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { DRACOLoader } from "three/addons/loaders/DRACOLoader.js";
 import { TransformControls } from "three/addons/controls/TransformControls.js";
 
 export interface FurnitureItem {
@@ -43,7 +44,11 @@ function resolveAssetUrl(path: string): string {
   return path;
 }
 
+const dracoLoader = new DRACOLoader();
+dracoLoader.setDecoderPath(resolveAssetUrl("assets/draco/"));
+
 const gltfLoader = new GLTFLoader();
+gltfLoader.setDRACOLoader(dracoLoader);
 const templateCache = new Map<string, Promise<THREE.Group>>();
 
 /** Shadeless conversion: MeshBasicMaterial shows map + color with no lights. */
