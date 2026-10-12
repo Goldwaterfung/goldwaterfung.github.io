@@ -292,7 +292,7 @@ span.tracking-medium {
 
 .hero-title-3d-container {
     display: inline-block;
-    vertical-align: -0.20em;
+    vertical-align: -0.39em;
     width: clamp(250px, 25vw, 300px);
     height: 1.25em;
     position: relative;
@@ -2159,7 +2159,7 @@ figcaption {
     .hero-title-3d-container {
         width: clamp(200px, 32vw, 270px);
         height: 1.25em;
-        vertical-align: -0.2em;
+        vertical-align: -0.39em;
     }
 
     .hero-subtitle {
