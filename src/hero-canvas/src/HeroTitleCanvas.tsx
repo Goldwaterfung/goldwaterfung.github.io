@@ -139,7 +139,7 @@ export const HeroTitleCanvas: React.FC = () => {
           const height =
             createdGeom.boundingBox.max.y - createdGeom.boundingBox.min.y;
           if (height > 0) {
-            const targetHeight = 1.3;
+            const targetHeight = 1.22;
             const scale = targetHeight / height;
             createdGeom.scale(scale, scale, scale);
             createdGeom.computeBoundingBox();

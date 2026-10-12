@@ -287,12 +287,13 @@ span.tracking-medium {
     letter-spacing: 2.24px;
     line-height: 1.1;
     color: var(--text-primary);
+    white-space: nowrap;
 }
 
 .hero-title-3d-container {
     display: inline-block;
     vertical-align: -0.20em;
-    width: clamp(260px, 32vw, 420px);
+    width: clamp(250px, 25vw, 300px);
     height: 1.25em;
     position: relative;
     cursor: pointer;
@@ -2156,7 +2157,7 @@ figcaption {
     }
 
     .hero-title-3d-container {
-        width: clamp(210px, 60vw, 320px);
+        width: clamp(200px, 32vw, 270px);
         height: 1.25em;
         vertical-align: -0.2em;
     }
@@ -2170,6 +2171,10 @@ figcaption {
 @media (max-width: 640px) {
     .hero-title {
         font-size: 2.25rem;
+    }
+
+    .hero-title-3d-container {
+        width: clamp(170px, 46vw, 220px);
     }
 
     .section-serif-title {

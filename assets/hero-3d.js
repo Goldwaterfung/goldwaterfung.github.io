@@ -70340,7 +70340,7 @@ const HZ = () => typeof document < "u" && document.baseURI ? new URL("assets/fon
       }), l.boundingBox) {
         const p = l.boundingBox.max.y - l.boundingBox.min.y;
         if (p > 0) {
-          const v = 1.3 / p;
+          const v = 1.22 / p;
           l.scale(v, v, v), l.computeBoundingBox(), l.center();
         }
       }
