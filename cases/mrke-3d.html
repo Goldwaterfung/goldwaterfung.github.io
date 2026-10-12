@@ -54,62 +54,123 @@
                     <span class="meta-label">Key Systems</span>
                     <span class="meta-val">Unity C#, Android, GCS Streaming</span>
                 </div>
-                <div class="case-meta-item">
-                    <span class="meta-label">Read Time</span>
-                    <span class="meta-val">2 min</span>
-                </div>
             </div>
         </header>
 
-        <div class="case-gallery-3col">
-            <figure class="case-figure">
-                <img src="../assets/hair_app/hair_app_menu.jpg" alt="Hairstyle category menu interface">
-                <figcaption>Hairstyle Category Menu</figcaption>
-            </figure>
-            <figure class="case-figure">
-                <img src="../assets/hair_app/hair_app_display1.png" alt="3D hairstyle 360-degree preview">
-                <figcaption>360-Degree Interactive Preview</figcaption>
-            </figure>
-            <figure class="case-figure">
+        <div class="case-tablet-frame">
+            <div class="case-tablet-screen">
                 <video src="../assets/hair_app/hair_app_display2.mp4" autoplay muted loop playsinline
                     preload="metadata" disablepictureinpicture
-                    aria-label="Screen recording of short haircut 3D visualization">
+                    width="540" height="1140"
+                    aria-label="Screen recording of short haircut 3D visualization on shop tablet">
                     Sorry, your browser does not support embedded videos.
                 </video>
-                <figcaption>Short Hair Cut Visualization</figcaption>
-            </figure>
+            </div>
+        </div>
+
+        <div class="case-stats-grid">
+            <div class="case-stat-card">
+                <div class="case-stat-num">35%</div>
+                <span class="case-stat-label">Consultation Time Cut</span>
+                <p class="case-stat-desc">Reduced consultation ambiguity and discussion time across hundreds of live salon appointments.</p>
+            </div>
+            <div class="case-stat-card">
+                <div class="case-stat-num">&lt; 2 min</div>
+                <span class="case-stat-label">Visual Alignment</span>
+                <p class="case-stat-desc">Customers and stylists align on 3D length, volume, and layering before cutting begins.</p>
+            </div>
+            <div class="case-stat-card">
+                <div class="case-stat-num">OTA</div>
+                <span class="case-stat-label">Cloud Asset Streaming</span>
+                <p class="case-stat-desc">Google Cloud Storage pipelines push dynamic 3D model updates with zero tablet downtime.</p>
+            </div>
         </div>
 
         <section class="case-section">
-            <h2 class="case-section-title">Context and Shop Floor Problem</h2>
+            <h2 class="case-section-title">Context and Floor Observation</h2>
             <div class="case-body">
                 <p>
-                    MRKE operated as a physical fast-turnaround haircut business serving a community of 10 residential blocks. As co-founder, I managed unit economics, storefront operations, and service workflows.
+                    MRKE operated as a physical fast-turnaround haircut business serving a community of 10 residential blocks. As co-founder, I formulated service pricing, evaluated unit economics, and established our speed-to-quality benchmarks. Our business model depended on delivering reliable haircut quality within short customer turnaround windows.
                 </p>
                 <p>
-                    Direct floor observation revealed a continuous operational bottleneck: flat 2D catalogs left customers unable to visualize volume, layering, and neckline tapers. Consultations dragged, creating customer anxiety and breaking our fast turnaround service promise. In particular, children aged 6 to 12 and teenagers struggled to articulate haircut preferences to stylists.
+                    Extensive on-site floor observation revealed a continuous operational bottleneck: flat 2D catalog photos caused severe visual ambiguity. Customers struggled to picture how a flat haircut photo would translate to their personal head shape, layering, and neckline tapers.
+                </p>
+                <p>
+                    Initial consultations dragged to 4 to 6 minutes of hesitant back-and-forth, creating customer anxiety and breaking our fast-turnaround targets.
+                </p>
+                <p>
+                    Through direct floor observation, I also discovered that children aged 6 to 12 and teenagers were eager digital adopters, yet lacked specialized styling terminology to communicate layering and volume to stylists. This insight proved that consultation friction was an interaction and communication problem, not a styling limitation.
                 </p>
             </div>
         </section>
 
         <section class="case-section">
-            <h2 class="case-section-title">Design Workflow and Software Delivery</h2>
+            <h2 class="case-section-title">Design Exploration and Discarded Iterations</h2>
             <div class="case-body">
                 <p>
-                    To resolve this communication friction, I mapped consultation workflows before building an in-house software solution:
+                    To resolve consultation ambiguity without slowing down store operations, I explored multiple concepts before arriving at the final software architecture:
+                </p>
+                <div class="case-decision-grid">
+                    <div class="case-decision-card discarded">
+                        <div class="case-decision-title">Granular Parametric Sliders</div>
+                        <p class="case-decision-body">Detailed length, volume, and fade sliders caused analysis paralysis for customers, frustrated stylists under a 30-second rush-hour target, and doubled consultation duration.</p>
+                        <span class="case-decision-mark mark-discarded" aria-hidden="true">
+                            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><line x1="11" y1="11" x2="41" y2="41"/><line x1="11" y1="41" x2="41" y2="11"/></svg>
+                        </span>
+                    </div>
+                    <div class="case-decision-card discarded">
+                        <div class="case-decision-title">Cloud-Rendered WebGL</div>
+                        <p class="case-decision-body">Budget station Android tablets faced strict GPU thermal limits and periodic network latency. Streaming models via WebGL risked frame drops and store service interruption.</p>
+                        <span class="case-decision-mark mark-discarded" aria-hidden="true">
+                            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><line x1="11" y1="11" x2="41" y2="41"/><line x1="11" y1="41" x2="41" y2="11"/></svg>
+                        </span>
+                    </div>
+                    <div class="case-decision-card discarded">
+                        <div class="case-decision-title">Printed Lookbooks</div>
+                        <p class="case-decision-body">Static multi-angle printouts could not provide continuous 360-degree rotation, and updating seasonal haircuts incurred high recurring printing costs.</p>
+                        <span class="case-decision-mark mark-discarded" aria-hidden="true">
+                            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><line x1="11" y1="11" x2="41" y2="41"/><line x1="11" y1="41" x2="41" y2="11"/></svg>
+                        </span>
+                    </div>
+                    <div class="case-decision-card chosen">
+                        <div class="case-decision-title">Lightweight 360 Preset Viewer</div>
+                        <p class="case-decision-body">Built a responsive Unity C# engine running locally on Android tablets with instant touch rotation, curated preset categories, and full-screen standing stylist touch ergonomics.</p>
+                        <span class="case-decision-mark mark-chosen" aria-hidden="true">
+                            <svg viewBox="0 0 62 62" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="miter"><path d="M16 28 L18 50 L54 10"/></svg>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <h2 class="case-section-title">Workflow Design and In-Store Deployment</h2>
+            <div class="case-body">
+                <div class="case-gallery-2col case-gallery-portrait">
+                    <figure class="case-figure">
+                        <img src="../assets/hair_app/hair_app_menu.jpg" alt="Hairstyle category menu interface" width="496" height="943" loading="lazy">
+                        <figcaption>Hairstyle Category Navigation Menu</figcaption>
+                    </figure>
+                    <figure class="case-figure">
+                        <img src="../assets/hair_app/hair_app_display1.png" alt="3D hairstyle 360-degree preview" width="496" height="943" loading="lazy">
+                        <figcaption>360-Degree Interactive Touch Rotation</figcaption>
+                    </figure>
+                </div>
+                <p>
+                    I engineered the complete software lifecycle to integrate seamlessly with shop floor routines:
                 </p>
                 <ul>
                     <li>
-                        <strong>User Journey Mapping in Figma:</strong> Mapped consultation steps from greeting to style confirmation, designing wireframes and interaction flows tailored to fast-paced tablet touch input.
+                        <strong>User Journey Mapping in Figma:</strong> Mapped consultation steps from greeting and chair handover to style selection, 360-degree rotation, and final cutting confirmation, designing an ergonomic touch interface specifically for standing stylists and seated customers.
                     </li>
                     <li>
-                        <strong>Bespoke Unity C# Development:</strong> Built a lightweight real-time 3D preview tool in Unity C# optimized for budget Android tablets mounted at styling stations.
+                        <strong>Stylist Feedback Loops and Physical Ergonomics:</strong> Instituted daily tracking logs where stylists recorded customer style selections and consultation satisfaction. Early floor testing revealed that stylists operating with damp hands while standing struggled with small buttons. I expanded touch targets to full-screen swipe rotation and added vertical camera pitch tilt to inspect crown volume and neckline tapers.
                     </li>
                     <li>
-                        <strong>Google Cloud Storage OTA Streaming:</strong> Architected over-the-air asset streaming pipelines via Google Cloud Storage, enabling continuous 3D hairstyle model updates without taking tablets out of service or disrupting daily salon operations.
+                        <strong>Dedicated Youth Presets:</strong> Based on daily tracking data confirming high engagement among youth customers, I prioritized a dedicated library of 3D youth hairstyles, enabling young customers to point and rotate their preferred style with confidence.
                     </li>
                     <li>
-                        <strong>Stylist Feedback Loops:</strong> Instituted daily tracking logs where stylists recorded customer style selections and consultation satisfaction, using real operational data to refine 3D models and UI responsiveness.
+                        <strong>Google Cloud Storage Over-the-Air Asset Streaming:</strong> Architected automated deployment pipelines with Google Cloud Storage for dynamic over-the-air asset streaming. Stylists received new 3D model updates without taking tablets out of service or disrupting daily store operations.
                     </li>
                 </ul>
             </div>
@@ -119,9 +180,9 @@
             <h2 class="case-section-title">Practical Outcomes and Business Impact</h2>
             <div class="case-body">
                 <div class="case-callout">
-                    <div class="case-callout-title">Measurable Result</div>
+                    <div class="case-callout-title">Measurable Operational Result</div>
                     <p class="case-callout-text">
-                        Customers and stylists rotated 3D models 360 degrees before cutting. Consultation ambiguity and discussion time fell approximately 35 percent across hundreds of live sessions.
+                        Customers and stylists rotated 3D models 360 degrees before cutting, achieving confident alignment in under two minutes. Consultation ambiguity and discussion time fell approximately 35 percent across hundreds of live sessions.
                     </p>
                 </div>
 

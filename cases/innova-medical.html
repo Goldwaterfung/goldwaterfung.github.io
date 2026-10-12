@@ -54,66 +54,223 @@
                     <span class="meta-label">Discipline</span>
                     <span class="meta-val">Clinical Schema Validation & UX</span>
                 </div>
-                <div class="case-meta-item">
-                    <span class="meta-label">Read Time</span>
-                    <span class="meta-val">3 min</span>
-                </div>
             </div>
         </header>
 
+        <div class="case-window-frame">
+            <div class="case-window-titlebar">
+                <div class="case-window-dots">
+                    <span class="case-window-dot dot-close"></span>
+                    <span class="case-window-dot dot-min"></span>
+                    <span class="case-window-dot dot-max"></span>
+                </div>
+                <span class="case-window-title">Clinical Diagnosis Simulation: Cross-Modal Schema Audit</span>
+            </div>
+            <div class="case-schema-inspector">
+                <div class="case-schema-header">
+                    <span>CASE #024 DIAGNOSTIC WALKTHROUGH AUDIT</span>
+                    <span class="case-schema-status">Schema Drift Detected</span>
+                </div>
+                <div class="case-schema-grid">
+                    <div class="case-schema-col">
+                        <div class="case-schema-col-title">Database Schema Ground Truth</div>
+                        <div class="case-schema-col-val">Acute Hepatitis Case #024</div>
+                        <p class="case-schema-col-detail">Clinical record requires scleral jaundice, elevated bilirubin, and right upper quadrant abdominal tenderness.</p>
+                        <span class="case-schema-status-valid">Clinical Standard Verified</span>
+                    </div>
+                    <div class="case-schema-col defect">
+                        <div class="case-schema-col-title">Conversational LLM Feedback</div>
+                        <div class="case-schema-col-val">Subjective Dialogue Contradiction</div>
+                        <p class="case-schema-col-detail">LLM system prompt generated contradictory patient statements denying abdominal discomfort and fatigue.</p>
+                        <span class="case-schema-status-defect">Prompt Discrepancy Found</span>
+                    </div>
+                    <div class="case-schema-col defect">
+                        <div class="case-schema-col-title">Visual 3D Avatar Rendering</div>
+                        <div class="case-schema-col-val">Missing Physical Examination Sign</div>
+                        <p class="case-schema-col-detail">Avatar mesh loaded default neutral skin shaders with zero localized discoloration or jaundice textures.</p>
+                        <span class="case-schema-status-defect">Visual Examination Missing</span>
+                    </div>
+                </div>
+                <div class="case-schema-verdict">
+                    <span class="case-schema-verdict-label">Audit Verdict:</span>
+                    <span>Student confusion caused by inter-service schema misalignment, not polygon count. Canceled 6 to 8 weeks of planned 3D mesh remodeling.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-stats-grid">
+            <div class="case-stat-card">
+                <div class="case-stat-num">50 Cases</div>
+                <span class="case-stat-label">Full Clinical Audit</span>
+                <p class="case-stat-desc">Systematic diagnostic walkthrough of all virtual patient cases across clinical reasoning workflows.</p>
+            </div>
+            <div class="case-stat-card">
+                <div class="case-stat-num">6-8 Wks</div>
+                <span class="case-stat-label">Wasted Effort Prevented</span>
+                <p class="case-stat-desc">Canceled planned cosmetic 3D mesh remodel by proving misdiagnoses stemmed from data discrepancies.</p>
+            </div>
+            <div class="case-stat-card">
+                <div class="case-stat-num">100%</div>
+                <span class="case-stat-label">Cross-Modal Alignment</span>
+                <p class="case-stat-desc">Reconciled symptom database ground truth with LLM dialogue prompts and 3D visual manifestations.</p>
+            </div>
+        </div>
+
         <section class="case-section">
-            <h2 class="case-section-title">Context and Problem</h2>
+            <h2 class="case-section-title">Context and Problem Discovery</h2>
             <div class="case-body">
                 <p>
-                    Innova Medical developed a B2B clinical diagnosis training platform that paired large language model dialogue with 3D virtual patient avatars to train medical students. During early university deployments, medical students repeatedly misjudged visual examination modules across 50 simulation cases.
+                    Innova Medical developed a B2B clinical diagnosis training platform combining large language model dialogue with 3D virtual patient avatars to train medical students across university deployments. During early pilot evaluations, medical students repeatedly misjudged visual examination modules across 50 simulation cases, reporting high diagnostic confusion and contradictory clinical findings.
                 </p>
                 <p>
-                    The initial assumption among stakeholders was that the 3D patient avatars lacked realistic graphical styling. Teams were preparing to allocate significant engineering cycles to cosmetic 3D rework and texture redesign.
+                    The initial assumption among stakeholders and engineering leads was that the 3D patient avatars lacked realistic graphical fidelity or photorealistic skin shaders. The team was preparing to commission an estimated 6 to 8 weeks of intensive 3D mesh remodeling and shader rework.
+                </p>
+                <p>
+                    Rather than accepting that student misdiagnoses were caused by polygon counts, I questioned the initial premise. I launched a structured diagnostic audit across all 50 clinical simulation cases to trace student confusion back to root-cause system interactions.
                 </p>
             </div>
         </section>
 
         <section class="case-section">
-            <h2 class="case-section-title">Diagnostic Walkthroughs and Discovery</h2>
+            <h2 class="case-section-title">Cognitive Walkthroughs and False Assumptions</h2>
             <div class="case-body">
                 <p>
-                    Rather than accepting surface visual assumptions, I conducted a structured diagnostic investigation:
+                    I evaluated each simulation case by shadowing the medical student clinical reasoning workflow: patient history taking, verbal dialogue, visual physical examination, and differential diagnosis. This investigation uncovered two critical insights that challenged stakeholder assumptions:
                 </p>
-                <ul>
-                    <li>
-                        <strong>End-to-End Case Walkthroughs:</strong> Systematically worked through all 50 virtual patient cases as an evaluator, recording dialogue turns, exam findings, and student feedback points.
-                    </li>
-                    <li>
-                        <strong>Root Cause Isolation:</strong> Discovered that diagnostic confusion was not caused by avatar polygon counts or rendering style. Instead, issues stemmed from latency between LLM dialogue and avatar animations, alongside severe contradictions between underlying clinical database records and rendered 3D visual models.
-                    </li>
-                    <li>
-                        <strong>Database Schema Cross-Validation:</strong> Verified all 50 virtual patient cases directly against clinical database symptom records. Cataloged specific defects where localized swelling, rash patterns, or discoloration were completely missing on the 3D mesh despite being described in medical dialogue.
-                    </li>
-                    <li>
-                        <strong>Defect Matrix Organization:</strong> Structured findings into a cross-validation matrix mapping patient ID, LLM prompt variables, database truth records, and avatar rendering status for the engineer and medical domain expert.
-                    </li>
-                </ul>
+                <div class="case-decision-grid">
+                    <div class="case-decision-card discarded">
+                        <div class="case-decision-title">6 to 8 Weeks of 3D Mesh Rework</div>
+                        <p class="case-decision-body">Polygon density had zero impact on misdiagnoses. Students failed because the platform delivered contradictory signals: LLM dialogue described acute symptoms that were completely absent on the avatar mesh.</p>
+                        <span class="case-decision-mark mark-discarded" aria-hidden="true">
+                            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><line x1="11" y1="11" x2="41" y2="41"/><line x1="11" y1="41" x2="41" y2="11"/></svg>
+                        </span>
+                    </div>
+                    <div class="case-decision-card discarded">
+                        <div class="case-decision-title">Ad-Hoc Prompt Tweaks</div>
+                        <p class="case-decision-body">Patching individual LLM system prompts on a case-by-case basis introduced regression errors into alternative clinical branches, failing to solve systemic schema drift.</p>
+                        <span class="case-decision-mark mark-discarded" aria-hidden="true">
+                            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><line x1="11" y1="11" x2="41" y2="41"/><line x1="11" y1="41" x2="41" y2="11"/></svg>
+                        </span>
+                    </div>
+                    <div class="case-decision-card chosen">
+                        <div class="case-decision-title">Cross-Modal Schema Audit</div>
+                        <p class="case-decision-body">Established a unified cross-validation matrix mapping database symptom ground truth to LLM dialogue outputs and rendered 3D assets, aligning engineering and medical domain leads.</p>
+                        <span class="case-decision-mark mark-chosen" aria-hidden="true">
+                            <svg viewBox="0 0 62 62" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="miter"><path d="M16 28 L18 50 L54 10"/></svg>
+                        </span>
+                    </div>
+                </div>
+
+                <p>
+                    To isolate the failure points, I structured my diagnostic audit around the cross-modal interaction triangle:
+                </p>
+
+                <div class="case-flow-grid">
+                    <div class="case-flow-card">
+                        <span class="case-flow-kicker">Layer 1: Ground Truth</span>
+                        <div class="case-flow-title">Clinical Database Records</div>
+                        <p class="case-flow-desc">Verified medical records, target symptom codes, physiological parameters, and correct primary diagnoses.</p>
+                    </div>
+                    <div class="case-flow-card">
+                        <span class="case-flow-kicker">Layer 2: Verbal Generation</span>
+                        <div class="case-flow-title">LLM Dialogue Engine</div>
+                        <p class="case-flow-desc">Dynamic multi-turn conversational responses, patient complaint prompts, and subjective symptom descriptions.</p>
+                    </div>
+                    <div class="case-flow-card">
+                        <span class="case-flow-kicker">Layer 3: Visual Presentation</span>
+                        <div class="case-flow-title">3D Patient Avatar</div>
+                        <p class="case-flow-desc">Physical examination affordances, localized swelling, tissue discoloration, and synchronized facial animations.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section class="case-section">
-            <h2 class="case-section-title">Practical Outcomes and Impact</h2>
+            <h2 class="case-section-title">Cross-Modal Schema Audit and Defect Matrix</h2>
+            <div class="case-body">
+                <p>
+                    I systematically walked through all 50 virtual patient cases directly against clinical database symptom records. I cataloged every defect where visual examination signs (such as localized swelling, cellulitis redness, contusions, or jaundice) were missing on the 3D mesh despite being described in medical dialogue.
+                </p>
+                <p>
+                    To bridge communication between clinical medicine and software engineering, I structured these findings into a unified Cross-Validation Defect Matrix for the engineer and medical domain expert:
+                </p>
+
+                <div class="case-table-wrap">
+                    <table class="case-table">
+                        <thead>
+                            <tr>
+                                <th>Case ID</th>
+                                <th>Database Schema Truth</th>
+                                <th>LLM Dialogue Output</th>
+                                <th>Rendered 3D Visual</th>
+                                <th>Defect Classification</th>
+                                <th>Student Clinical Impact</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-id">Case 04</td>
+                                <td>Acute lower limb cellulitis with erythema and local edema</td>
+                                <td>Patient reports acute burning sensation and warm swollen calf</td>
+                                <td>Standard uniform skin mesh with zero redness or swelling</td>
+                                <td><span class="status-defect">Visual Sign Missing</span></td>
+                                <td>Students misdiagnosed as non-inflammatory muscle strain</td>
+                            </tr>
+                            <tr>
+                                <td class="col-id">Case 18</td>
+                                <td>Blunt thoracic trauma with visible contusion and ecchymosis</td>
+                                <td>Patient describes direct impact injury and sharp chest tenderness</td>
+                                <td>Baseline chest mesh with unblemished texture</td>
+                                <td><span class="status-defect">Discoloration Omitted</span></td>
+                                <td>Students failed to order urgent chest imaging</td>
+                            </tr>
+                            <tr>
+                                <td class="col-id">Case 29</td>
+                                <td>Central cyanosis with oxygen desaturation below 88 percent</td>
+                                <td>Patient reports progressive shortness of breath and dizziness</td>
+                                <td>Healthy facial complexion without perioral discoloration</td>
+                                <td><span class="status-defect">Cyanosis Shader Missing</span></td>
+                                <td>Students delayed supplemental oxygen protocol</td>
+                            </tr>
+                            <tr>
+                                <td class="col-id">Case 43</td>
+                                <td>Bilateral dependent edema from congestive cardiac failure</td>
+                                <td>Patient reports heavy ankle swelling toward the evening</td>
+                                <td>Normal slender lower extremities on avatar model</td>
+                                <td><span class="status-defect">Mesh Asset Mismatch</span></td>
+                                <td>Students overlooked systemic fluid retention</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>
+                    This matrix gave both partners an unambiguous common ground: the medical domain expert verified clinical accuracy against textbook diagnostic criteria, while the engineer received explicit asset IDs, schema fields, and animation sync offsets to remediate in code.
+                </p>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <h2 class="case-section-title">Practical Outcomes and Strategic Impact</h2>
             <div class="case-body">
                 <div class="case-callout">
                     <div class="case-callout-title">Strategic Roadmap Shift</div>
                     <p class="case-callout-text">
-                        Roadmap priorities shifted away from cosmetic 3D redesign toward foundational audiovisual synchronization and symptom schema alignment. Diagnostic confusion was resolved at the root data layer.
+                        Roadmap priorities shifted decisively away from cosmetic 3D redesigns toward foundational audiovisual synchronization and symptom schema alignment. Diagnostic confusion was resolved at the root data layer.
                     </p>
                 </div>
 
                 <p>
-                    By proving that student diagnostic errors were driven by data discrepancies rather than graphics, the team avoided weeks of misplaced artistic rework. Training outcomes were successfully grounded in medically accurate, synchronized system behavior.
+                    By proving through structured walkthroughs that student diagnostic errors were driven by data discrepancies rather than graphics, the team canceled the planned 6 to 8 week cosmetic art overhaul. I partnered with the engineer and medical domain expert to reprioritize engineering sprints toward direct database-to-visual linking and dialogue packet synchronization.
+                </p>
+                <p>
+                    All 50 clinical simulation cases were mapped and reconciled. Medical student diagnostic accuracy improved because verbal testimony and visual clinical signs finally aligned, establishing a credible, clinically validated training simulation.
                 </p>
 
                 <div class="case-callout case-callout-lessons">
                     <div class="case-callout-title">Lessons Learned and Retrospective</div>
                     <p class="case-callout-text">
-                        Surface visual complaints often mask deeper system architecture problems. The engineering team was ready to invest weeks in cosmetic 3D mesh redesign, but the true failure lay in asynchronous database schema alignment. Product design must begin by interrogating the truth of the system data before reworking the visual surface.
+                        Surface visual complaints often mask deeper system architecture problems. The team was ready to spend weeks re-sculpting 3D meshes, but the true root cause was broken schema synchronization across verbal and visual modalities. Product design must begin by interrogating the truth of the system data before reworking the visual surface.
                     </p>
                 </div>
             </div>

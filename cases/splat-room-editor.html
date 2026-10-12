@@ -23,7 +23,7 @@
             <a href="../index.html" class="case-nav-brand">Kim Fung</a>
             <nav class="case-nav-links">
                 <a href="../index.html#experience" class="case-nav-link back-link">Back to Journey</a>
-                <a href="stratawright.html" class="case-nav-link">Next Case</a>
+                <a href="collaragent.html" class="case-nav-link">Next Case</a>
             </nav>
         </div>
     </header>
@@ -61,21 +61,52 @@
                     <span class="meta-label">Use Case</span>
                     <span class="meta-val">Home Interior Staging</span>
                 </div>
-                <div class="case-meta-item">
-                    <span class="meta-label">Read Time</span>
-                    <span class="meta-val">6 min</span>
-                </div>
             </div>
         </header>
+
+        <div class="case-window-frame">
+            <div class="case-window-titlebar">
+                <div class="case-window-dots">
+                    <span class="case-window-dot dot-close"></span>
+                    <span class="case-window-dot dot-min"></span>
+                    <span class="case-window-dot dot-max"></span>
+                </div>
+                <span class="case-window-title">Spark Splat Editor: Vintage Living Room</span>
+            </div>
+            <div class="case-window-viewport">
+                <video controls autoplay muted loop playsinline>
+                    <source src="../assets/gaussian_room/gaussian_splatting_video.mp4" type="video/mp4">
+                    Your browser does not support embedded video.
+                </video>
+            </div>
+        </div>
+
+        <div class="case-stats-grid">
+            <div class="case-stat-card">
+                <div class="case-stat-num">1.57M</div>
+                <span class="case-stat-label">Gaussian Splats</span>
+                <p class="case-stat-desc">Full living room photorealistic reconstruction loaded via single SOG container.</p>
+            </div>
+            <div class="case-stat-card">
+                <div class="case-stat-num">1x DPR</div>
+                <span class="case-stat-label">Mobile Fill Budget</span>
+                <p class="case-stat-desc">Adaptive pixel ratio and tighter Gaussian falloff slashing overdraw on phone hardware.</p>
+            </div>
+            <div class="case-stat-card">
+                <div class="case-stat-num">0 Escapes</div>
+                <span class="case-stat-label">Boundary Clamping</span>
+                <p class="case-stat-desc">Runtime camera enclosure preventing movement out of the scanned room geometry.</p>
+            </div>
+        </div>
 
         <section class="case-section">
             <h2 class="case-section-title">Why I Started: My Viewer Wasn't a World</h2>
             <div class="case-body">
                 <p>
-                    I already had a 3D portrait viewer on my portfolio — React Three Fiber, custom 3D typography, spring physics, the works. It could showcase an object.
+                    I already had a 3D portrait viewer on my portfolio, built with React Three Fiber, custom 3D typography, spring physics, and interactive models. It could showcase an object.
                 </p>
                 <p>
-                    What it couldn't do was hand someone a world and let them change it. That's the next hard problem in spatial: a <strong>3D editing canvas inside whole generated worlds</strong>, with camera behaviour, selection, and manipulation patterns nobody has standardized yet. So I gave myself a brief: close exactly that gap, in the open, one thin slice at a time.
+                    What it could not do was hand someone a world and let them change it. That is the next hard problem in spatial computing: a <strong>3D editing canvas inside whole generated worlds</strong>, with camera behaviour, selection, and manipulation patterns nobody has standardized yet. So I gave myself a brief: close exactly that gap, in the open, one thin slice at a time.
                 </p>
                 <ul>
                     <li>
@@ -98,13 +129,13 @@
             <h2 class="case-section-title">Step 1: My First Room, Floating in Black</h2>
             <div class="case-body">
                 <p>
-                    I followed Spark's quick-start recipe the way the docs wrote it: one <strong>SparkRenderer</strong> added to my scene, one <strong>SplatMesh</strong> pointed at the .sog URL — which the loader auto-detected from the zip contents, no file-type hint needed — and Spark's own <strong>SparkControls</strong> for WASD and touch movement.
+                    I followed Spark's quick-start recipe the way the docs wrote it: one <strong>SparkRenderer</strong> added to my scene, one <strong>SplatMesh</strong> pointed at the .sog URL, which the loader auto-detected from the zip contents without requiring a file-type hint, and Spark's own <strong>SparkControls</strong> for WASD and touch movement.
                 </p>
                 <p>
-                    I didn't trust everything I read, though. The docs' coordinate re-orientation quaternion looked like magic, so I pulled up Spark's official SOG example on GitHub and confirmed the same convention there before keeping it. That habit — verifying against upstream source instead of cargo-culting a snippet — saved me more than once on this project.
+                    I did not trust everything I read, though. The docs' coordinate re-orientation quaternion looked like magic, so I pulled up Spark's official SOG example on GitHub and confirmed the same convention there before keeping it. That habit of verifying against upstream source instead of assuming snippets saved me more than once on this project.
                 </p>
                 <p>
-                    Then I made a decision about feeling, not technology. I put the viewer on <strong>its own fullscreen page — no header, no footer, no frames</strong>. Just a loading veil with byte progress, an error card with a retry button, and one small exit button. I believe spatial presence dies the moment site chrome intrudes, and I wanted stepping into this room to feel like arriving somewhere.
+                    Then I made a decision about feeling, not technology. I put the viewer on <strong>its own fullscreen page with zero site chrome, no header, and no footer</strong>. Just a loading veil with byte progress, an error card with a retry button, and one small exit button. I believe spatial presence dies the moment site chrome intrudes, and I wanted stepping into this room to feel like arriving somewhere.
                 </p>
             </div>
         </section>
@@ -113,10 +144,13 @@
             <h2 class="case-section-title">Step 2: I Kept Flying Through Walls, So I Built a Fence</h2>
             <div class="case-body">
                 <p>
-                    The moment I could move, I did what every user does: I flew straight through a wall into black nothing. It felt broken, because it was. A scanned room you can fall out of isn't a world — it's a diorama with no glass.
+                    The moment I could move, I did what every user does: I flew straight through a wall into black nothing. It felt broken, because it was. A scanned room you can fall out of is not a world, it is a diorama with no glass.
                 </p>
                 <p>
-                    I refused to hardcode room dimensions; I wanted the fence to fit any scan I load next. So at runtime I read the loaded splats' own extents through <strong>SplatMesh.getBoundingBox()</strong> — the same API Spark's editor example uses — transformed them into world space, and clamped the camera every frame after the controls update. I opened the floor plan to an 8 by 8 meter roam area but kept the floor and ceiling fenced, and I start every visit inside the room at standing eye height.
+                    I refused to hardcode room dimensions because I wanted the fence to fit any scan I load next. At runtime I read the loaded splat extents through <strong>SplatMesh.getBoundingBox()</strong>, the same API Spark's editor example uses, transformed them into world space, and clamped the camera every frame after controls update.
+                </p>
+                <p>
+                    I opened the floor plan to an 8 by 8 meter roam area while keeping the floor and ceiling fenced, starting every visit inside the room at standing eye height.
                 </p>
                 <p>
                     Because my clamp runs after the controls and owns the final say, it catches everything uniformly: WASD, mouse drag, scroll wheel, touch inertia. I tested each one by trying to escape. I couldn't.
@@ -128,14 +162,14 @@
             <h2 class="case-section-title">Step 3: My Phone Told Me the Truth About Performance</h2>
             <div class="case-body">
                 <p>
-                    On my desktop the room sang. On my phone it groaned. So I counted first: 1.57M splats, sitting right at the Android budget ceiling of 1–2M in Spark's own performance guide. The numbers told me optimization wasn't polish here — it was the difference between a showcase and a slideshow.
+                    On my desktop the room sang. On my phone it groaned. So I counted first: 1.57M splats, sitting right at the Android budget ceiling of 1 to 2 million splats in Spark's own performance guide. The numbers proved that optimization was the difference between a showcase and a slideshow.
                 </p>
                 <ul>
                     <li>
                         <strong>I cut pixels before polygons:</strong> mobile renders at 1x pixel ratio, desktop up to 2x. On a 3x-DPR phone that erases roughly 9x of fill cost in one line.
                     </li>
                     <li>
-                        <strong>I tightened the Gaussian falloff</strong> from sqrt(8) to sqrt(5) — the docs call it perceptually near-identical, and my eyes agreed, while transparent overdraw dropped hard.
+                        <strong>I tightened the Gaussian falloff</strong> from sqrt(8) to sqrt(5), which the documentation calls perceptually near-identical, and my inspection confirmed that transparent overdraw dropped significantly.
                     </li>
                     <li>
                         <strong>I switched on Level-of-Detail:</strong> a background worker builds a downsampled tree and auto-fits each platform's splat budget.
@@ -151,13 +185,30 @@
             <h2 class="case-section-title">Step 4: Stocking the Shelves, Then Throwing Things on the Floor</h2>
             <div class="case-body">
                 <p>
-                    With the room solid, I turned to the reason it exists: furniture. I built a single-column catalog rail docked to the right edge, rendered from a manifest array — adding a fourth piece means adding one row, not redesigning a page. It felt good to make the catalog data-driven from day one; I've been burned by hardcoded UI before.
+                    With the room solid, I turned to the reason it exists: furniture. I built a single-column catalog rail docked to the right edge, rendered from a manifest array. Adding a fourth piece means adding one row rather than redesigning a page. Making the catalog data-driven from day one eliminated hardcoded layout risks.
                 </p>
                 <p>
-                    The models fought me quietly. Their GLB files carry no unit metadata, so I normalize each one at load to a real-world height — the divan becomes 0.8 m, the armchair 0.95 m, the wardrobe 2.0 m — and I convert every material to <strong>unlit shading</strong>, because my scene has no lights and I chose visible-over-physical: the wood grain and fabric prints show exactly as authored.
+                    The models fought me quietly. Their GLB files carry no unit metadata, so I normalize each one at load to a real-world height: the divan becomes 0.8 m, the armchair 0.95 m, and the wardrobe 2.0 m. I convert every material to <strong>unlit shading</strong> because my scene has no dynamic lights, ensuring wood grain and fabric prints display exactly as authored.
+                </p>
+                <div class="case-gallery-3col">
+                    <figure class="case-figure">
+                        <img src="../assets/3d/furniture/royal_rose_divan.png" alt="Royal Rose Divan furniture model">
+                        <figcaption>Royal Rose Divan Asset</figcaption>
+                    </figure>
+                    <figure class="case-figure">
+                        <img src="../assets/3d/furniture/rustic_wooden_armchai.png" alt="Rustic Wooden Armchair furniture model">
+                        <figcaption>Rustic Wooden Armchair Asset</figcaption>
+                    </figure>
+                    <figure class="case-figure">
+                        <img src="../assets/3d/furniture/walnut_wardrobe.png" alt="Walnut Wardrobe furniture model">
+                        <figcaption>Walnut Wardrobe Asset</figcaption>
+                    </figure>
+                </div>
+                <p>
+                    For the drag itself I skipped HTML5 drag-and-drop entirely because it was never designed for 3D spatial scenes, writing pointer-based dragging that unifies mouse and touch. While dragging, a <strong>footprint circle</strong> tracks my pointer across the floor, auto-sized to each piece's extent, positioned by raycasting onto the floor plane and clamped inside the room bounds.
                 </p>
                 <p>
-                    For the drag itself I skipped HTML5 drag-and-drop entirely — it was never built for this — and wrote pointer-based dragging that unifies mouse and touch. While I drag, a <strong>footprint circle</strong> tracks my pointer across the floor, auto-sized to each piece's extent, positioned by raycasting onto the floor plane and clamped inside the room bounds. When I release over the canvas, the real mesh commits where the circle stood. When I release over the panel, nothing happens. I deliberately killed an early floating-thumbnail idea along the way: all feedback belongs in the scene, not under my cursor.
+                    When released over the canvas, the real mesh commits where the circle stood. When released over the panel, nothing happens. All feedback remains directly inside the scene rather than under the cursor.
                 </p>
             </div>
         </section>
@@ -166,10 +217,16 @@
             <h2 class="case-section-title">Step 5: Teaching It Unity's Vocabulary</h2>
             <div class="case-body">
                 <p>
-                    Dropping furniture wasn't enough — I wanted to <em>arrange</em> it. So I gave the editor the interaction language every 3D tool shares: click a piece and a white ring marks it as selected with a gizmo attached; <strong>Move, Rotate, Scale</strong> switch from a bottom pill or the W/E/R keys I know from Unity. Translate hides its vertical handle so my pieces stay grounded; scale clamps to 0.3–3x so nothing vanishes or swallows the room; every edit re-clamps into the boundary.
+                    Dropping furniture was not enough, I wanted to arrange it smoothly. So I gave the editor the interaction language standard across 3D tools: click a piece and a white ring marks it as selected with a gizmo attached. <strong>Move, Rotate, Scale</strong> switch from a bottom pill or the W, E, and R keys standard in Unity.
                 </p>
                 <p>
-                    The genuinely tricky part was arbitration. Spark's camera controls and the transform gizmo both listen to the same canvas, and the first time I dragged a rotation ring, the whole room swung with it — nauseating. I fixed it by gating camera updates while a gizmo drag owns the pointer, and by teaching click-selection to ignore presses that start on a gizmo handle. Two small rules, and the two control systems stopped fighting forever.
+                    Translate hides its vertical handle so pieces stay grounded on the floor. Scale clamps to 0.3 to 3x so nothing vanishes or swallows the room, and every edit re-clamps into the boundary.
+                </p>
+                <p>
+                    The genuinely tricky part was arbitration. Spark's camera controls and the transform gizmo both listen to the same canvas. The first time I dragged a rotation ring, the whole room swung with it, which felt completely disorienting.
+                </p>
+                <p>
+                    I fixed it by gating camera updates while a gizmo drag owns the pointer, and by teaching click-selection to ignore presses that start on a gizmo handle. Two small rules stopped the two control systems from conflicting.
                 </p>
             </div>
         </section>
@@ -178,13 +235,13 @@
             <h2 class="case-section-title">Step 6: The Floor Was Lying to Me</h2>
             <div class="case-body">
                 <p>
-                    Then came my favorite bug. My furniture kept sinking — the floor boundary sat visibly <em>under</em> the actual floor. I assumed the bounding-box bottom was the floor. It isn't. The lowest splat centers live well below the surface you see, down in outlier territory.
+                    Then came my favorite bug. My furniture kept sinking below the visible floor because the floor boundary sat visibly underneath the actual floor surface. I had assumed the bounding-box bottom was the floor, but the lowest splat centers live well below the visible surface in outlier territory.
                 </p>
                 <p>
-                    So I did something slightly obsessive: I decoded the .sog position textures offline and histogrammed all 1.57 million heights. The true floor announced itself as a ridge of half a million splats, about 0.6 m above where I'd put it. I felt very clever — until my runtime auto-scan of the same data misfired on device and put the floor somewhere absurd, probably reading a different splat subset under Level-of-Detail.
+                    I decoded the .sog position textures offline and plotted a histogram of all 1.57 million heights. The true floor announced itself as a ridge of half a million splats, about 0.6 m above where I had initially placed it.
                 </p>
                 <p>
-                    I deleted the clever code. In its place: the measured default, plus <strong>live [ and ] keys</strong> that nudge the floor in 2 cm steps with the value printed to console. One honest number, confirmed by my own eyes, beats an elegant estimate that is wrong. That's the line I'd put on a slide.
+                    When my runtime auto-scan of the same data misfired on device under Level-of-Detail, I removed the fragile runtime scan. In its place: the measured default, plus <strong>live bracket shortcut keys</strong> using <code>[</code> and <code>]</code> that nudge the floor in 2 cm steps with the value printed to console. One honest number, confirmed by my own eyes, beats an elegant estimate that is wrong.
                 </p>
                 <div class="case-callout case-callout-lessons">
                     <div class="case-callout-title">Lessons Learned and Retrospective</div>
@@ -205,7 +262,10 @@
             <h2 class="case-section-title">Where I Go Next</h2>
             <div class="case-body">
                 <p>
-                    I'm not done — I see this as the foundation for editable scanned worlds. Delete and duplicate slot straight into my selection model. Multi-room scans want per-room volumes instead of one box. And one day I'll raycast the splat volume itself for true surface placement instead of my floor-plane approximation. But the loop already works end to end: I walk into a captured room, and I make it mine. That feeling — the first time I spun a wardrobe to face the room and shoved it against a wall that stopped it cold — is why I build in slices. I got to feel it in week one, not month three.
+                    This serves as the foundation for editable scanned worlds. Delete and duplicate slot straight into my selection model, while multi-room scans will benefit from per-room volumes instead of one box.
+                </p>
+                <p>
+                    In the future I will raycast the splat volume itself for true surface placement instead of my floor-plane approximation. But the loop already works end to end: stepping into a captured room and staging furniture inside it with immediate tactile feedback. That feeling when I first spun a wardrobe to face the room and pushed it against a wall that stopped it cold is why I build in thin, verifiable slices.
                 </p>
             </div>
         </section>
@@ -216,9 +276,9 @@
                     <span class="case-footer-nav-label">Previous Case Study</span>
                     <span class="case-footer-nav-title">Stratawright Agentic DAW</span>
                 </a>
-                <a href="../index.html#experience" class="case-footer-nav-item case-footer-nav-next">
+                <a href="collaragent.html" class="case-footer-nav-item case-footer-nav-next">
                     <span class="case-footer-nav-label">Next Case Study</span>
-                    <span class="case-footer-nav-title">Return to Journey Timeline</span>
+                    <span class="case-footer-nav-title">CollarAgent Research Studio</span>
                 </a>
             </div>
         </footer>

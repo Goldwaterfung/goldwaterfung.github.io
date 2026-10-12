@@ -54,16 +54,39 @@
                     <span class="meta-label">Key Systems</span>
                     <span class="meta-val">Local GPU AI, Unity C#, Head Tracking</span>
                 </div>
-                <div class="case-meta-item">
-                    <span class="meta-label">Read Time</span>
-                    <span class="meta-val">3 min</span>
-                </div>
             </div>
         </header>
 
-        <div class="case-figure" style="max-width: 520px; margin: 0 auto 3.5rem;">
-            <img src="../assets/image/ar-llm-principal.jpg" alt="RAG-Integrated Multimodal AI Real-Time Virtual Principal Interface">
-            <figcaption>Multimodal AI Virtual Principal Interface with Live Spatial Tracking</figcaption>
+        <div class="case-window-frame">
+            <div class="case-window-titlebar">
+                <div class="case-window-dots">
+                    <span class="case-window-dot dot-close"></span>
+                    <span class="case-window-dot dot-min"></span>
+                    <span class="case-window-dot dot-max"></span>
+                </div>
+                <span class="case-window-title">AR Virtual Principal: Multimodal Avatar Interface</span>
+            </div>
+            <div class="case-window-viewport">
+                <img src="../assets/image/ar-llm-principal.jpg" alt="RAG-Integrated Multimodal AI Real-Time Virtual Principal Interface">
+            </div>
+        </div>
+
+        <div class="case-stats-grid">
+            <div class="case-stat-card">
+                <div class="case-stat-num">3-5s</div>
+                <span class="case-stat-label">Inference Gap Solved</span>
+                <p class="case-stat-desc">Conversational visual feedback confirms active listening while local GPU pipeline executes.</p>
+            </div>
+            <div class="case-stat-card">
+                <div class="case-stat-num">0 Cloud</div>
+                <span class="case-stat-label">Local Edge Security</span>
+                <p class="case-stat-desc">Full privacy and zero cloud API dependency running on a single dedicated GPU workstation.</p>
+            </div>
+            <div class="case-stat-card">
+                <div class="case-stat-num">0 Drift</div>
+                <span class="case-stat-label">Audiovisual Synchronization</span>
+                <p class="case-stat-desc">Packet-level sequencing aligning visemes and streaming audio packets across multi-turn sessions.</p>
+            </div>
         </div>
 
         <section class="case-section">
@@ -75,6 +98,38 @@
                 <p>
                     Chaining Speech-to-Text, local LLM with RAG retrieval, and Text-to-Speech generation required 3 to 5 seconds of total compute time per conversational turn. During live trials, users assumed the system was frozen after finishing their sentences, leading to repeated interruptions and failed interactions.
                 </p>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <h2 class="case-section-title">Design Exploration and Discarded Iterations</h2>
+            <div class="case-body">
+                <p>
+                    Bridging a 3 to 5 second local GPU inference window required evaluating several technical alternatives:
+                </p>
+                <div class="case-decision-grid">
+                    <div class="case-decision-card discarded">
+                        <div class="case-decision-title">Commercial Cloud Offloading</div>
+                        <p class="case-decision-body">External cloud APIs risked campus firewall disruptions and violated strict offline data privacy benchmarks required for university VIP deployments.</p>
+                        <span class="case-decision-mark mark-discarded" aria-hidden="true">
+                            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><line x1="11" y1="11" x2="41" y2="41"/><line x1="11" y1="41" x2="41" y2="11"/></svg>
+                        </span>
+                    </div>
+                    <div class="case-decision-card discarded">
+                        <div class="case-decision-title">Static Audio Filler Phrases</div>
+                        <p class="case-decision-body">Playing repetitive spoken fillers like "Let me think about that" sounded artificial, broke user conversational rhythm, and clashed with spoken answers.</p>
+                        <span class="case-decision-mark mark-discarded" aria-hidden="true">
+                            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><line x1="11" y1="11" x2="41" y2="41"/><line x1="11" y1="41" x2="41" y2="11"/></svg>
+                        </span>
+                    </div>
+                    <div class="case-decision-card chosen">
+                        <div class="case-decision-title">Behavioral Visual State Feedback</div>
+                        <p class="case-decision-body">Connected millisecond audio energy threshold detectors directly to Unity blendshapes, shifting the avatar into attentive listening and subtle nodding micro-gestures the moment human speech concluded.</p>
+                        <span class="case-decision-mark mark-chosen" aria-hidden="true">
+                            <svg viewBox="0 0 62 62" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="miter"><path d="M16 28 L18 50 L54 10"/></svg>
+                        </span>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -118,7 +173,10 @@
                 <div class="case-callout case-callout-lessons">
                     <div class="case-callout-title">Lessons Learned and Retrospective</div>
                     <p class="case-callout-text">
-                        Perceived latency in multimodal systems is an interaction design problem as much as a compute bottleneck. When users finished speaking and met dead silence, they assumed the system crashed within two seconds. Providing immediate conversational state indicators such as attentive listening blendshapes and micro-gestures preserved conversational continuity across a 3 to 5 second local GPU inference window without expensive cloud infrastructure.
+                        Perceived latency in multimodal systems is an interaction design problem as much as a compute bottleneck. When users finished speaking and met dead silence, they assumed the system crashed within two seconds.
+                    </p>
+                    <p class="case-callout-text">
+                        Providing immediate conversational state indicators such as attentive listening blendshapes and nodding micro-gestures preserved conversational continuity across a 3 to 5 second local GPU inference window without expensive cloud infrastructure.
                     </p>
                 </div>
             </div>

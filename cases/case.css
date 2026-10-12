@@ -123,7 +123,7 @@
     font-size: clamp(2rem, 3.8vw, 2.9rem);
     font-weight: 700;
     line-height: 1.22;
-    letter-spacing: 2.24px;
+    letter-spacing: -0.02em;
     color: var(--text-primary);
     margin-bottom: 1.25rem;
 }
@@ -131,7 +131,7 @@
 .case-subtitle {
     font-size: 1.15rem;
     line-height: 1.62;
-    letter-spacing: 0.48px;
+    letter-spacing: 0.01em;
     color: var(--text-secondary);
     max-width: 68ch;
     margin-bottom: 2.25rem;
@@ -169,9 +169,10 @@
 .case-media-hero {
     width: 100%;
     border: 1px solid var(--border-color);
-    border-radius: 6px;
+    border-radius: 8px;
     overflow: hidden;
     background: #000;
+    box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.12), 0 3px 8px -2px rgba(0, 0, 0, 0.05);
     margin-bottom: 3.5rem;
 }
 
@@ -205,7 +206,7 @@
 }
 
 .case-body p {
-    letter-spacing: 0.48px;
+    letter-spacing: 0.01em;
     margin-bottom: 1.25rem;
 }
 
@@ -249,7 +250,7 @@
 .case-callout-text {
     font-size: 1rem;
     line-height: 1.6;
-    letter-spacing: 0.48px;
+    letter-spacing: 0.01em;
     color: var(--text-primary);
     font-weight: 500;
     margin: 0;
@@ -258,9 +259,10 @@
 /* Media Figures and Galleries */
 .case-figure {
     border: 1px solid var(--border-color);
-    border-radius: 6px;
+    border-radius: 8px;
     overflow: hidden;
     background: var(--bg-card);
+    box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.04);
     margin: 2rem 0;
 }
 
@@ -281,7 +283,7 @@
 
 .case-gallery-2col {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
     gap: 1.5rem;
     margin: 2rem 0;
 }
@@ -291,6 +293,17 @@
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 1.25rem;
     margin: 2rem 0;
+}
+
+.case-gallery-2col .case-figure,
+.case-gallery-3col .case-figure {
+    margin: 0;
+}
+
+.case-gallery-portrait {
+    max-width: 580px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* External Resource Action Links */
@@ -496,12 +509,528 @@
     margin: 2rem 0;
 }
 
+/* Defect and Cross-Validation Matrix Table */
+.case-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    margin: 2rem 0;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: var(--bg-card);
+    -webkit-overflow-scrolling: touch;
+}
+
+.case-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.case-table th {
+    background: var(--bg-panel);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--text-muted);
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+    white-space: nowrap;
+}
+
+.case-table td {
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    vertical-align: top;
+}
+
+.case-table tr:last-child td {
+    border-bottom: none;
+}
+
+.case-table td strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.case-table .col-id {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    color: var(--text-primary);
+    white-space: nowrap;
+}
+
+.case-table .status-defect {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--accent-amber, #e65c00);
+    font-weight: 600;
+}
+
+/* Architecture and Cross-Modal Flow Grid */
+.case-flow-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+    margin: 2rem 0;
+}
+
+.case-flow-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 1.25rem;
+}
+
+.case-flow-kicker {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--text-muted);
+    margin-bottom: 0.35rem;
+    display: block;
+}
+
+.case-flow-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.case-flow-desc {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* ==========================================================================
+   Modular Layout Components: Device Framing, Stats, Decision Matrix
+   ========================================================================== */
+
+/* Window Frame Enclosure for Desktop Software */
+.case-window-frame {
+    width: 100%;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 20px 48px -12px rgba(0, 0, 0, 0.16), 0 2px 8px -2px rgba(0, 0, 0, 0.06);
+    margin-bottom: 3.5rem;
+}
+
+.case-window-titlebar {
+    display: flex;
+    align-items: center;
+    height: 36px;
+    padding: 0 1rem;
+    background: var(--bg-panel);
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+}
+
+.case-window-dots {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.case-window-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.case-window-dot.dot-close { background: #ff5f56; }
+.case-window-dot.dot-min { background: #ffbd2e; }
+.case-window-dot.dot-max { background: #27c93f; }
+
+.case-window-title {
+    margin: 0 auto;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.case-window-viewport {
+    width: 100%;
+    background: #000;
+    display: block;
+}
+
+.case-window-viewport img,
+.case-window-viewport video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Tablet Device Frame for Touch & Tablet Tools */
+.case-tablet-frame {
+    max-width: 360px;
+    margin: 0 auto 3.5rem;
+    background: #1c1c1e;
+    border-radius: 24px;
+    padding: 12px;
+    box-shadow: 0 24px 56px -12px rgba(0, 0, 0, 0.28), 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.case-tablet-screen {
+    border-radius: 14px;
+    overflow: hidden;
+    background: #000;
+}
+
+.case-tablet-screen img,
+.case-tablet-screen video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Key Results / Stat Metric Strip */
+.case-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.25rem;
+    margin: 2rem 0 3.5rem;
+}
+
+.case-stat-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.case-stat-num {
+    font-family: var(--font-mono);
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--text-primary);
+    letter-spacing: -0.03em;
+    margin-bottom: 0.35rem;
+}
+
+.case-stat-label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--text-muted);
+    margin-bottom: 0.25rem;
+    display: block;
+}
+
+.case-stat-desc {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.45;
+    margin: 0;
+}
+
+/* Decision Architecture: Hand-Drawn Design (Ovals with X vs Full-Width Rectangle with Checkmark) */
+.case-decision-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin: 1.75rem 0 2.5rem;
+}
+
+.case-decision-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    overflow: visible;
+}
+
+/* 1. Discarded Paths: Rounded Oval Silhouette with Bottom-Right X */
+.case-decision-card.discarded {
+    background: var(--bg-console);
+    border: 1.5px solid var(--border-color);
+    border-radius: 50% / 40%;
+    padding: 2.25rem 2rem 2.4rem;
+    text-align: center;
+    min-height: 165px;
+}
+
+.case-decision-card.discarded .case-decision-title {
+    font-size: 0.96rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.35;
+    margin-bottom: 0.45rem;
+    letter-spacing: -0.01em;
+}
+
+.case-decision-card.discarded .case-decision-body {
+    font-size: 0.85rem;
+    line-height: 1.45;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* 2. Chosen Direction: Wide Full-Width Rectangle with Bottom-Right Checkmark */
+.case-decision-card.chosen {
+    grid-column: 1 / -1;
+    background: var(--bg-card);
+    border: 1.5px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.85rem 2.25rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.case-decision-card.chosen .case-decision-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+}
+
+.case-decision-card.chosen .case-decision-body {
+    font-size: 0.96rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+    margin: 0;
+    padding-right: 3.5rem;
+}
+
+/* 3. Corner Verdict Marks (X and Checkmark Overlapping Corner) */
+.case-decision-mark {
+    position: absolute;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.case-decision-mark.mark-discarded {
+    width: 52px;
+    height: 52px;
+    right: 6px;
+    bottom: -15px;
+    color: var(--text-primary);
+}
+
+.case-decision-mark.mark-discarded svg {
+    width: 100%;
+    height: 100%;
+}
+
+.case-decision-mark.mark-chosen {
+    width: 62px;
+    height: 62px;
+    right: 2px;
+    bottom: -15px;
+    color: var(--text-primary);
+}
+
+.case-decision-mark.mark-chosen svg {
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 640px) {
+    .case-decision-card.discarded {
+        border-radius: 40px;
+        padding: 1.75rem 1.5rem 2rem;
+        min-height: auto;
+    }
+    .case-decision-mark.mark-discarded {
+        right: 12px;
+        bottom: -14px;
+    }
+    .case-decision-mark.mark-chosen {
+        right: 8px;
+        bottom: -14px;
+    }
+}
+
+/* Zoomed-in Detail / Depth Feature Card */
+.case-depth-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.75rem 0;
+}
+
+.case-depth-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.case-depth-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.case-depth-tag {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--text-muted);
+}
+
+/* Medical Simulator Schema Inspector Card */
+.case-schema-inspector {
+    padding: 1.5rem;
+    background: #18191b;
+    color: #e4e4e7;
+    font-size: 0.88rem;
+    font-family: var(--font-sans);
+}
+
+.case-schema-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.75rem;
+    margin-bottom: 1.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    color: #a1a1aa;
+}
+
+.case-schema-status {
+    color: #f87171;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.case-schema-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+@media (max-width: 768px) {
+    .case-schema-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.case-schema-col {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    padding: 1rem;
+}
+
+.case-schema-col.defect {
+    border-color: rgba(239, 68, 68, 0.4);
+    background: rgba(239, 68, 68, 0.05);
+}
+
+.case-schema-col-title {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: #94a3b8;
+    margin-bottom: 0.5rem;
+}
+
+.case-schema-col-val {
+    font-weight: 600;
+    color: #f8fafc;
+    margin-bottom: 0.5rem;
+    line-height: 1.35;
+}
+
+.case-schema-col-detail {
+    font-size: 0.8rem;
+    color: #cbd5e1;
+    line-height: 1.45;
+    margin: 0;
+}
+
+.case-schema-status-defect {
+    display: block;
+    margin-top: 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: #f87171;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.case-schema-status-valid {
+    display: block;
+    margin-top: 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: #4ade80;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.case-schema-verdict {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    padding: 0.85rem 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: #e2e8f0;
+}
+
+.case-schema-verdict-label {
+    color: #4ade80;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
 @media (max-width: 640px) {
     .case-hero {
         padding: 3rem 0 1.5rem;
     }
     .case-meta-grid {
         grid-template-columns: 1fr 1fr;
+    }
+    .case-tablet-frame {
+        max-width: 300px;
+        margin-bottom: 2.5rem;
+    }
+    .case-gallery-portrait {
+        max-width: 320px;
     }
     .case-footer-nav-inner {
         flex-direction: column;

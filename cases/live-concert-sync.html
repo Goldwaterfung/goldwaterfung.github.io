@@ -54,18 +54,42 @@
                     <span class="meta-label">Key Systems</span>
                     <span class="meta-val">AI Pose Estimation, Streaming Buffer, Unity</span>
                 </div>
-                <div class="case-meta-item">
-                    <span class="meta-label">Read Time</span>
-                    <span class="meta-val">2 min</span>
-                </div>
             </div>
         </header>
 
-        <div class="case-media-hero">
-            <video controls playsinline>
-                <source src="../assets/system_integration/virtual_concert.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+        <div class="case-window-frame">
+            <div class="case-window-titlebar">
+                <div class="case-window-dots">
+                    <span class="case-window-dot dot-close"></span>
+                    <span class="case-window-dot dot-min"></span>
+                    <span class="case-window-dot dot-max"></span>
+                </div>
+                <span class="case-window-title">Concert Stage AI: Real-Time Motion and Acoustic Sync</span>
+            </div>
+            <div class="case-window-viewport">
+                <video controls autoplay muted loop playsinline>
+                    <source src="../assets/system_integration/virtual_concert.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+
+        <div class="case-stats-grid">
+            <div class="case-stat-card">
+                <div class="case-stat-num">1.5s</div>
+                <span class="case-stat-label">Deterministic Buffer</span>
+                <p class="case-stat-desc">Calibrated streaming buffer absorbing optical inference variance and eliminating limb snapping.</p>
+            </div>
+            <div class="case-stat-card">
+                <div class="case-stat-num">1,000</div>
+                <span class="case-stat-label">Concert Hall Audience</span>
+                <p class="case-stat-desc">Maintained cohesive visual-acoustic alignment live on stage throughout premier concert showcase.</p>
+            </div>
+            <div class="case-stat-card">
+                <div class="case-stat-num">0 Snaps</div>
+                <span class="case-stat-label">Visual Stability</span>
+                <p class="case-stat-desc">Synchronized avatar bowing changes with live acoustic note attacks under stage lighting.</p>
+            </div>
         </div>
 
         <section class="case-section">
@@ -77,6 +101,38 @@
                 <p>
                     During early rehearsals, rapid bowing passages broke raw vision tracking. Inference frame drops and optical motion blur produced severe visual jitter. The avatar repeatedly snapped between erratic limb positions, drifting out of sync with the live acoustic audio in the hall.
                 </p>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <h2 class="case-section-title">Design Exploration and Discarded Iterations</h2>
+            <div class="case-body">
+                <p>
+                    Before establishing our buffer architecture, we tested multiple technical approaches to resolve tracking instability on stage:
+                </p>
+                <div class="case-decision-grid">
+                    <div class="case-decision-card discarded">
+                        <div class="case-decision-title">Unbuffered Zero-Latency Stream</div>
+                        <p class="case-decision-body">Direct streaming from raw pose inference to Unity animation rigs caused aggressive visual snapping whenever optical dropouts occurred under hall lighting.</p>
+                        <span class="case-decision-mark mark-discarded" aria-hidden="true">
+                            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><line x1="11" y1="11" x2="41" y2="41"/><line x1="11" y1="41" x2="41" y2="11"/></svg>
+                        </span>
+                    </div>
+                    <div class="case-decision-card discarded">
+                        <div class="case-decision-title">Mathematical Smoothing Filters</div>
+                        <p class="case-decision-body">Applying heavy Kalman filters introduced continuous phase lag during rapid bowing direction changes, making the avatar appear sluggish and out of sync with acoustic note attacks.</p>
+                        <span class="case-decision-mark mark-discarded" aria-hidden="true">
+                            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><line x1="11" y1="11" x2="41" y2="41"/><line x1="11" y1="41" x2="41" y2="11"/></svg>
+                        </span>
+                    </div>
+                    <div class="case-decision-card chosen">
+                        <div class="case-decision-title">Cadence-Calibrated Buffer</div>
+                        <p class="case-decision-body">Shadowed rehearsals to capture the musician's physical preparation, designing a 1.5-second deterministic streaming buffer that absorbed tracking variance while locking visual bowing to acoustic audio.</p>
+                        <span class="case-decision-mark mark-chosen" aria-hidden="true">
+                            <svg viewBox="0 0 62 62" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="miter"><path d="M16 28 L18 50 L54 10"/></svg>
+                        </span>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -120,7 +176,10 @@
                 <div class="case-callout case-callout-lessons">
                     <div class="case-callout-title">Lessons Learned and Retrospective</div>
                     <p class="case-callout-text">
-                        Engineering real-time synchronization on a live stage cannot be solved purely through lower algorithmic latency. When we attempted unbuffered zero-latency tracking, frame drops created unacceptable visual snapping. Respecting the performer's organic physical preparation and introducing a calibrated 1.5-second buffer grounded in acoustic note attacks produced a rock-solid stage performance that raw algorithms could not achieve alone.
+                        Engineering real-time synchronization on a live stage cannot be solved purely through lower algorithmic latency. When we attempted unbuffered tracking, frame drops created unacceptable visual snapping.
+                    </p>
+                    <p class="case-callout-text">
+                        Respecting the performer's organic physical preparation and introducing a calibrated 1.5-second buffer grounded in acoustic note attacks produced a rock-solid stage performance that raw algorithms could not achieve alone.
                     </p>
                 </div>
             </div>

@@ -23,7 +23,7 @@
             <a href="../index.html" class="case-nav-brand">Kim Fung</a>
             <nav class="case-nav-links">
                 <a href="../index.html#experience" class="case-nav-link back-link">Back to Journey</a>
-                <a href="collaragent.html" class="case-nav-link">Next Case</a>
+                <a href="splat-room-editor.html" class="case-nav-link">Next Case</a>
             </nav>
         </div>
     </header>
@@ -47,7 +47,7 @@
             <div class="case-meta-grid">
                 <div class="case-meta-item">
                     <span class="meta-label">Role</span>
-                    <span class="meta-val">Creator & Audio Architect</span>
+                    <span class="meta-val">Creator</span>
                 </div>
                 <div class="case-meta-item">
                     <span class="meta-label">Project</span>
@@ -61,26 +61,153 @@
                     <span class="meta-label">Key Systems</span>
                     <span class="meta-val">Agent Tooling, CLI Protocols, DSP Telemetry</span>
                 </div>
-                <div class="case-meta-item">
-                    <span class="meta-label">Read Time</span>
-                    <span class="meta-val">3 min</span>
-                </div>
             </div>
         </header>
 
-        <div class="case-media-hero">
-            <img src="../assets/daw/daw-usecase.gif" alt="Stratawright DAW Agent CLI Automation Demonstration">
+        <div class="case-window-frame">
+            <div class="case-window-titlebar">
+                <div class="case-window-dots">
+                    <span class="case-window-dot dot-close"></span>
+                    <span class="case-window-dot dot-min"></span>
+                    <span class="case-window-dot dot-max"></span>
+                </div>
+                <span class="case-window-title">Stratawright: Agentic DAW Signal Workspace</span>
+            </div>
+            <div class="case-window-viewport">
+                <img src="../assets/daw/daw-usecase.gif" alt="Stratawright DAW Agent CLI Automation Demonstration">
+            </div>
+        </div>
+
+        <div class="case-stats-grid">
+            <div class="case-stat-card">
+                <div class="case-stat-num">&lt; 5s</div>
+                <span class="case-stat-label">Batch Setup Time</span>
+                <p class="case-stat-desc">Stem ingestion, auto-coloring, and headroom leveling down from 45 minutes.</p>
+            </div>
+            <div class="case-stat-card">
+                <div class="case-stat-num">100+</div>
+                <span class="case-stat-label">Tracks Supported</span>
+                <p class="case-stat-desc">Full multitrack session capacity running automated gain staging across complex stem layouts.</p>
+            </div>
+            <div class="case-stat-card">
+                <div class="case-stat-num">24 Bark</div>
+                <span class="case-stat-label">Critical Bands</span>
+                <p class="case-stat-desc">Streaming DSP telemetry evaluating psychoacoustic frequency masking directly for coding agents.</p>
+            </div>
         </div>
 
         <section class="case-section">
-            <h2 class="case-section-title">Context and Problem</h2>
+            <h2 class="case-section-title">Context and Problem Discovery</h2>
             <div class="case-body">
                 <p>
-                    Modern autonomous coding agents excel at code generation and text manipulation, but music production and audio engineering remain locked in manual GUI interactions. In large multitrack mixing sessions, sound engineers spend hours on repetitive mechanical tasks like stem routing, track labeling, phase alignment, and initial gain staging.
+                    Drawing on 8 years of freelance audio mixing and post-production experience across digital releases and live festival lineups, I experienced firsthand the repetitive mechanical tax of large multitrack sessions.
                 </p>
                 <p>
-                    Conventional digital audio workstations offer closed graphical interfaces with little to no machine-readable feedback. Autonomous agents cannot inspect session states, evaluate loudness levels, or adjust DSP parameters without human intervention.
+                    In studio projects with 50 to more than 100 tracks, sound engineers spend the first 45 to 60 minutes on non-creative setup chores: organizing stems, sanitizing cryptic file names, setting initial fader headroom, and routing folder submix buses.
                 </p>
+                <p>
+                    While modern autonomous coding agents excel at text manipulation and code generation, professional music production remains trapped in manual mouse-and-keyboard graphical interfaces. Conventional digital audio workstations offer closed GUIs with zero machine-readable telemetry, preventing autonomous agents from inspecting session states, monitoring loudness levels, or adjusting DSP parameters.
+                </p>
+
+                <div class="case-table-wrap">
+                    <table class="case-table">
+                        <thead>
+                            <tr>
+                                <th>Workflow Dimension</th>
+                                <th>Traditional Manual DAW</th>
+                                <th>Stratawright Agentic Pipeline</th>
+                                <th>Operational Impact</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-id">Stem Ingestion &amp; Setup</td>
+                                <td>Dragging 50 to 100 audio files, manually renaming cryptic stems, and setting track colors one by one.</td>
+                                <td>Single natural language prompt executing batch track creation, name sanitizing, and instrument auto-coloring.</td>
+                                <td>Reduced setup time from 45 minutes to under 5 seconds.</td>
+                            </tr>
+                            <tr>
+                                <td class="col-id">Gain Staging &amp; Headroom</td>
+                                <td>Manual fader trimming per channel, guessing headroom margins, frequent digital clipping risk.</td>
+                                <td>Automated RMS target leveling (-18 dB RMS) with 4x oversampled true-peak inter-sample clipping audit.</td>
+                                <td>Guaranteed consistent headroom without digital clipping.</td>
+                            </tr>
+                            <tr>
+                                <td class="col-id">Plugin &amp; FX Chaining</td>
+                                <td>Browsing nested plugin menus, inserting EQs, and re-dialing settings across multiple audio tracks.</td>
+                                <td>Automated VST3 and AU plugin scanning, slot instantiation, and cross-track insert chain duplication.</td>
+                                <td>Eliminated repetitive parameter configuration.</td>
+                            </tr>
+                            <tr>
+                                <td class="col-id">Acoustic Collision Analysis</td>
+                                <td>Opening individual visual analyzers, guessing frequency masking, and visual ear fatigue.</td>
+                                <td>Non-visual DSP telemetry evaluating 24 Bark critical bands and multi-track Pearson phase correlation matrices.</td>
+                                <td>Objective acoustic intelligence exposed directly to agents.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <h2 class="case-section-title">System Exploration and Discarded Iterations</h2>
+            <div class="case-body">
+                <p>
+                    To enable autonomous agents to operate reliably within a digital audio workstation, I evaluated several interaction paradigms before establishing the final architecture:
+                </p>
+                <div class="case-decision-grid">
+                    <div class="case-decision-card discarded">
+                        <div class="case-decision-title">GUI Screen Scraping and OS Accessibility</div>
+                        <p class="case-decision-body">Automating DAW interfaces via OS accessibility wrappers or simulated pointer events broke whenever window layouts shifted, added latency, and could not access internal DSP audio states.</p>
+                        <span class="case-decision-mark mark-discarded" aria-hidden="true">
+                            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><line x1="11" y1="11" x2="41" y2="41"/><line x1="11" y1="41" x2="41" y2="11"/></svg>
+                        </span>
+                    </div>
+                    <div class="case-decision-card discarded">
+                        <div class="case-decision-title">Unconstrained Natural Language Audio Prompts</div>
+                        <p class="case-decision-body">Generating parameters directly from vague prompts like "make the snare punchier" produced erratic gain spikes and clipping because LLMs cannot hear analog waveforms without numerical telemetry.</p>
+                        <span class="case-decision-mark mark-discarded" aria-hidden="true">
+                            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><line x1="11" y1="11" x2="41" y2="41"/><line x1="11" y1="41" x2="41" y2="11"/></svg>
+                        </span>
+                    </div>
+                    <div class="case-decision-card discarded">
+                        <div class="case-decision-title">Monolithic In-App Chatbot Window</div>
+                        <p class="case-decision-body">Embedding a chat UI inside the DAW window coupled LLM runtimes to the real-time audio thread, risking buffer under-runs and vendor lock-in instead of clean decoupling.</p>
+                        <span class="case-decision-mark mark-discarded" aria-hidden="true">
+                            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><line x1="11" y1="11" x2="41" y2="41"/><line x1="11" y1="41" x2="41" y2="11"/></svg>
+                        </span>
+                    </div>
+                    <div class="case-decision-card chosen">
+                        <div class="case-decision-title">Deterministic CLI Protocols and DSP Telemetry</div>
+                        <p class="case-decision-body">A decoupled UNIX domain socket IPC interface executing deterministic CLI commands with strict exit codes and streaming 24-Bark frequency masking telemetry.</p>
+                        <span class="case-decision-mark mark-chosen" aria-hidden="true">
+                            <svg viewBox="0 0 62 62" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="miter"><path d="M16 28 L18 50 L54 10"/></svg>
+                        </span>
+                    </div>
+                </div>
+
+                <p>
+                    I structured this translation bridge across three decoupled layers:
+                </p>
+
+                <div class="case-flow-grid">
+                    <div class="case-flow-card">
+                        <span class="case-flow-kicker">Layer 1: Producer Intent</span>
+                        <div class="case-flow-title">Natural Language Prompt</div>
+                        <p class="case-flow-desc">Human musical direction: "Set up a 124 BPM session with an 8-piece drum kit, auto-color, and balance faders for headroom."</p>
+                    </div>
+                    <div class="case-flow-card">
+                        <span class="case-flow-kicker">Layer 2: Agent Orchestration</span>
+                        <div class="case-flow-title">Deterministic CLI &amp; Skills</div>
+                        <p class="case-flow-desc">Standardized tool-calling schemas via the Agent Skills standard executing transport, stem ingestion, and gain staging commands.</p>
+                    </div>
+                    <div class="case-flow-card">
+                        <span class="case-flow-kicker">Layer 3: Signal Execution</span>
+                        <div class="case-flow-title">C++ Audio Engine &amp; Telemetry</div>
+                        <p class="case-flow-desc">Real-time DSP engine with AVX2 SIMD, VST3 and AU plugin hosting, and streaming LUFS, True-Peak, and phase correlation telemetry.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -88,20 +215,20 @@
             <h2 class="case-section-title">Domain Architecture and Agent Protocols</h2>
             <div class="case-body">
                 <p>
-                    As an audio mixing engineer and systems designer, I formulated the domain requirements, DSP signal flows, and agent interaction schemas for an open-source workstation. I directed autonomous coding agents to implement the underlying audio engine while maintaining rigorous architectural oversight:
+                    As an audio mixing engineer and systems architect, I formulated the domain requirements, DSP signal flows, and agent interaction schemas. I directed autonomous coding agents (Claude Code, OpenCode) to implement the underlying C++ audio engine while maintaining rigorous architectural oversight:
                 </p>
                 <ul>
                     <li>
-                        <strong>Deterministic CLI Protocols:</strong> Established command schemas enabling autonomous agents to execute session transport, track creation, batch stem ingestion, panning, and insert chain operations via the command line.
+                        <strong>Deterministic CLI Protocols Across 6 Operational Domains:</strong> Architected the command-line client (daw-cli) communicating over a local UNIX socket with explicit error recovery codes (such as exit code 71 for connection state and 74 for resource occupancy). Commands cover Session Transport, Track Leveling, VST3 and AU Plugin Management, Timeline Clip and MIDI Editing, Bus Routing and Sidechains, and Asynchronous Render Jobs.
                     </li>
                     <li>
-                        <strong>Non-Visual DSP Telemetry:</strong> Architected real-time streaming telemetry that extracts peak decibels, integrated LUFS loudness, 7-band spectral energy distribution, and Pearson phase correlation matrices into structured data.
+                        <strong>Non-Visual DSP Audio Intelligence:</strong> Designed real-time streaming telemetry that extracts psychoacoustic masking overlap across 24 critical Bark bands using Schroeder spreading functions, 31-bin moving median narrow-Q resonance detection with musical pitch notes, pairwise Pearson phase correlation matrices, and 4x oversampled true-peak inter-sample clipping audits.
                     </li>
                     <li>
-                        <strong>Agent Skills Standard:</strong> Authored standardized agent skill definitions distributed through the Vercel Agent Skills Registry, training coding agents on safe tool execution across complex sessions.
+                        <strong>Agent Skills Standard Distribution:</strong> Authored standardized agent skill definitions distributed through the Vercel Agent Skills Registry (skills/daw-cli), training coding agents across Claude Code, Codex, Cursor, Hermes, Gemini, and OpenCode on safe tool execution.
                     </li>
                     <li>
-                        <strong>Automated Gain Staging Guardrails:</strong> Defined headroom constraints that allow agents to balance multitrack levels automatically without causing digital clipping or inter-sample peaks.
+                        <strong>Automated Gain Staging Guardrails:</strong> Defined headroom constraints (-6 dB target, -18 dB RMS) that allow agents to balance multitrack levels automatically without causing digital clipping or inter-sample distortion.
                     </li>
                 </ul>
             </div>
@@ -113,7 +240,7 @@
                 <div class="case-callout">
                     <div class="case-callout-title">Operational Validation</div>
                     <p class="case-callout-text">
-                        Autonomous coding agents successfully ingest raw multitrack stems, sanitize naming, analyze frequency masking, balance gain stages across 100+ tracks, and execute asynchronous render jobs via deterministic CLI commands with zero GUI interaction.
+                        Autonomous coding agents successfully ingest raw multitrack stems, sanitize naming, analyze frequency masking, balance gain stages across more than 100 tracks, and execute asynchronous render jobs via deterministic CLI commands in under 30 seconds, saving over 45 minutes of manual preparation per session.
                     </p>
                 </div>
 
@@ -124,7 +251,7 @@
                 <div class="case-callout case-callout-lessons">
                     <div class="case-callout-title">Lessons Learned and Retrospective</div>
                     <p class="case-callout-text">
-                        Autonomous agents struggle when presented with ambiguous human audio jargon, but excel when provided with strict deterministic telemetry like LUFS, phase correlation, and spectral energy matrices. Enabling AI systems to operate within creative domains requires building explicit translation layers that turn analog audio telemetry into deterministic CLI protocols.
+                        Autonomous agents struggle when presented with ambiguous human audio jargon, but excel when provided with strict deterministic telemetry like LUFS, True-Peak, phase correlation, and spectral energy matrices. Enabling AI systems to operate within creative domains requires building explicit translation layers that turn analog audio telemetry into deterministic CLI protocols.
                     </p>
                 </div>
 
@@ -143,9 +270,9 @@
                     <span class="case-footer-nav-label">Previous Case Study</span>
                     <span class="case-footer-nav-title">IEEE VR Ambisonics Research</span>
                 </a>
-                <a href="collaragent.html" class="case-footer-nav-item case-footer-nav-next">
+                <a href="splat-room-editor.html" class="case-footer-nav-item case-footer-nav-next">
                     <span class="case-footer-nav-label">Next Case Study</span>
-                    <span class="case-footer-nav-title">CollarAgent Research Studio</span>
+                    <span class="case-footer-nav-title">Gaussian Splatting Room Editor</span>
                 </a>
             </div>
         </footer>

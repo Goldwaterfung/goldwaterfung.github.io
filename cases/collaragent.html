@@ -8,7 +8,7 @@
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' data: blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'">
     <title>CollarAgent Visual Research Studio | Kim Fung</title>
-    <meta name="description" content="Local-first Electron research studio in React + TypeScript pairing LangGraph agent workflows with an infinite concept canvas, scholarly document engine, and non-destructive diff staging.">
+    <meta name="description" content="Local-first Electron research studio in React and TypeScript pairing LangGraph agent workflows with an infinite concept canvas, scholarly document engine, and non-destructive diff staging.">
     <!-- Self-hosted fonts: no third-party requests -->
     <link rel="preload" href="../assets/fonts/vendor/opensans-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="../assets/fonts/fonts.css">
@@ -34,7 +34,7 @@
             <span class="case-kicker">Autonomous Workflows and Interaction Design</span>
             <h1 class="case-title">CollarAgent: Local-first visual research studio with autonomous agent co-working</h1>
             <p class="case-subtitle">
-                Unified an infinite concept canvas, structured document engine, and LangGraph agent runtime with non-destructive diff staging to transform literature exploration into living concept maps and manuscripts.
+                Unified an infinite concept canvas, structured document engine, and LangGraph agent runtime to transform literature exploration into living concept maps and structured manuscripts.
             </p>
 
             <div class="case-hero-actions">
@@ -61,50 +61,112 @@
                     <span class="meta-label">Key Systems</span>
                     <span class="meta-val">Electron, React, TypeScript, LangGraph</span>
                 </div>
-                <div class="case-meta-item">
-                    <span class="meta-label">Read Time</span>
-                    <span class="meta-val">3 min</span>
-                </div>
             </div>
         </header>
 
-        <div class="case-media-hero">
-            <img src="../assets/collaragent/showcase-collaragent.gif" alt="CollarAgent Autonomous Agent Co-Working and Visual Diff Showcase">
+        <div class="case-window-frame">
+            <div class="case-window-titlebar">
+                <div class="case-window-dots">
+                    <span class="case-window-dot dot-close"></span>
+                    <span class="case-window-dot dot-min"></span>
+                    <span class="case-window-dot dot-max"></span>
+                </div>
+                <span class="case-window-title">CollarAgent: Visual Research Workspace</span>
+            </div>
+            <div class="case-window-viewport">
+                <img src="../assets/collaragent/showcase-collaragent.gif" alt="CollarAgent Autonomous Agent Co-Working and Visual Diff Showcase">
+            </div>
+        </div>
+
+        <div class="case-stats-grid">
+            <div class="case-stat-card">
+                <div class="case-stat-num">3-Pane</div>
+                <span class="case-stat-label">Unified Workspace</span>
+                <p class="case-stat-desc">Synchronized concept canvas, structured lexical editor, and LangGraph runtime.</p>
+            </div>
+            <div class="case-stat-card">
+                <div class="case-stat-num">100%</div>
+                <span class="case-stat-label">Local-First Storage</span>
+                <p class="case-stat-desc">Atomic .cagent snapshots and OS keychain encryption with zero external cloud dependencies.</p>
+            </div>
+            <div class="case-stat-card">
+                <div class="case-stat-num">8-Page</div>
+                <span class="case-stat-label">Manuscript Validated</span>
+                <p class="case-stat-desc">Daily production studio used to draft the complete IEEE ICVR 2026 paper.</p>
+            </div>
         </div>
 
         <section class="case-section">
-            <h2 class="case-section-title">Context and Problem</h2>
+            <h2 class="case-section-title">Context and Problem Discovery</h2>
             <div class="case-body">
                 <p>
-                    When conducting academic literature reviews and formulating hypotheses, researchers navigate fragmented tools. Thinking happens across whiteboards, note editors, reference managers, and chat windows.
+                    When preparing a first-author empirical research study for IEEE ICVR 2026, I faced a severe workflow bottleneck. Structuring multi-variable psychoacoustic literature required visual concept mapping, formal mathematical derivations, and continuous prose drafting.
                 </p>
                 <p>
-                    Standard generative AI tools worsen this fragmentation by offering isolated chat boxes or overwriting documents without granular control. Researchers hesitate to let agents edit complex drafts because destructive overwrites destroy nuanced arguments and citations.
+                    My thinking was fragmented across three disconnected environments: infinite whiteboard tools for spatial diagrams, separate text editors for manuscript drafting, and isolated AI chat windows for literature queries. Copying notes and citations between these tools constantly broke deep focus.
+                </p>
+                <p>
+                    Existing generative AI tools exacerbated this fragmentation. Most conversational interfaces forced complex reasoning into a narrow chat box and generated monolithic text blocks that overwrote existing notes without review gates.
+                </p>
+                <p>
+                    Researchers hesitate to use autonomous agents when destructive edits can erase structured arguments or corrupt citation chains. Furthermore, storing unpublished empirical hypotheses on third-party cloud servers introduced data privacy concerns.
                 </p>
             </div>
         </section>
 
         <section class="case-section">
-            <h2 class="case-section-title">System Architecture and User Experience</h2>
+            <h2 class="case-section-title">Design Exploration and Discarded Iterations</h2>
             <div class="case-body">
                 <p>
-                    I designed and built CollarAgent as a local-first Electron desktop application in React + TypeScript that pairs autonomous AI capabilities with direct user manipulation:
+                    To resolve this friction, I explored several interaction models before arriving at the final architecture:
+                </p>
+                <div class="case-decision-grid">
+                    <div class="case-decision-card discarded">
+                        <div class="case-decision-title">Isolated Chat Sidebar</div>
+                        <p class="case-decision-body">Returning text snippets for manual copy-pasting destroyed spatial layout relationships on the canvas and required constant manual re-formatting of equations and tables.</p>
+                        <span class="case-decision-mark mark-discarded" aria-hidden="true">
+                            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><line x1="11" y1="11" x2="41" y2="41"/><line x1="11" y1="41" x2="41" y2="11"/></svg>
+                        </span>
+                    </div>
+                    <div class="case-decision-card discarded">
+                        <div class="case-decision-title">Autonomous Direct Overwriting</div>
+                        <p class="case-decision-body">Allowing agents to directly update document blocks triggered immediate user hesitation. Without granular preview controls, even small unexpected changes eroded editorial trust.</p>
+                        <span class="case-decision-mark mark-discarded" aria-hidden="true">
+                            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><line x1="11" y1="11" x2="41" y2="41"/><line x1="11" y1="41" x2="41" y2="11"/></svg>
+                        </span>
+                    </div>
+                    <div class="case-decision-card chosen">
+                        <div class="case-decision-title">Staged Visual Proposals with 3-Pane Sync</div>
+                        <p class="case-decision-body">Unified an infinite canvas, scholarly document engine, and LangGraph runtime into three synchronized panes. Agents stage additions as non-destructive visual diffs that users inspect and approve with a single click.</p>
+                        <span class="case-decision-mark mark-chosen" aria-hidden="true">
+                            <svg viewBox="0 0 62 62" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="miter"><path d="M16 28 L18 50 L54 10"/></svg>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <h2 class="case-section-title">System Architecture and Implementation</h2>
+            <div class="case-body">
+                <p>
+                    I engineered CollarAgent as a local-first desktop application in Electron, React, and TypeScript:
                 </p>
                 <ul>
                     <li>
-                        <strong>Infinite Canvas and Document Synchronization:</strong> Created bidirectional state synchronization between visual concept nodes and structured document blocks, keeping visual mapping aligned with textual prose.
+                        <strong>Bidirectional Canvas and Document Synchronization:</strong> Created real-time state synchronization between visual concept nodes and structured document blocks. Researchers can drag concept cards directly from the canvas into draft sections, maintaining continuous alignment between visual theory models and written prose.
                     </li>
                     <li>
-                        <strong>Non-Destructive Visual Diff Staging:</strong> Implemented visual proposal staging that allows researchers to inspect, accept, or reject agent edits at the paragraph and node level before applying them to disk.
+                        <strong>Scholarly Lexical Document Engine:</strong> Integrated instant LaTeX equation rendering via KaTeX, formatted evidence tables, and native export to Microsoft Word (.docx), removing formula copy-paste friction.
                     </li>
                     <li>
-                        <strong>LangGraph Autonomous Workflows:</strong> Orchestrated multi-step literature synthesis, hypothesis generation, and evidence extraction agents capable of working alongside the user asynchronously.
+                        <strong>LangGraph Autonomous Workflows:</strong> Orchestrated agent pipelines for literature extraction, hypothesis graph generation, and thematic clustering, allowing autonomous agents to build node-link networks directly on the canvas.
                     </li>
                     <li>
-                        <strong>Persistent Memory Architecture:</strong> Designed schema stores that retain user project preferences, style constraints, and verified claims across long-running research sessions.
+                        <strong>Local-First Storage and Multi-Domain Snapshots:</strong> Designed portable .cagent project archives stored strictly on local disk with OS keychain credential encryption. Built atomic checkpoints capturing conversation history, agent reasoning state, canvas graphs, and document files for point-in-time rollbacks.
                     </li>
                     <li>
-                        <strong>Release Automation:</strong> Configured GitHub Actions CI/CD pipelines for type checking, unit testing, and cross-platform desktop release builds.
+                        <strong>Release Automation:</strong> Configured GitHub Actions CI/CD pipelines for automated type checking, unit testing, and cross-platform desktop release packaging.
                     </li>
                 </ul>
             </div>
@@ -114,20 +176,23 @@
             <h2 class="case-section-title">Practical Outcomes and Verification</h2>
             <div class="case-body">
                 <div class="case-callout">
-                    <div class="case-callout-title">End-to-End Validation</div>
+                    <div class="case-callout-title">End-to-End Production Validation</div>
                     <p class="case-callout-text">
-                        CollarAgent served as the daily production workspace used to conduct literature synthesis and draft the complete research manuscript for IEEE ICVR 2026 before being open sourced in August 2026.
+                        CollarAgent served as my daily production workspace to organize dozens of literature sources, map theoretical variables, and draft the complete 8-page research manuscript for IEEE ICVR 2026 before being open sourced.
                     </p>
                 </div>
 
                 <p>
-                    The visual diff interface eliminated destructive overwriting anxiety, allowing rapid exploration of dozens of papers without losing editorial ownership. The project confirmed that pairing spatial visual thinking with autonomous agent workflows significantly reduces cognitive fragmentation during complex writing.
+                    The unified 3-pane layout eliminated tool switching between whiteboards and word processors. Pairing spatial visual thinking with staged proposal diffs removed destructive overwrite anxiety, allowing rapid exploration of theoretical relationships without losing editorial control or citation integrity.
                 </p>
 
                 <div class="case-callout case-callout-lessons">
                     <div class="case-callout-title">Lessons Learned and Retrospective</div>
                     <p class="case-callout-text">
-                        Autonomous agents need strict visual boundaries and non-destructive approval gates. When agents modify complex scholarly prose, giving users atomic paragraph-level diff control builds far more user trust than full-document autonomous generation.
+                        An autonomous research agent should not attempt to be a one-click ghostwriter. Early assumptions favored high-autonomy text generation, but active scholarly writing requires transparent visual boundaries and granular human verification.
+                    </p>
+                    <p class="case-callout-text">
+                        The highest-leverage role for AI in research is structured concept extraction and evidence organization, while human researchers retain full editorial ownership through transparent, atomic diff approvals.
                     </p>
                 </div>
 
@@ -142,9 +207,9 @@
 
         <footer class="case-footer-nav">
             <div class="case-footer-nav-inner">
-                <a href="stratawright.html" class="case-footer-nav-item">
+                <a href="splat-room-editor.html" class="case-footer-nav-item">
                     <span class="case-footer-nav-label">Previous Case Study</span>
-                    <span class="case-footer-nav-title">Stratawright Agentic DAW</span>
+                    <span class="case-footer-nav-title">Gaussian Splatting Room Editor</span>
                 </a>
                 <a href="mrke-3d.html" class="case-footer-nav-item case-footer-nav-next">
                     <span class="case-footer-nav-label">Next Case Study</span>

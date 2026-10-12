@@ -65,101 +65,223 @@
                     <span class="meta-label">Key Systems</span>
                     <span class="meta-val">Unity C#, Wwise, Python Telemetry</span>
                 </div>
-                <div class="case-meta-item">
-                    <span class="meta-label">Read Time</span>
-                    <span class="meta-val">4 min</span>
-                </div>
             </div>
         </header>
 
-        <div class="case-media-hero">
-            <video controls autoplay muted loop playsinline>
-                <source src="../assets/research/incongruent-gameplay.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+        <div class="case-window-frame">
+            <div class="case-window-titlebar">
+                <div class="case-window-dots">
+                    <span class="case-window-dot dot-close"></span>
+                    <span class="case-window-dot dot-min"></span>
+                    <span class="case-window-dot dot-max"></span>
+                </div>
+                <span class="case-window-title">IEEE ICVR Research: Audio-Visual Conflict Simulation</span>
+            </div>
+            <div class="case-window-viewport">
+                <video controls autoplay muted loop playsinline>
+                    <source src="../assets/research/incongruent-gameplay.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+
+        <div class="case-stats-grid">
+            <div class="case-stat-card">
+                <div class="case-stat-num">60.35°</div>
+                <span class="case-stat-label">Visual Bias Dominance</span>
+                <p class="case-stat-desc">Median angular localization error under conflict with a 0.738 Visual Bias Index (p &lt; 0.001).</p>
+            </div>
+            <div class="case-stat-card">
+                <div class="case-stat-num">+1.64s</div>
+                <span class="case-stat-label">Cognitive Penalty</span>
+                <p class="case-stat-desc">Substantial reaction time latency penalty required to resist visual capture and localize audio.</p>
+            </div>
+            <div class="case-stat-card">
+                <div class="case-stat-num">&lt; 0.3%</div>
+                <span class="case-stat-label">Front-Back Ambiguity</span>
+                <p class="case-stat-desc">16-channel HOA decoding array eliminated front-back confusion confound across all conditions.</p>
+            </div>
         </div>
 
         <section class="case-section">
-            <h2 class="case-section-title">Context and Problem</h2>
+            <h2 class="case-section-title">Context and Problem Discovery</h2>
             <div class="case-body">
                 <p>
-                    As spatial computing and augmented reality interfaces advance, virtual visual and auditory cues are overlaid onto physical space. In real environments, sensory inputs frequently contradict each other due to latency, occlusions, or sensor calibration drift.
+                    This research originated from a fundamental question in spatial game engine development: why do virtually all game audio tutorials instruct developers to bind the audio emitter object directly to the 3D GameObject as a child transform?
                 </p>
                 <p>
-                    Prior psychoacoustic research established that vision typically captures audition (the ventriloquism effect). However, earlier studies relied on brief static flashes and low-order spatial audio. It remained unproven whether high-fidelity 16-channel Third-Order Ambisonics could prevent visual capture under sustained exposure, and what exact cognitive cost human users pay when attempting to resolve spatial sensory conflict.
+                    In the physical world, mechanical physics locks sound generation to physical bodies. But in Virtual Reality and Augmented Reality, tracking latency, occlusions, and sensor calibration drift frequently desynchronize auditory and visual cues. If a sound object is deliberately separated from its visual representation, how does human perception and spatial behavior react?
+                </p>
+                <p>
+                    Investigating this question led me into psychoacoustic literature and sound source localization mechanics. Navigating dense academic papers and evaluating cross-modal hypotheses required a specialized workflow.
+                </p>
+                <p>
+                    Because juggling fragmented tools slowed the conceptual process, I built an open-source visual research workspace (CollarAgent) to organize research literature into structured concept maps and formal manuscripts.
                 </p>
             </div>
         </section>
 
         <section class="case-section">
-            <h2 class="case-section-title">Experimental Paradigm and System Engineering</h2>
+            <h2 class="case-section-title">System Exploration and Discarded Iterations</h2>
             <div class="case-body">
                 <p>
-                    To isolate auditory localization from visual distraction without breaking sensory conflict, I built an experimental apparatus in Unity C# coupled with Wwise audio middleware:
+                    Designing an experimental apparatus capable of measuring pure cross-modal conflict without introducing experimental artifacts required overcoming several technical and methodological roadblocks:
                 </p>
-                <ul>
-                    <li>
-                        <strong>Decoupled Tracking Paradigm:</strong> Designed an experimental interaction where participants maintained visual gaze on an animated visual decoy through continuous HMD head tracking, while independently pointing toward their perceived sound source using a handheld 6DoF VR controller.
-                    </li>
-                    <li>
-                        <strong>Dynamic Conflict Algorithm:</strong> Implemented a real-time incongruent rotation algorithm in C# that dynamically shifted the Wwise sound emitter 60 to 65 degrees along the Y-axis relative to the visual decoy around the player camera, sustaining precise cross-modal contradiction regardless of participant head movement.
-                    </li>
-                    <li>
-                        <strong>Dual-Stream Telemetry Pipeline:</strong> Automated high-resolution data logging across macro trial summaries and micro attempt-by-attempt trajectories, recording up to 3 active pointing corrections per trial.
-                    </li>
-                    <li>
-                        <strong>Python Statistical Pipeline:</strong> Developed an automated analysis suite with Fisher-Yates condition shuffling validation, trajectory aggregation, and nonparametric significance testing.
-                    </li>
-                </ul>
+                <div class="case-decision-grid">
+                    <div class="case-decision-card discarded">
+                        <div class="case-decision-title">Binaural Headphone Audio</div>
+                        <p class="case-decision-body">Commercial HRTF headphones suffer from front-back confusion, meaning measured angular error could be dismissed as acoustic ambiguity rather than visual capture. Resolved via physical 16-channel HOA decoding.</p>
+                        <span class="case-decision-mark mark-discarded" aria-hidden="true">
+                            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><line x1="11" y1="11" x2="41" y2="41"/><line x1="11" y1="41" x2="41" y2="11"/></svg>
+                        </span>
+                    </div>
+                    <div class="case-decision-card discarded">
+                        <div class="case-decision-title">Free-Head Rotation</div>
+                        <p class="case-decision-body">Allowing participants to rotate their heads moves the decoy toward peripheral vision, dissolving cross-modal conflict before the response can be captured.</p>
+                        <span class="case-decision-mark mark-discarded" aria-hidden="true">
+                            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><line x1="11" y1="11" x2="41" y2="41"/><line x1="11" y1="41" x2="41" y2="11"/></svg>
+                        </span>
+                    </div>
+                    <div class="case-decision-card discarded">
+                        <div class="case-decision-title">High-Polygon Custom 3D Meshes</div>
+                        <p class="case-decision-body">Complex custom geometry risked frame stutter in VR. Selected optimized low-poly animal assets that maintained a locked 90 FPS across all participant trials.</p>
+                        <span class="case-decision-mark mark-discarded" aria-hidden="true">
+                            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><line x1="11" y1="11" x2="41" y2="41"/><line x1="11" y1="41" x2="41" y2="11"/></svg>
+                        </span>
+                    </div>
+                    <div class="case-decision-card chosen">
+                        <div class="case-decision-title">Decoupled Gaze &amp; Pointing Paradigm</div>
+                        <p class="case-decision-body">Participants maintained continuous head gaze on the visual decoy via continuous HMD tracking while indicating perceived sound direction independently with a handheld 6DoF controller beam.</p>
+                        <span class="case-decision-mark mark-chosen" aria-hidden="true">
+                            <svg viewBox="0 0 62 62" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="miter"><path d="M16 28 L18 50 L54 10"/></svg>
+                        </span>
+                    </div>
+                </div>
+
+                <p>
+                    To execute the experiment reliably, I structured the system across three synchronized layers:
+                </p>
+
+                <div class="case-flow-grid">
+                    <div class="case-flow-card">
+                        <span class="case-flow-kicker">Layer 1: Stimulus Decoupling</span>
+                        <div class="case-flow-title">Independent Emitters</div>
+                        <p class="case-flow-desc">Unity C# scripts separated the Audiokinetic Wwise sound emitter from the visual GameObject, injecting a 60 to 65 degree static disparity.</p>
+                    </div>
+                    <div class="case-flow-card">
+                        <span class="case-flow-kicker">Layer 2: Decoupled Tracking</span>
+                        <div class="case-flow-title">Dual Gaze &amp; Pointer</div>
+                        <p class="case-flow-desc">Continuous HMD head tracking anchored visual gaze to the decoy while a handheld 6DoF controller raycast beam recorded manual localization at trigger confirm.</p>
+                    </div>
+                    <div class="case-flow-card">
+                        <span class="case-flow-kicker">Layer 3: Acoustic Baseline</span>
+                        <div class="case-flow-title">16-Ch HOA Decoding</div>
+                        <p class="case-flow-desc">Third-order Ambisonics physical loudspeaker array delivering pristine 3D spatial audio that eliminated front-back confusion.</p>
+                    </div>
+                </div>
+
+                <div class="case-gallery-3col">
+                    <figure class="case-figure">
+                        <img src="../assets/research/congruent-incongruent.jpg" alt="Unity experimental environment showing congruent and incongruent scene setups">
+                        <figcaption>Unity Decoupled Scene Configurations</figcaption>
+                    </figure>
+                    <figure class="case-figure">
+                        <img src="../assets/research/experiment.jpg" alt="VR audiovisual conflict experimental setup">
+                        <figcaption>Head-Mounted Display &amp; 6DoF Controller</figcaption>
+                    </figure>
+                    <figure class="case-figure">
+                        <img src="../assets/research/sound-lab.jpg" alt="16-channel Third-Order Ambisonics acoustics laboratory">
+                        <figcaption>16-Channel HOA Acoustic Lab</figcaption>
+                    </figure>
+                </div>
             </div>
         </section>
 
         <section class="case-section">
-            <h2 class="case-section-title">Empirical Findings</h2>
+            <h2 class="case-section-title">Empirical Findings and Statistical Validation</h2>
             <div class="case-body">
+                <p>
+                    Twenty participants completed 60 main trials (20 Congruent, 20 Incongruent, 20 Audio-only) following five practice trials in a counterbalanced within-subjects design.
+                </p>
+
+                <div class="case-table-wrap">
+                    <table class="case-table">
+                        <thead>
+                            <tr>
+                                <th>Experimental Condition</th>
+                                <th>Visual Context</th>
+                                <th>Median Angular Error</th>
+                                <th>Response Time</th>
+                                <th>Visual Bias Index</th>
+                                <th>Front-Back Rate</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-id">Congruent Baseline</td>
+                                <td>Aligned red sphere target (0 degree disparity)</td>
+                                <td>6.90 degrees</td>
+                                <td>4592 ms</td>
+                                <td>Not applicable</td>
+                                <td>0.0%</td>
+                            </tr>
+                            <tr>
+                                <td class="col-id">Incongruent Conflict</td>
+                                <td>Visual decoy with 60 to 65 degree auditory offset</td>
+                                <td>60.35 degrees (p &lt; 0.001)</td>
+                                <td>6235 ms (p &lt; 0.001)</td>
+                                <td>0.738 (Strong capture)</td>
+                                <td>0.3% (p = 0.368)</td>
+                            </tr>
+                            <tr>
+                                <td class="col-id">Audio-Only Baseline</td>
+                                <td>Uniform neutral dark-gray background (0 lx)</td>
+                                <td>9.62 degrees (p = 0.022)</td>
+                                <td>6454 ms</td>
+                                <td>Not applicable</td>
+                                <td>0.0%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
                 <div class="case-callout">
                     <div class="case-callout-title">Core Quantitative Finding</div>
                     <p class="case-callout-text">
-                        Visual distractors inflated initial angular error to a median of 60.35 degrees with a Visual Bias Index of 0.738, compared to 6.90 degrees in Congruent trials (p &lt; 0.001). Resolving this sensory conflict increased user reaction latency by 1.64 seconds.
+                        Visual distractors inflated initial angular error to a median of 60.35 degrees with a Visual Bias Index of 0.738, compared to 6.90 degrees in Congruent trials (p &lt; 0.001, effect size dz = 2.81). Resisting this sensory conflict imposed a 1.64-second cognitive latency penalty (dz = 1.05).
                     </p>
                 </div>
 
                 <p>
-                    The quantitative data across 60 main randomized trials per participant revealed three critical operational realities:
+                    The empirical data across all sessions established three critical operational conclusions:
                 </p>
                 <ol>
                     <li>
-                        <strong>Visual Capture Dominance:</strong> Even when high-fidelity 16-channel Third-Order Ambisonics provided clean spatial sound, visual distractors dominated initial localization, confirming that high-order audio alone cannot compensate for misaligned visuals.
+                        <strong>Visual Capture Dominance Over Spatial Audio:</strong> Even when high-fidelity 16-channel Third-Order Ambisonics provided pristine spatial sound, participants were heavily biased toward the visual decoy on their first attempt. High-order audio alone cannot prevent visual attention capture.
                     </li>
                     <li>
-                        <strong>Measurable Cognitive Latency:</strong> Incongruent trials required an average of 6,235 ms to respond, compared to 4,592 ms in Congruent conditions. Resisting visual capture imposes heavy cognitive overhead on human users.
+                        <strong>Measurable 1.64-Second Cognitive Overhead:</strong> Incongruent trials required an average of 6,235 ms to respond, compared to 4,592 ms in Congruent conditions. Resisting visual capture demands substantial attentional and inhibitory effort.
                     </li>
                     <li>
-                        <strong>Active Perceptual Correction:</strong> Across 3 successive pointing attempts within a single trial, participants partially realigned their spatial perception, reducing median angular error from 60.68 degrees down to 38.17 degrees.
+                        <strong>Dynamic Within-Trial Self-Correction:</strong> Across successive pointing attempts within a single trial, participants showed significant behavioral recovery, reducing median angular error from 60.68 degrees down to 38.17 degrees (p = 0.029).
                     </li>
                 </ol>
 
                 <div class="case-gallery-2col">
                     <figure class="case-figure">
                         <img src="../assets/research/1_angular_error_by_condition.png" alt="Initial localization angular error chart across conditions">
-                        <figcaption>Initial Angular Error Across Experimental Conditions</figcaption>
+                        <figcaption>Initial Angular Error Distribution Across Experimental Conditions</figcaption>
                     </figure>
                     <figure class="case-figure">
                         <img src="../assets/research/3_response_time_by_condition.png" alt="Response time analysis chart across conditions">
-                        <figcaption>Response Time Latency Analysis Across Conditions</figcaption>
+                        <figcaption>Response Latency Demonstrating 1.64-Second Cognitive Overhead</figcaption>
                     </figure>
                 </div>
 
-                <div class="case-gallery-2col">
-                    <figure class="case-figure">
-                        <img src="../assets/research/experiment.jpg" alt="VR audiovisual conflict experimental setup">
-                        <figcaption>Experimental Testing Setup with Head-Mounted Display</figcaption>
-                    </figure>
-                    <figure class="case-figure">
-                        <img src="../assets/research/sound-lab.jpg" alt="16-channel Third-Order Ambisonics acoustics laboratory">
-                        <figcaption>16-Channel Third-Order Ambisonics Calibration Environment</figcaption>
-                    </figure>
-                </div>
+                <figure class="case-figure">
+                    <img src="../assets/research/5_first_vs_final_angular_error.png" alt="First versus final attempt angular error reduction chart">
+                    <figcaption>Dynamic Within-Trial Correction From Initial Capture (60.68 to 38.17 Degrees)</figcaption>
+                </figure>
             </div>
         </section>
 
@@ -167,13 +289,19 @@
             <h2 class="case-section-title">Design Engineering Takeaways</h2>
             <div class="case-body">
                 <p>
-                    This empirical research demonstrates that spatial computing interfaces must maintain strict cross-modal coherence. System designers cannot rely on spatial audio to mask visual drift or positional errors. Contradictory perceptual cues trigger measurable cognitive latency and attention hijacking, establishing clear tolerances for multi-sensor AR and VR systems.
+                    This empirical research demonstrates that spatial computing interfaces and multimodal AI systems must maintain strict cross-modal coherence. Interface designers cannot rely on high-fidelity spatial audio to compensate for visual drift, occlusions, or sensor calibration errors.
+                </p>
+                <p>
+                    Contradictory perceptual cues trigger immediate cognitive latency and attention hijacking, establishing clear tolerances for multi-sensor AR and VR systems.
                 </p>
 
                 <div class="case-callout case-callout-lessons">
                     <div class="case-callout-title">Lessons Learned and Retrospective</div>
                     <p class="case-callout-text">
-                        Spatial interfaces cannot treat senses as independent silos. High-fidelity 16-channel spatial audio cannot prevent human attention hijacking when visual cues contradict sound sources. System designers must prioritize tight sensor synchronization and calibration over pushing single-modality resolution, because human cognition pays an immediate 1.6-second latency penalty to resolve sensory conflict.
+                        Spatial interfaces cannot treat sensory modalities as isolated silos. High-fidelity 16-channel spatial audio cannot prevent human attention hijacking when visual cues contradict sound sources.
+                    </p>
+                    <p class="case-callout-text">
+                        System designers must prioritize tight sensor synchronization and calibration over pushing single-modality resolution, because human cognition pays an immediate 1.6-second latency penalty to resolve sensory conflict.
                     </p>
                 </div>
 
@@ -192,9 +320,9 @@
 
         <footer class="case-footer-nav">
             <div class="case-footer-nav-inner">
-                <a href="../index.html#experience" class="case-footer-nav-item">
-                    <span class="case-footer-nav-label">Overview</span>
-                    <span class="case-footer-nav-title">Return to Journey Timeline</span>
+                <a href="live-concert-sync.html" class="case-footer-nav-item">
+                    <span class="case-footer-nav-label">Previous Case Study</span>
+                    <span class="case-footer-nav-title">Erhu Live Concert AI Motion Sync</span>
                 </a>
                 <a href="stratawright.html" class="case-footer-nav-item case-footer-nav-next">
                     <span class="case-footer-nav-label">Next Case Study</span>
