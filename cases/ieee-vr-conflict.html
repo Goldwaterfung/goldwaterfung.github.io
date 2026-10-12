@@ -10,7 +10,7 @@
     <title>Measuring Visual Capture in VR with Third-Order Ambisonics | Kim Fung</title>
     <meta name="description" content="Human-Computer Interaction perception research on cross-modal sensory conflict in virtual reality published at IEEE ICVR 2026. Designed a decoupled head-gaze and hand-pointing tracking paradigm in Unity.">
     <!-- Self-hosted fonts: no third-party requests -->
-    <link rel="preload" href="../assets/fonts/vendor/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../assets/fonts/vendor/opensans-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="../assets/fonts/fonts.css">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="case.css">
@@ -37,6 +37,15 @@
                 Pioneered a Human-Computer Interaction perception study with a decoupled head-gaze and hand-pointing tracking paradigm in Unity to quantify human sensory boundaries and cognitive overhead during sustained cross-modal conflict in 16-channel spatial audio.
             </p>
 
+            <div class="case-hero-actions">
+                <a href="https://ieeexplore.ieee.org/document/11672319" target="_blank" rel="noopener" class="case-action-btn">
+                    View Paper on IEEE Xplore
+                </a>
+                <a href="https://github.com/Goldwaterfung/vr-under-sustained-audiovisual-conflict" target="_blank" rel="noopener" class="case-action-btn-outline">
+                    View Research Code on GitHub
+                </a>
+            </div>
+
             <div class="case-meta-grid">
                 <div class="case-meta-item">
                     <span class="meta-label">Role</span>
@@ -53,6 +62,10 @@
                 <div class="case-meta-item">
                     <span class="meta-label">Key Systems</span>
                     <span class="meta-val">Unity C#, Wwise, Python Telemetry</span>
+                </div>
+                <div class="case-meta-item">
+                    <span class="meta-label">Read Time</span>
+                    <span class="meta-val">4 min</span>
                 </div>
             </div>
         </header>
@@ -154,6 +167,13 @@
                 <p>
                     This empirical research demonstrates that spatial computing interfaces must maintain strict cross-modal coherence. System designers cannot rely on spatial audio to mask visual drift or positional errors. Contradictory perceptual cues trigger measurable cognitive latency and attention hijacking, establishing clear tolerances for multi-sensor AR and VR systems.
                 </p>
+
+                <div class="case-callout case-callout-lessons">
+                    <div class="case-callout-title">Lessons Learned and Retrospective</div>
+                    <p class="case-callout-text">
+                        Spatial interfaces cannot treat senses as independent silos. High-fidelity 16-channel spatial audio cannot prevent human attention hijacking when visual cues contradict sound sources. System designers must prioritize tight sensor synchronization and calibration over pushing single-modality resolution, because human cognition pays an immediate 1.6-second latency penalty to resolve sensory conflict.
+                    </p>
+                </div>
 
                 <div class="case-action-links">
                     <a href="https://ieeexplore.ieee.org/document/11672319" target="_blank" rel="noopener" class="case-action-btn">

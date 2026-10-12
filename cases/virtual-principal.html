@@ -10,7 +10,7 @@
     <title>Local GPU Multimodal AI Virtual Principal | Kim Fung</title>
     <meta name="description" content="End-to-end multimodal AI pipeline (STT, LLM with RAG, TTS) integrated into Unity with real-time conversational feedback and local GPU inference.">
     <!-- Self-hosted fonts: no third-party requests -->
-    <link rel="preload" href="../assets/fonts/vendor/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../assets/fonts/vendor/opensans-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="../assets/fonts/fonts.css">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="case.css">
@@ -53,6 +53,10 @@
                 <div class="case-meta-item">
                     <span class="meta-label">Key Systems</span>
                     <span class="meta-val">Local GPU AI, Unity C#, Head Tracking</span>
+                </div>
+                <div class="case-meta-item">
+                    <span class="meta-label">Read Time</span>
+                    <span class="meta-val">3 min</span>
                 </div>
             </div>
         </header>
@@ -110,6 +114,13 @@
                 <p>
                     By solving the latency gap through behavioral interaction design rather than expensive hardware upgrades, the project proved that real-time feedback loops can make complex local AI pipelines feel responsive and natural.
                 </p>
+
+                <div class="case-callout case-callout-lessons">
+                    <div class="case-callout-title">Lessons Learned and Retrospective</div>
+                    <p class="case-callout-text">
+                        Perceived latency in multimodal systems is an interaction design problem as much as a compute bottleneck. When users finished speaking and met dead silence, they assumed the system crashed within two seconds. Providing immediate conversational state indicators such as attentive listening blendshapes and micro-gestures preserved conversational continuity across a 3 to 5 second local GPU inference window without expensive cloud infrastructure.
+                    </p>
+                </div>
             </div>
         </section>
 

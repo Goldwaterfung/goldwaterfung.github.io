@@ -10,7 +10,7 @@
     <title>Clinical AI Simulator UX Diagnostics | Kim Fung</title>
     <meta name="description" content="Systematic diagnostic walkthrough of 50 virtual patient simulation cases, aligning clinical schemas and eliminating student diagnostic errors.">
     <!-- Self-hosted fonts: no third-party requests -->
-    <link rel="preload" href="../assets/fonts/vendor/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../assets/fonts/vendor/opensans-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="../assets/fonts/fonts.css">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="case.css">
@@ -54,6 +54,10 @@
                     <span class="meta-label">Discipline</span>
                     <span class="meta-val">Clinical Schema Validation & UX</span>
                 </div>
+                <div class="case-meta-item">
+                    <span class="meta-label">Read Time</span>
+                    <span class="meta-val">3 min</span>
+                </div>
             </div>
         </header>
 
@@ -86,7 +90,7 @@
                         <strong>Database Schema Cross-Validation:</strong> Verified all 50 virtual patient cases directly against clinical database symptom records. Cataloged specific defects where localized swelling, rash patterns, or discoloration were completely missing on the 3D mesh despite being described in medical dialogue.
                     </li>
                     <li>
-                        <strong>Defect Matrix Synthesis:</strong> Synthesized findings into a structured cross-validation matrix mapping patient ID, LLM prompt variables, database truth records, and avatar rendering status for engineering and medical leads.
+                        <strong>Defect Matrix Organization:</strong> Structured findings into a cross-validation matrix mapping patient ID, LLM prompt variables, database truth records, and avatar rendering status for the engineer and medical domain expert.
                     </li>
                 </ul>
             </div>
@@ -105,6 +109,13 @@
                 <p>
                     By proving that student diagnostic errors were driven by data discrepancies rather than graphics, the team avoided weeks of misplaced artistic rework. Training outcomes were successfully grounded in medically accurate, synchronized system behavior.
                 </p>
+
+                <div class="case-callout case-callout-lessons">
+                    <div class="case-callout-title">Lessons Learned and Retrospective</div>
+                    <p class="case-callout-text">
+                        Surface visual complaints often mask deeper system architecture problems. The engineering team was ready to invest weeks in cosmetic 3D mesh redesign, but the true failure lay in asynchronous database schema alignment. Product design must begin by interrogating the truth of the system data before reworking the visual surface.
+                    </p>
+                </div>
             </div>
         </section>
 

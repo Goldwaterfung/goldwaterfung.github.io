@@ -70276,7 +70276,7 @@ function VZ(n, e) {
   });
   return _.computeBoundingBox(), _.center(), _.computeVertexNormals(), _;
 }
-const HZ = () => typeof document < "u" && document.baseURI ? new URL("assets/fonts/eurostile-bold-regular.ttf", document.baseURI).href : "assets/fonts/eurostile-bold-regular.ttf", GZ = ({ geometry: n }) => {
+const HZ = () => typeof document < "u" && document.baseURI ? new URL("assets/fonts/open-sans-bold.ttf", document.baseURI).href : "assets/fonts/open-sans-bold.ttf", GZ = ({ geometry: n }) => {
   const e = Je.useRef(null), t = M_(), i = ar(0.95, { stiffness: 140, damping: 16 }), s = pa(0), a = pa(0), l = { stiffness: 140, damping: 18, mass: 0.8 }, c = ar(s, l), d = ar(a, l), p = ar(1, { stiffness: 220, damping: 20 }), m = ar(0, { stiffness: 220, damping: 20 }), v = pa(0);
   Je.useEffect(() => {
     i.set(1);

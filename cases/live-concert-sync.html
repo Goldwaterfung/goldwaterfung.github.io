@@ -10,7 +10,7 @@
     <title>Erhu Live Concert AI Motion Capture Sync | Kim Fung</title>
     <meta name="description" content="Real-time virtual avatar synchronized with live traditional Erhu performance in a 1000-seat concert hall using a 1.5-second deterministic streaming buffer.">
     <!-- Self-hosted fonts: no third-party requests -->
-    <link rel="preload" href="../assets/fonts/vendor/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../assets/fonts/vendor/opensans-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="../assets/fonts/fonts.css">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="case.css">
@@ -53,6 +53,10 @@
                 <div class="case-meta-item">
                     <span class="meta-label">Key Systems</span>
                     <span class="meta-val">AI Pose Estimation, Streaming Buffer, Unity</span>
+                </div>
+                <div class="case-meta-item">
+                    <span class="meta-label">Read Time</span>
+                    <span class="meta-val">2 min</span>
                 </div>
             </div>
         </header>
@@ -112,6 +116,13 @@
                 <p>
                     The performance demonstrated that solving live real-time synchronization requires understanding the physical, domain-specific cadence of the human performer, rather than relying on unbuffered algorithms.
                 </p>
+
+                <div class="case-callout case-callout-lessons">
+                    <div class="case-callout-title">Lessons Learned and Retrospective</div>
+                    <p class="case-callout-text">
+                        Engineering real-time synchronization on a live stage cannot be solved purely through lower algorithmic latency. When we attempted unbuffered zero-latency tracking, frame drops created unacceptable visual snapping. Respecting the performer's organic physical preparation and introducing a calibrated 1.5-second buffer grounded in acoustic note attacks produced a rock-solid stage performance that raw algorithms could not achieve alone.
+                    </p>
+                </div>
             </div>
         </section>
 

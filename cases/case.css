@@ -78,7 +78,7 @@
     font-family: var(--font-mono);
     font-size: 0.8rem;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 1px;
     color: var(--text-muted);
     margin-bottom: 0.85rem;
 }
@@ -88,7 +88,7 @@
     font-size: clamp(2rem, 3.8vw, 2.9rem);
     font-weight: 700;
     line-height: 1.22;
-    letter-spacing: -0.02em;
+    letter-spacing: 2.24px;
     color: var(--text-primary);
     margin-bottom: 1.25rem;
 }
@@ -96,6 +96,7 @@
 .case-subtitle {
     font-size: 1.15rem;
     line-height: 1.62;
+    letter-spacing: 0.48px;
     color: var(--text-secondary);
     max-width: 68ch;
     margin-bottom: 2.25rem;
@@ -117,7 +118,7 @@
     font-family: var(--font-mono);
     font-size: 0.72rem;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 1px;
     color: var(--text-muted);
     margin-bottom: 0.35rem;
 }
@@ -169,6 +170,7 @@
 }
 
 .case-body p {
+    letter-spacing: 0.48px;
     margin-bottom: 1.25rem;
 }
 
@@ -204,7 +206,7 @@
     font-size: 0.85rem;
     font-family: var(--font-mono);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 1px;
     color: var(--text-muted);
     margin-bottom: 0.5rem;
 }
@@ -212,6 +214,7 @@
 .case-callout-text {
     font-size: 1rem;
     line-height: 1.6;
+    letter-spacing: 0.48px;
     color: var(--text-primary);
     font-weight: 500;
     margin: 0;
@@ -328,7 +331,7 @@
     font-family: var(--font-mono);
     font-size: 0.75rem;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 1px;
     color: var(--text-muted);
     margin-bottom: 0.35rem;
 }
@@ -336,6 +339,7 @@
 .case-footer-nav-title {
     font-size: 1.15rem;
     font-weight: 700;
+    letter-spacing: 2.24px;
     color: var(--text-primary);
     transition: opacity var(--duration-press) var(--ease-out);
 }
@@ -347,6 +351,23 @@
 .case-footer-nav-next {
     text-align: right;
     margin-left: auto;
+}
+
+.case-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.case-callout-lessons {
+    background-color: var(--bg-panel);
+    border: 1px solid var(--border-color);
+    border-left: 3px solid var(--text-secondary);
+    border-radius: 4px;
+    padding: 1.25rem 1.5rem;
+    margin: 2rem 0;
 }
 
 @media (max-width: 640px) {

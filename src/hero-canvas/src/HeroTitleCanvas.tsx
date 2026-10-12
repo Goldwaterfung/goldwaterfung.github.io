@@ -7,9 +7,9 @@ import { create3DTextGeometry, applyXAxisGradient } from './create3DTextGeometry
 
 const getFontUrl = (): string => {
   if (typeof document !== 'undefined' && document.baseURI) {
-    return new URL('assets/fonts/eurostile-bold-regular.ttf', document.baseURI).href;
+    return new URL('assets/fonts/open-sans-bold.ttf', document.baseURI).href;
   }
-  return 'assets/fonts/eurostile-bold-regular.ttf';
+  return 'assets/fonts/open-sans-bold.ttf';
 };
 
 interface Text3DMeshProps {

@@ -10,7 +10,7 @@
     <title>Furnishing a Gaussian Splatting Room | Kim Fung</title>
     <meta name="description" content="How I designed and built a real-time 3D interior editor: a Gaussian Splatting living room rendered with Three.js and Spark, furnished with drag-drop staging and Unity-style move, rotate and scale gizmos.">
     <!-- Self-hosted fonts: no third-party requests -->
-    <link rel="preload" href="../assets/fonts/vendor/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../assets/fonts/vendor/opensans-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="../assets/fonts/fonts.css">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="case.css">
@@ -34,8 +34,14 @@
             <span class="case-kicker">Real-Time 3D and Spatial Interaction</span>
             <h1 class="case-title">I furnished a Gaussian Splatting room, in the browser</h1>
             <p class="case-subtitle">
-                I rendered a scanned living room as Gaussian splats and built an editor around it — I drag furniture from a catalog, snap it to the floor, then move, rotate and scale it with Unity-style gizmos. This is the story of how I got there, step by step.
+                I rendered a scanned living room as Gaussian splats and built an editor around it. Users can drag furniture from a catalog, snap it to the floor, then move, rotate and scale it with Unity-style gizmos. This is the story of how I got there, step by step.
             </p>
+
+            <div class="case-hero-actions">
+                <a href="../splat-viewer.html" class="case-action-btn">
+                    Step Into Live 3D Room
+                </a>
+            </div>
 
             <div class="case-meta-grid">
                 <div class="case-meta-item">
@@ -53,6 +59,10 @@
                 <div class="case-meta-item">
                     <span class="meta-label">Use Case</span>
                     <span class="meta-val">Home Interior Staging</span>
+                </div>
+                <div class="case-meta-item">
+                    <span class="meta-label">Read Time</span>
+                    <span class="meta-val">6 min</span>
                 </div>
             </div>
         </header>
@@ -175,10 +185,10 @@
                 <p>
                     I deleted the clever code. In its place: the measured default, plus <strong>live [ and ] keys</strong> that nudge the floor in 2 cm steps with the value printed to console. One honest number, confirmed by my own eyes, beats an elegant estimate that is wrong. That's the line I'd put on a slide.
                 </p>
-                <div class="case-callout">
-                    <div class="case-callout-title">What I Learned</div>
+                <div class="case-callout case-callout-lessons">
+                    <div class="case-callout-title">Lessons Learned and Retrospective</div>
                     <p class="case-callout-text">
-                        Scanned geometry lies about its own surfaces. Any editor that furnishes gaussian scenes needs a floor-calibration story — measured from data, confirmed on device, tunable per asset. I won't ship a scanned-space editor without one again.
+                        Scanned geometry lies about its own surfaces. Any editor that furnishes gaussian scenes needs an explicit floor calibration mechanism measured directly from data, confirmed on device, and tunable per asset. I will not ship a scanned-space editor without one again.
                     </p>
                 </div>
                 <div class="case-action-links">
