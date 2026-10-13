@@ -41,6 +41,12 @@
     --max-width: 1120px;
     --header-height: 70px;
 
+    /* Flow Rhythm & Vertical Spacing Tokens */
+    --flow-gap-tight: 0.55rem;
+    --flow-gap-kicker: 0.85rem;
+    --flow-gap-body: 1.45rem;
+    --flow-gap-action: 2.2rem;
+
     /* Motion and Easing Tokens */
     --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
     --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
@@ -814,9 +820,9 @@ span.tracking-medium {
 .followup-list {
     display: flex;
     flex-direction: column;
-    gap: clamp(7rem, 11vw, 11.5rem);
-    margin-top: clamp(2rem, 4vw, 3.5rem);
-    margin-bottom: clamp(7rem, 11vw, 11rem);
+    gap: clamp(8rem, 13vw, 13.5rem);
+    margin-top: clamp(2.5rem, 5vw, 4.5rem);
+    margin-bottom: clamp(8rem, 13vw, 13rem);
 }
 
 .followup-row {
@@ -827,14 +833,13 @@ span.tracking-medium {
     background: transparent;
     border: none;
     border-radius: 0;
-    padding: clamp(1.2rem, 2vw, 2rem) 0;
+    padding: clamp(1.5rem, 2.5vw, 2.5rem) 0;
     box-shadow: none;
 }
 
 .followup-text {
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
     align-items: flex-start;
 }
 
@@ -844,6 +849,7 @@ span.tracking-medium {
     font-weight: 600;
     color: var(--text-muted);
     letter-spacing: 1px;
+    margin-bottom: var(--flow-gap-kicker);
 }
 
 .followup-row-title {
@@ -851,17 +857,17 @@ span.tracking-medium {
     font-size: 1.4rem;
     font-weight: 600;
     letter-spacing: 2.24px;
-    line-height: 1.3;
+    line-height: 1.35;
     color: var(--text-primary);
-    margin: 0;
+    margin: 0 0 var(--flow-gap-body) 0;
 }
 
 .followup-desc {
     font-size: 0.98rem;
     color: var(--text-secondary);
-    line-height: 1.65;
+    line-height: 1.7;
     letter-spacing: 0.48px;
-    margin: 0;
+    margin: 0 0 var(--flow-gap-action) 0;
     max-width: 52ch;
 }
 
@@ -869,7 +875,7 @@ span.tracking-medium {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin-top: 0.85rem;
+    margin-top: 0;
     padding: 0.58rem 1.35rem;
     font-size: 0.84rem;
     font-weight: 600;
@@ -968,12 +974,12 @@ span.tracking-medium {
     box-shadow: 0 2px 10px rgba(28, 28, 30, 0.03);
     display: flex;
     flex-direction: column;
-    gap: 0.35rem;
+    gap: var(--flow-gap-tight);
     position: absolute;
     width: calc(50% - 170px);
     max-width: 420px;
     box-sizing: border-box;
-    transition: transform var(--duration-ui) var(--ease-out), border-color var(--duration-ui) var(--ease-out), box-shadow var(--duration-ui) var(--ease-out);
+    transition: transform var(--duration-ui) var(--ease-out), box-shadow var(--duration-ui) var(--ease-out);
     cursor: default;
     z-index: 3;
     will-change: transform;
@@ -981,8 +987,7 @@ span.tracking-medium {
 
 .journey-card:hover,
 .journey-card.active {
-    border-color: var(--text-primary);
-    box-shadow: 0 4px 16px rgba(28, 28, 30, 0.06);
+    box-shadow: 0 6px 20px rgba(28, 28, 30, 0.07);
 }
 
 .journey-card-time {
@@ -1013,14 +1018,14 @@ span.tracking-medium {
     line-height: 1.58;
     color: var(--text-secondary);
     letter-spacing: 0.48px;
-    margin-top: 0.25rem;
+    margin-top: var(--flow-gap-tight);
 }
 
 .journey-card-link {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin-top: 0.95rem;
+    margin-top: var(--flow-gap-action);
     padding: 0.52rem 1.25rem;
     font-size: 0.82rem;
     font-weight: 600;
@@ -1208,7 +1213,7 @@ span.tracking-medium {
     transition: transform var(--duration-ui) var(--ease-out);
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+    gap: var(--flow-gap-tight);
 }
 
 #journey-modal.open .journey-modal-panel {
@@ -1635,7 +1640,7 @@ span.tracking-medium {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-    margin-top: 1rem;
+    margin-top: var(--flow-gap-action);
 }
 
 .footer-bottom-line {
@@ -1768,9 +1773,9 @@ span.tracking-medium {
 
     /* Flagship Feature Rows */
     .followup-list {
-        gap: clamp(4rem, 8vw, 5.5rem);
-        margin-top: 1.5rem;
-        margin-bottom: 5.5rem;
+        gap: clamp(5rem, 10vw, 6.5rem);
+        margin-top: 2rem;
+        margin-bottom: 6.5rem;
     }
 
     .followup-row {
