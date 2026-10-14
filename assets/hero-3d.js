@@ -70741,7 +70741,7 @@ function DU() {
     name: "3D Avatar & LLM Clinical Simulation",
     period: "Jul 2024 - Aug 2024",
     role: "3D Avatar & LLM Clinical Simulation",
-    org: "Innova Medical Technology | UX Designer (Contract)",
+    org: "Innova Medical Technology | 3D UX Designer (Contract)",
     actionHeadline: "I audited 50 clinical simulation cases, optimizing 3D avatar appearance, blendshapes, and rigging with LLM dialogue to eliminate diagnostic errors.",
     caseUrl: "cases/innova-medical.html",
     side: "left",
