@@ -34,7 +34,7 @@
             <span class="case-kicker">UX Diagnostics and Medical Simulation</span>
             <h1 class="case-title">Fixed student misdiagnoses by fixing data, not graphics</h1>
             <p class="case-subtitle">
-                Systematically audited 50 clinical simulation cases on a medical training platform combining LLM dialogue with 3D virtual patients, shifting engineering priorities away from cosmetic rework toward schema alignment.
+                Systematically audited 50 clinical simulation cases across child medicine, elder care, mental health, and general surgery for a B2B medical training simulator, shifting priorities away from unfeasible photorealistic rework on legacy GPUs toward clinical correctness and runtime performance.
             </p>
 
             <div class="case-meta-grid">
@@ -57,47 +57,6 @@
             </div>
         </header>
 
-        <div class="case-window-frame">
-            <div class="case-window-titlebar">
-                <div class="case-window-dots">
-                    <span class="case-window-dot dot-close"></span>
-                    <span class="case-window-dot dot-min"></span>
-                    <span class="case-window-dot dot-max"></span>
-                </div>
-                <span class="case-window-title">Clinical Diagnosis Simulation: Cross-Modal Schema Audit</span>
-            </div>
-            <div class="case-schema-inspector">
-                <div class="case-schema-header">
-                    <span>CASE #024 DIAGNOSTIC WALKTHROUGH AUDIT</span>
-                    <span class="case-schema-status">Schema Drift Detected</span>
-                </div>
-                <div class="case-schema-grid">
-                    <div class="case-schema-col">
-                        <div class="case-schema-col-title">Database Schema Ground Truth</div>
-                        <div class="case-schema-col-val">Acute Hepatitis Case #024</div>
-                        <p class="case-schema-col-detail">Clinical record requires scleral jaundice, elevated bilirubin, and right upper quadrant abdominal tenderness.</p>
-                        <span class="case-schema-status-valid">Clinical Standard Verified</span>
-                    </div>
-                    <div class="case-schema-col defect">
-                        <div class="case-schema-col-title">Conversational LLM Feedback</div>
-                        <div class="case-schema-col-val">Subjective Dialogue Contradiction</div>
-                        <p class="case-schema-col-detail">LLM system prompt generated contradictory patient statements denying abdominal discomfort and fatigue.</p>
-                        <span class="case-schema-status-defect">Prompt Discrepancy Found</span>
-                    </div>
-                    <div class="case-schema-col defect">
-                        <div class="case-schema-col-title">Visual 3D Avatar Rendering</div>
-                        <div class="case-schema-col-val">Missing Physical Examination Sign</div>
-                        <p class="case-schema-col-detail">Avatar mesh loaded default neutral skin shaders with zero localized discoloration or jaundice textures.</p>
-                        <span class="case-schema-status-defect">Visual Examination Missing</span>
-                    </div>
-                </div>
-                <div class="case-schema-verdict">
-                    <span class="case-schema-verdict-label">Audit Verdict:</span>
-                    <span>Student confusion caused by inter-service schema misalignment, not polygon count. Canceled 6 to 8 weeks of planned 3D mesh remodeling.</span>
-                </div>
-            </div>
-        </div>
-
         <div class="case-stats-grid">
             <div class="case-stat-card">
                 <div class="case-stat-num">50 Cases</div>
@@ -116,80 +75,249 @@
             </div>
         </div>
 
+        <div class="case-media-hero">
+            <img src="../assets/innova/Battered-child-syndrome/final.jpg" alt="Clinical simulation platform running in Unity3D, showing the virtual patient examination room and interactive diagnostic tools">
+        </div>
+
         <section class="case-section">
-            <h2 class="case-section-title">Context and Problem Discovery</h2>
+            <h2 class="case-section-title">Problem Discovery</h2>
             <div class="case-body">
                 <p>
-                    Innova Medical developed a B2B clinical diagnosis training platform combining large language model dialogue with 3D virtual patient avatars to train medical students across university deployments. During early pilot evaluations, medical students repeatedly misjudged visual examination modules across 50 simulation cases, reporting high diagnostic confusion and contradictory clinical findings.
+                    Innova Medical developed a B2B clinical simulation platform used by universities and teaching hospitals. The product trained medical students to act like professional clinicians through case-based simulation across realistic consultation and physical examination flows. The simulation curriculum encompassed 50 clinical cases across four core departments: child medicine, elder care, mental health, and general surgery.
                 </p>
                 <p>
-                    The initial assumption among stakeholders and engineering leads was that the 3D patient avatars lacked realistic graphical fidelity or photorealistic skin shaders. The team was preparing to commission an estimated 6 to 8 weeks of intensive 3D mesh remodeling and shader rework.
+                    During early university deployments, students repeatedly misjudged physical examination modules, reporting severe diagnostic confusion. A hands-on review of the platform revealed significant visual and operational friction:
                 </p>
+                <div class="case-hairline-list">
+                    <div class="case-hairline-item">
+                        <span class="case-hairline-num">1</span>
+                        <span class="case-hairline-text">Clinically Inaccurate Visual Symptoms</span>
+                    </div>
+                    <div class="case-hairline-item">
+                        <span class="case-hairline-num">2</span>
+                        <span class="case-hairline-text">Robotic Animations and Consultation Disconnect</span>
+                    </div>
+                    <div class="case-hairline-item">
+                        <span class="case-hairline-num">3</span>
+                        <span class="case-hairline-text">Strict Hardware Constraints</span>
+                    </div>
+                    <div class="case-hairline-item">
+                        <span class="case-hairline-num">4</span>
+                        <span class="case-hairline-text">Misdiagnosed Engineering Direction</span>
+                    </div>
+                </div>
                 <p>
-                    Rather than accepting that student misdiagnoses were caused by polygon counts, I questioned the initial premise. I launched a structured diagnostic audit across all 50 clinical simulation cases to trace student confusion back to root-cause system interactions.
+                    Because client hardware could not support heavier shaders and cosmetic polish could not correct medically wrong symptoms, I structured a systematic diagnostic audit across all 50 cases to align clinical ground truth with visual simulation within realistic hardware limits.
                 </p>
             </div>
         </section>
 
         <section class="case-section">
-            <h2 class="case-section-title">Cognitive Walkthroughs and False Assumptions</h2>
+            <h2 class="case-section-title">Evaluation</h2>
             <div class="case-body">
                 <p>
-                    I evaluated each simulation case by shadowing the medical student clinical reasoning workflow: patient history taking, verbal dialogue, visual physical examination, and differential diagnosis. This investigation uncovered two critical insights that challenged stakeholder assumptions:
+                    I evaluated each simulation case by shadowing the medical student clinical reasoning workflow: patient history taking, verbal dialogue, visual physical examination, and differential diagnosis. To align engineering priorities with clinical reality, I organized our scope across a two-dimensional vector plane balancing importance against time effort:
                 </p>
-                <div class="case-decision-grid">
-                    <div class="case-decision-card discarded">
-                        <div class="case-decision-title">6 to 8 Weeks of 3D Mesh Rework</div>
-                        <p class="case-decision-body">Polygon density had zero impact on misdiagnoses. Students failed because the platform delivered contradictory signals: LLM dialogue described acute symptoms that were completely absent on the avatar mesh.</p>
-                        <span class="case-decision-mark mark-discarded" aria-hidden="true">
-                            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><line x1="11" y1="11" x2="41" y2="41"/><line x1="11" y1="41" x2="41" y2="11"/></svg>
-                        </span>
-                    </div>
-                    <div class="case-decision-card discarded">
-                        <div class="case-decision-title">Ad-Hoc Prompt Tweaks</div>
-                        <p class="case-decision-body">Patching individual LLM system prompts on a case-by-case basis introduced regression errors into alternative clinical branches, failing to solve systemic schema drift.</p>
-                        <span class="case-decision-mark mark-discarded" aria-hidden="true">
-                            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><line x1="11" y1="11" x2="41" y2="41"/><line x1="11" y1="41" x2="41" y2="11"/></svg>
-                        </span>
-                    </div>
-                    <div class="case-decision-card chosen">
-                        <div class="case-decision-title">Cross-Modal Schema Audit</div>
-                        <p class="case-decision-body">Established a unified cross-validation matrix mapping database symptom ground truth to LLM dialogue outputs and rendered 3D assets, aligning engineering and medical domain leads.</p>
-                        <span class="case-decision-mark mark-chosen" aria-hidden="true">
-                            <svg viewBox="0 0 62 62" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="miter"><path d="M16 28 L18 50 L54 10"/></svg>
-                        </span>
+
+                <div class="case-vector-plane">
+                    <svg class="vector-arrow-y" viewBox="0 0 12 8" width="12" height="8" aria-hidden="true">
+                        <path d="M 1 8 L 6 1 L 11 8 Z" fill="var(--text-primary)" />
+                    </svg>
+                    <svg class="vector-arrow-x" viewBox="0 0 8 12" width="8" height="12" aria-hidden="true">
+                        <path d="M 0 1 L 7 6 L 0 11 Z" fill="var(--text-primary)" />
+                    </svg>
+                    <div class="vector-axis-label-y">Importance</div>
+                    <div class="vector-axis-label-x">Time Effort</div>
+
+                    <div class="vector-quadrant-grid">
+                        <div class="vector-quadrant quad-top-left">
+                            <ul class="vector-item-list">
+                                <li>Optimize 3D simulation performance</li>
+                            </ul>
+                        </div>
+
+                        <div class="vector-quadrant quad-top-right">
+                            <ul class="vector-item-list">
+                                <li>Correct animations that will affect consultations</li>
+                                <li>Correct visual features that match the disease symptom</li>
+                            </ul>
+                        </div>
+
+                        <div class="vector-quadrant quad-bottom-left">
+                            <ul class="vector-item-list">
+                                <li>High fidelity lighting</li>
+                                <li>Design better animation</li>
+                            </ul>
+                        </div>
+
+                        <div class="vector-quadrant quad-bottom-right">
+                            <ul class="vector-item-list">
+                                <li>Upgrade models aesthetic</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
                 <p>
-                    To isolate the failure points, I structured my diagnostic audit around the cross-modal interaction triangle:
+                    To resolve the simulation disconnect, I structured a hands-on problem-solving workflow directly on the whiteboard across all 50 cases:
                 </p>
 
-                <div class="case-flow-grid">
+                <div class="case-flow-grid case-flow-grid-6">
                     <div class="case-flow-card">
-                        <span class="case-flow-kicker">Layer 1: Ground Truth</span>
-                        <div class="case-flow-title">Clinical Database Records</div>
-                        <p class="case-flow-desc">Verified medical records, target symptom codes, physiological parameters, and correct primary diagnoses.</p>
+                        <span class="case-flow-num">1</span>
+                        <h3 class="case-flow-title">User Research</h3>
+                        <p class="case-flow-desc">Interviewed medical students and clinical instructors to uncover what caused confusion during consultation and physical examination.</p>
                     </div>
+
                     <div class="case-flow-card">
-                        <span class="case-flow-kicker">Layer 2: Verbal Generation</span>
-                        <div class="case-flow-title">LLM Dialogue Engine</div>
-                        <p class="case-flow-desc">Dynamic multi-turn conversational responses, patient complaint prompts, and subjective symptom descriptions.</p>
+                        <span class="case-flow-num">2</span>
+                        <h3 class="case-flow-title">Case Playthroughs</h3>
+                        <p class="case-flow-desc">Systematically played through every clinical case simulation firsthand to document exact student friction points.</p>
                     </div>
+
                     <div class="case-flow-card">
-                        <span class="case-flow-kicker">Layer 3: Visual Presentation</span>
-                        <div class="case-flow-title">3D Patient Avatar</div>
-                        <p class="case-flow-desc">Physical examination affordances, localized swelling, tissue discoloration, and synchronized facial animations.</p>
+                        <span class="case-flow-num">3</span>
+                        <h3 class="case-flow-title">Symptom Storyboarding</h3>
+                        <p class="case-flow-desc">Researched disease symptom profiles and storyboarded the consultation flow on the whiteboard, mapping each clinical finding to the visual sign students should be able to examine.</p>
+                    </div>
+
+                    <div class="case-flow-card">
+                        <span class="case-flow-num">4</span>
+                        <h3 class="case-flow-title">As-Is vs To-Be Audit</h3>
+                        <p class="case-flow-desc">Built a case-by-case whiteboard comparison of the as-is simulator and the to-be clinical experience, making each gap between current symptoms and required clinical signs visible.</p>
+                    </div>
+
+                    <div class="case-flow-card">
+                        <span class="case-flow-num">5</span>
+                        <h3 class="case-flow-title">3D Tool Execution</h3>
+                        <p class="case-flow-desc">Executed targeted fixes in Blender, Maya, and Unity3D to texture skin lesions, sculpt blendshapes, and re-rig spinal joints.</p>
+                    </div>
+
+                    <div class="case-flow-card">
+                        <span class="case-flow-num">6</span>
+                        <h3 class="case-flow-title">Collaborative Iteration</h3>
+                        <p class="case-flow-desc">Refined assets through continuous review cycles with the engineer, medical domain expert, and project leadership.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <section class="case-section">
-            <h2 class="case-section-title">Cross-Modal Schema Audit and Defect Matrix</h2>
+            <h2 class="case-section-title">Clinical Cases</h2>
             <div class="case-body">
                 <p>
-                    I systematically walked through all 50 virtual patient cases directly against clinical database symptom records. I cataloged every defect where visual examination signs (such as localized swelling, cellulitis redness, contusions, or jaundice) were missing on the 3D mesh despite being described in medical dialogue.
+                    Walking through all 50 virtual patient cases proved that student misdiagnoses were never caused by polygon counts or shader complexity. Instead, simulation defects clustered across three distinct 3D technical layers, each aligning with a specific medical discipline: surface texture albedo in pediatric trauma, mesh blendshapes and proportions in endocrine disorders, and skeletal armature rigging in geriatric degenerative care.
+                </p>
+
+                <div class="case-patient-card">
+                    <div class="case-patient-header">
+                        <h3 class="case-patient-title">Battered Child Syndrome: Forensic Bruise Chronology and Soft-Tissue Contusions</h3>
+                    </div>
+                    <p class="case-patient-summary">
+                        In pediatric forensic medicine, diagnosing non-accidental trauma relies on recognizing soft-tissue contusions and multi-stage healing chronology, where fresh purple-blue marks appear alongside older fading green-yellow lesions. The database documented these signs, but the avatar rendered a flat, unblemished skin shader. Students misdiagnosed injuries as minor accidental falls because the platform provided zero visual evidence to reason with.
+                    </p>
+                    <div class="case-patient-details">
+                        <div class="case-patient-detail-item">
+                            <span class="case-patient-detail-label">Database Ground Truth</span>
+                            <p class="case-patient-detail-text">Clinical schema specified two facial contusions, right thoracic cage contusion measuring 3x4x3 cm, occipital hematoma, and multi-stage bruise healing chronology.</p>
+                        </div>
+                        <div class="case-patient-detail-item">
+                            <span class="case-patient-detail-label">Simulation Remediation</span>
+                            <p class="case-patient-detail-text">Canceled planned 3D mesh remodeling and textured multi-stage bruise albedo maps directly onto cheek soft tissue and lateral ribs, synchronized with penlight tool inspection.</p>
+                        </div>
+                    </div>
+                    <div class="case-gallery-3col">
+                        <figure class="case-figure">
+                            <img src="../assets/innova/Battered-child-syndrome/case-symptom-table.jpg" alt="Clinical database symptom table detailing physical examination findings for Battered Child Syndrome">
+                            <figcaption>Database schema: Clinical records specifying soft-tissue trauma, thoracic bruising, and hematoma.</figcaption>
+                        </figure>
+                        <figure class="case-figure">
+                            <img src="../assets/innova/Battered-child-syndrome/final-zoom-close.jpg" alt="Close-up detail of virtual pediatric patient cheek showing multi-stage purple and green contusions">
+                            <figcaption>Remediated cheek texture: Fresh purple lesion alongside older healing green lesion to prove chronological abuse.</figcaption>
+                        </figure>
+                        <figure class="case-figure">
+                            <img src="../assets/innova/Battered-child-syndrome/final-2.jpg" alt="Virtual patient right thoracic ribcage showing 3x4x3 cm bluish contusion">
+                            <figcaption>Remediated thoracic texture: 3x4x3 cm blue contusion on lateral ribs matching clinical records.</figcaption>
+                        </figure>
+                    </div>
+                </div>
+
+                <div class="case-patient-card">
+                    <div class="case-patient-header">
+                        <h3 class="case-patient-title">Cushing's Disease: Moon Face, Violaceous Striae, and Central Adiposity</h3>
+                    </div>
+                    <p class="case-patient-summary">
+                        In Cushing's Disease simulation, the avatar loaded as a generic stocky male wearing street jeans. Students repeatedly misidentified the patient as simple exogenous obesity because the avatar lacked endocrine fat redistribution, rounded moon face contours, and abdominal purple striae.
+                    </p>
+                    <p class="case-patient-summary">
+                        Cushing's disease is a specific cause of Cushing syndrome: a pituitary tumor that produces excess ACTH stimulates the adrenal glands to make too much cortisol over time. The resulting cortisol excess can cause central weight gain, a rounded or plethoric face, broad purple abdominal striae, and easy bruising, sometimes with relatively slender limbs. These findings can raise suspicion, but appearance alone cannot confirm the diagnosis; clinical assessment and endocrine testing are needed.
+                    </p>
+                    <div class="case-patient-details">
+                        <div class="case-patient-detail-item">
+                            <span class="case-patient-detail-label">Database Ground Truth</span>
+                            <p class="case-patient-detail-text">Hypercortisolemia profile requiring rounded moon face with facial plethora, central truncal adiposity with slender limbs, and wide violaceous abdominal striae.</p>
+                        </div>
+                        <div class="case-patient-detail-item">
+                            <span class="case-patient-detail-label">Simulation Remediation</span>
+                            <p class="case-patient-detail-text">Reshaped facial blendshapes for moon face fullness, adjusted limb-to-torso proportions, textured wide purple striae across the abdomen, and provided examination shorts for full visual inspection.</p>
+                        </div>
+                    </div>
+                    <div class="case-gallery-3col">
+                        <figure class="case-figure">
+                            <img src="../assets/innova/cushings-diseases/original.jpg" alt="Uncorrected generic stocky male avatar wearing jeans in clinical simulation">
+                            <figcaption>Before: Generic stocky avatar in jeans that does not show the characteristic fat distribution or facial fullness.</figcaption>
+                        </figure>
+                        <figure class="case-figure">
+                            <img src="../assets/innova/cushings-diseases/features.jpg" alt="Clinical photography showing prominent violaceous purple striae across abdomen and flanks">
+                            <figcaption>Clinical reference: Purple striae over 1 cm wide and thin skin marked by the medical domain expert.</figcaption>
+                        </figure>
+                        <figure class="case-figure">
+                            <img src="../assets/innova/cushings-diseases/final.jpg" alt="Remediated Cushing's disease avatar showing moon face, central adiposity, and purple striae in examination attire">
+                            <figcaption>After: Re-proportioned avatar displaying rounded moon face, abdominal striae, and slender limbs in examination shorts.</figcaption>
+                        </figure>
+                    </div>
+                </div>
+
+                <div class="case-patient-card">
+                    <div class="case-patient-header">
+                        <h3 class="case-patient-title">Severe Osteoporosis: Thoracic Kyphosis and Dowager's Hump</h3>
+                    </div>
+                    <p class="case-patient-summary">
+                        In the osteoporosis simulation, the avatar featured an anatomically straight thoracic spine with simple neck flexion. Students rotated the camera to lateral view but observed zero signs of collapsed thoracic vertebrae, incorrectly diagnosing chronic back pain as cervical strain.
+                    </p>
+                    <div class="case-patient-details">
+                        <div class="case-patient-detail-item">
+                            <span class="case-patient-detail-label">Database Ground Truth</span>
+                            <p class="case-patient-detail-text">Severe bone mineral loss with multiple anterior wedge compression fractures producing pronounced thoracic kyphosis and height loss.</p>
+                        </div>
+                        <div class="case-patient-detail-item">
+                            <span class="case-patient-detail-label">Simulation Remediation</span>
+                            <p class="case-patient-detail-text">Cross-referenced spinal lateral X-rays and surgical diagrams to re-rig the avatar spine, introducing an authentic convex Dowager's hump along the upper thoracic vertebrae.</p>
+                        </div>
+                    </div>
+                    <div class="case-gallery-3col">
+                        <figure class="case-figure">
+                            <img src="../assets/innova/Osteoporosis/before.jpg" alt="Uncorrected avatar model with flat thoracic spine and isolated neck tilt">
+                            <figcaption>Before: Flat thoracic spine resembling muscular slouch rather than pathological bone collapse.</figcaption>
+                        </figure>
+                        <figure class="case-figure">
+                            <img src="../assets/innova/Osteoporosis/to-be.jpg" alt="Diagnostic redline markup indicating missing thoracic spinal curvature">
+                            <figcaption>Diagnostic redline: Highlighting the missing convex curve required to represent collapsed thoracic vertebrae.</figcaption>
+                        </figure>
+                        <figure class="case-figure">
+                            <img src="../assets/innova/Osteoporosis/final.jpg" alt="Remediated osteoporosis avatar displaying authentic thoracic kyphosis Dowager's hump from lateral view">
+                            <figcaption>After: Re-rigged spine presenting an authentic Dowager's hump, allowing valid lateral physical examination.</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <h2 class="case-section-title">Defect Matrix</h2>
+            <div class="case-body">
+                <p>
+                    I systematically walked through all 50 virtual patient cases directly against clinical database symptom records. I cataloged every defect where visual examination signs were missing or misaligned on the 3D mesh despite being described in clinical documentation.
                 </p>
                 <p>
                     To bridge communication between clinical medicine and software engineering, I structured these findings into a unified Cross-Validation Defect Matrix for the engineer and medical domain expert:
@@ -199,46 +327,38 @@
                     <table class="case-table">
                         <thead>
                             <tr>
-                                <th>Case ID</th>
+                                <th>Case ID & Department</th>
                                 <th>Database Schema Truth</th>
                                 <th>LLM Dialogue Output</th>
                                 <th>Rendered 3D Visual</th>
-                                <th>Defect Classification</th>
+                                <th>Simulation Defect Layer</th>
                                 <th>Student Clinical Impact</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="col-id">Case 04</td>
-                                <td>Acute lower limb cellulitis with erythema and local edema</td>
-                                <td>Patient reports acute burning sensation and warm swollen calf</td>
-                                <td>Standard uniform skin mesh with zero redness or swelling</td>
-                                <td><span class="status-defect">Visual Sign Missing</span></td>
-                                <td>Students misdiagnosed as non-inflammatory muscle strain</td>
+                                <td class="col-id">Case 012<br><span style="font-size: 0.76rem; color: var(--text-muted); font-weight: normal;">Child Medicine</span></td>
+                                <td>Battered Child Syndrome: 2 facial bruises, 3x4x3 cm thoracic contusion, occipital hematoma</td>
+                                <td>Parent narrative attributes visible injuries to single minor household fall</td>
+                                <td>Default uniform skin shader with zero contusions or color staging</td>
+                                <td><span class="status-defect">Surface Texture & Albedo</span></td>
+                                <td>Students failed to suspect non-accidental trauma, misdiagnosing as minor accidental fall</td>
                             </tr>
                             <tr>
-                                <td class="col-id">Case 18</td>
-                                <td>Blunt thoracic trauma with visible contusion and ecchymosis</td>
-                                <td>Patient describes direct impact injury and sharp chest tenderness</td>
-                                <td>Baseline chest mesh with unblemished texture</td>
-                                <td><span class="status-defect">Discoloration Omitted</span></td>
-                                <td>Students failed to order urgent chest imaging</td>
+                                <td class="col-id">Case 027<br><span style="font-size: 0.76rem; color: var(--text-muted); font-weight: normal;">General Medicine</span></td>
+                                <td>Cushing's Disease: Moon face with facial plethora, central adiposity, wide purple abdominal striae</td>
+                                <td>Patient reports progressive weight gain and easy bruising despite normal diet</td>
+                                <td>Generic stocky male avatar wearing jeans with flat facial contours</td>
+                                <td><span class="status-defect">Mesh Morphology & Blendshapes</span></td>
+                                <td>Students misdiagnosed as simple exogenous obesity, omitting endocrine workup</td>
                             </tr>
                             <tr>
-                                <td class="col-id">Case 29</td>
-                                <td>Central cyanosis with oxygen desaturation below 88 percent</td>
-                                <td>Patient reports progressive shortness of breath and dizziness</td>
-                                <td>Healthy facial complexion without perioral discoloration</td>
-                                <td><span class="status-defect">Cyanosis Shader Missing</span></td>
-                                <td>Students delayed supplemental oxygen protocol</td>
-                            </tr>
-                            <tr>
-                                <td class="col-id">Case 43</td>
-                                <td>Bilateral dependent edema from congestive cardiac failure</td>
-                                <td>Patient reports heavy ankle swelling toward the evening</td>
-                                <td>Normal slender lower extremities on avatar model</td>
-                                <td><span class="status-defect">Mesh Asset Mismatch</span></td>
-                                <td>Students overlooked systemic fluid retention</td>
+                                <td class="col-id">Case 038<br><span style="font-size: 0.76rem; color: var(--text-muted); font-weight: normal;">Elder Care</span></td>
+                                <td>Severe Osteoporosis: Thoracic kyphosis and Dowager's hump from vertebral compression fractures</td>
+                                <td>Patient describes chronic upper back dull ache and gradual loss of standing height</td>
+                                <td>Flat thoracic spine with isolated forward neck flexion</td>
+                                <td><span class="status-defect">Skeletal Armature & Rigging</span></td>
+                                <td>Students misdiagnosed as cervical muscle strain, omitting DEXA scan and spine imaging</td>
                             </tr>
                         </tbody>
                     </table>
@@ -251,7 +371,7 @@
         </section>
 
         <section class="case-section">
-            <h2 class="case-section-title">Practical Outcomes and Strategic Impact</h2>
+            <h2 class="case-section-title">Outcomes</h2>
             <div class="case-body">
                 <div class="case-callout">
                     <div class="case-callout-title">Strategic Roadmap Shift</div>
