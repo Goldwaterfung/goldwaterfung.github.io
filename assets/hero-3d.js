@@ -70719,7 +70719,7 @@ function DU() {
     name: "MRKE In-Store 3D Preview App",
     period: "2022 - Jun 2026",
     role: "MRKE In-Store 3D Preview App",
-    org: "MRKE Ltd. | In-House Interactive 3D Tooling",
+    org: "MRKE Ltd. | In-House 360 Hairstyle Viewer",
     actionHeadline: "I built an in-store Unity C# 3D preview app on shop tablets, cutting consultation ambiguity by 35 percent.",
     caseUrl: "cases/mrke-3d.html",
     side: "right",
@@ -70753,7 +70753,7 @@ function DU() {
     period: "2025",
     role: "CollarAgent Visual Research Studio",
     org: "CollarAgent | Creator",
-    actionHeadline: "I built a local-first Electron research studio in React and TypeScript pairing LangGraph workflows with an infinite canvas.",
+    actionHeadline: "I orchestrated multi-agents to build a full-stack local-first research studio pairing LangGraph workflows with an infinite canvas.",
     caseUrl: "cases/collaragent.html",
     side: "right",
     lineType: "product"
@@ -70775,7 +70775,7 @@ function DU() {
     period: "2026",
     role: "Stratawright Agentic DAW",
     org: "Stratawright | Creator",
-    actionHeadline: "I architected an agentic audio workstation translating DSP audio telemetry into deterministic CLI protocols.",
+    actionHeadline: "I orchestrated hundreds of coding agents to build a production-ready DAW in one week, translating DSP telemetry into deterministic CLI protocols.",
     caseUrl: "cases/stratawright.html",
     side: "right",
     lineType: "product"
