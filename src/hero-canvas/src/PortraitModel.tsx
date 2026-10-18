@@ -23,6 +23,14 @@ const getDracoDecoderUrl = (): string => {
 const dracoLoader = new DRACOLoader();
 dracoLoader.setDecoderPath(getDracoDecoderUrl());
 
+const configureLoader = (loader: GLTFLoader) => {
+  loader.setDRACOLoader(dracoLoader);
+};
+
+// Kick off the fetch + Draco/WASM decode as soon as this module is imported,
+// instead of waiting for the component to mount inside <Suspense>.
+useLoader.preload(GLTFLoader, getModelUrl(), configureLoader);
+
 interface PortraitModelProps {
   onLoaded?: () => void;
 }
@@ -49,10 +57,8 @@ export const PortraitModel: React.FC<PortraitModelProps> = ({ onLoaded }) => {
   const smoothRotX = useSpring(pointerRotX, { stiffness: 130, damping: 18, mass: 1.0 });
   const smoothRotY = useSpring(pointerRotY, { stiffness: 130, damping: 18, mass: 1.0 });
 
-  // Asynchronously load GLTF 2.0 binary asset with embedded 2K diffuse texture
-  const gltf = useLoader(GLTFLoader, getModelUrl(), (loader) => {
-    loader.setDRACOLoader(dracoLoader);
-  });
+  // Asynchronously load GLTF 2.0 binary asset (Draco-compressed mesh + WebP diffuse)
+  const gltf = useLoader(GLTFLoader, getModelUrl(), configureLoader);
 
   useEffect(() => {
     if (!hasNotifiedLoaded.current) {
