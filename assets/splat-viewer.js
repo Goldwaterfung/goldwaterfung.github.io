@@ -36323,21 +36323,21 @@ const MS = [
     id: "royal-rose-divan",
     name: "Royal Rose Divan",
     modelUrl: "assets/3d/furniture/Royal_Rose_Divan.glb",
-    thumbUrl: "assets/3d/furniture/royal_rose_divan.png",
+    thumbUrl: "assets/3d/furniture/royal_rose_divan.webp",
     targetHeight: 0.8
   },
   {
     id: "rustic-wooden-armchair",
     name: "Rustic Wooden Armchair",
     modelUrl: "assets/3d/furniture/Rustic_Wooden_Armchai.glb",
-    thumbUrl: "assets/3d/furniture/rustic_wooden_armchai.png",
+    thumbUrl: "assets/3d/furniture/rustic_wooden_armchai.webp",
     targetHeight: 0.95
   },
   {
     id: "walnut-wardrobe",
     name: "Walnut Wardrobe",
     modelUrl: "assets/3d/furniture/Walnut_Wardrobe.glb",
-    thumbUrl: "assets/3d/furniture/walnut_wardrobe.png",
+    thumbUrl: "assets/3d/furniture/walnut_wardrobe.webp",
     targetHeight: 2
   }
 ];
