@@ -31,13 +31,13 @@ export const FILLET_HEIGHT = 85
 const DEFAULT_SIDES: StationSide[] = [
   'left',
   'right',
+  'right',
+  'left',
   'left',
   'left',
   'right',
   'left',
   'right',
-  'left',
-  'left',
   'right',
 ]
 
@@ -322,7 +322,11 @@ export class TransitNetwork {
         yChrono = prevY + MIN_CHRONO_STEP
       }
 
-      const y = Math.round(Math.max(ySameSide, yChrono))
+      let y = Math.round(Math.max(ySameSide, yChrono))
+      // Ensure the first branch station starts safely below the fork fillet transition
+      if (i === 1 && stationYs[0] !== undefined) {
+        y = Math.max(y, stationYs[0] + 45 + FILLET_HEIGHT + 35)
+      }
       stationYs.push(y)
 
       if (stations[i]) {
@@ -357,13 +361,8 @@ export class TransitNetwork {
     })
 
     const yLastTrunk =
-      trunkStations.length > 0 ? trunkStations[trunkStations.length - 1].y : 620
-    const yFirstBranch =
-      forkBranchStations.length > 0
-        ? Math.min(...forkBranchStations.map((s) => s.y))
-        : 1040
-
-    const forkY = Math.round(yLastTrunk + (yFirstBranch - yLastTrunk) * 0.42)
+      trunkStations.length > 0 ? trunkStations[trunkStations.length - 1].y : (stationYs[0] || 250)
+    const forkY = Math.round(yLastTrunk + 45)
     const forkEndY = forkY + FILLET_HEIGHT
 
     let sidingStartY = 0

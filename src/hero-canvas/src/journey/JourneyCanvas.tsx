@@ -26,7 +26,7 @@ export const JourneyCanvas: React.FC = () => {
   const updateLayout = useCallback(
     (options?: { force?: boolean }) => {
       if (typeof window === 'undefined') return
-      if (window.innerWidth <= 900) {
+      if (window.innerWidth <= 960) {
         // In mobile mode, cards are in responsive vertical flow managed by CSS.
         // Clear any stale desktop inline geometry so it can't fight the CSS flow.
         if (options?.force) {
@@ -64,6 +64,9 @@ export const JourneyCanvas: React.FC = () => {
       cards.forEach((card, i) => {
         if (result.stationYs[i] !== undefined) {
           card.style.top = `${result.stationYs[i]}px`
+        }
+        if (stations[i]) {
+          card.dataset.side = stations[i].side
         }
       })
 

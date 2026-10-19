@@ -34,7 +34,7 @@ export function createDefaultJourneyNetwork(): TransitNetwork {
   trunk.addPoint({
     id: 'station-1',
     date: '2019-01',
-    name: 'Unity C# & Blender',
+    name: 'Unity C#',
     period: '2019',
     role: 'Unity C# & Blender',
     org: 'Independent Technical Foundations',
@@ -61,7 +61,7 @@ export function createDefaultJourneyNetwork(): TransitNetwork {
   productLine.addPoint({
     id: 'station-2',
     date: '2020-12',
-    name: 'MRKE Fast-Turnaround Salon',
+    name: 'MRKE Salon',
     period: 'Dec 2020 - Jun 2026',
     role: 'MRKE Fast-Turnaround Salon',
     org: 'MRKE Ltd. | Co-Founder & Design Engineer',
@@ -88,7 +88,7 @@ export function createDefaultJourneyNetwork(): TransitNetwork {
   systemsLine.addPoint({
     id: 'station-3',
     date: '2023-09',
-    name: 'Local Multimodal AI Avatar',
+    name: 'Multimodal AI',
     period: 'Sep 2023 - Jun 2024',
     role: 'Local Multimodal AI Avatar',
     org: 'National Tainan University of the Arts | Systems Integration Engineer',
@@ -102,7 +102,7 @@ export function createDefaultJourneyNetwork(): TransitNetwork {
   systemsLine.addPoint({
     id: 'station-4',
     date: '2023-11',
-    name: 'Live Concert Motion Capture Sync',
+    name: 'Concert Sync',
     period: 'Nov 2023 - Dec 2024',
     role: 'Live Concert Motion Capture Sync',
     org: 'National Tainan University of the Arts | Systems Integration Engineer',
@@ -116,7 +116,7 @@ export function createDefaultJourneyNetwork(): TransitNetwork {
   productLine.addPoint({
     id: 'station-5',
     date: '2022-01',
-    name: 'MRKE In-Store 3D Preview App',
+    name: 'MRKE 3D App',
     period: '2022 - Jun 2026',
     role: 'MRKE In-Store 3D Preview App',
     org: 'MRKE Ltd. | In-House 360 Hairstyle Viewer',
@@ -144,7 +144,7 @@ export function createDefaultJourneyNetwork(): TransitNetwork {
   sidingLine.addPoint({
     id: 'station-6',
     date: '2024-07',
-    name: '3D Avatar & LLM Clinical Simulation',
+    name: 'Clinical AI',
     period: 'Jul 2024 - Aug 2024',
     role: '3D Avatar & LLM Clinical Simulation',
     org: 'Innova Medical Technology | 3D UX Designer (Contract)',
@@ -158,7 +158,7 @@ export function createDefaultJourneyNetwork(): TransitNetwork {
   productLine.addPoint({
     id: 'station-7',
     date: '2025-02',
-    name: 'CollarAgent Visual Research Studio',
+    name: 'CollarAgent',
     period: '2025',
     role: 'CollarAgent Visual Research Studio',
     org: 'CollarAgent | Creator',
@@ -172,7 +172,7 @@ export function createDefaultJourneyNetwork(): TransitNetwork {
   systemsLine.addPoint({
     id: 'station-8',
     date: '2025-08',
-    name: 'HCI & VR Perception Study',
+    name: 'HCI & VR Study',
     period: '2025 - 2026',
     role: 'HCI & VR Perception Study',
     org: 'IEEE ICVR 2026 Cardiff | First Author',
@@ -186,7 +186,7 @@ export function createDefaultJourneyNetwork(): TransitNetwork {
   productLine.addPoint({
     id: 'station-9',
     date: '2026-01',
-    name: 'Stratawright Agentic DAW',
+    name: 'Stratawright DAW',
     period: '2026',
     role: 'Stratawright Agentic DAW',
     org: 'Stratawright | Creator',

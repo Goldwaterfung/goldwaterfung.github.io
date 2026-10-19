@@ -944,74 +944,9 @@ span.tracking-medium {
     display: block;
 }
 
-/* Chronological Timeline (single column, date rail on the left) */
-.journey-grid {
-    position: relative;
-    max-width: 780px;
-    margin: 0 auto;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    row-gap: 1.1rem;
-}
-
-.journey-card {
-    position: relative;
-    width: 100%;
-    max-width: none;
-    box-sizing: border-box;
-    display: grid;
-    grid-template-columns: 30px 1fr;
-    column-gap: 1.35rem;
-    cursor: default;
-    scroll-margin: 7rem;
-}
-
-.journey-card-rail {
-    position: relative;
-}
-
-.journey-card-rail::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: var(--border-color);
-}
-
-.journey-card:first-child .journey-card-rail::before {
-    top: 1.65rem;
-}
-
-.journey-card:last-child .journey-card-rail::before {
-    bottom: calc(100% - 1.65rem);
-}
-
-.journey-dot {
-    position: absolute;
-    left: 50%;
-    top: 1.65rem;
-    transform: translate(-50%, -50%);
-    width: 13px;
-    height: 13px;
-    border-radius: 50%;
-    background: var(--bg-body);
-    border: 2.5px solid var(--text-muted);
-    z-index: 1;
-    transition: background var(--duration-ui) var(--ease-out),
-                border-color var(--duration-ui) var(--ease-out),
-                box-shadow var(--duration-ui) var(--ease-out);
-}
-
-.journey-card.active .journey-dot {
-    background: var(--accent-amber);
-    border-color: var(--accent-amber);
-    box-shadow: 0 0 0 4px rgba(230, 92, 0, 0.16);
-}
-
+/* ==========================================================================
+   Experience Journey Section (Bilateral Transit Map & Responsive Timeline)
+   ========================================================================== */
 .journey-card-body {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
@@ -1021,13 +956,14 @@ span.tracking-medium {
     display: flex;
     flex-direction: column;
     gap: var(--flow-gap-tight);
-    transition: transform var(--duration-ui) var(--ease-out), box-shadow var(--duration-ui) var(--ease-out);
+    transition: transform var(--duration-ui) var(--ease-out), box-shadow var(--duration-ui) var(--ease-out), border-color var(--duration-ui) var(--ease-out);
     min-width: 0;
 }
 
 .journey-card:hover .journey-card-body,
 .journey-card.active .journey-card-body {
     box-shadow: 0 6px 20px rgba(28, 28, 30, 0.07);
+    border-color: var(--text-primary);
 }
 
 .journey-card-head {
@@ -1045,38 +981,12 @@ span.tracking-medium {
     letter-spacing: 1px;
 }
 
-.journey-card-tag {
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--text-secondary);
-    background: var(--bg-body);
-    border: 1px solid var(--border-color);
-    border-radius: 999px;
-    padding: 0.22rem 0.6rem;
-    white-space: nowrap;
-    flex: none;
-}
-
-@keyframes journey-pop {
-    from {
-        transform: translateY(6px) scale(0.985);
-        opacity: 0.55;
-    }
-    to {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-    }
-}
-
 .journey-card-role {
     font-family: var(--font-sans);
     font-size: 1.15rem;
     font-weight: 600;
     color: var(--text-primary);
-    letter-spacing: 2.24px;
+    letter-spacing: 0.5px;
     margin: 0;
 }
 
@@ -1090,7 +1000,7 @@ span.tracking-medium {
     font-size: 0.9rem;
     line-height: 1.58;
     color: var(--text-secondary);
-    letter-spacing: 0.48px;
+    letter-spacing: 0.2px;
     margin-top: var(--flow-gap-tight);
 }
 
@@ -1147,89 +1057,106 @@ span.tracking-medium {
     outline-offset: 3px;
 }
 
-/* Desktop Exact Coordinate Alignment with Transit Stubs */
-/* Station 1: Unity C# & Blender (Left side, y = 250px) */
-.journey-card[data-station="0"] {
-    top: 250px;
-    right: calc(50% + 160px);
-    transform: translateY(-50%);
-}
+/* Desktop Bilateral Transit Map Layout */
+@media (min-width: 961px) {
+    .journey-grid {
+        position: relative;
+        max-width: 1180px;
+        margin: 0 auto;
+        width: 100%;
+        min-height: 2400px;
+    }
 
-/* Station 2: MRKE Fast-Turnaround Salon (Right side, y = 480px) */
-.journey-card[data-station="1"] {
-    top: 480px;
-    left: calc(50% + 160px);
-    transform: translateY(-50%);
-}
+    .journey-spine-viewport {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 320px;
+        height: 2400px;
+        z-index: 2;
+        pointer-events: auto;
+        contain: layout paint;
+        will-change: transform;
+        display: block;
+    }
 
-/* Station 5: MRKE In-Store 3D Preview App (Right side, y = 720px) */
-.journey-card[data-station="2"] {
-    top: 720px;
-    left: calc(50% + 160px);
-    transform: translateY(-50%);
-}
+    .journey-card {
+        position: absolute;
+        width: calc(50% - 190px);
+        max-width: 420px;
+        box-sizing: border-box;
+        cursor: default;
+        z-index: 3;
+        will-change: transform;
+        display: block;
+        padding: 0;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        transition: transform var(--duration-ui) var(--ease-out);
+    }
 
-/* Station 3: Local Multimodal AI Avatar (Left side, y = 960px) */
-.journey-card[data-station="3"] {
-    top: 960px;
-    right: calc(50% + 160px);
-    transform: translateY(-50%);
-}
+    /* Rail is rendered by central SVG spine on desktop */
+    .journey-card-rail {
+        display: none;
+    }
 
-/* Station 4: Live Concert Motion Capture Sync (Left side, y = 1200px) */
-.journey-card[data-station="4"] {
-    top: 1200px;
-    right: calc(50% + 160px);
-    transform: translateY(-50%);
-}
+    /* Left-flank stations: flush against spine left edge (x = -40, 50% - 160px) */
+    .journey-card[data-side="left"],
+    .journey-card[data-station="0"],
+    .journey-card[data-station="3"],
+    .journey-card[data-station="4"],
+    .journey-card[data-station="5"],
+    .journey-card[data-station="7"] {
+        right: calc(50% + 160px);
+        left: auto;
+        transform: translateY(-50%);
+    }
 
-/* Station 6: Clinical AI Simulator Diagnostics (Left side, y = 1440px) */
-.journey-card[data-station="5"] {
-    top: 1440px;
-    right: calc(50% + 160px);
-    transform: translateY(-50%);
-}
+    /* Right-flank stations: flush against spine right edge (x = 280, 50% + 160px) */
+    .journey-card[data-side="right"],
+    .journey-card[data-station="1"],
+    .journey-card[data-station="2"],
+    .journey-card[data-station="6"],
+    .journey-card[data-station="8"],
+    .journey-card[data-station="9"] {
+        left: calc(50% + 160px);
+        right: auto;
+        transform: translateY(-50%);
+    }
 
-/* Station 7: CollarAgent Visual Research Studio (Right side, y = 1680px) */
-.journey-card[data-station="6"] {
-    top: 1680px;
-    left: calc(50% + 160px);
-    transform: translateY(-50%);
-}
+    /* Card hover elevates slightly while preserving translateY(-50%) vertical centering */
+    .journey-card[data-side="left"]:hover,
+    .journey-card[data-side="left"].active,
+    .journey-card[data-station="0"]:hover,
+    .journey-card[data-station="3"]:hover,
+    .journey-card[data-station="4"]:hover,
+    .journey-card[data-station="5"]:hover,
+    .journey-card[data-station="7"]:hover,
+    .journey-card[data-station="0"].active,
+    .journey-card[data-station="3"].active,
+    .journey-card[data-station="4"].active,
+    .journey-card[data-station="5"].active,
+    .journey-card[data-station="7"].active {
+        transform: translateY(-50%) translateY(-2px);
+        z-index: 10;
+    }
 
-/* Station 8: IEEE ICVR 2026 Ambisonics Study (Left side, y = 1920px) */
-.journey-card[data-station="7"] {
-    top: 1920px;
-    right: calc(50% + 160px);
-    transform: translateY(-50%);
-}
-
-/* Station 9: Stratawright Agentic DAW (Right side, y = 2160px) */
-.journey-card[data-station="8"] {
-    top: 2160px;
-    left: calc(50% + 160px);
-    transform: translateY(-50%);
-}
-
-/* Station 10: Next Destination (Right side, y = 2420px) */
-.journey-card[data-station="9"] {
-    top: 2420px;
-    left: calc(50% + 160px);
-    transform: translateY(-50%);
-}
-
-.journey-card[data-station="0"]:hover,
-.journey-card[data-station="1"]:hover,
-.journey-card[data-station="2"]:hover,
-.journey-card[data-station="3"]:hover,
-.journey-card[data-station="4"]:hover,
-.journey-card[data-station="5"]:hover,
-.journey-card[data-station="6"]:hover,
-.journey-card[data-station="7"]:hover,
-.journey-card[data-station="8"]:hover,
-.journey-card[data-station="9"]:hover {
-    transform: translateY(-50%) translateY(-2px);
-    z-index: 10;
+    .journey-card[data-side="right"]:hover,
+    .journey-card[data-side="right"].active,
+    .journey-card[data-station="1"]:hover,
+    .journey-card[data-station="2"]:hover,
+    .journey-card[data-station="6"]:hover,
+    .journey-card[data-station="8"]:hover,
+    .journey-card[data-station="9"]:hover,
+    .journey-card[data-station="1"].active,
+    .journey-card[data-station="2"].active,
+    .journey-card[data-station="6"].active,
+    .journey-card[data-station="8"].active,
+    .journey-card[data-station="9"].active {
+        transform: translateY(-50%) translateY(-2px);
+        z-index: 10;
+    }
 }
 
 /* Mobile journey bottom-sheet (single reusable dialog; opened from script.js on <=900px) */
@@ -1828,7 +1755,7 @@ span.tracking-medium {
 /* ==========================================================================
    Consolidated Responsive Breakpoints
    ========================================================================== */
-@media (max-width: 900px) {
+@media (max-width: 960px) {
     /* Hero */
     .hero-title {
         font-size: 2.8rem;
@@ -1866,77 +1793,154 @@ span.tracking-medium {
         max-height: 260px;
     }
 
-    /* Journey Section & Chronological Timeline */
+    /* Journey Section & Responsive Timeline */
     .journey-section {
         padding: 3.5rem 1rem 4.5rem;
     }
 
+    .journey-spine-viewport {
+        display: none !important;
+    }
+
     .journey-grid {
-        row-gap: 0.9rem;
+        display: flex;
+        flex-direction: column;
+        row-gap: 1.15rem;
+        max-width: 680px;
+        margin: 0 auto;
+        width: 100%;
+        min-height: auto !important;
     }
 
     .journey-card {
-        grid-template-columns: 20px 1fr;
-        column-gap: 0.8rem;
+        position: relative !important;
+        width: 100% !important;
+        max-width: none !important;
+        display: grid !important;
+        grid-template-columns: 24px 1fr !important;
+        column-gap: 1.15rem !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        transform: none !important;
+        cursor: default;
+        scroll-margin: 5rem;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        padding: 0;
     }
 
-    .journey-card-body {
-        cursor: pointer;
-        -webkit-tap-highlight-color: transparent;
-        padding: 1rem 1.15rem;
+    .journey-card:hover,
+    .journey-card.active {
+        transform: none !important;
+        box-shadow: none;
+        border: none;
     }
 
-    .journey-card-role {
-        font-size: 1.02rem;
+    .journey-card-rail {
+        display: block;
+        position: relative;
     }
 
-    .journey-dot {
-        top: 1.25rem;
-        width: 11px;
-        height: 11px;
+    .journey-card-rail::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: var(--border-color);
     }
 
     .journey-card:first-child .journey-card-rail::before {
-        top: 1.25rem;
+        top: 1.35rem;
     }
 
     .journey-card:last-child .journey-card-rail::before {
-        bottom: calc(100% - 1.25rem);
+        bottom: calc(100% - 1.35rem);
     }
 
-    .journey-card.active .journey-dot {
-        background: var(--accent-amber);
-        border-color: var(--accent-amber);
-        box-shadow: 0 0 0 3px rgba(230, 92, 0, 0.16);
+    .journey-dot {
+        position: absolute;
+        left: 50%;
+        top: 1.35rem;
+        transform: translate(-50%, -50%);
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        background: var(--bg-body);
+        border: 2.5px solid var(--text-muted);
+        z-index: 1;
+        transition: background var(--duration-ui) var(--ease-out),
+                    border-color var(--duration-ui) var(--ease-out),
+                    box-shadow var(--duration-ui) var(--ease-out);
     }
 
-    .journey-card.active .journey-card-body {
-        animation: journey-pop 260ms var(--ease-out);
+    /* Authentic Line Color Mapping on Mobile Rails */
+    .journey-card[data-station="0"] .journey-dot,
+    .journey-card[data-station="3"] .journey-dot,
+    .journey-card[data-station="4"] .journey-dot,
+    .journey-card[data-station="7"] .journey-dot {
+        border-color: #1d4ed8;
     }
 
-    /* Mobile: inline rows are summaries; the bottom-sheet owns full details */
-    .journey-card-desc,
-    .journey-card-link {
-        display: none;
+    .journey-card[data-station="1"] .journey-dot,
+    .journey-card[data-station="2"] .journey-dot,
+    .journey-card[data-station="6"] .journey-dot,
+    .journey-card[data-station="8"] .journey-dot {
+        border-color: #e65c00;
     }
 
-    .journey-card-body::after {
-        content: 'Tap for details →';
-        font-family: var(--font-mono);
-        font-size: 0.72rem;
-        font-weight: 600;
-        letter-spacing: 1px;
-        color: var(--text-muted);
-        margin-top: 0.35rem;
+    .journey-card[data-station="5"] .journey-dot {
+        border-color: #2e7d32;
     }
 
-    /* Full details shown inside the bottom-sheet modal only */
-    .journey-modal-panel .journey-card-desc {
+    .journey-card[data-station="9"] .journey-dot {
+        border-color: #1c1c1e;
+    }
+
+    .journey-card[data-station="0"].active .journey-dot,
+    .journey-card[data-station="3"].active .journey-dot,
+    .journey-card[data-station="4"].active .journey-dot,
+    .journey-card[data-station="7"].active .journey-dot {
+        background: #1d4ed8;
+        box-shadow: 0 0 0 4px rgba(29, 78, 216, 0.18);
+    }
+
+    .journey-card[data-station="1"].active .journey-dot,
+    .journey-card[data-station="2"].active .journey-dot,
+    .journey-card[data-station="6"].active .journey-dot,
+    .journey-card[data-station="8"].active .journey-dot {
+        background: #e65c00;
+        box-shadow: 0 0 0 4px rgba(230, 92, 0, 0.18);
+    }
+
+    .journey-card[data-station="5"].active .journey-dot {
+        background: #2e7d32;
+        box-shadow: 0 0 0 4px rgba(46, 125, 50, 0.18);
+    }
+
+    .journey-card[data-station="9"].active .journey-dot {
+        background: #1c1c1e;
+        box-shadow: 0 0 0 4px rgba(28, 28, 30, 0.18);
+    }
+
+    .journey-card-body {
+        padding: 1.15rem 1.25rem;
+    }
+
+    .journey-card-role {
+        font-size: 1.05rem;
+    }
+
+    /* All descriptions and case links are directly visible and accessible */
+    .journey-card-desc {
         display: block;
-        margin-top: var(--flow-gap-tight);
     }
 
-    .journey-modal-panel .journey-card-link {
+    .journey-card-link {
         display: inline-flex;
     }
 
