@@ -36,9 +36,9 @@
             </a>
 
             <nav class="nav-menu" id="nav-menu">
-                <a href="#splat-room" class="nav-link">3D Room</a>
-                <a href="#immersive" class="nav-link">Research Gameplay</a>
-                <a href="#experience" class="nav-link">Journey</a>
+                <a href="#showcases" class="nav-link">Showcases</a>
+                <a href="#research" class="nav-link">Research & Spatial</a>
+                <a href="#track-record" class="nav-link">Track Record</a>
                 <a href="#contact" class="nav-link nav-btn">Contact</a>
             </nav>
 
@@ -67,136 +67,24 @@
             </div>
         </section>
 
-        <!-- Immersive VR Research Gameplay (after 3D room): full-bleed, no frames -->
-        <section id="immersive" class="immersive-full" aria-label="Immersive VR research gameplay">
-            <div class="immersive-viewport">
-                <!-- Chapter 0 -->
-                <figure class="immersive-slide active" data-chapter="0">
-                    <video preload="none" playsinline class="immersive-video" data-immersive-video data-stage="3">
-                        <source data-src="assets/research/vr-sound-localization-testing.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </figure>
-                <!-- Chapter 1 -->
-                <figure class="immersive-slide" data-chapter="1">
-                    <video preload="none" playsinline class="immersive-video" data-immersive-video data-stage="3">
-                        <source data-src="assets/research/sound-localization-gameplay.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </figure>
-                <!-- Chapter 2 -->
-                <figure class="immersive-slide" data-chapter="2">
-                    <video preload="none" playsinline class="immersive-video" data-immersive-video data-stage="3">
-                        <source data-src="assets/research/incongruent-gameplay.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </figure>
-
-                <div class="immersive-shade" aria-hidden="true"></div>
-
-                <div class="immersive-hud-top">
-                    <span class="immersive-kicker" id="immersive-kicker">Familiarization</span>
-                    <h2 class="immersive-title" id="immersive-title">1. Hear the Space</h2>
+        <!-- Section: Flagship Engineering Showcases -->
+        <section id="showcases" class="showcases-section" aria-label="Flagship Engineering Showcases">
+            <div id="experience" style="position: absolute; top: 0; left: 0;" aria-hidden="true"></div>
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Showcases</h2>
                 </div>
 
-                <span class="immersive-counter" id="immersive-counter">1 / 3</span>
-
-                <button type="button" class="immersive-arrow immersive-arrow-left" id="immersive-prev"
-                    aria-label="Previous video">
-                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 L8 12 L15 19" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </button>
-                <button type="button" class="immersive-arrow immersive-arrow-right" id="immersive-next"
-                    aria-label="Next video">
-                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5 L16 12 L9 19" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </button>
-
-                <div class="immersive-center" id="immersive-center">
-                    <button type="button" class="immersive-btn" id="immersive-play" aria-label="Play video">
-                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5 L19 12 L8 19 Z" fill="currentColor"/></svg>
-                    </button>
-                    <button type="button" class="immersive-btn" id="immersive-mute" aria-label="Mute video">
-                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9 L4 15 L8 15 L13 19 L13 5 L8 9 Z" fill="currentColor"/><path d="M16 9 Q18.5 12 16 15 M18.5 6.5 Q23 12 18.5 17.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                    </button>
-                </div>
-
-                <div class="immersive-hud-bottom">
-                    <div class="immersive-desc-wrap">
-                        <p class="immersive-desc active" data-chapter-desc="0">Animal calls around you in third-order
-                            Ambisonics, calibrating your ears before the task.</p>
-                        <p class="immersive-desc" data-chapter-desc="1">Visual cues aligned with sound vs. all-dark
-                            silence, the two baselines (6.90° vs. 9.62°).</p>
-                        <p class="immersive-desc" data-chapter-desc="2">Visible decoy, hidden source 60 to 65° away,
-                            where vision hijacks hearing (60.35°, VBI 0.738).</p>
-                    </div>
-                    <a href="cases/ieee-vr-conflict.html" class="immersive-case-link">Read Full Research Paper</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Gaussian Splatting Room Editor (right after hero): full-bleed, no frames -->
-        <section id="splat-room" class="immersive-full" aria-label="Gaussian Splatting 3D room editor">
-            <div class="immersive-viewport">
-                <figure class="splat-slide">
-                    <video preload="none" playsinline class="immersive-video" id="splat-video" data-immersive-video
-                        data-stage="2">
-                        <source data-src="assets/gaussian_room/gaussian_splatting_video.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </figure>
-
-                <div class="immersive-shade" aria-hidden="true"></div>
-
-                <div class="immersive-hud-top">
-                    <span class="immersive-kicker">Gaussian Splatting · Home Design</span>
-                    <h2 class="immersive-title">Furnish This Room in 3D</h2>
-                </div>
-
-                <div class="immersive-center" id="splat-center">
-                    <button type="button" class="immersive-btn" id="splat-play" aria-label="Play video">
-                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5 L19 12 L8 19 Z" fill="currentColor"/></svg>
-                    </button>
-                    <button type="button" class="immersive-btn" id="splat-mute" aria-label="Mute video">
-                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9 L4 15 L8 15 L13 19 L13 5 L8 9 Z" fill="currentColor"/><path d="M16 9 Q18.5 12 16 15 M18.5 6.5 Q23 12 18.5 17.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                    </button>
-                </div>
-
-                <div class="immersive-hud-bottom">
-                    <div class="immersive-desc-wrap">
-                        <p class="immersive-desc active">A scanned living room rendered in three.js as 1.57M Gaussian
-                            splats.
-                            Drag in furnitures, then move, rotate and scale them with Unity-style gizmos.</p>
-                    </div>
-                    <div class="splat-hud-actions">
-                        <a href="splat-viewer.html" class="splat-cta-primary">Enter the 3D Room</a>
-                        <a href="cases/splat-room-editor.html" class="immersive-case-link">Read the Build Story</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 01: Experience Journey (Vertical Transit Map) -->
-        <section id="experience" class="journey-section" aria-label="My Journey">
-            <div class="journey-container">
-                <div class="journey-header">
-                    <div class="journey-meta-title">
-                        <span class="mono-section-label">Experience</span>
-                        <h2 class="journey-title">My Journey</h2>
-                    </div>
-                </div>
-
-                <!-- Flagship Projects Upfront (Alternating Rows) -->
-                <div class="followup-list">
+                <div class="flagship-showcases">
                     <!-- Row 1: text left, image right -->
-                    <article class="followup-row">
-                        <div class="followup-text">
-                            <span class="followup-kicker">MRKE Ltd. · In-Store 3D Tooling</span>
-                            <h3 class="followup-row-title">In-store 3D previews that cut consultation ambiguity 35%</h3>
-                            <p class="followup-desc">A live-salon case about why flat 2D catalog photos stalled
-                                consultations, and the in-store 3D preview tool on shop tablets built to resolve that
-                                ambiguity.</p>
-                            <a href="cases/mrke-3d.html" class="followup-link">Explore Case Study</a>
+                    <article class="flagship-row">
+                        <div class="flagship-text">
+                            <span class="flagship-kicker">MRKE Ltd. · In-Store 3D Tooling</span>
+                            <h3 class="flagship-row-title">In-store 3D previews that cut consultation ambiguity 35%</h3>
+                            <p class="flagship-desc">A live salon case about why flat 2D catalog photos stalled consultations, and the in-store 3D preview tool on shop tablets built to resolve that ambiguity.</p>
+                            <a href="cases/mrke-3d.html" class="flagship-link">Explore Case Study</a>
                         </div>
-                        <figure class="followup-media">
+                        <figure class="flagship-media">
                             <video src="assets/hair_app/hair_app_display2.mp4" autoplay muted loop playsinline
                                 preload="metadata" disablepictureinpicture
                                 aria-label="Screen recording of the 360-degree 3D hairstyle preview on a shop tablet">
@@ -206,241 +94,290 @@
                     </article>
 
                     <!-- Row 2: image left, text right -->
-                    <article class="followup-row followup-row-reverse">
-                        <figure class="followup-media">
+                    <article class="flagship-row flagship-row-reverse">
+                        <figure class="flagship-media">
                             <img src="assets/daw/daw-usecase.gif"
                                 alt="Stratawright DAW automating a multitrack session via agent CLI commands"
                                 loading="lazy">
                         </figure>
-                        <div class="followup-text">
-                            <span class="followup-kicker">Stratawright · Agentic Audio Workstation</span>
-                            <h3 class="followup-row-title">A DAW that autonomous coding agents operate via CLI</h3>
-                            <p class="followup-desc">A systems case about why closed GUI-based DAWs lock out autonomous
-                                coding agents, and the machine-readable telemetry and CLI protocols needed to let agents
-                                run a session.</p>
-                            <a href="cases/stratawright.html" class="followup-link">Explore Case Study</a>
+                        <div class="flagship-text">
+                            <span class="flagship-kicker">Stratawright · Agentic Audio Workstation</span>
+                            <h3 class="flagship-row-title">A DAW that autonomous coding agents operate via CLI</h3>
+                            <p class="flagship-desc">A systems case about why closed GUI based DAWs lock out autonomous coding agents, and the machine-readable telemetry and CLI protocols needed to let agents run a session.</p>
+                            <a href="cases/stratawright.html" class="flagship-link">Explore Case Study</a>
                         </div>
                     </article>
 
                     <!-- Row 3: text left, image right -->
-                    <article class="followup-row">
-                        <div class="followup-text">
-                            <span class="followup-kicker">TNUA · Local Multimodal AI</span>
-                            <h3 class="followup-row-title">Made Multimodal RAG system responsive live</h3>
-                            <p class="followup-desc">A deployment case about running a full voice-to-voice avatar
-                                pipeline fully offline on a single GPU for live showcases, and the 3-to-5-second latency
-                                gap that broke conversations.</p>
-                            <a href="cases/virtual-principal.html" class="followup-link">Explore Case Study</a>
+                    <article class="flagship-row">
+                        <div class="flagship-text">
+                            <span class="flagship-kicker">CollarAgent · Visual Research Studio</span>
+                            <h3 class="flagship-row-title">An infinite canvas workspace where autonomous agents co-work on research</h3>
+                            <p class="flagship-desc">A local-first visual research workspace pairing LangGraph agent workflows with an infinite concept canvas, structured document engine, and visual diff staging to turn complex literature exploration into living concept maps.</p>
+                            <a href="cases/collaragent.html" class="flagship-link">Explore Case Study</a>
                         </div>
-                        <figure class="followup-media">
-                            <img src="assets/image/ar-llm-principal.jpg"
-                                alt="Virtual principal avatar with live spatial tracking interface" loading="lazy">
+                        <figure class="flagship-media">
+                            <img src="assets/collaragent/showcase-collaragent.gif"
+                                alt="CollarAgent visual research studio interface pairing an infinite concept canvas with structured document editing and visual diff staging"
+                                loading="lazy">
                         </figure>
                     </article>
 
                     <!-- Row 4: image left, text right -->
-                    <article class="followup-row followup-row-reverse">
-                        <figure class="followup-media">
+                    <article class="flagship-row flagship-row-reverse">
+                        <figure class="flagship-media">
+                            <img src="assets/image/ar-llm-principal.jpg"
+                                alt="Virtual principal avatar with live spatial tracking interface" loading="lazy">
+                        </figure>
+                        <div class="flagship-text">
+                            <span class="flagship-kicker">TNUA · Local Multimodal AI</span>
+                            <h3 class="flagship-row-title">Made Multimodal RAG system responsive live</h3>
+                            <p class="flagship-desc">A deployment case about running a full voice to voice avatar pipeline fully offline on a single GPU for live showcases, and the 3 to 5 second latency gap that broke conversations.</p>
+                            <a href="cases/virtual-principal.html" class="flagship-link">Explore Case Study</a>
+                        </div>
+                    </article>
+
+                    <!-- Row 5: text left, image right -->
+                    <article class="flagship-row">
+                        <div class="flagship-text">
+                            <span class="flagship-kicker">TNUA · Concert Hall Systems Integration</span>
+                            <h3 class="flagship-row-title">Kept a virtual avatar in sync with live Erhu on stage</h3>
+                            <p class="flagship-desc">A live performance integration case about shadowing rehearsal sessions to convert an Erhu musician's natural bowing cadence into a 1.5-second deterministic streaming buffer, eliminating AI pose estimation jitter in a 1000-seat concert hall.</p>
+                            <a href="cases/live-concert-sync.html" class="flagship-link">Explore Case Study</a>
+                        </div>
+                        <figure class="flagship-media">
+                            <video src="assets/system_integration/virtual_concert.mp4" autoplay muted loop playsinline
+                                preload="metadata" disablepictureinpicture
+                                aria-label="Screen recording of interactive virtual avatar motion capture synchronized with live Erhu concert performance">
+                                Sorry, your browser does not support embedded videos.
+                            </video>
+                        </figure>
+                    </article>
+
+                    <!-- Row 6: image left, text right -->
+                    <article class="flagship-row flagship-row-reverse">
+                        <figure class="flagship-media">
                             <img src="assets/innova/Battered-child-syndrome/final.jpg"
                                 alt="Clinical simulation platform running in Unity3D, showing the virtual patient examination room and interactive diagnostic tools"
                                 loading="lazy">
                         </figure>
-                        <div class="followup-text">
-                            <span class="followup-kicker">Innova Medical · 3D Clinical UX</span>
-                            <h3 class="followup-row-title">Synchronized 3D avatars with clinical ground truth across 50 cases</h3>
-                            <p class="followup-desc">A clinical simulation case about why students misdiagnosed virtual
-                                patients in training, and the 50-case audit aligning 3D avatar appearance and LLM
-                                dialogue with medical ground truth.</p>
-                            <a href="cases/innova-medical.html" class="followup-link">Explore Case Study</a>
+                        <div class="flagship-text">
+                            <span class="flagship-kicker">Innova Medical · 3D Clinical UX</span>
+                            <h3 class="flagship-row-title">Synchronized 3D avatars with clinical ground truth across 50 cases</h3>
+                            <p class="flagship-desc">A clinical simulation case about why students misdiagnosed virtual patients in training, and the 50 case audit aligning 3D avatar appearance and LLM dialogue with medical ground truth.</p>
+                            <a href="cases/innova-medical.html" class="flagship-link">Explore Case Study</a>
                         </div>
                     </article>
                 </div>
+            </div>
+        </section>
 
-                <!-- Bilateral Transit Map (Desktop) / Chronological Timeline (Mobile) -->
-                <div class="journey-grid">
-                    <!-- Central Vertical Transit Map Mount Target -->
-                    <div id="journey-3d-canvas" class="journey-spine-viewport" aria-hidden="true"></div>
-
-                    <!-- Milestone 1: Unity C# & Blender -->
-                    <article class="journey-card active" data-station="0" data-side="left" tabindex="0">
-                        <div class="journey-card-rail" aria-hidden="true"><span class="journey-dot"></span></div>
-                        <div class="journey-card-body">
-                            <div class="journey-card-head">
-                                <div class="journey-card-time">2019</div>
-                            </div>
-                            <h3 class="journey-card-role">Unity C# & Blender</h3>
-                            <div class="journey-card-org">Independent Technical Foundations</div>
-                            <p class="journey-card-desc">
-                                I taught myself C# and 3D modeling in Unity and Blender, establishing core real-time application skills.
-                            </p>
-                        </div>
-                    </article>
-
-                    <!-- Milestone 2: MRKE Fast-Turnaround Salon -->
-                    <article class="journey-card" data-station="1" data-side="right" tabindex="0">
-                        <div class="journey-card-rail" aria-hidden="true"><span class="journey-dot"></span></div>
-                        <div class="journey-card-body">
-                            <div class="journey-card-head">
-                                <div class="journey-card-time">Dec 2020 - Jun 2026</div>
-                            </div>
-                            <h3 class="journey-card-role">MRKE Fast-Turnaround Salon</h3>
-                            <div class="journey-card-org">MRKE Ltd. | Co-Founder & Design Engineer</div>
-                            <p class="journey-card-desc">
-                                I co-founded a fast-turnaround haircut business, observing shop floor consultations to uncover communication bottlenecks.
-                            </p>
-                        </div>
-                    </article>
-
-                    <!-- Milestone 3: MRKE In-Store 3D Preview App -->
-                    <article class="journey-card" data-station="2" data-side="right" tabindex="0">
-                        <div class="journey-card-rail" aria-hidden="true"><span class="journey-dot"></span></div>
-                        <div class="journey-card-body">
-                            <div class="journey-card-head">
-                                <div class="journey-card-time">2022 - Jun 2026</div>
-                            </div>
-                            <h3 class="journey-card-role">MRKE In-Store 3D Preview App</h3>
-                            <div class="journey-card-org">MRKE Ltd. | In-House 360 Hairstyle Viewer</div>
-                            <p class="journey-card-desc">
-                                I built an in-store Unity C# 3D preview app on shop tablets, cutting consultation ambiguity by 35 percent.
-                            </p>
-                            <a href="cases/mrke-3d.html" class="journey-card-link">Explore Case Study</a>
-                        </div>
-                    </article>
-
-                    <!-- Milestone 4: Local Multimodal AI Avatar -->
-                    <article class="journey-card" data-station="3" data-side="left" tabindex="0">
-                        <div class="journey-card-rail" aria-hidden="true"><span class="journey-dot"></span></div>
-                        <div class="journey-card-body">
-                            <div class="journey-card-head">
-                                <div class="journey-card-time">Sep 2023 - Jun 2024</div>
-                            </div>
-                            <h3 class="journey-card-role">Local Multimodal AI Avatar</h3>
-                            <div class="journey-card-org">National Tainan University of the Arts | Systems Integration Engineer</div>
-                            <p class="journey-card-desc">
-                                I engineered a local GPU multimodal pipeline in Unity, solving 3 to 5 second inference latency with conversational visual states.
-                            </p>
-                            <a href="cases/virtual-principal.html" class="journey-card-link">Explore Case Study</a>
-                        </div>
-                    </article>
-
-                    <!-- Milestone 5: Live Concert Motion Capture Sync -->
-                    <article class="journey-card" data-station="4" data-side="left" tabindex="0">
-                        <div class="journey-card-rail" aria-hidden="true"><span class="journey-dot"></span></div>
-                        <div class="journey-card-body">
-                            <div class="journey-card-head">
-                                <div class="journey-card-time">Nov 2023 - Dec 2024</div>
-                            </div>
-                            <h3 class="journey-card-role">Live Concert Motion Capture Sync</h3>
-                            <div class="journey-card-org">National Tainan University of the Arts | Systems Integration Engineer</div>
-                            <p class="journey-card-desc">
-                                I synchronized an interactive virtual avatar with live Erhu performances in a 1000-seat hall using a 1.5-second buffer.
-                            </p>
-                            <a href="cases/live-concert-sync.html" class="journey-card-link">Explore Case Study</a>
-                        </div>
-                    </article>
-
-                    <!-- Milestone 6: 3D Avatar & LLM Clinical Simulation -->
-                    <article class="journey-card" data-station="5" data-side="left" tabindex="0">
-                        <div class="journey-card-rail" aria-hidden="true"><span class="journey-dot"></span></div>
-                        <div class="journey-card-body">
-                            <div class="journey-card-head">
-                                <div class="journey-card-time">Jul 2024 - Aug 2024</div>
-                            </div>
-                            <h3 class="journey-card-role">3D Avatar & LLM Clinical Simulation</h3>
-                            <div class="journey-card-org">Innova Medical Technology | 3D UX Designer (Contract)</div>
-                            <p class="journey-card-desc">
-                                I audited 50 clinical simulation cases, optimizing 3D avatar appearance, blendshapes, and rigging with LLM dialogue to eliminate diagnostic errors.
-                            </p>
-                            <a href="cases/innova-medical.html" class="journey-card-link">Explore Case Study</a>
-                        </div>
-                    </article>
-
-                    <!-- Milestone 7: CollarAgent Visual Research Studio -->
-                    <article class="journey-card" data-station="6" data-side="right" tabindex="0">
-                        <div class="journey-card-rail" aria-hidden="true"><span class="journey-dot"></span></div>
-                        <div class="journey-card-body">
-                            <div class="journey-card-head">
-                                <div class="journey-card-time">2025</div>
-                            </div>
-                            <h3 class="journey-card-role">CollarAgent Visual Research Studio</h3>
-                            <div class="journey-card-org">CollarAgent | Creator</div>
-                            <p class="journey-card-desc">
-                                I orchestrated multi-agents to build a full-stack local-first research studio pairing LangGraph workflows with an infinite canvas.
-                            </p>
-                            <a href="cases/collaragent.html" class="journey-card-link">Explore Case Study</a>
-                        </div>
-                    </article>
-
-                    <!-- Milestone 8: Human-Computer Interaction and Virtual Reality Research -->
-                    <article class="journey-card" data-station="7" data-side="left" tabindex="0">
-                        <div class="journey-card-rail" aria-hidden="true"><span class="journey-dot"></span></div>
-                        <div class="journey-card-body">
-                            <div class="journey-card-head">
-                                <div class="journey-card-time">2025 - 2026</div>
-                            </div>
-                            <h3 class="journey-card-role">HCI & VR Perception Study</h3>
-                            <div class="journey-card-org">IEEE ICVR 2026 Cardiff | First Author</div>
-                            <p class="journey-card-desc">
-                                I authored peer-reviewed Virtual Reality research proving that desynchronized sensory feedback inflates human reaction times by 1.6 seconds.
-                            </p>
-                            <a href="cases/ieee-vr-conflict.html" class="journey-card-link">Explore Case Study</a>
-                        </div>
-                    </article>
-
-                    <!-- Milestone 9: Stratawright Agentic DAW -->
-                    <article class="journey-card" data-station="8" data-side="right" tabindex="0">
-                        <div class="journey-card-rail" aria-hidden="true"><span class="journey-dot"></span></div>
-                        <div class="journey-card-body">
-                            <div class="journey-card-head">
-                                <div class="journey-card-time">2026</div>
-                            </div>
-                            <h3 class="journey-card-role">Stratawright Agentic DAW</h3>
-                            <div class="journey-card-org">Stratawright | Creator</div>
-                            <p class="journey-card-desc">
-                                I orchestrated hundreds of coding agents to build a production-ready DAW in one week, translating DSP telemetry into deterministic CLI protocols.
-                            </p>
-                            <a href="cases/stratawright.html" class="journey-card-link">Explore Case Study</a>
-                        </div>
-                    </article>
-
-                    <!-- Milestone 10: Next Destination -->
-                    <article class="journey-card" data-station="9" data-side="right" tabindex="0">
-                        <div class="journey-card-rail" aria-hidden="true"><span class="journey-dot"></span></div>
-                        <div class="journey-card-body">
-                            <div class="journey-card-head">
-                                <div class="journey-card-time">2026+</div>
-                            </div>
-                            <h3 class="journey-card-role">Next Destination</h3>
-                            <div class="journey-card-org">Future Destination | Real-Time Systems & AI</div>
-                            <p class="journey-card-desc">
-                                I connect commercial operations, creative audio computing, and real-time software systems to build resilient interactive products.
-                            </p>
-                        </div>
-                    </article>
+        <!-- Section: Empirical Research & Spatial Computing -->
+        <section id="research" class="research-section" aria-label="Empirical Research and Spatial Computing">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Empirical Research & Spatial Computing</h2>
+                    <p class="section-intro">
+                        Peer-reviewed Virtual Reality research on audio-visual sensory conflict published at IEEE ICVR 2026, paired with real-time 3D Gaussian Splatting scene reconstruction in Three.js.
+                    </p>
                 </div>
+            </div>
 
-                <!-- Mobile journey bottom-sheet (single reusable dialog, filled from cards above) -->
-                <div id="journey-modal" hidden>
-                    <div class="journey-modal-backdrop" data-journey-close></div>
-                    <div class="journey-modal-panel" role="dialog" aria-modal="true"
-                        aria-labelledby="journey-modal-role" aria-describedby="journey-modal-desc">
-                        <div class="journey-modal-handle" aria-hidden="true"></div>
-                        <div class="journey-modal-topbar">
-                            <span class="journey-modal-count" id="journey-modal-count">1 / 10</span>
-                            <div class="journey-modal-nav">
-                                <button type="button" class="journey-modal-step" id="journey-modal-prev"
-                                    aria-label="Previous station"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 L8 12 L15 19" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-                                <button type="button" class="journey-modal-step" id="journey-modal-next"
-                                    aria-label="Next station"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5 L16 12 L9 19" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-                                <button type="button" class="journey-modal-close" data-journey-close
-                                    aria-label="Close station details">×</button>
-                            </div>
-                        </div>
-                        <div class="journey-modal-time" id="journey-modal-time"></div>
-                        <h3 class="journey-card-role" id="journey-modal-role"></h3>
-                        <div class="journey-card-org" id="journey-modal-org"></div>
-                        <p class="journey-card-desc" id="journey-modal-desc"></p>
+            <!-- Immersive VR Research Gameplay -->
+            <div id="immersive" class="immersive-full" aria-label="Immersive VR research gameplay">
+                <div class="immersive-viewport">
+                    <!-- Chapter 0 -->
+                    <figure class="immersive-slide active" data-chapter="0">
+                        <video preload="none" playsinline class="immersive-video" data-immersive-video data-stage="3">
+                            <source data-src="assets/research/vr-sound-localization-testing.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </figure>
+                    <!-- Chapter 1 -->
+                    <figure class="immersive-slide" data-chapter="1">
+                        <video preload="none" playsinline class="immersive-video" data-immersive-video data-stage="3">
+                            <source data-src="assets/research/sound-localization-gameplay.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </figure>
+                    <!-- Chapter 2 -->
+                    <figure class="immersive-slide" data-chapter="2">
+                        <video preload="none" playsinline class="immersive-video" data-immersive-video data-stage="3">
+                            <source data-src="assets/research/incongruent-gameplay.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </figure>
+
+                    <div class="immersive-shade" aria-hidden="true"></div>
+
+                    <div class="immersive-hud-top">
+                        <span class="immersive-kicker" id="immersive-kicker">Familiarization</span>
+                        <h2 class="immersive-title" id="immersive-title">1. Hear the Space</h2>
                     </div>
+
+                    <span class="immersive-counter" id="immersive-counter">1 / 3</span>
+
+                    <button type="button" class="immersive-arrow immersive-arrow-left" id="immersive-prev"
+                        aria-label="Previous video">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 L8 12 L15 19" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                    <button type="button" class="immersive-arrow immersive-arrow-right" id="immersive-next"
+                        aria-label="Next video">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5 L16 12 L9 19" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+
+                    <div class="immersive-center" id="immersive-center">
+                        <button type="button" class="immersive-btn" id="immersive-play" aria-label="Play video">
+                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5 L19 12 L8 19 Z" fill="currentColor"/></svg>
+                        </button>
+                        <button type="button" class="immersive-btn" id="immersive-mute" aria-label="Mute video">
+                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9 L4 15 L8 15 L13 19 L13 5 L8 9 Z" fill="currentColor"/><path d="M16 9 Q18.5 12 16 15 M18.5 6.5 Q23 12 18.5 17.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                        </button>
+                    </div>
+
+                    <div class="immersive-hud-bottom">
+                        <div class="immersive-desc-wrap">
+                            <p class="immersive-desc active" data-chapter-desc="0">Animal calls around you in third-order Ambisonics, calibrating your ears before the task.</p>
+                            <p class="immersive-desc" data-chapter-desc="1">Visual cues aligned with sound vs. all-dark silence, the two baselines (6.90° vs. 9.62°).</p>
+                            <p class="immersive-desc" data-chapter-desc="2">Visible decoy, hidden source 60 to 65° away, where vision hijacks hearing (60.35°, VBI 0.738).</p>
+                        </div>
+                        <a href="cases/ieee-vr-conflict.html" class="immersive-case-link">Read Full Research Paper</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gaussian Splatting Room Editor -->
+            <div id="splat-room" class="immersive-full" aria-label="Gaussian Splatting 3D room editor">
+                <div class="immersive-viewport">
+                    <figure class="splat-slide">
+                        <video preload="none" playsinline class="immersive-video" id="splat-video" data-immersive-video
+                            data-stage="2">
+                            <source data-src="assets/gaussian_room/gaussian_splatting_video.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </figure>
+
+                    <div class="immersive-shade" aria-hidden="true"></div>
+
+                    <div class="immersive-hud-top">
+                        <span class="immersive-kicker">Gaussian Splatting · Home Design</span>
+                        <h2 class="immersive-title">Furnish This Room in 3D</h2>
+                    </div>
+
+                    <div class="immersive-center" id="splat-center">
+                        <button type="button" class="immersive-btn" id="splat-play" aria-label="Play video">
+                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5 L19 12 L8 19 Z" fill="currentColor"/></svg>
+                        </button>
+                        <button type="button" class="immersive-btn" id="splat-mute" aria-label="Mute video">
+                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9 L4 15 L8 15 L13 19 L13 5 L8 9 Z" fill="currentColor"/><path d="M16 9 Q18.5 12 16 15 M18.5 6.5 Q23 12 18.5 17.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                        </button>
+                    </div>
+
+                    <div class="immersive-hud-bottom">
+                        <div class="immersive-desc-wrap">
+                            <p class="immersive-desc active">A scanned living room rendered in three.js as 1.57M Gaussian splats. Drag in furniture, then move, rotate and scale them with Unity-style gizmos.</p>
+                        </div>
+                        <div class="splat-hud-actions">
+                            <a href="splat-viewer.html" class="splat-cta-primary">Enter the 3D Room</a>
+                            <a href="cases/splat-room-editor.html" class="immersive-case-link">Read the Build Story</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Professional Track Record -->
+        <section id="track-record" class="track-record-section" aria-label="Professional Track Record">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Professional Track Record</h2>
+                </div>
+
+                <div class="track-record-list">
+                    <!-- MRKE Ltd. -->
+                    <article class="track-record-item">
+                        <div class="track-record-meta">
+                            <span class="track-record-time">Dec 2020 - Jun 2026</span>
+                            <span class="track-record-loc">Hong Kong</span>
+                        </div>
+                        <div class="track-record-content">
+                            <div class="track-record-header">
+                                <h3 class="track-record-role">Co-Founder & Design Engineer</h3>
+                                <div class="track-record-org">MRKE Ltd.</div>
+                            </div>
+                            <p class="track-record-desc">
+                                Operated a fast-turnaround haircut business while designing and shipping an in-house Unity C# 360 preview application on shop tablets with dynamic Google Cloud Storage updates, reducing customer consultation ambiguity by 35 percent.
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- National Tainan University of the Arts -->
+                    <article class="track-record-item">
+                        <div class="track-record-meta">
+                            <span class="track-record-time">Sep 2023 - Mar 2025</span>
+                            <span class="track-record-loc">Tainan, Taiwan</span>
+                        </div>
+                        <div class="track-record-content">
+                            <div class="track-record-header">
+                                <h3 class="track-record-role">Systems Integration Engineer</h3>
+                                <div class="track-record-org">National Tainan University of the Arts</div>
+                            </div>
+                            <p class="track-record-desc">
+                                Engineered local GPU multimodal AI pipelines (Speech-to-Text, LLM with RAG, Text-to-Speech) with real-time conversational state feedback, and synchronized AI avatar motion capture with live Erhu performances in a 1000-seat hall.
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- Innova Medical Technology -->
+                    <article class="track-record-item">
+                        <div class="track-record-meta">
+                            <span class="track-record-time">Jul 2024 - Aug 2024</span>
+                            <span class="track-record-loc">Kaohsiung, Taiwan</span>
+                        </div>
+                        <div class="track-record-content">
+                            <div class="track-record-header">
+                                <h3 class="track-record-role">3D UX Designer (Contract)</h3>
+                                <div class="track-record-org">Innova Medical Technology</div>
+                            </div>
+                            <p class="track-record-desc">
+                                Audited 50 clinical simulation cases combining LLM dialogue with 3D virtual patients, cross-validating database schemas against clinical records to align visual signs and resolve diagnostic misjudgments.
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- Courtyard by Marriott -->
+                    <article class="track-record-item">
+                        <div class="track-record-meta">
+                            <span class="track-record-time">Jul 2020 - Jul 2021</span>
+                            <span class="track-record-loc">Hong Kong</span>
+                        </div>
+                        <div class="track-record-content">
+                            <div class="track-record-header">
+                                <h3 class="track-record-role">Guest Experience Concierge</h3>
+                                <div class="track-record-org">Courtyard by Marriott</div>
+                            </div>
+                            <p class="track-record-desc">
+                                Handled high-touch luxury concierge operations, personalized itineraries, and real-time operational problem resolution during high-occupancy hotel workflows.
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- Kerry Hotel Hong Kong -->
+                    <article class="track-record-item">
+                        <div class="track-record-meta">
+                            <span class="track-record-time">Jul 2017 - Jun 2020</span>
+                            <span class="track-record-loc">Hong Kong</span>
+                        </div>
+                        <div class="track-record-content">
+                            <div class="track-record-header">
+                                <h3 class="track-record-role">Associate Concierge (Pre-Opening Team)</h3>
+                                <div class="track-record-org">Kerry Hotel Hong Kong (Shangri-La Group)</div>
+                            </div>
+                            <p class="track-record-desc">
+                                Formulated front-of-house operational standard operating procedures, parcel tracking protocols, and VIP guest relations from pre-opening to steady-state operations.
+                            </p>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
@@ -450,7 +387,6 @@
     <footer id="contact" class="footer">
         <div class="container">
             <div class="footer-box">
-                <span class="mono-label">Contact</span>
                 <h2 class="footer-title">Let's connect</h2>
                 <p class="footer-desc">
                     Open to engineering roles and technical collaborations across real-time interactive systems, multimodal AI, and autonomous agent workflows.
@@ -462,7 +398,7 @@
                 </div>
                 <p class="footer-email">kim.kamkiu.fung@gmail.com</p>
                 <div class="footer-bottom-line">
-                    <span class="footer-brand">&copy; 2026 Kim Fung. All rights reserved.</span>
+                    <span class="footer-brand">© 2026 Kim Fung. All rights reserved.</span>
                     <div class="footer-social-links">
                         <a href="https://github.com/Goldwaterfung/" target="_blank" rel="noopener">GitHub</a>
                     </div>
@@ -477,11 +413,11 @@
         <div class="case-modal-panel" role="dialog" aria-modal="true" aria-label="Case Study">
             <header class="case-modal-header">
                 <div class="case-modal-header-inner">
-                    <button type="button" class="case-modal-back-btn" data-case-close aria-label="Back to Journey">
+                    <button type="button" class="case-modal-back-btn" data-case-close aria-label="Back to Showcases">
                         <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M15 5 L8 12 L15 19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                        <span>Back to Journey</span>
+                        <span>Back to Showcases</span>
                     </button>
                     <button type="button" class="case-modal-close-btn" data-case-close aria-label="Close case study">
                         <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">

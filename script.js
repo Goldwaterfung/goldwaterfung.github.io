@@ -217,7 +217,6 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCachedLayout();
     window.addEventListener('resize', updateCachedLayout, { passive: true });
     window.addEventListener('orientationchange', updateCachedLayout, { passive: true });
-    window.addEventListener('journey-layout-updated', updateCachedLayout, { passive: true });
 
     // ----------------------------------------------------
     // 3. Immersive Pinned Case Studies Controller
@@ -277,130 +276,6 @@ document.addEventListener('DOMContentLoaded', () => {
         setSlide(0, false);
     }
 
-    // ----------------------------------------------------
-    // 4. Journey Timeline Controller
-    // ----------------------------------------------------
-    const journeySection = document.getElementById('experience');
-    const stationCards = document.querySelectorAll('.journey-card');
-
-    if (journeySection && stationCards.length > 0) {
-        let currentStationIndex = 0;
-        const totalStations = stationCards.length;
-        const journeyMedia = window.matchMedia('(max-width: 960px)');
-        const isMobileJourney = () => journeyMedia.matches;
-
-        function setStation(index, scrollToCard = false) {
-            if (index < 0 || index >= totalStations) return;
-            currentStationIndex = index;
-
-            stationCards.forEach((card, i) => {
-                card.classList.toggle('active', i === index);
-            });
-
-            window.dispatchEvent(new CustomEvent('journey-set-station', {
-                detail: { index }
-            }));
-
-            if (scrollToCard && stationCards[index]) {
-                stationCards[index].scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'center'
-                });
-            }
-        }
-
-        // Click or keypress on station cards activates station and synchronizes transit map
-        stationCards.forEach((card, idx) => {
-            card.addEventListener('click', () => {
-                setStation(idx, false);
-            });
-            card.addEventListener('keydown', (e) => {
-                if (e.key !== 'Enter' && e.key !== ' ') return;
-                if (e.target.closest('a, button')) return;
-                e.preventDefault();
-                setStation(idx, false);
-            });
-        });
-
-        // Listen to SVG station click events from JourneyCanvas
-        function isCardCentered(card) {
-            const rect = card.getBoundingClientRect();
-            const viewportCenter = window.innerHeight / 2;
-            const cardCenter = rect.top + rect.height / 2;
-            return Math.abs(cardCenter - viewportCenter) < window.innerHeight * 0.2;
-        }
-
-        window.addEventListener('journey-active-station-changed', (e) => {
-            const idx = e.detail?.index;
-            const source = e.detail?.source;
-            if (typeof idx === 'number' && idx >= 0 && idx < totalStations) {
-                if (source === 'svg-click') {
-                    if (idx !== currentStationIndex) {
-                        const card = stationCards[idx];
-                        setStation(idx, card ? !isCardCentered(card) : true);
-                    }
-                    return;
-                }
-                if (idx !== currentStationIndex) {
-                    setStation(idx, false);
-                }
-            }
-        });
-
-        // IntersectionObserver to sync active station as user scrolls naturally
-        let cardObserver = null;
-        if ('IntersectionObserver' in window) {
-            let observerTicking = false;
-            let latestEntries = [];
-
-            function applyNearestStation() {
-                observerTicking = false;
-                const viewportCenter = window.innerHeight / 2;
-                let bestIdx = -1;
-                let bestDistance = Infinity;
-
-                latestEntries.forEach((entry) => {
-                    if (!entry.isIntersecting) return;
-                    const stationIdx = parseInt(entry.target.getAttribute('data-station') || '0', 10);
-                    if (isNaN(stationIdx)) return;
-                    const rect = entry.boundingClientRect;
-                    const cardCenter = rect.top + rect.height / 2;
-                    const distance = Math.abs(cardCenter - viewportCenter);
-                    if (distance < bestDistance) {
-                        bestDistance = distance;
-                        bestIdx = stationIdx;
-                    }
-                });
-
-                latestEntries = [];
-                if (bestIdx >= 0 && bestIdx !== currentStationIndex) {
-                    currentStationIndex = bestIdx;
-                    stationCards.forEach((card, i) => {
-                        card.classList.toggle('active', i === bestIdx);
-                    });
-                    window.dispatchEvent(new CustomEvent('journey-set-station', {
-                        detail: { index: bestIdx }
-                    }));
-                }
-            }
-
-            cardObserver = new IntersectionObserver((entries) => {
-                latestEntries = entries;
-                if (!observerTicking) {
-                    observerTicking = true;
-                    window.requestAnimationFrame(applyNearestStation);
-                }
-            }, {
-                root: null,
-                rootMargin: '-20% 0px -40% 0px',
-                threshold: 0.2
-            });
-
-            stationCards.forEach((card) => cardObserver.observe(card));
-        }
-
-        setStation(0, false);
-    }
 
     // ----------------------------------------------------
     // 5. Unified High-Performance Scroll Frame Loop (Zero Layout Thrashing)
@@ -795,11 +670,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const url = normalizeCaseUrl(rawUrl);
             if (!url) return;
 
-            // Close mobile journey bottom-sheet if open
-            if (typeof window.__closeJourneyModal === 'function') {
-                window.__closeJourneyModal(false);
-            }
-
             if (!caseModalOpen) {
                 caseLastTrigger = triggerEl || document.activeElement;
                 casePrevOverflow = document.body.style.overflow;
@@ -882,7 +752,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.style.overflow = casePrevOverflow;
 
             if (updateHistory && window.location.hash.startsWith('#case-')) {
-                history.pushState(null, '', window.location.pathname + window.location.search + '#experience');
+                history.pushState(null, '', window.location.pathname + window.location.search + '#showcases');
             }
 
             if (caseLastTrigger && document.contains(caseLastTrigger)) {
