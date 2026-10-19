@@ -68542,7 +68542,7 @@ function XN() {
     name: "Next Destination",
     period: "2026+",
     role: "Next Destination",
-    org: "Future Destination | Design Engineering",
+    org: "Future Destination | Real-Time Systems & AI",
     actionHeadline: "I connect commercial operations, creative audio computing, and real-time software systems to build resilient interactive products.",
     side: "right",
     lineType: "interchange",
