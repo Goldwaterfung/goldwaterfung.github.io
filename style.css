@@ -247,9 +247,10 @@ h3 {
 
 .hero-grid {
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
+    grid-template-columns: 1fr;
     align-items: center;
     gap: 2.5rem;
+    max-width: 900px;
 }
 
 .hero-text-col {

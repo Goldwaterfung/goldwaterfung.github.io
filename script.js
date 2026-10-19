@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function waitForHeroReady(timeoutMs = 3500) {
         return new Promise((resolve) => {
             const heroCanvas = document.getElementById('hero-3d-canvas');
-            if (heroCanvas && heroCanvas.querySelector('canvas')) {
+            if (!heroCanvas || heroCanvas.querySelector('canvas')) {
                 resolve();
                 return;
             }
