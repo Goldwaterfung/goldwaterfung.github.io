@@ -217,7 +217,6 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCachedLayout();
     window.addEventListener('resize', updateCachedLayout, { passive: true });
     window.addEventListener('orientationchange', updateCachedLayout, { passive: true });
-    window.addEventListener('journey-layout-updated', updateCachedLayout, { passive: true });
 
     // ----------------------------------------------------
     // 3. Immersive Pinned Case Studies Controller
@@ -278,7 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ----------------------------------------------------
-    // 4. Vertical Transit Map Journey Controller
+    // 4. Journey Timeline Controller
     // ----------------------------------------------------
     const journeySection = document.getElementById('experience');
     const stationCards = document.querySelectorAll('.journey-card');
@@ -306,8 +305,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let journeyPrevBodyOverflow = '';
 
         function focusStationNode(index) {
-            const nodes = document.querySelectorAll('#journey-3d-canvas g[role="button"]');
-            const node = nodes[index];
+            const node = stationCards[index];
             if (node && typeof node.focus === 'function') {
                 try { node.focus({ preventScroll: true }); } catch (e) { node.focus(); }
             }
@@ -355,9 +353,6 @@ document.addEventListener('DOMContentLoaded', () => {
             stationCards.forEach((card, i) => {
                 card.classList.toggle('active', i === index);
             });
-            window.dispatchEvent(new CustomEvent('journey-set-station', {
-                detail: { index }
-            }));
             if (!fillJourneyModal(index)) return;
 
             if (!journeyModalOpen) {
@@ -376,6 +371,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
             journeyModalOpen = true;
+
             if (journeyModalClose) {
                 window.setTimeout(() => journeyModalClose.focus({ preventScroll: true }), 60);
             } else {
@@ -396,7 +392,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 240);
             document.body.style.overflow = journeyPrevBodyOverflow;
             if (returnFocus) {
-                if (journeyLastTrigger && document.contains(journeyLastTrigger)) {
+                if (journeyLastTrigger && document.contains(journeyLastTrigger)
+                    && journeyLastTrigger !== document.body) {
                     try { journeyLastTrigger.focus({ preventScroll: true }); } catch (e) { journeyLastTrigger.focus(); }
                 } else {
                     focusStationNode(currentStationIndex);
@@ -414,11 +411,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 card.classList.toggle('active', i === index);
             });
 
-            window.dispatchEvent(new CustomEvent('journey-set-station', {
-                detail: { index }
-            }));
-
-            // Inline cards are display:none on mobile (modal is the UI), so never scroll there.
+            // Inline cards are compact rows on mobile (modal is the UI), so never scroll there.
             if (scrollToCard && !isMobileJourney() && stationCards[index]) {
                 stationCards[index].scrollIntoView({
                     behavior: 'smooth',
@@ -427,7 +420,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Click on station cards activates that station (desktop only; hidden on mobile)
+        // Click on station cards activates that station (desktop) or opens the
+        // bottom-sheet (mobile compact rows).
         stationCards.forEach((card, idx) => {
             card.addEventListener('click', () => {
                 if (isMobileJourney()) {
@@ -436,39 +430,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     setStation(idx, false);
                 }
             });
-        });
-
-        // Listen to SVG station click events. Only explicit user selections
-        // may recenter the page: scroll-driven syncs (scroll-scrub) must never
-        // trigger programmatic scrolling or they fight the user's own scroll.
-        // A card already near the viewport center is also left alone.
-        function isCardCentered(card) {
-            const rect = card.getBoundingClientRect();
-            const viewportCenter = window.innerHeight / 2;
-            const cardCenter = rect.top + rect.height / 2;
-            return Math.abs(cardCenter - viewportCenter) < window.innerHeight * 0.2;
-        }
-
-        window.addEventListener('journey-active-station-changed', (e) => {
-            const idx = e.detail?.index;
-            const source = e.detail?.source;
-            if (typeof idx === 'number' && idx >= 0 && idx < totalStations) {
-                if (source === 'svg-click') {
-                    // Mobile: tap station -> bottom-sheet. Desktop: sync + recenter card.
-                    if (isMobileJourney()) {
-                        openJourneyModal(idx);
-                        return;
-                    }
-                    if (idx !== currentStationIndex) {
-                        const card = stationCards[idx];
-                        setStation(idx, card ? !isCardCentered(card) : true);
-                    }
-                    return;
-                }
-                if (idx !== currentStationIndex) {
+            // Keyboard parity for the compact tappable rows (tabindex is on cards).
+            card.addEventListener('keydown', (e) => {
+                if (e.key !== 'Enter' && e.key !== ' ') return;
+                if (e.target.closest('a, button')) return;
+                e.preventDefault();
+                if (isMobileJourney()) {
+                    openJourneyModal(idx);
+                } else {
                     setStation(idx, false);
                 }
-            }
+            });
         });
 
         // Modal controls: backdrop/close, prev/next, Escape, minimal focus trap.
@@ -524,7 +496,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // When several cards intersect the band at once (dense spacing, fast
         // scroll), activate only the one nearest the viewport center and apply
         // it once per frame so the active index can't flap back and forth.
-        // Desktop only: mobile cards are display:none and the modal owns state.
+        // Desktop only: mobile rows are compact and the modal owns state.
         let cardObserver = null;
         if ('IntersectionObserver' in window) {
             let observerTicking = false;
@@ -559,9 +531,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     stationCards.forEach((card, i) => {
                         card.classList.toggle('active', i === bestIdx);
                     });
-                    window.dispatchEvent(new CustomEvent('journey-set-station', {
-                        detail: { index: bestIdx }
-                    }));
                 }
             }
 

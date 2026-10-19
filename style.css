@@ -769,7 +769,7 @@ span.tracking-medium {
 }
 
 /* ==========================================================================
-   Experience Journey Section (Vertical Transit Map & Flagships)
+   Experience Journey Section (Chronological Timeline & Flagships)
    ========================================================================== */
 .journey-section {
     position: relative;
@@ -944,29 +944,75 @@ span.tracking-medium {
     display: block;
 }
 
-/* Bilateral Transit Map Layout */
+/* Chronological Timeline (single column, date rail on the left) */
 .journey-grid {
     position: relative;
-    max-width: 1140px;
+    max-width: 780px;
     margin: 0 auto;
-    min-height: 2800px;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.1rem;
 }
 
-.journey-spine-viewport {
+.journey-card {
+    position: relative;
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    column-gap: 1.35rem;
+    cursor: default;
+    scroll-margin: 7rem;
+}
+
+.journey-card-rail {
+    position: relative;
+}
+
+.journey-card-rail::before {
+    content: '';
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    width: 320px;
-    height: 2800px;
-    z-index: 2;
-    pointer-events: auto;
-    contain: layout paint;
-    will-change: transform;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--border-color);
 }
 
-/* Station Cards Styling */
-.journey-card {
+.journey-card:first-child .journey-card-rail::before {
+    top: 1.65rem;
+}
+
+.journey-card:last-child .journey-card-rail::before {
+    bottom: calc(100% - 1.65rem);
+}
+
+.journey-dot {
+    position: absolute;
+    left: 50%;
+    top: 1.65rem;
+    transform: translate(-50%, -50%);
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: var(--bg-body);
+    border: 2.5px solid var(--text-muted);
+    z-index: 1;
+    transition: background var(--duration-ui) var(--ease-out),
+                border-color var(--duration-ui) var(--ease-out),
+                box-shadow var(--duration-ui) var(--ease-out);
+}
+
+.journey-card.active .journey-dot {
+    background: var(--accent-amber);
+    border-color: var(--accent-amber);
+    box-shadow: 0 0 0 4px rgba(230, 92, 0, 0.16);
+}
+
+.journey-card-body {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
     border-radius: 6px;
@@ -975,19 +1021,20 @@ span.tracking-medium {
     display: flex;
     flex-direction: column;
     gap: var(--flow-gap-tight);
-    position: absolute;
-    width: calc(50% - 170px);
-    max-width: 420px;
-    box-sizing: border-box;
     transition: transform var(--duration-ui) var(--ease-out), box-shadow var(--duration-ui) var(--ease-out);
-    cursor: default;
-    z-index: 3;
-    will-change: transform;
+    min-width: 0;
 }
 
-.journey-card:hover,
-.journey-card.active {
+.journey-card:hover .journey-card-body,
+.journey-card.active .journey-card-body {
     box-shadow: 0 6px 20px rgba(28, 28, 30, 0.07);
+}
+
+.journey-card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
 }
 
 .journey-card-time {
@@ -996,6 +1043,32 @@ span.tracking-medium {
     font-weight: 600;
     color: var(--text-muted);
     letter-spacing: 1px;
+}
+
+.journey-card-tag {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    background: var(--bg-body);
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    padding: 0.22rem 0.6rem;
+    white-space: nowrap;
+    flex: none;
+}
+
+@keyframes journey-pop {
+    from {
+        transform: translateY(6px) scale(0.985);
+        opacity: 0.55;
+    }
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
 }
 
 .journey-card-role {
@@ -1793,39 +1866,78 @@ span.tracking-medium {
         max-height: 260px;
     }
 
-    /* Journey Section & Transit Map Spine */
+    /* Journey Section & Chronological Timeline */
     .journey-section {
         padding: 3.5rem 1rem 4.5rem;
     }
 
     .journey-grid {
-        display: block;
-        min-height: auto;
+        row-gap: 0.9rem;
     }
 
-    .journey-spine-viewport {
-        position: static;
-        transform: none;
-        width: 100%;
-        max-width: 420px;
-        height: auto;
-        min-height: 0;
-        margin: 0 auto;
+    .journey-card {
+        grid-template-columns: 20px 1fr;
+        column-gap: 0.8rem;
     }
 
-    .journey-spine-viewport > div {
-        height: auto !important;
+    .journey-card-body {
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+        padding: 1rem 1.15rem;
     }
 
-    .journey-spine-viewport svg {
-        width: 100% !important;
-        height: auto !important;
-        max-height: none !important;
-        display: block;
+    .journey-card-role {
+        font-size: 1.02rem;
     }
 
-    .journey-grid .journey-card {
+    .journey-dot {
+        top: 1.25rem;
+        width: 11px;
+        height: 11px;
+    }
+
+    .journey-card:first-child .journey-card-rail::before {
+        top: 1.25rem;
+    }
+
+    .journey-card:last-child .journey-card-rail::before {
+        bottom: calc(100% - 1.25rem);
+    }
+
+    .journey-card.active .journey-dot {
+        background: var(--accent-amber);
+        border-color: var(--accent-amber);
+        box-shadow: 0 0 0 3px rgba(230, 92, 0, 0.16);
+    }
+
+    .journey-card.active .journey-card-body {
+        animation: journey-pop 260ms var(--ease-out);
+    }
+
+    /* Mobile: inline rows are summaries; the bottom-sheet owns full details */
+    .journey-card-desc,
+    .journey-card-link {
         display: none;
+    }
+
+    .journey-card-body::after {
+        content: 'Tap for details →';
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        color: var(--text-muted);
+        margin-top: 0.35rem;
+    }
+
+    /* Full details shown inside the bottom-sheet modal only */
+    .journey-modal-panel .journey-card-desc {
+        display: block;
+        margin-top: var(--flow-gap-tight);
+    }
+
+    .journey-modal-panel .journey-card-link {
+        display: inline-flex;
     }
 
     /* Footer */
@@ -1879,6 +1991,10 @@ span.tracking-medium {
         opacity: 1 !important;
         transform: none !important;
         transition: none !important;
+    }
+
+    .journey-card.active .journey-card-body {
+        animation: none !important;
     }
 
     .journey-modal-backdrop,

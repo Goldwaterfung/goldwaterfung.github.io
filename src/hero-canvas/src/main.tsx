@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { HeroCanvas } from './HeroCanvas';
 import { HeroTitleCanvas } from './HeroTitleCanvas';
-import { JourneyCanvas } from './journey/JourneyCanvas';
 
 function isWebGLAvailable(): boolean {
   try {
@@ -52,24 +51,9 @@ function mountTitleCanvas() {
   );
 }
 
-function mountJourneyCanvas() {
-  const mountTarget = document.getElementById('journey-3d-canvas');
-  if (!mountTarget) {
-    return;
-  }
-
-  const root = ReactDOM.createRoot(mountTarget);
-  root.render(
-    <React.StrictMode>
-      <JourneyCanvas />
-    </React.StrictMode>
-  );
-}
-
 function init() {
   mountHeroCanvas();
   mountTitleCanvas();
-  mountJourneyCanvas();
 }
 
 if (document.readyState === 'loading') {
