@@ -59,7 +59,7 @@
             </div>
         </header>
 
-        <div class="case-window-frame">
+        <div class="case-window-frame case-figure-portrait">
             <div class="case-window-titlebar">
                 <div class="case-window-dots">
                     <span class="case-window-dot dot-close"></span>
@@ -70,7 +70,8 @@
             </div>
             <div class="case-window-viewport">
                 <img src="../assets/system_integration/ar-llm-principal.jpg"
-                    alt="RAG-Integrated Multimodal AI Real-Time Virtual Principal Interface">
+                    alt="RAG-Integrated Multimodal AI Real-Time Virtual Principal Interface"
+                    width="1059" height="1854" loading="lazy">
             </div>
         </div>
 
@@ -157,6 +158,84 @@
                         </span>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <h2 class="case-section-title">Deployment Setup and On-Site Debugging</h2>
+            <div class="case-body">
+                <figure class="case-figure">
+                    <img src="../assets/system_integration/preparing-multimodal-llm-virtual-principal-setup.jpg"
+                        alt="Preparing the multimodal LLM virtual principal kiosk setup in the university lobby"
+                        width="903" height="675" loading="lazy">
+                    <figcaption>Preparing the kiosk and inference terminal in the university lobby before the showcase</figcaption>
+                </figure>
+                <div class="case-gallery-2col case-gallery-portrait">
+                    <figure class="case-figure">
+                        <img src="../assets/system_integration/virtual-principal-full-setup.jpg"
+                            alt="Full virtual principal kiosk setup with microphone, webcam, and audio mixer during live demo"
+                            width="719" height="956" loading="lazy">
+                        <figcaption>Live demo: full kiosk with microphone, webcam, and audio mixer</figcaption>
+                    </figure>
+                    <figure class="case-figure">
+                        <img src="../assets/system_integration/debugging-interactive-virtual-principal.jpg"
+                            alt="Terminal showing live Whisper ASR inference logs, RAG response text, and TTS error traces during on-site debugging"
+                            width="719" height="955" loading="lazy">
+                        <figcaption>On-site debugging: live inference logs, RAG responses, and TTS error traces</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <h2 class="case-section-title">Pipeline Engineering Challenges</h2>
+            <div class="case-body">
+                <p>
+                    Beyond the perceived latency problem, every stage of the inference pipeline required independent
+                    investigation and tuning. The system chained six sequential processes, each introducing its own
+                    accuracy and latency trade-offs.
+                </p>
+
+                <ul>
+                    <li>
+                        <strong>Microphone Audio Input Quality:</strong> The kiosk deployed in an open university lobby
+                        with ambient crowd noise and echo from marble surfaces. Microphone placement, gain staging,
+                        and noise floor directly affected downstream ASR accuracy. We tested different microphone
+                        positions and pickup patterns to maximize signal-to-noise ratio at the kiosk.
+                    </li>
+                    <li>
+                        <strong>ASR Model Selection and Speech Cutoff Timing:</strong> We evaluated multiple ASR models
+                        for Mandarin accuracy on consumer-grade audio input. The final choice was Whisper medium,
+                        balancing transcription quality against inference speed on local GPU. A critical sub-problem was
+                        speech endpoint detection: when to cut off the audio stream and send the transcript forward. If
+                        the cutoff triggered too early, the sentence was incomplete and the LLM received a fragment. If
+                        it waited too long, it added unnecessary latency to every turn. We tuned the energy threshold and
+                        silence duration to find the minimum reliable pause.
+                    </li>
+                    <li>
+                        <strong>RAG Retrieval and Similarity Threshold Tuning:</strong> Teachers from different
+                        departments provided question-and-answer pairs as the knowledge base. I worked with the
+                        engineering team from Taipei to build the RAG system using RAGFlow with the bge-m3 vector
+                        embedding model. We tested the cosine similarity filter threshold extensively. The sweet spot
+                        was 0.3: setting the threshold too low increased hallucination because irrelevant passages
+                        passed through to the LLM context. Setting it too high filtered out genuinely useful content
+                        and returned no matches, leaving the LLM without grounding.
+                    </li>
+                    <li>
+                        <strong>Per-Step Latency Profiling:</strong> To reduce end-to-end latency, we profiled every
+                        stage independently: microphone input to Whisper ASR, ASR output to the bge-m3 embedding model,
+                        vector search and reranking, LLM generation, and Fish-Speech TTS synthesis. Each stage had its
+                        own compute cost and queuing overhead. Reducing total turn time required identifying which stages
+                        dominated the budget and whether any could overlap or stream.
+                    </li>
+                    <li>
+                        <strong>Traditional Chinese Rendering:</strong> The deployment workstation ran Windows with
+                        Traditional Chinese locale (cp950/Big5). Third-party model outputs and library strings sometimes
+                        contained Simplified Chinese characters that could not be encoded by the system console, causing
+                        crashes in the TTS module. We traced each encoding error to its source and ensured all
+                        user-facing text rendered in Traditional Chinese.
+                    </li>
+                </ul>
             </div>
         </section>
 
