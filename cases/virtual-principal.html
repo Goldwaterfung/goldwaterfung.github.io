@@ -75,27 +75,6 @@
             </div>
         </div>
 
-        <div class="case-stats-grid">
-            <div class="case-stat-card">
-                <div class="case-stat-num">3-5s</div>
-                <span class="case-stat-label">Inference Gap Solved</span>
-                <p class="case-stat-desc">Conversational visual feedback confirms active listening while local GPU
-                    pipeline executes.</p>
-            </div>
-            <div class="case-stat-card">
-                <div class="case-stat-num">0 Cloud</div>
-                <span class="case-stat-label">Local Edge Security</span>
-                <p class="case-stat-desc">Full privacy and zero cloud API dependency running on a single dedicated GPU
-                    workstation.</p>
-            </div>
-            <div class="case-stat-card">
-                <div class="case-stat-num">0 Drift</div>
-                <span class="case-stat-label">Audiovisual Synchronization</span>
-                <p class="case-stat-desc">Packet-level sequencing aligning visemes and streaming audio packets across
-                    multi-turn sessions.</p>
-            </div>
-        </div>
-
         <section class="case-section">
             <h2 class="case-section-title">Context and Problem</h2>
             <div class="case-body">
@@ -266,6 +245,35 @@
                         <strong>Packet Synchronization:</strong> Aligned audio chunk and viseme packet sequencing
                         between local Python inference processes and the Unity C# rendering engine, eliminating lip-sync
                         drift during multi-turn interactions.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <h2 class="case-section-title">Technical Stack</h2>
+            <div class="case-body">
+                <p>
+                    The offline multimodal interactive avatar operated on a single local GPU workstation with end-to-end hardware-software coordination:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Speech Recognition (Whisper medium):</strong> Local Whisper ASR model calibrated with custom energy thresholds and silence windows to balance transcription accuracy in reverberant acoustic environments against GPU inference speed.
+                    </li>
+                    <li>
+                        <strong>Knowledge Retrieval and Vector Storage (RAGFlow with bge-m3):</strong> Institutional knowledge base chunked and indexed via bge-m3 embeddings, running cosine similarity vector matching with an empirical 0.3 threshold to prevent hallucinations.
+                    </li>
+                    <li>
+                        <strong>Local Language Model Generation:</strong> On-device LLM reasoning engine responding to visitor queries without external cloud API dependencies or recurring operational bandwidth costs.
+                    </li>
+                    <li>
+                        <strong>Speech Synthesis (Fish-Speech TTS):</strong> High-fidelity voice synthesis generating natural Chinese audio payloads coupled with phoneme-level timing visemes.
+                    </li>
+                    <li>
+                        <strong>Client Application and 3D Avatar (Unity C#):</strong> 3D avatar rendering engine with camera-based head tracking, facial blendshape synchronization, and an event-driven state machine driving instant listening and nodding gestures.
+                    </li>
+                    <li>
+                        <strong>Host Environment and Locale Pipeline:</strong> Windows workstation with a dedicated 24GB GPU, configured with Python string encoding filters to prevent cp950 Big5 character set crashes.
                     </li>
                 </ul>
             </div>

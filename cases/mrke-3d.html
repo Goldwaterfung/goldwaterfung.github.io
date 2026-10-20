@@ -40,7 +40,7 @@
             <div class="case-meta-grid">
                 <div class="case-meta-item">
                     <span class="meta-label">Role</span>
-                    <span class="meta-val">Co-Founder & Design Engineer</span>
+                    <span class="meta-val">Co-Founder & Software Engineer (Interactive Systems)</span>
                 </div>
                 <div class="case-meta-item">
                     <span class="meta-label">Company</span>
@@ -52,7 +52,7 @@
                 </div>
                 <div class="case-meta-item">
                     <span class="meta-label">Key Systems</span>
-                    <span class="meta-val">Unity C#, Android, GCS Streaming</span>
+                    <span class="meta-val">Unity C#, Android, Addressables with GCS Streaming</span>
                 </div>
             </div>
         </header>
@@ -144,7 +144,7 @@
         </section>
 
         <section class="case-section">
-            <h2 class="case-section-title">Workflow Design and In-Store Deployment</h2>
+            <h2 class="case-section-title">UI Design and In-Store Deployment</h2>
             <div class="case-body">
                 <div class="case-gallery-2col case-gallery-portrait">
                     <figure class="case-figure">
@@ -171,6 +171,29 @@
                     </li>
                     <li>
                         <strong>Google Cloud Storage Over-the-Air Asset Streaming:</strong> Architected automated deployment pipelines with Google Cloud Storage for dynamic over-the-air asset streaming. Stylists received new 3D model updates without taking tablets out of service or disrupting daily store operations.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <h2 class="case-section-title">Technical Stack</h2>
+            <div class="case-body">
+                <p>
+                    The system was architected for fast on-site execution with zero maintenance downtime during salon operations:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Interactive 3D Client Runtime (Unity C#):</strong> Custom touch viewer built with optimized camera orbit controls, touch drag gestures, vertical pitch tilt, and preset model loading designed for low-power mobile GPUs.
+                    </li>
+                    <li>
+                        <strong>Target Hardware (Android OS):</strong> Deployed to dedicated Android tablets mounted directly at haircutting stations, configured with locked kiosk parameters to prevent thermal throttling and accidental app exits during work hours.
+                    </li>
+                    <li>
+                        <strong>Asset Delivery Pipeline (Unity Addressables with GCS Streaming):</strong> Configured Unity Addressables to stream compressed 3D hairstyle asset bundles over the air from Google Cloud Storage buckets. New seasonal haircuts and styling collections loaded dynamically in the background without requiring application rebuilds, manual side-loading, or device downtime.
+                    </li>
+                    <li>
+                        <strong>Interaction and Journey Prototyping (Figma):</strong> Designed touch interaction flows, large touch target hitboxes for standing stylists with damp hands, and streamlined navigation paths for quick style confirmation.
                     </li>
                 </ul>
             </div>

@@ -131,6 +131,32 @@
         </section>
 
         <section class="case-section">
+            <h2 class="case-section-title">Technical Stack</h2>
+            <div class="case-body">
+                <p>
+                    The live performance distribution pipeline decoupled stage rendering from remote client bandwidth:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Interactive Rendering Runtime (Unity 3D):</strong> Custom C# runtime executing real-time skeletal retargeting, avatar deformation, and coordinate transformations mapped directly to hall stage projection.
+                    </li>
+                    <li>
+                        <strong>Messaging and Protocols (MQTT over TCP and WebSockets):</strong> Decoupled pub/sub telemetry broker isolating the onstage rendering engine from client network spikes, publishing motion markers to lightweight topics.
+                    </li>
+                    <li>
+                        <strong>Telemetry Ingestion and Optimization:</strong> Stripped raw motion tracking coordinate hierarchies over TCP sockets, transmitting only essential rotational quaternions and root offsets to prevent network congestion.
+                    </li>
+                    <li>
+                        <strong>Synchronization and Playback Engine:</strong> Deterministic 1.5-second playback buffer in Unity aligning motion frame sequences with acoustic microphone note transients to absorb optical tracking noise and packet jitter.
+                    </li>
+                    <li>
+                        <strong>Dual-Target Broadcast Infrastructure:</strong> Direct video output to auditorium stage projection alongside concurrent telemetry streaming to remote clients in an interactive virtual campus environment.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="case-section">
             <h2 class="case-section-title">Practical Outcomes and Lessons Learned</h2>
             <div class="case-body">
                 <div class="case-callout">

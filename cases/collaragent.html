@@ -87,7 +87,7 @@
             <div class="case-stat-card">
                 <div class="case-stat-num">100%</div>
                 <span class="case-stat-label">Local-First Storage</span>
-                <p class="case-stat-desc">Atomic .cagent snapshots and OS keychain encryption with zero external cloud dependencies.</p>
+                <p class="case-stat-desc">Atomic SQLite database snapshots and OS keychain encryption with zero external cloud dependencies.</p>
             </div>
             <div class="case-stat-card">
                 <div class="case-stat-num">8-Page</div>
@@ -147,26 +147,29 @@
         </section>
 
         <section class="case-section">
-            <h2 class="case-section-title">System Architecture and Implementation</h2>
+            <h2 class="case-section-title">Technical Stack</h2>
             <div class="case-body">
                 <p>
-                    I orchestrated multi-agents to build CollarAgent as a full-stack local-first desktop application in Electron, React, and TypeScript:
+                    CollarAgent was built as a local-first desktop application engineered around agent orchestration and responsive spatial state management:
                 </p>
                 <ul>
                     <li>
-                        <strong>Bidirectional Canvas and Document Synchronization:</strong> Created real-time state synchronization between visual concept nodes and structured document blocks. Researchers can drag concept cards directly from the canvas into draft sections, maintaining continuous alignment between visual theory models and written prose.
+                        <strong>Desktop Shell and Frontend (Electron, React 19, TypeScript):</strong> Cross-platform desktop architecture with Tailwind CSS and Vite, handling multi-window rendering and native file system access.
                     </li>
                     <li>
-                        <strong>Scholarly Lexical Document Engine:</strong> Integrated instant LaTeX equation rendering via KaTeX, formatted evidence tables, and native export to Microsoft Word (.docx), removing formula copy-paste friction.
+                        <strong>Agent Orchestration Runtime (LangGraph):</strong> Multi-agent execution graph with deterministic tool-calling schemas, managing literature extraction, hypothesis graph generation, and staged proposal diffs.
                     </li>
                     <li>
-                        <strong>LangGraph Autonomous Workflows:</strong> Orchestrated agent pipelines for literature extraction, hypothesis graph generation, and thematic clustering, allowing autonomous agents to build node-link networks directly on the canvas.
+                        <strong>Spatial Canvas and State Management:</strong> Infinite zoomable vector canvas paired with reactive state management, enabling drag-and-drop linking between visual concept nodes and document sections.
                     </li>
                     <li>
-                        <strong>Local-First Storage and Multi-Domain Snapshots:</strong> Designed portable .cagent project archives stored strictly on local disk with OS keychain credential encryption. Built atomic checkpoints capturing conversation history, agent reasoning state, canvas graphs, and document files for point-in-time rollbacks.
+                        <strong>Scholarly Document Engine (Lexical and KaTeX):</strong> Document editor with instant LaTeX mathematical equation rendering, formatted evidence tables, and native Microsoft Word (.docx) export generation.
                     </li>
                     <li>
-                        <strong>Release Automation:</strong> Configured GitHub Actions CI/CD pipelines for automated type checking, unit testing, and cross-platform desktop release packaging.
+                        <strong>Local-First Storage and Security:</strong> Portable SQLite database storage on local disk with OS keychain credential encryption, atomic checkpoints, and point-in-time state rollbacks.
+                    </li>
+                    <li>
+                        <strong>CI/CD and Release Automation:</strong> GitHub Actions automated pipelines for type checking, unit tests, and cross-platform desktop release packaging.
                     </li>
                 </ul>
             </div>
