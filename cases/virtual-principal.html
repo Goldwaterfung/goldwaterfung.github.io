@@ -8,7 +8,8 @@
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' data: blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'">
     <title>Local GPU Multimodal AI Virtual Principal | Kim Fung</title>
-    <meta name="description" content="End-to-end multimodal AI pipeline (STT, LLM with RAG, TTS) integrated into Unity with real-time conversational feedback and local GPU inference.">
+    <meta name="description"
+        content="End-to-end multimodal AI pipeline (STT, LLM with RAG, TTS) integrated into Unity with real-time conversational feedback and local GPU inference.">
     <!-- Self-hosted fonts: no third-party requests -->
     <link rel="preload" href="../assets/fonts/vendor/opensans-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="../assets/fonts/fonts.css">
@@ -34,7 +35,8 @@
             <span class="case-kicker">Multimodal AI and Edge Inference</span>
             <h1 class="case-title">Made a 5-second local AI inference delay feel responsive live</h1>
             <p class="case-subtitle">
-                Integrated an end-to-end multimodal AI pipeline (Speech-to-Text, local LLM with RAG, and Text-to-Speech) into Unity, engineering real-time conversational visual feedback on a single local GPU.
+                Integrated an end-to-end multimodal AI pipeline (Speech-to-Text, local LLM with RAG, and Text-to-Speech)
+                into Unity, engineering real-time conversational visual feedback on a single local GPU.
             </p>
 
             <div class="case-meta-grid">
@@ -67,7 +69,8 @@
                 <span class="case-window-title">AR Virtual Principal: Multimodal Avatar Interface</span>
             </div>
             <div class="case-window-viewport">
-                <img src="../assets/image/ar-llm-principal.jpg" alt="RAG-Integrated Multimodal AI Real-Time Virtual Principal Interface">
+                <img src="../assets/system_integration/ar-llm-principal.jpg"
+                    alt="RAG-Integrated Multimodal AI Real-Time Virtual Principal Interface">
             </div>
         </div>
 
@@ -75,17 +78,20 @@
             <div class="case-stat-card">
                 <div class="case-stat-num">3-5s</div>
                 <span class="case-stat-label">Inference Gap Solved</span>
-                <p class="case-stat-desc">Conversational visual feedback confirms active listening while local GPU pipeline executes.</p>
+                <p class="case-stat-desc">Conversational visual feedback confirms active listening while local GPU
+                    pipeline executes.</p>
             </div>
             <div class="case-stat-card">
                 <div class="case-stat-num">0 Cloud</div>
                 <span class="case-stat-label">Local Edge Security</span>
-                <p class="case-stat-desc">Full privacy and zero cloud API dependency running on a single dedicated GPU workstation.</p>
+                <p class="case-stat-desc">Full privacy and zero cloud API dependency running on a single dedicated GPU
+                    workstation.</p>
             </div>
             <div class="case-stat-card">
                 <div class="case-stat-num">0 Drift</div>
                 <span class="case-stat-label">Audiovisual Synchronization</span>
-                <p class="case-stat-desc">Packet-level sequencing aligning visemes and streaming audio packets across multi-turn sessions.</p>
+                <p class="case-stat-desc">Packet-level sequencing aligning visemes and streaming audio packets across
+                    multi-turn sessions.</p>
             </div>
         </div>
 
@@ -93,10 +99,15 @@
             <h2 class="case-section-title">Context and Problem</h2>
             <div class="case-body">
                 <p>
-                    For university academic showcases and VIP receptions, we deployed an interactive 3D virtual avatar powered by local multimodal AI models. Because the deployment required full privacy and offline reliability, cloud APIs were excluded. All inference ran locally on a single GPU workstation.
+                    For university academic showcases and VIP receptions, we deployed an interactive 3D virtual avatar
+                    powered by local multimodal AI models. Because the deployment required full privacy and offline
+                    reliability, cloud APIs were excluded. All inference ran locally on a single GPU workstation.
                 </p>
                 <p>
-                    Chaining Speech-to-Text, local LLM with RAG retrieval, and Text-to-Speech generation required 3 to 5 seconds of total compute time per conversational turn. During live trials, users assumed the system was frozen after finishing their sentences, leading to repeated interruptions and failed interactions.
+                    Chaining Speech-to-Text, local LLM with RAG retrieval, and Text-to-Speech generation required 3 to 5
+                    seconds of total compute time per conversational turn. During live trials, users assumed the system
+                    was frozen after finishing their sentences, leading to repeated interruptions and failed
+                    interactions.
                 </p>
             </div>
         </section>
@@ -105,28 +116,44 @@
             <h2 class="case-section-title">Design Exploration and Discarded Iterations</h2>
             <div class="case-body">
                 <p>
-                    Bridging a 3 to 5 second local GPU inference window required evaluating several technical alternatives:
+                    Bridging a 3 to 5 second local GPU inference window required evaluating several technical
+                    alternatives:
                 </p>
                 <div class="case-decision-grid">
                     <div class="case-decision-card discarded">
                         <div class="case-decision-title">Commercial Cloud Offloading</div>
-                        <p class="case-decision-body">External cloud APIs risked campus firewall disruptions and violated strict offline data privacy benchmarks required for university VIP deployments.</p>
+                        <p class="case-decision-body">External cloud APIs risked campus firewall disruptions and
+                            violated strict offline data privacy benchmarks required for university VIP deployments.</p>
                         <span class="case-decision-mark mark-discarded" aria-hidden="true">
-                            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><line x1="11" y1="11" x2="41" y2="41"/><line x1="11" y1="41" x2="41" y2="11"/></svg>
+                            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="4"
+                                stroke-linecap="round">
+                                <line x1="11" y1="11" x2="41" y2="41" />
+                                <line x1="11" y1="41" x2="41" y2="11" />
+                            </svg>
                         </span>
                     </div>
                     <div class="case-decision-card discarded">
                         <div class="case-decision-title">Static Audio Filler Phrases</div>
-                        <p class="case-decision-body">Playing repetitive spoken fillers like "Let me think about that" sounded artificial, broke user conversational rhythm, and clashed with spoken answers.</p>
+                        <p class="case-decision-body">Playing repetitive spoken fillers like "Let me think about that"
+                            sounded artificial, broke user conversational rhythm, and clashed with spoken answers.</p>
                         <span class="case-decision-mark mark-discarded" aria-hidden="true">
-                            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><line x1="11" y1="11" x2="41" y2="41"/><line x1="11" y1="41" x2="41" y2="11"/></svg>
+                            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="4"
+                                stroke-linecap="round">
+                                <line x1="11" y1="11" x2="41" y2="41" />
+                                <line x1="11" y1="41" x2="41" y2="11" />
+                            </svg>
                         </span>
                     </div>
                     <div class="case-decision-card chosen">
                         <div class="case-decision-title">Behavioral Visual State Feedback</div>
-                        <p class="case-decision-body">Connected millisecond audio energy threshold detectors directly to Unity blendshapes, shifting the avatar into attentive listening and subtle nodding micro-gestures the moment human speech concluded.</p>
+                        <p class="case-decision-body">Connected millisecond audio energy threshold detectors directly to
+                            Unity blendshapes, shifting the avatar into attentive listening and subtle nodding
+                            micro-gestures the moment human speech concluded.</p>
                         <span class="case-decision-mark mark-chosen" aria-hidden="true">
-                            <svg viewBox="0 0 62 62" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="miter"><path d="M16 28 L18 50 L54 10"/></svg>
+                            <svg viewBox="0 0 62 62" fill="none" stroke="currentColor" stroke-width="4.5"
+                                stroke-linecap="round" stroke-linejoin="miter">
+                                <path d="M16 28 L18 50 L54 10" />
+                            </svg>
                         </span>
                     </div>
                 </div>
@@ -137,20 +164,29 @@
             <h2 class="case-section-title">Systems Integration and Interaction Feedback</h2>
             <div class="case-body">
                 <p>
-                    I engineered the systems integration bridge in Unity to handle the inference gap without additional hardware:
+                    I engineered the systems integration bridge in Unity to handle the inference gap without additional
+                    hardware:
                 </p>
                 <ul>
                     <li>
-                        <strong>Conversational State Feedback:</strong> Integrated real-time audio energy detectors that identified the exact millisecond user speech finished. The avatar immediately transitioned into attentive listening and nodding micro-gestures, giving users instant visual confirmation that their query was being processed.
+                        <strong>Conversational State Feedback:</strong> Integrated real-time audio energy detectors that
+                        identified the exact millisecond user speech finished. The avatar immediately transitioned into
+                        attentive listening and nodding micro-gestures, giving users instant visual confirmation that
+                        their query was being processed.
                     </li>
                     <li>
-                        <strong>Sentiment-Driven Facial Blendshapes:</strong> Connected backend LLM sentiment metadata to facial blendshapes in Unity, allowing the avatar to adopt appropriate emotional expressions as speech audio began streaming.
+                        <strong>Sentiment-Driven Facial Blendshapes:</strong> Connected backend LLM sentiment metadata
+                        to facial blendshapes in Unity, allowing the avatar to adopt appropriate emotional expressions
+                        as speech audio began streaming.
                     </li>
                     <li>
-                        <strong>Camera Head Tracking:</strong> Implemented vision-based head tracking to maintain continuous, natural eye contact as visitors moved physically in front of the display.
+                        <strong>Camera Head Tracking:</strong> Implemented vision-based head tracking to maintain
+                        continuous, natural eye contact as visitors moved physically in front of the display.
                     </li>
                     <li>
-                        <strong>Packet Synchronization:</strong> Aligned audio chunk and viseme packet sequencing between local Python inference processes and the Unity C# rendering engine, eliminating lip-sync drift during multi-turn interactions.
+                        <strong>Packet Synchronization:</strong> Aligned audio chunk and viseme packet sequencing
+                        between local Python inference processes and the Unity C# rendering engine, eliminating lip-sync
+                        drift during multi-turn interactions.
                     </li>
                 </ul>
             </div>
@@ -162,21 +198,29 @@
                 <div class="case-callout">
                     <div class="case-callout-title">Operational Result</div>
                     <p class="case-callout-text">
-                        Visitors conducted multi-turn voice conversations smoothly on the existing local GPU setup with zero cloud dependencies. The perceived delay was resolved through real-time conversational feedback.
+                        Visitors conducted multi-turn voice conversations smoothly on the existing local GPU setup with
+                        zero cloud dependencies. The perceived delay was resolved through real-time conversational
+                        feedback.
                     </p>
                 </div>
 
                 <p>
-                    By solving the latency gap through behavioral interaction design rather than expensive hardware upgrades, the project proved that real-time feedback loops can make complex local AI pipelines feel responsive and natural.
+                    By solving the latency gap through behavioral interaction design rather than expensive hardware
+                    upgrades, the project proved that real-time feedback loops can make complex local AI pipelines feel
+                    responsive and natural.
                 </p>
 
                 <div class="case-callout case-callout-lessons">
                     <div class="case-callout-title">Lessons Learned and Retrospective</div>
                     <p class="case-callout-text">
-                        Perceived latency in multimodal systems is an interaction design problem as much as a compute bottleneck. When users finished speaking and met dead silence, they assumed the system crashed within two seconds.
+                        Perceived latency in multimodal systems is an interaction design problem as much as a compute
+                        bottleneck. When users finished speaking and met dead silence, they assumed the system crashed
+                        within two seconds.
                     </p>
                     <p class="case-callout-text">
-                        Providing immediate conversational state indicators such as attentive listening blendshapes and nodding micro-gestures preserved conversational continuity across a 3 to 5 second local GPU inference window without expensive cloud infrastructure.
+                        Providing immediate conversational state indicators such as attentive listening blendshapes and
+                        nodding micro-gestures preserved conversational continuity across a 3 to 5 second local GPU
+                        inference window without expensive cloud infrastructure.
                     </p>
                 </div>
             </div>

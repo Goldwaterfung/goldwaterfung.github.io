@@ -8,7 +8,7 @@
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' data: blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'">
     <title>Erhu Live Concert AI Motion Capture Sync | Kim Fung</title>
-    <meta name="description" content="Real-time virtual avatar synchronized with live traditional Erhu performance in a 1000-seat concert hall using a 1.5-second deterministic streaming buffer.">
+    <meta name="description" content="Real-time dual-venue synchronization of live Erhu performance audio and AI motion capture telemetry across a 1,000-seat concert hall and virtual campus using Unity and MQTT.">
     <!-- Self-hosted fonts: no third-party requests -->
     <link rel="preload" href="../assets/fonts/vendor/opensans-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="../assets/fonts/fonts.css">
@@ -31,10 +31,10 @@
     <main class="case-container">
 
         <header class="case-hero">
-            <span class="case-kicker">Live Performance and Motion Capture Sync</span>
-            <h1 class="case-title">Kept a virtual avatar in sync with live Erhu on stage</h1>
+            <span class="case-kicker">Concert Hall Systems Integration</span>
+            <h1 class="case-title">Synchronized live stage audio and AI motion capture across physical and virtual venues</h1>
             <p class="case-subtitle">
-                Shadowed rehearsals to convert the musician's natural bowing cadence into a 1.5-second deterministic streaming buffer, eliminating visual snapping in a 1000-seat concert hall.
+                I engineered an MQTT and WebSocket telemetry pipeline in Unity to synchronize live Erhu audio with optical motion capture, broadcasting simultaneously to a 1,000-seat concert hall and an interactive virtual campus.
             </p>
 
             <div class="case-meta-grid">
@@ -52,43 +52,33 @@
                 </div>
                 <div class="case-meta-item">
                     <span class="meta-label">Key Systems</span>
-                    <span class="meta-val">AI Pose Estimation, Streaming Buffer, Unity</span>
+                    <span class="meta-val">Unity, MQTT Protocol, WebSocket TCP, Multimodal Telemetry</span>
                 </div>
             </div>
         </header>
 
-        <div class="case-window-frame">
-            <div class="case-window-titlebar">
-                <div class="case-window-dots">
-                    <span class="case-window-dot dot-close"></span>
-                    <span class="case-window-dot dot-min"></span>
-                    <span class="case-window-dot dot-max"></span>
-                </div>
-                <span class="case-window-title">Concert Stage AI: Real-Time Motion and Acoustic Sync</span>
-            </div>
-            <div class="case-window-viewport">
-                <video controls autoplay muted loop playsinline>
-                    <source src="../assets/system_integration/virtual_concert.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
+        <div class="case-media-hero">
+            <video controls autoplay muted loop playsinline poster="../assets/system_integration/rehearsal-erhu-concert.jpg">
+                <source src="../assets/system_integration/virtual_concert.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
 
         <div class="case-stats-grid">
             <div class="case-stat-card">
-                <div class="case-stat-num">1.5s</div>
-                <span class="case-stat-label">Deterministic Buffer</span>
-                <p class="case-stat-desc">Calibrated streaming buffer absorbing optical inference variance and eliminating limb snapping.</p>
+                <div class="case-stat-num">2 Venues</div>
+                <span class="case-stat-label">Synchronized Broadcast</span>
+                <p class="case-stat-desc">Distributed live telemetry concurrently to the physical auditorium projection and remote virtual campus clients.</p>
             </div>
             <div class="case-stat-card">
-                <div class="case-stat-num">1,000</div>
+                <div class="case-stat-num">1,000 Seats</div>
                 <span class="case-stat-label">Concert Hall Audience</span>
-                <p class="case-stat-desc">Maintained cohesive visual-acoustic alignment live on stage throughout premier concert showcase.</p>
+                <p class="case-stat-desc">Locked avatar bow direction changes to live instrument note attacks throughout the entire performance.</p>
             </div>
             <div class="case-stat-card">
-                <div class="case-stat-num">0 Snaps</div>
-                <span class="case-stat-label">Visual Stability</span>
-                <p class="case-stat-desc">Synchronized avatar bowing changes with live acoustic note attacks under stage lighting.</p>
+                <div class="case-stat-num">0 Drift</div>
+                <span class="case-stat-label">Stream Stability</span>
+                <p class="case-stat-desc">Unified audio timestamps with skeletal motion frames, eliminating visual snapping and cumulative latency.</p>
             </div>
         </div>
 
@@ -96,90 +86,78 @@
             <h2 class="case-section-title">Context and Live Stage Problem</h2>
             <div class="case-body">
                 <p>
-                    For a premier live Erhu performance in a 1,000-seat university concert hall, our engineering team was tasked with projecting an interactive 3D virtual avatar driven live by the master musician's bow gestures using vision-based AI pose tracking.
+                    When National Tainan University of the Arts staged a premier live Erhu concert in our 1,000-seat auditorium, I was responsible for integrating the real-time stage telemetry. The university wanted to project an interactive 3D virtual avatar on the auditorium stage that mirrored the master musician live, while simultaneously streaming that performance into an interactive virtual campus environment for remote attendees.
                 </p>
                 <p>
-                    During early rehearsals, rapid bowing passages broke raw vision tracking. Inference frame drops and optical motion blur produced severe visual jitter. The avatar repeatedly snapped between erratic limb positions, drifting out of sync with the live acoustic audio in the hall.
+                    The live performance generated two distinct real-time streams at high frequencies: clean acoustic audio from stage microphones, and continuous skeletal motion tracking capturing the musician bowing arm, hand articulation, and posture.
+                </p>
+                <p>
+                    During early stage tests, the initial transmission setup broke down quickly. Sending raw motion capture frames directly across local sockets caused packet jitter and frame drops under the hall network load. When the performer transitioned into rapid bowing passages, the avatar arm snapped erratically between poses and fell behind the acoustic notes. If the visual bowing reversed direction even half a second after the audience heard the note strike, the illusion collapsed. At the same time, attempting to stream uncompressed joint hierarchies directly to remote virtual campus clients overloaded the stage machine and risked dropping frames onstage.
                 </p>
             </div>
         </section>
 
         <section class="case-section">
-            <h2 class="case-section-title">Design Exploration and Discarded Iterations</h2>
+            <h2 class="case-section-title">Engineering Interventions and System Implementation</h2>
             <div class="case-body">
                 <p>
-                    Before establishing our buffer architecture, we tested multiple technical approaches to resolve tracking instability on stage:
-                </p>
-                <div class="case-decision-grid">
-                    <div class="case-decision-card discarded">
-                        <div class="case-decision-title">Unbuffered Zero-Latency Stream</div>
-                        <p class="case-decision-body">Direct streaming from raw pose inference to Unity animation rigs caused aggressive visual snapping whenever optical dropouts occurred under hall lighting.</p>
-                        <span class="case-decision-mark mark-discarded" aria-hidden="true">
-                            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><line x1="11" y1="11" x2="41" y2="41"/><line x1="11" y1="41" x2="41" y2="11"/></svg>
-                        </span>
-                    </div>
-                    <div class="case-decision-card discarded">
-                        <div class="case-decision-title">Mathematical Smoothing Filters</div>
-                        <p class="case-decision-body">Applying heavy Kalman filters introduced continuous phase lag during rapid bowing direction changes, making the avatar appear sluggish and out of sync with acoustic note attacks.</p>
-                        <span class="case-decision-mark mark-discarded" aria-hidden="true">
-                            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><line x1="11" y1="11" x2="41" y2="41"/><line x1="11" y1="41" x2="41" y2="11"/></svg>
-                        </span>
-                    </div>
-                    <div class="case-decision-card chosen">
-                        <div class="case-decision-title">Cadence-Calibrated Buffer</div>
-                        <p class="case-decision-body">Shadowed rehearsals to capture the musician's physical preparation, designing a 1.5-second deterministic streaming buffer that absorbed tracking variance while locking visual bowing to acoustic audio.</p>
-                        <span class="case-decision-mark mark-chosen" aria-hidden="true">
-                            <svg viewBox="0 0 62 62" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="miter"><path d="M16 28 L18 50 L54 10"/></svg>
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="case-section">
-            <h2 class="case-section-title">Engineering Interventions and Rehearsal Calibration</h2>
-            <div class="case-body">
-                <p>
-                    Rather than trying to force zero-latency tracking that caused jitter, I calibrated system buffers to the natural physical cadence of the live instrument:
+                    To achieve rock-solid synchronization across both physical and virtual venues without choking the hardware, I rebuilt the telemetry pipeline around lightweight payloads and decoupled routing:
                 </p>
                 <ul>
                     <li>
-                        <strong>Musician Rehearsal Shadowing:</strong> Attended rehearsals alongside the musician to analyze musical cadences, discovering that the performer executed an organic ~0.8-second preparatory physical motion before fast bowing phrases.
+                        <strong>Musician Rehearsal Shadowing:</strong> I attended full rehearsals alongside the master musician to observe the relationship between physical gestures and musical attacks. I discovered that before rapid bowing phrases, the performer executed an organic preparatory motion roughly 0.8 seconds before sound onset. Rather than forcing unstable zero-latency algorithmic streaming, I calibrated a 1.5-second deterministic playback buffer in Unity. This buffer absorbed optical tracking variance and temporal network jitter while keeping visual bowing locked to musical timing.
                     </li>
                     <li>
-                        <strong>Deterministic 1.5-Second Streaming Buffer:</strong> Implemented a 1.5-second streaming buffer between vision pose inference and avatar animation playback in Unity. This buffer absorbed inference variance and temporal micro-jitters without breaking visual stability.
+                        <strong>Payload Stripping and Vector Extraction:</strong> Raw motion tracking systems emit dense bone hierarchies that quickly flood local sockets. I built an ingestion pipeline in Unity via TCP sockets that discarded unnecessary coordinate trees, extracting only essential joint rotational vectors and root offsets. This compressed the transmission payload and eliminated redundant hierarchy recalculations on the stage rendering engine.
                     </li>
                     <li>
-                        <strong>Waveform and Keypoint Alignment:</strong> Recorded motion data alongside audio waveforms to verify that avatar bowing stroke direction changes aligned with acoustic note attacks.
+                        <strong>Decoupled MQTT Pub/Sub Architecture:</strong> To prevent remote audience connections from degrading stage performance, I implemented an MQTT telemetry broker over TCP and WebSockets. The stage machine published motion telemetry and audio markers to dedicated lightweight topics once. The broker then handled distribution to the hall projection system and remote virtual campus subscribers independently, ensuring zero latency penalty on stage as remote client counts grew.
                     </li>
                     <li>
-                        <strong>Full-Dress Stage Simulations:</strong> Validated the pipeline across repeated full-dress hall simulations under concert lighting and stage acoustics.
+                        <strong>Audio and Motion Timestamp Alignment:</strong> I synchronized motion capture frame sequences directly with stage microphone audio timestamps. Aligning joint turnaround markers with acoustic note transients ensured that avatar bow direction changes matched the sharp attack of fast Erhu passages without cumulative phase drift.
+                    </li>
+                    <li>
+                        <strong>Hall Dress Rehearsals and Stress Testing:</strong> During full-dress rehearsals with stage lighting and audience network conditions, I benchmarked telemetry throughput and queue handling. I tuned buffer thresholds and interpolation curves in Unity so that momentary network hiccups gracefully blended between valid frames instead of snapping or freezing.
                     </li>
                 </ul>
+
+                <figure class="case-figure">
+                    <img src="../assets/system_integration/rehearsal-erhu-concert.jpg"
+                        alt="Auditorium stage rehearsal: Calibrating motion capture sensors and audio feeds in the 1,000-seat hall"
+                        loading="lazy">
+                    <figcaption>Auditorium stage rehearsal: Calibrating motion capture sensors and audio feeds in the 1,000-seat hall</figcaption>
+                </figure>
             </div>
         </section>
 
         <section class="case-section">
-            <h2 class="case-section-title">Practical Outcomes and Performance Impact</h2>
+            <h2 class="case-section-title">Practical Outcomes and Lessons Learned</h2>
             <div class="case-body">
                 <div class="case-callout">
-                    <div class="case-callout-title">Live Performance Reliability</div>
+                    <div class="case-callout-title">Dual-Venue Synchronization Reliability</div>
                     <p class="case-callout-text">
-                        The virtual avatar stayed locked to the live Erhu performance throughout the concert with zero visual snapping. Acoustic clarity and visual cadence remained cohesive before 1,000 live audience members.
+                        The virtual avatar remained cohesive with the live Erhu performance throughout the entire concert. Both the 1,000-seat physical audience and remote virtual campus attendees experienced fluid motion tracking aligned with the acoustic music.
                     </p>
                 </div>
 
                 <p>
-                    The performance demonstrated that solving live real-time synchronization requires understanding the physical, domain-specific cadence of the human performer, rather than relying on unbuffered algorithms.
+                    Decoupling telemetry distribution via an MQTT broker kept stage rendering completely insulated from outside traffic. Adding remote subscribers in the virtual campus produced zero measurable latency penalty on the physical auditorium projection.
                 </p>
 
+                <figure class="case-figure case-figure-portrait">
+                    <img src="../assets/system_integration/erhu-live-concert-in-virtual-campus.jpg"
+                        alt="Live Erhu concert performance synchronized with interactive virtual avatar motion capture in the virtual campus environment"
+                        loading="lazy">
+                    <figcaption>Virtual campus environment: Live motion telemetry streamed to remote attendees</figcaption>
+                </figure>
+
                 <div class="case-callout case-callout-lessons">
-                    <div class="case-callout-title">Lessons Learned and Retrospective</div>
+                    <div class="case-callout-title">What I Learned on Stage</div>
                     <p class="case-callout-text">
-                        Engineering real-time synchronization on a live stage cannot be solved purely through lower algorithmic latency. When we attempted unbuffered tracking, frame drops created unacceptable visual snapping.
+                        Live real-time multimodal synchronization cannot be solved purely by chasing theoretical zero latency. On a live stage, tracking algorithms face optical interference from theatrical lighting, rapid human gestures, and unpredictable local networks.
                     </p>
                     <p class="case-callout-text">
-                        Respecting the performer's organic physical preparation and introducing a calibrated 1.5-second buffer grounded in acoustic note attacks produced a rock-solid stage performance that raw algorithms could not achieve alone.
+                        Spending time in rehearsals to understand the physical cadence of the performer, calibrating a deterministic buffer around musical attacks, and decoupling data distribution with proven pub/sub protocols delivered stage stability that raw algorithms alone could never achieve.
                     </p>
                 </div>
             </div>
