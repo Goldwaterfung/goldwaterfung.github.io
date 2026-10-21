@@ -1008,6 +1008,116 @@ span.tracking-medium {
 }
 
 /* ==========================================================================
+   Custom Mobile Phone Mockup (MRKE 360 Hairstyle Viewer)
+   ========================================================================== */
+.flagship-phone-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.phone-mockup-link {
+    display: inline-block;
+    text-decoration: none;
+    line-height: 0;
+    outline: none;
+}
+
+.phone-mockup-link:focus-visible .phone-mockup {
+    outline: 2px solid var(--accent-amber);
+    outline-offset: 4px;
+}
+
+.phone-mockup {
+    position: relative;
+    width: clamp(210px, 20vw, 246px);
+    aspect-ratio: 9 / 19;
+    background: #151619;
+    border-radius: 38px;
+    padding: 8px;
+    box-sizing: border-box;
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.1) inset,
+        0 0 0 2px #26262c,
+        0 0 0 4px #101013,
+        0 18px 40px rgba(0, 0, 0, 0.18),
+        0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.phone-mockup-link:hover .phone-mockup {
+    transform: translateY(-4px) scale(1.015);
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.16) inset,
+        0 0 0 2px #363640,
+        0 0 0 4px #101013,
+        0 24px 50px rgba(0, 0, 0, 0.24),
+        0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.phone-speaker {
+    position: absolute;
+    top: 13px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 58px;
+    height: 13px;
+    background: #000000;
+    border-radius: 10px;
+    z-index: 4;
+    pointer-events: none;
+}
+
+.phone-speaker::after {
+    content: '';
+    position: absolute;
+    right: 7px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #111422;
+    box-shadow: inset 0 0 1.5px #264a7f;
+}
+
+.phone-screen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    overflow: hidden;
+    background: #000000;
+    line-height: 0;
+}
+
+.phone-screen video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    background: #000;
+}
+
+.phone-glare {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: 30px;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0.02) 35%,
+        transparent 55%
+    );
+    z-index: 3;
+}
+
+/* ==========================================================================
    Professional Track Record
    ========================================================================== */
 .track-record-list {
@@ -1627,7 +1737,8 @@ span.tracking-medium {
     .immersive-btn,
     .immersive-arrow,
     .case-modal-back-btn,
-    .case-modal-close-btn {
+    .case-modal-close-btn,
+    .phone-mockup {
         transform: none !important;
         transition: none !important;
     }
