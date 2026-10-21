@@ -36,7 +36,7 @@
             </a>
 
             <nav class="nav-menu" id="nav-menu">
-                <a href="#showcases" class="nav-link">Showcases</a>
+                <a href="#showcases" class="nav-link">My Works</a>
                 <a href="#research" class="nav-link">Research & Spatial</a>
                 <a href="#track-record" class="nav-link">Track Record</a>
                 <a href="#contact" class="nav-link nav-btn">Contact</a>
@@ -61,56 +61,56 @@
                     </h1>
 
                     <h2 class="hero-subtitle">
-                        I build <strong>real-time interactive systems</strong>, <strong>multimodal AI
-                            pipelines</strong> and <strong>3D application development</strong>. Grounded in systems
-                        engineering, low-latency interaction, and empirical research.
+                        I engineer <strong>real-time interactive systems</strong>, <strong>multimodal AI
+                            pipelines</strong>, and <strong>runtime-optimized 3D applications</strong>. Grounded in systems
+                        engineering, low-latency interaction, and full-lifecycle software delivery.
                     </h2>
+                </div>
+
+                <div class="hero-canvas-col">
+                    <div id="hero-skills-sphere" class="hero-skills-container" aria-label="Interactive 3D skills sphere"></div>
                 </div>
             </div>
         </section>
 
-        <!-- Section: Flagship Engineering Showcases -->
-        <section id="showcases" class="showcases-section" aria-label="Flagship Engineering Showcases">
+        <!-- Section: My Works -->
+        <section id="showcases" class="showcases-section" aria-label="My Works">
             <div id="experience" style="position: absolute; top: 0; left: 0;" aria-hidden="true"></div>
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Showcases</h2>
+                    <h2 class="section-title">My Works</h2>
                 </div>
 
                 <div class="flagship-showcases">
                     <!-- Row 1: text left, image right -->
                     <article class="flagship-row">
                         <div class="flagship-text">
-                            <span class="flagship-kicker">MRKE Ltd. · In-Store 360 Hairstyle Preview App</span>
-                            <h3 class="flagship-row-title">In-store 3D previews that cut consultation ambiguity 35%</h3>
-                            <p class="flagship-desc">A live salon case about why flat 2D catalog photos stalled
-                                consultations, and the in-store 3D preview tool on shop tablets built to resolve that
-                                ambiguity.</p>
-                            <p class="flagship-systems"><span class="flagship-systems-label">Key Systems:</span> Unity C#, Android, Addressables with GCS Streaming</p>
+                            <span class="flagship-kicker">MRKE Ltd. · In-House 360 Hairstyle Viewer</span>
+                            <h3 class="flagship-row-title"><a href="cases/mrke-3d.html">In-store 3D previews that cut consultation ambiguity 35%</a></h3>
                             <a href="cases/mrke-3d.html" class="flagship-link">Explore Case Study</a>
                         </div>
                         <figure class="flagship-media">
-                            <video src="assets/hair_app/hair_app_display2.mp4" autoplay muted loop playsinline
-                                preload="metadata" disablepictureinpicture
-                                aria-label="Screen recording of the 360-degree 3D hairstyle preview on a shop tablet">
-                                Sorry, your browser does not support embedded videos.
-                            </video>
+                            <a href="cases/mrke-3d.html" aria-label="Explore MRKE 3D hairstyle viewer case study">
+                                <video src="assets/hair_app/hair_app_display2.mp4" autoplay muted loop playsinline
+                                    preload="metadata" disablepictureinpicture
+                                    aria-label="Screen recording of the 360-degree 3D hairstyle preview on a shop tablet">
+                                    Sorry, your browser does not support embedded videos.
+                                </video>
+                            </a>
                         </figure>
                     </article>
 
                     <!-- Row 2: image left, text right -->
                     <article class="flagship-row flagship-row-reverse">
                         <figure class="flagship-media">
-                            <img src="assets/system_integration/ar-llm-principal.jpg"
-                                alt="Virtual principal avatar with live spatial tracking interface" loading="lazy">
+                            <a href="cases/virtual-principal.html" aria-label="Explore virtual principal avatar case study">
+                                <img src="assets/system_integration/ar-llm-principal.jpg"
+                                    alt="Virtual principal avatar with live spatial tracking interface" loading="lazy">
+                            </a>
                         </figure>
                         <div class="flagship-text">
                             <span class="flagship-kicker">TNUA · Local Multimodal AI</span>
-                            <h3 class="flagship-row-title">Made Multimodal RAG system responsive live</h3>
-                            <p class="flagship-desc">A deployment case about running a full voice to voice avatar
-                                pipeline fully offline on a single GPU for live showcases, and the 3 to 5 second latency
-                                gap that broke conversations.</p>
-                            <p class="flagship-systems"><span class="flagship-systems-label">Key Systems:</span> Whisper ASR, Local LLM with RAGFlow, Fish-Speech TTS, Unity C#</p>
+                            <h3 class="flagship-row-title"><a href="cases/virtual-principal.html">Made Multimodal RAG system responsive live</a></h3>
                             <a href="cases/virtual-principal.html" class="flagship-link">Explore Case Study</a>
                         </div>
                     </article>
@@ -118,36 +118,30 @@
                     <!-- Row 3: text left, image right -->
                     <article class="flagship-row">
                         <div class="flagship-text">
-                            <span class="flagship-kicker">TNUA · Concert Hall Systems Integration</span>
-                            <h3 class="flagship-row-title">Streamed synchronized AI motion capture and live audio across
-                                two simultaneous venues</h3>
-                            <p class="flagship-desc">A live performance case about building an MQTT broadcast pipeline
-                                that kept AI motion capture data and audio in sync for a live musician on stage. A
-                                single optimized stream fed both a virtual campus environment and a physical 1000-seat
-                                concert hall simultaneously.</p>
-                            <p class="flagship-systems"><span class="flagship-systems-label">Key Systems:</span> Unity, MQTT Protocol, WebSocket TCP, Multimodal Telemetry</p>
+                            <span class="flagship-kicker">TNUA · Low-Latency Telemetry Streaming</span>
+                            <h3 class="flagship-row-title"><a href="cases/live-concert-sync.html">Streamed synchronized AI motion capture and live audio across two simultaneous venues</a></h3>
                             <a href="cases/live-concert-sync.html" class="flagship-link">Explore Case Study</a>
                         </div>
                         <figure class="flagship-media">
-                            <img src="assets/system_integration/erhu-live-concert-in-virtual-campus.jpg"
-                                alt="Live Erhu concert performance synchronized with interactive virtual avatar motion capture in a virtual campus environment">
+                            <a href="cases/live-concert-sync.html" aria-label="Explore live concert sync case study">
+                                <img src="assets/system_integration/erhu-live-concert-in-virtual-campus.jpg"
+                                    alt="Live Erhu concert performance synchronized with interactive virtual avatar motion capture in a virtual campus environment">
+                            </a>
                         </figure>
                     </article>
 
                     <!-- Row 4: image left, text right -->
                     <article class="flagship-row flagship-row-reverse">
                         <figure class="flagship-media">
-                            <img src="assets/innova/Battered-child-syndrome/final.jpg"
-                                alt="Clinical simulation platform running in Unity3D, showing the virtual patient examination room and interactive diagnostic tools"
-                                loading="lazy">
+                            <a href="cases/innova-medical.html" aria-label="Explore Innova Medical 3D clinical simulation case study">
+                                <img src="assets/innova/Battered-child-syndrome/final.jpg"
+                                    alt="Clinical simulation platform running in Unity3D, showing the virtual patient examination room and interactive diagnostic tools"
+                                    loading="lazy">
+                            </a>
                         </figure>
                         <div class="flagship-text">
                             <span class="flagship-kicker">Innova Medical · 3D Clinical UX</span>
-                            <h3 class="flagship-row-title">Synchronized 3D avatars with clinical ground truth across 50
-                                cases</h3>
-                            <p class="flagship-desc">A clinical simulation case about why students misdiagnosed virtual
-                                patients in training, and the 50 case audit aligning 3D avatar appearance and LLM
-                                dialogue with medical ground truth.</p>
+                            <h3 class="flagship-row-title"><a href="cases/innova-medical.html">Synchronized 3D avatars with clinical ground truth across 50 cases</a></h3>
                             <a href="cases/innova-medical.html" class="flagship-link">Explore Case Study</a>
                         </div>
                     </article>
@@ -156,33 +150,30 @@
                     <article class="flagship-row">
                         <div class="flagship-text">
                             <span class="flagship-kicker">IEEE ICVR 2026 · VR Perception Research</span>
-                            <h3 class="flagship-row-title">Measured how vision hijacks hearing in VR under sustained spatial audio conflict</h3>
-                            <p class="flagship-desc">A first-author Human-Computer Interaction study exploring what
-                                happens when a visible decoy and a hidden sound source pull in opposite directions across
-                                sustained trials in third-order Ambisonics VR, and how far visual dominance can override
-                                spatial hearing.</p>
+                            <h3 class="flagship-row-title"><a href="cases/ieee-vr-conflict.html">Measured how vision hijacks hearing in VR under sustained spatial audio conflict</a></h3>
                             <a href="cases/ieee-vr-conflict.html" class="flagship-link">Explore Research Paper</a>
                         </div>
                         <figure class="flagship-media">
-                            <img src="assets/research/experiment.jpg"
-                                alt="Participant wearing a VR headset during the sustained audiovisual conflict localization experiment"
-                                loading="lazy">
+                            <a href="cases/ieee-vr-conflict.html" aria-label="Explore IEEE ICVR research paper">
+                                <img src="assets/research/experiment.jpg"
+                                    alt="Participant wearing a VR headset during the sustained audiovisual conflict localization experiment"
+                                    loading="lazy">
+                            </a>
                         </figure>
                     </article>
 
                     <!-- Row 6: image left, text right -->
                     <article class="flagship-row flagship-row-reverse">
                         <figure class="flagship-media">
-                            <img src="assets/daw/daw-usecase.gif"
-                                alt="Stratawright DAW automating a multitrack session via agent CLI commands"
-                                loading="lazy">
+                            <a href="cases/stratawright.html" aria-label="Explore Stratawright agentic audio workstation case study">
+                                <img src="assets/daw/daw-usecase.gif"
+                                    alt="Stratawright DAW automating a multitrack session via agent CLI commands"
+                                    loading="lazy">
+                            </a>
                         </figure>
                         <div class="flagship-text">
                             <span class="flagship-kicker">Stratawright · Agentic Audio Workstation</span>
-                            <h3 class="flagship-row-title">A DAW that autonomous coding agents operate via CLI</h3>
-                            <p class="flagship-desc">A systems case about why closed GUI based DAWs lock out autonomous
-                                coding agents, and the machine-readable telemetry and CLI protocols needed to let agents
-                                run a session.</p>
+                            <h3 class="flagship-row-title"><a href="cases/stratawright.html">A DAW that autonomous coding agents operate via CLI</a></h3>
                             <a href="cases/stratawright.html" class="flagship-link">Explore Case Study</a>
                         </div>
                     </article>
@@ -191,18 +182,15 @@
                     <article class="flagship-row">
                         <div class="flagship-text">
                             <span class="flagship-kicker">CollarAgent · Visual Research Studio</span>
-                            <h3 class="flagship-row-title">An infinite canvas workspace where autonomous agents co-work
-                                on research</h3>
-                            <p class="flagship-desc">A local-first visual research workspace pairing LangGraph agent
-                                workflows with an infinite concept canvas, structured document engine, and visual diff
-                                staging to turn complex literature exploration into living concept maps.</p>
-                            <p class="flagship-systems"><span class="flagship-systems-label">Key Systems:</span> Electron, React, TypeScript, LangGraph</p>
+                            <h3 class="flagship-row-title"><a href="cases/collaragent.html">An infinite canvas workspace where autonomous agents co-work on research</a></h3>
                             <a href="cases/collaragent.html" class="flagship-link">Explore Case Study</a>
                         </div>
                         <figure class="flagship-media">
-                            <img src="assets/collaragent/showcase-collaragent.gif"
-                                alt="CollarAgent visual research studio interface pairing an infinite concept canvas with structured document editing and visual diff staging"
-                                loading="lazy">
+                            <a href="cases/collaragent.html" aria-label="Explore CollarAgent visual research studio case study">
+                                <img src="assets/collaragent/showcase-collaragent.gif"
+                                    alt="CollarAgent visual research studio interface pairing an infinite concept canvas with structured document editing and visual diff staging"
+                                    loading="lazy">
+                            </a>
                         </figure>
                     </article>
                 </div>
@@ -313,8 +301,8 @@
                     <div class="immersive-shade" aria-hidden="true"></div>
 
                     <div class="immersive-hud-top">
-                        <span class="immersive-kicker">Gaussian Splatting · Home Design</span>
-                        <h2 class="immersive-title">Furnish This Room in 3D</h2>
+                        <span class="immersive-kicker">Gaussian Splatting · WebGL Performance</span>
+                        <h2 class="immersive-title">Interactive 3D Room Reconstruction</h2>
                     </div>
 
                     <div class="immersive-center" id="splat-center">
@@ -334,9 +322,9 @@
 
                     <div class="immersive-hud-bottom">
                         <div class="immersive-desc-wrap">
-                            <p class="immersive-desc active">A scanned living room rendered in three.js as 1.57M
-                                Gaussian splats. Drag in furniture, then move, rotate and scale them with Unity-style
-                                gizmos.</p>
+                            <p class="immersive-desc active">A scanned interior rendered in Three.js at 1.57M
+                                Gaussian splats, optimized for mobile WebGL memory budgets with real-time spatial
+                                transform gizmos.</p>
                         </div>
                         <div class="splat-hud-actions">
                             <a href="splat-viewer.html" class="splat-cta-primary">Enter the 3D Room</a>
@@ -367,9 +355,9 @@
                                 <div class="track-record-org">MRKE Ltd.</div>
                             </div>
                             <p class="track-record-desc">
-                                Operated a fast-turnaround haircut business while designing and shipping an in-house
-                                Unity C# 360 preview application on shop tablets with dynamic Google Cloud Storage
-                                updates, reducing customer consultation ambiguity by 35 percent.
+                                Operated a fast-turnaround haircut business while building and continuously maintaining an in-house
+                                Unity C# 360 hairstyle viewer application, establishing daily frontline tracking logs and Google Cloud Storage OTA streaming
+                                to deploy updates with zero tablet downtime, cutting customer consultation ambiguity by 35 percent.
                             </p>
                         </div>
                     </article>
@@ -387,9 +375,9 @@
                             </div>
                             <p class="track-record-desc">
                                 Engineered local GPU multimodal AI pipelines (Speech-to-Text, LLM with RAG,
-                                Text-to-Speech) with real-time conversational state feedback, and built an MQTT
-                                telemetry pipeline in Unity to synchronize live Erhu performance audio and motion
-                                capture across physical and virtual venues.
+                                Text-to-Speech) with real-time conversational state feedback, and developed an MQTT
+                                telemetry pipeline in Unity to synchronize live performance audio and motion capture,
+                                calibrated through continuous rehearsal trials against network jitter.
                             </p>
                         </div>
                     </article>
@@ -407,8 +395,8 @@
                             </div>
                             <p class="track-record-desc">
                                 Audited 50 clinical simulation cases combining LLM dialogue with 3D virtual patients,
-                                cross-validating database schemas against clinical records to align visual signs and
-                                resolve diagnostic misjudgments.
+                                collaborating with the engineer and medical expert across iterative schema reviews to resolve diagnostic
+                                discrepancies while preserving 60 FPS on legacy GTX 1060 GPUs.
                             </p>
                         </div>
                     </article>
@@ -453,12 +441,12 @@
         <div class="case-modal-panel" role="dialog" aria-modal="true" aria-label="Case Study">
             <header class="case-modal-header">
                 <div class="case-modal-header-inner">
-                    <button type="button" class="case-modal-back-btn" data-case-close aria-label="Back to Showcases">
+                    <button type="button" class="case-modal-back-btn" data-case-close aria-label="Back to My Works">
                         <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M15 5 L8 12 L15 19" fill="none" stroke="currentColor" stroke-width="2.2"
                                 stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
-                        <span>Back to Showcases</span>
+                        <span>Back to My Works</span>
                     </button>
                     <button type="button" class="case-modal-close-btn" data-case-close aria-label="Close case study">
                         <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">

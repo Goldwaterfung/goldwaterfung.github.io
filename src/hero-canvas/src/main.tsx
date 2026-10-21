@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { HeroTitleCanvas } from './HeroTitleCanvas';
+import { SkillsSphereCanvas } from './SkillsSphereCanvas';
 
 function isWebGLAvailable(): boolean {
   try {
@@ -32,8 +33,27 @@ function mountTitleCanvas() {
   );
 }
 
+function mountSkillsSphere() {
+  const mountTarget = document.getElementById('hero-skills-sphere');
+  if (!mountTarget) {
+    return;
+  }
+
+  if (!isWebGLAvailable()) {
+    return;
+  }
+
+  const root = ReactDOM.createRoot(mountTarget);
+  root.render(
+    <React.StrictMode>
+      <SkillsSphereCanvas />
+    </React.StrictMode>
+  );
+}
+
 function init() {
   mountTitleCanvas();
+  mountSkillsSphere();
 }
 
 if (document.readyState === 'loading') {

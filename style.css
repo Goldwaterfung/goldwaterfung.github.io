@@ -247,10 +247,10 @@ h3 {
 
 .hero-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1.15fr 0.85fr;
     align-items: center;
-    gap: 2.5rem;
-    max-width: 900px;
+    gap: clamp(2rem, 3.5vw, 3.5rem);
+    max-width: 1140px;
 }
 
 .hero-text-col {
@@ -262,14 +262,28 @@ h3 {
 .hero-canvas-col {
     position: relative;
     width: 100%;
-    height: 380px;
-    min-height: 320px;
+    height: 440px;
+    min-height: 380px;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     background: transparent;
     border: none;
+}
+
+.hero-skills-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    cursor: grab;
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.hero-skills-container:active {
+    cursor: grabbing;
 }
 
 #hero-3d-canvas {
@@ -289,16 +303,16 @@ h3 {
     touch-action: pan-y;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 860px) {
     .hero-grid {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 2rem;
     }
 
     .hero-canvas-col {
-        height: 280px;
-        min-height: 240px;
-        max-height: 280px;
+        height: 360px;
+        min-height: 300px;
+        max-height: 400px;
     }
 }
 
@@ -857,7 +871,27 @@ span.tracking-medium {
     letter-spacing: 2.24px;
     line-height: 1.35;
     color: var(--text-primary);
-    margin: 0 0 var(--flow-gap-body) 0;
+    margin: 0 0 1.25rem 0;
+}
+
+.flagship-row-title a,
+.followup-row-title a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.18s ease;
+}
+
+.flagship-row-title a:hover,
+.followup-row-title a:hover {
+    color: var(--accent-amber);
+}
+
+.flagship-media a,
+.followup-media a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 0;
 }
 
 .flagship-desc,
@@ -963,6 +997,14 @@ span.tracking-medium {
     max-height: 360px;
     object-fit: cover;
     display: block;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.flagship-media:hover img,
+.flagship-media:hover video,
+.followup-media:hover img,
+.followup-media:hover video {
+    transform: scale(1.02);
 }
 
 /* ==========================================================================
