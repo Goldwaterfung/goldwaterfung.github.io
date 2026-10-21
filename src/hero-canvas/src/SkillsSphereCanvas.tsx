@@ -448,7 +448,7 @@ function getFibonacciSpherePoints(count: number, radius: number): THREE.Vector3[
   return points;
 }
 
-const SPHERE_RADIUS = 2.45;
+const SPHERE_RADIUS = 1.85;
 
 interface SphereSceneProps {
   isDraggingRef: React.MutableRefObject<boolean>;
@@ -512,10 +512,10 @@ const SphereScene: React.FC<SphereSceneProps> = ({
       const normalizedZ = tempVec.z / SPHERE_RADIUS; // -1 to 1
       const depthFactor = (normalizedZ + 1) * 0.5; // 0 (far) to 1 (near)
 
-      // Near: scale 1.15, opacity 1.0; Far: scale 0.72, opacity 0.32
-      const scale = 0.72 + depthFactor * 0.43;
+      // Near: scale 0.88, opacity 1.0; Far: scale 0.52, opacity 0.35
+      const scale = 0.52 + depthFactor * 0.36;
       sprite.scale.set(scale, scale, 1);
-      (sprite.material as THREE.SpriteMaterial).opacity = 0.3 + depthFactor * 0.7;
+      (sprite.material as THREE.SpriteMaterial).opacity = 0.35 + depthFactor * 0.65;
     });
   });
 
@@ -638,7 +638,7 @@ export const SkillsSphereCanvas: React.FC = () => {
     >
       <Canvas
         frameloop={isVisible ? 'always' : 'demand'}
-        camera={{ position: [0, 0, 5.4], fov: 46 }}
+        camera={{ position: [0, 0, 7.2], fov: 40 }}
         dpr={[1, 2]}
         gl={{ antialias: true, alpha: true }}
         style={{ width: '100%', height: '100%' }}

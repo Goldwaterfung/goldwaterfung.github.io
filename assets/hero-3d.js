@@ -68339,7 +68339,7 @@ function oj(n, e) {
   }
   return t;
 }
-const k0 = 2.45, lj = ({
+const k0 = 1.85, lj = ({
   isDraggingRef: n,
   rotationRef: e,
   velocityRef: t,
@@ -68364,8 +68364,8 @@ const k0 = 2.45, lj = ({
       if (!g) return;
       const x = f[y];
       m.copy(x).applyEuler(d);
-      const M = (m.z / k0 + 1) * 0.5, C = 0.72 + M * 0.43;
-      g.scale.set(C, C, 1), g.material.opacity = 0.3 + M * 0.7;
+      const M = (m.z / k0 + 1) * 0.5, C = 0.52 + M * 0.36;
+      g.scale.set(C, C, 1), g.material.opacity = 0.35 + M * 0.65;
     });
   }), /* @__PURE__ */ xn.jsxs("group", { ref: s, children: [
     /* @__PURE__ */ xn.jsxs("mesh", { children: [
@@ -68462,7 +68462,7 @@ const k0 = 2.45, lj = ({
         CI,
         {
           frameloop: e ? "always" : "demand",
-          camera: { position: [0, 0, 5.4], fov: 46 },
+          camera: { position: [0, 0, 7.2], fov: 40 },
           dpr: [1, 2],
           gl: { antialias: !0, alpha: !0 },
           style: { width: "100%", height: "100%" },
