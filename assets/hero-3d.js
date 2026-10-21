@@ -68327,7 +68327,7 @@ function aj(n) {
   const f = i.createRadialGradient(s, a - u * 0.3, u * 0.1, s, a, u);
   f.addColorStop(0, "rgba(38, 40, 48, 0.94)"), f.addColorStop(1, "rgba(18, 19, 24, 0.96)"), i.fillStyle = f, i.beginPath(), i.arc(s, a, u, 0, Math.PI * 2), i.fill(), i.restore(), i.strokeStyle = "rgba(255, 255, 255, 0.16)", i.lineWidth = 2, i.beginPath(), i.arc(s, a, u, 0, Math.PI * 2), i.stroke();
   const d = Math.round(256 * 0.34);
-  i.save(), i.translate(s - d / 2, a - d / 2), n.drawIcon(i, d), i.restore(), i.font = '600 24px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif', i.textAlign = "center", i.textBaseline = "top", i.shadowColor = "rgba(0, 0, 0, 0.8)", i.shadowBlur = 8, i.fillStyle = "#FFFFFF", i.fillText(n.name, s, a + u + 14);
+  i.save(), i.translate(s - d / 2, a - d / 2), n.drawIcon(i, d), i.restore(), i.font = '700 24px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif', i.textAlign = "center", i.textBaseline = "top", i.strokeStyle = "rgba(255, 255, 255, 0.95)", i.lineWidth = 4, i.lineJoin = "round", i.strokeText(n.name, s, a + u + 14), i.fillStyle = "#111111", i.fillText(n.name, s, a + u + 14);
   const m = new uO(t);
   return m.generateMipmaps = !0, m.minFilter = nl, m;
 }

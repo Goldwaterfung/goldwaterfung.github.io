@@ -413,14 +413,18 @@ function createSkillTexture(skill: SkillItem): THREE.CanvasTexture {
   ctx.restore();
 
   // 3. Label Text
-  ctx.font = '600 24px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+  ctx.font = '700 24px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
   ctx.textAlign = 'center';
   ctx.textBaseline = 'top';
 
-  // Text shadow for crisp legibility
-  ctx.shadowColor = 'rgba(0, 0, 0, 0.8)';
-  ctx.shadowBlur = 8;
-  ctx.fillStyle = '#FFFFFF';
+  // White outline halo to guarantee contrast regardless of what passes behind
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.95)';
+  ctx.lineWidth = 4;
+  ctx.lineJoin = 'round';
+  ctx.strokeText(skill.name, cx, cy + radius + 14);
+
+  // Solid black label text
+  ctx.fillStyle = '#111111';
   ctx.fillText(skill.name, cx, cy + radius + 14);
 
   const texture = new THREE.CanvasTexture(canvas);
