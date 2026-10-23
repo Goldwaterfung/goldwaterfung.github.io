@@ -33,7 +33,7 @@
 
         <header class="case-hero">
             <span class="case-kicker">Multimodal AI and Edge Inference</span>
-            <h1 class="case-title">Made a 5-second local AI inference delay feel responsive live</h1>
+            <h1 class="case-title">Engineered an offline multimodal AI avatar with real-time conversational feedback</h1>
             <p class="case-subtitle">
                 Integrated an end-to-end multimodal AI pipeline (Speech-to-Text, local LLM with RAG, and Text-to-Speech)
                 into Unity, engineering real-time conversational visual feedback on a single local GPU.
@@ -84,10 +84,11 @@
                     reliability, cloud APIs were excluded. All inference ran locally on a single GPU workstation.
                 </p>
                 <p>
-                    Chaining Speech-to-Text, local LLM with RAG retrieval, and Text-to-Speech generation required 3 to 5
-                    seconds of total compute time per conversational turn. During live trials, users assumed the system
-                    was frozen after finishing their sentences, leading to repeated interruptions and failed
-                    interactions.
+                    Executing the full multi-model chain on a single 24GB workstation GPU (Whisper medium STT, bge-m3
+                    RAG retrieval, local LLM generation, and Fish-Speech neural TTS synthesis) required 3 to 5 seconds
+                    of cumulative compute time per conversational turn before audio streaming began. In live trials, if
+                    the avatar remained motionless during this processing window, users assumed the system was frozen,
+                    causing turn-taking overlap and interrupted dialogues.
                 </p>
             </div>
         </section>
@@ -96,8 +97,7 @@
             <h2 class="case-section-title">Design Exploration and Discarded Iterations</h2>
             <div class="case-body">
                 <p>
-                    Bridging a 3 to 5 second local GPU inference window required evaluating several technical
-                    alternatives:
+                    Bridging this edge GPU inference window required evaluating several technical alternatives:
                 </p>
                 <div class="case-decision-grid">
                     <div class="case-decision-card discarded">
@@ -286,15 +286,15 @@
                     <div class="case-callout-title">Operational Result</div>
                     <p class="case-callout-text">
                         Visitors conducted multi-turn voice conversations smoothly on the existing local GPU setup with
-                        zero cloud dependencies. The perceived delay was resolved through real-time conversational
-                        feedback.
+                        zero cloud dependencies. Real-time conversational state feedback maintained natural turn-taking
+                        throughout interactions.
                     </p>
                 </div>
 
                 <p>
-                    By solving the latency gap through behavioral interaction design rather than expensive hardware
-                    upgrades, the project proved that real-time feedback loops can make complex local AI pipelines feel
-                    responsive and natural.
+                    By pairing pipeline latency profiling with real-time behavioral interaction design, the project
+                    proved that complex local AI pipelines can deliver fluid, responsive user experiences on constrained
+                    workstation hardware.
                 </p>
 
                 <div class="case-callout case-callout-lessons">
@@ -306,8 +306,8 @@
                     </p>
                     <p class="case-callout-text">
                         Providing immediate conversational state indicators such as attentive listening blendshapes and
-                        nodding micro-gestures preserved conversational continuity across a 3 to 5 second local GPU
-                        inference window without expensive cloud infrastructure.
+                        nodding micro-gestures preserved conversational continuity during edge GPU inference turns
+                        without relying on external cloud infrastructure.
                     </p>
                 </div>
             </div>
