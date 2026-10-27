@@ -1037,12 +1037,9 @@ h3 {
 }
 
 .track-record-item {
-    display: grid;
-    grid-template-columns: 210px 1fr;
-    gap: 2.5rem;
+    display: block;
     padding: 2.2rem 0;
     border-bottom: 1px solid var(--border-color);
-    align-items: baseline;
 }
 
 .track-record-meta {
@@ -1555,8 +1552,6 @@ h3 {
     }
 
     .track-record-item {
-        grid-template-columns: 1fr;
-        gap: 0.75rem;
         padding: 1.6rem 0;
     }
 
