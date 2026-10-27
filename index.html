@@ -97,8 +97,10 @@
                                 <div class="phone-mockup">
                                     <div class="phone-speaker" aria-hidden="true"></div>
                                     <div class="phone-screen">
-                                        <video src="assets/hair_app/hair_app_display2.mp4" autoplay muted loop
-                                            playsinline preload="metadata" disablepictureinpicture
+                                        <video id="mrke-showcase-video"
+                                            poster="assets/hair_app/hair_app_poster.jpg"
+                                            data-src="assets/hair_app/hair_app_display2.mp4"
+                                            muted loop playsinline preload="none" disablepictureinpicture
                                             aria-label="Screen recording of the 360-degree 3D hairstyle viewer application">
                                             Sorry, your browser does not support embedded videos.
                                         </video>
@@ -172,7 +174,8 @@
                         <figure class="flagship-media">
                             <a href="cases/live-concert-sync.html" aria-label="Explore live concert sync case study">
                                 <img src="assets/system_integration/erhu-live-concert-in-virtual-campus.jpg"
-                                    alt="Live Erhu concert performance synchronized with interactive virtual avatar motion capture in a virtual campus environment">
+                                    alt="Live Erhu concert performance synchronized with interactive virtual avatar motion capture in a virtual campus environment"
+                                    loading="lazy">
                             </a>
                         </figure>
                     </article>
@@ -182,9 +185,12 @@
                         <figure class="flagship-media">
                             <a href="cases/stratawright.html"
                                 aria-label="Explore Stratawright agentic audio workstation case study">
-                                <img src="assets/daw/daw-usecase.gif"
-                                    alt="Stratawright DAW automating a multitrack session via agent CLI commands"
-                                    loading="lazy">
+                                <video autoplay muted loop playsinline preload="none"
+                                    poster="assets/daw/daw-usecase-poster.jpg"
+                                    aria-label="Stratawright DAW automating a multitrack session via agent CLI commands">
+                                    <source src="assets/daw/daw-usecase.mp4" type="video/mp4">
+                                    Your browser does not support embedded videos.
+                                </video>
                             </a>
                         </figure>
                         <div class="flagship-text">

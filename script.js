@@ -129,6 +129,27 @@ document.addEventListener('DOMContentLoaded', () => {
         immersiveScrollObserver.observe(immersiveSection);
     }
 
+    // MRKE Showcase video: lazy load and play only when approaching viewport
+    const mrkeVideo = document.getElementById('mrke-showcase-video');
+    if (mrkeVideo && 'IntersectionObserver' in window) {
+        const mrkeObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    ensureVideoSource(mrkeVideo);
+                    const playPromise = mrkeVideo.play();
+                    if (playPromise !== undefined) {
+                        playPromise.catch(() => {});
+                    }
+                } else if (mrkeVideo.dataset.loaded === 'true') {
+                    mrkeVideo.pause();
+                }
+            });
+        }, { root: null, rootMargin: '300px 0px', threshold: 0.1 });
+        mrkeObserver.observe(mrkeVideo);
+    } else if (mrkeVideo) {
+        ensureVideoSource(mrkeVideo);
+    }
+
     // ----------------------------------------------------
     // 1. Mobile Menu Toggle
     // ----------------------------------------------------
