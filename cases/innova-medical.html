@@ -7,13 +7,14 @@
     <meta name="referrer" content="no-referrer">
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' data: blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'">
-    <title>Optimizing 3D Avatar Appearance and LLM Dialogue | Kim Fung</title>
+    <title>Clinical AI Simulation and 3D UX Design | Kim Fung</title>
     <meta name="description" content="Systematic audit of 50 virtual patient simulation cases, optimizing 3D avatar graphics, blendshapes, rigging, and LLM dialogue synchronization.">
     <!-- Self-hosted fonts: no third-party requests -->
     <link rel="preload" href="../assets/fonts/vendor/opensans-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="../assets/fonts/fonts.css">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="case.css">
+    <link rel="stylesheet" href="innova-medical.css">
 </head>
 
 <body class="case-page">
@@ -31,10 +32,14 @@
     <main class="case-container">
 
         <header class="case-hero">
-            <span class="case-kicker">LLM Dialogue and 3D Technical Art</span>
-            <h1 class="case-title">Optimizing 3D Avatar Appearance and LLM Dialogue with Clinical Ground Truth</h1>
+            <div class="case-window-frame">
+                <div class="case-window-viewport">
+                    <img src="../assets/innova/Battered-child-syndrome/final.jpg" alt="Clinical simulation platform running in Unity3D, showing the virtual patient examination room and interactive diagnostic tools" width="1280" height="720">
+                </div>
+            </div>
+
             <p class="case-subtitle">
-                Audited 50 clinical cases for an LLM-powered medical training simulator, synchronizing conversational dialogue with 3D avatar textures, blendshapes, and rigging on legacy GPUs.
+                Audited 50 virtual patient simulations for an EdTech medical platform, aligning 3D avatar visual symptoms with clinical database truth on legacy university hardware.
             </p>
 
             <div class="case-meta-grid">
@@ -57,109 +62,69 @@
             </div>
         </header>
 
-        <div class="case-stats-grid">
-            <div class="case-stat-card">
-                <div class="case-stat-num">50 Cases</div>
-                <span class="case-stat-label">Full Clinical Audit</span>
-                <p class="case-stat-desc">Systematic diagnostic walkthrough of all virtual patient cases across clinical reasoning workflows.</p>
-            </div>
-            <div class="case-stat-card">
-                <div class="case-stat-num">6-8 Wks</div>
-                <span class="case-stat-label">Wasted Effort Prevented</span>
-                <p class="case-stat-desc">Canceled planned cosmetic 3D mesh remodel by proving misdiagnoses stemmed from data discrepancies.</p>
-            </div>
-            <div class="case-stat-card">
-                <div class="case-stat-num">100%</div>
-                <span class="case-stat-label">Cross-Modal Alignment</span>
-                <p class="case-stat-desc">Reconciled symptom database ground truth with LLM dialogue prompts and 3D visual manifestations.</p>
-            </div>
-        </div>
-
-        <div class="case-media-hero">
-            <img src="../assets/innova/Battered-child-syndrome/final.jpg" alt="Clinical simulation platform running in Unity3D, showing the virtual patient examination room and interactive diagnostic tools">
-        </div>
-
+        <!-- Problem Discovery -->
         <section class="case-section">
-            <h2 class="case-section-title">Problem Discovery</h2>
+            <h2 class="case-section-title">Problem Discovery: Why Medical Students Misdiagnosed Simulated Patients</h2>
             <div class="case-body">
-                <p>
-                    Innova Medical developed an award-winning gamified EdTech clinical simulation platform, recognized in the HolonIQ Taiwan EdTech 50, National Healthcare Quality Awards, and Brandon Hall Simulation Technology Awards. Used by universities and teaching hospitals to train medical students, the system applies serious game mechanics to turn clinical consultations, differential diagnosis, and physical examinations into task-based interactive missions with real-time feedback and scoring. The simulation curriculum encompassed 50 clinical cases across four core departments: child medicine, elder care, mental health, and general surgery.
+                <p class="case-lead">
+                    Innova Medical built a serious-game clinical simulation platform across 50 patient cases, turning consultations, physical examinations, and differential diagnosis into task-based interactive missions with real-time scoring for medical universities.
                 </p>
                 <p>
-                    During early university deployments, students repeatedly misjudged physical examination modules, reporting severe diagnostic confusion. A hands-on review of the platform revealed significant visual and operational friction:
-                </p>
-                <div class="case-hairline-list">
-                    <div class="case-hairline-item">
-                        <span class="case-hairline-num">1</span>
-                        <span class="case-hairline-text">Clinically Inaccurate Visual Symptoms</span>
-                    </div>
-                    <div class="case-hairline-item">
-                        <span class="case-hairline-num">2</span>
-                        <span class="case-hairline-text">Robotic Animations and Consultation Disconnect</span>
-                    </div>
-                    <div class="case-hairline-item">
-                        <span class="case-hairline-num">3</span>
-                        <span class="case-hairline-text">Strict Hardware Constraints</span>
-                    </div>
-                    <div class="case-hairline-item">
-                        <span class="case-hairline-num">4</span>
-                        <span class="case-hairline-text">Misdiagnosed Engineering Direction</span>
-                    </div>
-                </div>
-                <p>
-                    Because client hardware could not support heavier shaders and cosmetic polish could not correct medically wrong symptoms, I structured a systematic diagnostic audit across all 50 cases to align clinical ground truth with visual simulation within realistic hardware limits.
+                    During university trials, students repeatedly failed physical examinations, reporting severe diagnostic confusion. Engineering assumed the 3D graphics lacked visual realism and planned an extensive 6 to 8 week cosmetic overhaul. However, firsthand audits revealed that student misdiagnoses were driven by data discrepancies rather than polygon counts. Avatars displayed default unblemished skins, generic clothing, and flat spines that contradicted clinical database records. Students who followed proper clinical diagnostic methods were misled by missing visual affordances, failing their missions despite correct medical reasoning.
                 </p>
             </div>
         </section>
 
+        <!-- Interaction Design -->
         <section class="case-section">
-            <h2 class="case-section-title">Interactive Diagnostic Loop and Serious Game Mechanics</h2>
+            <h2 class="case-section-title">Interaction Design: Where the Clinical Reasoning Flow Collapsed</h2>
             <div class="case-body">
-                <p>
-                    Each simulation case operates as a structured, task-based diagnostic mission where medical students progress through a four-stage interactive loop:
+                <p class="case-lead">
+                    Each simulation operates as a structured diagnostic mission. I mapped the five-step clinical reasoning loop to pinpoint exactly where student interactions broke down:
                 </p>
 
-                <div class="case-flow-grid">
-                    <div class="case-flow-card">
-                        <span class="case-flow-num">1</span>
-                        <span class="case-flow-kicker">Verbal Inquiry</span>
-                        <h3 class="case-flow-title">Patient History and LLM Dialogue</h3>
-                        <p class="case-flow-desc">Students enter the virtual examination room and converse with the AI-driven 3D patient to gather chief complaints, symptom timelines, and lifestyle context.</p>
+                <div class="case-framework-list">
+                    <div class="case-framework-row">
+                        <div class="case-framework-pill">History Taking</div>
+                        <div class="case-framework-content">Students question the AI avatar to explore symptom timelines and build initial diagnostic hypotheses.</div>
                     </div>
 
-                    <div class="case-flow-card">
-                        <span class="case-flow-num">2</span>
-                        <span class="case-flow-kicker">Clinical Tool Action</span>
-                        <h3 class="case-flow-title">Interactive Examination Tools</h3>
-                        <p class="case-flow-desc">Students transition from dialogue to hands-on clinical tools, such as activating a virtual penlight to inspect localized soft-tissue trauma or changing patient attire to examine truncal skin signs.</p>
+                    <div class="case-framework-row">
+                        <div class="case-framework-pill">Tool Activation</div>
+                        <div class="case-framework-content">Students equip hands-on clinical tools like virtual penlights or toggle patient attire to expose diagnostic anatomy.</div>
                     </div>
 
-                    <div class="case-flow-card">
-                        <span class="case-flow-num">3</span>
-                        <span class="case-flow-kicker">Spatial Viewport</span>
-                        <h3 class="case-flow-title">360-Degree Visual Inspection</h3>
-                        <p class="case-flow-desc">Students rotate and tilt the 3D viewport camera across anterior, lateral, and posterior angles to observe facial morphology, spinal alignment, and dermatological cues that verify or challenge the patient narrative.</p>
+                    <div class="case-framework-row">
+                        <div class="case-framework-pill">Spatial Orbit</div>
+                        <div class="case-framework-content">Students rotate the 3D camera across anterior and lateral angles to inspect physical cues that test the narrative.</div>
                     </div>
 
-                    <div class="case-flow-card">
-                        <span class="case-flow-num">4</span>
-                        <span class="case-flow-kicker">Mission Evaluation</span>
-                        <h3 class="case-flow-title">Differential Diagnosis and Scoring</h3>
-                        <p class="case-flow-desc">Students cross-check verbal testimony against visual examination evidence to order clinical workups and submit a differential diagnosis, receiving immediate mission scoring and diagnostic feedback.</p>
+                    <div class="case-framework-row">
+                        <div class="case-framework-pill">The UX Breakdown</div>
+                        <div class="case-framework-content">Avatars rendered flat skins and straight spines, hiding the required clinical evidence documented in the database.</div>
+                    </div>
+
+                    <div class="case-framework-row">
+                        <div class="case-framework-pill">Student Failure</div>
+                        <div class="case-framework-content">Students followed proper clinical logic but received failing grades because visual signs were absent.</div>
                     </div>
                 </div>
 
-                <p>
-                    When the 3D visual symptoms failed to match the clinical database, stages 2 and 3 of this interactive loop broke down, penalizing students who followed the correct clinical reasoning path.
-                </p>
+                <div class="case-callout">
+                    <div class="case-callout-title">The Interaction Breakdown</div>
+                    <p class="case-callout-text">
+                        When visual symptoms failed to render, steps 2 and 3 yielded zero visual evidence. This forced students to rely entirely on misleading verbal stories, directly penalizing those who attempted proper physical examination.
+                    </p>
+                </div>
             </div>
         </section>
 
+        <!-- Product Strategy -->
         <section class="case-section">
-            <h2 class="case-section-title">Evaluation</h2>
+            <h2 class="case-section-title">Product Strategy: Why a 6 to 8 Week Cosmetic Overhaul Was Averted</h2>
             <div class="case-body">
-                <p>
-                    I evaluated each simulation case by shadowing the medical student clinical reasoning workflow: patient history taking, verbal dialogue, visual physical examination, and differential diagnosis. To align engineering priorities with clinical reality, I organized our scope across a two-dimensional vector plane balancing importance against time effort:
+                <p class="case-lead">
+                    I evaluated each simulation case by shadowing student workflows: history taking, verbal dialogue, visual examination, and diagnosis. To align engineering priorities with clinical reality, I organized scope across a 2D matrix balancing importance against time effort:
                 </p>
 
                 <div class="case-vector-plane">
@@ -195,182 +160,213 @@
 
                         <div class="vector-quadrant quad-bottom-right">
                             <ul class="vector-item-list">
-                                <li>Upgrade models aesthetic</li>
+                                <li>Upgrade models aesthetic (6 to 8 week cosmetic overhaul canceled)</li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
                 <p>
-                    To resolve the simulation disconnect, I structured a hands-on problem-solving workflow directly on the whiteboard across all 50 cases:
+                    Demonstrating that student misdiagnoses stemmed from data discrepancies rather than polygon counts averted a 6 to 8 week cosmetic remodel, refocusing sprints on clinical ground truth and dialogue synchronization.
+                </p>
+            </div>
+        </section>
+
+        <!-- Diagnostic Audit -->
+        <section class="case-section">
+            <h2 class="case-section-title">Diagnostic Audit: How a 6-Step Whiteboard Workflow Traced 50 Cases</h2>
+            <div class="case-body">
+                <p class="case-lead">
+                    To bridge clinical medicine and software engineering across all 50 cases, I led a hands-on diagnostic audit on the studio whiteboard:
                 </p>
 
                 <div class="case-flow-grid case-flow-grid-6">
                     <div class="case-flow-card">
                         <span class="case-flow-num">1</span>
                         <h3 class="case-flow-title">User Research</h3>
-                        <p class="case-flow-desc">Interviewed medical students and clinical instructors to uncover what caused confusion during consultation and physical examination.</p>
+                        <p class="case-flow-desc">Interviewed students and professors to catalog exam confusion.</p>
                     </div>
 
                     <div class="case-flow-card">
                         <span class="case-flow-num">2</span>
                         <h3 class="case-flow-title">Case Playthroughs</h3>
-                        <p class="case-flow-desc">Systematically played through every clinical case simulation firsthand to document exact student friction points.</p>
+                        <p class="case-flow-desc">Completed every simulation firsthand to map friction points.</p>
                     </div>
 
                     <div class="case-flow-card">
                         <span class="case-flow-num">3</span>
-                        <h3 class="case-flow-title">Symptom Storyboarding</h3>
-                        <p class="case-flow-desc">Researched disease symptom profiles and storyboarded the consultation flow on the whiteboard, mapping each clinical finding to the visual sign students should be able to examine.</p>
+                        <h3 class="case-flow-title">Storyboarding</h3>
+                        <p class="case-flow-desc">Mapped required visual signs on whiteboard consultation storyboards.</p>
                     </div>
 
                     <div class="case-flow-card">
                         <span class="case-flow-num">4</span>
-                        <h3 class="case-flow-title">As-Is vs To-Be Audit</h3>
-                        <p class="case-flow-desc">Built a case-by-case whiteboard comparison of the as-is simulator and the to-be clinical experience, making each gap between current symptoms and required clinical signs visible.</p>
+                        <h3 class="case-flow-title">Gap Analysis</h3>
+                        <p class="case-flow-desc">Contrasted current visual flaws against clinical criteria.</p>
                     </div>
 
                     <div class="case-flow-card">
                         <span class="case-flow-num">5</span>
-                        <h3 class="case-flow-title">3D Tool Execution</h3>
-                        <p class="case-flow-desc">Executed targeted fixes in Blender, Maya, and Unity3D to texture skin lesions, sculpt blendshapes, and re-rig spinal joints.</p>
+                        <h3 class="case-flow-title">Targeted 3D Fixes</h3>
+                        <p class="case-flow-desc">Remediated textures, facial blendshapes, and rigs in Blender and Unity.</p>
                     </div>
 
                     <div class="case-flow-card">
                         <span class="case-flow-num">6</span>
-                        <h3 class="case-flow-title">Collaborative Iteration</h3>
-                        <p class="case-flow-desc">Refined assets through continuous review cycles with the engineer, medical domain expert, and project leadership.</p>
+                        <h3 class="case-flow-title">Collaborative Reviews</h3>
+                        <p class="case-flow-desc">Refined assets through weekly cycles with the doctor and engineer.</p>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Spatial Affordance Design -->
         <section class="case-section">
-            <h2 class="case-section-title">Clinical Cases</h2>
+            <h2 class="case-section-title">Spatial Affordance Design: Restoring Diagnostic Cues Across 3 Clinical Departments</h2>
             <div class="case-body">
-                <p>
-                    Walking through all 50 virtual patient cases proved that student misdiagnoses were never caused by polygon counts or shader complexity. Instead, simulation defects clustered across three distinct 3D technical layers, each aligning with a specific medical discipline: surface texture albedo in pediatric trauma, mesh blendshapes and proportions in endocrine disorders, and skeletal armature rigging in geriatric degenerative care.
+                <p class="case-lead">
+                    Walking through all 50 cases proved that simulation defects clustered across three distinct technical layers, each aligning with a specific medical discipline:
                 </p>
+            </div>
 
-                <div class="case-patient-card">
-                    <div class="case-patient-header">
-                        <h3 class="case-patient-title">Battered Child Syndrome: Forensic Bruise Chronology and Soft-Tissue Contusions</h3>
-                    </div>
-                    <p class="case-patient-summary">
-                        In pediatric forensic medicine, diagnosing non-accidental trauma relies on recognizing soft-tissue contusions and multi-stage healing chronology, where fresh purple-blue marks appear alongside older fading green-yellow lesions. The database documented these signs, but the avatar rendered a flat, unblemished skin shader. Students misdiagnosed injuries as minor accidental falls because the platform provided zero visual evidence to reason with.
-                    </p>
-                    <div class="case-patient-details">
-                        <div class="case-patient-detail-item">
-                            <span class="case-patient-detail-label">Database Ground Truth</span>
-                            <p class="case-patient-detail-text">Clinical schema specified two facial contusions, right thoracic cage contusion measuring 3x4x3 cm, occipital hematoma, and multi-stage bruise healing chronology.</p>
+            <div class="affordance-master-detail">
+                <!-- Radio controls for CSS-driven tab switching -->
+                <input type="radio" name="affordance-tab" id="affordance-tab-1" class="affordance-radio" checked>
+                <input type="radio" name="affordance-tab" id="affordance-tab-2" class="affordance-radio">
+                <input type="radio" name="affordance-tab" id="affordance-tab-3" class="affordance-radio">
+
+                <!-- Staggered Card Stack Column (Left) -->
+                <div class="affordance-stack-column" role="tablist" aria-label="Clinical Cases">
+                    <label for="affordance-tab-1" class="affordance-card affordance-card-1" role="tab" id="tab-pediatric" aria-selected="true" aria-controls="affordance-panel-1" tabindex="0">
+                        <img src="../assets/innova/Battered-child-syndrome/final-zoom-close.jpg" alt="Pediatric Trauma" class="affordance-card-img" loading="lazy">
+                        <div class="affordance-card-overlay">
+                            <span class="affordance-card-name">Pediatric Trauma</span>
                         </div>
-                        <div class="case-patient-detail-item">
-                            <span class="case-patient-detail-label">Simulation Remediation</span>
-                            <p class="case-patient-detail-text">Canceled planned 3D mesh remodeling and textured multi-stage bruise albedo maps directly onto cheek soft tissue and lateral ribs, synchronized with penlight tool inspection.</p>
+                    </label>
+
+                    <label for="affordance-tab-2" class="affordance-card affordance-card-2" role="tab" id="tab-cushing" aria-selected="false" aria-controls="affordance-panel-2" tabindex="0">
+                        <img src="../assets/innova/cushings-diseases/final.jpg" alt="Cushing's Disease" class="affordance-card-img" loading="lazy">
+                        <div class="affordance-card-overlay">
+                            <span class="affordance-card-name">Cushing's Disease</span>
                         </div>
-                    </div>
-                    <div class="case-gallery-3col">
-                        <figure class="case-figure">
-                            <img src="../assets/innova/Battered-child-syndrome/case-symptom-table.jpg" alt="Clinical database symptom table detailing physical examination findings for Battered Child Syndrome">
-                            <figcaption>Database schema: Clinical records specifying soft-tissue trauma, thoracic bruising, and hematoma.</figcaption>
-                        </figure>
-                        <figure class="case-figure">
-                            <img src="../assets/innova/Battered-child-syndrome/final-zoom-close.jpg" alt="Close-up detail of virtual pediatric patient cheek showing multi-stage purple and green contusions">
-                            <figcaption>Remediated cheek texture: Fresh purple lesion alongside older healing green lesion to prove chronological abuse.</figcaption>
-                        </figure>
-                        <figure class="case-figure">
-                            <img src="../assets/innova/Battered-child-syndrome/final-2.jpg" alt="Virtual patient right thoracic ribcage showing 3x4x3 cm bluish contusion">
-                            <figcaption>Remediated thoracic texture: 3x4x3 cm blue contusion on lateral ribs matching clinical records.</figcaption>
-                        </figure>
-                    </div>
+                    </label>
+
+                    <label for="affordance-tab-3" class="affordance-card affordance-card-3" role="tab" id="tab-osteoporosis" aria-selected="false" aria-controls="affordance-panel-3" tabindex="0">
+                        <img src="../assets/innova/Osteoporosis/final.jpg" alt="Severe Osteoporosis" class="affordance-card-img" loading="lazy">
+                        <div class="affordance-card-overlay">
+                            <span class="affordance-card-name">Severe Osteoporosis</span>
+                        </div>
+                    </label>
                 </div>
 
-                <div class="case-patient-card">
-                    <div class="case-patient-header">
-                        <h3 class="case-patient-title">Cushing's Disease: Moon Face, Violaceous Striae, and Central Adiposity</h3>
-                    </div>
-                    <p class="case-patient-summary">
-                        In Cushing's Disease simulation, the avatar loaded as a generic stocky male wearing street jeans. Students repeatedly misidentified the patient as simple exogenous obesity because the avatar lacked endocrine fat redistribution, rounded moon face contours, and abdominal purple striae.
-                    </p>
-                    <p class="case-patient-summary">
-                        Cushing's disease is a specific cause of Cushing syndrome: a pituitary tumor that produces excess ACTH stimulates the adrenal glands to make too much cortisol over time. The resulting cortisol excess can cause central weight gain, a rounded or plethoric face, broad purple abdominal striae, and easy bruising, sometimes with relatively slender limbs. These findings can raise suspicion, but appearance alone cannot confirm the diagnosis; clinical assessment and endocrine testing are needed.
-                    </p>
-                    <div class="case-patient-details">
-                        <div class="case-patient-detail-item">
-                            <span class="case-patient-detail-label">Database Ground Truth</span>
-                            <p class="case-patient-detail-text">Hypercortisolemia profile requiring rounded moon face with facial plethora, central truncal adiposity with slender limbs, and wide violaceous abdominal striae.</p>
+                <!-- Case Detail Column (Right) -->
+                <div class="affordance-detail-column">
+                    <!-- Panel 1: Pediatric Trauma -->
+                    <div class="affordance-panel affordance-panel-1" id="affordance-panel-1" role="tabpanel" aria-labelledby="tab-pediatric">
+                        <h3 class="affordance-panel-title">Pediatric Trauma: Surface Albedo</h3>
+                        <p class="affordance-panel-desc">
+                            Diagnosing non-accidental trauma relies on recognizing multi-stage bruise healing, where fresh purple contusions appear alongside resolving green-yellow marks. The avatar rendered a clean skin shader, leading students to misdiagnose injuries as minor accidental falls.
+                        </p>
+                        <div class="affordance-panel-facts">
+                            <p><strong>Database truth:</strong> Two facial contusions, 3x4x3 cm thoracic cage contusion, occipital hematoma, and multi-stage bruise healing chronology.</p>
+                            <p><strong>Simulation remediation:</strong> Textured multi-stage bruise albedo maps directly onto cheek soft tissue and lateral ribs, synchronized with virtual penlight inspection.</p>
                         </div>
-                        <div class="case-patient-detail-item">
-                            <span class="case-patient-detail-label">Simulation Remediation</span>
-                            <p class="case-patient-detail-text">Reshaped facial blendshapes for moon face fullness, adjusted limb-to-torso proportions, textured wide purple striae across the abdomen, and provided examination shorts for full visual inspection.</p>
-                        </div>
-                    </div>
-                    <div class="case-gallery-3col">
-                        <figure class="case-figure">
-                            <img src="../assets/innova/cushings-diseases/original.jpg" alt="Uncorrected generic stocky male avatar wearing jeans in clinical simulation">
-                            <figcaption>Before: Generic stocky avatar in jeans that does not show the characteristic fat distribution or facial fullness.</figcaption>
-                        </figure>
-                        <figure class="case-figure">
-                            <img src="../assets/innova/cushings-diseases/features.jpg" alt="Clinical photography showing prominent violaceous purple striae across abdomen and flanks">
-                            <figcaption>Clinical reference: Purple striae over 1 cm wide and thin skin marked by the medical domain expert.</figcaption>
-                        </figure>
-                        <figure class="case-figure">
-                            <img src="../assets/innova/cushings-diseases/final.jpg" alt="Remediated Cushing's disease avatar showing moon face, central adiposity, and purple striae in examination attire">
-                            <figcaption>After: Re-proportioned avatar displaying rounded moon face, abdominal striae, and slender limbs in examination shorts.</figcaption>
-                        </figure>
-                    </div>
-                </div>
 
-                <div class="case-patient-card">
-                    <div class="case-patient-header">
-                        <h3 class="case-patient-title">Severe Osteoporosis: Thoracic Kyphosis and Dowager's Hump</h3>
-                    </div>
-                    <p class="case-patient-summary">
-                        In the osteoporosis simulation, the avatar featured an anatomically straight thoracic spine with simple neck flexion. Students rotated the camera to lateral view but observed zero signs of collapsed thoracic vertebrae, incorrectly diagnosing chronic back pain as cervical strain.
-                    </p>
-                    <div class="case-patient-details">
-                        <div class="case-patient-detail-item">
-                            <span class="case-patient-detail-label">Database Ground Truth</span>
-                            <p class="case-patient-detail-text">Severe bone mineral loss with multiple anterior wedge compression fractures producing pronounced thoracic kyphosis and height loss.</p>
+                        <div class="affordance-gallery">
+                            <figure class="affordance-gallery-hero">
+                                <span class="affordance-image-label">After</span>
+                                <img src="../assets/innova/Battered-child-syndrome/final-zoom-close.jpg" alt="Close-up detail of virtual pediatric patient cheek showing multi-stage purple and green contusions" loading="lazy">
+                            </figure>
+
+                            <div class="affordance-gallery-subgrid">
+                                <figure class="affordance-gallery-item">
+                                    <span class="affordance-image-label">Clinical Reference</span>
+                                    <img src="../assets/innova/Battered-child-syndrome/case-symptom-table.jpg" alt="Clinical database symptom table detailing physical examination findings for Battered Child Syndrome" loading="lazy">
+                                </figure>
+                                <figure class="affordance-gallery-item">
+                                    <span class="affordance-image-label">After</span>
+                                    <img src="../assets/innova/Battered-child-syndrome/final-2.jpg" alt="Virtual patient right thoracic ribcage showing 3x4x3 cm bluish contusion" loading="lazy">
+                                </figure>
+                            </div>
                         </div>
-                        <div class="case-patient-detail-item">
-                            <span class="case-patient-detail-label">Simulation Remediation</span>
-                            <p class="case-patient-detail-text">Cross-referenced spinal lateral X-rays and surgical diagrams to re-rig the avatar spine, introducing an authentic convex Dowager's hump along the upper thoracic vertebrae.</p>
+                    </div>
+
+                    <!-- Panel 2: Cushing's Disease -->
+                    <div class="affordance-panel affordance-panel-2" id="affordance-panel-2" role="tabpanel" aria-labelledby="tab-cushing">
+                        <h3 class="affordance-panel-title">Cushing's Disease: Mesh Morphology</h3>
+                        <p class="affordance-panel-desc">
+                            The avatar loaded as a generic stocky male in street jeans. Students repeatedly misidentified the condition as simple obesity because the 3D model lacked rounded moon face fullness and abdominal purple striae.
+                        </p>
+                        <div class="affordance-panel-facts">
+                            <p><strong>Database truth:</strong> Hypercortisolemia profile requiring rounded moon face with plethora, central truncal adiposity, and wide violaceous abdominal striae.</p>
+                            <p><strong>Simulation remediation:</strong> Reshaped facial blendshapes for moon face fullness, adjusted limb-to-torso proportions, and textured wide purple striae visible in examination shorts.</p>
+                        </div>
+
+                        <div class="affordance-gallery">
+                            <figure class="affordance-gallery-hero">
+                                <span class="affordance-image-label">After</span>
+                                <img src="../assets/innova/cushings-diseases/final.jpg" alt="Remediated Cushing's disease avatar showing moon face, central adiposity, and purple striae in examination attire" loading="lazy">
+                            </figure>
+
+                            <div class="affordance-gallery-subgrid">
+                                <figure class="affordance-gallery-item">
+                                    <span class="affordance-image-label">Before</span>
+                                    <img src="../assets/innova/cushings-diseases/original.jpg" alt="Uncorrected generic stocky male avatar wearing jeans in clinical simulation" loading="lazy">
+                                </figure>
+                                <figure class="affordance-gallery-item">
+                                    <span class="affordance-image-label">Clinical Reference</span>
+                                    <img src="../assets/innova/cushings-diseases/features.jpg" alt="Clinical photography showing prominent violaceous purple striae across abdomen and flanks" loading="lazy">
+                                </figure>
+                            </div>
                         </div>
                     </div>
-                    <div class="case-gallery-3col">
-                        <figure class="case-figure">
-                            <img src="../assets/innova/Osteoporosis/before.jpg" alt="Uncorrected avatar model with flat thoracic spine and isolated neck tilt">
-                            <figcaption>Before: Flat thoracic spine resembling muscular slouch rather than pathological bone collapse.</figcaption>
-                        </figure>
-                        <figure class="case-figure">
-                            <img src="../assets/innova/Osteoporosis/to-be.jpg" alt="Diagnostic redline markup indicating missing thoracic spinal curvature">
-                            <figcaption>Diagnostic redline: Highlighting the missing convex curve required to represent collapsed thoracic vertebrae.</figcaption>
-                        </figure>
-                        <figure class="case-figure">
-                            <img src="../assets/innova/Osteoporosis/final.jpg" alt="Remediated osteoporosis avatar displaying authentic thoracic kyphosis Dowager's hump from lateral view">
-                            <figcaption>After: Re-rigged spine presenting an authentic Dowager's hump, allowing valid lateral physical examination.</figcaption>
-                        </figure>
+
+                    <!-- Panel 3: Severe Osteoporosis -->
+                    <div class="affordance-panel affordance-panel-3" id="affordance-panel-3" role="tabpanel" aria-labelledby="tab-osteoporosis">
+                        <h3 class="affordance-panel-title">Severe Osteoporosis: Skeletal Armature</h3>
+                        <p class="affordance-panel-desc">
+                            The avatar featured an anatomically straight thoracic spine with simple neck slouch. Camera orbit showed zero signs of collapsed vertebrae, causing students to misdiagnose chronic pain as cervical muscle strain.
+                        </p>
+                        <div class="affordance-panel-facts">
+                            <p><strong>Database truth:</strong> Severe bone mineral loss with multiple anterior wedge compression fractures producing pronounced thoracic kyphosis and height loss.</p>
+                            <p><strong>Simulation remediation:</strong> Cross-referenced spinal lateral X-rays to re-rig the spine armature, introducing an authentic convex Dowager's hump along upper thoracic vertebrae.</p>
+                        </div>
+
+                        <div class="affordance-gallery">
+                            <figure class="affordance-gallery-hero">
+                                <span class="affordance-image-label">After</span>
+                                <img src="../assets/innova/Osteoporosis/final.jpg" alt="Remediated osteoporosis avatar displaying authentic thoracic kyphosis Dowager's hump from lateral view" loading="lazy">
+                            </figure>
+
+                            <div class="affordance-gallery-subgrid">
+                                <figure class="affordance-gallery-item">
+                                    <span class="affordance-image-label">Before</span>
+                                    <img src="../assets/innova/Osteoporosis/before.jpg" alt="Uncorrected avatar model with flat thoracic spine and isolated neck tilt" loading="lazy">
+                                </figure>
+                                <figure class="affordance-gallery-item">
+                                    <span class="affordance-image-label">Clinical Reference</span>
+                                    <img src="../assets/innova/Osteoporosis/to-be.jpg" alt="Diagnostic redline markup indicating missing thoracic spinal curvature" loading="lazy">
+                                </figure>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Cross-Functional Alignment -->
         <section class="case-section">
-            <h2 class="case-section-title">Defect Matrix</h2>
+            <h2 class="case-section-title">Cross-Functional Alignment: Connecting Doctor Schemas, LLM Dialogue, and 3D Assets</h2>
             <div class="case-body">
-                <p>
-                    I systematically walked through all 50 virtual patient cases directly against clinical database symptom records. I cataloged every defect where visual examination signs were missing or misaligned on the 3D mesh despite being described in clinical documentation.
-                </p>
-                <p>
-                    To bridge communication between clinical medicine and software engineering, I structured these findings into a unified Cross-Validation Defect Matrix for the engineer and medical domain expert:
+                <p class="case-lead">
+                    To create a shared language between medical doctors evaluating diagnostic criteria and software engineers managing shaders, I structured a unified Cross-Validation Defect Matrix across all 50 cases:
                 </p>
 
                 <div class="case-table-wrap">
                     <table class="case-table">
                         <thead>
                             <tr>
-                                <th>Case ID & Department</th>
+                                <th>Case ID and Department</th>
                                 <th>Database Schema Truth</th>
                                 <th>LLM Dialogue Output</th>
                                 <th>Rendered 3D Visual</th>
@@ -380,41 +376,79 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="col-id">Case 012<br><span style="font-size: 0.76rem; color: var(--text-muted); font-weight: normal;">Child Medicine</span></td>
+                                <td class="col-id">Case 012<span class="case-table-dept">Child Medicine</span></td>
                                 <td>Battered Child Syndrome: 2 facial bruises, 3x4x3 cm thoracic contusion, occipital hematoma</td>
                                 <td>Parent narrative attributes visible injuries to single minor household fall</td>
                                 <td>Default uniform skin shader with zero contusions or color staging</td>
-                                <td><span class="status-defect">Surface Texture & Albedo</span></td>
+                                <td><span class="status-defect">Surface Texture and Albedo</span></td>
                                 <td>Students failed to suspect non-accidental trauma, misdiagnosing as minor accidental fall</td>
                             </tr>
                             <tr>
-                                <td class="col-id">Case 027<br><span style="font-size: 0.76rem; color: var(--text-muted); font-weight: normal;">General Medicine</span></td>
+                                <td class="col-id">Case 027<span class="case-table-dept">General Medicine</span></td>
                                 <td>Cushing's Disease: Moon face with facial plethora, central adiposity, wide purple abdominal striae</td>
                                 <td>Patient reports progressive weight gain and easy bruising despite normal diet</td>
                                 <td>Generic stocky male avatar wearing jeans with flat facial contours</td>
-                                <td><span class="status-defect">Mesh Morphology & Blendshapes</span></td>
+                                <td><span class="status-defect">Mesh Morphology and Blendshapes</span></td>
                                 <td>Students misdiagnosed as simple exogenous obesity, omitting endocrine workup</td>
                             </tr>
                             <tr>
-                                <td class="col-id">Case 038<br><span style="font-size: 0.76rem; color: var(--text-muted); font-weight: normal;">Elder Care</span></td>
+                                <td class="col-id">Case 038<span class="case-table-dept">Elder Care</span></td>
                                 <td>Severe Osteoporosis: Thoracic kyphosis and Dowager's hump from vertebral compression fractures</td>
                                 <td>Patient describes chronic upper back dull ache and gradual loss of standing height</td>
                                 <td>Flat thoracic spine with isolated forward neck flexion</td>
-                                <td><span class="status-defect">Skeletal Armature & Rigging</span></td>
+                                <td><span class="status-defect">Skeletal Armature and Rigging</span></td>
                                 <td>Students misdiagnosed as cervical muscle strain, omitting DEXA scan and spine imaging</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
 
-                <p>
-                    This matrix gave both partners an unambiguous common ground: the medical domain expert verified clinical accuracy against textbook diagnostic criteria, while the engineer received explicit asset IDs, schema fields, and animation sync offsets to remediate in code.
+                <p class="case-table-summary">
+                    This matrix gave both partners unambiguous common ground: doctors verified diagnostic criteria, while engineers received explicit asset IDs and sync offsets to remediate in code.
                 </p>
             </div>
         </section>
 
+        <!-- Performance Engineering -->
         <section class="case-section">
-            <h2 class="case-section-title">Outcomes</h2>
+            <h2 class="case-section-title">Performance Engineering: Preserving 60 FPS on Legacy University Hardware</h2>
+            <div class="case-body">
+                <p class="case-lead">
+                    University computer labs operated on legacy workstations equipped with NVIDIA GTX 1060 GPUs and required WebGL browser deployment. Rather than adding compute-heavy shaders, I implemented a disciplined technical art pipeline:
+                </p>
+
+                <div class="case-hairline-list">
+                    <div class="case-hairline-item">
+                        <span class="case-hairline-num">1</span>
+                        <div class="case-hairline-text">
+                            <strong>Pre-Baked Ray-Traced Lighting:</strong> Baked lighting directly into skin textures and environment meshes, eliminating runtime multi-sampler shader overhead.
+                        </div>
+                    </div>
+                    <div class="case-hairline-item">
+                        <span class="case-hairline-num">2</span>
+                        <div class="case-hairline-text">
+                            <strong>Texture Atlasing and DXT Compression:</strong> Consolidated textures into shared atlases, drastically lowering WebGL GPU memory bandwidth.
+                        </div>
+                    </div>
+                    <div class="case-hairline-item">
+                        <span class="case-hairline-num">3</span>
+                        <div class="case-hairline-text">
+                            <strong>Unified Human Asset Topology:</strong> Standardized base mesh topologies and skeletal armatures across all 50 cases for consistent performance.
+                        </div>
+                    </div>
+                    <div class="case-hairline-item">
+                        <span class="case-hairline-num">4</span>
+                        <div class="case-hairline-text">
+                            <strong>Hardware Target:</strong> Maintained smooth, locked 60 FPS on legacy GTX 1060 GPUs with zero thermal throttling in student computer labs.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Measurable Impact -->
+        <section class="case-section">
+            <h2 class="case-section-title">Measurable Impact: What Changed Across 50 Virtual Patient Simulations</h2>
             <div class="case-body">
                 <div class="case-callout">
                     <div class="case-callout-title">Strategic Roadmap Shift</div>
@@ -433,7 +467,7 @@
                 <div class="case-callout case-callout-lessons">
                     <div class="case-callout-title">Lessons Learned and Retrospective</div>
                     <p class="case-callout-text">
-                        Surface visual complaints often mask deeper system architecture problems. The team was ready to spend weeks re-sculpting 3D meshes, but the true root cause was broken schema synchronization across verbal and visual modalities. Product design must begin by interrogating the truth of the system data before reworking the visual surface.
+                        Surface visual complaints often mask deeper system data disconnects. The team was ready to spend weeks re-sculpting 3D meshes, but the true root cause was broken schema synchronization across verbal and visual modalities. Product design must begin by interrogating the truth of the system data before reworking the visual surface.
                     </p>
                 </div>
             </div>
@@ -454,6 +488,7 @@
 
     </main>
 
+    <script src="innova-medical.js" defer></script>
 </body>
 
 </html>

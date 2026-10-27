@@ -1,0 +1,199 @@
+/* ==========================================================================
+   MRKE 360 Hairstyle Viewer Application Case Study Stylesheet
+   Dedicated tablet frame, interactive workflow, and touch ergonomics
+   ========================================================================== */
+
+/* Hero section: 2-column split with intro on left and tablet frame on right */
+.case-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3.5rem;
+    padding-top: 3.5rem;
+    padding-bottom: 3rem;
+    margin-bottom: 2rem;
+}
+
+.case-hero-intro {
+    flex: 1;
+    min-width: 0;
+}
+
+.case-hero .case-subtitle {
+    font-size: 1.2rem;
+    line-height: 1.65;
+    color: var(--text-primary);
+    max-width: 52ch;
+    margin-bottom: 2.25rem;
+}
+
+.case-hero .case-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+    margin-bottom: 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Tablet Device Frame for In-Store Android Tablet */
+.case-tablet-frame {
+    flex: 0 0 330px;
+    max-width: 330px;
+    margin: 0;
+    background: #1c1c1e;
+    border-radius: 28px;
+    padding: 12px;
+    box-shadow: 0 28px 64px -14px rgba(0, 0, 0, 0.32), 0 6px 16px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.case-tablet-screen {
+    border-radius: 16px;
+    overflow: hidden;
+    background: #000;
+    position: relative;
+}
+
+.case-tablet-screen video,
+.case-tablet-screen img {
+    width: 100%;
+    height: auto;
+    display: block;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+}
+
+@media (max-width: 860px) {
+    .case-hero {
+        flex-direction: column;
+        align-items: center;
+        gap: 2.5rem;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    .case-hero .case-subtitle {
+        max-width: 100%;
+        text-align: left;
+    }
+
+    .case-tablet-frame {
+        flex: 0 0 auto;
+        max-width: 290px;
+        padding: 10px;
+        border-radius: 22px;
+        margin: 0 auto;
+    }
+
+    .case-tablet-screen {
+        border-radius: 12px;
+    }
+}
+
+@media (max-width: 540px) {
+    .case-hero .case-meta-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+/* ==========================================================================
+   Editorial Consultation Walkthrough (Two-Stage Device and Interaction Flow)
+   Replaces fragmented grid and research paper figure layout
+   ========================================================================== */
+
+.case-walkthrough {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+    margin: 2.5rem 0;
+}
+
+.case-walkthrough-step {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+@media (min-width: 821px) {
+    .case-walkthrough-step:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+}
+
+.case-walkthrough-device {
+    flex: 0 0 310px;
+    max-width: 310px;
+    background: #1c1c1e;
+    border-radius: 24px;
+    padding: 10px;
+    box-shadow: 0 20px 44px -12px rgba(0, 0, 0, 0.22), 0 4px 12px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.case-walkthrough-device img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 16px;
+    padding: 0;
+    margin: 0;
+    background: #000;
+}
+
+.case-walkthrough-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.case-walkthrough-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+    letter-spacing: -0.01em;
+}
+
+.case-walkthrough-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.case-walkthrough-heading {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.case-walkthrough-item p {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+@media (max-width: 820px) {
+    .case-walkthrough {
+        gap: 2.5rem;
+    }
+
+    .case-walkthrough-step {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.75rem;
+    }
+
+    .case-walkthrough-device {
+        flex: 0 0 auto;
+        max-width: 280px;
+        margin: 0 auto;
+    }
+}
+

@@ -1,0 +1,791 @@
+/* ==========================================================================
+   Innova Medical: Clinical Simulation and 3D UX Case Study Stylesheet
+   Dedicated editorial components, data visualization, and progression layouts
+   ========================================================================== */
+
+/* Hero section adjustments: lead with visual window frame */
+.case-hero {
+    padding-top: 2rem;
+}
+
+.case-hero .case-window-frame {
+    margin-top: 0;
+    margin-bottom: 2rem;
+}
+
+/* --------------------------------------------------------------------------
+   1. Clinical Reasoning Interaction Framework (Section 2)
+   Horizontal Paired Pill and Content Layout
+   -------------------------------------------------------------------------- */
+
+.case-framework-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin: 2rem 0;
+    width: 100%;
+}
+
+.case-framework-row {
+    display: flex;
+    gap: 0.85rem;
+    align-items: stretch;
+}
+
+@media (max-width: 680px) {
+    .case-framework-row {
+        flex-direction: column;
+        gap: 0.4rem;
+    }
+}
+
+.case-framework-pill {
+    width: 230px;
+    flex-shrink: 0;
+    background: #e2e0db;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 1.1rem 1.5rem;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 680px) {
+    .case-framework-pill {
+        width: 100%;
+        padding: 0.75rem 1.25rem;
+        border-radius: 10px;
+    }
+}
+
+.case-framework-content {
+    flex: 1;
+    background: #f7f5ed;
+    color: var(--text-primary);
+    font-size: 0.98rem;
+    line-height: 1.45;
+    padding: 1.1rem 1.6rem;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 680px) {
+    .case-framework-content {
+        padding: 0.9rem 1.25rem;
+        border-radius: 10px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   2. 2-Dimensional Vector Coordinate Plane (Section 3)
+   Continuous axes balancing clinical importance against time effort
+   -------------------------------------------------------------------------- */
+
+.case-vector-plane {
+    position: relative;
+    max-width: 760px;
+    margin: 3.5rem auto 2.5rem;
+    padding: 2.5rem 2.5rem 2.5rem 2rem;
+}
+
+/* Central Continuous Vector Axes */
+.case-vector-plane::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 1.5rem;
+    bottom: 1.5rem;
+    width: 1.5px;
+    background: var(--text-primary);
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.case-vector-plane::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 1.5rem;
+    right: 1.5rem;
+    height: 1.5px;
+    background: var(--text-primary);
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+/* Vector Arrowheads */
+.vector-arrow-y {
+    position: absolute;
+    top: 1.15rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: block;
+}
+
+.vector-arrow-x {
+    position: absolute;
+    top: 50%;
+    right: 1.15rem;
+    transform: translateY(-50%);
+    z-index: 2;
+    display: block;
+}
+
+/* Vector Axis Dimension Labels */
+.vector-axis-label-y {
+    position: absolute;
+    top: -0.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--text-primary);
+    background: var(--bg-body);
+    padding: 0 0.5rem;
+    z-index: 3;
+    white-space: nowrap;
+}
+
+.vector-axis-label-x {
+    position: absolute;
+    right: 1.15rem;
+    top: calc(50% + 12px);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--text-primary);
+    z-index: 3;
+    white-space: nowrap;
+}
+
+/* Four Quadrants Plotted in Vector Space */
+.vector-quadrant-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    position: relative;
+    z-index: 2;
+    min-height: 260px;
+}
+
+.vector-quadrant {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.vector-quadrant.quad-top-left {
+    padding: 1rem 2rem 1.5rem 1rem;
+}
+
+.vector-quadrant.quad-top-right {
+    padding: 1rem 1rem 1.5rem 2rem;
+}
+
+.vector-quadrant.quad-bottom-left {
+    padding: 1.5rem 2rem 1rem 1rem;
+}
+
+.vector-quadrant.quad-bottom-right {
+    padding: 1.5rem 1rem 1rem 2rem;
+}
+
+.vector-item-list {
+    margin: 0;
+    padding-left: 1.15rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+}
+
+.vector-item-list li {
+    margin-bottom: 0.5rem;
+}
+
+.vector-item-list li:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 640px) {
+    .case-vector-plane {
+        padding: 2.5rem 1rem 2rem 0.5rem;
+        margin: 2.5rem 0;
+    }
+
+    .case-vector-plane::after {
+        right: 1rem;
+    }
+
+    .vector-arrow-x {
+        right: 0.75rem;
+    }
+
+    .vector-axis-label-x {
+        right: 0.75rem;
+        top: calc(50% + 10px);
+        font-size: 0.72rem;
+    }
+
+    .vector-axis-label-y {
+        top: -0.5rem;
+        font-size: 0.72rem;
+    }
+
+    .vector-quadrant.quad-top-left,
+    .vector-quadrant.quad-bottom-left {
+        padding-right: 1.25rem;
+        padding-left: 0.25rem;
+    }
+
+    .vector-quadrant.quad-top-right,
+    .vector-quadrant.quad-bottom-right {
+        padding-left: 1.25rem;
+        padding-right: 0.25rem;
+    }
+
+    .vector-item-list {
+        font-size: 0.82rem;
+        padding-left: 0.85rem;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   3. Six-Step Whiteboard Workflow Grid (Section 4)
+   -------------------------------------------------------------------------- */
+
+.case-flow-grid-6 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin: 2rem 0;
+}
+
+.case-flow-num {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    margin-bottom: 0.45rem;
+    display: block;
+}
+
+@media (max-width: 840px) {
+    .case-flow-grid-6 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 580px) {
+    .case-flow-grid-6 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   4. Clinical Patient Cases Showcase (Spatial Affordance Master-Detail)
+   Staggered overlapping card stack on the left, open detail view on the right
+   -------------------------------------------------------------------------- */
+
+.affordance-master-detail {
+    width: 100vw;
+    max-width: 1140px;
+    margin-left: calc(50% - min(570px, 50vw - 1.5rem));
+    margin-right: calc(50% - min(570px, 50vw - 1.5rem));
+    display: grid;
+    grid-template-columns: 340px minmax(0, 1fr);
+    gap: 3.5rem;
+    align-items: start;
+    margin-top: 2.5rem;
+    margin-bottom: 4rem;
+}
+
+/* Visually hidden accessible radio inputs */
+.affordance-radio {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    margin: 0;
+}
+
+/* Staggered overlapping stack column: sticky during vertical scroll on desktop */
+.affordance-stack-column {
+    position: sticky;
+    top: calc(var(--header-height, 70px) + 2rem);
+    align-self: start;
+    height: 380px;
+    width: 100%;
+    z-index: 20;
+}
+
+/* Individual interactive image card */
+.affordance-card {
+    position: absolute;
+    width: 275px;
+    height: 180px;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid var(--border-color);
+    background: var(--bg-card);
+    box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.08);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.2s ease,
+                opacity 0.2s ease;
+    user-select: none;
+    opacity: 0.72;
+}
+
+.affordance-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.affordance-card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0.85rem 1rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.78) 0%, rgba(0, 0, 0, 0.3) 60%, transparent 100%);
+    pointer-events: none;
+}
+
+.affordance-card-name {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #ffffff;
+    display: block;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+}
+
+.affordance-card:hover {
+    opacity: 0.95;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px -4px rgba(0, 0, 0, 0.16);
+}
+
+.affordance-card:focus-visible {
+    outline: 2px solid var(--text-primary);
+    outline-offset: 3px;
+}
+
+/* Staggered arrangement matching the wireframe:
+   Card 1 top-left, Card 2 offset right & overlapping, Card 3 bottom-left */
+.affordance-card-1 {
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.affordance-card-2 {
+    top: 95px;
+    left: 65px;
+    z-index: 2;
+}
+
+.affordance-card-3 {
+    top: 190px;
+    left: 0;
+    z-index: 1;
+}
+
+/* Active card state */
+#affordance-tab-1:checked ~ .affordance-stack-column .affordance-card-1,
+#affordance-tab-2:checked ~ .affordance-stack-column .affordance-card-2,
+#affordance-tab-3:checked ~ .affordance-stack-column .affordance-card-3 {
+    z-index: 10;
+    opacity: 1;
+    border-color: var(--text-primary);
+    transform: scale(1.03);
+    box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.22);
+}
+
+/* Detail column on the right: open, spacious editorial layout */
+.affordance-detail-column {
+    min-width: 0;
+}
+
+.affordance-panel {
+    display: none;
+    opacity: 0;
+    animation: affordanceFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+#affordance-tab-1:checked ~ .affordance-detail-column .affordance-panel-1,
+#affordance-tab-2:checked ~ .affordance-detail-column .affordance-panel-2,
+#affordance-tab-3:checked ~ .affordance-detail-column .affordance-panel-3 {
+    display: block;
+}
+
+@keyframes affordanceFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.affordance-panel-title {
+    font-family: var(--font-serif);
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 0.85rem;
+    letter-spacing: -0.01em;
+}
+
+.affordance-panel-desc {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+    margin: 0 0 1.25rem;
+}
+
+.affordance-panel-facts {
+    margin: 0 0 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    font-size: 0.94rem;
+    line-height: 1.55;
+    color: var(--text-primary);
+}
+
+.affordance-panel-facts p {
+    margin: 0;
+}
+
+.affordance-panel-facts strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* Visual Showcase Gallery: Large Hero Outcome Top + Supporting Pair Bottom */
+.affordance-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.affordance-gallery-hero {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.affordance-gallery-hero img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0;
+    padding: 0;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background: transparent;
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.08);
+}
+
+.affordance-gallery-subgrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin: 0;
+    padding: 0;
+}
+
+.affordance-gallery-item {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.affordance-gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0;
+    padding: 0;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    background: transparent;
+}
+
+.affordance-image-label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+/* Responsive breakdowns */
+@media (max-width: 980px) {
+    .affordance-master-detail {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .affordance-stack-column {
+        position: static;
+        top: auto;
+        height: auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+
+    .affordance-card {
+        position: static;
+        width: 100%;
+        height: 150px;
+    }
+
+    .affordance-card-1,
+    .affordance-card-2,
+    .affordance-card-3 {
+        top: auto;
+        left: auto;
+        z-index: auto;
+    }
+
+    #affordance-tab-1:checked ~ .affordance-stack-column .affordance-card-1,
+    #affordance-tab-2:checked ~ .affordance-stack-column .affordance-card-2,
+    #affordance-tab-3:checked ~ .affordance-stack-column .affordance-card-3 {
+        transform: none;
+        border-color: var(--text-primary);
+    }
+}
+
+@media (max-width: 640px) {
+    .affordance-stack-column {
+        grid-template-columns: 1fr;
+    }
+
+    .affordance-card {
+        height: 140px;
+    }
+
+    .affordance-gallery-subgrid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+}
+
+
+/* --------------------------------------------------------------------------
+   6. Cross-Validation Defect Matrix Table Tweaks (Section 6)
+   -------------------------------------------------------------------------- */
+
+.case-table .status-defect,
+.status-defect {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--accent-amber, #e65c00);
+    font-weight: 600;
+}
+
+.case-table-dept {
+    display: block;
+    font-size: 0.76rem;
+    color: var(--text-muted);
+    font-weight: normal;
+    margin-top: 0.2rem;
+}
+
+.case-table-summary {
+    margin-top: 1.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   7. Performance Engineering Hairline List (Section 7)
+   Minimalist linear list with monospace counters
+   -------------------------------------------------------------------------- */
+
+.case-hairline-list {
+    border-top: 1px solid var(--border-color);
+    margin: 1.75rem 0 2rem;
+}
+
+.case-hairline-item {
+    display: flex;
+    align-items: baseline;
+    gap: 1.25rem;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.case-hairline-num {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    width: 1.25rem;
+    flex-shrink: 0;
+}
+
+.case-hairline-text {
+    font-size: 0.98rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   8. Medical Simulator Schema Inspector Card (Archived / Reusable)
+   -------------------------------------------------------------------------- */
+
+.case-schema-inspector {
+    padding: 1.5rem;
+    background: #18191b;
+    color: #e4e4e7;
+    font-size: 0.88rem;
+    font-family: var(--font-sans);
+}
+
+.case-schema-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.75rem;
+    margin-bottom: 1.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    color: #a1a1aa;
+}
+
+.case-schema-status {
+    color: #f87171;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.case-schema-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+@media (max-width: 768px) {
+    .case-schema-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.case-schema-col {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    padding: 1rem;
+}
+
+.case-schema-col.defect {
+    border-color: rgba(239, 68, 68, 0.4);
+    background: rgba(239, 68, 68, 0.05);
+}
+
+.case-schema-col-title {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: #94a3b8;
+    margin-bottom: 0.5rem;
+}
+
+.case-schema-col-val {
+    font-weight: 600;
+    color: #f8fafc;
+    margin-bottom: 0.5rem;
+    line-height: 1.35;
+}
+
+.case-schema-col-detail {
+    font-size: 0.8rem;
+    color: #cbd5e1;
+    line-height: 1.45;
+    margin: 0;
+}
+
+.case-schema-status-defect {
+    display: block;
+    margin-top: 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: #f87171;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.case-schema-status-valid {
+    display: block;
+    margin-top: 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: #4ade80;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.case-schema-verdict {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    padding: 0.85rem 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: #e2e8f0;
+}
+
+.case-schema-verdict-label {
+    color: #4ade80;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
