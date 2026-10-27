@@ -661,6 +661,41 @@ document.addEventListener('DOMContentLoaded', () => {
             const doc = parser.parseFromString(html, 'text/html');
             const mainContent = doc.querySelector('main.case-container') || doc.body;
 
+            // Extract case-specific stylesheets from doc
+            const stylesheets = [];
+            doc.querySelectorAll('link[rel="stylesheet"]').forEach(link => {
+                let href = link.getAttribute('href');
+                if (!href) return;
+                // Exclude stylesheets already loaded globally by index.html
+                if (href.includes('fonts.css') || href.includes('style.css') || href.endsWith('case.css')) {
+                    return;
+                }
+                // Normalize to root context: e.g. 'mrke-3d.css' -> 'cases/mrke-3d.css'
+                if (!href.startsWith('http://') && !href.startsWith('https://') && !href.startsWith('/')) {
+                    if (href.startsWith('../')) {
+                        href = href.replace(/^\.\.\//, '');
+                    } else if (!href.startsWith('cases/')) {
+                        href = 'cases/' + href.replace(/^\.\//, '');
+                    }
+                }
+                stylesheets.push(href);
+            });
+
+            // Extract case-specific external scripts (e.g. cases/innova-medical.js)
+            const scripts = [];
+            doc.querySelectorAll('script[src]').forEach(script => {
+                let src = script.getAttribute('src');
+                if (!src) return;
+                if (!src.startsWith('http://') && !src.startsWith('https://') && !src.startsWith('/')) {
+                    if (src.startsWith('../')) {
+                        src = src.replace(/^\.\.\//, '');
+                    } else if (!src.startsWith('cases/')) {
+                        src = 'cases/' + src.replace(/^\.\//, '');
+                    }
+                }
+                scripts.push(src);
+            });
+
             // Rewrite relative ../assets/ paths to assets/ for root index context
             mainContent.querySelectorAll('img, video, source').forEach(el => {
                 ['src', 'data-src', 'poster'].forEach(attr => {
@@ -682,9 +717,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            const processedHtml = mainContent.innerHTML;
-            caseCache.set(url, processedHtml);
-            return processedHtml;
+            const processedData = {
+                html: mainContent.innerHTML,
+                stylesheets: stylesheets,
+                scripts: scripts
+            };
+            caseCache.set(url, processedData);
+            return processedData;
         }
 
         async function openCaseModal(rawUrl, triggerEl = null) {
@@ -733,9 +772,35 @@ document.addEventListener('DOMContentLoaded', () => {
             caseModalScroll.scrollTop = 0;
 
             try {
-                const content = await fetchCaseContent(url);
-                caseModalBody.innerHTML = content;
+                const caseData = await fetchCaseContent(url);
+
+                // Clean up previous case-specific dynamic stylesheets and scripts
+                document.querySelectorAll('link[data-case-dynamic-style]').forEach(el => el.remove());
+                document.querySelectorAll('script[data-case-dynamic-script]').forEach(el => el.remove());
+
+                // Inject current case-specific stylesheets
+                if (caseData.stylesheets && caseData.stylesheets.length > 0) {
+                    caseData.stylesheets.forEach(sheetHref => {
+                        const linkEl = document.createElement('link');
+                        linkEl.rel = 'stylesheet';
+                        linkEl.href = sheetHref;
+                        linkEl.setAttribute('data-case-dynamic-style', '');
+                        document.head.appendChild(linkEl);
+                    });
+                }
+
+                caseModalBody.innerHTML = caseData.html;
                 caseModalScroll.scrollTop = 0;
+
+                // Inject current case-specific scripts
+                if (caseData.scripts && caseData.scripts.length > 0) {
+                    caseData.scripts.forEach(scriptSrc => {
+                        const scriptEl = document.createElement('script');
+                        scriptEl.src = scriptSrc;
+                        scriptEl.setAttribute('data-case-dynamic-script', '');
+                        document.body.appendChild(scriptEl);
+                    });
+                }
 
                 caseModalBody.querySelectorAll('video[autoplay]').forEach(video => {
                     video.play().catch(() => {});
@@ -756,6 +821,10 @@ document.addEventListener('DOMContentLoaded', () => {
             caseModalBody.querySelectorAll('video').forEach(video => {
                 try { video.pause(); } catch (e) {}
             });
+
+            // Clean up injected case stylesheets and scripts
+            document.querySelectorAll('link[data-case-dynamic-style]').forEach(el => el.remove());
+            document.querySelectorAll('script[data-case-dynamic-script]').forEach(el => el.remove());
 
             caseModalOpen = false;
             caseModal.classList.remove('open');
