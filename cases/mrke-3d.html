@@ -8,7 +8,7 @@
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' data: blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'">
     <title>In-Store 3D Previews Cutting Consultation Time 35% | Kim Fung</title>
-    <meta name="description" content="In-house bespoke Unity C# 3D hairstyle preview app deployed across Android tablets with Google Cloud Storage OTA streaming in a live salon business.">
+    <meta name="description" content="In-house bespoke Unity C# 360 hairstyle viewer application deployed across Android tablets with Google Cloud Storage OTA streaming in a live salon business.">
     <!-- Self-hosted fonts: no third-party requests -->
     <link rel="preload" href="../assets/fonts/vendor/opensans-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="../assets/fonts/fonts.css">
@@ -34,7 +34,7 @@
             <span class="case-kicker">In-House 360 Hairstyle Viewer</span>
             <h1 class="case-title">In-store 3D previews that cut consultation time 35 percent</h1>
             <p class="case-subtitle">
-                Designed and built a bespoke Unity C# preview application deployed on Android tablets with Google Cloud Storage asset streaming, resolving consultation ambiguity in a fast-turnaround salon.
+                Designed and built a bespoke 360 hairstyle viewer application in Unity C# deployed on Android tablets with Google Cloud Storage asset streaming, resolving consultation ambiguity in a fast-turnaround salon.
             </p>
 
             <div class="case-meta-grid">
@@ -99,7 +99,10 @@
                     Initial consultations dragged to 4 to 6 minutes of hesitant back-and-forth, creating customer anxiety and breaking our fast-turnaround targets.
                 </p>
                 <p>
-                    Through direct floor observation, I also discovered that children aged 6 to 12 and teenagers were eager digital adopters, yet lacked specialized styling terminology to communicate layering and volume to stylists. This insight proved that consultation friction was an interaction and communication problem, not a styling limitation.
+                    Through direct floor observation, I also discovered that the shop served a wide cross-generational customer base ranging from 6-year-old children to 70-year-old elderly residents. Children aged 6 to 12 and teenagers were eager digital adopters who lacked specialized styling terminology to communicate layering and volume, while senior customers up to age 70 needed high-contrast visuals without complex menus or small text. This insight proved that consultation friction was an interaction and communication problem across age groups, requiring a minimal-text visual interface that any customer could operate immediately without reading barriers.
+                </p>
+                <p>
+                    Before deploying the 360 hairstyle viewer application to the shop floor, I conducted early senior usability testing by giving the prototype to my grandmother to use first. Observing where she hesitated or mis-tapped allowed me to iterate the button designs and simplify navigation controls for older adults. I then deployed the application to the store rapidly and used store CCTV footage alongside live floor observation to watch unprompted customer behavior while interacting with the tablet, continuously iterating the layout based on real behavioral patterns.
                 </p>
             </div>
         </section>
@@ -157,14 +160,51 @@
                     </figure>
                 </div>
                 <p>
+                    To reduce cognitive overload for customers ranging from age 6 to 70, I structured the screen-to-screen interaction flow around minimal taps and minimal on-screen text:
+                </p>
+
+                <div class="case-flow-grid">
+                    <div class="case-flow-card">
+                        <span class="case-flow-num">1</span>
+                        <span class="case-flow-kicker">1 Tap, Minimal Text</span>
+                        <h3 class="case-flow-title">Visual Category Entry</h3>
+                        <p class="case-flow-desc">High-contrast visual category thumbnails allow children and elderly customers up to age 70 to pick a hairstyle group immediately without reading dense text labels.</p>
+                    </div>
+
+                    <div class="case-flow-card">
+                        <span class="case-flow-num">2</span>
+                        <span class="case-flow-kicker">1 Tap Selection</span>
+                        <h3 class="case-flow-title">Curated 3D Preset Load</h3>
+                        <p class="case-flow-desc">Tapping a portrait card loads the corresponding 3D head model directly into the viewport, eliminating multi-step configuration menus or granular sliders.</p>
+                    </div>
+
+                    <div class="case-flow-card">
+                        <span class="case-flow-num">3</span>
+                        <span class="case-flow-kicker">Direct Touch Gesture</span>
+                        <h3 class="case-flow-title">Full-Screen 360 Touch Orbit</h3>
+                        <p class="case-flow-desc">The entire screen acts as a forgiving touch surface where users swipe horizontally to rotate 360 degrees or tilt vertically to inspect crown volume and neckline tapers.</p>
+                    </div>
+
+                    <div class="case-flow-card">
+                        <span class="case-flow-num">4</span>
+                        <span class="case-flow-kicker">Zero Typing</span>
+                        <h3 class="case-flow-title">Shared Visual Confirmation</h3>
+                        <p class="case-flow-desc">Seated customers and standing stylists align on the exact 3D angle together in under two minutes, transitioning straight into the haircut.</p>
+                    </div>
+                </div>
+
+                <p>
                     I engineered the complete software lifecycle to integrate seamlessly with shop floor routines:
                 </p>
                 <ul>
                     <li>
-                        <strong>User Journey Mapping in Figma:</strong> Mapped consultation steps from greeting and chair handover to style selection, 360-degree rotation, and final cutting confirmation, designing an ergonomic touch interface specifically for standing stylists and seated customers.
+                        <strong>User Journey Mapping and Minimal-Text UI:</strong> Mapped consultation steps from greeting and chair handover to style selection, 360-degree rotation, and final cutting confirmation, keeping text to an absolute minimum so every age group from 6 to 70 could navigate intuitively.
                     </li>
                     <li>
-                        <strong>Stylist Feedback Loops and Physical Ergonomics:</strong> Instituted daily tracking logs where stylists recorded customer style selections and consultation satisfaction. Early floor testing revealed that stylists operating with damp hands while standing struggled with small buttons. I expanded touch targets to full-screen swipe rotation and added vertical camera pitch tilt to inspect crown volume and neckline tapers.
+                        <strong>Prototype Testing and Button Iteration:</strong> Tested early versions of the 360 hairstyle viewer application with my grandmother before store launch, identifying touch hesitation points and iterating button sizes and placement for senior accessibility.
+                    </li>
+                    <li>
+                        <strong>Unobtrusive CCTV Behavioral Observation and Stylist Logs:</strong> Deployed rapidly to shop tablets and combined daily stylist tracking logs with store CCTV behavioral observation to watch how customers naturally held and tapped the screen. Observing stylists operating with damp hands and customers reaching for the screen led me to expand touch targets to full-screen swipe rotation and added vertical camera pitch tilt to inspect crown volume and neckline tapers.
                     </li>
                     <li>
                         <strong>Dedicated Youth Presets:</strong> Based on daily tracking data confirming high engagement among youth customers, I prioritized a dedicated library of 3D youth hairstyles, enabling young customers to point and rotate their preferred style with confidence.
@@ -210,7 +250,7 @@
                 </div>
 
                 <p>
-                    The 3D preview app transformed indecisive consultations into confident agreements within seconds. Floor observation proved that the most enthusiastic users were youth customers, validating the decision to prioritize dedicated youth styles. The project confirmed that software built to solve frontline operational bottlenecks creates immediate commercial utility.
+                    The 360 hairstyle viewer application transformed indecisive consultations into confident agreements within seconds. Floor observation proved that the most enthusiastic users were youth customers, validating the decision to prioritize dedicated youth styles. The project confirmed that software built to solve frontline operational bottlenecks creates immediate commercial utility.
                 </p>
 
                 <div class="case-callout case-callout-lessons">

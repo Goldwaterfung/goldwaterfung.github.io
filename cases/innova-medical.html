@@ -83,7 +83,7 @@
             <h2 class="case-section-title">Problem Discovery</h2>
             <div class="case-body">
                 <p>
-                    Innova Medical developed a B2B clinical simulation platform used by universities and teaching hospitals. The product trained medical students to act like professional clinicians through case-based simulation across realistic consultation and physical examination flows. The simulation curriculum encompassed 50 clinical cases across four core departments: child medicine, elder care, mental health, and general surgery.
+                    Innova Medical developed an award-winning gamified EdTech clinical simulation platform, recognized in the HolonIQ Taiwan EdTech 50, National Healthcare Quality Awards, and Brandon Hall Simulation Technology Awards. Used by universities and teaching hospitals to train medical students, the system applies serious game mechanics to turn clinical consultations, differential diagnosis, and physical examinations into task-based interactive missions with real-time feedback and scoring. The simulation curriculum encompassed 50 clinical cases across four core departments: child medicine, elder care, mental health, and general surgery.
                 </p>
                 <p>
                     During early university deployments, students repeatedly misjudged physical examination modules, reporting severe diagnostic confusion. A hands-on review of the platform revealed significant visual and operational friction:
@@ -108,6 +108,49 @@
                 </div>
                 <p>
                     Because client hardware could not support heavier shaders and cosmetic polish could not correct medically wrong symptoms, I structured a systematic diagnostic audit across all 50 cases to align clinical ground truth with visual simulation within realistic hardware limits.
+                </p>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <h2 class="case-section-title">Interactive Diagnostic Loop and Serious Game Mechanics</h2>
+            <div class="case-body">
+                <p>
+                    Each simulation case operates as a structured, task-based diagnostic mission where medical students progress through a four-stage interactive loop:
+                </p>
+
+                <div class="case-flow-grid">
+                    <div class="case-flow-card">
+                        <span class="case-flow-num">1</span>
+                        <span class="case-flow-kicker">Verbal Inquiry</span>
+                        <h3 class="case-flow-title">Patient History and LLM Dialogue</h3>
+                        <p class="case-flow-desc">Students enter the virtual examination room and converse with the AI-driven 3D patient to gather chief complaints, symptom timelines, and lifestyle context.</p>
+                    </div>
+
+                    <div class="case-flow-card">
+                        <span class="case-flow-num">2</span>
+                        <span class="case-flow-kicker">Clinical Tool Action</span>
+                        <h3 class="case-flow-title">Interactive Examination Tools</h3>
+                        <p class="case-flow-desc">Students transition from dialogue to hands-on clinical tools, such as activating a virtual penlight to inspect localized soft-tissue trauma or changing patient attire to examine truncal skin signs.</p>
+                    </div>
+
+                    <div class="case-flow-card">
+                        <span class="case-flow-num">3</span>
+                        <span class="case-flow-kicker">Spatial Viewport</span>
+                        <h3 class="case-flow-title">360-Degree Visual Inspection</h3>
+                        <p class="case-flow-desc">Students rotate and tilt the 3D viewport camera across anterior, lateral, and posterior angles to observe facial morphology, spinal alignment, and dermatological cues that verify or challenge the patient narrative.</p>
+                    </div>
+
+                    <div class="case-flow-card">
+                        <span class="case-flow-num">4</span>
+                        <span class="case-flow-kicker">Mission Evaluation</span>
+                        <h3 class="case-flow-title">Differential Diagnosis and Scoring</h3>
+                        <p class="case-flow-desc">Students cross-check verbal testimony against visual examination evidence to order clinical workups and submit a differential diagnosis, receiving immediate mission scoring and diagnostic feedback.</p>
+                    </div>
+                </div>
+
+                <p>
+                    When the 3D visual symptoms failed to match the clinical database, stages 2 and 3 of this interactive loop broke down, penalizing students who followed the correct clinical reasoning path.
                 </p>
             </div>
         </section>
@@ -400,7 +443,7 @@
             <div class="case-footer-nav-inner">
                 <a href="mrke-3d.html" class="case-footer-nav-item">
                     <span class="case-footer-nav-label">Previous Case Study</span>
-                    <span class="case-footer-nav-title">MRKE 3D Hairstyle Preview Software</span>
+                    <span class="case-footer-nav-title">MRKE In-House 360 Hairstyle Viewer</span>
                 </a>
                 <a href="virtual-principal.html" class="case-footer-nav-item case-footer-nav-next">
                     <span class="case-footer-nav-label">Next Case Study</span>
