@@ -13,173 +13,405 @@
 }
 
 /* --------------------------------------------------------------------------
-   1. Kiosk Display & Portrait Viewport
-   Enclosure for the 9:16 vertical AR virtual avatar interface
+   1. Hero Section: 2-Column Split (Portrait Kiosk on Left, Subtitle on Right)
    -------------------------------------------------------------------------- */
 
-.case-figure-portrait,
-.case-window-frame.case-figure-portrait {
-    max-width: 440px;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 12px;
-    box-shadow:
-        0 24px 48px -12px rgba(28, 28, 30, 0.16),
-        0 4px 12px -2px rgba(28, 28, 30, 0.06);
+.case-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3.5rem;
+    padding-top: 3.5rem;
+    padding-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
-.case-figure-portrait .case-window-viewport {
+.case-hero .case-window-frame.case-figure-portrait {
+    flex: 0 0 320px;
+    max-width: 320px;
+    margin: 0;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    box-shadow:
+        0 24px 52px -12px rgba(28, 28, 30, 0.18),
+        0 4px 14px -2px rgba(28, 28, 30, 0.08);
+}
+
+.case-hero .case-window-frame.case-figure-portrait .case-window-viewport {
     background: #000000;
 }
 
-.case-figure-portrait img {
+.case-hero .case-window-frame.case-figure-portrait img {
     width: 100%;
     height: auto;
     display: block;
 }
 
-/* --------------------------------------------------------------------------
-   2. On-Site Debugging & Hardware Setup Portrait Gallery
-   Two-column vertical layout optimized for portrait kiosk & terminal photos
-   -------------------------------------------------------------------------- */
+.case-hero-intro {
+    flex: 1;
+    min-width: 0;
+}
 
-.case-gallery-portrait {
-    max-width: 640px;
-    margin-left: auto;
-    margin-right: auto;
+.case-hero .case-subtitle {
+    font-size: 1.18rem;
+    line-height: 1.65;
+    color: var(--text-primary);
+    max-width: 52ch;
+    margin-bottom: 2.25rem;
+}
+
+.case-hero .case-meta-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
-    margin-top: 1.75rem;
-    margin-bottom: 2rem;
-}
-
-.case-gallery-portrait .case-figure {
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-.case-gallery-portrait .case-figure img {
-    flex: 1;
-    object-fit: cover;
-    width: 100%;
-}
-
-.case-gallery-portrait .case-figure figcaption {
-    font-size: 0.8rem;
-    line-height: 1.45;
-    color: var(--text-muted);
-    padding: 0.75rem 0.95rem;
-    background: var(--bg-panel);
+    padding: 1.5rem 0;
+    margin-bottom: 0;
     border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
 }
 
 /* --------------------------------------------------------------------------
-   3. Pipeline Engineering Sequence Cards
-   Structured progression for the 6-stage edge GPU inference pipeline
+   2. On-Site Deployment & Hardware Album Spread
+   Curated archival photo prints on a soft studio panel
    -------------------------------------------------------------------------- */
 
-.vp-pipeline-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.25rem;
-    margin: 2rem 0;
+.vp-album-spread {
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 2rem 0 3.5rem;
+    box-shadow: none;
 }
 
-.vp-pipeline-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 1.35rem 1.4rem;
+.vp-album-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.95fr 0.95fr;
+    gap: 1.75rem;
+    align-items: start;
+}
+
+.vp-album-card {
+    margin: 0;
+    background: #ffffff;
+    padding: 10px 10px 14px 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow:
+        0 10px 24px -4px rgba(28, 28, 30, 0.1),
+        0 2px 6px rgba(28, 28, 30, 0.04);
     display: flex;
     flex-direction: column;
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-    transition: transform var(--duration-press) var(--ease-out),
-                box-shadow var(--duration-press) var(--ease-out);
 }
 
-.vp-pipeline-card:hover {
-    transform: translateY(-1.5px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+.vp-album-card-prep {
+    transform: rotate(-1.2deg);
 }
 
-.vp-step-header {
-    display: flex;
-    align-items: baseline;
-    gap: 0.75rem;
-    margin-bottom: 0.65rem;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 0.5rem;
+.vp-album-card-demo {
+    transform: rotate(1.1deg) translateY(-4px);
 }
 
-.vp-step-num {
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    font-weight: 700;
-    color: var(--text-muted);
+.vp-album-card-debug {
+    transform: rotate(-0.9deg) translateY(2px);
 }
 
-.vp-step-title {
-    font-size: 0.98rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    letter-spacing: -0.01em;
-    margin: 0;
+.vp-album-card:hover {
+    transform: rotate(0deg) translateY(-6px) scale(1.02);
+    z-index: 10;
+    box-shadow:
+        0 20px 40px -8px rgba(28, 28, 30, 0.18),
+        0 4px 12px rgba(28, 28, 30, 0.06);
 }
 
-.vp-step-desc {
-    font-size: 0.9rem;
-    line-height: 1.6;
+.vp-photo-frame {
+    border-radius: 3px;
+    overflow: hidden;
+    background: #1c1c1e;
+    display: block;
+    width: 100%;
+}
+
+.vp-photo-frame img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.vp-photo-meta {
+    padding: 0.75rem 0.25rem 0.15rem;
+}
+
+.vp-photo-desc {
+    font-size: 0.85rem;
+    line-height: 1.48;
     color: var(--text-secondary);
     margin: 0;
 }
 
 /* --------------------------------------------------------------------------
-   4. Systems Integration & Conversational State Feedback
-   Visual architecture cards for millisecond turn-taking synchronization
+   3. Pipeline Engineering Master-Detail (Stack Column + Borderless Panel)
    -------------------------------------------------------------------------- */
 
-.vp-state-grid {
+.pipeline-master-detail {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.25rem;
-    margin: 2rem 0;
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 2.5rem;
+    align-items: start;
+    margin: 2.25rem 0 3.5rem;
 }
 
-.vp-state-card {
-    background: var(--bg-panel);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 1.35rem 1.4rem;
+/* Visually hidden accessible radio inputs (fixed in viewport to prevent browser auto-scroll on click/focus) */
+.pipeline-radio {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    margin: 0;
+}
+
+/* Left Stack Column: Sticky on Desktop, Staggered Card Layout */
+.pipeline-stack-column {
+    position: sticky;
+    top: calc(var(--header-height, 70px) + 2rem);
+    align-self: start;
     display: flex;
     flex-direction: column;
+    gap: 1.15rem;
+    width: 100%;
 }
 
-.vp-state-kicker {
+/* Individual Stage Card in the Stack */
+.pipeline-card {
+    width: calc(100% - 2.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 0.95rem 1.1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    cursor: pointer;
+    user-select: none;
+    transition: transform var(--duration-press) var(--ease-out),
+                box-shadow var(--duration-press) var(--ease-out),
+                border-color var(--duration-press) var(--ease-out),
+                background var(--duration-press) var(--ease-out);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+/* Alternating staggered offset matching design wireframe */
+.pipeline-card:nth-child(odd) {
+    align-self: flex-start;
+    margin-left: 0;
+}
+
+.pipeline-card:nth-child(even) {
+    align-self: flex-end;
+    margin-right: 0;
+}
+
+.pipeline-card:hover {
+    transform: translateY(-2px);
+    background: var(--bg-panel);
+    border-color: var(--text-muted);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.pipeline-card:focus-visible {
+    outline: 2px solid var(--text-primary);
+    outline-offset: 2px;
+}
+
+.pipeline-card-kicker {
     font-family: var(--font-mono);
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.8px;
     color: var(--text-muted);
-    margin-bottom: 0.35rem;
-    display: block;
 }
 
-.vp-state-title {
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin: 0 0 0.55rem 0;
+.pipeline-card-title {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    line-height: 1.35;
     letter-spacing: -0.01em;
 }
 
-.vp-state-desc {
-    font-size: 0.9rem;
-    line-height: 1.6;
+/* Active card state per tab */
+#pipeline-tab-1:checked ~ .pipeline-stack-column .pipeline-card-1,
+#pipeline-tab-2:checked ~ .pipeline-stack-column .pipeline-card-2,
+#pipeline-tab-3:checked ~ .pipeline-stack-column .pipeline-card-3,
+#pipeline-tab-4:checked ~ .pipeline-stack-column .pipeline-card-4,
+#pipeline-tab-5:checked ~ .pipeline-stack-column .pipeline-card-5 {
+    background: var(--bg-panel);
+    border-color: var(--text-primary);
+    border-left: 3.5px solid var(--text-primary);
+    box-shadow: 0 6px 16px -2px rgba(28, 28, 30, 0.08);
+}
+
+#pipeline-tab-1:checked ~ .pipeline-stack-column .pipeline-card-1 .pipeline-card-kicker,
+#pipeline-tab-2:checked ~ .pipeline-stack-column .pipeline-card-2 .pipeline-card-kicker,
+#pipeline-tab-3:checked ~ .pipeline-stack-column .pipeline-card-3 .pipeline-card-kicker,
+#pipeline-tab-4:checked ~ .pipeline-stack-column .pipeline-card-4 .pipeline-card-kicker,
+#pipeline-tab-5:checked ~ .pipeline-stack-column .pipeline-card-5 .pipeline-card-kicker {
+    color: var(--text-primary);
+}
+
+#pipeline-tab-1:checked ~ .pipeline-stack-column .pipeline-card-1 .pipeline-card-title,
+#pipeline-tab-2:checked ~ .pipeline-stack-column .pipeline-card-2 .pipeline-card-title,
+#pipeline-tab-3:checked ~ .pipeline-stack-column .pipeline-card-3 .pipeline-card-title,
+#pipeline-tab-4:checked ~ .pipeline-stack-column .pipeline-card-4 .pipeline-card-title,
+#pipeline-tab-5:checked ~ .pipeline-stack-column .pipeline-card-5 .pipeline-card-title {
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+/* Right Detail Column: Borderless Panel */
+.pipeline-detail-column {
+    min-width: 0;
+}
+
+.pipeline-panel {
+    display: none;
+    opacity: 0;
+    animation: pipelineFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+#pipeline-tab-1:checked ~ .pipeline-detail-column .pipeline-panel-1,
+#pipeline-tab-2:checked ~ .pipeline-detail-column .pipeline-panel-2,
+#pipeline-tab-3:checked ~ .pipeline-detail-column .pipeline-panel-3,
+#pipeline-tab-4:checked ~ .pipeline-detail-column .pipeline-panel-4,
+#pipeline-tab-5:checked ~ .pipeline-detail-column .pipeline-panel-5 {
+    display: block;
+}
+
+@keyframes pipelineFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.pipeline-panel-title {
+    font-family: var(--font-serif);
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 1rem;
+    letter-spacing: -0.015em;
+    line-height: 1.28;
+}
+
+.pipeline-panel-desc {
+    font-size: 1rem;
+    line-height: 1.68;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   4. Systems Integration & Interaction Feedback
+   2x2 Quadrant Grid: Distinct Architectural Washes (Zero Kickers/Titles)
+   -------------------------------------------------------------------------- */
+
+.vp-quad-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 2.25rem 0 3.75rem;
+    box-shadow: 0 4px 16px -4px rgba(28, 28, 30, 0.05);
+}
+
+.vp-quad-cell {
+    padding: 2.25rem 2.25rem 2.35rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    transition: background-color var(--duration-ui) var(--ease-out);
+}
+
+/* Quadrant 1: Conversational State Feedback (Technical Cobalt Blue) */
+.vp-cell-feedback {
+    background-color: #f1f6fb;
+    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.vp-cell-feedback:hover {
+    background-color: #e6f0f8;
+}
+
+.vp-cell-feedback .vp-cell-title {
+    color: #1a4f7c;
+}
+
+/* Quadrant 2: Sentiment-Driven Facial Blendshapes (Warm Terracotta Amber) */
+.vp-cell-sentiment {
+    background-color: #fdf6f0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.vp-cell-sentiment:hover {
+    background-color: #faede2;
+}
+
+.vp-cell-sentiment .vp-cell-title {
+    color: #9c4c16;
+}
+
+/* Quadrant 3: Camera Head Tracking (Perception Sage Green) */
+.vp-cell-tracking {
+    background-color: #f1f7f3;
+    border-right: 1px solid var(--border-color);
+}
+
+.vp-cell-tracking:hover {
+    background-color: #e5f1ea;
+}
+
+.vp-cell-tracking .vp-cell-title {
+    color: #1a6134;
+}
+
+/* Quadrant 4: Packet Synchronization (Telemetry Violet) */
+.vp-cell-sync {
+    background-color: #f6f3fb;
+}
+
+.vp-cell-sync:hover {
+    background-color: #ede7f7;
+}
+
+.vp-cell-sync .vp-cell-title {
+    color: #583788;
+}
+
+.vp-cell-title {
+    font-size: 1.12rem;
+    font-weight: 700;
+    line-height: 1.35;
+    margin: 0;
+    letter-spacing: -0.015em;
+}
+
+.vp-cell-desc {
+    font-size: 0.95rem;
+    line-height: 1.68;
     color: var(--text-secondary);
     margin: 0;
 }
@@ -231,21 +463,139 @@
    6. Responsive Layout Adjustments
    -------------------------------------------------------------------------- */
 
-@media (max-width: 640px) {
-    .case-figure-portrait,
-    .case-window-frame.case-figure-portrait {
-        max-width: 320px;
+@media (max-width: 860px) {
+    .case-hero {
+        flex-direction: column;
+        align-items: center;
+        gap: 2.5rem;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
     }
 
-    .case-gallery-portrait {
+    .case-hero .case-window-frame.case-figure-portrait {
+        flex: 0 0 auto;
+        max-width: 290px;
+        margin: 0 auto;
+    }
+
+    .case-hero-intro {
+        width: 100%;
+    }
+
+    .case-hero .case-subtitle {
+        max-width: 100%;
+        text-align: left;
+    }
+
+    .vp-album-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+
+    .vp-album-card-prep {
+        grid-column: 1 / -1;
+        transform: rotate(-0.5deg);
+    }
+
+    .vp-album-card-demo {
+        transform: rotate(0.6deg);
+    }
+
+    .vp-album-card-debug {
+        transform: rotate(-0.6deg);
+    }
+
+    .pipeline-master-detail {
         grid-template-columns: 1fr;
-        max-width: 320px;
-        gap: 1.25rem;
+        gap: 2rem;
     }
 
-    .vp-pipeline-grid,
-    .vp-state-grid,
+    .vp-quad-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .vp-quad-cell {
+        padding: 1.75rem 1.5rem;
+    }
+
+    .vp-cell-feedback {
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .vp-cell-sentiment {
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .vp-cell-tracking {
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .pipeline-stack-column {
+        position: static;
+        top: auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 0.75rem;
+    }
+
+    .pipeline-card {
+        width: 100%;
+        align-self: stretch;
+        margin: 0;
+    }
+
+    #pipeline-tab-1:checked ~ .pipeline-stack-column .pipeline-card-1,
+    #pipeline-tab-2:checked ~ .pipeline-stack-column .pipeline-card-2,
+    #pipeline-tab-3:checked ~ .pipeline-stack-column .pipeline-card-3,
+    #pipeline-tab-4:checked ~ .pipeline-stack-column .pipeline-card-4,
+    #pipeline-tab-5:checked ~ .pipeline-stack-column .pipeline-card-5 {
+        transform: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .pipeline-stack-column {
+        grid-template-columns: 1fr;
+    }
+
     .vp-tech-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 580px) {
+    .vp-album-spread {
+        padding: 0;
+    }
+
+    .vp-album-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .vp-album-card-prep,
+    .vp-album-card-demo,
+    .vp-album-card-debug {
+        transform: none;
+        max-width: 340px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 540px) {
+    .case-hero .case-meta-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .vp-album-card-prep,
+    .vp-album-card-demo,
+    .vp-album-card-debug {
+        transform: none !important;
+        transition: none !important;
     }
 }

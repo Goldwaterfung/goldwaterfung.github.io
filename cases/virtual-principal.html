@@ -33,48 +33,40 @@
     <main class="case-container">
 
         <header class="case-hero">
-            <span class="case-kicker">Multimodal AI and Edge Inference</span>
-            <h1 class="case-title">Engineered an offline multimodal AI avatar with real-time conversational feedback</h1>
-            <p class="case-subtitle">
-                Integrated an end-to-end multimodal AI pipeline (Speech-to-Text, local LLM with RAG, and Text-to-Speech)
-                into Unity, engineering real-time conversational visual feedback on a single local GPU.
-            </p>
+            <div class="case-window-frame case-figure-portrait">
+                <div class="case-window-viewport">
+                    <img src="../assets/system_integration/ar-llm-principal.jpg"
+                        alt="RAG-Integrated Multimodal AI Real-Time Virtual Principal Interface"
+                        width="1059" height="1854" loading="lazy">
+                </div>
+            </div>
 
-            <div class="case-meta-grid">
-                <div class="case-meta-item">
-                    <span class="meta-label">Role</span>
-                    <span class="meta-val">Systems Integration Engineer</span>
-                </div>
-                <div class="case-meta-item">
-                    <span class="meta-label">Organization</span>
-                    <span class="meta-val">National Tainan University of the Arts</span>
-                </div>
-                <div class="case-meta-item">
-                    <span class="meta-label">Timeline</span>
-                    <span class="meta-val">Sep 2023 - Jun 2024</span>
-                </div>
-                <div class="case-meta-item">
-                    <span class="meta-label">Key Systems</span>
-                    <span class="meta-val">Local GPU AI, Unity C#, Head Tracking</span>
+            <div class="case-hero-intro">
+                <p class="case-subtitle">
+                    Integrated an end-to-end multimodal AI pipeline (Speech-to-Text, local LLM with RAG, and Text-to-Speech)
+                    into Unity, engineering real-time conversational visual feedback on a single local GPU.
+                </p>
+
+                <div class="case-meta-grid">
+                    <div class="case-meta-item">
+                        <span class="meta-label">Role</span>
+                        <span class="meta-val">Systems Integration Engineer</span>
+                    </div>
+                    <div class="case-meta-item">
+                        <span class="meta-label">Organization</span>
+                        <span class="meta-val">National Tainan University of the Arts</span>
+                    </div>
+                    <div class="case-meta-item">
+                        <span class="meta-label">Timeline</span>
+                        <span class="meta-val">Sep 2023 - Jun 2024</span>
+                    </div>
+                    <div class="case-meta-item">
+                        <span class="meta-label">Key Systems</span>
+                        <span class="meta-val">Local GPU AI, Unity C#, Head Tracking</span>
+                    </div>
                 </div>
             </div>
         </header>
-
-        <div class="case-window-frame case-figure-portrait">
-            <div class="case-window-titlebar">
-                <div class="case-window-dots">
-                    <span class="case-window-dot dot-close"></span>
-                    <span class="case-window-dot dot-min"></span>
-                    <span class="case-window-dot dot-max"></span>
-                </div>
-                <span class="case-window-title">AR Virtual Principal: Multimodal Avatar Interface</span>
-            </div>
-            <div class="case-window-viewport">
-                <img src="../assets/system_integration/ar-llm-principal.jpg"
-                    alt="RAG-Integrated Multimodal AI Real-Time Virtual Principal Interface"
-                    width="1059" height="1854" loading="lazy">
-            </div>
-        </div>
 
         <section class="case-section">
             <h2 class="case-section-title">Context and Problem</h2>
@@ -106,11 +98,7 @@
                         <p class="case-decision-body">External cloud APIs risked campus firewall disruptions and
                             violated strict offline data privacy benchmarks required for university VIP deployments.</p>
                         <span class="case-decision-mark mark-discarded" aria-hidden="true">
-                            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="4"
-                                stroke-linecap="round">
-                                <line x1="11" y1="11" x2="41" y2="41" />
-                                <line x1="11" y1="41" x2="41" y2="11" />
-                            </svg>
+                            <img src="../assets/svg/decision-discarded.svg" alt="" width="52" height="52" loading="lazy">
                         </span>
                     </div>
                     <div class="case-decision-card discarded">
@@ -118,11 +106,7 @@
                         <p class="case-decision-body">Playing repetitive spoken fillers like "Let me think about that"
                             sounded artificial, broke user conversational rhythm, and clashed with spoken answers.</p>
                         <span class="case-decision-mark mark-discarded" aria-hidden="true">
-                            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="4"
-                                stroke-linecap="round">
-                                <line x1="11" y1="11" x2="41" y2="41" />
-                                <line x1="11" y1="41" x2="41" y2="11" />
-                            </svg>
+                            <img src="../assets/svg/decision-discarded.svg" alt="" width="52" height="52" loading="lazy">
                         </span>
                     </div>
                     <div class="case-decision-card chosen">
@@ -131,10 +115,7 @@
                             Unity blendshapes, shifting the avatar into attentive listening and subtle nodding
                             micro-gestures the moment human speech concluded.</p>
                         <span class="case-decision-mark mark-chosen" aria-hidden="true">
-                            <svg viewBox="0 0 62 62" fill="none" stroke="currentColor" stroke-width="4.5"
-                                stroke-linecap="round" stroke-linejoin="miter">
-                                <path d="M16 28 L18 50 L54 10" />
-                            </svg>
+                            <img src="../assets/svg/decision-chosen.svg" alt="" width="64" height="64" loading="lazy">
                         </span>
                     </div>
                 </div>
@@ -144,25 +125,45 @@
         <section class="case-section">
             <h2 class="case-section-title">Deployment Setup and On-Site Debugging</h2>
             <div class="case-body">
-                <figure class="case-figure">
-                    <img src="../assets/system_integration/preparing-multimodal-llm-virtual-principal-setup.jpg"
-                        alt="Preparing the multimodal LLM virtual principal kiosk setup in the university lobby"
-                        width="903" height="675" loading="lazy">
-                    <figcaption>Preparing the kiosk and inference terminal in the university lobby before the showcase</figcaption>
-                </figure>
-                <div class="case-gallery-2col case-gallery-portrait">
-                    <figure class="case-figure">
-                        <img src="../assets/system_integration/virtual-principal-full-setup.jpg"
-                            alt="Full virtual principal kiosk setup with microphone, webcam, and audio mixer during live demo"
-                            width="719" height="956" loading="lazy">
-                        <figcaption>Live demo: full kiosk with microphone, webcam, and audio mixer</figcaption>
-                    </figure>
-                    <figure class="case-figure">
-                        <img src="../assets/system_integration/debugging-interactive-virtual-principal.jpg"
-                            alt="Terminal showing live Whisper ASR inference logs, RAG response text, and TTS error traces during on-site debugging"
-                            width="719" height="955" loading="lazy">
-                        <figcaption>On-site debugging: live inference logs, RAG responses, and TTS error traces</figcaption>
-                    </figure>
+                <p>
+                    Deploying the offline avatar in the open university reception lobby required rapid on-site calibration of physical acoustics, camera angles, and workstation inference telemetry before showcase attendees arrived.
+                </p>
+
+                <div class="vp-album-spread">
+                    <div class="vp-album-grid">
+                        <figure class="vp-album-card vp-album-card-prep">
+                            <div class="vp-photo-frame">
+                                <img src="../assets/system_integration/preparing-multimodal-llm-virtual-principal-setup.jpg"
+                                    alt="Preparing the multimodal LLM virtual principal kiosk setup in the university lobby"
+                                    width="903" height="675" loading="lazy">
+                            </div>
+                            <figcaption class="vp-photo-meta">
+                                <p class="vp-photo-desc">Configuring the terminal workstation and directional audio hardware in the lobby before showcase opening.</p>
+                            </figcaption>
+                        </figure>
+
+                        <figure class="vp-album-card vp-album-card-demo">
+                            <div class="vp-photo-frame">
+                                <img src="../assets/system_integration/virtual-principal-full-setup.jpg"
+                                    alt="Full virtual principal kiosk setup with microphone, webcam, and audio mixer during live demo"
+                                    width="719" height="956" loading="lazy">
+                            </div>
+                            <figcaption class="vp-photo-meta">
+                                <p class="vp-photo-desc">Live demo kiosk featuring the directional microphone, camera head tracking, and dedicated audio mixer.</p>
+                            </figcaption>
+                        </figure>
+
+                        <figure class="vp-album-card vp-album-card-debug">
+                            <div class="vp-photo-frame">
+                                <img src="../assets/system_integration/debugging-interactive-virtual-principal.jpg"
+                                    alt="Terminal showing live Whisper ASR inference logs, RAG response text, and TTS error traces during on-site debugging"
+                                    width="719" height="955" loading="lazy">
+                            </div>
+                            <figcaption class="vp-photo-meta">
+                                <p class="vp-photo-desc">Terminal inspection monitoring live Whisper ASR transcriptions, RAG retrieval context, and TTS error traces.</p>
+                            </figcaption>
+                        </figure>
+                    </div>
                 </div>
             </div>
         </section>
@@ -176,51 +177,83 @@
                     accuracy and latency trade-offs.
                 </p>
 
-                <div class="vp-pipeline-grid">
-                    <div class="vp-pipeline-card">
-                        <div class="vp-step-header">
-                            <span class="vp-step-num">1</span>
-                            <h3 class="vp-step-title">Microphone Audio Input Quality</h3>
-                        </div>
-                        <p class="vp-step-desc">
-                            The kiosk deployed in an open university lobby with ambient crowd noise and echo from marble surfaces. Microphone placement, gain staging, and noise floor directly affected downstream ASR accuracy. We tested different microphone positions and pickup patterns to maximize signal-to-noise ratio at the kiosk.
-                        </p>
+                <div class="pipeline-master-detail">
+                    <!-- Radio controls for CSS-driven tab switching -->
+                    <input type="radio" name="pipeline-tab" id="pipeline-tab-1" class="pipeline-radio" checked>
+                    <input type="radio" name="pipeline-tab" id="pipeline-tab-2" class="pipeline-radio">
+                    <input type="radio" name="pipeline-tab" id="pipeline-tab-3" class="pipeline-radio">
+                    <input type="radio" name="pipeline-tab" id="pipeline-tab-4" class="pipeline-radio">
+                    <input type="radio" name="pipeline-tab" id="pipeline-tab-5" class="pipeline-radio">
+
+                    <!-- Left: Staggered Stack Column -->
+                    <div class="pipeline-stack-column" role="tablist" aria-label="Pipeline Engineering Challenges">
+                        <label for="pipeline-tab-1" class="pipeline-card pipeline-card-1" role="tab" id="tab-audio-input" aria-selected="true" aria-controls="pipeline-panel-1" tabindex="0">
+                            <span class="pipeline-card-kicker">Acoustic Input</span>
+                            <div class="pipeline-card-title">Microphone Audio Input Quality</div>
+                        </label>
+
+                        <label for="pipeline-tab-2" class="pipeline-card pipeline-card-2" role="tab" id="tab-asr-cutoff" aria-selected="false" aria-controls="pipeline-panel-2" tabindex="0">
+                            <span class="pipeline-card-kicker">ASR & Endpoint</span>
+                            <div class="pipeline-card-title">ASR Model Selection & Speech Cutoff</div>
+                        </label>
+
+                        <label for="pipeline-tab-3" class="pipeline-card pipeline-card-3" role="tab" id="tab-rag-threshold" aria-selected="false" aria-controls="pipeline-panel-3" tabindex="0">
+                            <span class="pipeline-card-kicker">Vector Retrieval</span>
+                            <div class="pipeline-card-title">RAG Retrieval & Similarity Threshold</div>
+                        </label>
+
+                        <label for="pipeline-tab-4" class="pipeline-card pipeline-card-4" role="tab" id="tab-latency-profiling" aria-selected="false" aria-controls="pipeline-panel-4" tabindex="0">
+                            <span class="pipeline-card-kicker">Stage Telemetry</span>
+                            <div class="pipeline-card-title">Per-Step Latency Profiling</div>
+                        </label>
+
+                        <label for="pipeline-tab-5" class="pipeline-card pipeline-card-5" role="tab" id="tab-chinese-rendering" aria-selected="false" aria-controls="pipeline-panel-5" tabindex="0">
+                            <span class="pipeline-card-kicker">Host Locale</span>
+                            <div class="pipeline-card-title">Traditional Chinese Rendering</div>
+                        </label>
                     </div>
-                    <div class="vp-pipeline-card">
-                        <div class="vp-step-header">
-                            <span class="vp-step-num">2</span>
-                            <h3 class="vp-step-title">ASR Model Selection and Speech Cutoff Timing</h3>
+
+                    <!-- Right: Borderless Panel -->
+                    <div class="pipeline-detail-column">
+                        <!-- Panel 1: Microphone Audio Input Quality -->
+                        <div class="pipeline-panel pipeline-panel-1" id="pipeline-panel-1" role="tabpanel" aria-labelledby="tab-audio-input">
+                            <h3 class="pipeline-panel-title">Microphone Audio Input Quality</h3>
+                            <p class="pipeline-panel-desc">
+                                The kiosk deployed in an open university lobby with ambient crowd noise and echo from marble surfaces. Microphone placement, gain staging, and noise floor directly affected downstream ASR accuracy. We tested different microphone positions and pickup patterns to maximize signal-to-noise ratio at the kiosk.
+                            </p>
                         </div>
-                        <p class="vp-step-desc">
-                            We evaluated multiple ASR models for Mandarin accuracy on consumer-grade audio input. The final choice was Whisper medium, balancing transcription quality against inference speed on local GPU. A critical sub-problem was speech endpoint detection: when to cut off the audio stream and send the transcript forward. If the cutoff triggered too early, the sentence was incomplete and the LLM received a fragment. If it waited too long, it added unnecessary latency to every turn. We tuned the energy threshold and silence duration to find the minimum reliable pause.
-                        </p>
-                    </div>
-                    <div class="vp-pipeline-card">
-                        <div class="vp-step-header">
-                            <span class="vp-step-num">3</span>
-                            <h3 class="vp-step-title">RAG Retrieval and Similarity Threshold Tuning</h3>
+
+                        <!-- Panel 2: ASR Model Selection and Speech Cutoff Timing -->
+                        <div class="pipeline-panel pipeline-panel-2" id="pipeline-panel-2" role="tabpanel" aria-labelledby="tab-asr-cutoff">
+                            <h3 class="pipeline-panel-title">ASR Model Selection and Speech Cutoff Timing</h3>
+                            <p class="pipeline-panel-desc">
+                                We evaluated multiple ASR models for Mandarin accuracy on consumer-grade audio input. The final choice was Whisper medium, balancing transcription quality against inference speed on local GPU. A critical sub-problem was speech endpoint detection: when to cut off the audio stream and send the transcript forward. If the cutoff triggered too early, the sentence was incomplete and the LLM received a fragment. If it waited too long, it added unnecessary latency to every turn. We tuned the energy threshold and silence duration to find the minimum reliable pause.
+                            </p>
                         </div>
-                        <p class="vp-step-desc">
-                            Teachers from different departments provided question-and-answer pairs as the knowledge base. I worked with the engineering team from Taipei to build the RAG system using RAGFlow with the bge-m3 vector embedding model. We tested the cosine similarity filter threshold extensively. The sweet spot was 0.3: setting the threshold too low increased hallucination because irrelevant passages passed through to the LLM context. Setting it too high filtered out genuinely useful content and returned no matches, leaving the LLM without grounding.
-                        </p>
-                    </div>
-                    <div class="vp-pipeline-card">
-                        <div class="vp-step-header">
-                            <span class="vp-step-num">4</span>
-                            <h3 class="vp-step-title">Per-Step Latency Profiling</h3>
+
+                        <!-- Panel 3: RAG Retrieval and Similarity Threshold Tuning -->
+                        <div class="pipeline-panel pipeline-panel-3" id="pipeline-panel-3" role="tabpanel" aria-labelledby="tab-rag-threshold">
+                            <h3 class="pipeline-panel-title">RAG Retrieval and Similarity Threshold Tuning</h3>
+                            <p class="pipeline-panel-desc">
+                                Teachers from different departments provided question-and-answer pairs as the knowledge base. I worked with the engineering team from Taipei to build the RAG system using RAGFlow with the bge-m3 vector embedding model. We tested the cosine similarity filter threshold extensively. The sweet spot was 0.3: setting the threshold too low increased hallucination because irrelevant passages passed through to the LLM context. Setting it too high filtered out genuinely useful content and returned no matches, leaving the LLM without grounding.
+                            </p>
                         </div>
-                        <p class="vp-step-desc">
-                            To reduce end-to-end latency, we profiled every stage independently: microphone input to Whisper ASR, ASR output to the bge-m3 embedding model, vector search and reranking, LLM generation, and Fish-Speech TTS synthesis. Each stage had its own compute cost and queuing overhead. Reducing total turn time required identifying which stages dominated the budget and whether any could overlap or stream.
-                        </p>
-                    </div>
-                    <div class="vp-pipeline-card">
-                        <div class="vp-step-header">
-                            <span class="vp-step-num">5</span>
-                            <h3 class="vp-step-title">Traditional Chinese Rendering</h3>
+
+                        <!-- Panel 4: Per-Step Latency Profiling -->
+                        <div class="pipeline-panel pipeline-panel-4" id="pipeline-panel-4" role="tabpanel" aria-labelledby="tab-latency-profiling">
+                            <h3 class="pipeline-panel-title">Per-Step Latency Profiling</h3>
+                            <p class="pipeline-panel-desc">
+                                To reduce end-to-end latency, we profiled every stage independently: microphone input to Whisper ASR, ASR output to the bge-m3 embedding model, vector search and reranking, LLM generation, and Fish-Speech TTS synthesis. Each stage had its own compute cost and queuing overhead. Reducing total turn time required identifying which stages dominated the budget and whether any could overlap or stream.
+                            </p>
                         </div>
-                        <p class="vp-step-desc">
-                            The deployment workstation ran Windows with Traditional Chinese locale (cp950/Big5). Third-party model outputs and library strings sometimes contained Simplified Chinese characters that could not be encoded by the system console, causing crashes in the TTS module. We traced each encoding error to its source and ensured all user-facing text rendered in Traditional Chinese.
-                        </p>
+
+                        <!-- Panel 5: Traditional Chinese Rendering -->
+                        <div class="pipeline-panel pipeline-panel-5" id="pipeline-panel-5" role="tabpanel" aria-labelledby="tab-chinese-rendering">
+                            <h3 class="pipeline-panel-title">Traditional Chinese Rendering</h3>
+                            <p class="pipeline-panel-desc">
+                                The deployment workstation ran Windows with Traditional Chinese locale (cp950/Big5). Third-party model outputs and library strings sometimes contained Simplified Chinese characters that could not be encoded by the system console, causing crashes in the TTS module. We traced each encoding error to its source and ensured all user-facing text rendered in Traditional Chinese.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -234,32 +267,31 @@
                     hardware:
                 </p>
 
-                <div class="vp-state-grid">
-                    <div class="vp-state-card">
-                        <span class="vp-state-kicker">Latency Bridging</span>
-                        <h3 class="vp-state-title">Conversational State Feedback</h3>
-                        <p class="vp-state-desc">
+                <div class="vp-quad-grid">
+                    <div class="vp-quad-cell vp-cell-feedback">
+                        <h3 class="vp-cell-title">Conversational State Feedback</h3>
+                        <p class="vp-cell-desc">
                             Integrated real-time audio energy detectors that identified the exact millisecond user speech finished. The avatar immediately transitioned into attentive listening and nodding micro-gestures, giving users instant visual confirmation that their query was being processed.
                         </p>
                     </div>
-                    <div class="vp-state-card">
-                        <span class="vp-state-kicker">Affective Expression</span>
-                        <h3 class="vp-state-title">Sentiment-Driven Facial Blendshapes</h3>
-                        <p class="vp-state-desc">
+
+                    <div class="vp-quad-cell vp-cell-sentiment">
+                        <h3 class="vp-cell-title">Sentiment-Driven Facial Blendshapes</h3>
+                        <p class="vp-cell-desc">
                             Connected backend LLM sentiment metadata to facial blendshapes in Unity, allowing the avatar to adopt appropriate emotional expressions as speech audio began streaming.
                         </p>
                     </div>
-                    <div class="vp-state-card">
-                        <span class="vp-state-kicker">Spatial Presence</span>
-                        <h3 class="vp-state-title">Camera Head Tracking</h3>
-                        <p class="vp-state-desc">
+
+                    <div class="vp-quad-cell vp-cell-tracking">
+                        <h3 class="vp-cell-title">Camera Head Tracking</h3>
+                        <p class="vp-cell-desc">
                             Implemented vision-based head tracking to maintain continuous, natural eye contact as visitors moved physically in front of the display.
                         </p>
                     </div>
-                    <div class="vp-state-card">
-                        <span class="vp-state-kicker">Cross-Process Telemetry</span>
-                        <h3 class="vp-state-title">Packet Synchronization</h3>
-                        <p class="vp-state-desc">
+
+                    <div class="vp-quad-cell vp-cell-sync">
+                        <h3 class="vp-cell-title">Packet Synchronization</h3>
+                        <p class="vp-cell-desc">
                             Aligned audio chunk and viseme packet sequencing between local Python inference processes and the Unity C# rendering engine, eliminating lip-sync drift during multi-turn interactions.
                         </p>
                     </div>
@@ -290,10 +322,10 @@
                         </p>
                     </div>
                     <div class="vp-tech-card">
-                        <span class="vp-tech-kicker">Reasoning Engine</span>
-                        <h3 class="vp-tech-name">Local Language Model Generation</h3>
+                        <span class="vp-tech-kicker">LLM Engine</span>
+                        <h3 class="vp-tech-name">Llama 3 8B with Ollama</h3>
                         <p class="vp-tech-detail">
-                            On-device LLM reasoning engine responding to visitor queries without external cloud API dependencies or recurring operational bandwidth costs.
+                            On-device Llama 3 8B model served via Ollama, generating contextual responses to visitor queries without external cloud API dependencies or recurring operational bandwidth costs.
                         </p>
                     </div>
                     <div class="vp-tech-card">
