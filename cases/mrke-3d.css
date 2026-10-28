@@ -197,3 +197,273 @@
     }
 }
 
+/* ==========================================================================
+   Studio Whiteboard & Mind-Map Research Visualizations (Sections 1 and 2)
+   Framed dot-grid ivory board with hand-drawn SVG bezier connectors
+   ========================================================================== */
+
+.mrke-whiteboard {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: 1.75rem 0 0.5rem;
+    padding: 1.6rem;
+    background-color: var(--bg-panel);
+    background-image: radial-gradient(#d3d1c9 1.1px, transparent 1.1px);
+    background-size: 20px 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    box-shadow: 0 8px 24px -10px rgba(28, 28, 30, 0.07);
+}
+
+/* Shared Whiteboard Cards */
+.mrke-wb-node {
+    min-width: 0;
+    background: var(--bg-card);
+    border: 1.5px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem 1.1rem;
+    position: relative;
+}
+
+.mrke-wb-node-anchor {
+    border-color: var(--text-primary);
+    box-shadow: 3px 3px 0 0 rgba(28, 28, 30, 0.08);
+}
+
+.mrke-wb-node-bottleneck {
+    border-color: var(--accent-amber);
+    box-shadow: 3px 3px 0 0 rgba(230, 92, 0, 0.09);
+}
+
+/* Color Wash Variants: Lightweight Yellow, Red, Blue matching warm palette */
+.mrke-node-yellow {
+    background: #fdfaf0;
+    border-color: #ebdca4;
+}
+
+.mrke-node-yellow .mrke-wb-num {
+    color: #8f6800;
+}
+
+.mrke-node-red {
+    background: #fdf5f3;
+    border-color: #f0ccc5;
+}
+
+.mrke-node-red .mrke-wb-num {
+    color: #ab3a2a;
+}
+
+.mrke-node-blue {
+    background: #f2f7fb;
+    border-color: #c4dcee;
+}
+
+.mrke-node-blue .mrke-wb-num {
+    color: #246399;
+}
+
+.mrke-node-blue.mrke-synthesis-card {
+    border-color: #accfe8;
+    box-shadow: 3px 3px 0 0 rgba(36, 99, 153, 0.08);
+}
+
+.mrke-wb-node-title {
+    font-family: var(--font-sans);
+    font-size: 0.98rem;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: var(--text-primary);
+    margin: 0 0 0.35rem;
+}
+
+.mrke-node-points {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin-top: 0.35rem;
+}
+
+.mrke-whiteboard .mrke-wb-node-desc {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    letter-spacing: 0.005em;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.mrke-wb-num {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    flex-shrink: 0;
+}
+
+/* Section 1: Causal Root-Cause Mind Map */
+.mrke-causal-grid {
+    display: grid;
+    grid-template-columns: minmax(164px, 0.92fr) 44px minmax(232px, 1.35fr) 44px minmax(172px, 0.98fr);
+    align-items: center;
+}
+
+.mrke-wb-branch-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+.mrke-wb-branch-head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.45rem;
+    margin-bottom: 0.25rem;
+}
+
+.mrke-wb-branch-title {
+    font-family: var(--font-sans);
+    font-size: 0.92rem;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.mrke-wb-underline {
+    display: block;
+    width: 128px;
+    height: 9px;
+    margin-top: 0.55rem;
+    color: var(--accent-amber);
+}
+
+/* Hand-Drawn SVG Connectors */
+.mrke-wb-conn-desktop {
+    align-self: stretch;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    color: var(--text-primary);
+}
+
+.mrke-wb-conn-desktop svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    display: block;
+}
+
+.mrke-wb-conn-mobile {
+    display: none;
+    color: var(--text-primary);
+}
+
+.mrke-wb-arrow-amber {
+    stroke: var(--accent-amber);
+}
+
+/* Section 2: Age 6 to 70 Spectrum & Affinity Convergence Map */
+.mrke-spectrum-strip {
+    margin-bottom: 1.25rem;
+}
+
+.mrke-spectrum-endpoints {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.3rem;
+}
+
+.mrke-spectrum-mid {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #5c5c62;
+}
+
+.mrke-spectrum-line {
+    width: 100%;
+    height: 15px;
+    display: block;
+    color: var(--text-primary);
+    overflow: visible;
+}
+
+.mrke-affinity-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.18fr) 52px minmax(0, 0.92fr);
+    align-items: center;
+}
+
+.mrke-affinity-clusters {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.mrke-synthesis-card {
+    padding: 1.2rem 1.25rem;
+}
+
+.mrke-mandate-list {
+    margin-top: 0.85rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+}
+
+.mrke-mandate-item {
+    display: flex;
+    align-items: baseline;
+    gap: 0.55rem;
+    font-size: 0.84rem;
+    line-height: 1.45;
+    color: var(--text-secondary);
+}
+
+/* Responsive Mind-Map Reflow */
+@media (max-width: 860px) {
+    .mrke-whiteboard {
+        padding: 1.35rem 1.15rem;
+    }
+
+    .mrke-causal-grid,
+    .mrke-affinity-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0.25rem;
+    }
+
+    .mrke-wb-conn-desktop {
+        display: none;
+    }
+
+    .mrke-wb-conn-mobile {
+        display: flex;
+        justify-content: center;
+        padding: 0.1rem 0;
+    }
+
+    .mrke-wb-conn-mobile svg {
+        width: 40px;
+        height: 30px;
+        display: block;
+        overflow: visible;
+    }
+}
+
+@media (max-width: 560px) {
+    .mrke-spectrum-mid {
+        display: none;
+    }
+}
+

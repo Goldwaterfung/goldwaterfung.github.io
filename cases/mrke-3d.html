@@ -73,11 +73,94 @@
             <h2 class="case-section-title">Problem Discovery: Why 2D Catalog Photos Broke 4-Minute Salon Turnarounds</h2>
             <div class="case-body">
                 <p>
-                    MRKE operated as a physical fast-turnaround haircut business serving a community of 10 residential blocks. As co-founder, I formulated service pricing, evaluated unit economics, and established our speed-to-quality benchmarks. Our business model depended on delivering reliable haircut quality within short customer turnaround windows.
+                    MRKE operated as a physical fast-turnaround haircut business serving 10 residential blocks. As co-founder, I formulated service pricing, evaluated unit economics, and set speed-to-quality benchmarks built around short chair cycles. Direct shop floor observation traced our recurring consultation bottleneck to static 2D catalog photos:
                 </p>
-                <p>
-                    Extensive on-site floor observation revealed a continuous operational bottleneck: flat 2D catalog photos caused severe visual ambiguity. Customers struggled to picture how a flat haircut photo would translate to their personal head shape, layering, and neckline tapers. Initial consultations dragged to 4 to 6 minutes of hesitant back-and-forth, creating customer anxiety and breaking our fast-turnaround targets.
-                </p>
+
+                <figure class="mrke-whiteboard" aria-label="Causal root-cause map showing how flat 2D catalog photos created spatial blind spots and 4 to 6 minute consultation overruns">
+                    <div class="mrke-causal-grid">
+                        <!-- Origin Artifact -->
+                        <div class="mrke-wb-node mrke-wb-node-anchor">
+                            <h3 class="mrke-wb-node-title">Flat 2D Photo</h3>
+                            <p class="mrke-wb-node-desc">
+                                Static single angle with zero depth or back-of-head reference.
+                            </p>
+                        </div>
+
+                        <!-- Desktop Diverging Hand-Drawn SVG Connectors -->
+                        <div class="mrke-wb-conn-desktop" aria-hidden="true">
+                            <svg viewBox="0 0 44 260" preserveAspectRatio="none" fill="none">
+                                <path d="M 3 130 C 22 130, 20 42, 42 42" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+                                <path d="M 3 130 C 17 129, 28 131, 42 130" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+                                <path d="M 3 130 C 22 130, 20 218, 42 218" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+                                <circle cx="3.5" cy="130" r="2.8" fill="currentColor"/>
+                            </svg>
+                        </div>
+
+                        <!-- Mobile Diverging Hand-Drawn SVG Connector -->
+                        <div class="mrke-wb-conn-mobile" aria-hidden="true">
+                            <svg viewBox="0 0 40 32" fill="none">
+                                <path d="M 20 2 C 19.2 11, 20.8 19, 20 28" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                                <path d="M 14.5 22.5 L 20 29.5 L 25.5 22.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+
+                        <!-- 3 Spatial Blind Spots -->
+                        <div class="mrke-wb-branch-stack">
+                            <div class="mrke-wb-node mrke-node-yellow">
+                                <div class="mrke-wb-branch-head">
+                                    <span class="mrke-wb-num">1</span>
+                                    <h3 class="mrke-wb-branch-title">Head Shape</h3>
+                                </div>
+                                <p class="mrke-wb-node-desc">Cannot picture how a photo wraps personal skull proportions.</p>
+                            </div>
+
+                            <div class="mrke-wb-node mrke-node-red">
+                                <div class="mrke-wb-branch-head">
+                                    <span class="mrke-wb-num">2</span>
+                                    <h3 class="mrke-wb-branch-title">Crown Volume</h3>
+                                </div>
+                                <p class="mrke-wb-node-desc">Flat lighting hides silhouette height and layering depth.</p>
+                            </div>
+
+                            <div class="mrke-wb-node mrke-node-blue">
+                                <div class="mrke-wb-branch-head">
+                                    <span class="mrke-wb-num">3</span>
+                                    <h3 class="mrke-wb-branch-title">Neckline Taper</h3>
+                                </div>
+                                <p class="mrke-wb-node-desc">Rear fade gradients remain invisible from the front.</p>
+                            </div>
+                        </div>
+
+                        <!-- Desktop Converging Hand-Drawn SVG Connectors -->
+                        <div class="mrke-wb-conn-desktop" aria-hidden="true">
+                            <svg viewBox="0 0 44 260" preserveAspectRatio="none" fill="none">
+                                <path d="M 2 42 C 24 42, 22 130, 39 130" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+                                <path d="M 2 130 C 16 131, 26 129, 39 130" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+                                <path d="M 2 218 C 24 218, 22 130, 39 130" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+                                <path d="M 33 124 L 41 130 L 33 136" class="mrke-wb-arrow-amber" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+                            </svg>
+                        </div>
+
+                        <!-- Mobile Converging Hand-Drawn SVG Connector -->
+                        <div class="mrke-wb-conn-mobile" aria-hidden="true">
+                            <svg viewBox="0 0 40 32" fill="none">
+                                <path d="M 20 2 C 20.8 11, 19.2 19, 20 28" class="mrke-wb-arrow-amber" stroke-width="1.8" stroke-linecap="round"/>
+                                <path d="M 14.5 22.5 L 20 29.5 L 25.5 22.5" class="mrke-wb-arrow-amber" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+
+                        <!-- Operational Breakdown Node -->
+                        <div class="mrke-wb-node mrke-wb-node-bottleneck">
+                            <h3 class="mrke-wb-node-title">4 to 6 Min Hesitation</h3>
+                            <p class="mrke-wb-node-desc">
+                                Anxious verbal guesswork stalls chair turnaround.
+                            </p>
+                            <svg class="mrke-wb-underline" viewBox="0 0 160 10" fill="none" aria-hidden="true">
+                                <path d="M 2 6.5 C 52 2.5, 112 8.5, 158 4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                </figure>
             </div>
         </section>
 
@@ -85,11 +168,87 @@
             <h2 class="case-section-title">User Research: What Customers Aged 6 to 70 Needed to Communicate</h2>
             <div class="case-body">
                 <p>
-                    Through direct floor observation, I discovered that the shop served a wide cross-generational customer base ranging from 6-year-old children to 70-year-old elderly residents. Children aged 6 to 12 and teenagers were eager digital adopters who lacked specialized styling terminology to communicate layering and volume, while senior customers up to age 70 needed high-contrast visuals without complex menus or small text.
+                    Floor observation across our neighborhood clientele revealed a cross-generational span from 6-year-old children to 70-year-old seniors. Mapping both groups side by side showed that opposite age extremes converged on the same interface need:
                 </p>
-                <p>
-                    This insight proved that consultation friction was an interaction and communication problem across age groups, requiring a minimal-text visual interface that any customer could operate immediately without reading barriers.
-                </p>
+
+                <figure class="mrke-whiteboard" aria-label="Affinity convergence mind map showing how children aged 6 to 12 and seniors up to age 70 converged on a zero-reading 360 visual interface">
+                    <!-- Hand-Sketched Age Spectrum Axis -->
+                    <div class="mrke-spectrum-strip">
+                        <div class="mrke-spectrum-endpoints">
+                            <span>Age 6: Children and Teens</span>
+                            <span class="mrke-spectrum-mid">Observed Salon Spectrum</span>
+                            <span>Age 70: Senior Residents</span>
+                        </div>
+                        <svg class="mrke-spectrum-line" viewBox="0 0 640 16" fill="none" aria-hidden="true">
+                            <path d="M 3 8 C 205 6, 435 10, 637 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                            <path d="M 3 2.5 L 3 13.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                            <path d="M 637 2.5 L 637 13.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                            <path d="M 320 4.5 L 320 11.5" stroke="#c5c3ba" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+
+                    <!-- Affinity Clusters Converging on UX Synthesis -->
+                    <div class="mrke-affinity-grid">
+                        <div class="mrke-affinity-clusters">
+                            <!-- Cluster 1: Youth -->
+                            <div class="mrke-wb-node mrke-node-yellow">
+                                <h3 class="mrke-wb-node-title">Children and Teens, Age 6 to 12+</h3>
+                                <div class="mrke-node-points">
+                                    <p class="mrke-wb-node-desc">Fluent with touchscreens, but lack styling vocabulary.</p>
+                                    <p class="mrke-wb-node-desc">Struggle to request volume, layering, or fade tapers verbally.</p>
+                                </div>
+                            </div>
+
+                            <!-- Cluster 2: Seniors -->
+                            <div class="mrke-wb-node mrke-node-red">
+                                <h3 class="mrke-wb-node-title">Senior Residents, Up to Age 70</h3>
+                                <div class="mrke-node-points">
+                                    <p class="mrke-wb-node-desc">Need immediate visual clarity over menu navigation.</p>
+                                    <p class="mrke-wb-node-desc">Small text labels and nested options cause hesitation.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Desktop Convergence Bracket -->
+                        <div class="mrke-wb-conn-desktop" aria-hidden="true">
+                            <svg viewBox="0 0 52 260" preserveAspectRatio="none" fill="none">
+                                <path d="M 2 65 C 28 65, 24 130, 46 130" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+                                <path d="M 2 195 C 28 195, 24 130, 46 130" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+                                <path d="M 39 123.5 L 48 130 L 39 136.5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+                            </svg>
+                        </div>
+
+                        <!-- Mobile Convergence Bracket -->
+                        <div class="mrke-wb-conn-mobile" aria-hidden="true">
+                            <svg viewBox="0 0 40 32" fill="none">
+                                <path d="M 20 2 C 19.2 11, 20.8 19, 20 28" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                                <path d="M 14.5 22.5 L 20 29.5 L 25.5 22.5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+
+                        <!-- Convergent Design Mandate -->
+                        <div class="mrke-wb-node mrke-node-blue mrke-synthesis-card">
+                            <h3 class="mrke-wb-node-title">Zero-Reading Interface</h3>
+                            <p class="mrke-wb-node-desc">
+                                Consultation friction was a communication barrier, not customer indecision.
+                            </p>
+                            <div class="mrke-mandate-list">
+                                <div class="mrke-mandate-item">
+                                    <span class="mrke-wb-num">1</span>
+                                    <span><strong>Minimal Text:</strong> Zero styling terminology across screens.</span>
+                                </div>
+                                <div class="mrke-mandate-item">
+                                    <span class="mrke-wb-num">2</span>
+                                    <span><strong>High-Contrast Portraits:</strong> Single-tap category entry.</span>
+                                </div>
+                                <div class="mrke-mandate-item">
+                                    <span class="mrke-wb-num">3</span>
+                                    <span><strong>Direct 360 Orbit:</strong> Point and rotate angles directly.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </figure>
             </div>
         </section>
 
@@ -104,39 +263,28 @@
                         <div class="case-decision-title">Granular Parametric Sliders</div>
                         <p class="case-decision-body">Detailed length, volume, and fade sliders caused analysis paralysis for customers, frustrated stylists under a 30-second rush-hour target, and doubled consultation duration.</p>
                         <span class="case-decision-mark mark-discarded" aria-hidden="true">
-                            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round">
-                                <path d="M14 13 C18.5 20, 31 32.5, 39 39"/>
-                                <path d="M38 14 C32 21.5, 21 31.5, 13 38"/>
-                            </svg>
+                            <img src="../assets/svg/decision-discarded.svg" alt="" width="52" height="52" loading="lazy">
                         </span>
                     </div>
                     <div class="case-decision-card discarded">
                         <div class="case-decision-title">Cloud-Rendered WebGL</div>
                         <p class="case-decision-body">Budget station Android tablets faced strict GPU thermal limits and periodic network latency. Streaming models via WebGL risked frame drops and store service interruption.</p>
                         <span class="case-decision-mark mark-discarded" aria-hidden="true">
-                            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round">
-                                <path d="M13 14 C19 21, 30 32, 40 38"/>
-                                <path d="M39 13 C33 22, 20 31, 14 39"/>
-                            </svg>
+                            <img src="../assets/svg/decision-discarded.svg" alt="" width="52" height="52" loading="lazy">
                         </span>
                     </div>
                     <div class="case-decision-card discarded">
                         <div class="case-decision-title">Printed Lookbooks</div>
                         <p class="case-decision-body">Static multi-angle printouts could not provide continuous 360-degree rotation, and updating seasonal haircuts incurred high recurring printing costs.</p>
                         <span class="case-decision-mark mark-discarded" aria-hidden="true">
-                            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round">
-                                <path d="M15 13 C18 19, 32 33, 38 40"/>
-                                <path d="M37 15 C31 21, 22 32, 13 37"/>
-                            </svg>
+                            <img src="../assets/svg/decision-discarded.svg" alt="" width="52" height="52" loading="lazy">
                         </span>
                     </div>
                     <div class="case-decision-card chosen">
                         <div class="case-decision-title">Lightweight 360 Preset Viewer</div>
                         <p class="case-decision-body">Built a responsive Unity C# engine running locally on Android tablets with instant touch rotation, curated preset categories, and full-screen standing stylist touch ergonomics.</p>
                         <span class="case-decision-mark mark-chosen" aria-hidden="true">
-                            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M15 32 C17.5 37.5, 21.5 45, 26 48.5 C32 44, 42.5 28, 52 14"/>
-                            </svg>
+                            <img src="../assets/svg/decision-chosen.svg" alt="" width="64" height="64" loading="lazy">
                         </span>
                     </div>
                 </div>

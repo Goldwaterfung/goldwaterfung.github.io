@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="../assets/fonts/fonts.css">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="case.css">
+    <link rel="stylesheet" href="virtual-principal.css">
 </head>
 
 <body class="case-page">
@@ -175,46 +176,53 @@
                     accuracy and latency trade-offs.
                 </p>
 
-                <ul>
-                    <li>
-                        <strong>Microphone Audio Input Quality:</strong> The kiosk deployed in an open university lobby
-                        with ambient crowd noise and echo from marble surfaces. Microphone placement, gain staging,
-                        and noise floor directly affected downstream ASR accuracy. We tested different microphone
-                        positions and pickup patterns to maximize signal-to-noise ratio at the kiosk.
-                    </li>
-                    <li>
-                        <strong>ASR Model Selection and Speech Cutoff Timing:</strong> We evaluated multiple ASR models
-                        for Mandarin accuracy on consumer-grade audio input. The final choice was Whisper medium,
-                        balancing transcription quality against inference speed on local GPU. A critical sub-problem was
-                        speech endpoint detection: when to cut off the audio stream and send the transcript forward. If
-                        the cutoff triggered too early, the sentence was incomplete and the LLM received a fragment. If
-                        it waited too long, it added unnecessary latency to every turn. We tuned the energy threshold and
-                        silence duration to find the minimum reliable pause.
-                    </li>
-                    <li>
-                        <strong>RAG Retrieval and Similarity Threshold Tuning:</strong> Teachers from different
-                        departments provided question-and-answer pairs as the knowledge base. I worked with the
-                        engineering team from Taipei to build the RAG system using RAGFlow with the bge-m3 vector
-                        embedding model. We tested the cosine similarity filter threshold extensively. The sweet spot
-                        was 0.3: setting the threshold too low increased hallucination because irrelevant passages
-                        passed through to the LLM context. Setting it too high filtered out genuinely useful content
-                        and returned no matches, leaving the LLM without grounding.
-                    </li>
-                    <li>
-                        <strong>Per-Step Latency Profiling:</strong> To reduce end-to-end latency, we profiled every
-                        stage independently: microphone input to Whisper ASR, ASR output to the bge-m3 embedding model,
-                        vector search and reranking, LLM generation, and Fish-Speech TTS synthesis. Each stage had its
-                        own compute cost and queuing overhead. Reducing total turn time required identifying which stages
-                        dominated the budget and whether any could overlap or stream.
-                    </li>
-                    <li>
-                        <strong>Traditional Chinese Rendering:</strong> The deployment workstation ran Windows with
-                        Traditional Chinese locale (cp950/Big5). Third-party model outputs and library strings sometimes
-                        contained Simplified Chinese characters that could not be encoded by the system console, causing
-                        crashes in the TTS module. We traced each encoding error to its source and ensured all
-                        user-facing text rendered in Traditional Chinese.
-                    </li>
-                </ul>
+                <div class="vp-pipeline-grid">
+                    <div class="vp-pipeline-card">
+                        <div class="vp-step-header">
+                            <span class="vp-step-num">1</span>
+                            <h3 class="vp-step-title">Microphone Audio Input Quality</h3>
+                        </div>
+                        <p class="vp-step-desc">
+                            The kiosk deployed in an open university lobby with ambient crowd noise and echo from marble surfaces. Microphone placement, gain staging, and noise floor directly affected downstream ASR accuracy. We tested different microphone positions and pickup patterns to maximize signal-to-noise ratio at the kiosk.
+                        </p>
+                    </div>
+                    <div class="vp-pipeline-card">
+                        <div class="vp-step-header">
+                            <span class="vp-step-num">2</span>
+                            <h3 class="vp-step-title">ASR Model Selection and Speech Cutoff Timing</h3>
+                        </div>
+                        <p class="vp-step-desc">
+                            We evaluated multiple ASR models for Mandarin accuracy on consumer-grade audio input. The final choice was Whisper medium, balancing transcription quality against inference speed on local GPU. A critical sub-problem was speech endpoint detection: when to cut off the audio stream and send the transcript forward. If the cutoff triggered too early, the sentence was incomplete and the LLM received a fragment. If it waited too long, it added unnecessary latency to every turn. We tuned the energy threshold and silence duration to find the minimum reliable pause.
+                        </p>
+                    </div>
+                    <div class="vp-pipeline-card">
+                        <div class="vp-step-header">
+                            <span class="vp-step-num">3</span>
+                            <h3 class="vp-step-title">RAG Retrieval and Similarity Threshold Tuning</h3>
+                        </div>
+                        <p class="vp-step-desc">
+                            Teachers from different departments provided question-and-answer pairs as the knowledge base. I worked with the engineering team from Taipei to build the RAG system using RAGFlow with the bge-m3 vector embedding model. We tested the cosine similarity filter threshold extensively. The sweet spot was 0.3: setting the threshold too low increased hallucination because irrelevant passages passed through to the LLM context. Setting it too high filtered out genuinely useful content and returned no matches, leaving the LLM without grounding.
+                        </p>
+                    </div>
+                    <div class="vp-pipeline-card">
+                        <div class="vp-step-header">
+                            <span class="vp-step-num">4</span>
+                            <h3 class="vp-step-title">Per-Step Latency Profiling</h3>
+                        </div>
+                        <p class="vp-step-desc">
+                            To reduce end-to-end latency, we profiled every stage independently: microphone input to Whisper ASR, ASR output to the bge-m3 embedding model, vector search and reranking, LLM generation, and Fish-Speech TTS synthesis. Each stage had its own compute cost and queuing overhead. Reducing total turn time required identifying which stages dominated the budget and whether any could overlap or stream.
+                        </p>
+                    </div>
+                    <div class="vp-pipeline-card">
+                        <div class="vp-step-header">
+                            <span class="vp-step-num">5</span>
+                            <h3 class="vp-step-title">Traditional Chinese Rendering</h3>
+                        </div>
+                        <p class="vp-step-desc">
+                            The deployment workstation ran Windows with Traditional Chinese locale (cp950/Big5). Third-party model outputs and library strings sometimes contained Simplified Chinese characters that could not be encoded by the system console, causing crashes in the TTS module. We traced each encoding error to its source and ensured all user-facing text rendered in Traditional Chinese.
+                        </p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -225,28 +233,37 @@
                     I engineered the systems integration bridge in Unity to handle the inference gap without additional
                     hardware:
                 </p>
-                <ul>
-                    <li>
-                        <strong>Conversational State Feedback:</strong> Integrated real-time audio energy detectors that
-                        identified the exact millisecond user speech finished. The avatar immediately transitioned into
-                        attentive listening and nodding micro-gestures, giving users instant visual confirmation that
-                        their query was being processed.
-                    </li>
-                    <li>
-                        <strong>Sentiment-Driven Facial Blendshapes:</strong> Connected backend LLM sentiment metadata
-                        to facial blendshapes in Unity, allowing the avatar to adopt appropriate emotional expressions
-                        as speech audio began streaming.
-                    </li>
-                    <li>
-                        <strong>Camera Head Tracking:</strong> Implemented vision-based head tracking to maintain
-                        continuous, natural eye contact as visitors moved physically in front of the display.
-                    </li>
-                    <li>
-                        <strong>Packet Synchronization:</strong> Aligned audio chunk and viseme packet sequencing
-                        between local Python inference processes and the Unity C# rendering engine, eliminating lip-sync
-                        drift during multi-turn interactions.
-                    </li>
-                </ul>
+
+                <div class="vp-state-grid">
+                    <div class="vp-state-card">
+                        <span class="vp-state-kicker">Latency Bridging</span>
+                        <h3 class="vp-state-title">Conversational State Feedback</h3>
+                        <p class="vp-state-desc">
+                            Integrated real-time audio energy detectors that identified the exact millisecond user speech finished. The avatar immediately transitioned into attentive listening and nodding micro-gestures, giving users instant visual confirmation that their query was being processed.
+                        </p>
+                    </div>
+                    <div class="vp-state-card">
+                        <span class="vp-state-kicker">Affective Expression</span>
+                        <h3 class="vp-state-title">Sentiment-Driven Facial Blendshapes</h3>
+                        <p class="vp-state-desc">
+                            Connected backend LLM sentiment metadata to facial blendshapes in Unity, allowing the avatar to adopt appropriate emotional expressions as speech audio began streaming.
+                        </p>
+                    </div>
+                    <div class="vp-state-card">
+                        <span class="vp-state-kicker">Spatial Presence</span>
+                        <h3 class="vp-state-title">Camera Head Tracking</h3>
+                        <p class="vp-state-desc">
+                            Implemented vision-based head tracking to maintain continuous, natural eye contact as visitors moved physically in front of the display.
+                        </p>
+                    </div>
+                    <div class="vp-state-card">
+                        <span class="vp-state-kicker">Cross-Process Telemetry</span>
+                        <h3 class="vp-state-title">Packet Synchronization</h3>
+                        <p class="vp-state-desc">
+                            Aligned audio chunk and viseme packet sequencing between local Python inference processes and the Unity C# rendering engine, eliminating lip-sync drift during multi-turn interactions.
+                        </p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -256,26 +273,51 @@
                 <p>
                     The offline multimodal interactive avatar operated on a single local GPU workstation with end-to-end hardware-software coordination:
                 </p>
-                <ul>
-                    <li>
-                        <strong>Speech Recognition (Whisper medium):</strong> Local Whisper ASR model calibrated with custom energy thresholds and silence windows to balance transcription accuracy in reverberant acoustic environments against GPU inference speed.
-                    </li>
-                    <li>
-                        <strong>Knowledge Retrieval and Vector Storage (RAGFlow with bge-m3):</strong> Institutional knowledge base chunked and indexed via bge-m3 embeddings, running cosine similarity vector matching with an empirical 0.3 threshold to prevent hallucinations.
-                    </li>
-                    <li>
-                        <strong>Local Language Model Generation:</strong> On-device LLM reasoning engine responding to visitor queries without external cloud API dependencies or recurring operational bandwidth costs.
-                    </li>
-                    <li>
-                        <strong>Speech Synthesis (Fish-Speech TTS):</strong> High-fidelity voice synthesis generating natural Chinese audio payloads coupled with phoneme-level timing visemes.
-                    </li>
-                    <li>
-                        <strong>Client Application and 3D Avatar (Unity C#):</strong> 3D avatar rendering engine with camera-based head tracking, facial blendshape synchronization, and an event-driven state machine driving instant listening and nodding gestures.
-                    </li>
-                    <li>
-                        <strong>Host Environment and Locale Pipeline:</strong> Windows workstation with a dedicated 24GB GPU, configured with Python string encoding filters to prevent cp950 Big5 character set crashes.
-                    </li>
-                </ul>
+
+                <div class="vp-tech-grid">
+                    <div class="vp-tech-card">
+                        <span class="vp-tech-kicker">Speech Recognition</span>
+                        <h3 class="vp-tech-name">Whisper medium</h3>
+                        <p class="vp-tech-detail">
+                            Local Whisper ASR model calibrated with custom energy thresholds and silence windows to balance transcription accuracy in reverberant acoustic environments against GPU inference speed.
+                        </p>
+                    </div>
+                    <div class="vp-tech-card">
+                        <span class="vp-tech-kicker">Knowledge Retrieval</span>
+                        <h3 class="vp-tech-name">RAGFlow with bge-m3</h3>
+                        <p class="vp-tech-detail">
+                            Institutional knowledge base chunked and indexed via bge-m3 embeddings, running cosine similarity vector matching with an empirical 0.3 threshold to prevent hallucinations.
+                        </p>
+                    </div>
+                    <div class="vp-tech-card">
+                        <span class="vp-tech-kicker">Reasoning Engine</span>
+                        <h3 class="vp-tech-name">Local Language Model Generation</h3>
+                        <p class="vp-tech-detail">
+                            On-device LLM reasoning engine responding to visitor queries without external cloud API dependencies or recurring operational bandwidth costs.
+                        </p>
+                    </div>
+                    <div class="vp-tech-card">
+                        <span class="vp-tech-kicker">Speech Synthesis</span>
+                        <h3 class="vp-tech-name">Fish-Speech TTS</h3>
+                        <p class="vp-tech-detail">
+                            High-fidelity voice synthesis generating natural Chinese audio payloads coupled with phoneme-level timing visemes.
+                        </p>
+                    </div>
+                    <div class="vp-tech-card">
+                        <span class="vp-tech-kicker">Client Application</span>
+                        <h3 class="vp-tech-name">Unity C# 3D Avatar</h3>
+                        <p class="vp-tech-detail">
+                            3D avatar rendering engine with camera-based head tracking, facial blendshape synchronization, and an event-driven state machine driving instant listening and nodding gestures.
+                        </p>
+                    </div>
+                    <div class="vp-tech-card">
+                        <span class="vp-tech-kicker">Host Environment</span>
+                        <h3 class="vp-tech-name">Dedicated 24GB GPU & Locale Pipeline</h3>
+                        <p class="vp-tech-detail">
+                            Windows workstation with a dedicated 24GB GPU, configured with Python string encoding filters to prevent cp950 Big5 character set crashes.
+                        </p>
+                    </div>
+                </div>
             </div>
         </section>
 

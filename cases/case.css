@@ -314,11 +314,6 @@
     margin: 0;
 }
 
-.case-gallery-portrait {
-    max-width: 580px;
-    margin-left: auto;
-    margin-right: auto;
-}
 
 /* External Resource Action Links */
 .case-action-links {
@@ -811,9 +806,11 @@
     color: var(--text-primary);
 }
 
-.case-decision-mark.mark-discarded svg {
+.case-decision-mark.mark-discarded svg,
+.case-decision-mark.mark-discarded img {
     width: 100%;
     height: 100%;
+    display: block;
 }
 
 .case-decision-mark.mark-chosen {
@@ -824,9 +821,11 @@
     color: var(--text-primary);
 }
 
-.case-decision-mark.mark-chosen svg {
+.case-decision-mark.mark-chosen svg,
+.case-decision-mark.mark-chosen img {
     width: 100%;
     height: 100%;
+    display: block;
 }
 
 @media (max-width: 640px) {
@@ -883,9 +882,6 @@
     }
     .case-meta-grid {
         grid-template-columns: 1fr 1fr;
-    }
-    .case-gallery-portrait {
-        max-width: 320px;
     }
     .case-footer-nav-inner {
         flex-direction: column;

@@ -85,27 +85,27 @@
 
                 <div class="case-framework-list">
                     <div class="case-framework-row">
-                        <div class="case-framework-pill">History Taking</div>
+                        <div class="case-framework-step"><span class="framework-step-num">1</span>History Taking</div>
                         <div class="case-framework-content">Students question the AI avatar to explore symptom timelines and build initial diagnostic hypotheses.</div>
                     </div>
 
                     <div class="case-framework-row">
-                        <div class="case-framework-pill">Tool Activation</div>
+                        <div class="case-framework-step"><span class="framework-step-num">2</span>Tool Activation</div>
                         <div class="case-framework-content">Students equip hands-on clinical tools like virtual penlights or toggle patient attire to expose diagnostic anatomy.</div>
                     </div>
 
                     <div class="case-framework-row">
-                        <div class="case-framework-pill">Spatial Orbit</div>
+                        <div class="case-framework-step"><span class="framework-step-num">3</span>Spatial Orbit</div>
                         <div class="case-framework-content">Students rotate the 3D camera across anterior and lateral angles to inspect physical cues that test the narrative.</div>
                     </div>
 
-                    <div class="case-framework-row">
-                        <div class="case-framework-pill">The UX Breakdown</div>
+                    <div class="case-framework-row framework-breakdown">
+                        <div class="case-framework-step"><span class="framework-step-num">4</span>The UX Breakdown</div>
                         <div class="case-framework-content">Avatars rendered flat skins and straight spines, hiding the required clinical evidence documented in the database.</div>
                     </div>
 
-                    <div class="case-framework-row">
-                        <div class="case-framework-pill">Student Failure</div>
+                    <div class="case-framework-row framework-failure">
+                        <div class="case-framework-step"><span class="framework-step-num">5</span>Student Failure</div>
                         <div class="case-framework-content">Students followed proper clinical logic but received failing grades because visual signs were absent.</div>
                     </div>
                 </div>
@@ -181,40 +181,40 @@
                 </p>
 
                 <div class="case-flow-grid case-flow-grid-6">
-                    <div class="case-flow-card">
+                    <div class="case-flow-card flow-node-yellow">
                         <span class="case-flow-num">1</span>
                         <h3 class="case-flow-title">User Research</h3>
-                        <p class="case-flow-desc">Interviewed students and professors to catalog exam confusion.</p>
+                        <p class="case-flow-desc">Missing visual signs misled students despite correct clinical logic.</p>
                     </div>
 
-                    <div class="case-flow-card">
+                    <div class="case-flow-card flow-node-yellow">
                         <span class="case-flow-num">2</span>
                         <h3 class="case-flow-title">Case Playthroughs</h3>
-                        <p class="case-flow-desc">Completed every simulation firsthand to map friction points.</p>
+                        <p class="case-flow-desc">Camera orbits and inspection tools yielded zero symptom visualization.</p>
                     </div>
 
-                    <div class="case-flow-card">
+                    <div class="case-flow-card flow-node-blue">
                         <span class="case-flow-num">3</span>
                         <h3 class="case-flow-title">Storyboarding</h3>
-                        <p class="case-flow-desc">Mapped required visual signs on whiteboard consultation storyboards.</p>
+                        <p class="case-flow-desc">Diagnostic defects clustered into three distinct 3D technical layers.</p>
                     </div>
 
-                    <div class="case-flow-card">
+                    <div class="case-flow-card flow-node-blue">
                         <span class="case-flow-num">4</span>
                         <h3 class="case-flow-title">Gap Analysis</h3>
-                        <p class="case-flow-desc">Contrasted current visual flaws against clinical criteria.</p>
+                        <p class="case-flow-desc">Misdiagnoses stemmed from data discrepancies rather than polygon counts.</p>
                     </div>
 
-                    <div class="case-flow-card">
+                    <div class="case-flow-card flow-node-red">
                         <span class="case-flow-num">5</span>
                         <h3 class="case-flow-title">Targeted 3D Fixes</h3>
-                        <p class="case-flow-desc">Remediated textures, facial blendshapes, and rigs in Blender and Unity.</p>
+                        <p class="case-flow-desc">Targeted asset repairs restored symptoms while preserving 60 FPS.</p>
                     </div>
 
-                    <div class="case-flow-card">
+                    <div class="case-flow-card flow-node-red">
                         <span class="case-flow-num">6</span>
                         <h3 class="case-flow-title">Collaborative Reviews</h3>
-                        <p class="case-flow-desc">Refined assets through weekly cycles with the doctor and engineer.</p>
+                        <p class="case-flow-desc">Cross-validation matrix aligned clinical criteria with engineering fixes.</p>
                     </div>
                 </div>
             </div>
@@ -380,7 +380,7 @@
                                 <td>Battered Child Syndrome: 2 facial bruises, 3x4x3 cm thoracic contusion, occipital hematoma</td>
                                 <td>Parent narrative attributes visible injuries to single minor household fall</td>
                                 <td>Default uniform skin shader with zero contusions or color staging</td>
-                                <td><span class="status-defect">Surface Texture and Albedo</span></td>
+                                <td><span class="status-defect status-defect-albedo">Surface Texture and Albedo</span></td>
                                 <td>Students failed to suspect non-accidental trauma, misdiagnosing as minor accidental fall</td>
                             </tr>
                             <tr>
@@ -388,7 +388,7 @@
                                 <td>Cushing's Disease: Moon face with facial plethora, central adiposity, wide purple abdominal striae</td>
                                 <td>Patient reports progressive weight gain and easy bruising despite normal diet</td>
                                 <td>Generic stocky male avatar wearing jeans with flat facial contours</td>
-                                <td><span class="status-defect">Mesh Morphology and Blendshapes</span></td>
+                                <td><span class="status-defect status-defect-morphology">Mesh Morphology and Blendshapes</span></td>
                                 <td>Students misdiagnosed as simple exogenous obesity, omitting endocrine workup</td>
                             </tr>
                             <tr>
@@ -396,7 +396,7 @@
                                 <td>Severe Osteoporosis: Thoracic kyphosis and Dowager's hump from vertebral compression fractures</td>
                                 <td>Patient describes chronic upper back dull ache and gradual loss of standing height</td>
                                 <td>Flat thoracic spine with isolated forward neck flexion</td>
-                                <td><span class="status-defect">Skeletal Armature and Rigging</span></td>
+                                <td><span class="status-defect status-defect-armature">Skeletal Armature and Rigging</span></td>
                                 <td>Students misdiagnosed as cervical muscle strain, omitting DEXA scan and spine imaging</td>
                             </tr>
                         </tbody>
@@ -436,7 +436,7 @@
                             <strong>Unified Human Asset Topology:</strong> Standardized base mesh topologies and skeletal armatures across all 50 cases for consistent performance.
                         </div>
                     </div>
-                    <div class="case-hairline-item">
+                    <div class="case-hairline-item case-hairline-target">
                         <span class="case-hairline-num">4</span>
                         <div class="case-hairline-text">
                             <strong>Hardware Target:</strong> Maintained smooth, locked 60 FPS on legacy GTX 1060 GPUs with zero thermal throttling in student computer labs.
@@ -450,7 +450,7 @@
         <section class="case-section">
             <h2 class="case-section-title">Measurable Impact: What Changed Across 50 Virtual Patient Simulations</h2>
             <div class="case-body">
-                <div class="case-callout">
+                <div class="case-callout case-callout-roadmap">
                     <div class="case-callout-title">Strategic Roadmap Shift</div>
                     <p class="case-callout-text">
                         Roadmap priorities shifted decisively away from cosmetic 3D redesigns toward foundational audiovisual synchronization and symptom schema alignment. Diagnostic confusion was resolved at the root data layer.
