@@ -93,7 +93,7 @@
 
 .vp-album-card {
     margin: 0;
-    background: #ffffff;
+    background: var(--bg-card);
     padding: 10px 10px 14px 10px;
     border-radius: 6px;
     border: 1px solid rgba(0, 0, 0, 0.08);
@@ -194,7 +194,7 @@
     flex-direction: column;
     gap: 0.35rem;
     padding: 0.95rem 1.1rem;
-    background: var(--bg-card);
+    background: transparent;
     border: 1px solid var(--border-color);
     border-radius: 8px;
     cursor: pointer;

@@ -244,7 +244,7 @@
 
 /* Callout Box (Clean border-left, zero slop) */
 .case-callout {
-    background-color: var(--bg-card);
+    background-color: var(--bg-panel);
     border: 1px solid var(--border-color);
     border-left: 3px solid var(--text-primary);
     border-radius: 4px;
