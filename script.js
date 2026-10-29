@@ -539,35 +539,66 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ----------------------------------------------------
-    // 7. Calm Scroll Entrance Reveals
+    // 7. Mandatory Tagline Reveal Section Controller (Rule B11)
+    // ----------------------------------------------------
+    const taglineSection = document.querySelector('.tagline-reveal-section');
+    const taglineWords = document.querySelectorAll('.tagline-text span');
+
+    if (taglineSection && taglineWords.length > 0) {
+        let isTaglineTicking = false;
+
+        function updateTaglineProgress() {
+            const rect = taglineSection.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+
+            // Trigger activation as section traverses viewport
+            const triggerStart = windowHeight * 0.85;
+            const triggerEnd = windowHeight * 0.25;
+            const progress = Math.min(Math.max((triggerStart - rect.top) / (triggerStart - triggerEnd), 0), 1);
+            const activeThreshold = Math.floor(progress * taglineWords.length);
+
+            taglineWords.forEach((word, index) => {
+                word.classList.toggle('is-active', index <= activeThreshold);
+            });
+
+            isTaglineTicking = false;
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!isTaglineTicking) {
+                window.requestAnimationFrame(updateTaglineProgress);
+                isTaglineTicking = true;
+            }
+        }, { passive: true });
+
+        updateTaglineProgress();
+    }
+
+    // ----------------------------------------------------
+    // 7b. Calm Scroll Entrance Reveals (Rule B7)
     // ----------------------------------------------------
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (!prefersReducedMotion && 'IntersectionObserver' in window) {
-        const projectRows = document.querySelectorAll('.flat-project-grid .flat-project-row');
-        projectRows.forEach((row, idx) => {
-            row.style.setProperty('--row-index', idx);
-        });
-
         const revealTargets = document.querySelectorAll(
-            '#projects .section-meta, .flat-project-row, .timeline-row, .contact-link-item'
+            '.flagship-row, .section-header, .track-record-item'
         );
 
         const revealObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
+                    entry.target.classList.add('is-revealed');
                     observer.unobserve(entry.target);
                 }
             });
         }, {
             root: null,
-            rootMargin: '0px 0px -20px 0px',
-            threshold: 0.01
+            rootMargin: '0px 0px -40px 0px',
+            threshold: 0.08
         });
 
         revealTargets.forEach(el => {
-            el.classList.add('reveal-item');
+            el.classList.add('scroll-reveal-target');
             revealObserver.observe(el);
         });
     }

@@ -7,10 +7,20 @@
     <meta name="referrer" content="no-referrer">
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' data: blob:; connect-src 'self' blob: data:; worker-src 'self' blob:; object-src 'none'; base-uri 'self'">
-    <title>Kim Fung Portfolio</title>
+    <title>Kim Fung | Craft and Systems Discipline</title>
+    <meta name="description"
+        content="Portfolio of Kim Fung. Building software where craft meets systems discipline, guided by empirical research, real world constraints, and continuous care.">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 
-    <!-- Self-hosted fonts: no third-party requests (privacy + no CDN dependency) -->
-    <link rel="preload" href="assets/fonts/vendor/opensans-latin.woff2" as="font" type="font/woff2" crossorigin
+    <!-- Social Graph Metadata -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Kim Fung | Craft and Systems Discipline">
+    <meta property="og:description"
+        content="Building software where craft meets systems discipline, guided by empirical research, real world constraints, and continuous care.">
+    <meta property="og:image" content="assets/research/experiment.jpg">
+
+    <!-- Self-hosted fonts: Manrope and Geist Mono (privacy + no CDN dependency) -->
+    <link rel="preload" href="assets/fonts/vendor/manrope-latin-600.woff2" as="font" type="font/woff2" crossorigin
         fetchpriority="high">
     <link rel="stylesheet" href="assets/fonts/fonts.css">
 
@@ -19,8 +29,6 @@
     <link rel="preload" href="assets/fonts/open-sans-bold.ttf" as="font" type="font/ttf" crossorigin
         fetchpriority="high">
 
-    <!-- Icons are inline SVG (no icon CDN) -->
-
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="cases/case.css">
@@ -28,7 +36,9 @@
 
 <body>
 
-    <!-- Sticky Navigation Header -->
+    <a href="#main-content" class="skip-to-content">Skip to content</a>
+
+    <!-- Floating Navigation Header -->
     <header class="header">
         <div class="nav-container">
             <a href="#hero" class="logo">
@@ -36,9 +46,9 @@
             </a>
 
             <nav class="nav-menu" id="nav-menu">
-                <a href="#showcases" class="nav-link">My Works</a>
-                <a href="#research" class="nav-link">Research & Spatial</a>
-                <a href="#track-record" class="nav-link">Track Record</a>
+                <a href="#showcases" class="nav-link">My works</a>
+                <a href="#research" class="nav-link">Research and spatial</a>
+                <a href="#track-record" class="nav-link">Track record</a>
                 <a href="#contact" class="nav-link nav-btn">Contact</a>
             </nav>
 
@@ -50,21 +60,31 @@
         </div>
     </header>
 
-    <main>
+    <main id="main-content">
         <!-- Hero Section (Above the Fold) -->
         <section id="hero" class="hero-section">
             <div class="hero-container hero-grid">
                 <div class="hero-text-col">
+                    <div class="hero-identity">
+                        <span class="hero-identity-label">Portfolio of</span>
+                        <span class="hero-title-fallback">Kim Fung</span>
+                        <span class="hero-title-3d-container" id="hero-title-3d" aria-label="Kim Fung"
+                            aria-hidden="true"></span>
+                    </div>
+
                     <h1 class="hero-title">
-                        I am <span class="hero-title-fallback">Kim Fung.</span><span class="hero-title-3d-container"
-                            id="hero-title-3d" aria-label="Kim Fung" aria-hidden="true"></span>
+                        Building software where craft meets systems discipline
                     </h1>
 
-                    <h2 class="hero-subtitle">
-                        I design and develop <strong>Real-Time Interactive Systems</strong>, <strong>Multimodal AI
-                            Pipelines</strong>, and <strong>Runtime-Optimized 3D Applications</strong>. Grounded in
-                        systems engineering, low-latency interaction, and full-lifecycle product delivery.
-                    </h2>
+                    <p class="hero-subtitle">
+                        Software should respect human attention and stay dependable under real constraints.
+                        Grounded in hands on observation, empirical research, and long term care.
+                    </p>
+
+                    <div class="hero-cta-group">
+                        <a href="#showcases" class="btn btn-primary">Explore case studies</a>
+                        <a href="#track-record" class="hero-secondary-link">Review track record</a>
+                    </div>
                 </div>
 
                 <div class="hero-canvas-col">
@@ -74,22 +94,36 @@
             </div>
         </section>
 
-        <!-- Section: My Works -->
-        <section id="showcases" class="showcases-section" aria-label="My Works">
+        <!-- Mandatory Tagline Reveal Section (B11) -->
+        <section class="tagline-reveal-section" aria-label="Core philosophy">
+            <div class="container">
+                <h2 class="tagline-text" id="tagline-reveal-text">
+                    <span>Software</span> <span>value</span> <span>begins</span> <span>when</span>
+                    <span>real</span> <span>people</span> <span>touch</span> <span>it.</span>
+                    <span>Listening</span> <span>to</span> <span>friction,</span> <span>respecting</span>
+                    <span>constraints,</span> <span>and</span> <span>refining</span> <span>until</span>
+                    <span>every</span> <span>detail</span> <span>holds</span> <span>up.</span>
+                </h2>
+            </div>
+        </section>
+
+        <!-- Section: My works -->
+        <section id="showcases" class="showcases-section" aria-label="My works">
             <div id="experience" style="position: absolute; top: 0; left: 0;" aria-hidden="true"></div>
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">My Works</h2>
+                    <h2 class="section-title">My works</h2>
                 </div>
 
                 <div class="flagship-showcases">
                     <!-- Row 1: text left, image right -->
                     <article class="flagship-row">
                         <div class="flagship-text">
-                            <span class="flagship-kicker">MRKE Ltd. · In-House 360 Hairstyle Viewer</span>
-                            <h3 class="flagship-row-title"><a href="cases/mrke-3d.html">In-house 360 hairstyle viewer application cutting
-                                    consultation ambiguity 35%</a></h3>
-                            <a href="cases/mrke-3d.html" class="flagship-link">Explore Case Study</a>
+                            <span class="flagship-kicker">MRKE Ltd. · In house 360 hairstyle viewer</span>
+                            <h3 class="flagship-row-title"><a href="cases/mrke-3d.html">In house 360 hairstyle viewer
+                                    application cutting
+                                    consultation ambiguity 35 percent</a></h3>
+                            <a href="cases/mrke-3d.html" class="flagship-link">Explore case study</a>
                         </div>
                         <div class="flagship-phone-col">
                             <a href="cases/mrke-3d.html" aria-label="Explore MRKE 3D hairstyle viewer case study"
@@ -97,11 +131,10 @@
                                 <div class="phone-mockup">
                                     <div class="phone-speaker" aria-hidden="true"></div>
                                     <div class="phone-screen">
-                                        <video id="mrke-showcase-video"
-                                            poster="assets/hair_app/hair_app_poster.jpg"
-                                            data-src="assets/hair_app/hair_app_display2.mp4"
-                                            muted loop playsinline preload="none" disablepictureinpicture
-                                            aria-label="Screen recording of the 360-degree 3D hairstyle viewer application">
+                                        <video id="mrke-showcase-video" poster="assets/hair_app/hair_app_poster.jpg"
+                                            data-src="assets/hair_app/hair_app_display2.mp4" muted loop playsinline
+                                            preload="none" disablepictureinpicture
+                                            aria-label="Screen recording of the 360 degree 3D hairstyle viewer application">
                                             Sorry, your browser does not support embedded videos.
                                         </video>
                                         <div class="phone-glare" aria-hidden="true"></div>
@@ -121,20 +154,20 @@
                             </a>
                         </figure>
                         <div class="flagship-text">
-                            <span class="flagship-kicker">TNNUA · Local Multimodal AI</span>
+                            <span class="flagship-kicker">TNNUA · Local multimodal AI</span>
                             <h3 class="flagship-row-title"><a href="cases/virtual-principal.html">Offline multimodal AI
-                                    pipeline with real-time conversational feedback</a></h3>
-                            <a href="cases/virtual-principal.html" class="flagship-link">Explore Case Study</a>
+                                    pipeline with real time conversational feedback</a></h3>
+                            <a href="cases/virtual-principal.html" class="flagship-link">Explore case study</a>
                         </div>
                     </article>
 
                     <!-- Row 3: text left, image right -->
                     <article class="flagship-row">
                         <div class="flagship-text">
-                            <span class="flagship-kicker">IEEE ICVR 2026 · VR Perception Research</span>
+                            <span class="flagship-kicker">IEEE ICVR 2026 · VR perception research</span>
                             <h3 class="flagship-row-title"><a href="cases/ieee-vr-conflict.html">Measured how vision
                                     hijacks hearing in VR under sustained spatial audio conflict</a></h3>
-                            <a href="cases/ieee-vr-conflict.html" class="flagship-link">Explore Research Paper</a>
+                            <a href="cases/ieee-vr-conflict.html" class="flagship-link">Explore research paper</a>
                         </div>
                         <figure class="flagship-media">
                             <a href="cases/ieee-vr-conflict.html" aria-label="Explore IEEE ICVR research paper">
@@ -156,20 +189,20 @@
                             </a>
                         </figure>
                         <div class="flagship-text">
-                            <span class="flagship-kicker">Innova Medical · 3D Clinical UX</span>
+                            <span class="flagship-kicker">Innova Medical · 3D clinical UX</span>
                             <h3 class="flagship-row-title"><a href="cases/innova-medical.html">Synchronized 3D avatars
                                     with clinical ground truth across 50 cases</a></h3>
-                            <a href="cases/innova-medical.html" class="flagship-link">Explore Case Study</a>
+                            <a href="cases/innova-medical.html" class="flagship-link">Explore case study</a>
                         </div>
                     </article>
 
                     <!-- Row 5: text left, image right -->
                     <article class="flagship-row">
                         <div class="flagship-text">
-                            <span class="flagship-kicker">TNNUA · Low-Latency Telemetry Streaming</span>
+                            <span class="flagship-kicker">TNNUA · Low latency telemetry streaming</span>
                             <h3 class="flagship-row-title"><a href="cases/live-concert-sync.html">Streamed synchronized
                                     AI motion capture and live audio across two simultaneous venues</a></h3>
-                            <a href="cases/live-concert-sync.html" class="flagship-link">Explore Case Study</a>
+                            <a href="cases/live-concert-sync.html" class="flagship-link">Explore case study</a>
                         </div>
                         <figure class="flagship-media">
                             <a href="cases/live-concert-sync.html" aria-label="Explore live concert sync case study">
@@ -194,20 +227,21 @@
                             </a>
                         </figure>
                         <div class="flagship-text">
-                            <span class="flagship-kicker">Stratawright · Agentic Audio Workstation</span>
-                            <h3 class="flagship-row-title"><a href="cases/stratawright.html">A DAW that autonomous
+                            <span class="flagship-kicker">Stratawright · Agentic audio workstation</span>
+                            <h3 class="flagship-row-title"><a href="cases/stratawright.html">A digital audio workstation
+                                    that autonomous
                                     coding agents operate via CLI</a></h3>
-                            <a href="cases/stratawright.html" class="flagship-link">Explore Case Study</a>
+                            <a href="cases/stratawright.html" class="flagship-link">Explore case study</a>
                         </div>
                     </article>
 
                     <!-- Row 7: text left, image right -->
                     <article class="flagship-row">
                         <div class="flagship-text">
-                            <span class="flagship-kicker">CollarAgent · Visual Research Studio</span>
+                            <span class="flagship-kicker">CollarAgent · Visual research studio</span>
                             <h3 class="flagship-row-title"><a href="cases/collaragent.html">An infinite canvas workspace
-                                    where autonomous agents co-work on research</a></h3>
-                            <a href="cases/collaragent.html" class="flagship-link">Explore Case Study</a>
+                                    where autonomous agents co work on research</a></h3>
+                            <a href="cases/collaragent.html" class="flagship-link">Explore case study</a>
                         </div>
                         <figure class="flagship-media">
                             <a href="cases/collaragent.html"
@@ -222,14 +256,14 @@
             </div>
         </section>
 
-        <!-- Section: Empirical Research & Spatial Computing -->
-        <section id="research" class="research-section" aria-label="Empirical Research and Spatial Computing">
+        <!-- Section: Empirical Research and Spatial Computing -->
+        <section id="research" class="research-section" aria-label="Empirical research and spatial computing">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Empirical Research & Spatial Computing</h2>
+                    <h2 class="section-title">Empirical research and spatial computing</h2>
                     <p class="section-intro">
-                        Peer-reviewed Virtual Reality research on audio-visual sensory conflict published at IEEE ICVR
-                        2026, paired with real-time 3D Gaussian Splatting scene reconstruction in Three.js.
+                        Peer reviewed Virtual Reality research on audio visual sensory conflict published at IEEE ICVR
+                        2026, paired with real time 3D Gaussian Splatting scene reconstruction in Three.js.
                     </p>
                 </div>
             </div>
@@ -263,7 +297,7 @@
 
                     <div class="immersive-hud-top">
                         <span class="immersive-kicker" id="immersive-kicker">Familiarization</span>
-                        <h2 class="immersive-title" id="immersive-title">1. Hear the Space</h2>
+                        <h2 class="immersive-title" id="immersive-title">1. Hear the space</h2>
                     </div>
 
                     <span class="immersive-counter" id="immersive-counter">1 / 3</span>
@@ -301,13 +335,13 @@
                     <div class="immersive-hud-bottom">
                         <div class="immersive-desc-wrap">
                             <p class="immersive-desc active" data-chapter-desc="0">Animal calls around you in
-                                third-order Ambisonics, calibrating your ears before the task.</p>
-                            <p class="immersive-desc" data-chapter-desc="1">Visual cues aligned with sound vs. all-dark
-                                silence, the two baselines (6.90° vs. 9.62°).</p>
+                                third order Ambisonics, calibrating your ears before the task.</p>
+                            <p class="immersive-desc" data-chapter-desc="1">Visual cues aligned with sound vs all dark
+                                silence, the two baselines (6.90° vs 9.62°).</p>
                             <p class="immersive-desc" data-chapter-desc="2">Visible decoy, hidden source 60 to 65° away,
                                 where vision hijacks hearing (60.35°, VBI 0.738).</p>
                         </div>
-                        <a href="cases/ieee-vr-conflict.html" class="immersive-case-link">Read Full Research Paper</a>
+                        <a href="cases/ieee-vr-conflict.html" class="immersive-case-link">Read full research paper</a>
                     </div>
                 </div>
             </div>
@@ -326,8 +360,8 @@
                     <div class="immersive-shade" aria-hidden="true"></div>
 
                     <div class="immersive-hud-top">
-                        <span class="immersive-kicker">Gaussian Splatting · WebGL Performance</span>
-                        <h2 class="immersive-title">Furnish Your 3D Room</h2>
+                        <span class="immersive-kicker">Gaussian Splatting · WebGL performance</span>
+                        <h2 class="immersive-title">Furnish your 3D room</h2>
                     </div>
 
                     <div class="immersive-center" id="splat-center">
@@ -348,23 +382,23 @@
                     <div class="immersive-hud-bottom">
                         <div class="immersive-desc-wrap">
                             <p class="immersive-desc active">A scanned interior rendered in Three.js at 1.57M
-                                Gaussian splats, optimized for mobile WebGL memory budgets with real-time spatial
+                                Gaussian splats, optimized for mobile WebGL memory budgets with real time spatial
                                 transform gizmos.</p>
                         </div>
                         <div class="splat-hud-actions">
-                            <a href="splat-viewer.html" class="splat-cta-primary">Enter the 3D Room</a>
-                            <a href="cases/splat-room-editor.html" class="immersive-case-link">Read the Build Story</a>
+                            <a href="splat-viewer.html" class="splat-cta-primary">Enter the 3D room</a>
+                            <a href="cases/splat-room-editor.html" class="immersive-case-link">Read the build story</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section: Professional Track Record -->
-        <section id="track-record" class="track-record-section" aria-label="Professional Track Record">
+        <!-- Section: Professional track record -->
+        <section id="track-record" class="track-record-section" aria-label="Professional track record">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Professional Track Record</h2>
+                    <h2 class="section-title">Professional track record</h2>
                 </div>
 
                 <div class="track-record-list">
@@ -372,14 +406,16 @@
                     <article class="track-record-item">
                         <div class="track-record-content">
                             <div class="track-record-header">
-                                <h3 class="track-record-role">Co-Founder & Product Developer</h3>
+                                <h3 class="track-record-role">Co-Founder & Software Developer (Interactive Systems)</h3>
                                 <div class="track-record-org">MRKE Ltd.</div>
                             </div>
                             <p class="track-record-desc">
-                                Operated a fast-turnaround haircut business while building and continuously maintaining
-                                an in-house Unity C# 360 hairstyle viewer application, establishing daily frontline
-                                tracking logs and Google Cloud Storage OTA streaming to deploy updates with zero tablet
-                                downtime, cutting customer consultation ambiguity by 35 percent.
+                                Mapped customer journeys and wireframes in Figma, then built and maintained an in house
+                                Unity C# 360 hairstyle viewer application on shop floor tablets. Analyzed daily stylist
+                                logs
+                                to discard complex sliders for damp friendly touch targets and streamed OTA assets via
+                                Google
+                                Cloud Storage, cutting consultation ambiguity by 35 percent.
                             </p>
                         </div>
                     </article>
@@ -392,10 +428,10 @@
                                 <div class="track-record-org">National Tainan University of the Arts</div>
                             </div>
                             <p class="track-record-desc">
-                                Engineered local GPU multimodal AI pipelines (Speech-to-Text, LLM with RAG,
-                                Text-to-Speech) with real-time conversational state feedback, and developed an MQTT
-                                telemetry pipeline in Unity to synchronize live performance audio and motion capture,
-                                calibrated through continuous rehearsal trials against network jitter.
+                                Integrated local GPU multimodal AI pipelines (Speech-to-Text, LLM with RAG,
+                                Text-to-Speech) into Unity for interactive 3D avatars, designing real time visual
+                                listening states and synchronizing live performance telemetry to eliminate visual drift
+                                during multi turn interactions.
                             </p>
                         </div>
                     </article>
@@ -408,9 +444,10 @@
                                 <div class="track-record-org">Innova Medical Technology</div>
                             </div>
                             <p class="track-record-desc">
-                                Audited 50 clinical simulation cases combining LLM dialogue with 3D virtual patients,
-                                collaborating with the engineer and medical expert across iterative schema reviews to
-                                resolve diagnostic discrepancies while preserving 60 FPS on legacy GTX 1060 GPUs.
+                                Audited 50 clinical simulation cases combining conversational LLM dialogue with 3D
+                                virtual patients. Cross validated symptom schemas against doctor consultation flows
+                                and refined 3D assets in Blender and Unity, avoiding a 6 to 8 week shader overhaul while
+                                safeguarding 60 FPS on legacy GTX 1060 GPUs.
                             </p>
                         </div>
                     </article>
@@ -424,23 +461,26 @@
     <footer id="contact" class="footer">
         <div class="container">
             <div class="footer-box">
-                <h2 class="footer-title">Say hello</h2>
+                <h2 class="footer-title">Let us build thoughtful software together</h2>
                 <p class="footer-desc">
-                    Open to engineering roles and technical collaborations with client facing experience.
+                    Always open to conversations about product craft, ambitious ideas, and engineering under real
+                    constraints. Feel free to reach out anytime.
                 </p>
                 <div class="footer-cta-buttons">
-                    <a href="https://github.com/Goldwaterfung/" target="_blank" rel="noopener" class="btn btn-light">
+                    <a href="mailto:kim.kamkiu.fung@gmail.com" class="btn btn-primary">Start a conversation</a>
+                    <a href="https://github.com/Goldwaterfung/" target="_blank" rel="noopener" class="flagship-link">
                         <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M8 8 L4 12 L8 16 M16 8 L20 12 L16 16 M13.5 5 L10.5 19" fill="none"
                                 stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
                                 stroke-linejoin="round" />
-                        </svg> GitHub Profile
+                        </svg> GitHub profile
                     </a>
                 </div>
                 <p class="footer-email">kim.kamkiu.fung@gmail.com</p>
                 <div class="footer-bottom-line">
-                    <span class="footer-brand">© 2026 Kim Fung. All rights reserved.</span>
-                    <div class="footer-social-links">
+                    <span class="footer-brand">2026 Kim Fung. All rights reserved.</span>
+                    <div class="footer-legal-links">
+                        <a href="cases/mrke-3d.html">Case studies</a>
                         <a href="https://github.com/Goldwaterfung/" target="_blank" rel="noopener">GitHub</a>
                     </div>
                 </div>
@@ -454,12 +494,12 @@
         <div class="case-modal-panel" role="dialog" aria-modal="true" aria-label="Case Study">
             <header class="case-modal-header">
                 <div class="case-modal-header-inner">
-                    <button type="button" class="case-modal-back-btn" data-case-close aria-label="Back to My Works">
+                    <button type="button" class="case-modal-back-btn" data-case-close aria-label="Back to my works">
                         <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M15 5 L8 12 L15 19" fill="none" stroke="currentColor" stroke-width="2.2"
                                 stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
-                        <span>Back to My Works</span>
+                        <span>Back to my works</span>
                     </button>
                     <button type="button" class="case-modal-close-btn" data-case-close aria-label="Close case study">
                         <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
