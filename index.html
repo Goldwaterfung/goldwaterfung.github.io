@@ -31,8 +31,6 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="cases/case.css">
-    <link rel="stylesheet" href="assets/case-flow.css">
 </head>
 
 <body>
@@ -487,35 +485,7 @@
         </div>
     </footer>
 
-    <!-- Immersive Case Study Modal -->
-    <div id="case-study-modal" class="case-modal" hidden aria-hidden="true">
-        <div class="case-modal-backdrop" data-case-close></div>
-        <div class="case-modal-panel" role="dialog" aria-modal="true" aria-label="Case Study">
-            <header class="case-modal-header">
-                <div class="case-modal-header-inner">
-                    <button type="button" class="case-modal-back-btn" data-case-close aria-label="Back to my works">
-                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M15 5 L8 12 L15 19" fill="none" stroke="currentColor" stroke-width="2.2"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                        <span>Back to my works</span>
-                    </button>
-                    <button type="button" class="case-modal-close-btn" data-case-close aria-label="Close case study">
-                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M6 6 L18 18 M6 18 L18 6" fill="none" stroke="currentColor" stroke-width="2.2"
-                                stroke-linecap="round" />
-                        </svg>
-                    </button>
-                </div>
-            </header>
-            <div class="case-modal-scroll" id="case-modal-scroll">
-                <div class="case-modal-body case-container" id="case-modal-body"></div>
-            </div>
-        </div>
-    </div>
-
     <!-- Custom JavaScript: Stage 1 defers so hero 3D module + GLB fetch first -->
-    <script src="assets/case-flow.js" defer></script>
     <script src="script.js" defer fetchpriority="low"></script>
     <script type="module" src="assets/hero-3d.js" fetchpriority="high"></script>
 </body>

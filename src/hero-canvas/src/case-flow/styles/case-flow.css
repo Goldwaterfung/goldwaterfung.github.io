@@ -34,41 +34,6 @@ body.is-whiteboard-active .case-footer {
     display: none;
 }
 
-/* Modal Integration Rules */
-.case-modal-panel .whiteboard-stage {
-    flex: 1 1 auto !important;
-    width: 100% !important;
-    height: calc(100% - var(--header-height, 70px)) !important;
-    position: relative !important;
-    background: #fbfbfa !important;
-    display: none;
-}
-
-body.is-whiteboard-active #case-study-modal .whiteboard-stage {
-    display: block !important;
-}
-
-body.is-whiteboard-active #case-study-modal .case-modal-scroll {
-    display: none !important;
-}
-
-body:not(.is-whiteboard-active) #case-study-modal .whiteboard-stage {
-    display: none !important;
-}
-
-body:not(.is-whiteboard-active) #case-study-modal .case-modal-scroll {
-    display: block !important;
-}
-
-.case-modal-header-inner {
-    max-width: 1200px !important;
-}
-
-.case-modal-header-inner .case-view-mode-toggle {
-    margin-left: auto;
-    margin-right: 14px;
-}
-
 /* ReactFlow canvas background & overrides */
 .whiteboard-stage .react-flow {
     background-color: var(--bg-body, #f7f5f0);

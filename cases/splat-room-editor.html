@@ -14,9 +14,12 @@
     <link rel="stylesheet" href="../assets/fonts/fonts.css">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="case.css">
+    <link rel="stylesheet" href="../assets/case-flow.css">
 </head>
 
-<body class="case-page">
+<body class="case-page" data-case-slug="splat-room-editor">
+
+    <a href="#main-content" class="skip-to-content">Skip to content</a>
 
     <header class="case-nav">
         <div class="case-container case-nav-inner">
@@ -28,7 +31,7 @@
         </div>
     </header>
 
-    <main class="case-container">
+    <main class="case-container" id="main-content">
 
         <header class="case-hero">
             <span class="case-kicker">Real-Time 3D and Spatial Interaction</span>
@@ -62,42 +65,42 @@
                     <span class="meta-val">Home Interior Staging</span>
                 </div>
             </div>
-        </header>
 
-        <div class="case-window-frame">
-            <div class="case-window-titlebar">
-                <div class="case-window-dots">
-                    <span class="case-window-dot dot-close"></span>
-                    <span class="case-window-dot dot-min"></span>
-                    <span class="case-window-dot dot-max"></span>
+            <div class="case-window-frame">
+                <div class="case-window-titlebar">
+                    <div class="case-window-dots">
+                        <span class="case-window-dot dot-close"></span>
+                        <span class="case-window-dot dot-min"></span>
+                        <span class="case-window-dot dot-max"></span>
+                    </div>
+                    <span class="case-window-title">Spark Splat Editor: Vintage Living Room</span>
                 </div>
-                <span class="case-window-title">Spark Splat Editor: Vintage Living Room</span>
+                <div class="case-window-viewport">
+                    <video controls autoplay muted loop playsinline>
+                        <source src="../assets/gaussian_room/gaussian_splatting_video.mp4" type="video/mp4">
+                        Your browser does not support embedded video.
+                    </video>
+                </div>
             </div>
-            <div class="case-window-viewport">
-                <video controls autoplay muted loop playsinline>
-                    <source src="../assets/gaussian_room/gaussian_splatting_video.mp4" type="video/mp4">
-                    Your browser does not support embedded video.
-                </video>
-            </div>
-        </div>
 
-        <div class="case-stats-grid">
-            <div class="case-stat-card">
-                <div class="case-stat-num">1.57M</div>
-                <span class="case-stat-label">Gaussian Splats</span>
-                <p class="case-stat-desc">Full living room photorealistic reconstruction loaded via single SOG container.</p>
+            <div class="case-stats-grid">
+                <div class="case-stat-card">
+                    <div class="case-stat-num">1.57M</div>
+                    <span class="case-stat-label">Gaussian Splats</span>
+                    <p class="case-stat-desc">Full living room photorealistic reconstruction loaded via single SOG container.</p>
+                </div>
+                <div class="case-stat-card">
+                    <div class="case-stat-num">1x DPR</div>
+                    <span class="case-stat-label">Mobile Fill Budget</span>
+                    <p class="case-stat-desc">Adaptive pixel ratio and tighter Gaussian falloff slashing overdraw on phone hardware.</p>
+                </div>
+                <div class="case-stat-card">
+                    <div class="case-stat-num">0 Escapes</div>
+                    <span class="case-stat-label">Boundary Clamping</span>
+                    <p class="case-stat-desc">Runtime camera enclosure preventing movement out of the scanned room geometry.</p>
+                </div>
             </div>
-            <div class="case-stat-card">
-                <div class="case-stat-num">1x DPR</div>
-                <span class="case-stat-label">Mobile Fill Budget</span>
-                <p class="case-stat-desc">Adaptive pixel ratio and tighter Gaussian falloff slashing overdraw on phone hardware.</p>
-            </div>
-            <div class="case-stat-card">
-                <div class="case-stat-num">0 Escapes</div>
-                <span class="case-stat-label">Boundary Clamping</span>
-                <p class="case-stat-desc">Runtime camera enclosure preventing movement out of the scanned room geometry.</p>
-            </div>
-        </div>
+        </header>
 
         <section class="case-section">
             <h2 class="case-section-title">Why I Started: My Viewer Wasn't a World</h2>
@@ -285,6 +288,7 @@
 
     </main>
 
+    <script src="../assets/case-flow.js" defer></script>
 </body>
 
 </html>

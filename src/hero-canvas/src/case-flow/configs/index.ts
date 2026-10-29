@@ -6,6 +6,7 @@ import { collaragentConfig } from './collaragent';
 import { stratawrightConfig } from './stratawright';
 import { ieeeVrConfig } from './ieee-vr';
 import { virtualPrincipalConfig } from './virtual-principal';
+import { splatRoomEditorConfig } from './splat-room-editor';
 
 export const caseConfigs: Record<string, CaseGraphConfig> = {
   'innova-medical': innovaMedicalConfig,
@@ -16,6 +17,7 @@ export const caseConfigs: Record<string, CaseGraphConfig> = {
   'ieee-vr': ieeeVrConfig,
   'ieee-vr-conflict': ieeeVrConfig,
   'virtual-principal': virtualPrincipalConfig,
+  'splat-room-editor': splatRoomEditorConfig,
 };
 
 export function getCaseConfig(slug: string): CaseGraphConfig | null {

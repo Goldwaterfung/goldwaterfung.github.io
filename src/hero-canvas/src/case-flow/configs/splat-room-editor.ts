@@ -1,0 +1,81 @@
+import type { CaseGraphConfig } from './types';
+
+export const splatRoomEditorConfig: CaseGraphConfig = {
+  slug: 'splat-room-editor',
+  title: 'Gaussian Splatting Room Editor',
+  heroNode: {
+    position: { x: -960, y: 0 },
+    width: 880,
+    chapterLabel: 'Project Overview',
+  },
+  nodes: [
+    {
+      id: 'section-0',
+      sectionIndex: 0,
+      position: { x: 0, y: 0 },
+      width: 820,
+      chapterLabel: 'Motivation & Brief',
+    },
+    {
+      id: 'section-1',
+      sectionIndex: 1,
+      position: { x: 900, y: 0 },
+      width: 820,
+      chapterLabel: 'Splat Pipeline',
+    },
+    {
+      id: 'section-2',
+      sectionIndex: 2,
+      position: { x: 1800, y: 0 },
+      width: 820,
+      chapterLabel: 'Camera Boundary',
+    },
+    {
+      id: 'section-3',
+      sectionIndex: 3,
+      position: { x: 2700, y: 0 },
+      width: 840,
+      chapterLabel: 'Mobile Optimization',
+    },
+    {
+      id: 'section-4',
+      sectionIndex: 4,
+      position: { x: 3620, y: 0 },
+      width: 920,
+      chapterLabel: 'Furniture Staging',
+    },
+    {
+      id: 'section-5',
+      sectionIndex: 5,
+      position: { x: 4620, y: 0 },
+      width: 840,
+      chapterLabel: 'Transform Gizmos',
+    },
+    {
+      id: 'section-6',
+      sectionIndex: 6,
+      position: { x: 5540, y: 0 },
+      width: 860,
+      chapterLabel: 'Floor Calibration',
+    },
+    {
+      id: 'section-7',
+      sectionIndex: 7,
+      position: { x: 6480, y: 0 },
+      width: 800,
+      chapterLabel: 'Future Trajectory',
+    },
+  ],
+  edges: [
+    { id: 'e-hero-0', source: 'hero', target: 'section-0' },
+    { id: 'e-0-1', source: 'section-0', target: 'section-1' },
+    { id: 'e-1-2', source: 'section-1', target: 'section-2' },
+    { id: 'e-2-3', source: 'section-2', target: 'section-3' },
+    { id: 'e-3-4', source: 'section-3', target: 'section-4' },
+    { id: 'e-4-5', source: 'section-4', target: 'section-5' },
+    { id: 'e-5-6', source: 'section-5', target: 'section-6' },
+    { id: 'e-6-7', source: 'section-6', target: 'section-7' },
+    { id: 'e-2-5', source: 'section-2', target: 'section-5', dashed: true },
+    { id: 'e-3-6', source: 'section-3', target: 'section-6', dashed: true },
+  ],
+};
