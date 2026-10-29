@@ -309,15 +309,6 @@ h4 {
     gap: var(--space-75);
 }
 
-.hero-identity-label {
-    font-family: var(--font-mono);
-    font-size: var(--text-xs);
-    font-weight: 600;
-    color: var(--text-muted);
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-}
-
 .hero-canvas-col {
     position: relative;
     width: 100%;
