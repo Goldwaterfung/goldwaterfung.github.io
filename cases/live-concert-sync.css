@@ -1,0 +1,14 @@
+/* ==========================================================================
+   Live Concert Dual-Venue Telemetry Sync Stylesheet
+   Inherits design tokens from ../style.css and foundation from case.css
+   ========================================================================== */
+
+/* Hero section adjustments: lead with media */
+.case-hero {
+    padding-top: var(--space-400);
+}
+
+.case-hero .case-media-hero {
+    margin-top: 0;
+    margin-bottom: var(--space-400);
+}

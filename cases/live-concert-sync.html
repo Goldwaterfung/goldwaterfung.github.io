@@ -8,33 +8,42 @@
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' data: blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'">
     <title>Erhu Live Concert AI Motion Capture Sync | Kim Fung</title>
-    <meta name="description" content="Real-time dual-venue synchronization of live Erhu performance audio and AI motion capture telemetry across a 1,000-seat concert hall and virtual campus using Unity and MQTT.">
+    <meta name="description" content="Real time dual venue synchronization of live Erhu performance audio and AI motion capture telemetry across a 1,000 seat concert hall and virtual campus using Unity and MQTT.">
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
     <!-- Self-hosted fonts: no third-party requests -->
-    <link rel="preload" href="../assets/fonts/vendor/opensans-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../assets/fonts/vendor/manrope-latin-600.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high">
+    <link rel="preload" href="../assets/fonts/vendor/geist-mono-latin-400.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="../assets/fonts/fonts.css">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="case.css">
+    <link rel="stylesheet" href="live-concert-sync.css">
 </head>
 
 <body class="case-page">
+    <a href="#main-content" class="skip-to-content">Skip to content</a>
 
     <header class="case-nav">
         <div class="case-container case-nav-inner">
             <a href="../index.html" class="case-nav-brand">Kim Fung</a>
             <nav class="case-nav-links">
-                <a href="../index.html#experience" class="case-nav-link back-link">Back to Journey</a>
+                <a href="../index.html#showcases" class="case-nav-link back-link">Back to my works</a>
                 <a href="ieee-vr-conflict.html" class="case-nav-link">Next Case</a>
             </nav>
         </div>
     </header>
 
-    <main class="case-container">
+    <main class="case-container" id="main-content">
 
         <header class="case-hero">
-            <span class="case-kicker">Concert Hall Systems Integration</span>
-            <h1 class="case-title">Synchronized live stage audio and AI motion capture across physical and virtual venues</h1>
+            <div class="case-media-hero">
+                <video controls autoplay muted loop playsinline poster="../assets/system_integration/rehearsal-erhu-concert.jpg">
+                    <source src="../assets/system_integration/virtual_concert.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
             <p class="case-subtitle">
-                I engineered an MQTT and WebSocket telemetry pipeline in Unity to synchronize live Erhu audio with optical motion capture, broadcasting simultaneously to a 1,000-seat concert hall and an interactive virtual campus.
+                I engineered an MQTT and WebSocket telemetry pipeline in Unity to synchronize live Erhu audio with optical motion capture, broadcasting simultaneously to a 1,000 seat concert hall and an interactive virtual campus.
             </p>
 
             <div class="case-meta-grid">
@@ -57,21 +66,14 @@
             </div>
         </header>
 
-        <div class="case-media-hero">
-            <video controls autoplay muted loop playsinline poster="../assets/system_integration/rehearsal-erhu-concert.jpg">
-                <source src="../assets/system_integration/virtual_concert.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-
         <section class="case-section">
             <h2 class="case-section-title">Context and Live Stage Problem</h2>
             <div class="case-body">
                 <p>
-                    When National Tainan University of the Arts staged a premier live Erhu concert in our 1,000-seat auditorium, I was responsible for integrating the real-time stage telemetry. The university wanted to project an interactive 3D virtual avatar on the auditorium stage that mirrored the master musician live, while simultaneously streaming that performance into an interactive virtual campus environment for remote attendees.
+                    When National Tainan University of the Arts staged a premier live Erhu concert in our 1,000 seat auditorium, I was responsible for integrating the real time stage telemetry. The university wanted to project an interactive 3D virtual avatar on the auditorium stage that mirrored the master musician live, while simultaneously streaming that performance into an interactive virtual campus environment for remote attendees.
                 </p>
                 <p>
-                    The live performance generated two distinct real-time streams at high frequencies: clean acoustic audio from stage microphones, and continuous skeletal motion tracking capturing the musician bowing arm, hand articulation, and posture.
+                    The live performance generated two distinct real time streams at high frequencies: clean acoustic audio from stage microphones, and continuous skeletal motion tracking capturing the musician bowing arm, hand articulation, and posture.
                 </p>
                 <p>
                     During early stage tests, the initial transmission setup broke down quickly. Sending raw motion capture frames directly across local sockets caused packet jitter and frame drops under the hall network load. When the performer transitioned into rapid bowing passages, the avatar arm snapped erratically between poses and fell behind the acoustic notes. If the visual bowing reversed direction even half a second after the audience heard the note strike, the illusion collapsed. At the same time, attempting to stream uncompressed joint hierarchies directly to remote virtual campus clients overloaded the stage machine and risked dropping frames onstage.
@@ -87,7 +89,7 @@
                 </p>
                 <ul>
                     <li>
-                        <strong>Musician Rehearsal Shadowing:</strong> I attended full rehearsals alongside the master musician to observe the relationship between physical gestures and musical attacks. I discovered that before rapid bowing phrases, the performer executed an organic preparatory motion roughly 0.8 seconds before sound onset. Rather than forcing unstable zero-latency algorithmic streaming, I calibrated a 1.5-second deterministic playback buffer in Unity. This buffer absorbed optical tracking variance and temporal network jitter while keeping visual bowing locked to musical timing.
+                        <strong>Musician Rehearsal Shadowing:</strong> I attended full rehearsals alongside the master musician to observe the relationship between physical gestures and musical attacks. I discovered that before rapid bowing phrases, the performer executed an organic preparatory motion roughly 0.8 seconds before sound onset. Rather than forcing unstable zero latency algorithmic streaming, I calibrated a 1.5-second deterministic playback buffer in Unity. This buffer absorbed optical tracking variance and temporal network jitter while keeping visual bowing locked to musical timing.
                     </li>
                     <li>
                         <strong>Payload Stripping and Vector Extraction:</strong> Raw motion tracking systems emit dense bone hierarchies that quickly flood local sockets. I built an ingestion pipeline in Unity via TCP sockets that discarded unnecessary coordinate trees, extracting only essential joint rotational vectors and root offsets. This compressed the transmission payload and eliminated redundant hierarchy recalculations on the stage rendering engine.
@@ -99,15 +101,22 @@
                         <strong>Audio and Motion Timestamp Alignment:</strong> I synchronized motion capture frame sequences directly with stage microphone audio timestamps. Aligning joint turnaround markers with acoustic note transients ensured that avatar bow direction changes matched the sharp attack of fast Erhu passages without cumulative phase drift.
                     </li>
                     <li>
-                        <strong>Hall Dress Rehearsals and Stress Testing:</strong> During full-dress rehearsals with stage lighting and audience network conditions, I benchmarked telemetry throughput and queue handling. I tuned buffer thresholds and interpolation curves in Unity so that momentary network hiccups gracefully blended between valid frames instead of snapping or freezing.
+                        <strong>Hall Dress Rehearsals and Stress Testing:</strong> During full dress rehearsals with stage lighting and audience network conditions, I benchmarked telemetry throughput and queue handling. I tuned buffer thresholds and interpolation curves in Unity so that momentary network hiccups gracefully blended between valid frames instead of snapping or freezing.
                     </li>
                 </ul>
 
                 <figure class="case-figure">
                     <img src="../assets/system_integration/rehearsal-erhu-concert.jpg"
-                        alt="Auditorium stage rehearsal: Calibrating motion capture sensors and audio feeds in the 1,000-seat hall"
+                        alt="Auditorium stage rehearsal: Calibrating motion capture sensors and audio feeds in the 1,000 seat hall"
                         loading="lazy">
-                    <figcaption>Auditorium stage rehearsal: Calibrating motion capture sensors and audio feeds in the 1,000-seat hall</figcaption>
+                    <figcaption>Auditorium stage rehearsal: Calibrating motion capture sensors and audio feeds in the 1,000 seat hall</figcaption>
+                </figure>
+
+                <figure class="case-figure case-figure-portrait">
+                    <img src="../assets/system_integration/multi-camera-ai-motion-capture-with-erhu-object-tracking.jpg"
+                        alt="Multi-camera optical motion capture rig tracking Erhu instrument and performer in the auditorium"
+                        loading="lazy">
+                    <figcaption>Optical motion tracking setup: Multi-camera rig tracking Erhu instrument and performer</figcaption>
                 </figure>
             </div>
         </section>
@@ -120,7 +129,7 @@
                 </p>
                 <ul>
                     <li>
-                        <strong>Interactive Rendering Runtime (Unity 3D):</strong> Custom C# runtime executing real-time skeletal retargeting, avatar deformation, and coordinate transformations mapped directly to hall stage projection.
+                        <strong>Interactive Rendering Runtime (Unity 3D):</strong> Custom C# runtime executing real time skeletal retargeting, avatar deformation, and coordinate transformations mapped directly to hall stage projection.
                     </li>
                     <li>
                         <strong>Messaging and Protocols (MQTT over TCP and WebSockets):</strong> Decoupled pub/sub telemetry broker isolating the onstage rendering engine from client network spikes, publishing motion markers to lightweight topics.
@@ -132,7 +141,7 @@
                         <strong>Synchronization and Playback Engine:</strong> Deterministic 1.5-second playback buffer in Unity aligning motion frame sequences with acoustic microphone note transients to absorb optical tracking noise and packet jitter.
                     </li>
                     <li>
-                        <strong>Dual-Target Broadcast Infrastructure:</strong> Direct video output to auditorium stage projection alongside concurrent telemetry streaming to remote clients in an interactive virtual campus environment.
+                        <strong>Dual Target Broadcast Infrastructure:</strong> Direct video output to auditorium stage projection alongside concurrent telemetry streaming to remote clients in an interactive virtual campus environment.
                     </li>
                 </ul>
             </div>
@@ -142,9 +151,9 @@
             <h2 class="case-section-title">Practical Outcomes and Lessons Learned</h2>
             <div class="case-body">
                 <div class="case-callout">
-                    <div class="case-callout-title">Dual-Venue Synchronization Reliability</div>
+                    <div class="case-callout-title">Dual Venue Synchronization Reliability</div>
                     <p class="case-callout-text">
-                        The virtual avatar remained cohesive with the live Erhu performance throughout the entire concert. Both the 1,000-seat physical audience and remote virtual campus attendees experienced fluid motion tracking aligned with the acoustic music.
+                        The virtual avatar remained cohesive with the live Erhu performance throughout the entire concert. Both the 1,000 seat physical audience and remote virtual campus attendees experienced fluid motion tracking aligned with the acoustic music.
                     </p>
                 </div>
 
@@ -162,7 +171,7 @@
                 <div class="case-callout case-callout-lessons">
                     <div class="case-callout-title">What I Learned on Stage</div>
                     <p class="case-callout-text">
-                        Live real-time multimodal synchronization cannot be solved purely by chasing theoretical zero latency. On a live stage, tracking algorithms face optical interference from theatrical lighting, rapid human gestures, and unpredictable local networks.
+                        Live real time multimodal synchronization cannot be solved purely by chasing theoretical zero latency. On a live stage, tracking algorithms face optical interference from theatrical lighting, rapid human gestures, and unpredictable local networks.
                     </p>
                     <p class="case-callout-text">
                         Spending time in rehearsals to understand the physical cadence of the performer, calibrating a deterministic buffer around musical attacks, and decoupling data distribution with proven pub/sub protocols delivered stage stability that raw algorithms alone could never achieve.
