@@ -7,10 +7,12 @@
     <meta name="referrer" content="no-referrer">
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' data: blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'">
-    <title>Clinical AI Simulation and 3D UX Design | Kim Fung</title>
+    <title>Innova Medical: Clinical AI Simulation and 3D Avatar Optimization | Kim Fung</title>
     <meta name="description" content="Systematic audit of 50 virtual patient simulation cases, optimizing 3D avatar graphics, blendshapes, rigging, and LLM dialogue synchronization.">
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
     <!-- Self-hosted fonts: no third-party requests -->
-    <link rel="preload" href="../assets/fonts/vendor/opensans-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../assets/fonts/manrope-latin-600.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../assets/fonts/geist-mono-latin-400.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="../assets/fonts/fonts.css">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="case.css">
@@ -18,18 +20,19 @@
 </head>
 
 <body class="case-page">
+    <a href="#main-content" class="skip-to-content">Skip to content</a>
 
     <header class="case-nav">
         <div class="case-container case-nav-inner">
             <a href="../index.html" class="case-nav-brand">Kim Fung</a>
             <nav class="case-nav-links">
-                <a href="../index.html#experience" class="case-nav-link back-link">Back to Journey</a>
+                <a href="../index.html#showcases" class="case-nav-link back-link">Back to my works</a>
                 <a href="virtual-principal.html" class="case-nav-link">Next Case</a>
             </nav>
         </div>
     </header>
 
-    <main class="case-container">
+    <main class="case-container" id="main-content">
 
         <header class="case-hero">
             <div class="case-window-frame">
@@ -67,7 +70,7 @@
             <h2 class="case-section-title">Problem Discovery: Why Medical Students Misdiagnosed Simulated Patients</h2>
             <div class="case-body">
                 <p class="case-lead">
-                    Innova Medical built a serious-game clinical simulation platform across 50 patient cases, turning consultations, physical examinations, and differential diagnosis into task-based interactive missions with real-time scoring for medical universities.
+                    Innova Medical built a serious game clinical simulation platform across 50 patient cases, turning consultations, physical examinations, and differential diagnosis into task based interactive missions with real time scoring for medical universities.
                 </p>
                 <p>
                     During university trials, students repeatedly failed physical examinations, reporting severe diagnostic confusion. Engineering assumed the 3D graphics lacked visual realism and planned an extensive 6 to 8 week cosmetic overhaul. However, firsthand audits revealed that student misdiagnoses were driven by data discrepancies rather than polygon counts. Avatars displayed default unblemished skins, generic clothing, and flat spines that contradicted clinical database records. Students who followed proper clinical diagnostic methods were misled by missing visual affordances, failing their missions despite correct medical reasoning.
@@ -80,7 +83,7 @@
             <h2 class="case-section-title">Interaction Design: Where the Clinical Reasoning Flow Collapsed</h2>
             <div class="case-body">
                 <p class="case-lead">
-                    Each simulation operates as a structured diagnostic mission. I mapped the five-step clinical reasoning loop to pinpoint exactly where student interactions broke down:
+                    Each simulation operates as a structured diagnostic mission. I mapped the five step clinical reasoning loop to pinpoint exactly where student interactions broke down:
                 </p>
 
                 <div class="case-framework-list">
@@ -91,7 +94,7 @@
 
                     <div class="case-framework-row">
                         <div class="case-framework-step"><span class="framework-step-num">2</span>Tool Activation</div>
-                        <div class="case-framework-content">Students equip hands-on clinical tools like virtual penlights or toggle patient attire to expose diagnostic anatomy.</div>
+                        <div class="case-framework-content">Students equip hands on clinical tools like virtual penlights or toggle patient attire to expose diagnostic anatomy.</div>
                     </div>
 
                     <div class="case-framework-row">
@@ -174,10 +177,10 @@
 
         <!-- Diagnostic Audit -->
         <section class="case-section">
-            <h2 class="case-section-title">Diagnostic Audit: How a 6-Step Whiteboard Workflow Traced 50 Cases</h2>
+            <h2 class="case-section-title">Diagnostic Audit: How a Six Step Whiteboard Workflow Traced 50 Cases</h2>
             <div class="case-body">
                 <p class="case-lead">
-                    To bridge clinical medicine and software engineering across all 50 cases, I led a hands-on diagnostic audit on the studio whiteboard:
+                    To bridge clinical medicine and software engineering across all 50 cases, I led a hands on diagnostic audit on the studio whiteboard:
                 </p>
 
                 <div class="case-flow-grid case-flow-grid-6">
@@ -214,7 +217,7 @@
                     <div class="case-flow-card flow-node-red">
                         <span class="case-flow-num">6</span>
                         <h3 class="case-flow-title">Collaborative Reviews</h3>
-                        <p class="case-flow-desc">Cross-validation matrix aligned clinical criteria with engineering fixes.</p>
+                        <p class="case-flow-desc">Cross validation matrix aligned clinical criteria with engineering fixes.</p>
                     </div>
                 </div>
             </div>
@@ -265,17 +268,17 @@
                     <div class="affordance-panel affordance-panel-1" id="affordance-panel-1" role="tabpanel" aria-labelledby="tab-pediatric">
                         <h3 class="affordance-panel-title">Pediatric Trauma: Surface Albedo</h3>
                         <p class="affordance-panel-desc">
-                            Diagnosing non-accidental trauma relies on recognizing multi-stage bruise healing, where fresh purple contusions appear alongside resolving green-yellow marks. The avatar rendered a clean skin shader, leading students to misdiagnose injuries as minor accidental falls.
+                            Diagnosing non accidental trauma relies on recognizing multi stage bruise healing, where fresh purple contusions appear alongside resolving green yellow marks. The avatar rendered a clean skin shader, leading students to misdiagnose injuries as minor accidental falls.
                         </p>
                         <div class="affordance-panel-facts">
-                            <p><strong>Database truth:</strong> Two facial contusions, 3x4x3 cm thoracic cage contusion, occipital hematoma, and multi-stage bruise healing chronology.</p>
-                            <p><strong>Simulation remediation:</strong> Textured multi-stage bruise albedo maps directly onto cheek soft tissue and lateral ribs, synchronized with virtual penlight inspection.</p>
+                            <p><strong>Database truth:</strong> Two facial contusions, 3x4x3 cm thoracic cage contusion, occipital hematoma, and multi stage bruise healing chronology.</p>
+                            <p><strong>Simulation remediation:</strong> Textured multi stage bruise albedo maps directly onto cheek soft tissue and lateral ribs, synchronized with virtual penlight inspection.</p>
                         </div>
 
                         <div class="affordance-gallery">
                             <figure class="affordance-gallery-hero">
                                 <span class="affordance-image-label">After</span>
-                                <img src="../assets/innova/Battered-child-syndrome/final-zoom-close.jpg" alt="Close-up detail of virtual pediatric patient cheek showing multi-stage purple and green contusions" loading="lazy">
+                                <img src="../assets/innova/Battered-child-syndrome/final-zoom-close.jpg" alt="Close up detail of virtual pediatric patient cheek showing multi stage purple and green contusions" loading="lazy">
                             </figure>
 
                             <div class="affordance-gallery-subgrid">
@@ -299,7 +302,7 @@
                         </p>
                         <div class="affordance-panel-facts">
                             <p><strong>Database truth:</strong> Hypercortisolemia profile requiring rounded moon face with plethora, central truncal adiposity, and wide violaceous abdominal striae.</p>
-                            <p><strong>Simulation remediation:</strong> Reshaped facial blendshapes for moon face fullness, adjusted limb-to-torso proportions, and textured wide purple striae visible in examination shorts.</p>
+                            <p><strong>Simulation remediation:</strong> Reshaped facial blendshapes for moon face fullness, adjusted limb to torso proportions, and textured wide purple striae visible in examination shorts.</p>
                         </div>
 
                         <div class="affordance-gallery">
@@ -329,7 +332,7 @@
                         </p>
                         <div class="affordance-panel-facts">
                             <p><strong>Database truth:</strong> Severe bone mineral loss with multiple anterior wedge compression fractures producing pronounced thoracic kyphosis and height loss.</p>
-                            <p><strong>Simulation remediation:</strong> Cross-referenced spinal lateral X-rays to re-rig the spine armature, introducing an authentic convex Dowager's hump along upper thoracic vertebrae.</p>
+                            <p><strong>Simulation remediation:</strong> Cross referenced spinal lateral X-rays to re rig the spine armature, introducing an authentic convex Dowager's hump along upper thoracic vertebrae.</p>
                         </div>
 
                         <div class="affordance-gallery">
@@ -356,10 +359,10 @@
 
         <!-- Cross-Functional Alignment -->
         <section class="case-section">
-            <h2 class="case-section-title">Cross-Functional Alignment: Connecting Doctor Schemas, LLM Dialogue, and 3D Assets</h2>
+            <h2 class="case-section-title">Cross Functional Alignment: Connecting Doctor Schemas, LLM Dialogue, and 3D Assets</h2>
             <div class="case-body">
                 <p class="case-lead">
-                    To create a shared language between medical doctors evaluating diagnostic criteria and software engineers managing shaders, I structured a unified Cross-Validation Defect Matrix across all 50 cases:
+                    To create a shared language between the medical domain expert evaluating diagnostic criteria and the engineer managing shaders, I structured a unified Cross Validation Defect Matrix across all 50 cases:
                 </p>
 
                 <div class="case-table-wrap">
@@ -381,7 +384,7 @@
                                 <td>Parent narrative attributes visible injuries to single minor household fall</td>
                                 <td>Default uniform skin shader with zero contusions or color staging</td>
                                 <td><span class="status-defect status-defect-albedo">Surface Texture and Albedo</span></td>
-                                <td>Students failed to suspect non-accidental trauma, misdiagnosing as minor accidental fall</td>
+                                <td>Students failed to suspect non accidental trauma, misdiagnosing as minor accidental fall</td>
                             </tr>
                             <tr>
                                 <td class="col-id">Case 027<span class="case-table-dept">General Medicine</span></td>
@@ -404,7 +407,7 @@
                 </div>
 
                 <p class="case-table-summary">
-                    This matrix gave both partners unambiguous common ground: doctors verified diagnostic criteria, while engineers received explicit asset IDs and sync offsets to remediate in code.
+                    This matrix gave both partners unambiguous common ground: the medical domain expert verified clinical accuracy against textbook diagnostic criteria, while the engineer received explicit asset IDs, schema fields, and animation sync offsets to remediate in code.
                 </p>
             </div>
         </section>
@@ -414,14 +417,14 @@
             <h2 class="case-section-title">Performance Engineering: Preserving 60 FPS on Legacy University Hardware</h2>
             <div class="case-body">
                 <p class="case-lead">
-                    University computer labs operated on legacy workstations equipped with NVIDIA GTX 1060 GPUs and required WebGL browser deployment. Rather than adding compute-heavy shaders, I implemented a disciplined technical art pipeline:
+                    University computer labs operated on legacy workstations equipped with NVIDIA GTX 1060 GPUs and required WebGL browser deployment. Rather than adding compute heavy shaders, I implemented a disciplined technical art pipeline:
                 </p>
 
                 <div class="case-hairline-list">
                     <div class="case-hairline-item">
                         <span class="case-hairline-num">1</span>
                         <div class="case-hairline-text">
-                            <strong>Pre-Baked Ray-Traced Lighting:</strong> Baked lighting directly into skin textures and environment meshes, eliminating runtime multi-sampler shader overhead.
+                            <strong>Pre baked Ray traced Lighting:</strong> Baked lighting directly into skin textures and environment meshes, eliminating runtime multi sampler shader overhead.
                         </div>
                     </div>
                     <div class="case-hairline-item">
@@ -458,7 +461,7 @@
                 </div>
 
                 <p>
-                    By proving through structured walkthroughs that student diagnostic errors were driven by data discrepancies rather than graphics, the team canceled the planned 6 to 8 week cosmetic art overhaul. I partnered with the engineer and medical domain expert to reprioritize engineering sprints toward direct database-to-visual linking and dialogue packet synchronization.
+                    By proving through structured walkthroughs that student diagnostic errors were driven by data discrepancies rather than graphics, the team canceled the planned 6 to 8 week cosmetic art overhaul. I partnered with the engineer and medical domain expert to reprioritize engineering sprints toward direct database to visual linking and dialogue packet synchronization.
                 </p>
                 <p>
                     All 50 clinical simulation cases were mapped and reconciled. Medical student diagnostic accuracy improved because verbal testimony and visual clinical signs finally aligned, establishing a credible, clinically validated training simulation.
@@ -467,7 +470,7 @@
                 <div class="case-callout case-callout-lessons">
                     <div class="case-callout-title">Lessons Learned and Retrospective</div>
                     <p class="case-callout-text">
-                        Surface visual complaints often mask deeper system data disconnects. The team was ready to spend weeks re-sculpting 3D meshes, but the true root cause was broken schema synchronization across verbal and visual modalities. Product design must begin by interrogating the truth of the system data before reworking the visual surface.
+                        Surface visual complaints often mask deeper system data disconnects. The team was ready to spend weeks resculpting 3D meshes, but the true root cause was broken schema synchronization across verbal and visual modalities. Product design must begin by interrogating the truth of the system data before reworking the visual surface.
                     </p>
                 </div>
             </div>
@@ -477,7 +480,7 @@
             <div class="case-footer-nav-inner">
                 <a href="mrke-3d.html" class="case-footer-nav-item">
                     <span class="case-footer-nav-label">Previous Case Study</span>
-                    <span class="case-footer-nav-title">MRKE In-House 360 Hairstyle Viewer</span>
+                    <span class="case-footer-nav-title">MRKE In House 360 Hairstyle Viewer</span>
                 </a>
                 <a href="virtual-principal.html" class="case-footer-nav-item case-footer-nav-next">
                     <span class="case-footer-nav-label">Next Case Study</span>

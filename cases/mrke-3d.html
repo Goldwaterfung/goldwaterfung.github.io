@@ -7,10 +7,12 @@
     <meta name="referrer" content="no-referrer">
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' data: blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'">
-    <title>In-House 360 Hairstyle Viewer Application Cutting Consultation Time 35% | Kim Fung</title>
-    <meta name="description" content="In-house bespoke Unity C# 360 hairstyle viewer application deployed across Android tablets with Google Cloud Storage OTA streaming in a live salon business.">
-    <!-- Self-hosted fonts: no third-party requests -->
-    <link rel="preload" href="../assets/fonts/vendor/opensans-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <title>In House 360 Hairstyle Viewer Application Cutting Consultation Time 35% | Kim Fung</title>
+    <meta name="description" content="In house bespoke Unity C# 360 hairstyle viewer application deployed across Android tablets with Google Cloud Storage OTA streaming in a live salon business.">
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <!-- Self-hosted fonts: Manrope and Geist Mono -->
+    <link rel="preload" href="../assets/fonts/vendor/manrope-latin-600.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high">
+    <link rel="preload" href="../assets/fonts/vendor/geist-mono-latin-400.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="../assets/fonts/fonts.css">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="case.css">
@@ -19,28 +21,30 @@
 
 <body class="case-page">
 
+    <a href="#main-content" class="skip-to-content">Skip to content</a>
+
     <header class="case-nav">
         <div class="case-container case-nav-inner">
             <a href="../index.html" class="case-nav-brand">Kim Fung</a>
             <nav class="case-nav-links">
-                <a href="../index.html#experience" class="case-nav-link back-link">Back to Journey</a>
+                <a href="../index.html#showcases" class="case-nav-link back-link">Back to my works</a>
                 <a href="innova-medical.html" class="case-nav-link">Next Case</a>
             </nav>
         </div>
     </header>
 
-    <main class="case-container">
+    <main class="case-container" id="main-content">
 
         <header class="case-hero">
             <div class="case-hero-intro">
                 <p class="case-subtitle">
-                    Designed and built a bespoke 360 hairstyle viewer application in Unity C# deployed on Android tablets with Google Cloud Storage asset streaming, resolving consultation ambiguity in a fast-turnaround salon.
+                    Designed and built a bespoke 360 hairstyle viewer application in Unity C# deployed on Android tablets with Google Cloud Storage asset streaming, resolving consultation ambiguity in a fast turnaround salon.
                 </p>
 
                 <div class="case-meta-grid">
                     <div class="case-meta-item">
                         <span class="meta-label">Role</span>
-                        <span class="meta-val">Co-Founder & Software Engineer (Interactive Systems)</span>
+                        <span class="meta-val">Co-Founder & Software Developer (Interactive Systems)</span>
                     </div>
                     <div class="case-meta-item">
                         <span class="meta-label">Company</span>
@@ -48,7 +52,7 @@
                     </div>
                     <div class="case-meta-item">
                         <span class="meta-label">Timeline</span>
-                        <span class="meta-val">2022 - 2026</span>
+                        <span class="meta-val">2020 - 2026</span>
                     </div>
                     <div class="case-meta-item">
                         <span class="meta-label">Key Systems</span>
@@ -73,7 +77,7 @@
             <h2 class="case-section-title">Problem Discovery: Why 2D Catalog Photos Broke 4-Minute Salon Turnarounds</h2>
             <div class="case-body">
                 <p>
-                    MRKE operated as a physical fast-turnaround haircut business serving 10 residential blocks. As co-founder, I formulated service pricing, evaluated unit economics, and set speed-to-quality benchmarks built around short chair cycles. Direct shop floor observation traced our recurring consultation bottleneck to static 2D catalog photos:
+                    MRKE operated as a physical fast turnaround haircut business serving 10 residential blocks. As co-founder, I formulated service pricing, evaluated unit economics, and set speed to quality benchmarks built around short chair cycles. Direct shop floor observation traced our recurring consultation bottleneck to static 2D catalog photos:
                 </p>
 
                 <figure class="mrke-whiteboard" aria-label="Causal root-cause map showing how flat 2D catalog photos created spatial blind spots and 4 to 6 minute consultation overruns">
@@ -82,7 +86,7 @@
                         <div class="mrke-wb-node mrke-wb-node-anchor">
                             <h3 class="mrke-wb-node-title">Flat 2D Photo</h3>
                             <p class="mrke-wb-node-desc">
-                                Static single angle with zero depth or back-of-head reference.
+                                Static single angle with zero depth or back of head reference.
                             </p>
                         </div>
 
@@ -168,10 +172,10 @@
             <h2 class="case-section-title">User Research: What Customers Aged 6 to 70 Needed to Communicate</h2>
             <div class="case-body">
                 <p>
-                    Floor observation across our neighborhood clientele revealed a cross-generational span from 6-year-old children to 70-year-old seniors. Mapping both groups side by side showed that opposite age extremes converged on the same interface need:
+                    Floor observation across our neighborhood clientele revealed a cross generational span from 6 year old children to 70 year old seniors. Mapping both groups side by side showed that opposite age extremes converged on the same interface need:
                 </p>
 
-                <figure class="mrke-whiteboard" aria-label="Affinity convergence mind map showing how children aged 6 to 12 and seniors up to age 70 converged on a zero-reading 360 visual interface">
+                <figure class="mrke-whiteboard" aria-label="Affinity convergence mind map showing how children aged 6 to 12 and seniors up to age 70 converged on a zero reading 360 visual interface">
                     <!-- Hand-Sketched Age Spectrum Axis -->
                     <div class="mrke-spectrum-strip">
                         <div class="mrke-spectrum-endpoints">
@@ -228,7 +232,7 @@
 
                         <!-- Convergent Design Mandate -->
                         <div class="mrke-wb-node mrke-node-blue mrke-synthesis-card">
-                            <h3 class="mrke-wb-node-title">Zero-Reading Interface</h3>
+                            <h3 class="mrke-wb-node-title">Zero Reading Interface</h3>
                             <p class="mrke-wb-node-desc">
                                 Consultation friction was a communication barrier, not customer indecision.
                             </p>
@@ -239,7 +243,7 @@
                                 </div>
                                 <div class="mrke-mandate-item">
                                     <span class="mrke-wb-num">2</span>
-                                    <span><strong>High-Contrast Portraits:</strong> Single-tap category entry.</span>
+                                    <span><strong>High Contrast Portraits:</strong> Single tap category entry.</span>
                                 </div>
                                 <div class="mrke-mandate-item">
                                     <span class="mrke-wb-num">3</span>
@@ -253,7 +257,7 @@
         </section>
 
         <section class="case-section">
-            <h2 class="case-section-title">Prototype Trade-Offs: Why Curated 3D Presets Beat Sliders and WebGL</h2>
+            <h2 class="case-section-title">Prototype Trade Offs: Why Curated 3D Presets Beat Sliders and WebGL</h2>
             <div class="case-body">
                 <p>
                     To resolve consultation ambiguity without slowing down store operations, I explored multiple concepts before arriving at the final software architecture:
@@ -261,13 +265,13 @@
                 <div class="case-decision-grid">
                     <div class="case-decision-card discarded">
                         <div class="case-decision-title">Granular Parametric Sliders</div>
-                        <p class="case-decision-body">Detailed length, volume, and fade sliders caused analysis paralysis for customers, frustrated stylists under a 30-second rush-hour target, and doubled consultation duration.</p>
+                        <p class="case-decision-body">Detailed length, volume, and fade sliders caused analysis paralysis for customers, frustrated stylists under a 30-second rush hour target, and doubled consultation duration.</p>
                         <span class="case-decision-mark mark-discarded" aria-hidden="true">
                             <img src="../assets/svg/decision-discarded.svg" alt="" width="52" height="52" loading="lazy">
                         </span>
                     </div>
                     <div class="case-decision-card discarded">
-                        <div class="case-decision-title">Cloud-Rendered WebGL</div>
+                        <div class="case-decision-title">Cloud Rendered WebGL</div>
                         <p class="case-decision-body">Budget station Android tablets faced strict GPU thermal limits and periodic network latency. Streaming models via WebGL risked frame drops and store service interruption.</p>
                         <span class="case-decision-mark mark-discarded" aria-hidden="true">
                             <img src="../assets/svg/decision-discarded.svg" alt="" width="52" height="52" loading="lazy">
@@ -275,14 +279,14 @@
                     </div>
                     <div class="case-decision-card discarded">
                         <div class="case-decision-title">Printed Lookbooks</div>
-                        <p class="case-decision-body">Static multi-angle printouts could not provide continuous 360-degree rotation, and updating seasonal haircuts incurred high recurring printing costs.</p>
+                        <p class="case-decision-body">Static multi angle printouts could not provide continuous 360-degree rotation, and updating seasonal haircuts incurred high recurring printing costs.</p>
                         <span class="case-decision-mark mark-discarded" aria-hidden="true">
                             <img src="../assets/svg/decision-discarded.svg" alt="" width="52" height="52" loading="lazy">
                         </span>
                     </div>
                     <div class="case-decision-card chosen">
                         <div class="case-decision-title">Lightweight 360 Preset Viewer</div>
-                        <p class="case-decision-body">Built a responsive Unity C# engine running locally on Android tablets with instant touch rotation, curated preset categories, and full-screen standing stylist touch ergonomics.</p>
+                        <p class="case-decision-body">Built a responsive Unity C# engine running locally on Android tablets with instant touch rotation, curated preset categories, and full screen standing stylist touch ergonomics.</p>
                         <span class="case-decision-mark mark-chosen" aria-hidden="true">
                             <img src="../assets/svg/decision-chosen.svg" alt="" width="64" height="64" loading="lazy">
                         </span>
@@ -292,10 +296,10 @@
         </section>
 
         <section class="case-section">
-            <h2 class="case-section-title">User Flow: What a Zero-Reading 4-Step Consultation Looks Like</h2>
+            <h2 class="case-section-title">User Flow: What a Zero Reading 4-Step Consultation Looks Like</h2>
             <div class="case-body">
                 <p>
-                    I mapped consultation steps from greeting and chair handover to style selection, 360-degree rotation, and final cutting confirmation. To reduce cognitive overload for customers ranging from age 6 to 70, I structured the screen-to-screen interaction flow around minimal taps and minimal on-screen text:
+                    I mapped consultation steps from greeting and chair handover to style selection, 360-degree rotation, and final cutting confirmation. To reduce cognitive overload for customers ranging from age 6 to 70, I structured the screen to screen interaction flow around minimal taps and minimal on screen text:
                 </p>
 
                 <div class="case-walkthrough">
@@ -307,11 +311,11 @@
                             <h3 class="case-walkthrough-title">Category Selection and Preset Loading</h3>
                             <div class="case-walkthrough-item">
                                 <h4 class="case-walkthrough-heading">Visual Category Entry</h4>
-                                <p>High-contrast visual category thumbnails allow children and elderly customers up to age 70 to pick a hairstyle group immediately with a single tap, without reading dense text labels.</p>
+                                <p>High contrast visual category thumbnails allow children and elderly customers up to age 70 to pick a hairstyle group immediately with a single tap, without reading dense text labels.</p>
                             </div>
                             <div class="case-walkthrough-item">
                                 <h4 class="case-walkthrough-heading">Curated 3D Preset Load</h4>
-                                <p>Tapping a portrait card loads the corresponding 3D head model directly into the viewport, eliminating multi-step configuration menus or granular sliders that slow down rush hours.</p>
+                                <p>Tapping a portrait card loads the corresponding 3D head model directly into the viewport, eliminating multi step configuration menus or granular sliders that slow down rush hours.</p>
                             </div>
                         </div>
                     </div>
@@ -323,7 +327,7 @@
                         <div class="case-walkthrough-content">
                             <h3 class="case-walkthrough-title">360 Touch Orbit and Consultation Alignment</h3>
                             <div class="case-walkthrough-item">
-                                <h4 class="case-walkthrough-heading">Full-Screen 360 Touch Orbit</h4>
+                                <h4 class="case-walkthrough-heading">Full Screen 360 Touch Orbit</h4>
                                 <p>The entire screen acts as a forgiving touch surface where users swipe horizontally to rotate 360 degrees or tilt vertically to inspect crown volume and neckline tapers.</p>
                             </div>
                             <div class="case-walkthrough-item">
@@ -340,17 +344,17 @@
             <h2 class="case-section-title">Usability Iteration: How Senior Testing and CCTV Logs Shaped Touch Ergonomics</h2>
             <div class="case-body">
                 <p>
-                    I engineered the complete software lifecycle through pre-launch usability testing and continuous shop floor behavioral tracking:
+                    I engineered the complete software lifecycle through pre launch usability testing and continuous shop floor behavioral tracking:
                 </p>
                 <ul>
                     <li>
-                        <strong>Pre-Launch Senior Usability Testing:</strong> Tested early versions of the 360 hairstyle viewer application with my grandmother before store launch, identifying touch hesitation points and iterating button sizes and placement for senior accessibility.
+                        <strong>Pre Launch Senior Usability Testing:</strong> Tested early versions of the 360 hairstyle viewer application with my grandmother before store launch, identifying touch hesitation points and iterating button sizes and placement for senior accessibility.
                     </li>
                     <li>
-                        <strong>CCTV Behavioral Observation and Damp-Hands Ergonomics:</strong> Deployed rapidly to shop tablets and combined daily stylist tracking logs with store CCTV behavioral observation to watch how customers naturally held and tapped the screen. Observing stylists operating with damp hands and customers reaching for the screen led me to expand touch targets to full-screen swipe rotation and added vertical camera pitch tilt to inspect crown volume and neckline tapers.
+                        <strong>CCTV Behavioral Observation and Damp Hands Ergonomics:</strong> Deployed rapidly to shop tablets and combined daily stylist tracking logs with store CCTV behavioral observation to watch how customers naturally held and tapped the screen. Observing stylists operating with damp hands and customers reaching for the screen led me to expand touch targets to full screen swipe rotation and added vertical camera pitch tilt to inspect crown volume and neckline tapers.
                     </li>
                     <li>
-                        <strong>Data-Driven Youth Preset Prioritization:</strong> Based on daily tracking data confirming high engagement among youth customers, I prioritized a dedicated library of 3D youth hairstyles, enabling young customers to point and rotate their preferred style with confidence.
+                        <strong>Data Driven Youth Preset Prioritization:</strong> Based on daily tracking data confirming high engagement among youth customers, I prioritized a dedicated library of 3D youth hairstyles, enabling young customers to point and rotate their preferred style with confidence.
                     </li>
                 </ul>
             </div>
@@ -364,22 +368,22 @@
                 </p>
                 <ul>
                     <li>
-                        <strong>Interactive 3D Client Runtime (Unity C#):</strong> Custom touch viewer built with optimized camera orbit controls, touch drag gestures, vertical pitch tilt, and preset model loading designed for low-power mobile GPUs.
+                        <strong>Interactive 3D Client Runtime (Unity C#):</strong> Custom touch viewer built with optimized camera orbit controls, touch drag gestures, vertical pitch tilt, and preset model loading designed for low power mobile GPUs.
                     </li>
                     <li>
                         <strong>UI Toolkit and Sprite Atlas Rendering:</strong> Replaced legacy UI Canvas with UI Toolkit ListView and ScrollView paired with a unified Sprite Atlas. Packing 50 category and hairstyle sprites into a single atlas collapsed UI draw calls by 95 percent, maintaining a stable 60 FPS during nested list scrolling that was previously impossible with legacy Canvas layout re-batching.
                     </li>
                     <li>
-                        <strong>Pre-Baked Ray-Traced Surface Texturing:</strong> Pre-baked ray-traced lighting and surface properties into a single combined texture map on 3D head models rather than sampling separate diffuse, normal, and roughness maps. This eliminated multi-texture sampling bandwidth on mobile GPUs, sustaining runtime framerates over 60 FPS while preserving high visual fidelity.
+                        <strong>Pre Baked Ray Traced Surface Texturing:</strong> Pre baked ray traced lighting and surface properties into a single combined texture map on 3D head models rather than sampling separate diffuse, normal, and roughness maps. This eliminated multi texture sampling bandwidth on mobile GPUs, sustaining runtime framerates over 60 FPS while preserving high visual fidelity.
                     </li>
                     <li>
-                        <strong>Explicit Addressables Memory Lifecycle:</strong> Engineered an explicit teardown protocol upon exiting the viewer. The manager releases all AsyncOperationHandles, unloads mesh and material asset locations, and clears tracking collections, enabling immediate native memory reclamation and eliminating garbage collection spikes on entry-level Android hardware.
+                        <strong>Explicit Addressables Memory Lifecycle:</strong> Engineered an explicit teardown protocol upon exiting the viewer. The manager releases all AsyncOperationHandles, unloads mesh and material asset locations, and clears tracking collections, enabling immediate native memory reclamation and eliminating garbage collection spikes on entry level hardware.
                     </li>
                     <li>
                         <strong>Locked Station Hardware (Android OS):</strong> Deployed to dedicated Android tablets mounted directly at haircutting stations, configured with locked kiosk parameters to prevent thermal throttling and accidental app exits during work hours.
                     </li>
                     <li>
-                        <strong>Over-the-Air Asset Delivery (Unity Addressables with Google Cloud Storage):</strong> Configured Unity Addressables to stream compressed 3D hairstyle asset bundles over the air from Google Cloud Storage buckets. New seasonal haircuts and styling collections loaded dynamically in the background without requiring application rebuilds, manual side-loading, or device downtime.
+                        <strong>Over the Air Asset Delivery (Unity Addressables with Google Cloud Storage):</strong> Configured Unity Addressables to stream compressed 3D hairstyle asset bundles over the air from Google Cloud Storage buckets. New seasonal haircuts and styling collections loaded dynamically in the background without requiring application rebuilds, manual sideloading, or device downtime.
                     </li>
                     <li>
                         <strong>Interaction and Journey Prototyping (Figma):</strong> Designed touch interaction flows, large touch target hitboxes for standing stylists with damp hands, and streamlined navigation paths for quick style confirmation.
@@ -405,7 +409,7 @@
                 <div class="case-callout case-callout-lessons">
                     <div class="case-callout-title">Lessons Learned and Retrospective</div>
                     <p class="case-callout-text">
-                        Software built for fast physical operations must prioritize immediate ergonomics over feature density. Early concepts explored rich customization controls, but stylists needed style confirmation within twenty seconds during rush hours. The simplest interface adopted consistently on the shop floor delivers far greater commercial value than feature-heavy software that interrupts the service rhythm.
+                        Software built for fast physical operations must prioritize immediate ergonomics over feature density. Early concepts explored rich customization controls, but stylists needed style confirmation within twenty seconds during rush hours. The simplest interface adopted consistently on the shop floor delivers far greater commercial value than feature heavy software that interrupts the service rhythm.
                     </p>
                 </div>
             </div>

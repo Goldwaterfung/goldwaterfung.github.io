@@ -71,4 +71,22 @@ document.addEventListener('DOMContentLoaded', () => {
     if (initialChecked) {
         syncAria(initialChecked.id);
     }
+
+    // Section Scroll Reveal Transition
+    const sections = Array.from(document.querySelectorAll('.case-section'));
+    if (sections.length && 'IntersectionObserver' in window) {
+        document.documentElement.classList.add('js-reveal');
+        const sectionObserver = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-revealed');
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, {
+            rootMargin: '0px 0px -8% 0px',
+            threshold: 0.05
+        });
+        sections.forEach(sec => sectionObserver.observe(sec));
+    }
 });
