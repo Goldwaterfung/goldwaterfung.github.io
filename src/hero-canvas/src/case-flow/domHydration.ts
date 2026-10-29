@@ -147,14 +147,19 @@ export class DOMHydrationManager {
 
   private updateToggleButton(): void {
     if (!this.toggleButton) return;
-    this.toggleButton.textContent =
-      this.currentMode === 'whiteboard' ? 'Reading View' : 'Whiteboard View';
-    this.toggleButton.setAttribute(
-      'aria-label',
-      this.currentMode === 'whiteboard'
-        ? 'Switch to linear reading layout'
-        : 'Switch to interactive spatial whiteboard'
-    );
+    const isWhiteboard = this.currentMode === 'whiteboard';
+    const fullText = isWhiteboard ? 'Reading View' : 'Whiteboard View';
+    const shortText = isWhiteboard ? 'Reading' : 'Whiteboard';
+    const ariaLabel = isWhiteboard
+      ? 'Switch to linear reading layout'
+      : 'Switch to interactive spatial whiteboard';
+
+    const iconSvg = isWhiteboard
+      ? `<svg class="case-nav-btn-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="14" y2="12"/><line x1="4" y1="18" x2="18" y2="18"/></svg>`
+      : `<svg class="case-nav-btn-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2.5"/><path d="M3 9h18M9 21V9"/></svg>`;
+
+    this.toggleButton.innerHTML = `${iconSvg}<span class="toggle-text-full">${fullText}</span><span class="toggle-text-short">${shortText}</span>`;
+    this.toggleButton.setAttribute('aria-label', ariaLabel);
   }
 
   public getInitialMode(): 'whiteboard' | 'reading' {

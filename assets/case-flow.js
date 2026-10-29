@@ -12640,10 +12640,9 @@ class hb {
     window.dispatchEvent(new CustomEvent("caseflow:sync-nodes"));
   }
   updateToggleButton() {
-    this.toggleButton && (this.toggleButton.textContent = this.currentMode === "whiteboard" ? "Reading View" : "Whiteboard View", this.toggleButton.setAttribute(
-      "aria-label",
-      this.currentMode === "whiteboard" ? "Switch to linear reading layout" : "Switch to interactive spatial whiteboard"
-    ));
+    if (!this.toggleButton) return;
+    const a = this.currentMode === "whiteboard", o = a ? "Reading View" : "Whiteboard View", r = a ? "Reading" : "Whiteboard", s = a ? "Switch to linear reading layout" : "Switch to interactive spatial whiteboard", f = a ? '<svg class="case-nav-btn-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="14" y2="12"/><line x1="4" y1="18" x2="18" y2="18"/></svg>' : '<svg class="case-nav-btn-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2.5"/><path d="M3 9h18M9 21V9"/></svg>';
+    this.toggleButton.innerHTML = `${f}<span class="toggle-text-full">${o}</span><span class="toggle-text-short">${r}</span>`, this.toggleButton.setAttribute("aria-label", s);
   }
   getInitialMode() {
     if (window.innerWidth < 768)
