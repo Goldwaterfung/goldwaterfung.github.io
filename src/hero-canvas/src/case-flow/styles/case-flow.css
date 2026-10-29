@@ -1,0 +1,666 @@
+/* ==========================================================================
+   XYFlow Case Studies Whiteboard Stylesheet
+   Inherits design tokens and variables from style.css & case.css
+   ========================================================================== */
+
+/* Stage container holding the interactive canvas */
+.whiteboard-stage {
+    position: fixed;
+    top: var(--header-height, 60px);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: calc(100vh - var(--header-height, 60px));
+    background-color: var(--bg-body, #f7f5f0);
+    z-index: 50;
+    display: none;
+    overflow: hidden;
+}
+
+body.is-whiteboard-active {
+    overflow: hidden;
+}
+
+body.is-whiteboard-active .whiteboard-stage {
+    display: block;
+}
+
+body.is-whiteboard-active #main-content {
+    display: none;
+}
+
+body.is-whiteboard-active .case-footer {
+    display: none;
+}
+
+/* ReactFlow canvas background & overrides */
+.whiteboard-stage .react-flow {
+    background-color: var(--bg-body, #f7f5f0);
+    font-family: var(--font-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
+}
+
+.whiteboard-stage .react-flow__background {
+    background-color: var(--bg-body, #f7f5f0);
+}
+
+.whiteboard-stage .react-flow__attribution {
+    display: none;
+}
+
+/* Base Whiteboard Card Node */
+.case-whiteboard-card {
+    background: var(--bg-card, #ffffff);
+    border: 1px solid var(--border-color, #dfded8);
+    border-radius: 12px;
+    padding: 2.25rem 2.5rem;
+    box-sizing: border-box;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+    transition: border-color 0.18s ease, box-shadow 0.18s ease;
+    cursor: default;
+    color: var(--text-primary, #1c1c1e);
+}
+
+.case-whiteboard-card:hover {
+    border-color: #c8c6be;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+}
+
+.case-whiteboard-card.is-selected,
+.react-flow__node.selected .case-whiteboard-card {
+    border-color: var(--text-primary, #1c1c1e);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.09);
+}
+
+/* Section overrides when mounted inside a card node */
+.case-whiteboard-card .case-section,
+.case-whiteboard-card .case-hero {
+    opacity: 1 !important;
+    transform: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    max-width: 100% !important;
+}
+
+.case-whiteboard-card .case-section-title {
+    font-size: 1.45rem;
+    line-height: 1.3;
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+    color: var(--text-primary, #1c1c1e);
+}
+
+.case-whiteboard-card .case-lead {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+}
+
+.case-whiteboard-card p {
+    font-size: 0.95rem;
+    line-height: 1.62;
+    color: var(--text-secondary, #4a4a4e);
+}
+
+/* Affordance Master-Detail Layout adaptation inside Whiteboard Cards */
+.case-whiteboard-card .affordance-master-detail {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-top: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+    display: block !important;
+}
+
+.case-whiteboard-card .affordance-stack-column {
+    position: static !important;
+    top: auto !important;
+    height: auto !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 12px !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.case-whiteboard-card .affordance-card {
+    position: static !important;
+    width: 100% !important;
+    height: 130px !important;
+}
+
+.case-whiteboard-card .affordance-card-1,
+.case-whiteboard-card .affordance-card-2,
+.case-whiteboard-card .affordance-card-3 {
+    top: auto !important;
+    left: auto !important;
+    z-index: auto !important;
+}
+
+.case-whiteboard-card #affordance-tab-1:checked ~ .affordance-stack-column .affordance-card-1,
+.case-whiteboard-card #affordance-tab-2:checked ~ .affordance-stack-column .affordance-card-2,
+.case-whiteboard-card #affordance-tab-3:checked ~ .affordance-stack-column .affordance-card-3 {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.14) !important;
+}
+
+/* MRKE 360 Hairstyle Viewer Card Adaptations */
+.case-whiteboard-card .case-hero {
+    padding: 0 !important;
+    margin: 0 !important;
+    gap: 24px !important;
+}
+
+.case-whiteboard-card .case-hero-intro {
+    flex: 1 1 0% !important;
+    min-width: 0 !important;
+}
+
+.case-whiteboard-card .case-tablet-frame {
+    flex: 0 0 270px !important;
+    max-width: 270px !important;
+    margin: 0 !important;
+}
+
+.case-whiteboard-card .case-decision-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+    gap: 12px !important;
+    margin: 1.25rem 0 1.5rem !important;
+}
+
+.case-whiteboard-card .case-decision-card.discarded {
+    padding: 1.5rem 1.2rem 1.75rem !important;
+    min-height: 140px !important;
+}
+
+.case-whiteboard-card .case-decision-card.chosen {
+    grid-column: 1 / -1 !important;
+    padding: 1.5rem 1.75rem !important;
+}
+
+.case-whiteboard-card .case-walkthrough {
+    gap: 24px !important;
+    margin: 1.25rem 0 !important;
+}
+
+.case-whiteboard-card .case-walkthrough-step {
+    gap: 24px !important;
+}
+
+.case-whiteboard-card .case-walkthrough-device {
+    flex: 0 0 250px !important;
+    max-width: 250px !important;
+}
+
+.case-whiteboard-card .case-walkthrough-content {
+    flex: 1 1 0% !important;
+    min-width: 0 !important;
+}
+
+/* Live Concert Telemetry Sync Card Adaptations */
+.case-whiteboard-card .telemetry-whiteboard {
+    margin: 1.25rem 0 !important;
+    padding: 24px 20px !important;
+}
+
+.case-whiteboard-card .interventions-flow {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 14px !important;
+    margin-top: 1.25rem !important;
+}
+
+.case-whiteboard-card .interventions-flow .intervention-card {
+    padding: 16px 18px !important;
+    margin: 0 !important;
+}
+
+.case-whiteboard-card .interventions-flow .intervention-keyword {
+    font-size: 0.95rem !important;
+    margin-bottom: 6px !important;
+}
+
+.case-whiteboard-card .interventions-flow .intervention-text {
+    font-size: 0.85rem !important;
+    line-height: 1.5 !important;
+}
+
+.case-whiteboard-card .interventions-flow .intervention-card-green {
+    grid-column: 1 / -1 !important;
+}
+
+.case-whiteboard-card .interventions-flow .intervention-media {
+    margin: 0 !important;
+    max-width: 100% !important;
+}
+
+.case-whiteboard-card .interventions-flow .intervention-media img {
+    width: 100% !important;
+    height: 160px !important;
+    object-fit: cover !important;
+    border-radius: 6px !important;
+}
+
+.case-whiteboard-card .interventions-flow .intervention-media figcaption {
+    font-size: 0.72rem !important;
+    padding: 6px 8px !important;
+}
+
+.case-whiteboard-card .case-figure-portrait {
+    max-width: 380px !important;
+    margin: 1.25rem auto !important;
+}
+
+.case-whiteboard-card .case-figure-portrait img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 240px !important;
+    object-fit: cover !important;
+}
+
+/* CollarAgent Visual Research Studio Card Adaptations */
+.case-whiteboard-card .case-window-frame {
+    margin: 1.25rem 0 !important;
+}
+
+.case-whiteboard-card .case-window-viewport img {
+    max-height: 340px !important;
+    object-fit: contain !important;
+}
+
+.case-whiteboard-card .case-stats-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 12px !important;
+    margin: 1.25rem 0 0 0 !important;
+}
+
+.case-whiteboard-card .case-stat-card {
+    padding: 12px 14px !important;
+}
+
+.case-whiteboard-card .case-stat-num {
+    font-size: 1.5rem !important;
+    margin-bottom: 2px !important;
+}
+
+.case-whiteboard-card .case-stat-label {
+    font-size: 0.65rem !important;
+    margin-bottom: 2px !important;
+}
+
+.case-whiteboard-card .case-stat-desc {
+    font-size: 0.74rem !important;
+    line-height: 1.35 !important;
+}
+
+/* Stratawright Agentic DAW Card Adaptations */
+.case-whiteboard-card .case-window-viewport video {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 340px !important;
+    object-fit: contain !important;
+    border-radius: 0 0 8px 8px !important;
+}
+
+.case-whiteboard-card .case-table-wrap {
+    margin: 1.25rem 0 !important;
+}
+
+.case-whiteboard-card .case-table {
+    font-size: 0.8rem !important;
+}
+
+.case-whiteboard-card .case-table th,
+.case-whiteboard-card .case-table td {
+    padding: 8px 12px !important;
+}
+
+.case-whiteboard-card .case-flow-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 12px !important;
+    margin-top: 1.25rem !important;
+}
+
+.case-whiteboard-card .case-flow-card {
+    padding: 14px 16px !important;
+}
+
+.case-whiteboard-card .case-flow-kicker {
+    font-size: 0.65rem !important;
+}
+
+.case-whiteboard-card .case-flow-title {
+    font-size: 0.95rem !important;
+    margin-bottom: 4px !important;
+}
+
+.case-whiteboard-card .case-flow-desc {
+    font-size: 0.76rem !important;
+    line-height: 1.38 !important;
+}
+
+/* IEEE ICVR Research Card Adaptations */
+.case-whiteboard-card .case-gallery-3col {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 12px !important;
+    margin: 1.25rem 0 !important;
+}
+
+.case-whiteboard-card .case-gallery-3col .case-figure img {
+    width: 100% !important;
+    height: 140px !important;
+    object-fit: cover !important;
+    border-radius: 6px 6px 0 0 !important;
+}
+
+.case-whiteboard-card .case-gallery-3col figcaption {
+    font-size: 0.72rem !important;
+    padding: 6px 8px !important;
+}
+
+.case-whiteboard-card .case-gallery-2col {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+    margin: 1.25rem 0 !important;
+}
+
+.case-whiteboard-card .case-gallery-2col .case-figure img {
+    max-height: 190px !important;
+    object-fit: contain !important;
+    background: #ffffff !important;
+}
+
+.case-whiteboard-card .case-gallery-2col figcaption {
+    font-size: 0.72rem !important;
+    padding: 6px 8px !important;
+}
+
+/* Virtual Principal Multimodal AI Avatar Card Adaptations */
+.case-whiteboard-card .case-hero .case-window-frame.case-figure-portrait {
+    flex: 0 0 220px !important;
+    max-width: 220px !important;
+    margin: 0 !important;
+}
+
+.case-whiteboard-card .case-hero .case-window-frame.case-figure-portrait img {
+    max-height: 340px !important;
+    height: auto !important;
+    object-fit: cover !important;
+}
+
+.case-whiteboard-card .vp-album-spread {
+    margin: 1.25rem 0 !important;
+}
+
+.case-whiteboard-card .vp-album-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 12px !important;
+}
+
+.case-whiteboard-card .vp-album-card {
+    padding: 8px 8px 10px !important;
+    transform: none !important;
+}
+
+.case-whiteboard-card .vp-album-card:hover {
+    transform: translateY(-2px) !important;
+}
+
+.case-whiteboard-card .vp-photo-frame img {
+    height: 140px !important;
+    object-fit: cover !important;
+}
+
+.case-whiteboard-card .vp-photo-desc {
+    font-size: 0.72rem !important;
+    line-height: 1.35 !important;
+}
+
+.case-whiteboard-card .pipeline-master-detail {
+    display: grid !important;
+    grid-template-columns: 240px 1fr !important;
+    gap: 18px !important;
+    margin: 1.25rem 0 !important;
+}
+
+.case-whiteboard-card .pipeline-stack-column {
+    position: static !important;
+    gap: 8px !important;
+    width: 100% !important;
+}
+
+.case-whiteboard-card .pipeline-card {
+    width: 100% !important;
+    padding: 8px 10px !important;
+    cursor: pointer !important;
+}
+
+.case-whiteboard-card .pipeline-card-kicker {
+    font-size: 0.62rem !important;
+}
+
+.case-whiteboard-card .pipeline-card-title {
+    font-size: 0.82rem !important;
+}
+
+.case-whiteboard-card .pipeline-panel-title {
+    font-size: 1.15rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.case-whiteboard-card .pipeline-panel-desc {
+    font-size: 0.85rem !important;
+    line-height: 1.55 !important;
+}
+
+.case-whiteboard-card .vp-quad-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    margin: 1.25rem 0 !important;
+}
+
+.case-whiteboard-card .vp-quad-cell {
+    padding: 16px 18px !important;
+    gap: 6px !important;
+}
+
+.case-whiteboard-card .vp-cell-title {
+    font-size: 0.95rem !important;
+}
+
+.case-whiteboard-card .vp-cell-desc {
+    font-size: 0.8rem !important;
+    line-height: 1.45 !important;
+}
+
+.case-whiteboard-card .vp-tech-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 10px !important;
+    margin: 1.25rem 0 !important;
+}
+
+.case-whiteboard-card .vp-tech-card {
+    padding: 12px 14px !important;
+}
+
+.case-whiteboard-card .vp-tech-kicker {
+    font-size: 0.62rem !important;
+    margin-bottom: 2px !important;
+}
+
+.case-whiteboard-card .vp-tech-name {
+    font-size: 0.88rem !important;
+    margin-bottom: 4px !important;
+}
+
+.case-whiteboard-card .vp-tech-detail {
+    font-size: 0.76rem !important;
+    line-height: 1.38 !important;
+}
+
+/* Custom Connection Handles */
+.case-flow-handle {
+    width: 10px !important;
+    height: 10px !important;
+    background: var(--bg-card, #ffffff) !important;
+    border: 2px solid var(--text-primary, #1c1c1e) !important;
+    border-radius: 50% !important;
+    transition: transform 0.15s ease, background-color 0.15s ease !important;
+}
+
+.case-flow-handle:hover {
+    transform: scale(1.35) !important;
+    background: var(--text-primary, #1c1c1e) !important;
+}
+
+/* Edge styling */
+.react-flow__edge-path {
+    stroke: #b5b4ad;
+    stroke-width: 2px;
+}
+
+.react-flow__edge.selected .react-flow__edge-path,
+.react-flow__edge:hover .react-flow__edge-path {
+    stroke: var(--text-primary, #1c1c1e);
+    stroke-width: 2.5px;
+}
+
+/* HUD Storyboard Stepper Bar (Bottom Center) */
+.case-storyboard-stepper {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 65;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    background: rgba(251, 251, 250, 0.94);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid var(--border-color, #dfded8);
+    border-radius: 8px;
+    padding: 4px 6px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    user-select: none;
+    max-width: calc(100vw - 120px);
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.case-storyboard-stepper::-webkit-scrollbar {
+    display: none;
+}
+
+.stepper-btn {
+    font-family: var(--font-sans, sans-serif);
+    font-size: 0.74rem;
+    font-weight: 500;
+    color: var(--text-secondary, #4a4a4e);
+    background: transparent;
+    border: none;
+    padding: 5px 9px;
+    border-radius: 4px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.stepper-btn:hover {
+    color: var(--text-primary, #1c1c1e);
+    background: var(--bg-console, #ebe7df);
+}
+
+.stepper-btn.is-active {
+    color: var(--text-primary, #1c1c1e);
+    background: var(--bg-console, #ebe7df);
+    font-weight: 600;
+}
+
+/* HUD Viewport Controls (Bottom Left) */
+.case-viewport-controls {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    z-index: 65;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: rgba(251, 251, 250, 0.94);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid var(--border-color, #dfded8);
+    border-radius: 8px;
+    padding: 4px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.control-btn {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    color: var(--text-primary, #1c1c1e);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.15s ease;
+}
+
+.control-btn:hover {
+    background: var(--bg-console, #ebe7df);
+}
+
+/* Mode Toggle Button inside .case-nav */
+.case-view-mode-toggle {
+    font-family: var(--font-mono, monospace);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color, #dfded8);
+    background: var(--bg-card, #ffffff);
+    color: var(--text-primary, #1c1c1e);
+    cursor: pointer;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.case-view-mode-toggle:hover {
+    border-color: var(--text-primary, #1c1c1e);
+    background: var(--bg-panel, #fbfbfa);
+}
+
+/* Guarding interactive elements from dragging the node card */
+.case-whiteboard-card input,
+.case-whiteboard-card button,
+.case-whiteboard-card select,
+.case-whiteboard-card textarea,
+.case-whiteboard-card a,
+.case-whiteboard-card video,
+.case-whiteboard-card audio,
+.case-whiteboard-card pre,
+.case-whiteboard-card code,
+.case-whiteboard-card .affordance-card,
+.case-whiteboard-card .affordance-panel,
+.case-whiteboard-card .pipeline-card,
+.case-whiteboard-card .pipeline-panel,
+.case-whiteboard-card .vp-album-card,
+.case-whiteboard-card .case-window-frame {
+    cursor: auto;
+}
+
+.case-whiteboard-card .pipeline-card {
+    cursor: pointer !important;
+}

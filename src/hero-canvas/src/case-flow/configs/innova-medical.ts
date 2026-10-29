@@ -1,0 +1,81 @@
+import type { CaseGraphConfig } from './types';
+
+export const innovaMedicalConfig: CaseGraphConfig = {
+  slug: 'innova-medical',
+  title: 'Innova Medical',
+  heroNode: {
+    position: { x: -840, y: 220 },
+    width: 760,
+    chapterLabel: 'Project Overview',
+  },
+  nodes: [
+    {
+      id: 'section-0',
+      sectionIndex: 0,
+      position: { x: 0, y: 220 },
+      width: 760,
+      chapterLabel: 'Problem Discovery',
+    },
+    {
+      id: 'section-1',
+      sectionIndex: 1,
+      position: { x: 840, y: 0 },
+      width: 780,
+      chapterLabel: 'Interaction Design',
+    },
+    {
+      id: 'section-2',
+      sectionIndex: 2,
+      position: { x: 840, y: 840 },
+      width: 760,
+      chapterLabel: 'Product Strategy',
+    },
+    {
+      id: 'section-3',
+      sectionIndex: 3,
+      position: { x: 1720, y: 0 },
+      width: 760,
+      chapterLabel: 'Diagnostic Audit',
+    },
+    {
+      id: 'section-4',
+      sectionIndex: 4,
+      position: { x: 1720, y: 840 },
+      width: 820,
+      chapterLabel: 'Spatial Affordance Design',
+    },
+    {
+      id: 'section-5',
+      sectionIndex: 5,
+      position: { x: 2640, y: 0 },
+      width: 760,
+      chapterLabel: 'Cross-Functional Alignment',
+    },
+    {
+      id: 'section-6',
+      sectionIndex: 6,
+      position: { x: 2640, y: 840 },
+      width: 740,
+      chapterLabel: 'Performance Engineering',
+    },
+    {
+      id: 'section-7',
+      sectionIndex: 7,
+      position: { x: 3500, y: 420 },
+      width: 740,
+      chapterLabel: 'Measurable Impact',
+    },
+  ],
+  edges: [
+    { id: 'e-hero-0', source: 'hero', target: 'section-0' },
+    { id: 'e-0-1', source: 'section-0', target: 'section-1' },
+    { id: 'e-0-2', source: 'section-0', target: 'section-2' },
+    { id: 'e-1-3', source: 'section-1', target: 'section-3' },
+    { id: 'e-2-3', source: 'section-2', target: 'section-3' },
+    { id: 'e-3-4', source: 'section-3', target: 'section-4' },
+    { id: 'e-3-5', source: 'section-3', target: 'section-5' },
+    { id: 'e-4-7', source: 'section-4', target: 'section-7' },
+    { id: 'e-5-6', source: 'section-5', target: 'section-6' },
+    { id: 'e-6-7', source: 'section-6', target: 'section-7' },
+  ],
+};

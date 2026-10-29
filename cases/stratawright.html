@@ -14,9 +14,12 @@
     <link rel="stylesheet" href="../assets/fonts/fonts.css">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="case.css">
+    <link rel="stylesheet" href="../assets/case-flow.css">
 </head>
 
-<body class="case-page">
+<body class="case-page" data-case-slug="stratawright">
+
+    <a href="#main-content" class="skip-to-content">Skip to content</a>
 
     <header class="case-nav">
         <div class="case-container case-nav-inner">
@@ -28,7 +31,7 @@
         </div>
     </header>
 
-    <main class="case-container">
+    <main class="case-container" id="main-content">
 
         <header class="case-hero">
             <span class="case-kicker">Agent Orchestration and Audio Systems</span>
@@ -62,43 +65,43 @@
                     <span class="meta-val">Agent Tooling, CLI Protocols, DSP Telemetry</span>
                 </div>
             </div>
-        </header>
 
-        <div class="case-window-frame">
-            <div class="case-window-titlebar">
-                <div class="case-window-dots">
-                    <span class="case-window-dot dot-close"></span>
-                    <span class="case-window-dot dot-min"></span>
-                    <span class="case-window-dot dot-max"></span>
+            <div class="case-window-frame">
+                <div class="case-window-titlebar">
+                    <div class="case-window-dots">
+                        <span class="case-window-dot dot-close"></span>
+                        <span class="case-window-dot dot-min"></span>
+                        <span class="case-window-dot dot-max"></span>
+                    </div>
+                    <span class="case-window-title">Stratawright: Agentic DAW Signal Workspace</span>
                 </div>
-                <span class="case-window-title">Stratawright: Agentic DAW Signal Workspace</span>
+                <div class="case-window-viewport">
+                    <video controls autoplay muted loop playsinline poster="../assets/daw/daw-usecase-poster.jpg"
+                        aria-label="Stratawright DAW Agent CLI Automation Demonstration">
+                        <source src="../assets/daw/daw-usecase.mp4" type="video/mp4">
+                        Your browser does not support embedded video.
+                    </video>
+                </div>
             </div>
-            <div class="case-window-viewport">
-                <video controls autoplay muted loop playsinline poster="../assets/daw/daw-usecase-poster.jpg"
-                    aria-label="Stratawright DAW Agent CLI Automation Demonstration">
-                    <source src="../assets/daw/daw-usecase.mp4" type="video/mp4">
-                    Your browser does not support embedded video.
-                </video>
-            </div>
-        </div>
 
-        <div class="case-stats-grid">
-            <div class="case-stat-card">
-                <div class="case-stat-num">&lt; 5s</div>
-                <span class="case-stat-label">Batch Setup Time</span>
-                <p class="case-stat-desc">Stem ingestion, auto-coloring, and headroom leveling down from 45 minutes.</p>
+            <div class="case-stats-grid">
+                <div class="case-stat-card">
+                    <div class="case-stat-num">&lt; 5s</div>
+                    <span class="case-stat-label">Batch Setup Time</span>
+                    <p class="case-stat-desc">Stem ingestion, auto-coloring, and headroom leveling down from 45 minutes.</p>
+                </div>
+                <div class="case-stat-card">
+                    <div class="case-stat-num">100+</div>
+                    <span class="case-stat-label">Tracks Supported</span>
+                    <p class="case-stat-desc">Full multitrack session capacity running automated gain staging across complex stem layouts.</p>
+                </div>
+                <div class="case-stat-card">
+                    <div class="case-stat-num">24 Bark</div>
+                    <span class="case-stat-label">Critical Bands</span>
+                    <p class="case-stat-desc">Streaming DSP telemetry evaluating psychoacoustic frequency masking directly for coding agents.</p>
+                </div>
             </div>
-            <div class="case-stat-card">
-                <div class="case-stat-num">100+</div>
-                <span class="case-stat-label">Tracks Supported</span>
-                <p class="case-stat-desc">Full multitrack session capacity running automated gain staging across complex stem layouts.</p>
-            </div>
-            <div class="case-stat-card">
-                <div class="case-stat-num">24 Bark</div>
-                <span class="case-stat-label">Critical Bands</span>
-                <p class="case-stat-desc">Streaming DSP telemetry evaluating psychoacoustic frequency masking directly for coding agents.</p>
-            </div>
-        </div>
+        </header>
 
         <section class="case-section">
             <h2 class="case-section-title">Context and Problem Discovery</h2>
@@ -283,6 +286,7 @@
 
     </main>
 
+    <script src="../assets/case-flow.js" defer></script>
 </body>
 
 </html>

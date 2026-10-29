@@ -14,9 +14,12 @@
     <link rel="stylesheet" href="../assets/fonts/fonts.css">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="case.css">
+    <link rel="stylesheet" href="../assets/case-flow.css">
 </head>
 
-<body class="case-page">
+<body class="case-page" data-case-slug="collaragent">
+
+    <a href="#main-content" class="skip-to-content">Skip to content</a>
 
     <header class="case-nav">
         <div class="case-container case-nav-inner">
@@ -28,7 +31,7 @@
         </div>
     </header>
 
-    <main class="case-container">
+    <main class="case-container" id="main-content">
 
         <header class="case-hero">
             <span class="case-kicker">Autonomous Workflows and Interaction Design</span>
@@ -62,39 +65,39 @@
                     <span class="meta-val">Electron, React, TypeScript, LangGraph</span>
                 </div>
             </div>
-        </header>
 
-        <div class="case-window-frame">
-            <div class="case-window-titlebar">
-                <div class="case-window-dots">
-                    <span class="case-window-dot dot-close"></span>
-                    <span class="case-window-dot dot-min"></span>
-                    <span class="case-window-dot dot-max"></span>
+            <div class="case-window-frame">
+                <div class="case-window-titlebar">
+                    <div class="case-window-dots">
+                        <span class="case-window-dot dot-close"></span>
+                        <span class="case-window-dot dot-min"></span>
+                        <span class="case-window-dot dot-max"></span>
+                    </div>
+                    <span class="case-window-title">CollarAgent: Visual Research Workspace</span>
                 </div>
-                <span class="case-window-title">CollarAgent: Visual Research Workspace</span>
+                <div class="case-window-viewport">
+                    <img src="../assets/collaragent/showcase-collaragent.gif" alt="CollarAgent Autonomous Agent Co-Working and Visual Diff Showcase">
+                </div>
             </div>
-            <div class="case-window-viewport">
-                <img src="../assets/collaragent/showcase-collaragent.gif" alt="CollarAgent Autonomous Agent Co-Working and Visual Diff Showcase">
-            </div>
-        </div>
 
-        <div class="case-stats-grid">
-            <div class="case-stat-card">
-                <div class="case-stat-num">3-Pane</div>
-                <span class="case-stat-label">Unified Workspace</span>
-                <p class="case-stat-desc">Synchronized concept canvas, structured lexical editor, and LangGraph runtime.</p>
+            <div class="case-stats-grid">
+                <div class="case-stat-card">
+                    <div class="case-stat-num">3-Pane</div>
+                    <span class="case-stat-label">Unified Workspace</span>
+                    <p class="case-stat-desc">Synchronized concept canvas, structured lexical editor, and LangGraph runtime.</p>
+                </div>
+                <div class="case-stat-card">
+                    <div class="case-stat-num">100%</div>
+                    <span class="case-stat-label">Local-First Storage</span>
+                    <p class="case-stat-desc">Atomic SQLite database snapshots and OS keychain encryption with zero external cloud dependencies.</p>
+                </div>
+                <div class="case-stat-card">
+                    <div class="case-stat-num">8-Page</div>
+                    <span class="case-stat-label">Manuscript Validated</span>
+                    <p class="case-stat-desc">Daily production studio used to draft the complete IEEE ICVR 2026 paper.</p>
+                </div>
             </div>
-            <div class="case-stat-card">
-                <div class="case-stat-num">100%</div>
-                <span class="case-stat-label">Local-First Storage</span>
-                <p class="case-stat-desc">Atomic SQLite database snapshots and OS keychain encryption with zero external cloud dependencies.</p>
-            </div>
-            <div class="case-stat-card">
-                <div class="case-stat-num">8-Page</div>
-                <span class="case-stat-label">Manuscript Validated</span>
-                <p class="case-stat-desc">Daily production studio used to draft the complete IEEE ICVR 2026 paper.</p>
-            </div>
-        </div>
+        </header>
 
         <section class="case-section">
             <h2 class="case-section-title">Context and Problem Discovery</h2>
@@ -223,6 +226,7 @@
 
     </main>
 
+    <script src="../assets/case-flow.js" defer></script>
 </body>
 
 </html>

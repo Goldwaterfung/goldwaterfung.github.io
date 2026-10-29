@@ -14,9 +14,12 @@
     <link rel="stylesheet" href="../assets/fonts/fonts.css">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="case.css">
+    <link rel="stylesheet" href="../assets/case-flow.css">
 </head>
 
-<body class="case-page">
+<body class="case-page" data-case-slug="ieee-vr">
+
+    <a href="#main-content" class="skip-to-content">Skip to content</a>
 
     <header class="case-nav">
         <div class="case-container case-nav-inner">
@@ -28,7 +31,7 @@
         </div>
     </header>
 
-    <main class="case-container">
+    <main class="case-container" id="main-content">
 
         <header class="case-hero">
             <span class="case-kicker">Human-Computer Interaction Research and Spatial Computing</span>
@@ -66,42 +69,42 @@
                     <span class="meta-val">Unity C#, Wwise, Python Telemetry</span>
                 </div>
             </div>
-        </header>
 
-        <div class="case-window-frame">
-            <div class="case-window-titlebar">
-                <div class="case-window-dots">
-                    <span class="case-window-dot dot-close"></span>
-                    <span class="case-window-dot dot-min"></span>
-                    <span class="case-window-dot dot-max"></span>
+            <div class="case-window-frame">
+                <div class="case-window-titlebar">
+                    <div class="case-window-dots">
+                        <span class="case-window-dot dot-close"></span>
+                        <span class="case-window-dot dot-min"></span>
+                        <span class="case-window-dot dot-max"></span>
+                    </div>
+                    <span class="case-window-title">IEEE ICVR Research: Audio-Visual Conflict Simulation</span>
                 </div>
-                <span class="case-window-title">IEEE ICVR Research: Audio-Visual Conflict Simulation</span>
+                <div class="case-window-viewport">
+                    <video controls autoplay muted loop playsinline>
+                        <source src="../assets/research/incongruent-gameplay.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
             </div>
-            <div class="case-window-viewport">
-                <video controls autoplay muted loop playsinline>
-                    <source src="../assets/research/incongruent-gameplay.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-        </div>
 
-        <div class="case-stats-grid">
-            <div class="case-stat-card">
-                <div class="case-stat-num">60.35°</div>
-                <span class="case-stat-label">Visual Bias Dominance</span>
-                <p class="case-stat-desc">Median angular localization error under conflict with a 0.738 Visual Bias Index (p &lt; 0.001).</p>
+            <div class="case-stats-grid">
+                <div class="case-stat-card">
+                    <div class="case-stat-num">60.35°</div>
+                    <span class="case-stat-label">Visual Bias Dominance</span>
+                    <p class="case-stat-desc">Median angular localization error under conflict with a 0.738 Visual Bias Index (p &lt; 0.001).</p>
+                </div>
+                <div class="case-stat-card">
+                    <div class="case-stat-num">+1.64s</div>
+                    <span class="case-stat-label">Cognitive Penalty</span>
+                    <p class="case-stat-desc">Substantial reaction time latency penalty required to resist visual capture and localize audio.</p>
+                </div>
+                <div class="case-stat-card">
+                    <div class="case-stat-num">&lt; 0.3%</div>
+                    <span class="case-stat-label">Front-Back Ambiguity</span>
+                    <p class="case-stat-desc">16-channel HOA decoding array eliminated front-back confusion confound across all conditions.</p>
+                </div>
             </div>
-            <div class="case-stat-card">
-                <div class="case-stat-num">+1.64s</div>
-                <span class="case-stat-label">Cognitive Penalty</span>
-                <p class="case-stat-desc">Substantial reaction time latency penalty required to resist visual capture and localize audio.</p>
-            </div>
-            <div class="case-stat-card">
-                <div class="case-stat-num">&lt; 0.3%</div>
-                <span class="case-stat-label">Front-Back Ambiguity</span>
-                <p class="case-stat-desc">16-channel HOA decoding array eliminated front-back confusion confound across all conditions.</p>
-            </div>
-        </div>
+        </header>
 
         <section class="case-section">
             <h2 class="case-section-title">Context and Problem Discovery</h2>
@@ -333,6 +336,7 @@
 
     </main>
 
+    <script src="../assets/case-flow.js" defer></script>
 </body>
 
 </html>

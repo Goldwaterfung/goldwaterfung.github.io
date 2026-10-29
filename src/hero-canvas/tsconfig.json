@@ -16,5 +16,5 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "vite.config.ts", "vite.splat-viewer.config.ts"]
+  "include": ["src", "vite.config.ts", "vite.splat-viewer.config.ts", "vite.case-flow.config.ts"]
 }
