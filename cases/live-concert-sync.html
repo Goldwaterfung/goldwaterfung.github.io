@@ -87,37 +87,57 @@
                 <p>
                     To achieve rock-solid synchronization across both physical and virtual venues without choking the hardware, I rebuilt the telemetry pipeline around lightweight payloads and decoupled routing:
                 </p>
-                <ul>
-                    <li>
-                        <strong>Musician Rehearsal Shadowing:</strong> I attended full rehearsals alongside the master musician to observe the relationship between physical gestures and musical attacks. I discovered that before rapid bowing phrases, the performer executed an organic preparatory motion roughly 0.8 seconds before sound onset. Rather than forcing unstable zero latency algorithmic streaming, I calibrated a 1.5-second deterministic playback buffer in Unity. This buffer absorbed optical tracking variance and temporal network jitter while keeping visual bowing locked to musical timing.
-                    </li>
-                    <li>
-                        <strong>Payload Stripping and Vector Extraction:</strong> Raw motion tracking systems emit dense bone hierarchies that quickly flood local sockets. I built an ingestion pipeline in Unity via TCP sockets that discarded unnecessary coordinate trees, extracting only essential joint rotational vectors and root offsets. This compressed the transmission payload and eliminated redundant hierarchy recalculations on the stage rendering engine.
-                    </li>
-                    <li>
-                        <strong>Decoupled MQTT Pub/Sub Architecture:</strong> To prevent remote audience connections from degrading stage performance, I implemented an MQTT telemetry broker over TCP and WebSockets. The stage machine published motion telemetry and audio markers to dedicated lightweight topics once. The broker then handled distribution to the hall projection system and remote virtual campus subscribers independently, ensuring zero latency penalty on stage as remote client counts grew.
-                    </li>
-                    <li>
-                        <strong>Audio and Motion Timestamp Alignment:</strong> I synchronized motion capture frame sequences directly with stage microphone audio timestamps. Aligning joint turnaround markers with acoustic note transients ensured that avatar bow direction changes matched the sharp attack of fast Erhu passages without cumulative phase drift.
-                    </li>
-                    <li>
-                        <strong>Hall Dress Rehearsals and Stress Testing:</strong> During full dress rehearsals with stage lighting and audience network conditions, I benchmarked telemetry throughput and queue handling. I tuned buffer thresholds and interpolation curves in Unity so that momentary network hiccups gracefully blended between valid frames instead of snapping or freezing.
-                    </li>
-                </ul>
 
-                <figure class="case-figure">
-                    <img src="../assets/system_integration/rehearsal-erhu-concert.jpg"
-                        alt="Auditorium stage rehearsal: Calibrating motion capture sensors and audio feeds in the 1,000 seat hall"
-                        loading="lazy">
-                    <figcaption>Auditorium stage rehearsal: Calibrating motion capture sensors and audio feeds in the 1,000 seat hall</figcaption>
-                </figure>
+                <div class="interventions-flow">
+                    <article class="intervention-card intervention-card-amber">
+                        <h3 class="intervention-keyword">Musician Rehearsal Shadowing</h3>
+                        <p class="intervention-text">
+                            I attended full rehearsals alongside the master musician to observe the relationship between physical gestures and musical attacks. I discovered that before rapid bowing phrases, the performer executed an organic preparatory motion roughly 0.8 seconds before sound onset. Rather than forcing unstable zero latency algorithmic streaming, I calibrated a 1.5-second deterministic playback buffer in Unity. This buffer absorbed optical tracking variance and temporal network jitter while keeping visual bowing locked to musical timing.
+                        </p>
+                    </article>
 
-                <figure class="case-figure case-figure-portrait">
-                    <img src="../assets/system_integration/multi-camera-ai-motion-capture-with-erhu-object-tracking.jpg"
-                        alt="Multi-camera optical motion capture rig tracking Erhu instrument and performer in the auditorium"
-                        loading="lazy">
-                    <figcaption>Optical motion tracking setup: Multi-camera rig tracking Erhu instrument and performer</figcaption>
-                </figure>
+                    <article class="intervention-card intervention-card-teal">
+                        <h3 class="intervention-keyword">Payload Stripping and Vector Extraction</h3>
+                        <p class="intervention-text">
+                            Raw motion tracking systems emit dense bone hierarchies that quickly flood local sockets. I built an ingestion pipeline in Unity via TCP sockets that discarded unnecessary coordinate trees, extracting only essential joint rotational vectors and root offsets. This compressed the transmission payload and eliminated redundant hierarchy recalculations on the stage rendering engine.
+                        </p>
+                    </article>
+
+                    <figure class="case-figure case-figure-portrait intervention-media">
+                        <img src="../assets/system_integration/multi-camera-ai-motion-capture-with-erhu-object-tracking.jpg"
+                            alt="Multi-camera optical motion capture rig tracking Erhu instrument and performer in the auditorium"
+                            loading="lazy">
+                        <figcaption>Optical motion tracking setup: Multi-camera rig tracking Erhu instrument and performer</figcaption>
+                    </figure>
+
+                    <article class="intervention-card intervention-card-blue">
+                        <h3 class="intervention-keyword">Decoupled MQTT Pub/Sub Architecture</h3>
+                        <p class="intervention-text">
+                            To prevent remote audience connections from degrading stage performance, I implemented an MQTT telemetry broker over TCP and WebSockets. The stage machine published motion telemetry and audio markers to dedicated lightweight topics once. The broker then handled distribution to the hall projection system and remote virtual campus subscribers independently, ensuring zero latency penalty on stage as remote client counts grew.
+                        </p>
+                    </article>
+
+                    <article class="intervention-card intervention-card-purple">
+                        <h3 class="intervention-keyword">Audio and Motion Timestamp Alignment</h3>
+                        <p class="intervention-text">
+                            I synchronized motion capture frame sequences directly with stage microphone audio timestamps. Aligning joint turnaround markers with acoustic note transients ensured that avatar bow direction changes matched the sharp attack of fast Erhu passages without cumulative phase drift.
+                        </p>
+                    </article>
+
+                    <article class="intervention-card intervention-card-green">
+                        <h3 class="intervention-keyword">Hall Dress Rehearsals and Stress Testing</h3>
+                        <p class="intervention-text">
+                            During full dress rehearsals with stage lighting and audience network conditions, I benchmarked telemetry throughput and queue handling. I tuned buffer thresholds and interpolation curves in Unity so that momentary network hiccups gracefully blended between valid frames instead of snapping or freezing.
+                        </p>
+                    </article>
+
+                    <figure class="case-figure intervention-media">
+                        <img src="../assets/system_integration/rehearsal-erhu-concert.jpg"
+                            alt="Auditorium stage rehearsal: Calibrating motion capture sensors and audio feeds in the 1,000 seat hall"
+                            loading="lazy">
+                        <figcaption>Auditorium stage rehearsal: Calibrating motion capture sensors and audio feeds in the 1,000 seat hall</figcaption>
+                    </figure>
+                </div>
             </div>
         </section>
 

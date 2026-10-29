@@ -12,3 +12,123 @@
     margin-top: 0;
     margin-bottom: var(--space-400);
 }
+
+/* ==========================================================================
+   Engineering Interventions & Telemetry Progression Flow
+   ========================================================================== */
+
+:root {
+    /* Color palettes for the 5 keywords */
+    --sync-amber-accent: #b45309;
+    --sync-amber-bg: #fffdfa;
+    --sync-amber-border: #f6d8be;
+
+    --sync-teal-accent: #0f766e;
+    --sync-teal-bg: #f4fbf9;
+    --sync-teal-border: #bcece4;
+
+    --sync-blue-accent: #1d5b91;
+    --sync-blue-bg: #f5f8fc;
+    --sync-blue-border: #c8deee;
+
+    --sync-purple-accent: #6d28d9;
+    --sync-purple-bg: #faf7ff;
+    --sync-purple-border: #e2d7f7;
+
+    --sync-green-accent: #15803d;
+    --sync-green-bg: #f5faf5;
+    --sync-green-border: #c7e9ce;
+}
+
+.interventions-flow {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-300);
+    margin-top: var(--space-400);
+}
+
+.intervention-card {
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--card-accent);
+    background-color: var(--card-bg, #ffffff);
+    padding: var(--space-300) var(--space-400);
+    box-shadow: 0 1px 3px rgba(28, 28, 30, 0.04);
+    transition: transform var(--duration-state) var(--ease-base),
+                box-shadow var(--duration-state) var(--ease-base);
+}
+
+.intervention-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px -4px rgba(28, 28, 30, 0.08);
+}
+
+/* 5 Themed Variant Cards */
+.intervention-card-amber {
+    --card-accent: var(--sync-amber-accent);
+    --card-bg: var(--sync-amber-bg);
+    border-color: var(--sync-amber-border);
+}
+
+.intervention-card-teal {
+    --card-accent: var(--sync-teal-accent);
+    --card-bg: var(--sync-teal-bg);
+    border-color: var(--sync-teal-border);
+}
+
+.intervention-card-blue {
+    --card-accent: var(--sync-blue-accent);
+    --card-bg: var(--sync-blue-bg);
+    border-color: var(--sync-blue-border);
+}
+
+.intervention-card-purple {
+    --card-accent: var(--sync-purple-accent);
+    --card-bg: var(--sync-purple-bg);
+    border-color: var(--sync-purple-border);
+}
+
+.intervention-card-green {
+    --card-accent: var(--sync-green-accent);
+    --card-bg: var(--sync-green-bg);
+    border-color: var(--sync-green-border);
+}
+
+.intervention-keyword {
+    font-family: var(--font-sans);
+    font-size: 1.125rem;
+    line-height: var(--lh-lg);
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    color: var(--card-accent);
+    margin: 0 0 var(--space-150) 0;
+}
+
+.intervention-text {
+    font-size: var(--text-base);
+    line-height: var(--lh-base);
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* Interleaved Figure Spacing */
+.interventions-flow .intervention-media {
+    margin: var(--space-300) 0;
+}
+
+.interventions-flow .case-figure-portrait.intervention-media {
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 640px) {
+    .intervention-card {
+        padding: var(--space-200) var(--space-300);
+    }
+
+    .intervention-keyword {
+        font-size: var(--text-base);
+        line-height: var(--lh-base);
+    }
+}
