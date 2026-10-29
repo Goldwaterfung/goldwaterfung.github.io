@@ -132,3 +132,313 @@
         line-height: var(--lh-base);
     }
 }
+
+/* ==========================================================================
+   Immersive Whiteboard Architecture Canvas
+   ========================================================================== */
+
+.telemetry-whiteboard {
+    width: 100%;
+    margin: var(--space-400) 0;
+    padding: 36px 28px;
+    background-color: #fbfaf8;
+    background-image: radial-gradient(#d7d4ca 1px, transparent 1px);
+    background-size: 20px 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    box-shadow: 0 12px 32px -6px rgba(28, 28, 30, 0.06), 0 4px 12px rgba(28, 28, 30, 0.02);
+    position: relative;
+    overflow: hidden;
+}
+
+/* 3-Column Top Flow for Ingestion, Coordination, Broker */
+.wb-flow-top {
+    display: grid;
+    grid-template-columns: 1fr minmax(96px, auto) 1fr minmax(104px, auto) 1fr;
+    align-items: stretch;
+    gap: 16px;
+    margin-bottom: var(--space-300);
+}
+
+/* Whiteboard Zone Box */
+.wb-zone {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: none;
+    min-width: 0;
+}
+
+.wb-zone-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 2px;
+    border-bottom: none;
+}
+
+.wb-zone-title {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.wb-zone-nodes {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+}
+
+.wb-stream-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Nodes */
+.wb-node {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 14px 16px;
+    min-height: 52px;
+    box-shadow: 0 1px 3px rgba(28, 28, 30, 0.04);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform 180ms cubic-bezier(0.23, 1, 0.32, 1),
+                border-color 180ms ease-out,
+                box-shadow 180ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .wb-node:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(28, 28, 30, 0.08);
+    }
+}
+
+.wb-node:active {
+    transform: scale(0.98);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .wb-node {
+        transition: none;
+    }
+    .wb-node:hover,
+    .wb-node:active {
+        transform: none;
+    }
+}
+
+.wb-node-amber {
+    border-color: rgba(217, 119, 6, 0.3);
+    background: #fffdfa;
+}
+@media (hover: hover) and (pointer: fine) {
+    .wb-node-amber:hover {
+        border-color: #d97706;
+    }
+}
+
+.wb-node-teal {
+    border-color: rgba(13, 148, 136, 0.3);
+    background: #f8fdfc;
+}
+@media (hover: hover) and (pointer: fine) {
+    .wb-node-teal:hover {
+        border-color: #0d9488;
+    }
+}
+
+.wb-node-blue {
+    border-color: rgba(29, 91, 145, 0.3);
+    background: #f7faff;
+}
+@media (hover: hover) and (pointer: fine) {
+    .wb-node-blue:hover {
+        border-color: #1d5b91;
+    }
+}
+
+.wb-node-purple {
+    border-color: rgba(124, 58, 237, 0.3);
+    background: #faf8ff;
+}
+@media (hover: hover) and (pointer: fine) {
+    .wb-node-purple:hover {
+        border-color: #7c3aed;
+    }
+}
+
+.wb-node-green {
+    border-color: rgba(16, 149, 93, 0.3);
+    background: #f7fcf9;
+}
+@media (hover: hover) and (pointer: fine) {
+    .wb-node-green:hover {
+        border-color: #10955d;
+    }
+}
+
+.wb-node-title {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.35;
+}
+
+/* Inter-Zone Flow Connectors */
+.wb-flow-connector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #9d9a91;
+    height: 100%;
+    padding: 0 10px;
+    min-width: 0;
+}
+
+.wb-connector-tag {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    text-align: center;
+    white-space: nowrap;
+    padding: 2px 8px;
+    background: rgba(251, 250, 248, 0.95);
+    border: 1px solid rgba(220, 218, 210, 0.5);
+    border-radius: 4px;
+}
+
+.wb-connector-icon {
+    color: #9d9a91;
+}
+
+/* Flow Transition Divider to Playback */
+.wb-flow-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #9d9a91;
+    margin-bottom: var(--space-250);
+}
+
+.wb-divider-text {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+}
+
+.wb-divider-icon {
+    color: #9d9a91;
+}
+
+/* Zone 4: Dual Playback Execution */
+.wb-zone-playback {
+    padding: 0;
+}
+
+.wb-playback-targets {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 16px;
+    align-items: start;
+}
+
+.wb-playback-branch {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+}
+
+.wb-branch-header {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 2px;
+}
+
+.wb-branch-desc {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    line-height: 1.35;
+}
+
+.wb-branch-local .wb-node {
+    width: 100%;
+}
+
+.wb-branch-nodes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+/* Responsive Stacking */
+@media (max-width: 900px) {
+    .wb-flow-top {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .wb-flow-connector {
+        padding: 8px 0;
+        height: auto;
+    }
+
+    .wb-connector-icon {
+        transform: rotate(90deg);
+    }
+
+    .wb-playback-targets {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .wb-branch-local .wb-node {
+        max-width: 240px;
+    }
+
+    .wb-branch-nodes {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+}
+
+@media (max-width: 640px) {
+    .wb-branch-local .wb-node {
+        max-width: 100%;
+    }
+
+    .wb-branch-nodes {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+}

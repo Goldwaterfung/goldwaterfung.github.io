@@ -70,7 +70,7 @@
             <h2 class="case-section-title">Context and Live Stage Problem</h2>
             <div class="case-body">
                 <p>
-                    When National Tainan University of the Arts staged a premier live Erhu concert in our 1,000 seat auditorium, I was responsible for integrating the real time stage telemetry. The university wanted to project an interactive 3D virtual avatar on the auditorium stage that mirrored the master musician live, while simultaneously streaming that performance into an interactive virtual campus environment for remote attendees.
+                    When National Tainan University of the Arts staged a premier live Erhu concert in our 1,000 seat hall, I was responsible for integrating the real time stage telemetry. The university wanted to project an interactive 3D virtual avatar on stage that mirrored the master musician live, while simultaneously streaming that performance into an interactive virtual campus environment for remote attendees.
                 </p>
                 <p>
                     The live performance generated two distinct real time streams at high frequencies: clean acoustic audio from stage microphones, and continuous skeletal motion tracking capturing the musician bowing arm, hand articulation, and posture.
@@ -78,6 +78,138 @@
                 <p>
                     During early stage tests, the initial transmission setup broke down quickly. Sending raw motion capture frames directly across local sockets caused packet jitter and frame drops under the hall network load. When the performer transitioned into rapid bowing passages, the avatar arm snapped erratically between poses and fell behind the acoustic notes. If the visual bowing reversed direction even half a second after the audience heard the note strike, the illusion collapsed. At the same time, attempting to stream uncompressed joint hierarchies directly to remote virtual campus clients overloaded the stage machine and risked dropping frames onstage.
                 </p>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <h2 class="case-section-title">End-to-End Telemetry Data Flow</h2>
+            <div class="case-body">
+                <p>
+                    To guarantee synchronization between acoustic Erhu audio and optical motion capture without degrading physical stage rendering, I structured the telemetry architecture into three decoupled stages: hardware ingestion, coordination with jitter buffering, and dual-target playback distribution.
+                </p>
+
+                <figure class="telemetry-whiteboard" aria-label="Whiteboard flow diagram of the real-time live concert telemetry pipeline">
+                    <!-- Top Processing Pipeline: Ingestion, Coordination, Broker -->
+                    <div class="wb-flow-top">
+                        <!-- Zone 1: Stage Hardware & Ingestion -->
+                        <div class="wb-zone">
+                            <div class="wb-zone-header">
+                                <h4 class="wb-zone-title">Zone 1: Stage Ingestion</h4>
+                            </div>
+                            <div class="wb-zone-nodes">
+                                <div class="wb-stream-group">
+                                    <div class="wb-node wb-node-amber">
+                                        <h5 class="wb-node-title">Optical Mocap Rig</h5>
+                                    </div>
+                                    <div class="wb-node wb-node-amber">
+                                        <h5 class="wb-node-title">BVH Socket Parser</h5>
+                                    </div>
+                                </div>
+
+                                <div class="wb-stream-group">
+                                    <div class="wb-node wb-node-teal">
+                                        <h5 class="wb-node-title">Stage Microphone</h5>
+                                    </div>
+                                    <div class="wb-node wb-node-teal">
+                                        <h5 class="wb-node-title">Audio Bus Ingestion</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Connector: Ingestion to Coordination -->
+                        <div class="wb-flow-connector" aria-hidden="true">
+                            <span class="wb-connector-tag">TCP and PCM</span>
+                            <svg class="wb-connector-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M 4 10 L 16 10 M 11 5 L 16 10 L 11 15" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+
+                        <!-- Zone 2: Coordination & Jitter Buffer -->
+                        <div class="wb-zone">
+                            <div class="wb-zone-header">
+                                <h4 class="wb-zone-title">Zone 2: Coordination and Buffer</h4>
+                            </div>
+                            <div class="wb-zone-nodes">
+                                <div class="wb-node wb-node-blue">
+                                    <h5 class="wb-node-title">Stage Coordinator</h5>
+                                </div>
+
+                                <div class="wb-node wb-node-blue">
+                                    <h5 class="wb-node-title">FIFO Jitter Queues</h5>
+                                </div>
+
+                                <div class="wb-node wb-node-blue">
+                                    <h5 class="wb-node-title">Binary WebSocket Uplink</h5>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Connector: Coordination to Broker -->
+                        <div class="wb-flow-connector" aria-hidden="true">
+                            <span class="wb-connector-tag">Binary Streams</span>
+                            <svg class="wb-connector-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M 4 10 L 16 10 M 11 5 L 16 10 L 11 15" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+
+                        <!-- Zone 3: Decoupled Telemetry Broker -->
+                        <div class="wb-zone">
+                            <div class="wb-zone-header">
+                                <h4 class="wb-zone-title">Zone 3: Telemetry Broker</h4>
+                            </div>
+                            <div class="wb-zone-nodes">
+                                <div class="wb-node wb-node-purple">
+                                    <h5 class="wb-node-title">Local Relay Gateway</h5>
+                                </div>
+
+                                <div class="wb-node wb-node-purple">
+                                    <h5 class="wb-node-title">Central MQTT Broker</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Flow Transition to Dual Playback -->
+                    <div class="wb-flow-divider" aria-hidden="true">
+                        <span class="wb-divider-text">Dual-Target Playback Distribution</span>
+                        <svg class="wb-divider-icon" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                            <path d="M 9 3 L 9 15 M 4 10 L 9 15 L 14 10" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+
+                    <!-- Zone 4: Dual Playback Execution -->
+                    <div class="wb-zone wb-zone-playback">
+                        <div class="wb-zone-header">
+                            <h4 class="wb-zone-title">Zone 4: Dual-Target Playback Execution</h4>
+                        </div>
+                        <div class="wb-playback-targets">
+                            <!-- Target A: Local Stage Direct Loop -->
+                            <div class="wb-playback-branch wb-branch-local">
+                                <div class="wb-node wb-node-green">
+                                    <h5 class="wb-node-title">Live Avatar</h5>
+                                </div>
+                            </div>
+
+                            <!-- Target B: Remote Campus Fan-Out -->
+                            <div class="wb-playback-branch wb-branch-remote">
+                                <div class="wb-branch-nodes">
+                                    <div class="wb-node wb-node-blue">
+                                        <h5 class="wb-node-title">Virtual Campus Broadcast</h5>
+                                    </div>
+
+                                    <div class="wb-node wb-node-teal">
+                                        <h5 class="wb-node-title">Procedural 3D Audio</h5>
+                                    </div>
+
+                                    <div class="wb-node wb-node-amber">
+                                        <h5 class="wb-node-title">Erhu AR Tracking</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </figure>
             </div>
         </section>
 
@@ -103,13 +235,6 @@
                         </p>
                     </article>
 
-                    <figure class="case-figure case-figure-portrait intervention-media">
-                        <img src="../assets/system_integration/multi-camera-ai-motion-capture-with-erhu-object-tracking.jpg"
-                            alt="Multi-camera optical motion capture rig tracking Erhu instrument and performer in the auditorium"
-                            loading="lazy">
-                        <figcaption>Optical motion tracking setup: Multi-camera rig tracking Erhu instrument and performer</figcaption>
-                    </figure>
-
                     <article class="intervention-card intervention-card-blue">
                         <h3 class="intervention-keyword">Decoupled MQTT Pub/Sub Architecture</h3>
                         <p class="intervention-text">
@@ -133,9 +258,16 @@
 
                     <figure class="case-figure intervention-media">
                         <img src="../assets/system_integration/rehearsal-erhu-concert.jpg"
-                            alt="Auditorium stage rehearsal: Calibrating motion capture sensors and audio feeds in the 1,000 seat hall"
+                            alt="Stage rehearsal: Calibrating motion capture sensors and audio feeds in the 1,000 seat hall"
                             loading="lazy">
-                        <figcaption>Auditorium stage rehearsal: Calibrating motion capture sensors and audio feeds in the 1,000 seat hall</figcaption>
+                        <figcaption>Stage rehearsal: Calibrating motion capture sensors and audio feeds in the 1,000 seat hall</figcaption>
+                    </figure>
+
+                    <figure class="case-figure case-figure-portrait intervention-media">
+                        <img src="../assets/system_integration/multi-camera-ai-motion-capture-with-erhu-object-tracking.jpg"
+                            alt="Multi-camera optical motion capture rig tracking Erhu instrument and performer in the concert hall"
+                            loading="lazy">
+                        <figcaption>Optical motion tracking setup: Multi-camera rig tracking Erhu instrument and performer</figcaption>
                     </figure>
                 </div>
             </div>
@@ -161,7 +293,7 @@
                         <strong>Synchronization and Playback Engine:</strong> Deterministic 1.5-second playback buffer in Unity aligning motion frame sequences with acoustic microphone note transients to absorb optical tracking noise and packet jitter.
                     </li>
                     <li>
-                        <strong>Dual Target Broadcast Infrastructure:</strong> Direct video output to auditorium stage projection alongside concurrent telemetry streaming to remote clients in an interactive virtual campus environment.
+                        <strong>Dual Target Broadcast Infrastructure:</strong> Direct video output to stage projection alongside concurrent telemetry streaming to remote clients in an interactive virtual campus environment.
                     </li>
                 </ul>
             </div>
@@ -178,7 +310,7 @@
                 </div>
 
                 <p>
-                    Decoupling telemetry distribution via an MQTT broker kept stage rendering completely insulated from outside traffic. Adding remote subscribers in the virtual campus produced zero measurable latency penalty on the physical auditorium projection.
+                    Decoupling telemetry distribution via an MQTT broker kept stage rendering completely insulated from outside traffic. Adding remote subscribers in the virtual campus produced zero measurable latency penalty on the physical stage projection.
                 </p>
 
                 <figure class="case-figure case-figure-portrait">
