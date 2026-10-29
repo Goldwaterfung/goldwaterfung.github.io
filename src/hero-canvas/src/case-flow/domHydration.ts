@@ -6,21 +6,31 @@ interface TrackedElement {
   placeholder: Comment;
 }
 
+export interface HydrationOptions {
+  scopeElement?: HTMLElement;
+  toggleContainer?: HTMLElement | null;
+  scrollElement?: HTMLElement | null;
+  modalElement?: HTMLElement | null;
+}
+
 export class DOMHydrationManager {
   private trackedElements: TrackedElement[] = [];
   private currentMode: 'whiteboard' | 'reading' = 'whiteboard';
   private toggleButton: HTMLButtonElement | null = null;
   private config: CaseGraphConfig;
+  private options: HydrationOptions;
 
-  constructor(config: CaseGraphConfig) {
+  constructor(config: CaseGraphConfig, options: HydrationOptions = {}) {
     this.config = config;
+    this.options = options;
   }
 
   public prepareNodesAndEdges(): { nodes: Node[]; edges: Edge[] } {
+    const scope = this.options.scopeElement || document;
     const rawSections = Array.from(
-      document.querySelectorAll<HTMLElement>('.case-section')
+      scope.querySelectorAll<HTMLElement>('.case-section')
     );
-    const heroEl = document.querySelector<HTMLElement>('.case-hero');
+    const heroEl = scope.querySelector<HTMLElement>('.case-hero');
 
     const nodes: Node[] = [];
 
@@ -84,8 +94,10 @@ export class DOMHydrationManager {
   }
 
   public attachNavigationToggle(): void {
-    const navLinks = document.querySelector('.case-nav-links');
-    if (!navLinks) return;
+    const navContainer =
+      this.options.toggleContainer ||
+      document.querySelector<HTMLElement>('.case-nav-links');
+    if (!navContainer) return;
 
     // Check if toggle button already exists
     let btn = document.getElementById(
@@ -96,17 +108,23 @@ export class DOMHydrationManager {
       btn.id = 'case-view-toggle';
       btn.type = 'button';
       btn.className = 'case-view-mode-toggle';
-      navLinks.prepend(btn);
+
+      const closeBtn = navContainer.querySelector('.case-modal-close-btn');
+      if (closeBtn) {
+        navContainer.insertBefore(btn, closeBtn);
+      } else {
+        navContainer.prepend(btn);
+      }
     }
 
     this.toggleButton = btn;
     this.updateToggleButton();
 
-    btn.addEventListener('click', () => {
+    btn.onclick = () => {
       const nextMode =
         this.currentMode === 'whiteboard' ? 'reading' : 'whiteboard';
       this.setMode(nextMode);
-    });
+    };
   }
 
   public setMode(mode: 'whiteboard' | 'reading'): void {
@@ -119,15 +137,28 @@ export class DOMHydrationManager {
 
     if (mode === 'reading') {
       document.body.classList.remove('is-whiteboard-active');
+      this.options.modalElement?.classList.remove('is-whiteboard-active');
       // Reparent all elements back to their original semantic DOM positions
       this.restoreElementsToReading();
     } else {
       document.body.classList.add('is-whiteboard-active');
+      this.options.modalElement?.classList.add('is-whiteboard-active');
       // Reparent elements back to their whiteboard node containers
       this.moveElementsToWhiteboard();
     }
 
     this.updateToggleButton();
+  }
+
+  public destroy(): void {
+    this.restoreElementsToReading();
+    this.trackedElements = [];
+    if (this.toggleButton) {
+      this.toggleButton.remove();
+      this.toggleButton = null;
+    }
+    document.body.classList.remove('is-whiteboard-active');
+    this.options.modalElement?.classList.remove('is-whiteboard-active');
   }
 
   private restoreElementsToReading(): void {

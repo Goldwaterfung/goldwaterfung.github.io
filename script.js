@@ -698,7 +698,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 let href = link.getAttribute('href');
                 if (!href) return;
                 // Exclude stylesheets already loaded globally by index.html
-                if (href.includes('fonts.css') || href.includes('style.css') || href.endsWith('case.css')) {
+                if (href.includes('fonts.css') || href.includes('style.css') || href.endsWith('case.css') || href.includes('case-flow.css')) {
                     return;
                 }
                 // Normalize to root context: e.g. 'mrke-3d.css' -> 'cases/mrke-3d.css'
@@ -717,6 +717,9 @@ document.addEventListener('DOMContentLoaded', () => {
             doc.querySelectorAll('script[src]').forEach(script => {
                 let src = script.getAttribute('src');
                 if (!src) return;
+                if (src.includes('case-flow.js')) {
+                    return;
+                }
                 if (!src.startsWith('http://') && !src.startsWith('https://') && !src.startsWith('/')) {
                     if (src.startsWith('../')) {
                         src = src.replace(/^\.\.\//, '');
@@ -823,6 +826,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 caseModalBody.innerHTML = caseData.html;
                 caseModalScroll.scrollTop = 0;
 
+                // Mount CaseFlow Whiteboard if available
+                if (window.CaseFlow && typeof window.CaseFlow.mountModal === 'function') {
+                    window.CaseFlow.mountModal(slug);
+                }
+
                 // Inject current case-specific scripts
                 if (caseData.scripts && caseData.scripts.length > 0) {
                     caseData.scripts.forEach(scriptSrc => {
@@ -848,6 +856,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function closeCaseModal(updateHistory = true) {
             if (!caseModalOpen) return;
+
+            // Clean up CaseFlow Whiteboard
+            if (window.CaseFlow && typeof window.CaseFlow.unmountModal === 'function') {
+                window.CaseFlow.unmountModal();
+            }
 
             caseModalBody.querySelectorAll('video').forEach(video => {
                 try { video.pause(); } catch (e) {}

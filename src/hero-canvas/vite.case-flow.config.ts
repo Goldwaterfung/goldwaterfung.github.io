@@ -10,7 +10,7 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, 'src/case-flow/main.tsx'),
       name: 'CaseFlow',
-      formats: ['es'],
+      formats: ['iife'],
       fileName: () => 'case-flow.js',
     },
     rollupOptions: {
