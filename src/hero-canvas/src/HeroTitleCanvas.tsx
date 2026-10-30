@@ -134,12 +134,12 @@ export const HeroTitleCanvas: React.FC = () => {
           curveSegments: 6,
         });
 
-        // Normalize vertical height to 1.3 units for a larger, optical presence
+        // Normalize vertical height to 1.25 units for a prominent, optical presence
         if (createdGeom.boundingBox) {
           const height =
             createdGeom.boundingBox.max.y - createdGeom.boundingBox.min.y;
           if (height > 0) {
-            const targetHeight = 1.22;
+            const targetHeight = 1.25;
             const scale = targetHeight / height;
             createdGeom.scale(scale, scale, scale);
             createdGeom.computeBoundingBox();

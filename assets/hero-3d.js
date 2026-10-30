@@ -68088,7 +68088,7 @@ const ij = () => typeof document < "u" && document.baseURI ? new URL("assets/fon
       }), u.boundingBox) {
         const m = u.boundingBox.max.y - u.boundingBox.min.y;
         if (m > 0) {
-          const y = 1.22 / m;
+          const y = 1.25 / m;
           u.scale(y, y, y), u.computeBoundingBox(), u.center();
         }
       }
