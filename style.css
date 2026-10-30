@@ -368,7 +368,7 @@ h4 {
     display: inline-block;
     vertical-align: -0.28em;
     width: clamp(140px, 18vw, 180px);
-    height: 1.25em;
+    height: 25px;
     position: relative;
     cursor: pointer;
 }
