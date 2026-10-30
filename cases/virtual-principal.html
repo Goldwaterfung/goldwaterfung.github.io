@@ -242,7 +242,7 @@
                         <div class="pipeline-panel pipeline-panel-3" id="pipeline-panel-3" role="tabpanel" aria-labelledby="tab-rag-threshold">
                             <h3 class="pipeline-panel-title">RAG Retrieval and Similarity Threshold Tuning</h3>
                             <p class="pipeline-panel-desc">
-                                Teachers from different departments provided question-and-answer pairs as the knowledge base. I worked with the engineering team from Taipei to build the RAG system using RAGFlow with the bge-m3 vector embedding model. We tested the cosine similarity filter threshold extensively. The sweet spot was 0.3: setting the threshold too low increased hallucination because irrelevant passages passed through to the LLM context. Setting it too high filtered out genuinely useful content and returned no matches, leaving the LLM without grounding.
+                                Teachers from different departments provided question-and-answer pairs as the knowledge base. I worked with the engineering team from Taipei to build the RAG system using RAGFlow with the bge-m3 vector embedding model. We tested the cosine similarity filter threshold extensively. The sweet spot was 0.6: setting the threshold too low increased hallucination because irrelevant passages passed through to the LLM context. Setting it too high filtered out genuinely useful content and returned no matches, leaving the LLM without grounding.
                             </p>
                         </div>
 
@@ -325,7 +325,7 @@
                         <span class="vp-tech-kicker">Knowledge Retrieval</span>
                         <h3 class="vp-tech-name">RAGFlow with bge-m3</h3>
                         <p class="vp-tech-detail">
-                            Institutional knowledge base chunked and indexed via bge-m3 embeddings, running cosine similarity vector matching with an empirical 0.3 threshold to prevent hallucinations.
+                            Institutional knowledge base chunked and indexed via bge-m3 embeddings, running cosine similarity vector matching with an empirical 0.6 threshold to prevent hallucinations.
                         </p>
                     </div>
                     <div class="vp-tech-card">
