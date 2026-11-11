@@ -24,10 +24,18 @@ function detectCaseSlug(): string | null {
 
 function initCaseFlow(): void {
   const slug = detectCaseSlug();
-  if (!slug) return;
+  if (!slug) {
+    document.documentElement.classList.remove('is-whiteboard-active', 'is-whiteboard-loading');
+    document.body.classList.remove('is-whiteboard-active');
+    return;
+  }
 
   const config = getCaseConfig(slug);
-  if (!config) return;
+  if (!config) {
+    document.documentElement.classList.remove('is-whiteboard-active', 'is-whiteboard-loading');
+    document.body.classList.remove('is-whiteboard-active');
+    return;
+  }
 
   // Locate or create whiteboard mounting container
   let stageEl = document.getElementById('whiteboard-stage');
@@ -46,7 +54,11 @@ function initCaseFlow(): void {
   const hydration = new DOMHydrationManager(config);
   const { nodes, edges } = hydration.prepareNodesAndEdges();
 
-  if (!nodes.length) return;
+  if (!nodes.length) {
+    document.documentElement.classList.remove('is-whiteboard-active', 'is-whiteboard-loading');
+    document.body.classList.remove('is-whiteboard-active');
+    return;
+  }
 
   hydration.attachNavigationToggle();
 
@@ -60,6 +72,9 @@ function initCaseFlow(): void {
         config={config}
         initialNodes={nodes}
         initialEdges={edges}
+        onReady={() => {
+          document.documentElement.classList.remove('is-whiteboard-loading');
+        }}
       />
     </React.StrictMode>
   );

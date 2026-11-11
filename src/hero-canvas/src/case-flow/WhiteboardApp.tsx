@@ -23,10 +23,11 @@ const edgeTypes: EdgeTypes = {
   custom: CustomEdge,
 };
 
-interface WhiteboardAppProps {
+export interface WhiteboardAppProps {
   config: CaseGraphConfig;
   initialNodes: Node[];
   initialEdges: Edge[];
+  onReady?: () => void;
 }
 
 interface ChapterItem {
@@ -39,6 +40,7 @@ const WhiteboardCanvas: React.FC<WhiteboardAppProps> = ({
   config,
   initialNodes,
   initialEdges,
+  onReady,
 }) => {
   const [nodes, , onNodesChange] = useNodesState(initialNodes);
   const [edges, , onEdgesChange] = useEdgesState(initialEdges);
@@ -124,7 +126,14 @@ const WhiteboardCanvas: React.FC<WhiteboardAppProps> = ({
         nodeTypes={nodeTypes}
         edgeTypes={edgeTypes}
         fitView
-        fitViewOptions={{ padding: 0.18, duration: 400 }}
+        fitViewOptions={{ padding: 0.18, duration: 0 }}
+        onInit={() => {
+          requestAnimationFrame(() => {
+            if (onReady) {
+              onReady();
+            }
+          });
+        }}
         minZoom={0.25}
         maxZoom={1.5}
         zoomOnScroll={false}

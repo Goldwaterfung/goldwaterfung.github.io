@@ -916,3 +916,8 @@
     }
 }
 
+html.is-whiteboard-active #main-content {
+    display: none;
+}
+
+

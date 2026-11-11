@@ -119,10 +119,12 @@ export class DOMHydrationManager {
 
     if (mode === 'reading') {
       document.body.classList.remove('is-whiteboard-active');
+      document.documentElement.classList.remove('is-whiteboard-active', 'is-whiteboard-loading');
       // Reparent all elements back to their original semantic DOM positions
       this.restoreElementsToReading();
     } else {
       document.body.classList.add('is-whiteboard-active');
+      document.documentElement.classList.add('is-whiteboard-active');
       // Reparent elements back to their whiteboard node containers
       this.moveElementsToWhiteboard();
     }

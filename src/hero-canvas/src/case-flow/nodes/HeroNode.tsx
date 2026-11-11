@@ -13,7 +13,9 @@ export const HeroNode: React.FC<NodeProps> = ({ data, selected }) => {
     if (!mountPoint || !el) return;
 
     const reparent = () => {
-      const isWhiteboard = document.body.classList.contains('is-whiteboard-active');
+      const isWhiteboard =
+        document.body.classList.contains('is-whiteboard-active') ||
+        document.documentElement.classList.contains('is-whiteboard-active');
       if (isWhiteboard && mountPoint && el && !mountPoint.contains(el)) {
         mountPoint.appendChild(el);
       }
