@@ -1,6 +1,7 @@
 # Dependencies
 node_modules/
 **/node_modules/
+package/three-shader-graph-0.1.0.tgz
 
 # Local build artifacts and caches
 dist/

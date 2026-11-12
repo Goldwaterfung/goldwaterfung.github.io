@@ -8,6 +8,7 @@
     "build": "tsc && vite build",
     "build:splat-viewer": "tsc && vite build --config vite.splat-viewer.config.ts",
     "build:case-flow": "tsc && vite build --config vite.case-flow.config.ts",
+    "build:shader-graph": "tsc && vite build --config vite.shader-graph.config.ts",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -18,7 +19,10 @@
     "opentype.js": "^2.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "three": "^0.184.0"
+    "three": "^0.184.0",
+    "three-shader-graph": "file:../../package/three-shader-graph-0.1.0.tgz",
+    "zustand": "^5.0.0",
+    "litegraph.js": "^0.7.18"
   },
   "devDependencies": {
     "@types/node": "^26.6.3",
