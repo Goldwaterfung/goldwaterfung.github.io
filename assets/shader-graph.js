@@ -110496,7 +110496,7 @@ vec4 round(vec4 v){ return floor(v+vec4(0.5)); }
   }
   function br(ye, a, c, Ve = 20, ze = 1) {
     ye.save(), ye.fillStyle = c.border;
-    let sn = Math.floor(a[0] / Ve) * Ve, $u = Math.ceil(a[2] / Ve) * Ve, Gu = Math.floor(a[1] / Ve) * Ve, qu = Math.ceil(a[3] / Ve) * Ve;
+    let sn = Math.floor(a[0] / Ve) * Ve, $u = Math.ceil((a[0] + a[2]) / Ve) * Ve, Gu = Math.floor(a[1] / Ve) * Ve, qu = Math.ceil((a[1] + a[3]) / Ve) * Ve;
     ye.beginPath();
     for (let Yu = sn; Yu <= $u; Yu += Ve) for (let Zu = Gu; Zu <= qu; Zu += Ve) ye.rect(Yu - ze, Zu - ze, ze * 2, ze * 2);
     ye.fill(), ye.restore();
@@ -111357,7 +111357,7 @@ vec4 round(vec4 v){ return floor(v+vec4(0.5)); }
       width: "100%",
       height: "100%",
       pointerEvents: "none",
-      overflow: "hidden",
+      overflow: "visible",
       transformOrigin: "0 0",
       ...Ve
     };
@@ -111395,7 +111395,7 @@ vec4 round(vec4 v){ return floor(v+vec4(0.5)); }
       let gd = _r(), _d = new litegraphExports.LGraph(), yd = Er(_d);
       Yu.current = yd;
       let vd = Dr(new litegraphExports.LGraphCanvas(ld, _d));
-      Zu.current = vd, vd.background_image = null, vd.clear_background = !0, vd.onDrawBackground = (wd, Rd) => {
+      Zu.current = vd, vd.background_image = null, vd.clear_background = !0, vd.render_canvas_border = !1, vd.onDrawBackground = (wd, Rd) => {
         ye !== !1 && br(wd, Rd ? [
           Rd[0],
           Rd[1],
@@ -111528,7 +111528,8 @@ vec4 round(vec4 v){ return floor(v+vec4(0.5)); }
       style: {
         position: "relative",
         width: "100%",
-        height: "100%"
+        height: "100%",
+        overflow: "hidden"
       },
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("canvas", {
