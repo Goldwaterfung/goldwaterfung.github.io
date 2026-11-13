@@ -825,7 +825,7 @@ packages:
       react: '>=17.0'
 
   three-shader-graph@file:../../package/three-shader-graph-0.1.0.tgz:
-    resolution: {integrity: sha512-/M+uJyNZybgcsSU+FZKK2GLBvHf55i+bZf5SeL0b+CZXQ48XCbN0mDziR+5eHQ73ADEuu2Op6IEchQZTGri6Qg==, tarball: file:../../package/three-shader-graph-0.1.0.tgz}
+    resolution: {integrity: sha512-qDpyTq1PLW3/fuGuio3XpicILS0Bwbu5Ca/g57F8Tk8hhTVg3ycoraPKjpjaesW+6gU30BstxS9BA6UJWpM09A==, tarball: file:../../package/three-shader-graph-0.1.0.tgz}
     version: 0.1.0
     peerDependencies:
       '@react-three/fiber': ^9.0.0
