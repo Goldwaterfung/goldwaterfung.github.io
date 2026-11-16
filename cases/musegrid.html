@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' data: blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'">
+    <title>MuseGrid: Cross-Platform Music Notation and Real-Time Audio Platform | Kim Fung</title>
+    <meta name="description" content="Cross-platform music notation, dynamic Piano Roll grid, SoundFont playback, and full-duplex live microphone recording unified on a synchronized 960 PPQN timeline.">
+    <!-- Self-hosted fonts: no third-party requests -->
+    <link rel="preload" href="../assets/fonts/vendor/opensans-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../assets/fonts/fonts.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="case.css">
+    <link rel="stylesheet" href="musegrid.css">
+    <link rel="stylesheet" href="../assets/case-flow.css">
+    <script src="../assets/case-init.js"></script>
+</head>
+
+<body class="case-page" data-case-slug="musegrid">
+
+    <a href="#main-content" class="skip-to-content">Skip to content</a>
+
+    <header class="case-nav">
+        <div class="case-container case-nav-inner">
+            <a href="../index.html" class="case-nav-brand">Kim Fung</a>
+            <nav class="case-nav-links">
+                <a href="../index.html#experience" class="case-nav-link back-link">
+                    <svg class="case-nav-btn-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                    <span class="back-text-full">Back to Journey</span>
+                    <span class="back-text-short">Journey</span>
+                </a>
+                <a href="stratawright.html" class="case-nav-link">Next Case</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="whiteboard-loading-veil" aria-live="polite">
+        <div class="whiteboard-loading-spinner" aria-hidden="true"></div>
+        <span class="whiteboard-loading-text">Loading interactive whiteboard</span>
+    </div>
+
+    <main class="case-container" id="main-content">
+
+        <header class="case-hero">
+            <span class="case-kicker">Music Technology and Cross-Platform Audio Systems</span>
+            <h1 class="case-title">MuseGrid: Cross-Platform Music Notation, Dynamic Grid, and Live Audio Platform</h1>
+            <p class="case-subtitle">
+                Architected and built a functional cross-platform prototype across Web, desktop, and mobile targets that unifies 5-line staff engraving, a dynamic Piano Roll grid, SoundFont playback, and full-duplex live microphone recording on a single synchronized 960 PPQN timeline.
+            </p>
+
+            <div class="case-hero-actions">
+                <a href="https://github.com/Goldwaterfung/muse_grid" target="_blank" rel="noopener" class="case-action-btn">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                    <span>View Repository on GitHub</span>
+                </a>
+            </div>
+
+            <div class="case-meta-grid">
+                <div class="case-meta-item">
+                    <span class="meta-label">Role</span>
+                    <span class="meta-val">Creator</span>
+                </div>
+                <div class="case-meta-item">
+                    <span class="meta-label">Project</span>
+                    <span class="meta-val">MuseGrid</span>
+                </div>
+                <div class="case-meta-item">
+                    <span class="meta-label">Timeline</span>
+                    <span class="meta-val">2026</span>
+                </div>
+                <div class="case-meta-item">
+                    <span class="meta-label">Key Systems</span>
+                    <span class="meta-val">Flutter, MusicXML, 960 PPQN, FluidSynth, Web AudioWorklet, SQLite</span>
+                </div>
+            </div>
+
+            <div class="case-window-frame">
+                <div class="case-window-viewport">
+                    <img src="../assets/musegrid/cover.png"
+                        alt="MuseGrid workspace showing synchronized 5-line staff notation, dynamic Piano Roll grid, 16-channel SoundFont mixer, and live recording controls"
+                        width="1600" height="900">
+                </div>
+            </div>
+
+            <div class="case-stats-grid">
+                <div class="case-stat-card">
+                    <div class="case-stat-num">960 PPQN</div>
+                    <span class="case-stat-label">Timeline Resolution</span>
+                    <p class="case-stat-desc">3840 integer ticks per whole note supporting straight, dotted, and triplet subdivisions down to 1/64.</p>
+                </div>
+                <div class="case-stat-card">
+                    <div class="case-stat-num">5 Layers</div>
+                    <span class="case-stat-label">Isolated Architecture</span>
+                    <p class="case-stat-desc">Pure Dart musical domain decoupled from native FFI and WebAssembly AudioWorklet audio threads.</p>
+                </div>
+                <div class="case-stat-card">
+                    <div class="case-stat-num">16 Ch</div>
+                    <span class="case-stat-label">SoundFont Engine</span>
+                    <p class="case-stat-desc">Bundled GeneralUser GS SF2 playback and custom SoundFont import paired with per-part WAV capture.</p>
+                </div>
+            </div>
+        </header>
+
+        <section class="case-section">
+            <h2 class="case-section-title">Context and Problem Discovery</h2>
+            <div class="case-body">
+                <p>
+                    Music tutors, annotators, and arrangers regularly lose time switching between two incompatible categories of software. Notation programs produce clean 5-line sheet music and MusicXML exports, yet make it cumbersome to adjust expressive performance timing, edit note velocities, or record live microphone takes beside a score.
+                </p>
+                <p>
+                    Digital audio workstations handle piano-roll editing and recording well, yet routinely struggle to preserve readable 5-line notation, enharmonic spellings, ties, and slurs across MIDI round-trips.
+                </p>
+                <p>
+                    Bringing both workflows into a single cross-platform application across Web browsers, desktops, iOS, and Android introduces strict engineering constraints. Splitting playback and recording across independent audio packages causes hardware clock drift, while packing WAV audio and SoundFonts into compressed archive files causes severe write amplification and browser memory pressure.
+                </p>
+
+                <div class="case-table-wrap">
+                    <table class="case-table">
+                        <thead>
+                            <tr>
+                                <th>Workflow Dimension</th>
+                                <th>Split Notation and DAW Tools</th>
+                                <th>MuseGrid Unified Architecture</th>
+                                <th>Architectural Impact</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-id">Notation and Timing Sync</td>
+                                <td>Re-entering notes twice or losing ties, slurs, and enharmonic spellings during MIDI imports.</td>
+                                <td>Dual-model 960 PPQN timeline linking quantized sheet notation and raw performance timing by stable note ID.</td>
+                                <td>Preserves engraving metadata while enabling expressive playback.</td>
+                            </tr>
+                            <tr>
+                                <td class="col-id">Playback and Mic Clock</td>
+                                <td>Separate playback and recording packages drifting out of sync across OS audio sessions.</td>
+                                <td>Single-owner full-duplex audio HAL (miniaudio on native, AudioWorklet on Web) with latency calibration.</td>
+                                <td>Locks recorded microphone takes to the same hardware sample clock.</td>
+                            </tr>
+                            <tr>
+                                <td class="col-id">Storage and Binary Blobs</td>
+                                <td>Repacking .zip project archives or bloating SQLite databases with large binary audio columns.</td>
+                                <td>Relational SQLite metadata paired with immutable SHA-256 Content-Addressed Storage and WAV staging.</td>
+                                <td>Commits score edits in milliseconds without duplicating binary audio.</td>
+                            </tr>
+                            <tr>
+                                <td class="col-id">Browser Deployment</td>
+                                <td>Requiring native SDKs or failing silently under Safari storage eviction and AudioWorklet OOM limits.</td>
+                                <td>Prebuilt Emscripten WebAssembly audio engine, sqlite3.wasm over OPFS, and fail-closed quota guards.</td>
+                                <td>Runs notation, SoundFont playback, and mic capture directly in browser.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <h2 class="case-section-title">System Exploration and Discarded Iterations</h2>
+            <div class="case-body">
+                <p>
+                    Before locking the architecture, I evaluated four common cross-platform design paths and discarded the approaches that failed real-time audio safety or browser stability constraints:
+                </p>
+                <div class="case-decision-grid">
+                    <div class="case-decision-card discarded">
+                        <div class="case-decision-title">Separate Playback and Recording Packages</div>
+                        <p class="case-decision-body">Combining independent Flutter playback and recording plugins opens two separate audio device contexts, creating clock drift and iOS AVAudioSession routing conflicts.</p>
+                        <span class="case-decision-mark mark-discarded" aria-hidden="true">
+                            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><line x1="11" y1="11" x2="41" y2="41"/><line x1="11" y1="41" x2="41" y2="11"/></svg>
+                        </span>
+                    </div>
+                    <div class="case-decision-card discarded">
+                        <div class="case-decision-title">Destructive Tick-to-Staff Regeneration</div>
+                        <p class="case-decision-body">Rebuilding 5-line staff notation from raw MIDI ticks after every Piano Roll edit erases enharmonic spellings, manual voice assignments, beams, slurs, and barline ties.</p>
+                        <span class="case-decision-mark mark-discarded" aria-hidden="true">
+                            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><line x1="11" y1="11" x2="41" y2="41"/><line x1="11" y1="41" x2="41" y2="11"/></svg>
+                        </span>
+                    </div>
+                    <div class="case-decision-card discarded">
+                        <div class="case-decision-title">Bundled .zip Project Archives</div>
+                        <p class="case-decision-body">Packing MusicXML, SoundFonts, and multi-minute WAV recordings into .zip bundles causes 2x temporary disk spikes, high CPU overhead, and Wasm heap pressure on small edits.</p>
+                        <span class="case-decision-mark mark-discarded" aria-hidden="true">
+                            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><line x1="11" y1="11" x2="41" y2="41"/><line x1="11" y1="41" x2="41" y2="11"/></svg>
+                        </span>
+                    </div>
+                    <div class="case-decision-card chosen">
+                        <div class="case-decision-title">5-Layer + Middle Bridge Architecture with Unified Duplex Audio and CAS</div>
+                        <p class="case-decision-body">A strict downward-only dependency stack separating Pure Dart musical logic (960 PPQN dual-model sync and MusicXML) from a shared C/C++ and Emscripten Wasm duplex audio core, lock-free SPSC ring buffers, and SQLite plus Content-Addressed Storage.</p>
+                        <span class="case-decision-mark mark-chosen" aria-hidden="true">
+                            <svg viewBox="0 0 62 62" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="miter"><path d="M16 28 L18 50 L54 10"/></svg>
+                        </span>
+                    </div>
+                </div>
+
+                <p>
+                    Every module depends only downward across five isolated layers and a platform-agnostic Middle Bridge:
+                </p>
+
+                <div class="muse-layer-stack">
+                    <div class="muse-layer-row">
+                        <div class="muse-layer-id">
+                            <span class="muse-layer-num">Layer 5</span>
+                            <span class="muse-layer-runtime">Flutter UI</span>
+                        </div>
+                        <div class="muse-layer-content">
+                            <h3 class="muse-layer-title">Presentation: 5-Line Staff, Custom Piano Roll, and Metering</h3>
+                            <p class="muse-layer-desc">Interactive staff engraving rendered with the Bravura SMuFL font via crisp_notation, paired with a viewport-culled Piano Roll CustomPainter and an isolated 30 to 60 Hz playhead and peak/RMS meter overlay.</p>
+                        </div>
+                    </div>
+                    <div class="muse-layer-row">
+                        <div class="muse-layer-id">
+                            <span class="muse-layer-num">Layer 4</span>
+                            <span class="muse-layer-runtime">Pure Dart</span>
+                        </div>
+                        <div class="muse-layer-content">
+                            <h3 class="muse-layer-title">Musical and Notation Domain (WasmGC-Ready)</h3>
+                            <p class="muse-layer-desc">Owns the 960 PPQN integer tick timeline, tempo and time-signature conversion, undo/redo command bus, bidirectional MusicXML and compressed .mxl codecs, and in-place dual-model synchronization.</p>
+                        </div>
+                    </div>
+                    <div class="muse-layer-row is-bridge">
+                        <div class="muse-layer-id">
+                            <span class="muse-layer-num">Middle Bridge</span>
+                            <span class="muse-layer-runtime">FFI / Wasm</span>
+                        </div>
+                        <div class="muse-layer-content">
+                            <h3 class="muse-layer-title">Segregated Audio Contracts and Platform Storage Adapters</h3>
+                            <p class="muse-layer-desc">Decouples Pure Dart interfaces from native dart:ffi audio calls, Web AudioWorklet MessagePort streams, and local persistence (native SQLite FFI versus Web sqlite3.wasm over OPFS).</p>
+                        </div>
+                    </div>
+                    <div class="muse-layer-row is-realtime">
+                        <div class="muse-layer-id">
+                            <span class="muse-layer-num">Layers 1 to 3</span>
+                            <span class="muse-layer-runtime">C/C++ &amp; Wasm</span>
+                        </div>
+                        <div class="muse-layer-content">
+                            <h3 class="muse-layer-title">Real-Time Audio Engine, SPSC Queues, and Duplex HAL</h3>
+                            <p class="muse-layer-desc">Combines miniaudio full-duplex I/O (native) and AudioWorkletProcessor (Web) with lock-free SPSC ring buffers, a zero-allocation 3-phase audio cycle, FluidSynth SF2 playback, and a non-real-time Butler WAV worker.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <h2 class="case-section-title">Core Music Technology and Audio Architecture</h2>
+            <div class="case-body">
+                <p>
+                    Running notation, SoundFont playback, and microphone recording concurrently across desktop, mobile, and browser runtimes required deterministic boundaries across timing, audio threads, and disk I/O:
+                </p>
+
+                <div class="case-flow-grid">
+                    <div class="case-flow-card">
+                        <span class="case-flow-kicker">Loop 1: Lookahead Playback</span>
+                        <div class="case-flow-title">Epoch-Gated Event Scheduling</div>
+                        <p class="case-flow-desc">A non-paint timer feeds sorted MIDI events inside a rolling 200 ms lookahead window, issuing monotonic epoch invalidation on seek or live edits to prevent stale notes.</p>
+                    </div>
+                    <div class="case-flow-card">
+                        <span class="case-flow-kicker">Loop 2: Duplex Capture</span>
+                        <div class="case-flow-title">Finalize-Then-Hash WAV Pipeline</div>
+                        <p class="case-flow-desc">Audio callbacks copy microphone frames and latch hardware sample timestamps into a lock-free ring buffer while the Butler worker encodes raw WAV headers and computes SHA-256 digests off-thread.</p>
+                    </div>
+                    <div class="case-flow-card">
+                        <span class="case-flow-kicker">Loop 3: Telemetry Sync</span>
+                        <div class="case-flow-title">Single-Drainer 30 to 60 Hz Meters</div>
+                        <p class="case-flow-desc">Real-time frames emit playhead positions, L/R/In peak and RMS values, underrun flags, and live waveform blocks without triggering full Piano Roll repaints.</p>
+                    </div>
+                </div>
+
+                <ul>
+                    <li>
+                        <strong>Dual-Model Timing and MusicXML Round-Trips:</strong> Every note stores both quantized sheet timing and raw expressive timing linked by a shared identifier, supporting straight subdivisions up to 1/64, dotted subdivisions up to 1/32., and triplets up to 1/32T while keeping .musicxml, .xml, and .mxl import and export intact.
+                    </li>
+                    <li>
+                        <strong>3-Phase Real-Time Audio Safety:</strong> Each audio callback executes a strict start, process, and end cycle with zero heap allocations or mutex locks. On Web without SharedArrayBuffer, SoundFont loading runs strictly while transport is stopped under a fail-closed memory byte cap to prevent mobile Safari AudioWorklet crashes.
+                    </li>
+                    <li>
+                        <strong>Hybrid SQLite and Content-Addressed Storage:</strong> Authoritative score tables live in SQLite (WAL mode on native, rollback journal inside OPFS Web Workers on browser) using UUIDv7 keys and revision counters, while immutable .sf2 SoundFonts and recorded .wav takes are deduplicated by SHA-256 digest and reclaimed via mark-and-sweep garbage collection.
+                    </li>
+                    <li>
+                        <strong>Fail-Closed Browser Storage Guards:</strong> On Web startup and prior to recording or SoundFont import, the storage adapter requests persistent storage permission and checks remaining quota before writing to OPFS.
+                    </li>
+                </ul>
+
+                <div class="muse-formula-block">
+                    <span class="muse-formula-label">Round-Trip Hardware Latency Alignment Formula</span>
+                    <code class="muse-formula-code">alignedSampleFrame = max(0, capturedPlayheadFrame - (outputBufferFrames + inputBufferFrames + calibrationOffsetFrames))</code>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <h2 class="case-section-title">Practical Outcomes and Verification</h2>
+            <div class="case-body">
+                <div class="case-callout">
+                    <div class="case-callout-title">Functional Prototype Verification (v0.1.0)</div>
+                    <p class="case-callout-text">
+                        MuseGrid implements multi-part 5-line notation, dynamic Piano Roll editing, GeneralUser GS and custom SoundFont playback, full-duplex WAV microphone recording with round-trip latency calibration, MusicXML and MXL import/export, and local SQLite/OPFS project management across Web, desktop, and mobile targets.
+                    </p>
+                </div>
+
+                <p>
+                    To let reviewers test the platform immediately without installing Xcode, Android NDK, or C++ toolchains, prebuilt WebAssembly audio and database binaries are packaged directly inside the Web target alongside a clean-machine setup guide covering Windows, macOS, Linux, iOS, and Android.
+                </p>
+
+                <p>
+                    Following a disciplined milestone boundary, user experiment telemetry, web administrative portals, remote cloud delta-sync (already slotted behind Pure Dart repository contracts), and AI-generated music notation workflows were scoped as Phase 2 extensions built atop this verified audio and notation foundation.
+                </p>
+
+                <div class="case-callout case-callout-lessons">
+                    <div class="case-callout-title">Lessons Learned and Retrospective</div>
+                    <p class="case-callout-text">
+                        Cross-platform music platforms fail when audio threading, browser storage limits, and notation state are coupled prematurely. Isolating real-time DSP inside lock-free ring buffers, enforcing fail-closed browser memory and storage checks early, and separating expressive timing from sheet engraving via stable note IDs established an architecture ready for classroom testing, cloud sync, and AI notation pipelines.
+                    </p>
+                </div>
+
+                <div class="case-action-links">
+                    <a href="https://github.com/Goldwaterfung/muse_grid" target="_blank" rel="noopener" class="case-action-btn">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                        <span>View Project on GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <footer class="case-footer-nav">
+            <div class="case-footer-nav-inner">
+                <a href="collaragent.html" class="case-footer-nav-item">
+                    <span class="case-footer-nav-label">Previous Case Study</span>
+                    <span class="case-footer-nav-title">CollarAgent Visual Research Studio</span>
+                </a>
+                <a href="stratawright.html" class="case-footer-nav-item case-footer-nav-next">
+                    <span class="case-footer-nav-label">Next Case Study</span>
+                    <span class="case-footer-nav-title">Stratawright DAW for AI Agents</span>
+                </a>
+            </div>
+        </footer>
+
+    </main>
+
+    <script src="../assets/case-flow.js" defer></script>
+</body>
+
+</html>

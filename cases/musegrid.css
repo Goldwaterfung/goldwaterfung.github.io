@@ -1,0 +1,208 @@
+/* ==========================================================================
+   MuseGrid: Cross-Platform Music Notation & Real-Time Audio Stylesheet
+   Inherits design tokens from ../style.css and editorial foundation from case.css
+   ========================================================================== */
+
+:root {
+    --mg-surface-card: var(--bg-card);
+    --mg-surface-panel: var(--bg-panel);
+    --mg-surface-console: var(--bg-console);
+    --mg-border: var(--border-color);
+    --mg-accent-ink: var(--text-primary);
+    --mg-accent-amber: var(--accent-amber);
+    --mg-accent-green: var(--accent-green);
+}
+
+/* --------------------------------------------------------------------------
+   1. 5-Layer + Middle Bridge Architectural Stack
+   -------------------------------------------------------------------------- */
+
+.muse-layer-stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-100);
+    margin: var(--space-400) 0 var(--space-500);
+}
+
+.muse-layer-row {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: var(--space-300);
+    align-items: start;
+    background: var(--mg-surface-card);
+    border: 1px solid var(--mg-border);
+    border-left: 3px solid var(--mg-accent-ink);
+    border-radius: var(--radius-sm);
+    padding: var(--space-200) var(--space-300);
+    transition: transform var(--duration-press) var(--ease-base),
+                border-color var(--duration-state) var(--ease-base),
+                box-shadow var(--duration-state) var(--ease-base);
+}
+
+.muse-layer-row:hover {
+    transform: translateY(-1px);
+    border-color: var(--border-color-dark);
+    box-shadow: 0 4px 14px -4px rgba(28, 28, 30, 0.08);
+}
+
+.muse-layer-row.is-bridge {
+    border-left-color: var(--mg-accent-amber);
+    background: var(--mg-surface-panel);
+}
+
+.muse-layer-row.is-realtime {
+    border-left-color: var(--mg-accent-green);
+}
+
+.muse-layer-id {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.muse-layer-num {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    line-height: var(--lh-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--text-muted);
+}
+
+.muse-layer-runtime {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    line-height: var(--lh-xs);
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.muse-layer-content {
+    min-width: 0;
+}
+
+.muse-layer-title {
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: var(--lh-base);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 var(--space-50) 0;
+}
+
+.muse-layer-desc {
+    font-size: var(--text-sm);
+    line-height: var(--lh-base);
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   2. Signal Flow & Latency Calibration Spec Block
+   -------------------------------------------------------------------------- */
+
+.muse-spec-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--space-200);
+    margin: var(--space-400) 0;
+}
+
+.muse-spec-card {
+    background: var(--mg-surface-card);
+    border: 1px solid var(--mg-border);
+    border-radius: var(--radius-sm);
+    padding: var(--space-300);
+}
+
+.muse-spec-kicker {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    line-height: var(--lh-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--text-muted);
+    margin-bottom: var(--space-50);
+}
+
+.muse-spec-title {
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: var(--lh-base);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 var(--space-100) 0;
+}
+
+.muse-spec-body {
+    font-size: var(--text-sm);
+    line-height: var(--lh-base);
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.muse-formula-block {
+    background: var(--mg-surface-console);
+    border: 1px solid var(--mg-border);
+    border-radius: var(--radius-sm);
+    padding: var(--space-200) var(--space-300);
+    margin: var(--space-300) 0 var(--space-400);
+    overflow-x: auto;
+}
+
+.muse-formula-label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    line-height: var(--lh-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--text-muted);
+    margin-bottom: var(--space-75);
+}
+
+.muse-formula-code {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    line-height: var(--lh-base);
+    color: var(--text-primary);
+    white-space: pre;
+}
+
+/* --------------------------------------------------------------------------
+   3. Responsive Adjustments & Reduced Motion
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 640px) {
+    .muse-layer-row {
+        grid-template-columns: 1fr;
+        gap: var(--space-75);
+        padding: var(--space-200);
+    }
+
+    .muse-layer-id {
+        flex-direction: row;
+        align-items: baseline;
+        gap: var(--space-100);
+        border-bottom: 1px solid var(--mg-border);
+        padding-bottom: var(--space-50);
+    }
+
+    .muse-spec-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .muse-formula-code {
+        font-size: var(--text-xs);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .muse-layer-row {
+        transform: none !important;
+        transition: none !important;
+    }
+}

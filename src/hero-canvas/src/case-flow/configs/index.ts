@@ -4,6 +4,7 @@ import { mrke3dConfig } from './mrke-3d';
 import { liveConcertSyncConfig } from './live-concert-sync';
 import { collaragentConfig } from './collaragent';
 import { stratawrightConfig } from './stratawright';
+import { musegridConfig } from './musegrid';
 import { ieeeVrConfig } from './ieee-vr';
 import { virtualPrincipalConfig } from './virtual-principal';
 import { splatRoomEditorConfig } from './splat-room-editor';
@@ -14,6 +15,7 @@ export const caseConfigs: Record<string, CaseGraphConfig> = {
   'live-concert-sync': liveConcertSyncConfig,
   collaragent: collaragentConfig,
   stratawright: stratawrightConfig,
+  musegrid: musegridConfig,
   'ieee-vr': ieeeVrConfig,
   'ieee-vr-conflict': ieeeVrConfig,
   'virtual-principal': virtualPrincipalConfig,
